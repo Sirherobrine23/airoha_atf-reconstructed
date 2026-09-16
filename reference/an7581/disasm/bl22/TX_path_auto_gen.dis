@@ -1,0 +1,1666 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/TX_path_auto_gen.o:	file format elf32-littlearm
+
+Disassembly of section .text.print_TX_path_config:
+
+00000000 <print_TX_path_config>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.print_TX_path_attribution:
+
+00000000 <print_TX_path_attribution>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.get_TX_path_config:
+
+00000000 <get_TX_path_config>:
+       0: e92d 47f0    	push.w	{r4, r5, r6, r7, r8, r9, r10, lr}
+       4: 4604         	mov	r4, r0
+       6: f8df 931c    	ldr.w	r9, [pc, #0x31c]        @ 0x324 <get_TX_path_config+0x324>
+       a: 4ec7         	ldr	r6, [pc, #0x31c]        @ 0x328 <get_TX_path_config+0x328>
+       c: b086         	sub	sp, #0x18
+       e: 4690         	mov	r8, r2
+      10: 1d17         	adds	r7, r2, #0x4
+      12: f8d9 3000    	ldr.w	r3, [r9]
+      16: 2b02         	cmp	r3, #0x2
+      18: d106         	bne	0x28 <get_TX_path_config+0x28> @ imm = #0xc
+      1a: eb06 0387    	add.w	r3, r6, r7, lsl #2
+      1e: a901         	add	r1, sp, #0x4
+      20: 685b         	ldr	r3, [r3, #0x4]
+      22: 6818         	ldr	r0, [r3]
+      24: f7ff fffe    	bl	0x24 <get_TX_path_config+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	PC3_DRAM_config
+      28: f8d9 3000    	ldr.w	r3, [r9]
+      2c: 2b06         	cmp	r3, #0x6
+      2e: d106         	bne	0x3e <get_TX_path_config+0x3e> @ imm = #0xc
+      30: eb06 0387    	add.w	r3, r6, r7, lsl #2
+      34: a903         	add	r1, sp, #0xc
+      36: 685b         	ldr	r3, [r3, #0x4]
+      38: 6818         	ldr	r0, [r3]
+      3a: f7ff fffe    	bl	0x3a <get_TX_path_config+0x3a> @ imm = #-0x4
+			0000003a:  R_ARM_THM_CALL	PC4_DRAM_config
+      3e: 4dbb         	ldr	r5, [pc, #0x2ec]        @ 0x32c <get_TX_path_config+0x32c>
+      40: f04f 0a00    	mov.w	r10, #0x0
+      44: f895 30a0    	ldrb.w	r3, [r5, #0xa0]
+      48: f884 3071    	strb.w	r3, [r4, #0x71]
+      4c: eb06 0387    	add.w	r3, r6, r7, lsl #2
+      50: f884 a074    	strb.w	r10, [r4, #0x74]
+      54: 685b         	ldr	r3, [r3, #0x4]
+      56: 681b         	ldr	r3, [r3]
+      58: 60a3         	str	r3, [r4, #0x8]
+      5a: 68b3         	ldr	r3, [r6, #0x8]
+      5c: 799b         	ldrb	r3, [r3, #0x6]
+      5e: f884 3060    	strb.w	r3, [r4, #0x60]
+      62: 7868         	ldrb	r0, [r5, #0x1]
+      64: 782b         	ldrb	r3, [r5]
+      66: ea43 2300    	orr.w	r3, r3, r0, lsl #8
+      6a: 78a8         	ldrb	r0, [r5, #0x2]
+      6c: ea43 4300    	orr.w	r3, r3, r0, lsl #16
+      70: 78e8         	ldrb	r0, [r5, #0x3]
+      72: ea43 6000    	orr.w	r0, r3, r0, lsl #24
+      76: f7ff fffe    	bl	0x76 <get_TX_path_config+0x76> @ imm = #-0x4
+			00000076:  R_ARM_THM_CALL	u1IsPhaseMode
+      7a: fab0 f080    	clz	r0, r0
+      7e: 0940         	lsrs	r0, r0, #0x5
+      80: f884 0072    	strb.w	r0, [r4, #0x72]
+      84: 7868         	ldrb	r0, [r5, #0x1]
+      86: 782b         	ldrb	r3, [r5]
+      88: ea43 2300    	orr.w	r3, r3, r0, lsl #8
+      8c: 78a8         	ldrb	r0, [r5, #0x2]
+      8e: ea43 4300    	orr.w	r3, r3, r0, lsl #16
+      92: 78e8         	ldrb	r0, [r5, #0x3]
+      94: ea43 6000    	orr.w	r0, r3, r0, lsl #24
+      98: f7ff fffe    	bl	0x98 <get_TX_path_config+0x98> @ imm = #-0x4
+			00000098:  R_ARM_THM_CALL	u1IsPhaseMode
+      9c: f8d9 3000    	ldr.w	r3, [r9]
+      a0: ebb0 000a    	subs.w	r0, r0, r10
+      a4: bf18         	it	ne
+      a6: 2001         	movne	r0, #0x1
+      a8: 2b02         	cmp	r3, #0x2
+      aa: f884 0073    	strb.w	r0, [r4, #0x73]
+      ae: f040 8101    	bne.w	0x2b4 <get_TX_path_config+0x2b4> @ imm = #0x202
+      b2: f89d 3008    	ldrb.w	r3, [sp, #0x8]
+      b6: 4651         	mov	r1, r10
+      b8: f89d 2004    	ldrb.w	r2, [sp, #0x4]
+      bc: 4650         	mov	r0, r10
+      be: f7ff fffe    	bl	0xbe <get_TX_path_config+0xbe> @ imm = #-0x4
+			000000be:  R_ARM_THM_CALL	Get_WL_by_MR_PC3
+      c2: f89d 3008    	ldrb.w	r3, [sp, #0x8]
+      c6: 60e0         	str	r0, [r4, #0xc]
+      c8: 4651         	mov	r1, r10
+      ca: f89d 2004    	ldrb.w	r2, [sp, #0x4]
+      ce: 4650         	mov	r0, r10
+      d0: f7ff fffe    	bl	0xd0 <get_TX_path_config+0xd0> @ imm = #-0x4
+			000000d0:  R_ARM_THM_CALL	Get_WL_by_MR_PC3
+      d4: 6120         	str	r0, [r4, #0x10]
+      d6: f895 2070    	ldrb.w	r2, [r5, #0x70]
+      da: f895 306f    	ldrb.w	r3, [r5, #0x6f]
+      de: ea43 2302    	orr.w	r3, r3, r2, lsl #8
+      e2: f895 2071    	ldrb.w	r2, [r5, #0x71]
+      e6: ea43 4302    	orr.w	r3, r3, r2, lsl #16
+      ea: f895 2072    	ldrb.w	r2, [r5, #0x72]
+      ee: ea43 6302    	orr.w	r3, r3, r2, lsl #24
+      f2: 6263         	str	r3, [r4, #0x24]
+      f4: f895 206c    	ldrb.w	r2, [r5, #0x6c]
+      f8: f895 306b    	ldrb.w	r3, [r5, #0x6b]
+      fc: ea43 2302    	orr.w	r3, r3, r2, lsl #8
+     100: f895 206d    	ldrb.w	r2, [r5, #0x6d]
+     104: ea43 4302    	orr.w	r3, r3, r2, lsl #16
+     108: f895 206e    	ldrb.w	r2, [r5, #0x6e]
+     10c: ea43 6302    	orr.w	r3, r3, r2, lsl #24
+     110: 62a3         	str	r3, [r4, #0x28]
+     112: f895 2068    	ldrb.w	r2, [r5, #0x68]
+     116: f895 3067    	ldrb.w	r3, [r5, #0x67]
+     11a: ea43 2302    	orr.w	r3, r3, r2, lsl #8
+     11e: f895 2069    	ldrb.w	r2, [r5, #0x69]
+     122: ea43 4302    	orr.w	r3, r3, r2, lsl #16
+     126: f895 206a    	ldrb.w	r2, [r5, #0x6a]
+     12a: ea43 6302    	orr.w	r3, r3, r2, lsl #24
+     12e: 62e3         	str	r3, [r4, #0x2c]
+     130: f895 2064    	ldrb.w	r2, [r5, #0x64]
+     134: f895 3063    	ldrb.w	r3, [r5, #0x63]
+     138: ea43 2302    	orr.w	r3, r3, r2, lsl #8
+     13c: f895 2065    	ldrb.w	r2, [r5, #0x65]
+     140: ea43 4302    	orr.w	r3, r3, r2, lsl #16
+     144: f895 2066    	ldrb.w	r2, [r5, #0x66]
+     148: ea43 6302    	orr.w	r3, r3, r2, lsl #24
+     14c: 6323         	str	r3, [r4, #0x30]
+     14e: f8d6 c008    	ldr.w	r12, [r6, #0x8]
+     152: 2320         	movs	r3, #0x20
+     154: f8d4 e008    	ldr.w	lr, [r4, #0x8]
+     158: 2102         	movs	r1, #0x2
+     15a: f89c 0001    	ldrb.w	r0, [r12, #0x1]
+     15e: f884 004c    	strb.w	r0, [r4, #0x4c]
+     162: f884 304d    	strb.w	r3, [r4, #0x4d]
+     166: 2804         	cmp	r0, #0x4
+     168: 4b71         	ldr	r3, [pc, #0x1c4]        @ 0x330 <get_TX_path_config+0x330>
+     16a: f89c 2000    	ldrb.w	r2, [r12]
+     16e: 70e2         	strb	r2, [r4, #0x3]
+     170: 7061         	strb	r1, [r4, #0x1]
+     172: fbb3 f3fe    	udiv	r3, r3, lr
+     176: 70a1         	strb	r1, [r4, #0x2]
+     178: fbb0 fef2    	udiv	lr, r0, r2
+     17c: fb03 f202    	mul	r2, r3, r2
+     180: 6563         	str	r3, [r4, #0x54]
+     182: 65a2         	str	r2, [r4, #0x58]
+     184: f884 e044    	strb.w	lr, [r4, #0x44]
+     188: fb03 fe00    	mul	lr, r3, r0
+     18c: f8c4 e050    	str.w	lr, [r4, #0x50]
+     190: f89c c006    	ldrb.w	r12, [r12, #0x6]
+     194: f884 104a    	strb.w	r1, [r4, #0x4a]
+     198: f10c 0c01    	add.w	r12, r12, #0x1
+     19c: fbb2 f2fc    	udiv	r2, r2, r12
+     1a0: 65e2         	str	r2, [r4, #0x5c]
+     1a2: f04f 0204    	mov.w	r2, #0x4
+     1a6: f884 2062    	strb.w	r2, [r4, #0x62]
+     1aa: f44f 72c8    	mov.w	r2, #0x190
+     1ae: 6662         	str	r2, [r4, #0x64]
+     1b0: f44f 72fa    	mov.w	r2, #0x1f4
+     1b4: 66a2         	str	r2, [r4, #0x68]
+     1b6: 4a5f         	ldr	r2, [pc, #0x17c]        @ 0x334 <get_TX_path_config+0x334>
+     1b8: 66e2         	str	r2, [r4, #0x6c]
+     1ba: eb06 0287    	add.w	r2, r6, r7, lsl #2
+     1be: 6852         	ldr	r2, [r2, #0x4]
+     1c0: 68d2         	ldr	r2, [r2, #0xc]
+     1c2: 67e2         	str	r2, [r4, #0x7c]
+     1c4: f040 808b    	bne.w	0x2de <get_TX_path_config+0x2de> @ imm = #0x116
+     1c8: f895 2076    	ldrb.w	r2, [r5, #0x76]
+     1cc: 2a01         	cmp	r2, #0x1
+     1ce: f040 8084    	bne.w	0x2da <get_TX_path_config+0x2da> @ imm = #0x108
+     1d2: f895 2073    	ldrb.w	r2, [r5, #0x73]
+     1d6: f895 1074    	ldrb.w	r1, [r5, #0x74]
+     1da: 430a         	orrs	r2, r1
+     1dc: f04f 0201    	mov.w	r2, #0x1
+     1e0: bf18         	it	ne
+     1e2: 2200         	movne	r2, #0x0
+     1e4: 2a01         	cmp	r2, #0x1
+     1e6: 71e2         	strb	r2, [r4, #0x7]
+     1e8: f04f 0201    	mov.w	r2, #0x1
+     1ec: bf18         	it	ne
+     1ee: 2205         	movne	r2, #0x5
+     1f0: f8d9 1000    	ldr.w	r1, [r9]
+     1f4: f884 2049    	strb.w	r2, [r4, #0x49]
+     1f8: 2902         	cmp	r1, #0x2
+     1fa: d177         	bne	0x2ec <get_TX_path_config+0x2ec> @ imm = #0xee
+     1fc: 2200         	movs	r2, #0x0
+     1fe: 7122         	strb	r2, [r4, #0x4]
+     200: 6262         	str	r2, [r4, #0x24]
+     202: 7a6d         	ldrb	r5, [r5, #0x9]
+     204: 62a2         	str	r2, [r4, #0x28]
+     206: 62e2         	str	r2, [r4, #0x2c]
+     208: 6322         	str	r2, [r4, #0x30]
+     20a: f884 2046    	strb.w	r2, [r4, #0x46]
+     20e: 2201         	movs	r2, #0x1
+     210: 2d00         	cmp	r5, #0x0
+     212: d068         	beq	0x2e6 <get_TX_path_config+0x2e6> @ imm = #0xd0
+     214: 7162         	strb	r2, [r4, #0x5]
+     216: 71a1         	strb	r1, [r4, #0x6]
+     218: f884 2045    	strb.w	r2, [r4, #0x45]
+     21c: 7022         	strb	r2, [r4]
+     21e: 005a         	lsls	r2, r3, #0x1
+     220: 009b         	lsls	r3, r3, #0x2
+     222: 210a         	movs	r1, #0xa
+     224: fbb2 f2f1    	udiv	r2, r2, r1
+     228: fbb3 f3f1    	udiv	r3, r3, r1
+     22c: 6162         	str	r2, [r4, #0x14]
+     22e: 6222         	str	r2, [r4, #0x20]
+     230: 61a3         	str	r3, [r4, #0x18]
+     232: 61e3         	str	r3, [r4, #0x1c]
+     234: 2300         	movs	r3, #0x0
+     236: f884 3061    	strb.w	r3, [r4, #0x61]
+     23a: 2300         	movs	r3, #0x0
+     23c: f884 3077    	strb.w	r3, [r4, #0x77]
+     240: 4a3d         	ldr	r2, [pc, #0xf4]         @ 0x338 <get_TX_path_config+0x338>
+     242: 2326         	movs	r3, #0x26
+     244: fb03 2808    	mla	r8, r3, r8, r2
+     248: f898 2019    	ldrb.w	r2, [r8, #0x19]
+     24c: 1e51         	subs	r1, r2, #0x1
+     24e: 424b         	rsbs	r3, r1, #0
+     250: 414b         	adcs	r3, r1
+     252: 2100         	movs	r1, #0x0
+     254: f884 3076    	strb.w	r3, [r4, #0x76]
+     258: f7ff fffe    	bl	0x258 <get_TX_path_config+0x258> @ imm = #-0x4
+			00000258:  R_ARM_THM_CALL	get_dq_ca_p2s_latency
+     25c: f884 004b    	strb.w	r0, [r4, #0x4b]
+     260: 2100         	movs	r1, #0x0
+     262: f894 004c    	ldrb.w	r0, [r4, #0x4c]
+     266: f898 2019    	ldrb.w	r2, [r8, #0x19]
+     26a: f7ff fffe    	bl	0x26a <get_TX_path_config+0x26a> @ imm = #-0x4
+			0000026a:  R_ARM_THM_CALL	get_dq_ca_p2s_latency
+     26e: 68b3         	ldr	r3, [r6, #0x8]
+     270: f884 0048    	strb.w	r0, [r4, #0x48]
+     274: f894 0044    	ldrb.w	r0, [r4, #0x44]
+     278: 7999         	ldrb	r1, [r3, #0x6]
+     27a: f898 2019    	ldrb.w	r2, [r8, #0x19]
+     27e: f7ff fffe    	bl	0x27e <get_TX_path_config+0x27e> @ imm = #-0x4
+			0000027e:  R_ARM_THM_CALL	get_dq_ca_p2s_latency
+     282: 2301         	movs	r3, #0x1
+     284: f884 3070    	strb.w	r3, [r4, #0x70]
+     288: f894 304c    	ldrb.w	r3, [r4, #0x4c]
+     28c: f884 0047    	strb.w	r0, [r4, #0x47]
+     290: 2b10         	cmp	r3, #0x10
+     292: d044         	beq	0x31e <get_TX_path_config+0x31e> @ imm = #0x88
+     294: 2b08         	cmp	r3, #0x8
+     296: f04f 0307    	mov.w	r3, #0x7
+     29a: bf18         	it	ne
+     29c: 230b         	movne	r3, #0xb
+     29e: eb06 0687    	add.w	r6, r6, r7, lsl #2
+     2a2: f884 3075    	strb.w	r3, [r4, #0x75]
+     2a6: 6873         	ldr	r3, [r6, #0x4]
+     2a8: 7a5b         	ldrb	r3, [r3, #0x9]
+     2aa: f884 3078    	strb.w	r3, [r4, #0x78]
+     2ae: b006         	add	sp, #0x18
+     2b0: e8bd 87f0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, pc}
+     2b4: 2b06         	cmp	r3, #0x6
+     2b6: f47f af4a    	bne.w	0x14e <get_TX_path_config+0x14e> @ imm = #-0x16c
+     2ba: f89d 2010    	ldrb.w	r2, [sp, #0x10]
+     2be: 4650         	mov	r0, r10
+     2c0: f89d 100c    	ldrb.w	r1, [sp, #0xc]
+     2c4: f7ff fffe    	bl	0x2c4 <get_TX_path_config+0x2c4> @ imm = #-0x4
+			000002c4:  R_ARM_THM_CALL	Get_WL_by_MR_PC4
+     2c8: f89d 2010    	ldrb.w	r2, [sp, #0x10]
+     2cc: 60e0         	str	r0, [r4, #0xc]
+     2ce: 4650         	mov	r0, r10
+     2d0: f89d 100c    	ldrb.w	r1, [sp, #0xc]
+     2d4: f7ff fffe    	bl	0x2d4 <get_TX_path_config+0x2d4> @ imm = #-0x4
+			000002d4:  R_ARM_THM_CALL	Get_WL_by_MR_PC4
+     2d8: e6fc         	b	0xd4 <get_TX_path_config+0xd4> @ imm = #-0x208
+     2da: 2201         	movs	r2, #0x1
+     2dc: e782         	b	0x1e4 <get_TX_path_config+0x1e4> @ imm = #-0xfc
+     2de: 2200         	movs	r2, #0x0
+     2e0: 71e2         	strb	r2, [r4, #0x7]
+     2e2: 2205         	movs	r2, #0x5
+     2e4: e784         	b	0x1f0 <get_TX_path_config+0x1f0> @ imm = #-0xf8
+     2e6: 7165         	strb	r5, [r4, #0x5]
+     2e8: 71a5         	strb	r5, [r4, #0x6]
+     2ea: e795         	b	0x218 <get_TX_path_config+0x218> @ imm = #-0xd6
+     2ec: 2906         	cmp	r1, #0x6
+     2ee: d1a7         	bne	0x240 <get_TX_path_config+0x240> @ imm = #-0xb2
+     2f0: 2200         	movs	r2, #0x0
+     2f2: 7122         	strb	r2, [r4, #0x4]
+     2f4: 6262         	str	r2, [r4, #0x24]
+     2f6: 62a2         	str	r2, [r4, #0x28]
+     2f8: 62e2         	str	r2, [r4, #0x2c]
+     2fa: 6322         	str	r2, [r4, #0x30]
+     2fc: f884 2046    	strb.w	r2, [r4, #0x46]
+     300: 7a6a         	ldrb	r2, [r5, #0x9]
+     302: b152         	cbz	r2, 0x31a <get_TX_path_config+0x31a> @ imm = #0x14
+     304: 2201         	movs	r2, #0x1
+     306: 7162         	strb	r2, [r4, #0x5]
+     308: 2202         	movs	r2, #0x2
+     30a: 71a2         	strb	r2, [r4, #0x6]
+     30c: 2201         	movs	r2, #0x1
+     30e: f884 2045    	strb.w	r2, [r4, #0x45]
+     312: 7022         	strb	r2, [r4]
+     314: fa03 f202    	lsl.w	r2, r3, r2
+     318: e782         	b	0x220 <get_TX_path_config+0x220> @ imm = #-0xfc
+     31a: 7162         	strb	r2, [r4, #0x5]
+     31c: e7f5         	b	0x30a <get_TX_path_config+0x30a> @ imm = #-0x16
+     31e: 2305         	movs	r3, #0x5
+     320: e7bd         	b	0x29e <get_TX_path_config+0x29e> @ imm = #-0x86
+     322: bf00         	nop
+     324: 00 00 00 00  	.word	0x00000000
+			00000324:  R_ARM_ABS32	MEM_TYPE
+     328: 00 00 00 00  	.word	0x00000000
+			00000328:  R_ARM_ABS32	DV_p
+     32c: 00 00 00 00  	.word	0x00000000
+			0000032c:  R_ARM_ABS32	DUTTopSetGlobal
+     330: 40 42 0f 00  	.word	0x000f4240
+     334: 01 0b 64 10  	.word	0x10640b01
+     338: 00 00 00 00  	.word	0x00000000
+			00000338:  R_ARM_ABS32	DUTShufConfigGlobal
+
+Disassembly of section .text.calculate_TX_path_rg_val:
+
+00000000 <calculate_TX_path_rg_val>:
+       0: e92d 4ff0    	push.w	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4605         	mov	r5, r0
+       6: 2700         	movs	r7, #0x0
+       8: b097         	sub	sp, #0x5c
+       a: f105 0a0c    	add.w	r10, r5, #0xc
+       e: 46b9         	mov	r9, r7
+      10: 6347         	str	r7, [r0, #0x34]
+      12: 6387         	str	r7, [r0, #0x38]
+      14: 460c         	mov	r4, r1
+      16: 63c7         	str	r7, [r0, #0x3c]
+      18: 6d41         	ldr	r1, [r0, #0x54]
+      1a: 6407         	str	r7, [r0, #0x40]
+      1c: 4638         	mov	r0, r7
+      1e: 9209         	str	r2, [sp, #0x24]
+      20: 9306         	str	r3, [sp, #0x18]
+      22: f7ff fffe    	bl	0x22 <calculate_TX_path_rg_val+0x22> @ imm = #-0x4
+			00000022:  R_ARM_THM_CALL	A_div_B_RU
+      26: fa5f f389    	uxtb.w	r3, r9
+      2a: 9308         	str	r3, [sp, #0x20]
+      2c: f105 0314    	add.w	r3, r5, #0x14
+      30: 19e6         	adds	r6, r4, r7
+      32: 443b         	add	r3, r7
+      34: 9305         	str	r3, [sp, #0x14]
+      36: ab0a         	add	r3, sp, #0x28
+      38: 443b         	add	r3, r7
+      3a: 9304         	str	r3, [sp, #0x10]
+      3c: ab0e         	add	r3, sp, #0x38
+      3e: 443b         	add	r3, r7
+      40: 9303         	str	r3, [sp, #0xc]
+      42: ab12         	add	r3, sp, #0x48
+      44: 443b         	add	r3, r7
+      46: 9302         	str	r3, [sp, #0x8]
+      48: 2300         	movs	r3, #0x0
+      4a: e000         	b	0x4e <calculate_TX_path_rg_val+0x4e> @ imm = #0x0
+      4c: 2301         	movs	r3, #0x1
+      4e: 9301         	str	r3, [sp, #0x4]
+      50: 9b05         	ldr	r3, [sp, #0x14]
+      52: 6daa         	ldr	r2, [r5, #0x58]
+      54: 6d69         	ldr	r1, [r5, #0x54]
+      56: f853 cb04    	ldr	r12, [r3], #4
+      5a: 9305         	str	r3, [sp, #0x14]
+      5c: f895 3045    	ldrb.w	r3, [r5, #0x45]
+      60: f895 8047    	ldrb.w	r8, [r5, #0x47]
+      64: f8d5 e050    	ldr.w	lr, [r5, #0x50]
+      68: 78e8         	ldrb	r0, [r5, #0x3]
+      6a: 435a         	muls	r2, r3, r2
+      6c: 6deb         	ldr	r3, [r5, #0x5c]
+      6e: eba2 0251    	sub.w	r2, r2, r1, lsr #1
+      72: fb03 2308    	mla	r3, r3, r8, r2
+      76: f895 8007    	ldrb.w	r8, [r5, #0x7]
+      7a: 792a         	ldrb	r2, [r5, #0x4]
+      7c: 4442         	add	r2, r8
+      7e: 3202         	adds	r2, #0x2
+      80: fb0e 3212    	mls	r2, lr, r2, r3
+      84: 79ab         	ldrb	r3, [r5, #0x6]
+      86: f103 38ff    	add.w	r8, r3, #0xffffffff
+      8a: f895 3078    	ldrb.w	r3, [r5, #0x78]
+      8e: eba8 0303    	sub.w	r3, r8, r3
+      92: f895 8005    	ldrb.w	r8, [r5, #0x5]
+      96: fb08 f303    	mul	r3, r8, r3
+      9a: fb0e 2e13    	mls	lr, lr, r3, r2
+      9e: f895 2077    	ldrb.w	r2, [r5, #0x77]
+      a2: f895 304b    	ldrb.w	r3, [r5, #0x4b]
+      a6: 1ad3         	subs	r3, r2, r3
+      a8: 782a         	ldrb	r2, [r5]
+      aa: fb02 3300    	mla	r3, r2, r0, r3
+      ae: f8da 2000    	ldr.w	r2, [r10]
+      b2: 4342         	muls	r2, r0, r2
+      b4: eb03 0242    	add.w	r2, r3, r2, lsl #1
+      b8: 9b05         	ldr	r3, [sp, #0x14]
+      ba: fb01 e202    	mla	r2, r1, r2, lr
+      be: 4494         	add	r12, r2
+      c0: 68da         	ldr	r2, [r3, #0xc]
+      c2: 9b04         	ldr	r3, [sp, #0x10]
+      c4: 4462         	add	r2, r12
+      c6: f843 2b04    	str	r2, [r3], #4
+      ca: 9304         	str	r3, [sp, #0x10]
+      cc: 9b06         	ldr	r3, [sp, #0x18]
+      ce: 2b01         	cmp	r3, #0x1
+      d0: d10d         	bne	0xee <calculate_TX_path_rg_val+0xee> @ imm = #0x1a
+      d2: 4b9e         	ldr	r3, [pc, #0x278]        @ 0x34c <calculate_TX_path_rg_val+0x34c>
+      d4: 6818         	ldr	r0, [r3]
+      d6: 2806         	cmp	r0, #0x6
+      d8: d109         	bne	0xee <calculate_TX_path_rg_val+0xee> @ imm = #0x12
+      da: 4b9d         	ldr	r3, [pc, #0x274]        @ 0x350 <calculate_TX_path_rg_val+0x350>
+      dc: f893 3077    	ldrb.w	r3, [r3, #0x77]
+      e0: 2b01         	cmp	r3, #0x1
+      e2: d104         	bne	0xee <calculate_TX_path_rg_val+0xee> @ imm = #0x8
+      e4: 9b04         	ldr	r3, [sp, #0x10]
+      e6: eb02 0281    	add.w	r2, r2, r1, lsl #2
+      ea: f843 2c04    	str	r2, [r3, #-4]
+      ee: 4b98         	ldr	r3, [pc, #0x260]        @ 0x350 <calculate_TX_path_rg_val+0x350>
+      f0: 795b         	ldrb	r3, [r3, #0x5]
+      f2: 9307         	str	r3, [sp, #0x1c]
+      f4: 2b01         	cmp	r3, #0x1
+      f6: d10e         	bne	0x116 <calculate_TX_path_rg_val+0x116> @ imm = #0x1c
+      f8: 6feb         	ldr	r3, [r5, #0x7c]
+      fa: f1b9 0f00    	cmp.w	r9, #0x0
+      fe: f040 80b3    	bne.w	0x268 <calculate_TX_path_rg_val+0x268> @ imm = #0x166
+     102: 9a01         	ldr	r2, [sp, #0x4]
+     104: ea4f 0c93    	lsr.w	r12, r3, #0x2
+     108: 2a00         	cmp	r2, #0x0
+     10a: f040 80a8    	bne.w	0x25e <calculate_TX_path_rg_val+0x25e> @ imm = #0x150
+     10e: 9b0a         	ldr	r3, [sp, #0x28]
+     110: eba3 03cc    	sub.w	r3, r3, r12, lsl #3
+     114: 930a         	str	r3, [sp, #0x28]
+     116: 9b04         	ldr	r3, [sp, #0x10]
+     118: 2000         	movs	r0, #0x0
+     11a: f8dd b00c    	ldr.w	r11, [sp, #0xc]
+     11e: f8dd e008    	ldr.w	lr, [sp, #0x8]
+     122: f853 3c04    	ldr	r3, [r3, #-4]
+     126: f8ce 0000    	str.w	r0, [lr]
+     12a: fbb3 f8f1    	udiv	r8, r3, r1
+     12e: f8c6 8030    	str.w	r8, [r6, #0x30]
+     132: fb01 3318    	mls	r3, r1, r8, r3
+     136: f8cb 3000    	str.w	r3, [r11]
+     13a: f895 2072    	ldrb.w	r2, [r5, #0x72]
+     13e: 2a01         	cmp	r2, #0x1
+     140: d10a         	bne	0x158 <calculate_TX_path_rg_val+0x158> @ imm = #0x14
+     142: ea4f 0c41    	lsl.w	r12, r1, #0x1
+     146: ebb3 0f41    	cmp.w	r3, r1, lsl #1
+     14a: d905         	bls	0x158 <calculate_TX_path_rg_val+0x158> @ imm = #0xa
+     14c: eba3 030c    	sub.w	r3, r3, r12
+     150: f8cb c000    	str.w	r12, [r11]
+     154: f8ce 3000    	str.w	r3, [lr]
+     158: 9b03         	ldr	r3, [sp, #0xc]
+     15a: f8db c000    	ldr.w	r12, [r11]
+     15e: 3304         	adds	r3, #0x4
+     160: 9303         	str	r3, [sp, #0xc]
+     162: f895 304d    	ldrb.w	r3, [r5, #0x4d]
+     166: 9802         	ldr	r0, [sp, #0x8]
+     168: 3004         	adds	r0, #0x4
+     16a: 9002         	str	r0, [sp, #0x8]
+     16c: fb0c f303    	mul	r3, r12, r3
+     170: f8de c000    	ldr.w	r12, [lr]
+     174: 9807         	ldr	r0, [sp, #0x1c]
+     176: ea4f 0cdc    	lsr.w	r12, r12, #0x3
+     17a: 2801         	cmp	r0, #0x1
+     17c: fbb3 f3f1    	udiv	r3, r3, r1
+     180: f8c6 c080    	str.w	r12, [r6, #0x80]
+     184: 6433         	str	r3, [r6, #0x40]
+     186: d108         	bne	0x19a <calculate_TX_path_rg_val+0x19a> @ imm = #0x10
+     188: 6fe8         	ldr	r0, [r5, #0x7c]
+     18a: f8c4 0080    	str.w	r0, [r4, #0x80]
+     18e: f8c4 0084    	str.w	r0, [r4, #0x84]
+     192: f8c4 0088    	str.w	r0, [r4, #0x88]
+     196: f8c4 008c    	str.w	r0, [r4, #0x8c]
+     19a: b912         	cbnz	r2, 0x1a2 <calculate_TX_path_rg_val+0x1a2> @ imm = #0x4
+     19c: 2b03         	cmp	r3, #0x3
+     19e: d873         	bhi	0x288 <calculate_TX_path_rg_val+0x288> @ imm = #0xe6
+     1a0: 6432         	str	r2, [r6, #0x40]
+     1a2: 6e68         	ldr	r0, [r5, #0x64]
+     1a4: f7ff fffe    	bl	0x1a4 <calculate_TX_path_rg_val+0x1a4> @ imm = #-0x4
+			000001a4:  R_ARM_THM_CALL	A_div_B_RU
+     1a8: 79aa         	ldrb	r2, [r5, #0x6]
+     1aa: f895 b005    	ldrb.w	r11, [r5, #0x5]
+     1ae: 792b         	ldrb	r3, [r5, #0x4]
+     1b0: 3a01         	subs	r2, #0x1
+     1b2: f895 c04c    	ldrb.w	r12, [r5, #0x4c]
+     1b6: fb0b 3302    	mla	r3, r11, r2, r3
+     1ba: 4a64         	ldr	r2, [pc, #0x190]        @ 0x34c <calculate_TX_path_rg_val+0x34c>
+     1bc: fb03 880c    	mla	r8, r3, r12, r8
+     1c0: eba8 0000    	sub.w	r0, r8, r0
+     1c4: 1e43         	subs	r3, r0, #0x1
+     1c6: 6133         	str	r3, [r6, #0x10]
+     1c8: f8d2 e000    	ldr.w	lr, [r2]
+     1cc: f1be 0f06    	cmp.w	lr, #0x6
+     1d0: d109         	bne	0x1e6 <calculate_TX_path_rg_val+0x1e6> @ imm = #0x12
+     1d2: 4a5f         	ldr	r2, [pc, #0x17c]        @ 0x350 <calculate_TX_path_rg_val+0x350>
+     1d4: f892 2077    	ldrb.w	r2, [r2, #0x77]
+     1d8: 2a01         	cmp	r2, #0x1
+     1da: d104         	bne	0x1e6 <calculate_TX_path_rg_val+0x1e6> @ imm = #0x8
+     1dc: 9a06         	ldr	r2, [sp, #0x18]
+     1de: 2a01         	cmp	r2, #0x1
+     1e0: bf08         	it	eq
+     1e2: 1cc3         	addeq	r3, r0, #0x3
+     1e4: 6133         	str	r3, [r6, #0x10]
+     1e6: f895 8049    	ldrb.w	r8, [r5, #0x49]
+     1ea: f1be 0f06    	cmp.w	lr, #0x6
+     1ee: f895 2045    	ldrb.w	r2, [r5, #0x45]
+     1f2: 44e0         	add	r8, r12
+     1f4: 78e8         	ldrb	r0, [r5, #0x3]
+     1f6: eba2 0808    	sub.w	r8, r2, r8
+     1fa: f895 2062    	ldrb.w	r2, [r5, #0x62]
+     1fe: 9b05         	ldr	r3, [sp, #0x14]
+     200: eba8 0202    	sub.w	r2, r8, r2
+     204: f895 8000    	ldrb.w	r8, [r5]
+     208: 6d69         	ldr	r1, [r5, #0x54]
+     20a: f853 3c04    	ldr	r3, [r3, #-4]
+     20e: fb08 2800    	mla	r8, r8, r0, r2
+     212: 79ea         	ldrb	r2, [r5, #0x7]
+     214: fb02 821c    	mls	r2, r2, r12, r8
+     218: f895 8078    	ldrb.w	r8, [r5, #0x78]
+     21c: fb18 f80b    	smulbb	r8, r8, r11
+     220: fbb3 fbf1    	udiv	r11, r3, r1
+     224: fb0c 2808    	mla	r8, r12, r8, r2
+     228: f8da 2000    	ldr.w	r2, [r10]
+     22c: fb00 f202    	mul	r2, r0, r2
+     230: eb08 0842    	add.w	r8, r8, r2, lsl #1
+     234: eb08 020b    	add.w	r2, r8, r11
+     238: f8c6 20b0    	str.w	r2, [r6, #0xb0]
+     23c: f040 81e8    	bne.w	0x610 <calculate_TX_path_rg_val+0x610> @ imm = #0x3d0
+     240: 4843         	ldr	r0, [pc, #0x10c]        @ 0x350 <calculate_TX_path_rg_val+0x350>
+     242: f890 0077    	ldrb.w	r0, [r0, #0x77]
+     246: 2801         	cmp	r0, #0x1
+     248: d105         	bne	0x256 <calculate_TX_path_rg_val+0x256> @ imm = #0xa
+     24a: 9806         	ldr	r0, [sp, #0x18]
+     24c: 2801         	cmp	r0, #0x1
+     24e: bf08         	it	eq
+     250: 3204         	addeq	r2, #0x4
+     252: f8c6 20b0    	str.w	r2, [r6, #0xb0]
+     256: 015b         	lsls	r3, r3, #0x5
+     258: fbb3 f3f1    	udiv	r3, r3, r1
+     25c: e027         	b	0x2ae <calculate_TX_path_rg_val+0x2ae> @ imm = #0x4e
+     25e: 9b0b         	ldr	r3, [sp, #0x2c]
+     260: eba3 03cc    	sub.w	r3, r3, r12, lsl #3
+     264: 930b         	str	r3, [sp, #0x2c]
+     266: e756         	b	0x116 <calculate_TX_path_rg_val+0x116> @ imm = #-0x154
+     268: ea4f 0c93    	lsr.w	r12, r3, #0x2
+     26c: 9b01         	ldr	r3, [sp, #0x4]
+     26e: ea4f 0ccc    	lsl.w	r12, r12, #0x3
+     272: b923         	cbnz	r3, 0x27e <calculate_TX_path_rg_val+0x27e> @ imm = #0x8
+     274: 9a0c         	ldr	r2, [sp, #0x30]
+     276: eba2 020c    	sub.w	r2, r2, r12
+     27a: 920c         	str	r2, [sp, #0x30]
+     27c: e74b         	b	0x116 <calculate_TX_path_rg_val+0x116> @ imm = #-0x16a
+     27e: 9b0d         	ldr	r3, [sp, #0x34]
+     280: eba3 030c    	sub.w	r3, r3, r12
+     284: 930d         	str	r3, [sp, #0x34]
+     286: e746         	b	0x116 <calculate_TX_path_rg_val+0x116> @ imm = #-0x174
+     288: 2b0b         	cmp	r3, #0xb
+     28a: d802         	bhi	0x292 <calculate_TX_path_rg_val+0x292> @ imm = #0x4
+     28c: 2308         	movs	r3, #0x8
+     28e: 6433         	str	r3, [r6, #0x40]
+     290: e787         	b	0x1a2 <calculate_TX_path_rg_val+0x1a2> @ imm = #-0xf2
+     292: 2b13         	cmp	r3, #0x13
+     294: d801         	bhi	0x29a <calculate_TX_path_rg_val+0x29a> @ imm = #0x2
+     296: 2310         	movs	r3, #0x10
+     298: e7f9         	b	0x28e <calculate_TX_path_rg_val+0x28e> @ imm = #-0xe
+     29a: 2b1d         	cmp	r3, #0x1d
+     29c: d801         	bhi	0x2a2 <calculate_TX_path_rg_val+0x2a2> @ imm = #0x2
+     29e: 2318         	movs	r3, #0x18
+     2a0: e7f5         	b	0x28e <calculate_TX_path_rg_val+0x28e> @ imm = #-0x16
+     2a2: f108 0301    	add.w	r3, r8, #0x1
+     2a6: 6432         	str	r2, [r6, #0x40]
+     2a8: 6333         	str	r3, [r6, #0x30]
+     2aa: e77a         	b	0x1a2 <calculate_TX_path_rg_val+0x1a2> @ imm = #-0x10c
+     2ac: 2300         	movs	r3, #0x0
+     2ae: f8c6 30d0    	str.w	r3, [r6, #0xd0]
+     2b2: e005         	b	0x2c0 <calculate_TX_path_rg_val+0x2c0> @ imm = #0xa
+     2b4: 9b08         	ldr	r3, [sp, #0x20]
+     2b6: f083 0301    	eor	r3, r3, #0x1
+     2ba: e7f8         	b	0x2ae <calculate_TX_path_rg_val+0x2ae> @ imm = #-0x10
+     2bc: f8c6 90d0    	str.w	r9, [r6, #0xd0]
+     2c0: 6e68         	ldr	r0, [r5, #0x64]
+     2c2: f7ff fffe    	bl	0x2c2 <calculate_TX_path_rg_val+0x2c2> @ imm = #-0x4
+			000002c2:  R_ARM_THM_CALL	A_div_B_RU
+     2c6: f895 304c    	ldrb.w	r3, [r5, #0x4c]
+     2ca: 6b30         	ldr	r0, [r6, #0x30]
+     2cc: f8d6 c0b0    	ldr.w	r12, [r6, #0xb0]
+     2d0: 4601         	mov	r1, r0
+     2d2: 2806         	cmp	r0, #0x6
+     2d4: 6530         	str	r0, [r6, #0x50]
+     2d6: 4662         	mov	r2, r12
+     2d8: fbb0 fef3    	udiv	lr, r0, r3
+     2dc: bf38         	it	lo
+     2de: 2106         	movlo	r1, #0x6
+     2e0: 3906         	subs	r1, #0x6
+     2e2: 2a06         	cmp	r2, #0x6
+     2e4: f8d6 8040    	ldr.w	r8, [r6, #0x40]
+     2e8: bf38         	it	lo
+     2ea: 2206         	movlo	r2, #0x6
+     2ec: 3a06         	subs	r2, #0x6
+     2ee: fb03 001e    	mls	r0, r3, lr, r0
+     2f2: f8c6 e020    	str.w	lr, [r6, #0x20]
+     2f6: 6330         	str	r0, [r6, #0x30]
+     2f8: fbbc f0f3    	udiv	r0, r12, r3
+     2fc: f8c6 8060    	str.w	r8, [r6, #0x60]
+     300: f8c6 8070    	str.w	r8, [r6, #0x70]
+     304: f8c6 0090    	str.w	r0, [r6, #0x90]
+     308: fb03 c010    	mls	r0, r3, r0, r12
+     30c: f8c6 00b0    	str.w	r0, [r6, #0xb0]
+     310: fbb1 f0f3    	udiv	r0, r1, r3
+     314: f846 0b04    	str	r0, [r6], #4
+     318: fb03 1110    	mls	r1, r3, r0, r1
+     31c: 60f1         	str	r1, [r6, #0xc]
+     31e: fbb2 f1f3    	udiv	r1, r2, r3
+     322: fb03 2211    	mls	r2, r3, r1, r2
+     326: f8c6 109c    	str.w	r1, [r6, #0x9c]
+     32a: f8c6 20bc    	str.w	r2, [r6, #0xbc]
+     32e: 9a01         	ldr	r2, [sp, #0x4]
+     330: 2a00         	cmp	r2, #0x0
+     332: f43f ae8b    	beq.w	0x4c <calculate_TX_path_rg_val+0x4c> @ imm = #-0x2ea
+     336: f10a 0a04    	add.w	r10, r10, #0x4
+     33a: 3708         	adds	r7, #0x8
+     33c: f1b9 0f00    	cmp.w	r9, #0x0
+     340: d108         	bne	0x354 <calculate_TX_path_rg_val+0x354> @ imm = #0x10
+     342: 4691         	mov	r9, r2
+     344: e66f         	b	0x26 <calculate_TX_path_rg_val+0x26> @ imm = #-0x322
+     346: f109 0301    	add.w	r3, r9, #0x1
+     34a: e7b0         	b	0x2ae <calculate_TX_path_rg_val+0x2ae> @ imm = #-0xa0
+     34c: 00 00 00 00  	.word	0x00000000
+			0000034c:  R_ARM_ABS32	MEM_TYPE
+     350: 00 00 00 00  	.word	0x00000000
+			00000350:  R_ARM_ABS32	DUTTopSetGlobal
+     354: 6962         	ldr	r2, [r4, #0x14]
+     356: 9201         	str	r2, [sp, #0x4]
+     358: 69e2         	ldr	r2, [r4, #0x1c]
+     35a: 9202         	str	r2, [sp, #0x8]
+     35c: 69a2         	ldr	r2, [r4, #0x18]
+     35e: 9203         	str	r2, [sp, #0xc]
+     360: f895 2070    	ldrb.w	r2, [r5, #0x70]
+     364: e9d4 0100    	ldrd	r0, r1, [r4]
+     368: f884 20e0    	strb.w	r2, [r4, #0xe0]
+     36c: f8d4 900c    	ldr.w	r9, [r4, #0xc]
+     370: f8d4 a008    	ldr.w	r10, [r4, #0x8]
+     374: f8d4 b010    	ldr.w	r11, [r4, #0x10]
+     378: 2a00         	cmp	r2, #0x0
+     37a: d13f         	bne	0x3fc <calculate_TX_path_rg_val+0x3fc> @ imm = #0x7e
+     37c: f884 20e1    	strb.w	r2, [r4, #0xe1]
+     380: f8a4 20e2    	strh.w	r2, [r4, #0xe2]
+     384: f8c4 20e4    	str.w	r2, [r4, #0xe4]
+     388: f884 20e8    	strb.w	r2, [r4, #0xe8]
+     38c: 4281         	cmp	r1, r0
+     38e: 460a         	mov	r2, r1
+     390: bf38         	it	lo
+     392: 4602         	movlo	r2, r0
+     394: f1a3 0708    	sub.w	r7, r3, #0x8
+     398: 454a         	cmp	r2, r9
+     39a: bf38         	it	lo
+     39c: 464a         	movlo	r2, r9
+     39e: 4552         	cmp	r2, r10
+     3a0: bf38         	it	lo
+     3a2: 4652         	movlo	r2, r10
+     3a4: 427e         	rsbs	r6, r7, #0
+     3a6: 417e         	adcs	r6, r7
+     3a8: f895 7071    	ldrb.w	r7, [r5, #0x71]
+     3ac: b2d2         	uxtb	r2, r2
+     3ae: 46b0         	mov	r8, r6
+     3b0: 2f01         	cmp	r7, #0x1
+     3b2: f04f 0700    	mov.w	r7, #0x0
+     3b6: f040 80af    	bne.w	0x518 <calculate_TX_path_rg_val+0x518> @ imm = #0x15e
+     3ba: 4550         	cmp	r0, r10
+     3bc: f884 70e9    	strb.w	r7, [r4, #0xe9]
+     3c0: bf28         	it	hs
+     3c2: 4650         	movhs	r0, r10
+     3c4: b100         	cbz	r0, 0x3c8 <calculate_TX_path_rg_val+0x3c8> @ imm = #0x0
+     3c6: 1b80         	subs	r0, r0, r6
+     3c8: 4549         	cmp	r1, r9
+     3ca: f884 00ea    	strb.w	r0, [r4, #0xea]
+     3ce: bf28         	it	hs
+     3d0: 4649         	movhs	r1, r9
+     3d2: b109         	cbz	r1, 0x3d8 <calculate_TX_path_rg_val+0x3d8> @ imm = #0x2
+     3d4: eba1 0108    	sub.w	r1, r1, r8
+     3d8: f884 10eb    	strb.w	r1, [r4, #0xeb]
+     3dc: 2b10         	cmp	r3, #0x10
+     3de: f04f 0100    	mov.w	r1, #0x0
+     3e2: f884 10ec    	strb.w	r1, [r4, #0xec]
+     3e6: f040 8092    	bne.w	0x50e <calculate_TX_path_rg_val+0x50e> @ imm = #0x124
+     3ea: b102         	cbz	r2, 0x3ee <calculate_TX_path_rg_val+0x3ee> @ imm = #0x0
+     3ec: 1e51         	subs	r1, r2, #0x1
+     3ee: f884 10ed    	strb.w	r1, [r4, #0xed]
+     3f2: f894 10ed    	ldrb.w	r1, [r4, #0xed]
+     3f6: f884 10ee    	strb.w	r1, [r4, #0xee]
+     3fa: e0ae         	b	0x55a <calculate_TX_path_rg_val+0x55a> @ imm = #0x15c
+     3fc: f895 2076    	ldrb.w	r2, [r5, #0x76]
+     400: 2603         	movs	r6, #0x3
+     402: 2a01         	cmp	r2, #0x1
+     404: 4a8e         	ldr	r2, [pc, #0x238]        @ 0x640 <calculate_TX_path_rg_val+0x640>
+     406: bf18         	it	ne
+     408: 2602         	movne	r6, #0x2
+     40a: 6892         	ldr	r2, [r2, #0x8]
+     40c: 7852         	ldrb	r2, [r2, #0x1]
+     40e: 2a04         	cmp	r2, #0x4
+     410: d178         	bne	0x504 <calculate_TX_path_rg_val+0x504> @ imm = #0xf0
+     412: 4a8c         	ldr	r2, [pc, #0x230]        @ 0x644 <calculate_TX_path_rg_val+0x644>
+     414: 6812         	ldr	r2, [r2]
+     416: f022 0204    	bic	r2, r2, #0x4
+     41a: f1a2 0e02    	sub.w	lr, r2, #0x2
+     41e: f1de 0200    	rsbs.w	r2, lr, #0x0
+     422: eb42 020e    	adc.w	r2, r2, lr
+     426: 4432         	add	r2, r6
+     428: 2b10         	cmp	r3, #0x10
+     42a: f884 20e1    	strb.w	r2, [r4, #0xe1]
+     42e: f04f 0200    	mov.w	r2, #0x0
+     432: f884 20e8    	strb.w	r2, [r4, #0xe8]
+     436: d067         	beq	0x508 <calculate_TX_path_rg_val+0x508> @ imm = #0xce
+     438: 2b08         	cmp	r3, #0x8
+     43a: f04f 0602    	mov.w	r6, #0x2
+     43e: bf08         	it	eq
+     440: 2202         	moveq	r2, #0x2
+     442: 4690         	mov	r8, r2
+     444: bf08         	it	eq
+     446: 2606         	moveq	r6, #0x6
+     448: f1a3 0c04    	sub.w	r12, r3, #0x4
+     44c: f8d4 70a0    	ldr.w	r7, [r4, #0xa0]
+     450: f1dc 0200    	rsbs.w	r2, r12, #0x0
+     454: eba3 0606    	sub.w	r6, r3, r6
+     458: eb42 020c    	adc.w	r2, r2, r12
+     45c: f8d4 c0c0    	ldr.w	r12, [r4, #0xc0]
+     460: 4417         	add	r7, r2
+     462: eba3 0808    	sub.w	r8, r3, r8
+     466: 45b4         	cmp	r12, r6
+     468: fa5f fe87    	uxtb.w	lr, r7
+     46c: bf38         	it	lo
+     46e: 2600         	movlo	r6, #0x0
+     470: bf28         	it	hs
+     472: 2601         	movhs	r6, #0x1
+     474: fa56 f787    	uxtab	r7, r6, r7
+     478: 45c4         	cmp	r12, r8
+     47a: f10e 0601    	add.w	r6, lr, #0x1
+     47e: f8dd c004    	ldr.w	r12, [sp, #0x4]
+     482: bf28         	it	hs
+     484: 3601         	addhs	r6, #0x1
+     486: 4281         	cmp	r1, r0
+     488: f884 60e3    	strb.w	r6, [r4, #0xe3]
+     48c: 460e         	mov	r6, r1
+     48e: bf28         	it	hs
+     490: 4606         	movhs	r6, r0
+     492: 45dc         	cmp	r12, r11
+     494: f106 36ff    	add.w	r6, r6, #0xffffffff
+     498: bf28         	it	hs
+     49a: 46dc         	movhs	r12, r11
+     49c: 4416         	add	r6, r2
+     49e: f884 70e2    	strb.w	r7, [r4, #0xe2]
+     4a2: fa5f fc8c    	uxtb.w	r12, r12
+     4a6: b2f6         	uxtb	r6, r6
+     4a8: 1cb7         	adds	r7, r6, #0x2
+     4aa: f884 70e4    	strb.w	r7, [r4, #0xe4]
+     4ae: 085f         	lsrs	r7, r3, #0x1
+     4b0: 4567         	cmp	r7, r12
+     4b2: 9f03         	ldr	r7, [sp, #0xc]
+     4b4: bf98         	it	ls
+     4b6: 3601         	addls	r6, #0x1
+     4b8: 45d1         	cmp	r9, r10
+     4ba: f106 0602    	add.w	r6, r6, #0x2
+     4be: f884 60e5    	strb.w	r6, [r4, #0xe5]
+     4c2: 464e         	mov	r6, r9
+     4c4: bf28         	it	hs
+     4c6: 4656         	movhs	r6, r10
+     4c8: 3e01         	subs	r6, #0x1
+     4ca: 4432         	add	r2, r6
+     4cc: b2d2         	uxtb	r2, r2
+     4ce: 1c96         	adds	r6, r2, #0x2
+     4d0: f884 60e6    	strb.w	r6, [r4, #0xe6]
+     4d4: 9e02         	ldr	r6, [sp, #0x8]
+     4d6: 42be         	cmp	r6, r7
+     4d8: bf28         	it	hs
+     4da: 463e         	movhs	r6, r7
+     4dc: 085f         	lsrs	r7, r3, #0x1
+     4de: b2f6         	uxtb	r6, r6
+     4e0: 42b7         	cmp	r7, r6
+     4e2: bf98         	it	ls
+     4e4: 3201         	addls	r2, #0x1
+     4e6: 2b04         	cmp	r3, #0x4
+     4e8: f102 0202    	add.w	r2, r2, #0x2
+     4ec: f884 20e7    	strb.w	r2, [r4, #0xe7]
+     4f0: f47f af4c    	bne.w	0x38c <calculate_TX_path_rg_val+0x38c> @ imm = #-0x168
+     4f4: 2200         	movs	r2, #0x0
+     4f6: f884 20e3    	strb.w	r2, [r4, #0xe3]
+     4fa: f884 20e5    	strb.w	r2, [r4, #0xe5]
+     4fe: f884 20e7    	strb.w	r2, [r4, #0xe7]
+     502: e743         	b	0x38c <calculate_TX_path_rg_val+0x38c> @ imm = #-0x17a
+     504: 2200         	movs	r2, #0x0
+     506: e78e         	b	0x426 <calculate_TX_path_rg_val+0x426> @ imm = #-0xe4
+     508: 2608         	movs	r6, #0x8
+     50a: 46b0         	mov	r8, r6
+     50c: e79c         	b	0x448 <calculate_TX_path_rg_val+0x448> @ imm = #-0xc8
+     50e: 2a01         	cmp	r2, #0x1
+     510: f67f af6d    	bls.w	0x3ee <calculate_TX_path_rg_val+0x3ee> @ imm = #-0x126
+     514: 1e91         	subs	r1, r2, #0x2
+     516: e76a         	b	0x3ee <calculate_TX_path_rg_val+0x3ee> @ imm = #-0x12c
+     518: 2001         	movs	r0, #0x1
+     51a: f884 70ec    	strb.w	r7, [r4, #0xec]
+     51e: f884 00e9    	strb.w	r0, [r4, #0xe9]
+     522: f640 6e94    	movw	lr, #0xe94
+     526: f8a4 70ea    	strh.w	r7, [r4, #0xea]
+     52a: 68a9         	ldr	r1, [r5, #0x8]
+     52c: 4571         	cmp	r1, lr
+     52e: f04f 0600    	mov.w	r6, #0x0
+     532: bf88         	it	hi
+     534: 4606         	movhi	r6, r0
+     536: 2b04         	cmp	r3, #0x4
+     538: f884 60ec    	strb.w	r6, [r4, #0xec]
+     53c: d104         	bne	0x548 <calculate_TX_path_rg_val+0x548> @ imm = #0x8
+     53e: 2101         	movs	r1, #0x1
+     540: f884 10ed    	strb.w	r1, [r4, #0xed]
+     544: 2102         	movs	r1, #0x2
+     546: e756         	b	0x3f6 <calculate_TX_path_rg_val+0x3f6> @ imm = #-0x154
+     548: 2b08         	cmp	r3, #0x8
+     54a: d106         	bne	0x55a <calculate_TX_path_rg_val+0x55a> @ imm = #0xc
+     54c: f5b1 6fc8    	cmp.w	r1, #0x640
+     550: d849         	bhi	0x5e6 <calculate_TX_path_rg_val+0x5e6> @ imm = #0x92
+     552: f884 70ed    	strb.w	r7, [r4, #0xed]
+     556: f884 00ee    	strb.w	r0, [r4, #0xee]
+     55a: 2107         	movs	r1, #0x7
+     55c: f884 10ef    	strb.w	r1, [r4, #0xef]
+     560: 2101         	movs	r1, #0x1
+     562: f884 10f0    	strb.w	r1, [r4, #0xf0]
+     566: f895 1046    	ldrb.w	r1, [r5, #0x46]
+     56a: f884 10f1    	strb.w	r1, [r4, #0xf1]
+     56e: f895 1072    	ldrb.w	r1, [r5, #0x72]
+     572: b941         	cbnz	r1, 0x586 <calculate_TX_path_rg_val+0x586> @ imm = #0x10
+     574: f895 1060    	ldrb.w	r1, [r5, #0x60]
+     578: 2900         	cmp	r1, #0x0
+     57a: f04f 0118    	mov.w	r1, #0x18
+     57e: bf08         	it	eq
+     580: 2110         	moveq	r1, #0x10
+     582: f884 10f1    	strb.w	r1, [r4, #0xf1]
+     586: f895 1075    	ldrb.w	r1, [r5, #0x75]
+     58a: 1d90         	adds	r0, r2, #0x6
+     58c: 4288         	cmp	r0, r1
+     58e: db01         	blt	0x594 <calculate_TX_path_rg_val+0x594> @ imm = #0x2
+     590: 3207         	adds	r2, #0x7
+     592: b2d1         	uxtb	r1, r2
+     594: 4a2c         	ldr	r2, [pc, #0xb0]         @ 0x648 <calculate_TX_path_rg_val+0x648>
+     596: f884 10f2    	strb.w	r1, [r4, #0xf2]
+     59a: f892 1076    	ldrb.w	r1, [r2, #0x76]
+     59e: f892 2075    	ldrb.w	r2, [r2, #0x75]
+     5a2: 430a         	orrs	r2, r1
+     5a4: d02c         	beq	0x600 <calculate_TX_path_rg_val+0x600> @ imm = #0x58
+     5a6: 2206         	movs	r2, #0x6
+     5a8: f884 20f3    	strb.w	r2, [r4, #0xf3]
+     5ac: 1f19         	subs	r1, r3, #0x4
+     5ae: f884 20f4    	strb.w	r2, [r4, #0xf4]
+     5b2: 2200         	movs	r2, #0x0
+     5b4: f884 20f5    	strb.w	r2, [r4, #0xf5]
+     5b8: 2201         	movs	r2, #0x1
+     5ba: f8a4 20f6    	strh.w	r2, [r4, #0xf6]
+     5be: 424a         	rsbs	r2, r1, #0
+     5c0: f884 80fc    	strb.w	r8, [r4, #0xfc]
+     5c4: 414a         	adcs	r2, r1
+     5c6: 3b08         	subs	r3, #0x8
+     5c8: f44f 7180    	mov.w	r1, #0x100
+     5cc: f884 20f8    	strb.w	r2, [r4, #0xf8]
+     5d0: bf18         	it	ne
+     5d2: 2301         	movne	r3, #0x1
+     5d4: f8a4 10fa    	strh.w	r1, [r4, #0xfa]
+     5d8: f884 30f9    	strb.w	r3, [r4, #0xf9]
+     5dc: f884 20fd    	strb.w	r2, [r4, #0xfd]
+     5e0: b017         	add	sp, #0x5c
+     5e2: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     5e6: f640 6095    	movw	r0, #0xe95
+     5ea: 4281         	cmp	r1, r0
+     5ec: d9a7         	bls	0x53e <calculate_TX_path_rg_val+0x53e> @ imm = #-0xb2
+     5ee: f241 00aa    	movw	r0, #0x10aa
+     5f2: 4281         	cmp	r1, r0
+     5f4: d8b1         	bhi	0x55a <calculate_TX_path_rg_val+0x55a> @ imm = #-0x9e
+     5f6: 2102         	movs	r1, #0x2
+     5f8: f884 10ed    	strb.w	r1, [r4, #0xed]
+     5fc: 2103         	movs	r1, #0x3
+     5fe: e6fa         	b	0x3f6 <calculate_TX_path_rg_val+0x3f6> @ imm = #-0x20c
+     600: 2b04         	cmp	r3, #0x4
+     602: f04f 0203    	mov.w	r2, #0x3
+     606: f884 20f3    	strb.w	r2, [r4, #0xf3]
+     60a: bf08         	it	eq
+     60c: 2204         	moveq	r2, #0x4
+     60e: e7cd         	b	0x5ac <calculate_TX_path_rg_val+0x5ac> @ imm = #-0x66
+     610: f1be 0f02    	cmp.w	lr, #0x2
+     614: f43f ae1f    	beq.w	0x256 <calculate_TX_path_rg_val+0x256> @ imm = #-0x3c2
+     618: 4a0c         	ldr	r2, [pc, #0x30]         @ 0x64c <calculate_TX_path_rg_val+0x64c>
+     61a: 2326         	movs	r3, #0x26
+     61c: 9809         	ldr	r0, [sp, #0x24]
+     61e: fb03 2300    	mla	r3, r3, r0, r2
+     622: 79db         	ldrb	r3, [r3, #0x7]
+     624: 2b03         	cmp	r3, #0x3
+     626: f63f ae4b    	bhi.w	0x2c0 <calculate_TX_path_rg_val+0x2c0> @ imm = #-0x36a
+     62a: a201         	adr	r2, #4 <calculate_TX_path_rg_val+0x62f>
+     62c: f852 f023    	ldr.w	pc, [r2, r3, lsl #2]
+     630: ad 02 00 00  	.word	0x000002ad
+			00000630:  R_ARM_ABS32	.text.calculate_TX_path_rg_val
+     634: b5 02 00 00  	.word	0x000002b5
+			00000634:  R_ARM_ABS32	.text.calculate_TX_path_rg_val
+     638: bd 02 00 00  	.word	0x000002bd
+			00000638:  R_ARM_ABS32	.text.calculate_TX_path_rg_val
+     63c: 47 03 00 00  	.word	0x00000347
+			0000063c:  R_ARM_ABS32	.text.calculate_TX_path_rg_val
+     640: 00 00 00 00  	.word	0x00000000
+			00000640:  R_ARM_ABS32	DV_p
+     644: 00 00 00 00  	.word	0x00000000
+			00000644:  R_ARM_ABS32	MEM_TYPE
+     648: 00 00 00 00  	.word	0x00000000
+			00000648:  R_ARM_ABS32	DUTTopSetGlobal
+     64c: 00 00 00 00  	.word	0x00000000
+			0000064c:  R_ARM_ABS32	DUTShufConfigGlobal
+
+Disassembly of section .text.TX_PATH_config:
+
+00000000 <TX_PATH_config>:
+       0: e92d 4ff7    	push.w	{r0, r1, r2, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 460e         	mov	r6, r1
+       6: 4605         	mov	r5, r0
+       8: 461c         	mov	r4, r3
+       a: b2d1         	uxtb	r1, r2
+       c: 4691         	mov	r9, r2
+       e: f7ff fffe    	bl	0xe <TX_PATH_config+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      12: 3c00         	subs	r4, #0x0
+      14: 4628         	mov	r0, r5
+      16: f8df b37c    	ldr.w	r11, [pc, #0x37c]       @ 0x394 <TX_PATH_config+0x394>
+      1a: f04f 0a00    	mov.w	r10, #0x0
+      1e: bf18         	it	ne
+      20: 2401         	movne	r4, #0x1
+      22: f8c5 4098    	str.w	r4, [r5, #0x98]
+      26: 4634         	mov	r4, r6
+      28: f896 30fd    	ldrb.w	r3, [r6, #0xfd]
+      2c: f896 10f3    	ldrb.w	r1, [r6, #0xf3]
+      30: f896 20f8    	ldrb.w	r2, [r6, #0xf8]
+      34: f001 010f    	and	r1, r1, #0xf
+      38: ea41 7103    	orr.w	r1, r1, r3, lsl #28
+      3c: f896 30f4    	ldrb.w	r3, [r6, #0xf4]
+      40: 0352         	lsls	r2, r2, #0xd
+      42: f402 5200    	and	r2, r2, #0x2000
+      46: 011b         	lsls	r3, r3, #0x4
+      48: b2db         	uxtb	r3, r3
+      4a: 4319         	orrs	r1, r3
+      4c: f896 30f5    	ldrb.w	r3, [r6, #0xf5]
+      50: 021b         	lsls	r3, r3, #0x8
+      52: f403 7380    	and	r3, r3, #0x100
+      56: 4319         	orrs	r1, r3
+      58: f896 30f6    	ldrb.w	r3, [r6, #0xf6]
+      5c: 02db         	lsls	r3, r3, #0xb
+      5e: f403 6300    	and	r3, r3, #0x800
+      62: 4319         	orrs	r1, r3
+      64: f896 30f7    	ldrb.w	r3, [r6, #0xf7]
+      68: 031b         	lsls	r3, r3, #0xc
+      6a: f403 5380    	and	r3, r3, #0x1000
+      6e: 4319         	orrs	r1, r3
+      70: f46f 4306    	mvn	r3, #0x8600
+      74: 4311         	orrs	r1, r2
+      76: f896 20f9    	ldrb.w	r2, [r6, #0xf9]
+      7a: 0392         	lsls	r2, r2, #0xe
+      7c: f402 4280    	and	r2, r2, #0x4000
+      80: 4311         	orrs	r1, r2
+      82: f896 20fa    	ldrb.w	r2, [r6, #0xfa]
+      86: 0412         	lsls	r2, r2, #0x10
+      88: f402 2270    	and	r2, r2, #0xf0000
+      8c: 4311         	orrs	r1, r2
+      8e: f896 20fb    	ldrb.w	r2, [r6, #0xfb]
+      92: 0512         	lsls	r2, r2, #0x14
+      94: f402 0270    	and	r2, r2, #0xf00000
+      98: 4311         	orrs	r1, r2
+      9a: f896 20fc    	ldrb.w	r2, [r6, #0xfc]
+      9e: 0612         	lsls	r2, r2, #0x18
+      a0: f002 6270    	and	r2, r2, #0xf000000
+      a4: 430a         	orrs	r2, r1
+      a6: 49bc         	ldr	r1, [pc, #0x2f0]        @ 0x398 <TX_PATH_config+0x398>
+      a8: f7ff fffe    	bl	0xa8 <TX_PATH_config+0xa8> @ imm = #-0x4
+			000000a8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ac: f896 20e0    	ldrb.w	r2, [r6, #0xe0]
+      b0: f896 10e1    	ldrb.w	r1, [r6, #0xe1]
+      b4: 4628         	mov	r0, r5
+      b6: 4bb9         	ldr	r3, [pc, #0x2e4]        @ 0x39c <TX_PATH_config+0x39c>
+      b8: f001 010f    	and	r1, r1, #0xf
+      bc: ea41 71c2    	orr.w	r1, r1, r2, lsl #31
+      c0: f896 20e2    	ldrb.w	r2, [r6, #0xe2]
+      c4: 0412         	lsls	r2, r2, #0x10
+      c6: f402 12f8    	and	r2, r2, #0x1f0000
+      ca: 4311         	orrs	r1, r2
+      cc: f896 20e3    	ldrb.w	r2, [r6, #0xe3]
+      d0: 0112         	lsls	r2, r2, #0x4
+      d2: f402 72f8    	and	r2, r2, #0x1f0
+      d6: 4311         	orrs	r1, r2
+      d8: f896 20e8    	ldrb.w	r2, [r6, #0xe8]
+      dc: 0612         	lsls	r2, r2, #0x18
+      de: f002 62e0    	and	r2, r2, #0x7000000
+      e2: 430a         	orrs	r2, r1
+      e4: 49ae         	ldr	r1, [pc, #0x2b8]        @ 0x3a0 <TX_PATH_config+0x3a0>
+      e6: f7ff fffe    	bl	0xe6 <TX_PATH_config+0xe6> @ imm = #-0x4
+			000000e6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ea: f896 20ea    	ldrb.w	r2, [r6, #0xea]
+      ee: f896 30eb    	ldrb.w	r3, [r6, #0xeb]
+      f2: 4628         	mov	r0, r5
+      f4: f896 10e9    	ldrb.w	r1, [r6, #0xe9]
+      f8: 0412         	lsls	r2, r2, #0x10
+      fa: 061b         	lsls	r3, r3, #0x18
+      fc: f402 2270    	and	r2, r2, #0xf0000
+     100: f003 6370    	and	r3, r3, #0xf000000
+     104: 431a         	orrs	r2, r3
+     106: 4ba7         	ldr	r3, [pc, #0x29c]        @ 0x3a4 <TX_PATH_config+0x3a4>
+     108: ea42 72c1    	orr.w	r2, r2, r1, lsl #31
+     10c: 49a6         	ldr	r1, [pc, #0x298]        @ 0x3a8 <TX_PATH_config+0x3a8>
+     10e: f7ff fffe    	bl	0x10e <TX_PATH_config+0x10e> @ imm = #-0x4
+			0000010e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     112: f896 20ed    	ldrb.w	r2, [r6, #0xed]
+     116: f896 10ec    	ldrb.w	r1, [r6, #0xec]
+     11a: 4628         	mov	r0, r5
+     11c: 4ba3         	ldr	r3, [pc, #0x28c]        @ 0x3ac <TX_PATH_config+0x3ac>
+     11e: 0112         	lsls	r2, r2, #0x4
+     120: 0209         	lsls	r1, r1, #0x8
+     122: b2d2         	uxtb	r2, r2
+     124: f401 6170    	and	r1, r1, #0xf00
+     128: 4311         	orrs	r1, r2
+     12a: f896 20ee    	ldrb.w	r2, [r6, #0xee]
+     12e: f002 020f    	and	r2, r2, #0xf
+     132: 430a         	orrs	r2, r1
+     134: 499e         	ldr	r1, [pc, #0x278]        @ 0x3b0 <TX_PATH_config+0x3b0>
+     136: f7ff fffe    	bl	0x136 <TX_PATH_config+0x136> @ imm = #-0x4
+			00000136:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     13a: f896 10ef    	ldrb.w	r1, [r6, #0xef]
+     13e: f896 20f0    	ldrb.w	r2, [r6, #0xf0]
+     142: 4628         	mov	r0, r5
+     144: f24f 0380    	movw	r3, #0xf080
+     148: 0309         	lsls	r1, r1, #0xc
+     14a: 01d2         	lsls	r2, r2, #0x7
+     14c: b289         	uxth	r1, r1
+     14e: b2d2         	uxtb	r2, r2
+     150: 430a         	orrs	r2, r1
+     152: 4998         	ldr	r1, [pc, #0x260]        @ 0x3b4 <TX_PATH_config+0x3b4>
+     154: f7ff fffe    	bl	0x154 <TX_PATH_config+0x154> @ imm = #-0x4
+			00000154:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     158: f896 20f2    	ldrb.w	r2, [r6, #0xf2]
+     15c: f04f 63f8    	mov.w	r3, #0x7c00000
+     160: 4995         	ldr	r1, [pc, #0x254]        @ 0x3b8 <TX_PATH_config+0x3b8>
+     162: 4628         	mov	r0, r5
+     164: 0592         	lsls	r2, r2, #0x16
+     166: 401a         	ands	r2, r3
+     168: f7ff fffe    	bl	0x168 <TX_PATH_config+0x168> @ imm = #-0x4
+			00000168:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     16c: 4651         	mov	r1, r10
+     16e: 4628         	mov	r0, r5
+     170: f7ff fffe    	bl	0x170 <TX_PATH_config+0x170> @ imm = #-0x4
+			00000170:  R_ARM_THM_CALL	vSetRank
+     174: 6a62         	ldr	r2, [r4, #0x24]
+     176: 6a27         	ldr	r7, [r4, #0x20]
+     178: 6860         	ldr	r0, [r4, #0x4]
+     17a: ea4f 1c02    	lsl.w	r12, r2, #0x4
+     17e: f007 010f    	and	r1, r7, #0xf
+     182: 6823         	ldr	r3, [r4]
+     184: 023f         	lsls	r7, r7, #0x8
+     186: fa5f fc8c    	uxtb.w	r12, r12
+     18a: ea41 7100    	orr.w	r1, r1, r0, lsl #28
+     18e: 0312         	lsls	r2, r2, #0xc
+     190: ea41 010c    	orr.w	r1, r1, r12
+     194: f407 6770    	and	r7, r7, #0xf00
+     198: 0500         	lsls	r0, r0, #0x14
+     19a: 4339         	orrs	r1, r7
+     19c: b292         	uxth	r2, r2
+     19e: 4311         	orrs	r1, r2
+     1a0: 041a         	lsls	r2, r3, #0x10
+     1a2: f402 2270    	and	r2, r2, #0xf0000
+     1a6: f400 0070    	and	r0, r0, #0xf00000
+     1aa: 4311         	orrs	r1, r2
+     1ac: 061a         	lsls	r2, r3, #0x18
+     1ae: 4301         	orrs	r1, r0
+     1b0: f002 6270    	and	r2, r2, #0xf000000
+     1b4: 2700         	movs	r7, #0x0
+     1b6: 430a         	orrs	r2, r1
+     1b8: 463b         	mov	r3, r7
+     1ba: 4980         	ldr	r1, [pc, #0x200]        @ 0x3bc <TX_PATH_config+0x3bc>
+     1bc: 4628         	mov	r0, r5
+     1be: 9700         	str	r7, [sp]
+     1c0: f7ff fffe    	bl	0x1c0 <TX_PATH_config+0x1c0> @ imm = #-0x4
+			000001c0:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     1c4: 6a62         	ldr	r2, [r4, #0x24]
+     1c6: f8d4 c020    	ldr.w	r12, [r4, #0x20]
+     1ca: 6860         	ldr	r0, [r4, #0x4]
+     1cc: ea4f 1e02    	lsl.w	lr, r2, #0x4
+     1d0: f00c 010f    	and	r1, r12, #0xf
+     1d4: 6823         	ldr	r3, [r4]
+     1d6: ea4f 2c0c    	lsl.w	r12, r12, #0x8
+     1da: fa5f fe8e    	uxtb.w	lr, lr
+     1de: ea41 7100    	orr.w	r1, r1, r0, lsl #28
+     1e2: 0312         	lsls	r2, r2, #0xc
+     1e4: ea41 010e    	orr.w	r1, r1, lr
+     1e8: f40c 6c70    	and	r12, r12, #0xf00
+     1ec: 0500         	lsls	r0, r0, #0x14
+     1ee: ea41 010c    	orr.w	r1, r1, r12
+     1f2: b292         	uxth	r2, r2
+     1f4: 4311         	orrs	r1, r2
+     1f6: 041a         	lsls	r2, r3, #0x10
+     1f8: f402 2270    	and	r2, r2, #0xf0000
+     1fc: f400 0070    	and	r0, r0, #0xf00000
+     200: 4311         	orrs	r1, r2
+     202: 061a         	lsls	r2, r3, #0x18
+     204: 4301         	orrs	r1, r0
+     206: f002 6270    	and	r2, r2, #0xf000000
+     20a: 463b         	mov	r3, r7
+     20c: 430a         	orrs	r2, r1
+     20e: 4628         	mov	r0, r5
+     210: 496b         	ldr	r1, [pc, #0x1ac]        @ 0x3c0 <TX_PATH_config+0x3c0>
+     212: 9700         	str	r7, [sp]
+     214: f7ff fffe    	bl	0x214 <TX_PATH_config+0x214> @ imm = #-0x4
+			00000214:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     218: 6b62         	ldr	r2, [r4, #0x34]
+     21a: f8d4 c030    	ldr.w	r12, [r4, #0x30]
+     21e: 6960         	ldr	r0, [r4, #0x14]
+     220: ea4f 1e02    	lsl.w	lr, r2, #0x4
+     224: f00c 010f    	and	r1, r12, #0xf
+     228: 6923         	ldr	r3, [r4, #0x10]
+     22a: ea4f 2c0c    	lsl.w	r12, r12, #0x8
+     22e: fa5f fe8e    	uxtb.w	lr, lr
+     232: ea41 7100    	orr.w	r1, r1, r0, lsl #28
+     236: 0312         	lsls	r2, r2, #0xc
+     238: ea41 010e    	orr.w	r1, r1, lr
+     23c: f40c 6c70    	and	r12, r12, #0xf00
+     240: 0500         	lsls	r0, r0, #0x14
+     242: ea41 010c    	orr.w	r1, r1, r12
+     246: b292         	uxth	r2, r2
+     248: 4311         	orrs	r1, r2
+     24a: 041a         	lsls	r2, r3, #0x10
+     24c: f402 2270    	and	r2, r2, #0xf0000
+     250: f400 0070    	and	r0, r0, #0xf00000
+     254: 4311         	orrs	r1, r2
+     256: 061a         	lsls	r2, r3, #0x18
+     258: 4301         	orrs	r1, r0
+     25a: f002 6270    	and	r2, r2, #0xf000000
+     25e: 463b         	mov	r3, r7
+     260: 430a         	orrs	r2, r1
+     262: 4628         	mov	r0, r5
+     264: 4659         	mov	r1, r11
+     266: 9700         	str	r7, [sp]
+     268: f7ff fffe    	bl	0x268 <TX_PATH_config+0x268> @ imm = #-0x4
+			00000268:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     26c: 6b62         	ldr	r2, [r4, #0x34]
+     26e: f8d4 c030    	ldr.w	r12, [r4, #0x30]
+     272: 6960         	ldr	r0, [r4, #0x14]
+     274: ea4f 1e02    	lsl.w	lr, r2, #0x4
+     278: f00c 010f    	and	r1, r12, #0xf
+     27c: 6923         	ldr	r3, [r4, #0x10]
+     27e: ea4f 2c0c    	lsl.w	r12, r12, #0x8
+     282: fa5f fe8e    	uxtb.w	lr, lr
+     286: ea41 7100    	orr.w	r1, r1, r0, lsl #28
+     28a: 0312         	lsls	r2, r2, #0xc
+     28c: ea41 010e    	orr.w	r1, r1, lr
+     290: f40c 6c70    	and	r12, r12, #0xf00
+     294: 0500         	lsls	r0, r0, #0x14
+     296: ea41 010c    	orr.w	r1, r1, r12
+     29a: b292         	uxth	r2, r2
+     29c: 4311         	orrs	r1, r2
+     29e: 041a         	lsls	r2, r3, #0x10
+     2a0: f402 2270    	and	r2, r2, #0xf0000
+     2a4: f400 0070    	and	r0, r0, #0xf00000
+     2a8: 4311         	orrs	r1, r2
+     2aa: 061a         	lsls	r2, r3, #0x18
+     2ac: 4301         	orrs	r1, r0
+     2ae: f002 6270    	and	r2, r2, #0xf000000
+     2b2: 463b         	mov	r3, r7
+     2b4: 430a         	orrs	r2, r1
+     2b6: 4628         	mov	r0, r5
+     2b8: 4942         	ldr	r1, [pc, #0x108]        @ 0x3c4 <TX_PATH_config+0x3c4>
+     2ba: 9700         	str	r7, [sp]
+     2bc: f7ff fffe    	bl	0x2bc <TX_PATH_config+0x2bc> @ imm = #-0x4
+			000002bc:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     2c0: f8d4 2094    	ldr.w	r2, [r4, #0x94]
+     2c4: f8d4 c090    	ldr.w	r12, [r4, #0x90]
+     2c8: f8d4 00a4    	ldr.w	r0, [r4, #0xa4]
+     2cc: ea4f 1e02    	lsl.w	lr, r2, #0x4
+     2d0: f00c 010f    	and	r1, r12, #0xf
+     2d4: f8d4 30a0    	ldr.w	r3, [r4, #0xa0]
+     2d8: ea4f 2c0c    	lsl.w	r12, r12, #0x8
+     2dc: fa5f fe8e    	uxtb.w	lr, lr
+     2e0: ea41 7100    	orr.w	r1, r1, r0, lsl #28
+     2e4: 0312         	lsls	r2, r2, #0xc
+     2e6: ea41 010e    	orr.w	r1, r1, lr
+     2ea: f40c 6c70    	and	r12, r12, #0xf00
+     2ee: 0500         	lsls	r0, r0, #0x14
+     2f0: ea41 010c    	orr.w	r1, r1, r12
+     2f4: b292         	uxth	r2, r2
+     2f6: 4311         	orrs	r1, r2
+     2f8: 041a         	lsls	r2, r3, #0x10
+     2fa: f402 2270    	and	r2, r2, #0xf0000
+     2fe: f400 0070    	and	r0, r0, #0xf00000
+     302: 4311         	orrs	r1, r2
+     304: 061a         	lsls	r2, r3, #0x18
+     306: 4301         	orrs	r1, r0
+     308: f002 6270    	and	r2, r2, #0xf000000
+     30c: 463b         	mov	r3, r7
+     30e: 430a         	orrs	r2, r1
+     310: 4628         	mov	r0, r5
+     312: 492d         	ldr	r1, [pc, #0xb4]         @ 0x3c8 <TX_PATH_config+0x3c8>
+     314: 9700         	str	r7, [sp]
+     316: f7ff fffe    	bl	0x316 <TX_PATH_config+0x316> @ imm = #-0x4
+			00000316:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     31a: f8d4 20b4    	ldr.w	r2, [r4, #0xb4]
+     31e: f8d4 c0b0    	ldr.w	r12, [r4, #0xb0]
+     322: f8d4 00c4    	ldr.w	r0, [r4, #0xc4]
+     326: ea4f 1e02    	lsl.w	lr, r2, #0x4
+     32a: f00c 010f    	and	r1, r12, #0xf
+     32e: f8d4 30c0    	ldr.w	r3, [r4, #0xc0]
+     332: ea4f 2c0c    	lsl.w	r12, r12, #0x8
+     336: ea41 7100    	orr.w	r1, r1, r0, lsl #28
+     33a: fa5f fe8e    	uxtb.w	lr, lr
+     33e: 0312         	lsls	r2, r2, #0xc
+     340: ea41 010e    	orr.w	r1, r1, lr
+     344: f40c 6c70    	and	r12, r12, #0xf00
+     348: 9700         	str	r7, [sp]
+     34a: ea41 010c    	orr.w	r1, r1, r12
+     34e: b292         	uxth	r2, r2
+     350: 4311         	orrs	r1, r2
+     352: 041a         	lsls	r2, r3, #0x10
+     354: f402 2270    	and	r2, r2, #0xf0000
+     358: 0500         	lsls	r0, r0, #0x14
+     35a: 4311         	orrs	r1, r2
+     35c: 061a         	lsls	r2, r3, #0x18
+     35e: 463b         	mov	r3, r7
+     360: 4f1a         	ldr	r7, [pc, #0x68]         @ 0x3cc <TX_PATH_config+0x3cc>
+     362: f400 0070    	and	r0, r0, #0xf00000
+     366: f002 6270    	and	r2, r2, #0xf000000
+     36a: 4301         	orrs	r1, r0
+     36c: 4628         	mov	r0, r5
+     36e: 430a         	orrs	r2, r1
+     370: 4917         	ldr	r1, [pc, #0x5c]         @ 0x3d0 <TX_PATH_config+0x3d0>
+     372: f7ff fffe    	bl	0x372 <TX_PATH_config+0x372> @ imm = #-0x4
+			00000372:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     376: f897 3076    	ldrb.w	r3, [r7, #0x76]
+     37a: b35b         	cbz	r3, 0x3d4 <TX_PATH_config+0x3d4> @ imm = #0x56
+     37c: f897 2074    	ldrb.w	r2, [r7, #0x74]
+     380: f897 3073    	ldrb.w	r3, [r7, #0x73]
+     384: 4313         	orrs	r3, r2
+     386: d025         	beq	0x3d4 <TX_PATH_config+0x3d4> @ imm = #0x4a
+     388: 6c23         	ldr	r3, [r4, #0x40]
+     38a: e02b         	b	0x3e4 <TX_PATH_config+0x3e4> @ imm = #0x56
+     38c: f04f 0a01    	mov.w	r10, #0x1
+     390: e6ec         	b	0x16c <TX_PATH_config+0x16c> @ imm = #-0x228
+     392: bf00         	nop
+     394: 08 12 60 00  	.word	0x00601208
+     398: c8 16 20 00  	.word	0x002016c8
+     39c: ff 01 1f 87  	.word	0x871f01ff
+     3a0: ac 16 20 00  	.word	0x002016ac
+     3a4: 00 00 0f 8f  	.word	0x8f0f0000
+     3a8: a8 16 20 00  	.word	0x002016a8
+     3ac: ff 0f 00 31  	.word	0x31000fff
+     3b0: 98 16 20 00  	.word	0x00201698
+     3b4: 10 16 20 00  	.word	0x00201610
+     3b8: e8 16 20 00  	.word	0x002016e8
+     3bc: 00 12 60 00  	.word	0x00601200
+     3c0: 04 12 60 00  	.word	0x00601204
+     3c4: 0c 12 60 00  	.word	0x0060120c
+     3c8: 80 12 60 00  	.word	0x00601280
+     3cc: 00 00 00 00  	.word	0x00000000
+			000003cc:  R_ARM_ABS32	DUTTopSetGlobal
+     3d0: 84 12 60 00  	.word	0x00601284
+     3d4: f897 3075    	ldrb.w	r3, [r7, #0x75]
+     3d8: 2b00         	cmp	r3, #0x0
+     3da: d0d5         	beq	0x388 <TX_PATH_config+0x388> @ imm = #-0x56
+     3dc: f1b9 0f00    	cmp.w	r9, #0x0
+     3e0: d1d2         	bne	0x388 <TX_PATH_config+0x388> @ imm = #-0x5c
+     3e2: 6c63         	ldr	r3, [r4, #0x44]
+     3e4: 0219         	lsls	r1, r3, #0x8
+     3e6: 041b         	lsls	r3, r3, #0x10
+     3e8: f401 517c    	and	r1, r1, #0x3f00
+     3ec: f403 127c    	and	r2, r3, #0x3f0000
+     3f0: 430a         	orrs	r2, r1
+     3f2: 4bcd         	ldr	r3, [pc, #0x334]        @ 0x728 <TX_PATH_config+0x728>
+     3f4: 49cd         	ldr	r1, [pc, #0x334]        @ 0x72c <TX_PATH_config+0x72c>
+     3f6: 4628         	mov	r0, r5
+     3f8: f7ff fffe    	bl	0x3f8 <TX_PATH_config+0x3f8> @ imm = #-0x4
+			000003f8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3fc: 6c63         	ldr	r3, [r4, #0x44]
+     3fe: 4628         	mov	r0, r5
+     400: f8df 832c    	ldr.w	r8, [pc, #0x32c]        @ 0x730 <TX_PATH_config+0x730>
+     404: 0219         	lsls	r1, r3, #0x8
+     406: 041b         	lsls	r3, r3, #0x10
+     408: f401 517c    	and	r1, r1, #0x3f00
+     40c: f403 127c    	and	r2, r3, #0x3f0000
+     410: 430a         	orrs	r2, r1
+     412: 4bc5         	ldr	r3, [pc, #0x314]        @ 0x728 <TX_PATH_config+0x728>
+     414: 49c7         	ldr	r1, [pc, #0x31c]        @ 0x734 <TX_PATH_config+0x734>
+     416: f7ff fffe    	bl	0x416 <TX_PATH_config+0x416> @ imm = #-0x4
+			00000416:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     41a: 6f62         	ldr	r2, [r4, #0x74]
+     41c: 6f23         	ldr	r3, [r4, #0x70]
+     41e: 4628         	mov	r0, r5
+     420: ea08 4102    	and.w	r1, r8, r2, lsl #16
+     424: f3c3 020c    	ubfx	r2, r3, #0x0, #0xd
+     428: f06f 23e0    	mvn	r3, #0xe000e000
+     42c: 430a         	orrs	r2, r1
+     42e: 49c2         	ldr	r1, [pc, #0x308]        @ 0x738 <TX_PATH_config+0x738>
+     430: f7ff fffe    	bl	0x430 <TX_PATH_config+0x430> @ imm = #-0x4
+			00000430:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     434: 6f62         	ldr	r2, [r4, #0x74]
+     436: 6f23         	ldr	r3, [r4, #0x70]
+     438: 4628         	mov	r0, r5
+     43a: ea08 4102    	and.w	r1, r8, r2, lsl #16
+     43e: f3c3 020c    	ubfx	r2, r3, #0x0, #0xd
+     442: f06f 23e0    	mvn	r3, #0xe000e000
+     446: 430a         	orrs	r2, r1
+     448: 49bc         	ldr	r1, [pc, #0x2f0]        @ 0x73c <TX_PATH_config+0x73c>
+     44a: f7ff fffe    	bl	0x44a <TX_PATH_config+0x44a> @ imm = #-0x4
+			0000044a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     44e: 6f62         	ldr	r2, [r4, #0x74]
+     450: 6f23         	ldr	r3, [r4, #0x70]
+     452: 4628         	mov	r0, r5
+     454: ea08 4102    	and.w	r1, r8, r2, lsl #16
+     458: f3c3 020c    	ubfx	r2, r3, #0x0, #0xd
+     45c: f06f 23e0    	mvn	r3, #0xe000e000
+     460: 430a         	orrs	r2, r1
+     462: 49b7         	ldr	r1, [pc, #0x2dc]        @ 0x740 <TX_PATH_config+0x740>
+     464: f7ff fffe    	bl	0x464 <TX_PATH_config+0x464> @ imm = #-0x4
+			00000464:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     468: 6f62         	ldr	r2, [r4, #0x74]
+     46a: f06f 23e0    	mvn	r3, #0xe000e000
+     46e: 49b5         	ldr	r1, [pc, #0x2d4]        @ 0x744 <TX_PATH_config+0x744>
+     470: 4628         	mov	r0, r5
+     472: ea08 4802    	and.w	r8, r8, r2, lsl #16
+     476: 6f22         	ldr	r2, [r4, #0x70]
+     478: f3c2 020c    	ubfx	r2, r2, #0x0, #0xd
+     47c: ea48 0202    	orr.w	r2, r8, r2
+     480: f7ff fffe    	bl	0x480 <TX_PATH_config+0x480> @ imm = #-0x4
+			00000480:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     484: f897 2076    	ldrb.w	r2, [r7, #0x76]
+     488: 6c63         	ldr	r3, [r4, #0x44]
+     48a: 2a00         	cmp	r2, #0x0
+     48c: f000 810f    	beq.w	0x6ae <TX_PATH_config+0x6ae> @ imm = #0x21e
+     490: f897 1074    	ldrb.w	r1, [r7, #0x74]
+     494: f897 2073    	ldrb.w	r2, [r7, #0x73]
+     498: 430a         	orrs	r2, r1
+     49a: f000 8108    	beq.w	0x6ae <TX_PATH_config+0x6ae> @ imm = #0x210
+     49e: 6c22         	ldr	r2, [r4, #0x40]
+     4a0: 0211         	lsls	r1, r2, #0x8
+     4a2: 0612         	lsls	r2, r2, #0x18
+     4a4: f002 527c    	and	r2, r2, #0x3f000000
+     4a8: f401 517c    	and	r1, r1, #0x3f00
+     4ac: 4311         	orrs	r1, r2
+     4ae: f003 023f    	and	r2, r3, #0x3f
+     4b2: 4311         	orrs	r1, r2
+     4b4: 041a         	lsls	r2, r3, #0x10
+     4b6: f402 127c    	and	r2, r2, #0x3f0000
+     4ba: 430a         	orrs	r2, r1
+     4bc: 4628         	mov	r0, r5
+     4be: 49a2         	ldr	r1, [pc, #0x288]        @ 0x748 <TX_PATH_config+0x748>
+     4c0: f04f 333f    	mov.w	r3, #0x3f3f3f3f
+     4c4: f7ff fffe    	bl	0x4c4 <TX_PATH_config+0x4c4> @ imm = #-0x4
+			000004c4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     4c8: f8d4 3080    	ldr.w	r3, [r4, #0x80]
+     4cc: f04f 0800    	mov.w	r8, #0x0
+     4d0: 4628         	mov	r0, r5
+     4d2: f8cd 8000    	str.w	r8, [sp]
+     4d6: 021a         	lsls	r2, r3, #0x8
+     4d8: b2d9         	uxtb	r1, r3
+     4da: ea41 6103    	orr.w	r1, r1, r3, lsl #24
+     4de: 041b         	lsls	r3, r3, #0x10
+     4e0: b292         	uxth	r2, r2
+     4e2: 4311         	orrs	r1, r2
+     4e4: f403 027f    	and	r2, r3, #0xff0000
+     4e8: 430a         	orrs	r2, r1
+     4ea: 4643         	mov	r3, r8
+     4ec: 4997         	ldr	r1, [pc, #0x25c]        @ 0x74c <TX_PATH_config+0x74c>
+     4ee: f7ff fffe    	bl	0x4ee <TX_PATH_config+0x4ee> @ imm = #-0x4
+			000004ee:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     4f2: f8d4 3080    	ldr.w	r3, [r4, #0x80]
+     4f6: 4628         	mov	r0, r5
+     4f8: f8cd 8000    	str.w	r8, [sp]
+     4fc: 021a         	lsls	r2, r3, #0x8
+     4fe: b2d9         	uxtb	r1, r3
+     500: ea41 6103    	orr.w	r1, r1, r3, lsl #24
+     504: 041b         	lsls	r3, r3, #0x10
+     506: b292         	uxth	r2, r2
+     508: 4311         	orrs	r1, r2
+     50a: f403 027f    	and	r2, r3, #0xff0000
+     50e: 430a         	orrs	r2, r1
+     510: 4643         	mov	r3, r8
+     512: 498f         	ldr	r1, [pc, #0x23c]        @ 0x750 <TX_PATH_config+0x750>
+     514: f7ff fffe    	bl	0x514 <TX_PATH_config+0x514> @ imm = #-0x4
+			00000514:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     518: f894 2080    	ldrb.w	r2, [r4, #0x80]
+     51c: 498d         	ldr	r1, [pc, #0x234]        @ 0x754 <TX_PATH_config+0x754>
+     51e: 4628         	mov	r0, r5
+     520: 23ff         	movs	r3, #0xff
+     522: f7ff fffe    	bl	0x522 <TX_PATH_config+0x522> @ imm = #-0x4
+			00000522:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     526: f8d4 3084    	ldr.w	r3, [r4, #0x84]
+     52a: 4628         	mov	r0, r5
+     52c: f8cd 8000    	str.w	r8, [sp]
+     530: 021a         	lsls	r2, r3, #0x8
+     532: b2d9         	uxtb	r1, r3
+     534: ea41 6103    	orr.w	r1, r1, r3, lsl #24
+     538: 041b         	lsls	r3, r3, #0x10
+     53a: b292         	uxth	r2, r2
+     53c: 4311         	orrs	r1, r2
+     53e: f403 027f    	and	r2, r3, #0xff0000
+     542: 430a         	orrs	r2, r1
+     544: 4643         	mov	r3, r8
+     546: 4984         	ldr	r1, [pc, #0x210]        @ 0x758 <TX_PATH_config+0x758>
+     548: f7ff fffe    	bl	0x548 <TX_PATH_config+0x548> @ imm = #-0x4
+			00000548:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     54c: f8d4 3084    	ldr.w	r3, [r4, #0x84]
+     550: 4628         	mov	r0, r5
+     552: f8cd 8000    	str.w	r8, [sp]
+     556: 021a         	lsls	r2, r3, #0x8
+     558: b2d9         	uxtb	r1, r3
+     55a: ea41 6103    	orr.w	r1, r1, r3, lsl #24
+     55e: 041b         	lsls	r3, r3, #0x10
+     560: b292         	uxth	r2, r2
+     562: 4311         	orrs	r1, r2
+     564: f403 027f    	and	r2, r3, #0xff0000
+     568: 430a         	orrs	r2, r1
+     56a: 4643         	mov	r3, r8
+     56c: 497b         	ldr	r1, [pc, #0x1ec]        @ 0x75c <TX_PATH_config+0x75c>
+     56e: f7ff fffe    	bl	0x56e <TX_PATH_config+0x56e> @ imm = #-0x4
+			0000056e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     572: f894 2084    	ldrb.w	r2, [r4, #0x84]
+     576: 497a         	ldr	r1, [pc, #0x1e8]        @ 0x760 <TX_PATH_config+0x760>
+     578: 4628         	mov	r0, r5
+     57a: 23ff         	movs	r3, #0xff
+     57c: f7ff fffe    	bl	0x57c <TX_PATH_config+0x57c> @ imm = #-0x4
+			0000057c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     580: f8d4 3080    	ldr.w	r3, [r4, #0x80]
+     584: 4628         	mov	r0, r5
+     586: f8cd 8000    	str.w	r8, [sp]
+     58a: 021a         	lsls	r2, r3, #0x8
+     58c: b2d9         	uxtb	r1, r3
+     58e: ea41 6103    	orr.w	r1, r1, r3, lsl #24
+     592: 041b         	lsls	r3, r3, #0x10
+     594: b292         	uxth	r2, r2
+     596: 4311         	orrs	r1, r2
+     598: f403 027f    	and	r2, r3, #0xff0000
+     59c: 430a         	orrs	r2, r1
+     59e: 4643         	mov	r3, r8
+     5a0: 4970         	ldr	r1, [pc, #0x1c0]        @ 0x764 <TX_PATH_config+0x764>
+     5a2: f7ff fffe    	bl	0x5a2 <TX_PATH_config+0x5a2> @ imm = #-0x4
+			000005a2:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     5a6: f8d4 3084    	ldr.w	r3, [r4, #0x84]
+     5aa: 4628         	mov	r0, r5
+     5ac: f8cd 8000    	str.w	r8, [sp]
+     5b0: 021a         	lsls	r2, r3, #0x8
+     5b2: b2d9         	uxtb	r1, r3
+     5b4: ea41 6103    	orr.w	r1, r1, r3, lsl #24
+     5b8: 041b         	lsls	r3, r3, #0x10
+     5ba: b292         	uxth	r2, r2
+     5bc: 4311         	orrs	r1, r2
+     5be: f403 027f    	and	r2, r3, #0xff0000
+     5c2: 430a         	orrs	r2, r1
+     5c4: 4643         	mov	r3, r8
+     5c6: 4968         	ldr	r1, [pc, #0x1a0]        @ 0x768 <TX_PATH_config+0x768>
+     5c8: f7ff fffe    	bl	0x5c8 <TX_PATH_config+0x5c8> @ imm = #-0x4
+			000005c8:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     5cc: f1ba 0f00    	cmp.w	r10, #0x0
+     5d0: f000 808b    	beq.w	0x6ea <TX_PATH_config+0x6ea> @ imm = #0x116
+     5d4: f896 10e6    	ldrb.w	r1, [r6, #0xe6]
+     5d8: f896 20e7    	ldrb.w	r2, [r6, #0xe7]
+     5dc: 0209         	lsls	r1, r1, #0x8
+     5de: f401 51f8    	and	r1, r1, #0x1f00
+     5e2: f002 021f    	and	r2, r2, #0x1f
+     5e6: f641 731f    	movw	r3, #0x1f1f
+     5ea: 430a         	orrs	r2, r1
+     5ec: 4628         	mov	r0, r5
+     5ee: 495f         	ldr	r1, [pc, #0x17c]        @ 0x76c <TX_PATH_config+0x76c>
+     5f0: f7ff fffe    	bl	0x5f0 <TX_PATH_config+0x5f0> @ imm = #-0x4
+			000005f0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5f4: f897 3076    	ldrb.w	r3, [r7, #0x76]
+     5f8: 2b00         	cmp	r3, #0x0
+     5fa: d07e         	beq	0x6fa <TX_PATH_config+0x6fa> @ imm = #0xfc
+     5fc: f897 1074    	ldrb.w	r1, [r7, #0x74]
+     600: f897 3073    	ldrb.w	r3, [r7, #0x73]
+     604: f8d4 20d0    	ldr.w	r2, [r4, #0xd0]
+     608: 430b         	orrs	r3, r1
+     60a: d07f         	beq	0x70c <TX_PATH_config+0x70c> @ imm = #0xfe
+     60c: 0612         	lsls	r2, r2, #0x18
+     60e: f04f 537c    	mov.w	r3, #0x3f000000
+     612: 4946         	ldr	r1, [pc, #0x118]        @ 0x72c <TX_PATH_config+0x72c>
+     614: 401a         	ands	r2, r3
+     616: 4628         	mov	r0, r5
+     618: f7ff fffe    	bl	0x618 <TX_PATH_config+0x618> @ imm = #-0x4
+			00000618:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     61c: f8d4 20d4    	ldr.w	r2, [r4, #0xd4]
+     620: 0612         	lsls	r2, r2, #0x18
+     622: f04f 537c    	mov.w	r3, #0x3f000000
+     626: 4943         	ldr	r1, [pc, #0x10c]        @ 0x734 <TX_PATH_config+0x734>
+     628: 401a         	ands	r2, r3
+     62a: 4628         	mov	r0, r5
+     62c: f7ff fffe    	bl	0x62c <TX_PATH_config+0x62c> @ imm = #-0x4
+			0000062c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     630: 4b4f         	ldr	r3, [pc, #0x13c]        @ 0x770 <TX_PATH_config+0x770>
+     632: f896 20f1    	ldrb.w	r2, [r6, #0xf1]
+     636: 681b         	ldr	r3, [r3]
+     638: 0412         	lsls	r2, r2, #0x10
+     63a: f402 127c    	and	r2, r2, #0x3f0000
+     63e: 2b00         	cmp	r3, #0x0
+     640: f040 80ae    	bne.w	0x7a0 <TX_PATH_config+0x7a0> @ imm = #0x15c
+     644: 4b4b         	ldr	r3, [pc, #0x12c]        @ 0x774 <TX_PATH_config+0x774>
+     646: f042 6280    	orr	r2, r2, #0x4000000
+     64a: f8df 812c    	ldr.w	r8, [pc, #0x12c]        @ 0x778 <TX_PATH_config+0x778>
+     64e: 4628         	mov	r0, r5
+     650: 494a         	ldr	r1, [pc, #0x128]        @ 0x77c <TX_PATH_config+0x77c>
+     652: f7ff fffe    	bl	0x652 <TX_PATH_config+0x652> @ imm = #-0x4
+			00000652:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     656: f8d8 3000    	ldr.w	r3, [r8]
+     65a: 2b02         	cmp	r3, #0x2
+     65c: d114         	bne	0x688 <TX_PATH_config+0x688> @ imm = #0x28
+     65e: f897 3076    	ldrb.w	r3, [r7, #0x76]
+     662: b98b         	cbnz	r3, 0x688 <TX_PATH_config+0x688> @ imm = #0x22
+     664: f896 30f1    	ldrb.w	r3, [r6, #0xf1]
+     668: 4628         	mov	r0, r5
+     66a: 0619         	lsls	r1, r3, #0x18
+     66c: 021a         	lsls	r2, r3, #0x8
+     66e: f402 527c    	and	r2, r2, #0x3f00
+     672: 041b         	lsls	r3, r3, #0x10
+     674: f001 517c    	and	r1, r1, #0x3f000000
+     678: 4311         	orrs	r1, r2
+     67a: f403 127c    	and	r2, r3, #0x3f0000
+     67e: 430a         	orrs	r2, r1
+     680: 4b3c         	ldr	r3, [pc, #0xf0]         @ 0x774 <TX_PATH_config+0x774>
+     682: 493f         	ldr	r1, [pc, #0xfc]         @ 0x780 <TX_PATH_config+0x780>
+     684: f7ff fffe    	bl	0x684 <TX_PATH_config+0x684> @ imm = #-0x4
+			00000684:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     688: 3408         	adds	r4, #0x8
+     68a: f1ba 0f00    	cmp.w	r10, #0x0
+     68e: f43f ae7d    	beq.w	0x38c <TX_PATH_config+0x38c> @ imm = #-0x306
+     692: f8d8 3000    	ldr.w	r3, [r8]
+     696: 2b02         	cmp	r3, #0x2
+     698: f040 8086    	bne.w	0x7a8 <TX_PATH_config+0x7a8> @ imm = #0x10c
+     69c: 4b39         	ldr	r3, [pc, #0xe4]         @ 0x784 <TX_PATH_config+0x784>
+     69e: 4628         	mov	r0, r5
+     6a0: 4a39         	ldr	r2, [pc, #0xe4]         @ 0x788 <TX_PATH_config+0x788>
+     6a2: 493a         	ldr	r1, [pc, #0xe8]         @ 0x78c <TX_PATH_config+0x78c>
+     6a4: b003         	add	sp, #0xc
+     6a6: e8bd 4ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+     6aa: f7ff bffe    	b.w	0x6aa <TX_PATH_config+0x6aa> @ imm = #-0x4
+			000006aa:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+     6ae: f897 1075    	ldrb.w	r1, [r7, #0x75]
+     6b2: b1a1         	cbz	r1, 0x6de <TX_PATH_config+0x6de> @ imm = #0x28
+     6b4: f1b9 0f00    	cmp.w	r9, #0x0
+     6b8: d111         	bne	0x6de <TX_PATH_config+0x6de> @ imm = #0x22
+     6ba: 021a         	lsls	r2, r3, #0x8
+     6bc: f402 527c    	and	r2, r2, #0x3f00
+     6c0: f003 003f    	and	r0, r3, #0x3f
+     6c4: b171         	cbz	r1, 0x6e4 <TX_PATH_config+0x6e4> @ imm = #0x1c
+     6c6: f1b9 0f00    	cmp.w	r9, #0x0
+     6ca: d10b         	bne	0x6e4 <TX_PATH_config+0x6e4> @ imm = #0x16
+     6cc: 0619         	lsls	r1, r3, #0x18
+     6ce: 041b         	lsls	r3, r3, #0x10
+     6d0: f001 517c    	and	r1, r1, #0x3f000000
+     6d4: f403 137c    	and	r3, r3, #0x3f0000
+     6d8: 4303         	orrs	r3, r0
+     6da: 431a         	orrs	r2, r3
+     6dc: e6ed         	b	0x4ba <TX_PATH_config+0x4ba> @ imm = #-0x226
+     6de: 6c22         	ldr	r2, [r4, #0x40]
+     6e0: 0212         	lsls	r2, r2, #0x8
+     6e2: e7eb         	b	0x6bc <TX_PATH_config+0x6bc> @ imm = #-0x2a
+     6e4: 6c21         	ldr	r1, [r4, #0x40]
+     6e6: 0609         	lsls	r1, r1, #0x18
+     6e8: e7f1         	b	0x6ce <TX_PATH_config+0x6ce> @ imm = #-0x1e
+     6ea: f896 10e4    	ldrb.w	r1, [r6, #0xe4]
+     6ee: f896 20e5    	ldrb.w	r2, [r6, #0xe5]
+     6f2: 0209         	lsls	r1, r1, #0x8
+     6f4: f401 51f8    	and	r1, r1, #0x1f00
+     6f8: e773         	b	0x5e2 <TX_PATH_config+0x5e2> @ imm = #-0x11a
+     6fa: f897 3075    	ldrb.w	r3, [r7, #0x75]
+     6fe: 2b00         	cmp	r3, #0x0
+     700: d046         	beq	0x790 <TX_PATH_config+0x790> @ imm = #0x8c
+     702: f1b9 0f00    	cmp.w	r9, #0x0
+     706: d143         	bne	0x790 <TX_PATH_config+0x790> @ imm = #0x86
+     708: f8d4 20d4    	ldr.w	r2, [r4, #0xd4]
+     70c: f8d4 80d4    	ldr.w	r8, [r4, #0xd4]
+     710: 0612         	lsls	r2, r2, #0x18
+     712: f04f 537c    	mov.w	r3, #0x3f000000
+     716: 4905         	ldr	r1, [pc, #0x14]         @ 0x72c <TX_PATH_config+0x72c>
+     718: 401a         	ands	r2, r3
+     71a: 4628         	mov	r0, r5
+     71c: f7ff fffe    	bl	0x71c <TX_PATH_config+0x71c> @ imm = #-0x4
+			0000071c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     720: ea4f 6208    	lsl.w	r2, r8, #0x18
+     724: e77d         	b	0x622 <TX_PATH_config+0x622> @ imm = #-0x106
+     726: bf00         	nop
+     728: 00 3f 3f 00  	.word	0x003f3f00
+     72c: 20 0a 60 11  	.word	0x11600a20
+     730: 00 00 ff 1f  	.word	0x1fff0000
+     734: a0 0a 60 19  	.word	0x19600aa0
+     738: 10 12 60 00  	.word	0x00601210
+     73c: 1c 12 60 00  	.word	0x0060121c
+     740: 14 12 60 00  	.word	0x00601214
+     744: 20 12 60 00  	.word	0x00601220
+     748: 24 12 60 00  	.word	0x00601224
+     74c: e0 09 60 11  	.word	0x116009e0
+     750: e4 09 60 11  	.word	0x116009e4
+     754: ec 09 60 11  	.word	0x116009ec
+     758: 60 0a 60 19  	.word	0x19600a60
+     75c: 64 0a 60 19  	.word	0x19600a64
+     760: 6c 0a 60 19  	.word	0x19600a6c
+     764: e8 09 60 11  	.word	0x116009e8
+     768: 68 0a 60 19  	.word	0x19600a68
+     76c: 34 12 60 00  	.word	0x00601234
+     770: 00 00 00 00  	.word	0x00000000
+			00000770:  R_ARM_ABS32	pkg_type
+     774: 00 3f 3f 3f  	.word	0x3f3f3f00
+     778: 00 00 00 00  	.word	0x00000000
+			00000778:  R_ARM_ABS32	MEM_TYPE
+     77c: a0 09 60 09  	.word	0x096009a0
+     780: 20 0b 60 21  	.word	0x21600b20
+     784: 00 01 7f 00  	.word	0x007f0100
+     788: 00 01 0f 00  	.word	0x000f0100
+     78c: 84 16 20 00  	.word	0x00201684
+     790: f8d4 20d0    	ldr.w	r2, [r4, #0xd0]
+     794: b113         	cbz	r3, 0x79c <TX_PATH_config+0x79c> @ imm = #0x4
+     796: f1b9 0f00    	cmp.w	r9, #0x0
+     79a: d0b7         	beq	0x70c <TX_PATH_config+0x70c> @ imm = #-0x92
+     79c: 4690         	mov	r8, r2
+     79e: e7b7         	b	0x710 <TX_PATH_config+0x710> @ imm = #-0x92
+     7a0: 4b03         	ldr	r3, [pc, #0xc]          @ 0x7b0 <TX_PATH_config+0x7b0>
+     7a2: f042 5298    	orr	r2, r2, #0x13000000
+     7a6: e750         	b	0x64a <TX_PATH_config+0x64a> @ imm = #-0x160
+     7a8: b003         	add	sp, #0xc
+     7aa: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     7ae: bf00         	nop
+     7b0: 00 3f 3f 3f  	.word	0x3f3f3f00
+
+Disassembly of section .text.TX_PATH_auto_gen_and_set:
+
+00000000 <TX_PATH_auto_gen_and_set>:
+       0: b5f0         	push	{r4, r5, r6, r7, lr}
+       2: 4615         	mov	r5, r2
+       4: b2cf         	uxtb	r7, r1
+       6: b0e1         	sub	sp, #0x184
+       8: 4604         	mov	r4, r0
+       a: 460e         	mov	r6, r1
+       c: 4668         	mov	r0, sp
+       e: 4639         	mov	r1, r7
+      10: f7ff fffe    	bl	0x10 <TX_PATH_auto_gen_and_set+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	get_TX_path_config
+      14: b2ea         	uxtb	r2, r5
+      16: 463b         	mov	r3, r7
+      18: a920         	add	r1, sp, #0x80
+      1a: 4668         	mov	r0, sp
+      1c: f7ff fffe    	bl	0x1c <TX_PATH_auto_gen_and_set+0x1c> @ imm = #-0x4
+			0000001c:  R_ARM_THM_CALL	calculate_TX_path_rg_val
+      20: 462b         	mov	r3, r5
+      22: 4632         	mov	r2, r6
+      24: a920         	add	r1, sp, #0x80
+      26: 4620         	mov	r0, r4
+      28: f7ff fffe    	bl	0x28 <TX_PATH_auto_gen_and_set+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_CALL	TX_PATH_config
+      2c: 4a0e         	ldr	r2, [pc, #0x38]         @ 0x68 <TX_PATH_auto_gen_and_set+0x68>
+      2e: 2326         	movs	r3, #0x26
+      30: fb03 2505    	mla	r5, r3, r5, r2
+      34: 7e6b         	ldrb	r3, [r5, #0x19]
+      36: 2b01         	cmp	r3, #0x1
+      38: f44f 0370    	mov.w	r3, #0xf00000
+      3c: d110         	bne	0x60 <TX_PATH_auto_gen_and_set+0x60> @ imm = #0x20
+      3e: f44f 02a0    	mov.w	r2, #0x500000
+      42: 4620         	mov	r0, r4
+      44: 4909         	ldr	r1, [pc, #0x24]         @ 0x6c <TX_PATH_auto_gen_and_set+0x6c>
+      46: f7ff fffe    	bl	0x46 <TX_PATH_auto_gen_and_set+0x46> @ imm = #-0x4
+			00000046:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      4a: f89d 2006    	ldrb.w	r2, [sp, #0x6]
+      4e: 4908         	ldr	r1, [pc, #0x20]         @ 0x70 <TX_PATH_auto_gen_and_set+0x70>
+      50: 4620         	mov	r0, r4
+      52: f04f 4370    	mov.w	r3, #0xf0000000
+      56: 0712         	lsls	r2, r2, #0x1c
+      58: f7ff fffe    	bl	0x58 <TX_PATH_auto_gen_and_set+0x58> @ imm = #-0x4
+			00000058:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      5c: b061         	add	sp, #0x184
+      5e: bdf0         	pop	{r4, r5, r6, r7, pc}
+      60: f44f 0280    	mov.w	r2, #0x400000
+      64: e7ed         	b	0x42 <TX_PATH_auto_gen_and_set+0x42> @ imm = #-0x26
+      66: bf00         	nop
+      68: 00 00 00 00  	.word	0x00000000
+			00000068:  R_ARM_ABS32	DUTShufConfigGlobal
+      6c: 10 16 20 00  	.word	0x00201610
+      70: 84 16 20 00  	.word	0x00201684

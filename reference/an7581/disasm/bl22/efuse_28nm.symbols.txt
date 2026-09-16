@@ -1,0 +1,46 @@
+
+Symbol table '.symtab' contains 43 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS efuse_28nm.c
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 SECTION LOCAL  DEFAULT    2 .data
+     4: 00000000     0 SECTION LOCAL  DEFAULT    3 .bss
+     5: 00000000     0 SECTION LOCAL  DEFAULT    4 .rodata.efuse_read_data_from_efuse.str1.1
+     6: 00000000     0 SECTION LOCAL  DEFAULT    5 .text.efuse_read_data_from_efuse
+     7: 00000001   132 FUNC    LOCAL  DEFAULT    5 efuse_read_data_from_efuse
+     8: 00000000     0 NOTYPE  LOCAL  DEFAULT    5 $t
+     9: 00000070     0 NOTYPE  LOCAL  DEFAULT    5 $d
+    10: 00000000     0 SECTION LOCAL  DEFAULT    7 .rodata.ef_read_byte.str1.1
+    11: 00000000     0 SECTION LOCAL  DEFAULT    8 .text.ef_read_byte
+    12: 00000000     0 NOTYPE  LOCAL  DEFAULT    8 $t
+    13: 00000028     0 NOTYPE  LOCAL  DEFAULT    8 $d
+    14: 00000000     0 SECTION LOCAL  DEFAULT   10 .text.read_iddq
+    15: 00000000     0 NOTYPE  LOCAL  DEFAULT   10 $t
+    16: 00000008     0 NOTYPE  LOCAL  DEFAULT   10 $d
+    17: 00000000     0 SECTION LOCAL  DEFAULT   12 .text.en7523_packageID_init
+    18: 00000000     0 NOTYPE  LOCAL  DEFAULT   12 $t
+    19: 0000001c     0 NOTYPE  LOCAL  DEFAULT   12 $d
+    20: 00000000     0 SECTION LOCAL  DEFAULT   14 .rodata.efuse_init.str1.1
+    21: 00000000     0 SECTION LOCAL  DEFAULT   15 .text.efuse_init
+    22: 00000000     0 NOTYPE  LOCAL  DEFAULT   15 $t
+    23: 000000c0     0 NOTYPE  LOCAL  DEFAULT   15 $d
+    24: 00000000     0 SECTION LOCAL  DEFAULT   17 .bss.ns_efuse_data
+    25: 00000000     0 NOTYPE  LOCAL  DEFAULT   17 $d
+    26: 00000000     0 SECTION LOCAL  DEFAULT   18 .bss.s_efuse_data
+    27: 00000000     0 NOTYPE  LOCAL  DEFAULT   18 $d
+    28: 00000000     0 SECTION LOCAL  DEFAULT   20 .note.GNU-stack
+    29: 00000000     0 SECTION LOCAL  DEFAULT   19 .comment
+    30: 00000000     0 SECTION LOCAL  DEFAULT   21 .ARM.attributes
+    31: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND tf_log
+    32: 00000001    52 FUNC    GLOBAL DEFAULT    8 ef_read_byte
+    33: 00000001    12 FUNC    GLOBAL DEFAULT   10 read_iddq
+    34: 00000001    32 FUNC    GLOBAL DEFAULT   12 en7523_packageID_init
+    35: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND SET_PACKAGE_ID
+    36: 00000001   228 FUNC    GLOBAL DEFAULT   15 efuse_init
+    37: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memcpy
+    38: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND fill_secure_data
+    39: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND printf
+    40: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND uartDisable
+    41: 00000000   320 OBJECT  GLOBAL DEFAULT   18 s_efuse_data
+    42: 00000000   192 OBJECT  GLOBAL DEFAULT   17 ns_efuse_data

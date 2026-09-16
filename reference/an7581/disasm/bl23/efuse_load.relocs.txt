@@ -1,0 +1,49 @@
+
+Relocation section '.rel.text.ef_read_parse.part.0' at offset 0x504 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000018  0000130a R_ARM_THM_CALL         00000000   memset
+0000002c  0000140a R_ARM_THM_CALL         00000000   ef_read_byte
+
+Relocation section '.rel.text.ef_read_parse' at offset 0x514 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0000061e R_ARM_THM_JUMP24       00000001   ef_read_parse.part.0
+
+Relocation section '.rel.text._efuse2rg' at offset 0x51c contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000018  0000150a R_ARM_THM_CALL         00000001   ef_read_parse
+
+Relocation section '.rel.text.phy_config_efuse_load' at offset 0x524 contains 33 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  0000060a R_ARM_THM_CALL         00000001   ef_read_parse.part.0
+0000001e  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000002a  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+00000036  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+00000042  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000004e  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000005a  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+00000066  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+00000072  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000007e  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000008a  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+00000096  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+000000a4  0000060a R_ARM_THM_CALL         00000001   ef_read_parse.part.0
+000000b8  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+000000c6  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+000000d4  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+000000e2  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+000000f0  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+000000fe  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000010c  0000060a R_ARM_THM_CALL         00000001   ef_read_parse.part.0
+0000011e  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000012a  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+00000136  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+00000142  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000014e  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000015a  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+00000164  0000060a R_ARM_THM_CALL         00000001   ef_read_parse.part.0
+00000176  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+00000182  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000018e  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+0000019a  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+000001a6  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg
+000001b2  00000c0a R_ARM_THM_CALL         00000001   _efuse2rg

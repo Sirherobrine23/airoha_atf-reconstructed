@@ -1,0 +1,171 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl31/efuse_load.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.ef_read_parse:
+
+0000000000000000 <ef_read_parse>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      10: 2a0003f5     	mov	w21, w0
+      14: 0b010000     	add	w0, w0, w1
+      18: f9001bf7     	str	x23, [sp, #0x30]
+      1c: 7118001f     	cmp	w0, #0x600
+      20: 54000109     	b.ls	0x40 <ef_read_parse+0x40>
+      24: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      28: 90000000     	adrp	x0, 0x0 <ef_read_parse>
+		0000000000000028:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.ef_read_parse.str1.1
+      2c: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      30: 91000000     	add	x0, x0, #0x0
+		0000000000000030:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.ef_read_parse.str1.1
+      34: f9401bf7     	ldr	x23, [sp, #0x30]
+      38: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+      3c: 14000000     	b	0x3c <ef_read_parse+0x3c>
+		000000000000003c:  R_AARCH64_JUMP26	tf_log
+      40: 2a0103f3     	mov	w19, w1
+      44: aa0203f6     	mov	x22, x2
+      48: 52800014     	mov	w20, #0x0               // =0
+      4c: aa1603e0     	mov	x0, x22
+      50: f2400a7f     	tst	x19, #0x7
+      54: 1a9f07e2     	cset	w2, ne
+      58: 0b410c42     	add	w2, w2, w1, lsr #3
+      5c: 52800001     	mov	w1, #0x0                // =0
+      60: 93407c42     	sxtw	x2, w2
+      64: 94000000     	bl	0x64 <ef_read_parse+0x64>
+		0000000000000064:  R_AARCH64_CALL26	memset
+      68: 6b13029f     	cmp	w20, w19
+      6c: 540000c1     	b.ne	0x84 <ef_read_parse+0x84>
+      70: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      74: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      78: f9401bf7     	ldr	x23, [sp, #0x30]
+      7c: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+      80: d65f03c0     	ret
+      84: 0b150297     	add	w23, w20, w21
+      88: 53037ee0     	lsr	w0, w23, #3
+      8c: 94000000     	bl	0x8c <ef_read_parse+0x8c>
+		000000000000008c:  R_AARCH64_CALL26	ef_read_byte
+      90: 13037e81     	asr	w1, w20, #3
+      94: 12001c03     	and	w3, w0, #0xff
+      98: 12000af7     	and	w23, w23, #0x7
+      9c: 12000a80     	and	w0, w20, #0x7
+      a0: 93407c21     	sxtw	x1, w1
+      a4: 11000694     	add	w20, w20, #0x1
+      a8: 1ad72863     	asr	w3, w3, w23
+      ac: 12000063     	and	w3, w3, #0x1
+      b0: 1ac02063     	lsl	w3, w3, w0
+      b4: 38616ac0     	ldrb	w0, [x22, x1]
+      b8: 2a000063     	orr	w3, w3, w0
+      bc: 38216ac3     	strb	w3, [x22, x1]
+      c0: 17ffffea     	b	0x68 <ef_read_parse+0x68>
+
+Disassembly of section .text.ef_read_parse_new:
+
+0000000000000000 <ef_read_parse_new>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: 4b000021     	sub	w1, w1, w0
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: 11000433     	add	w19, w1, #0x1
+      14: aa0203e1     	mov	x1, x2
+      18: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      1c: 2a0003f6     	mov	w22, w0
+      20: aa0203f5     	mov	x21, x2
+      24: 90000000     	adrp	x0, 0x0 <ef_read_parse_new>
+		0000000000000024:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.ef_read_parse_new.str1.1
+      28: 91000000     	add	x0, x0, #0x0
+		0000000000000028:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.ef_read_parse_new.str1.1
+      2c: f9001bf7     	str	x23, [sp, #0x30]
+      30: 94000000     	bl	0x30 <ef_read_parse_new+0x30>
+		0000000000000030:  R_AARCH64_CALL26	printf
+      34: 2a1303e1     	mov	w1, w19
+      38: 90000000     	adrp	x0, 0x0 <ef_read_parse_new>
+		0000000000000038:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.ef_read_parse_new.str1.1+0x16
+      3c: 91000000     	add	x0, x0, #0x0
+		000000000000003c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.ef_read_parse_new.str1.1+0x16
+      40: 94000000     	bl	0x40 <ef_read_parse_new+0x40>
+		0000000000000040:  R_AARCH64_CALL26	printf
+      44: 0b1302c0     	add	w0, w22, w19
+      48: 7118001f     	cmp	w0, #0x600
+      4c: 54000109     	b.ls	0x6c <ef_read_parse_new+0x6c>
+      50: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      54: 90000000     	adrp	x0, 0x0 <ef_read_parse_new>
+		0000000000000054:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.ef_read_parse.str1.1
+      58: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      5c: 91000000     	add	x0, x0, #0x0
+		000000000000005c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.ef_read_parse.str1.1
+      60: f9401bf7     	ldr	x23, [sp, #0x30]
+      64: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+      68: 14000000     	b	0x68 <ef_read_parse_new+0x68>
+		0000000000000068:  R_AARCH64_JUMP26	tf_log
+      6c: f2400a7f     	tst	x19, #0x7
+      70: 52800014     	mov	w20, #0x0               // =0
+      74: 1a9f07e2     	cset	w2, ne
+      78: aa1503e0     	mov	x0, x21
+      7c: 0b530c42     	add	w2, w2, w19, lsr #3
+      80: 52800001     	mov	w1, #0x0                // =0
+      84: 93407c42     	sxtw	x2, w2
+      88: 94000000     	bl	0x88 <ef_read_parse_new+0x88>
+		0000000000000088:  R_AARCH64_CALL26	memset
+      8c: 6b14027f     	cmp	w19, w20
+      90: 540000c8     	b.hi	0xa8 <ef_read_parse_new+0xa8>
+      94: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      98: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      9c: f9401bf7     	ldr	x23, [sp, #0x30]
+      a0: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+      a4: d65f03c0     	ret
+      a8: 0b1402d7     	add	w23, w22, w20
+      ac: 53037ee0     	lsr	w0, w23, #3
+      b0: 94000000     	bl	0xb0 <ef_read_parse_new+0xb0>
+		00000000000000b0:  R_AARCH64_CALL26	ef_read_byte
+      b4: 13037e82     	asr	w2, w20, #3
+      b8: 12001c01     	and	w1, w0, #0xff
+      bc: 12000af7     	and	w23, w23, #0x7
+      c0: 12000a80     	and	w0, w20, #0x7
+      c4: 93407c42     	sxtw	x2, w2
+      c8: 11000694     	add	w20, w20, #0x1
+      cc: 1ad72821     	asr	w1, w1, w23
+      d0: 12000021     	and	w1, w1, #0x1
+      d4: 1ac02021     	lsl	w1, w1, w0
+      d8: 38626aa0     	ldrb	w0, [x21, x2]
+      dc: 2a000021     	orr	w1, w1, w0
+      e0: 38226aa1     	strb	w1, [x21, x2]
+      e4: 17ffffea     	b	0x8c <ef_read_parse_new+0x8c>
+
+Disassembly of section .text.phy_config_efuse_load:
+
+0000000000000000 <phy_config_efuse_load>:
+       0: d65f03c0     	ret
+
+Disassembly of section .text.phy_config_efuse_load_new:
+
+0000000000000000 <phy_config_efuse_load_new>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: f9000bf3     	str	x19, [sp, #0x10]
+       c: 2a0003f3     	mov	w19, w0
+      10: 90000000     	adrp	x0, 0x0 <phy_config_efuse_load_new>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.phy_config_efuse_load_new.str1.1
+      14: 91000000     	add	x0, x0, #0x0
+		0000000000000014:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.phy_config_efuse_load_new.str1.1
+      18: 94000000     	bl	0x18 <phy_config_efuse_load_new+0x18>
+		0000000000000018:  R_AARCH64_CALL26	printf
+      1c: 2a1303e1     	mov	w1, w19
+      20: 90000000     	adrp	x0, 0x0 <phy_config_efuse_load_new>
+		0000000000000020:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.phy_config_efuse_load_new.str1.1+0x1b
+      24: 91000000     	add	x0, x0, #0x0
+		0000000000000024:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.phy_config_efuse_load_new.str1.1+0x1b
+      28: 94000000     	bl	0x28 <phy_config_efuse_load_new+0x28>
+		0000000000000028:  R_AARCH64_CALL26	printf
+      2c: 2a1303e2     	mov	w2, w19
+      30: 52807301     	mov	w1, #0x398              // =920
+      34: 52800360     	mov	w0, #0x1b               // =27
+      38: 94000000     	bl	0x38 <phy_config_efuse_load_new+0x38>
+		0000000000000038:  R_AARCH64_CALL26	ef_read_parse_new
+      3c: 1101c262     	add	w2, w19, #0x70
+      40: 5280d3e1     	mov	w1, #0x69f              // =1695
+      44: f9400bf3     	ldr	x19, [sp, #0x10]
+      48: 5280c2c0     	mov	w0, #0x616              // =1558
+      4c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      50: 14000000     	b	0x50 <phy_config_efuse_load_new+0x50>
+		0000000000000050:  R_AARCH64_JUMP26	ef_read_parse_new

@@ -1,0 +1,31 @@
+00000000 <MiiExtStationWrite>:
+       0: b5f8         	push	{r3, r4, r5, r6, r7, lr}
+       2: 4604         	mov	r4, r0
+       4: 460d         	mov	r5, r1
+       6: 4617         	mov	r7, r2
+       8: 211f         	movs	r1, #0x1f
+       a: 2200         	movs	r2, #0x0
+       c: 461e         	mov	r6, r3
+       e: f7ff fffe    	bl	0xe <MiiExtStationWrite+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	miiStationWrite
+      12: 4620         	mov	r0, r4
+      14: 462a         	mov	r2, r5
+      16: 210d         	movs	r1, #0xd
+      18: f7ff fffe    	bl	0x18 <MiiExtStationWrite+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	miiStationWrite
+      1c: 4620         	mov	r0, r4
+      1e: 463a         	mov	r2, r7
+      20: 210e         	movs	r1, #0xe
+      22: f7ff fffe    	bl	0x22 <MiiExtStationWrite+0x22> @ imm = #-0x4
+			00000022:  R_ARM_THM_CALL	miiStationWrite
+      26: 4620         	mov	r0, r4
+      28: f505 4280    	add.w	r2, r5, #0x4000
+      2c: 210d         	movs	r1, #0xd
+      2e: f7ff fffe    	bl	0x2e <MiiExtStationWrite+0x2e> @ imm = #-0x4
+			0000002e:  R_ARM_THM_CALL	miiStationWrite
+      32: 4620         	mov	r0, r4
+      34: 4632         	mov	r2, r6
+      36: 210e         	movs	r1, #0xe
+      38: e8bd 40f8    	pop.w	{r3, r4, r5, r6, r7, lr}
+      3c: f7ff bffe    	b.w	0x3c <MiiExtStationWrite+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_JUMP24	miiStationWrite

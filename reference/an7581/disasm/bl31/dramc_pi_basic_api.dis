@@ -1,0 +1,3345 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl31/dramc_pi_basic_api.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.Global_Option_Init:
+
+0000000000000000 <Global_Option_Init>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: f9000bf3     	str	x19, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 94000000     	bl	0x10 <Global_Option_Init+0x10>
+		0000000000000010:  R_AARCH64_CALL26	vSetRankNumber
+      14: aa1303e0     	mov	x0, x19
+      18: f9400bf3     	ldr	x19, [sp, #0x10]
+      1c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      20: 14000000     	b	0x20 <Global_Option_Init+0x20>
+		0000000000000020:  R_AARCH64_JUMP26	vInitGlobalVariablesByCondition
+
+Disassembly of section .text.MPLLInit:
+
+0000000000000000 <MPLLInit>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: d2800021     	mov	x1, #0x1                // =1
+       8: 910003fd     	mov	x29, sp
+       c: f9000bf3     	str	x19, [sp, #0x10]
+      10: aa0003f3     	mov	x19, x0
+      14: d2980300     	mov	x0, #0xc018             // =49176
+      18: f2a3f940     	movk	x0, #0x1fca, lsl #16
+      1c: f9000001     	str	x1, [x0]
+      20: f900001f     	str	xzr, [x0]
+      24: 39430260     	ldrb	w0, [x19, #0xc0]
+      28: 7100041f     	cmp	w0, #0x1
+      2c: 540009e1     	b.ne	0x168 <MPLLInit+0x168>
+      30: 90000000     	adrp	x0, 0x0 <MPLLInit>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.MPLLInit.str1.1
+      34: 91000000     	add	x0, x0, #0x0
+		0000000000000034:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.MPLLInit.str1.1
+      38: 94000000     	bl	0x38 <MPLLInit+0x38>
+		0000000000000038:  R_AARCH64_CALL26	printf
+      3c: b9401260     	ldr	w0, [x19, #0x10]
+      40: b9401a61     	ldr	w1, [x19, #0x18]
+      44: 71002c1f     	cmp	w0, #0xb
+      48: 54000501     	b.ne	0xe8 <MPLLInit+0xe8>
+      4c: 71000c3f     	cmp	w1, #0x3
+      50: 540004c1     	b.ne	0xe8 <MPLLInit+0xe8>
+      54: d2980080     	mov	x0, #0xc004             // =49156
+      58: f2a3f940     	movk	x0, #0x1fca, lsl #16
+      5c: b9400001     	ldr	w1, [x0]
+      60: 5296e5a1     	mov	w1, #0xb72d             // =46893
+      64: 72a00361     	movk	w1, #0x1b, lsl #16
+      68: b9000001     	str	w1, [x0]
+      6c: b9400401     	ldr	w1, [x0, #0x4]
+      70: b900041f     	str	wzr, [x0, #0x4]
+      74: d28081e1     	mov	x1, #0x40f              // =1039
+      78: f8004001     	stur	x1, [x0, #0x4]
+      7c: b9400801     	ldr	w1, [x0, #0x8]
+      80: 52800221     	mov	w1, #0x11               // =17
+      84: b9000801     	str	w1, [x0, #0x8]
+      88: b9400c01     	ldr	w1, [x0, #0xc]
+      8c: b9000c1f     	str	wzr, [x0, #0xc]
+      90: d2980280     	mov	x0, #0xc014             // =49172
+      94: f2a3f940     	movk	x0, #0x1fca, lsl #16
+      98: b9400001     	ldr	w1, [x0]
+      9c: 52800021     	mov	w1, #0x1                // =1
+      a0: b9000001     	str	w1, [x0]
+      a4: b9400402     	ldr	w2, [x0, #0x4]
+      a8: b900041f     	str	wzr, [x0, #0x4]
+      ac: b9400802     	ldr	w2, [x0, #0x8]
+      b0: b9000801     	str	w1, [x0, #0x8]
+      b4: b9400c01     	ldr	w1, [x0, #0xc]
+      b8: b9000c1f     	str	wzr, [x0, #0xc]
+      bc: d2980000     	mov	x0, #0xc000             // =49152
+      c0: d2800021     	mov	x1, #0x1                // =1
+      c4: f2a3f940     	movk	x0, #0x1fca, lsl #16
+      c8: f9000001     	str	x1, [x0]
+      cc: 52800040     	mov	w0, #0x2                // =2
+      d0: 94000000     	bl	0xd0 <MPLLInit+0xd0>
+		00000000000000d0:  R_AARCH64_CALL26	udelay
+      d4: f9400bf3     	ldr	x19, [sp, #0x10]
+      d8: 90000000     	adrp	x0, 0x0 <MPLLInit>
+		00000000000000d8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.MPLLInit.str1.1+0x10
+      dc: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      e0: 91000000     	add	x0, x0, #0x0
+		00000000000000e0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.MPLLInit.str1.1+0x10
+      e4: 14000000     	b	0xe4 <MPLLInit+0xe4>
+		00000000000000e4:  R_AARCH64_JUMP26	printf
+      e8: 7100103f     	cmp	w1, #0x4
+      ec: 54fffd21     	b.ne	0x90 <MPLLInit+0x90>
+      f0: 7100101f     	cmp	w0, #0x4
+      f4: 540001c1     	b.ne	0x12c <MPLLInit+0x12c>
+      f8: d2980080     	mov	x0, #0xc004             // =49156
+      fc: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     100: b9400001     	ldr	w1, [x0]
+     104: 528bd181     	mov	w1, #0x5e8c             // =24204
+     108: 72a00481     	movk	w1, #0x24, lsl #16
+     10c: b9000001     	str	w1, [x0]
+     110: b9400401     	ldr	w1, [x0, #0x4]
+     114: b900041f     	str	wzr, [x0, #0x4]
+     118: d2806301     	mov	x1, #0x318              // =792
+     11c: f8004001     	stur	x1, [x0, #0x4]
+     120: b9400801     	ldr	w1, [x0, #0x8]
+     124: 528003c1     	mov	w1, #0x1e               // =30
+     128: 17ffffd7     	b	0x84 <MPLLInit+0x84>
+     12c: 7100081f     	cmp	w0, #0x2
+     130: 54fffb01     	b.ne	0x90 <MPLLInit+0x90>
+     134: d2980080     	mov	x0, #0xc004             // =49156
+     138: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     13c: b9400001     	ldr	w1, [x0]
+     140: 52832461     	mov	w1, #0x1923             // =6435
+     144: 72a003a1     	movk	w1, #0x1d, lsl #16
+     148: b9000001     	str	w1, [x0]
+     14c: b9400401     	ldr	w1, [x0, #0x4]
+     150: b900041f     	str	wzr, [x0, #0x4]
+     154: d2807bc1     	mov	x1, #0x3de              // =990
+     158: f8004001     	stur	x1, [x0, #0x4]
+     15c: b9400801     	ldr	w1, [x0, #0x8]
+     160: 52800261     	mov	w1, #0x13               // =19
+     164: 17ffffc8     	b	0x84 <MPLLInit+0x84>
+     168: b9401a60     	ldr	w0, [x19, #0x18]
+     16c: 71000c1f     	cmp	w0, #0x3
+     170: 54000661     	b.ne	0x23c <MPLLInit+0x23c>
+     174: b9401260     	ldr	w0, [x19, #0x10]
+     178: 71003c1f     	cmp	w0, #0xf
+     17c: 54000121     	b.ne	0x1a0 <MPLLInit+0x1a0>
+     180: d2980080     	mov	x0, #0xc004             // =49156
+     184: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     188: b9400001     	ldr	w1, [x0]
+     18c: 52a00801     	mov	w1, #0x400000           // =4194304
+     190: b9000001     	str	w1, [x0]
+     194: b9400401     	ldr	w1, [x0, #0x4]
+     198: b900041f     	str	wzr, [x0, #0x4]
+     19c: 17ffffc8     	b	0xbc <MPLLInit+0xbc>
+     1a0: 7100381f     	cmp	w0, #0xe
+     1a4: 540000e1     	b.ne	0x1c0 <MPLLInit+0x1c0>
+     1a8: d2980080     	mov	x0, #0xc004             // =49156
+     1ac: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     1b0: b9400001     	ldr	w1, [x0]
+     1b4: 5280f5e1     	mov	w1, #0x7af              // =1967
+     1b8: 72a00601     	movk	w1, #0x30, lsl #16
+     1bc: 17fffff5     	b	0x190 <MPLLInit+0x190>
+     1c0: 7100341f     	cmp	w0, #0xd
+     1c4: 540000e1     	b.ne	0x1e0 <MPLLInit+0x1e0>
+     1c8: d2980080     	mov	x0, #0xc004             // =49156
+     1cc: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     1d0: b9400001     	ldr	w1, [x0]
+     1d4: 528d1b81     	mov	w1, #0x68dc             // =26844
+     1d8: 72a004c1     	movk	w1, #0x26, lsl #16
+     1dc: 17ffffed     	b	0x190 <MPLLInit+0x190>
+     1e0: 7100301f     	cmp	w0, #0xc
+     1e4: 540000c1     	b.ne	0x1fc <MPLLInit+0x1fc>
+     1e8: d2980080     	mov	x0, #0xc004             // =49156
+     1ec: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     1f0: b9400001     	ldr	w1, [x0]
+     1f4: 52a00401     	mov	w1, #0x200000           // =2097152
+     1f8: 17ffffe6     	b	0x190 <MPLLInit+0x190>
+     1fc: 71002c1f     	cmp	w0, #0xb
+     200: 540000e1     	b.ne	0x21c <MPLLInit+0x21c>
+     204: d2980080     	mov	x0, #0xc004             // =49156
+     208: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     20c: b9400001     	ldr	w1, [x0]
+     210: 528e0721     	mov	w1, #0x7039             // =28729
+     214: 72a00361     	movk	w1, #0x1b, lsl #16
+     218: 17ffffde     	b	0x190 <MPLLInit+0x190>
+     21c: 7100281f     	cmp	w0, #0xa
+     220: 54fff4e1     	b.ne	0xbc <MPLLInit+0xbc>
+     224: d2980080     	mov	x0, #0xc004             // =49156
+     228: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     22c: b9400001     	ldr	w1, [x0]
+     230: 52801ec1     	mov	w1, #0xf6               // =246
+     234: 72a00301     	movk	w1, #0x18, lsl #16
+     238: 17ffffd6     	b	0x190 <MPLLInit+0x190>
+     23c: 7100101f     	cmp	w0, #0x4
+     240: 54fff3e1     	b.ne	0xbc <MPLLInit+0xbc>
+     244: b9401260     	ldr	w0, [x19, #0x10]
+     248: 7100181f     	cmp	w0, #0x6
+     24c: 540000c1     	b.ne	0x264 <MPLLInit+0x264>
+     250: d2980080     	mov	x0, #0xc004             // =49156
+     254: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     258: b9400001     	ldr	w1, [x0]
+     25c: 52a00601     	mov	w1, #0x300000           // =3145728
+     260: 17ffffcc     	b	0x190 <MPLLInit+0x190>
+     264: 7100141f     	cmp	w0, #0x5
+     268: 540000e1     	b.ne	0x284 <MPLLInit+0x284>
+     26c: d2980080     	mov	x0, #0xc004             // =49156
+     270: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     274: b9400001     	ldr	w1, [x0]
+     278: 52850ac1     	mov	w1, #0x2856             // =10326
+     27c: 72a00521     	movk	w1, #0x29, lsl #16
+     280: 17ffffc4     	b	0x190 <MPLLInit+0x190>
+     284: 7100101f     	cmp	w0, #0x4
+     288: 540000e1     	b.ne	0x2a4 <MPLLInit+0x2a4>
+     28c: d2980080     	mov	x0, #0xc004             // =49156
+     290: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     294: b9400001     	ldr	w1, [x0]
+     298: 52802e01     	mov	w1, #0x170              // =368
+     29c: 72a00481     	movk	w1, #0x24, lsl #16
+     2a0: 17ffffbc     	b	0x190 <MPLLInit+0x190>
+     2a4: 71000c1f     	cmp	w0, #0x3
+     2a8: 54fffa00     	b.eq	0x1e8 <MPLLInit+0x1e8>
+     2ac: 7100081f     	cmp	w0, #0x2
+     2b0: 540000e1     	b.ne	0x2cc <MPLLInit+0x2cc>
+     2b4: d2980080     	mov	x0, #0xc004             // =49156
+     2b8: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     2bc: b9400001     	ldr	w1, [x0]
+     2c0: 5299d481     	mov	w1, #0xcea4             // =52900
+     2c4: 72a00381     	movk	w1, #0x1c, lsl #16
+     2c8: 17ffffb2     	b	0x190 <MPLLInit+0x190>
+     2cc: 7100041f     	cmp	w0, #0x1
+     2d0: 540000e1     	b.ne	0x2ec <MPLLInit+0x2ec>
+     2d4: d2980080     	mov	x0, #0xc004             // =49156
+     2d8: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     2dc: b9400001     	ldr	w1, [x0]
+     2e0: 5285e9e1     	mov	w1, #0x2f4f             // =12111
+     2e4: 72a00341     	movk	w1, #0x1a, lsl #16
+     2e8: 17ffffaa     	b	0x190 <MPLLInit+0x190>
+     2ec: 35ffee80     	cbnz	w0, 0xbc <MPLLInit+0xbc>
+     2f0: d2980080     	mov	x0, #0xc004             // =49156
+     2f4: f2a3f940     	movk	x0, #0x1fca, lsl #16
+     2f8: b9400001     	ldr	w1, [x0]
+     2fc: 52a00301     	mov	w1, #0x180000           // =1572864
+     300: 17ffffa4     	b	0x190 <MPLLInit+0x190>
+
+Disassembly of section .text.vReplaceDVInit:
+
+0000000000000000 <vReplaceDVInit>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: 52809c81     	mov	w1, #0x4e4              // =1252
+       8: 52b20003     	mov	w3, #-0x70000000        // =-1879048192
+       c: 910003fd     	mov	x29, sp
+      10: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      14: 52801d16     	mov	w22, #0xe8              // =232
+      18: 39403015     	ldrb	w21, [x0, #0xc]
+      1c: f9001bf7     	str	x23, [sp, #0x30]
+      20: 52802d17     	mov	w23, #0x168             // =360
+      24: 52800002     	mov	w2, #0x0                // =0
+      28: 72a22001     	movk	w1, #0x1100, lsl #16
+      2c: 72a22816     	movk	w22, #0x1140, lsl #16
+      30: 72a32817     	movk	w23, #0x1940, lsl #16
+      34: a90153f3     	stp	x19, x20, [sp, #0x10]
+      38: aa0003f3     	mov	x19, x0
+      3c: 52800014     	mov	w20, #0x0               // =0
+      40: 94000000     	bl	0x40 <vReplaceDVInit+0x40>
+		0000000000000040:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      44: 5280ac81     	mov	w1, #0x564              // =1380
+      48: aa1303e0     	mov	x0, x19
+      4c: 52b20003     	mov	w3, #-0x70000000        // =-1879048192
+      50: 52800002     	mov	w2, #0x0                // =0
+      54: 72a32001     	movk	w1, #0x1900, lsl #16
+      58: 94000000     	bl	0x58 <vReplaceDVInit+0x58>
+		0000000000000058:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      5c: b9400a60     	ldr	w0, [x19, #0x8]
+      60: 6b00029f     	cmp	w20, w0
+      64: 540048a3     	b.lo	0x978 <vReplaceDVInit+0x978>
+      68: 2a1503e1     	mov	w1, w21
+      6c: aa1303e0     	mov	x0, x19
+      70: 94000000     	bl	0x70 <vReplaceDVInit+0x70>
+		0000000000000070:  R_AARCH64_CALL26	vSetRank
+      74: aa1303e0     	mov	x0, x19
+      78: 528f0003     	mov	w3, #0x7800             // =30720
+      7c: 52800002     	mov	w2, #0x0                // =0
+      80: 52802a01     	mov	w1, #0x150              // =336
+      84: 94000000     	bl	0x84 <vReplaceDVInit+0x84>
+		0000000000000084:  R_AARCH64_CALL26	vIO32WriteMsk
+      88: aa1303e0     	mov	x0, x19
+      8c: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+      90: 52800002     	mov	w2, #0x0                // =0
+      94: 52802581     	mov	w1, #0x12c              // =300
+      98: 94000000     	bl	0x98 <vReplaceDVInit+0x98>
+		0000000000000098:  R_AARCH64_CALL26	vIO32WriteMsk
+      9c: 94000000     	bl	0x9c <vReplaceDVInit+0x9c>
+		000000000000009c:  R_AARCH64_CALL26	GetDramcBroadcast
+      a0: 2a0003f5     	mov	w21, w0
+      a4: 52800000     	mov	w0, #0x0                // =0
+      a8: 94000000     	bl	0xa8 <vReplaceDVInit+0xa8>
+		00000000000000a8:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      ac: 7940aa60     	ldrh	w0, [x19, #0x54]
+      b0: 7112bc1f     	cmp	w0, #0x4af
+      b4: aa1303e0     	mov	x0, x19
+      b8: 1a9f87f4     	cset	w20, ls
+      bc: 94000000     	bl	0xbc <vReplaceDVInit+0xbc>
+		00000000000000bc:  R_AARCH64_CALL26	is_ddr3_family
+      c0: 72001c1f     	tst	w0, #0xff
+      c4: 540047a1     	b.ne	0x9b8 <vReplaceDVInit+0x9b8>
+      c8: aa1303e0     	mov	x0, x19
+      cc: 94000000     	bl	0xcc <vReplaceDVInit+0xcc>
+		00000000000000cc:  R_AARCH64_CALL26	is_ddr4_family
+      d0: 72001c1f     	tst	w0, #0xff
+      d4: 52800302     	mov	w2, #0x18               // =24
+      d8: 1a8213e2     	csel	w2, wzr, w2, ne
+      dc: 53144c42     	lsl	w2, w2, #12
+      e0: 529e0003     	mov	w3, #0xf000             // =61440
+      e4: 2a145854     	orr	w20, w2, w20, lsl #22
+      e8: 5281de01     	mov	w1, #0xef0              // =3824
+      ec: 2a1403e2     	mov	w2, w20
+      f0: aa1303e0     	mov	x0, x19
+      f4: 72a018e3     	movk	w3, #0xc7, lsl #16
+      f8: 72b22401     	movk	w1, #0x9120, lsl #16
+      fc: 94000000     	bl	0xfc <vReplaceDVInit+0xfc>
+		00000000000000fc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     100: 52810016     	mov	w22, #0x800             // =2048
+     104: 529e0003     	mov	w3, #0xf000             // =61440
+     108: 5281ee01     	mov	w1, #0xf70              // =3952
+     10c: 2a1403e2     	mov	w2, w20
+     110: aa1303e0     	mov	x0, x19
+     114: 72a018e3     	movk	w3, #0xc7, lsl #16
+     118: 72b32401     	movk	w1, #0x9920, lsl #16
+     11c: 94000000     	bl	0x11c <vReplaceDVInit+0x11c>
+		000000000000011c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     120: 529e0003     	mov	w3, #0xf000             // =61440
+     124: 5281fe01     	mov	w1, #0xff0              // =4080
+     128: 2a1403e2     	mov	w2, w20
+     12c: aa1303e0     	mov	x0, x19
+     130: 72a018e3     	movk	w3, #0xc7, lsl #16
+     134: 72b42401     	movk	w1, #0xa120, lsl #16
+     138: 94000000     	bl	0x138 <vReplaceDVInit+0x138>
+		0000000000000138:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     13c: 529e0003     	mov	w3, #0xf000             // =61440
+     140: 5281ce01     	mov	w1, #0xe70              // =3696
+     144: 2a1403e2     	mov	w2, w20
+     148: aa1303e0     	mov	x0, x19
+     14c: 72a018e3     	movk	w3, #0xc7, lsl #16
+     150: 72b12401     	movk	w1, #0x8920, lsl #16
+     154: 94000000     	bl	0x154 <vReplaceDVInit+0x154>
+		0000000000000154:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     158: 52808014     	mov	w20, #0x400             // =1024
+     15c: 7940aa60     	ldrh	w0, [x19, #0x54]
+     160: 5281e003     	mov	w3, #0xf00              // =3840
+     164: 7121541f     	cmp	w0, #0x855
+     168: aa1303e0     	mov	x0, x19
+     16c: 1a9633e1     	csel	w1, wzr, w22, lo
+     170: 1a9433e2     	csel	w2, wzr, w20, lo
+     174: 2a010042     	orr	w2, w2, w1
+     178: 5281df01     	mov	w1, #0xef8              // =3832
+     17c: 72aa2401     	movk	w1, #0x5120, lsl #16
+     180: 94000000     	bl	0x180 <vReplaceDVInit+0x180>
+		0000000000000180:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     184: 7940aa60     	ldrh	w0, [x19, #0x54]
+     188: 5281e003     	mov	w3, #0xf00              // =3840
+     18c: 7121501f     	cmp	w0, #0x854
+     190: aa1303e0     	mov	x0, x19
+     194: 1a9f82c1     	csel	w1, w22, wzr, hi
+     198: 1a9f8282     	csel	w2, w20, wzr, hi
+     19c: 2a010042     	orr	w2, w2, w1
+     1a0: 5281ef01     	mov	w1, #0xf78              // =3960
+     1a4: 72ab2401     	movk	w1, #0x5920, lsl #16
+     1a8: 94000000     	bl	0x1a8 <vReplaceDVInit+0x1a8>
+		00000000000001a8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     1ac: 7940aa60     	ldrh	w0, [x19, #0x54]
+     1b0: 52802002     	mov	w2, #0x100              // =256
+     1b4: 5281e003     	mov	w3, #0xf00              // =3840
+     1b8: 7121501f     	cmp	w0, #0x854
+     1bc: 1a9f82d6     	csel	w22, w22, wzr, hi
+     1c0: 1a9f8294     	csel	w20, w20, wzr, hi
+     1c4: 7104b41f     	cmp	w0, #0x12d
+     1c8: 2a160294     	orr	w20, w20, w22
+     1cc: 1a9f3041     	csel	w1, w2, wzr, lo
+     1d0: 52804002     	mov	w2, #0x200              // =512
+     1d4: 1a9f3042     	csel	w2, w2, wzr, lo
+     1d8: aa1303e0     	mov	x0, x19
+     1dc: 2a010042     	orr	w2, w2, w1
+     1e0: 5281cf01     	mov	w1, #0xe78              // =3704
+     1e4: 2a140042     	orr	w2, w2, w20
+     1e8: 72a92401     	movk	w1, #0x4920, lsl #16
+     1ec: 94000000     	bl	0x1ec <vReplaceDVInit+0x1ec>
+		00000000000001ec:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     1f0: 52810101     	mov	w1, #0x808              // =2056
+     1f4: 52800024     	mov	w4, #0x1                // =1
+     1f8: aa1303e0     	mov	x0, x19
+     1fc: 52800003     	mov	w3, #0x0                // =0
+     200: 52800002     	mov	w2, #0x0                // =0
+     204: 72a02001     	movk	w1, #0x100, lsl #16
+     208: 94000000     	bl	0x208 <vReplaceDVInit+0x208>
+		0000000000000208:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     20c: 52800063     	mov	w3, #0x3                // =3
+     210: 52822401     	mov	w1, #0x1120             // =4384
+     214: aa1303e0     	mov	x0, x19
+     218: 72a01fe3     	movk	w3, #0xff, lsl #16
+     21c: 52a00042     	mov	w2, #0x20000            // =131072
+     220: 72a02401     	movk	w1, #0x120, lsl #16
+     224: 94000000     	bl	0x224 <vReplaceDVInit+0x224>
+		0000000000000224:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     228: aa1303e0     	mov	x0, x19
+     22c: 52800803     	mov	w3, #0x40               // =64
+     230: 52800002     	mov	w2, #0x0                // =0
+     234: 52804401     	mov	w1, #0x220              // =544
+     238: 94000000     	bl	0x238 <vReplaceDVInit+0x238>
+		0000000000000238:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     23c: aa1303e0     	mov	x0, x19
+     240: 52800803     	mov	w3, #0x40               // =64
+     244: 52800002     	mov	w2, #0x0                // =0
+     248: 52804d01     	mov	w1, #0x268              // =616
+     24c: 94000000     	bl	0x24c <vReplaceDVInit+0x24c>
+		000000000000024c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     250: aa1303e0     	mov	x0, x19
+     254: 529fffe3     	mov	w3, #0xffff             // =65535
+     258: 52800002     	mov	w2, #0x0                // =0
+     25c: 52805b01     	mov	w1, #0x2d8              // =728
+     260: 94000000     	bl	0x260 <vReplaceDVInit+0x260>
+		0000000000000260:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     264: aa1303e0     	mov	x0, x19
+     268: 320823e3     	mov	w3, #-0xffffff          // =-16777215
+     26c: 52800002     	mov	w2, #0x0                // =0
+     270: 52805c01     	mov	w1, #0x2e0              // =736
+     274: 94000000     	bl	0x274 <vReplaceDVInit+0x274>
+		0000000000000274:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     278: 52824c81     	mov	w1, #0x1264             // =4708
+     27c: aa1303e0     	mov	x0, x19
+     280: 52800023     	mov	w3, #0x1                // =1
+     284: 52800002     	mov	w2, #0x0                // =0
+     288: 72a00c01     	movk	w1, #0x60, lsl #16
+     28c: 94000000     	bl	0x28c <vReplaceDVInit+0x28c>
+		000000000000028c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     290: 52809581     	mov	w1, #0x4ac              // =1196
+     294: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     298: aa1303e0     	mov	x0, x19
+     29c: 2a0303e2     	mov	w2, w3
+     2a0: 72a12001     	movk	w1, #0x900, lsl #16
+     2a4: 94000000     	bl	0x2a4 <vReplaceDVInit+0x2a4>
+		00000000000002a4:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     2a8: 52809581     	mov	w1, #0x4ac              // =1196
+     2ac: aa1303e0     	mov	x0, x19
+     2b0: 52affc03     	mov	w3, #0x7fe00000         // =2145386496
+     2b4: 52a52802     	mov	w2, #0x29400000         // =692060160
+     2b8: 72a12001     	movk	w1, #0x900, lsl #16
+     2bc: 94000000     	bl	0x2bc <vReplaceDVInit+0x2bc>
+		00000000000002bc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     2c0: 5281df81     	mov	w1, #0xefc              // =3836
+     2c4: 52800243     	mov	w3, #0x12               // =18
+     2c8: aa1303e0     	mov	x0, x19
+     2cc: 2a0303e2     	mov	w2, w3
+     2d0: 72b22401     	movk	w1, #0x9120, lsl #16
+     2d4: 94000000     	bl	0x2d4 <vReplaceDVInit+0x2d4>
+		00000000000002d4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     2d8: 5281ef81     	mov	w1, #0xf7c              // =3964
+     2dc: 52800243     	mov	w3, #0x12               // =18
+     2e0: aa1303e0     	mov	x0, x19
+     2e4: 2a0303e2     	mov	w2, w3
+     2e8: 72b32401     	movk	w1, #0x9920, lsl #16
+     2ec: 94000000     	bl	0x2ec <vReplaceDVInit+0x2ec>
+		00000000000002ec:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     2f0: 5281e101     	mov	w1, #0xf08              // =3848
+     2f4: 52bfbb03     	mov	w3, #-0x2280000         // =-36175872
+     2f8: aa1303e0     	mov	x0, x19
+     2fc: 2a0303e2     	mov	w2, w3
+     300: 72a22401     	movk	w1, #0x1120, lsl #16
+     304: 94000000     	bl	0x304 <vReplaceDVInit+0x304>
+		0000000000000304:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     308: 5281f101     	mov	w1, #0xf88              // =3976
+     30c: 52bfbb03     	mov	w3, #-0x2280000         // =-36175872
+     310: aa1303e0     	mov	x0, x19
+     314: 2a0303e2     	mov	w2, w3
+     318: 72a32401     	movk	w1, #0x1920, lsl #16
+     31c: 94000000     	bl	0x31c <vReplaceDVInit+0x31c>
+		000000000000031c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     320: aa1303e0     	mov	x0, x19
+     324: 52a00803     	mov	w3, #0x400000           // =4194304
+     328: 52800002     	mov	w2, #0x0                // =0
+     32c: 52802201     	mov	w1, #0x110              // =272
+     330: 94000000     	bl	0x330 <vReplaceDVInit+0x330>
+		0000000000000330:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     334: aa1303e0     	mov	x0, x19
+     338: 52807fe3     	mov	w3, #0x3ff              // =1023
+     33c: 52800402     	mov	w2, #0x20               // =32
+     340: 52802601     	mov	w1, #0x130              // =304
+     344: 94000000     	bl	0x344 <vReplaceDVInit+0x344>
+		0000000000000344:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     348: aa1303e0     	mov	x0, x19
+     34c: 321127e3     	mov	w3, #0x1ff8000          // =33521664
+     350: 52a00202     	mov	w2, #0x100000           // =1048576
+     354: 52802781     	mov	w1, #0x13c              // =316
+     358: 94000000     	bl	0x358 <vReplaceDVInit+0x358>
+		0000000000000358:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     35c: aa1303e0     	mov	x0, x19
+     360: 52801043     	mov	w3, #0x82               // =130
+     364: 52800002     	mov	w2, #0x0                // =0
+     368: 52802e01     	mov	w1, #0x170              // =368
+     36c: 94000000     	bl	0x36c <vReplaceDVInit+0x36c>
+		000000000000036c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     370: aa1303e0     	mov	x0, x19
+     374: 52801803     	mov	w3, #0xc0               // =192
+     378: 52801002     	mov	w2, #0x80               // =128
+     37c: 52802e81     	mov	w1, #0x174              // =372
+     380: 94000000     	bl	0x380 <vReplaceDVInit+0x380>
+		0000000000000380:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     384: 52800823     	mov	w3, #0x41               // =65
+     388: aa1303e0     	mov	x0, x19
+     38c: 2a0303e2     	mov	w2, w3
+     390: 52803201     	mov	w1, #0x190              // =400
+     394: 94000000     	bl	0x394 <vReplaceDVInit+0x394>
+		0000000000000394:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     398: 52a10003     	mov	w3, #0x8000000          // =134217728
+     39c: aa1303e0     	mov	x0, x19
+     3a0: 2a0303e2     	mov	w2, w3
+     3a4: 52804081     	mov	w1, #0x204              // =516
+     3a8: 94000000     	bl	0x3a8 <vReplaceDVInit+0x3a8>
+		00000000000003a8:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     3ac: 52810403     	mov	w3, #0x820              // =2080
+     3b0: aa1303e0     	mov	x0, x19
+     3b4: 2a0303e2     	mov	w2, w3
+     3b8: 52804101     	mov	w1, #0x208              // =520
+     3bc: 94000000     	bl	0x3bc <vReplaceDVInit+0x3bc>
+		00000000000003bc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     3c0: aa1303e0     	mov	x0, x19
+     3c4: 52801fe3     	mov	w3, #0xff               // =255
+     3c8: 52800022     	mov	w2, #0x1                // =1
+     3cc: 52804201     	mov	w1, #0x210              // =528
+     3d0: 94000000     	bl	0x3d0 <vReplaceDVInit+0x3d0>
+		00000000000003d0:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     3d4: aa1303e0     	mov	x0, x19
+     3d8: 528050c3     	mov	w3, #0x286              // =646
+     3dc: 52801002     	mov	w2, #0x80               // =128
+     3e0: 52804401     	mov	w1, #0x220              // =544
+     3e4: 94000000     	bl	0x3e4 <vReplaceDVInit+0x3e4>
+		00000000000003e4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     3e8: aa1303e0     	mov	x0, x19
+     3ec: 52800803     	mov	w3, #0x40               // =64
+     3f0: 52800002     	mov	w2, #0x0                // =0
+     3f4: 52804801     	mov	w1, #0x240              // =576
+     3f8: 94000000     	bl	0x3f8 <vReplaceDVInit+0x3f8>
+		00000000000003f8:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     3fc: 52808003     	mov	w3, #0x400              // =1024
+     400: aa1303e0     	mov	x0, x19
+     404: 72b00003     	movk	w3, #0x8000, lsl #16
+     408: 52804981     	mov	w1, #0x24c              // =588
+     40c: 2a0303e2     	mov	w2, w3
+     410: 94000000     	bl	0x410 <vReplaceDVInit+0x410>
+		0000000000000410:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     414: 5282da81     	mov	w1, #0x16d4             // =5844
+     418: aa1303e0     	mov	x0, x19
+     41c: 528006e3     	mov	w3, #0x37               // =55
+     420: 52800282     	mov	w2, #0x14               // =20
+     424: 72a00401     	movk	w1, #0x20, lsl #16
+     428: 94000000     	bl	0x428 <vReplaceDVInit+0x428>
+		0000000000000428:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     42c: aa1303e0     	mov	x0, x19
+     430: 52800023     	mov	w3, #0x1                // =1
+     434: 52800002     	mov	w2, #0x0                // =0
+     438: 52804a81     	mov	w1, #0x254              // =596
+     43c: 94000000     	bl	0x43c <vReplaceDVInit+0x43c>
+		000000000000043c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     440: aa1303e0     	mov	x0, x19
+     444: 528001e3     	mov	w3, #0xf                // =15
+     448: 52800142     	mov	w2, #0xa                // =10
+     44c: 52804c81     	mov	w1, #0x264              // =612
+     450: 94000000     	bl	0x450 <vReplaceDVInit+0x450>
+		0000000000000450:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     454: 5282a103     	mov	w3, #0x1508             // =5384
+     458: 5280a002     	mov	w2, #0x500              // =1280
+     45c: aa1303e0     	mov	x0, x19
+     460: 72a05003     	movk	w3, #0x280, lsl #16
+     464: 72a01002     	movk	w2, #0x80, lsl #16
+     468: 52804d01     	mov	w1, #0x268              // =616
+     46c: 94000000     	bl	0x46c <vReplaceDVInit+0x46c>
+		000000000000046c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     470: aa1303e0     	mov	x0, x19
+     474: 5283e003     	mov	w3, #0x1f00             // =7936
+     478: 5280a002     	mov	w2, #0x500              // =1280
+     47c: 52804d81     	mov	w1, #0x26c              // =620
+     480: 94000000     	bl	0x480 <vReplaceDVInit+0x480>
+		0000000000000480:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     484: 52800043     	mov	w3, #0x2                // =2
+     488: aa1303e0     	mov	x0, x19
+     48c: 2a0303e2     	mov	w2, w3
+     490: 52805081     	mov	w1, #0x284              // =644
+     494: 94000000     	bl	0x494 <vReplaceDVInit+0x494>
+		0000000000000494:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     498: aa1303e0     	mov	x0, x19
+     49c: 12800003     	mov	w3, #-0x1               // =-1
+     4a0: 52800602     	mov	w2, #0x30               // =48
+     4a4: 52805a81     	mov	w1, #0x2d4              // =724
+     4a8: 94000000     	bl	0x4a8 <vReplaceDVInit+0x4a8>
+		00000000000004a8:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     4ac: aa1303e0     	mov	x0, x19
+     4b0: 52bfe003     	mov	w3, #-0x1000000         // =-16777216
+     4b4: 52800002     	mov	w2, #0x0                // =0
+     4b8: 52805c01     	mov	w1, #0x2e0              // =736
+     4bc: 94000000     	bl	0x4bc <vReplaceDVInit+0x4bc>
+		00000000000004bc:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     4c0: 5282c201     	mov	w1, #0x1610             // =5648
+     4c4: 52801003     	mov	w3, #0x80               // =128
+     4c8: aa1303e0     	mov	x0, x19
+     4cc: 2a0303e2     	mov	w2, w3
+     4d0: 72a00401     	movk	w1, #0x20, lsl #16
+     4d4: 94000000     	bl	0x4d4 <vReplaceDVInit+0x4d4>
+		00000000000004d4:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     4d8: 5282c281     	mov	w1, #0x1614             // =5652
+     4dc: aa1303e0     	mov	x0, x19
+     4e0: 32184fe3     	mov	w3, #0xfffff00          // =268435200
+     4e4: 52a03fe2     	mov	w2, #0x1ff0000          // =33488896
+     4e8: 72a00401     	movk	w1, #0x20, lsl #16
+     4ec: 94000000     	bl	0x4ec <vReplaceDVInit+0x4ec>
+		00000000000004ec:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     4f0: 5282c801     	mov	w1, #0x1640             // =5696
+     4f4: aa1303e0     	mov	x0, x19
+     4f8: 52bfe003     	mov	w3, #-0x1000000         // =-16777216
+     4fc: 52a16002     	mov	w2, #0xb000000          // =184549376
+     500: 72a00401     	movk	w1, #0x20, lsl #16
+     504: 94000000     	bl	0x504 <vReplaceDVInit+0x504>
+		0000000000000504:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     508: 5282d481     	mov	w1, #0x16a4             // =5796
+     50c: aa1303e0     	mov	x0, x19
+     510: 528001e3     	mov	w3, #0xf                // =15
+     514: 52800042     	mov	w2, #0x2                // =2
+     518: 72a00401     	movk	w1, #0x20, lsl #16
+     51c: 94000000     	bl	0x51c <vReplaceDVInit+0x51c>
+		000000000000051c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     520: 52809d01     	mov	w1, #0x4e8              // =1256
+     524: aa1303e0     	mov	x0, x19
+     528: 52840003     	mov	w3, #0x2000             // =8192
+     52c: 52800002     	mov	w2, #0x0                // =0
+     530: 72a22001     	movk	w1, #0x1100, lsl #16
+     534: 94000000     	bl	0x534 <vReplaceDVInit+0x534>
+		0000000000000534:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     538: 5280ad01     	mov	w1, #0x568              // =1384
+     53c: aa1303e0     	mov	x0, x19
+     540: 52840003     	mov	w3, #0x2000             // =8192
+     544: 52800002     	mov	w2, #0x0                // =0
+     548: 72a32001     	movk	w1, #0x1900, lsl #16
+     54c: 94000000     	bl	0x54c <vReplaceDVInit+0x54c>
+		000000000000054c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     550: 52809e81     	mov	w1, #0x4f4              // =1268
+     554: 52806003     	mov	w3, #0x300              // =768
+     558: aa1303e0     	mov	x0, x19
+     55c: 2a0303e2     	mov	w2, w3
+     560: 72aa2001     	movk	w1, #0x5100, lsl #16
+     564: 94000000     	bl	0x564 <vReplaceDVInit+0x564>
+		0000000000000564:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     568: 5280ae81     	mov	w1, #0x574              // =1396
+     56c: 52806003     	mov	w3, #0x300              // =768
+     570: aa1303e0     	mov	x0, x19
+     574: 2a0303e2     	mov	w2, w3
+     578: 72ab2001     	movk	w1, #0x5900, lsl #16
+     57c: 94000000     	bl	0x57c <vReplaceDVInit+0x57c>
+		000000000000057c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     580: 52808e81     	mov	w1, #0x474              // =1140
+     584: 52806003     	mov	w3, #0x300              // =768
+     588: aa1303e0     	mov	x0, x19
+     58c: 2a0303e2     	mov	w2, w3
+     590: 72a92001     	movk	w1, #0x4900, lsl #16
+     594: 94000000     	bl	0x594 <vReplaceDVInit+0x594>
+		0000000000000594:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     598: 52809401     	mov	w1, #0x4a0              // =1184
+     59c: aa1303e0     	mov	x0, x19
+     5a0: 5283e3e3     	mov	w3, #0x1f1f             // =7967
+     5a4: 52814142     	mov	w2, #0xa0a              // =2570
+     5a8: 72a12001     	movk	w1, #0x900, lsl #16
+     5ac: 94000000     	bl	0x5ac <vReplaceDVInit+0x5ac>
+		00000000000005ac:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     5b0: 52800803     	mov	w3, #0x40               // =64
+     5b4: 5280ce81     	mov	w1, #0x674              // =1652
+     5b8: aa1303e0     	mov	x0, x19
+     5bc: 72b07c03     	movk	w3, #0x83e0, lsl #16
+     5c0: 52b00c02     	mov	w2, #-0x7fa00000        // =-2141192192
+     5c4: 72a02001     	movk	w1, #0x100, lsl #16
+     5c8: 94000000     	bl	0x5c8 <vReplaceDVInit+0x5c8>
+		00000000000005c8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     5cc: 5280d401     	mov	w1, #0x6a0              // =1696
+     5d0: 52800083     	mov	w3, #0x4                // =4
+     5d4: aa1303e0     	mov	x0, x19
+     5d8: 2a0303e2     	mov	w2, w3
+     5dc: 72a02001     	movk	w1, #0x100, lsl #16
+     5e0: 94000000     	bl	0x5e0 <vReplaceDVInit+0x5e0>
+		00000000000005e0:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     5e4: 52976203     	mov	w3, #0xbb10             // =47888
+     5e8: 5280d101     	mov	w1, #0x688              // =1672
+     5ec: aa1303e0     	mov	x0, x19
+     5f0: 72a00163     	movk	w3, #0xb, lsl #16
+     5f4: 52800002     	mov	w2, #0x0                // =0
+     5f8: 72a02001     	movk	w1, #0x100, lsl #16
+     5fc: 94000000     	bl	0x5fc <vReplaceDVInit+0x5fc>
+		00000000000005fc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     600: 5281f203     	mov	w3, #0xf90              // =3984
+     604: 5280d301     	mov	w1, #0x698              // =1688
+     608: aa1303e0     	mov	x0, x19
+     60c: 72a1f803     	movk	w3, #0xfc0, lsl #16
+     610: 52811202     	mov	w2, #0x890              // =2192
+     614: 72a02001     	movk	w1, #0x100, lsl #16
+     618: 94000000     	bl	0x618 <vReplaceDVInit+0x618>
+		0000000000000618:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     61c: 5280d781     	mov	w1, #0x6bc              // =1724
+     620: aa1303e0     	mov	x0, x19
+     624: 52801fe3     	mov	w3, #0xff               // =255
+     628: 528001e2     	mov	w2, #0xf                // =15
+     62c: 72a02001     	movk	w1, #0x100, lsl #16
+     630: 94000000     	bl	0x630 <vReplaceDVInit+0x630>
+		0000000000000630:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     634: 529be003     	mov	w3, #0xdf00             // =57088
+     638: 52886002     	mov	w2, #0x4300             // =17152
+     63c: 5280d801     	mov	w1, #0x6c0              // =1728
+     640: aa1303e0     	mov	x0, x19
+     644: 72b00003     	movk	w3, #0x8000, lsl #16
+     648: 72b00002     	movk	w2, #0x8000, lsl #16
+     64c: 72a02001     	movk	w1, #0x100, lsl #16
+     650: 94000000     	bl	0x650 <vReplaceDVInit+0x650>
+		0000000000000650:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     654: 52800583     	mov	w3, #0x2c               // =44
+     658: 52800402     	mov	w2, #0x20               // =32
+     65c: 5280d881     	mov	w1, #0x6c4              // =1732
+     660: aa1303e0     	mov	x0, x19
+     664: 72a00143     	movk	w3, #0xa, lsl #16
+     668: 72a00142     	movk	w2, #0xa, lsl #16
+     66c: 72a02001     	movk	w1, #0x100, lsl #16
+     670: 94000000     	bl	0x670 <vReplaceDVInit+0x670>
+		0000000000000670:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     674: 5280f481     	mov	w1, #0x7a4              // =1956
+     678: aa1303e0     	mov	x0, x19
+     67c: 52800603     	mov	w3, #0x30               // =48
+     680: 52800202     	mov	w2, #0x10               // =16
+     684: 72a02001     	movk	w1, #0x100, lsl #16
+     688: 94000000     	bl	0x688 <vReplaceDVInit+0x688>
+		0000000000000688:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     68c: 5280f581     	mov	w1, #0x7ac              // =1964
+     690: aa1303e0     	mov	x0, x19
+     694: 52a02003     	mov	w3, #0x1000000          // =16777216
+     698: 52800002     	mov	w2, #0x0                // =0
+     69c: 72a02001     	movk	w1, #0x100, lsl #16
+     6a0: 94000000     	bl	0x6a0 <vReplaceDVInit+0x6a0>
+		00000000000006a0:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     6a4: 5280f701     	mov	w1, #0x7b8              // =1976
+     6a8: 52a00183     	mov	w3, #0xc0000            // =786432
+     6ac: aa1303e0     	mov	x0, x19
+     6b0: 2a0303e2     	mov	w2, w3
+     6b4: 72a02001     	movk	w1, #0x100, lsl #16
+     6b8: 94000000     	bl	0x6b8 <vReplaceDVInit+0x6b8>
+		00000000000006b8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     6bc: 5280f901     	mov	w1, #0x7c8              // =1992
+     6c0: aa1303e0     	mov	x0, x19
+     6c4: 52803fe3     	mov	w3, #0x1ff              // =511
+     6c8: 52800002     	mov	w2, #0x0                // =0
+     6cc: 72a02001     	movk	w1, #0x100, lsl #16
+     6d0: 94000000     	bl	0x6d0 <vReplaceDVInit+0x6d0>
+		00000000000006d0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     6d4: 52868003     	mov	w3, #0x3400             // =13312
+     6d8: 52840002     	mov	w2, #0x2000             // =8192
+     6dc: 5280f981     	mov	w1, #0x7cc              // =1996
+     6e0: aa1303e0     	mov	x0, x19
+     6e4: 72a0b803     	movk	w3, #0x5c0, lsl #16
+     6e8: 72a02802     	movk	w2, #0x140, lsl #16
+     6ec: 72a02001     	movk	w1, #0x100, lsl #16
+     6f0: 94000000     	bl	0x6f0 <vReplaceDVInit+0x6f0>
+		00000000000006f0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     6f4: 529fe063     	mov	w3, #0xff03             // =65283
+     6f8: 5280fa01     	mov	w1, #0x7d0              // =2000
+     6fc: aa1303e0     	mov	x0, x19
+     700: 72a1ffe3     	movk	w3, #0xfff, lsl #16
+     704: 52804062     	mov	w2, #0x203              // =515
+     708: 72a02001     	movk	w1, #0x100, lsl #16
+     70c: 94000000     	bl	0x70c <vReplaceDVInit+0x70c>
+		000000000000070c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     710: 52810701     	mov	w1, #0x838              // =2104
+     714: aa1303e0     	mov	x0, x19
+     718: 52a3e003     	mov	w3, #0x1f000000         // =520093696
+     71c: 52a1c002     	mov	w2, #0xe000000          // =234881024
+     720: 72a02001     	movk	w1, #0x100, lsl #16
+     724: 94000000     	bl	0x724 <vReplaceDVInit+0x724>
+		0000000000000724:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     728: 52810901     	mov	w1, #0x848              // =2120
+     72c: aa1303e0     	mov	x0, x19
+     730: 529f0003     	mov	w3, #0xf800             // =63488
+     734: 52800002     	mov	w2, #0x0                // =0
+     738: 72a02001     	movk	w1, #0x100, lsl #16
+     73c: 94000000     	bl	0x73c <vReplaceDVInit+0x73c>
+		000000000000073c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     740: 5280f701     	mov	w1, #0x7b8              // =1976
+     744: aa1303e0     	mov	x0, x19
+     748: 52814003     	mov	w3, #0xa00              // =2560
+     74c: 52800002     	mov	w2, #0x0                // =0
+     750: 72a02001     	movk	w1, #0x100, lsl #16
+     754: 94000000     	bl	0x754 <vReplaceDVInit+0x754>
+		0000000000000754:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     758: 52810981     	mov	w1, #0x84c              // =2124
+     75c: aa1303e0     	mov	x0, x19
+     760: 52bfffe3     	mov	w3, #-0x10000           // =-65536
+     764: 52a0c002     	mov	w2, #0x6000000          // =100663296
+     768: 72a02001     	movk	w1, #0x100, lsl #16
+     76c: 94000000     	bl	0x76c <vReplaceDVInit+0x76c>
+		000000000000076c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     770: 52810a01     	mov	w1, #0x850              // =2128
+     774: aa1303e0     	mov	x0, x19
+     778: 529fffe3     	mov	w3, #0xffff             // =65535
+     77c: 52900082     	mov	w2, #0x8004             // =32772
+     780: 72a02001     	movk	w1, #0x100, lsl #16
+     784: 94000000     	bl	0x784 <vReplaceDVInit+0x784>
+		0000000000000784:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     788: 52810a81     	mov	w1, #0x854              // =2132
+     78c: aa1303e0     	mov	x0, x19
+     790: 52800803     	mov	w3, #0x40               // =64
+     794: 52800002     	mov	w2, #0x0                // =0
+     798: 72a02001     	movk	w1, #0x100, lsl #16
+     79c: 94000000     	bl	0x79c <vReplaceDVInit+0x79c>
+		000000000000079c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     7a0: 5281de81     	mov	w1, #0xef4              // =3828
+     7a4: 52b18003     	mov	w3, #-0x74000000        // =-1946157056
+     7a8: aa1303e0     	mov	x0, x19
+     7ac: 2a0303e2     	mov	w2, w3
+     7b0: 72b22401     	movk	w1, #0x9120, lsl #16
+     7b4: 94000000     	bl	0x7b4 <vReplaceDVInit+0x7b4>
+		00000000000007b4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     7b8: 5281ee81     	mov	w1, #0xf74              // =3956
+     7bc: 52b18003     	mov	w3, #-0x74000000        // =-1946157056
+     7c0: aa1303e0     	mov	x0, x19
+     7c4: 2a0303e2     	mov	w2, w3
+     7c8: 72b32401     	movk	w1, #0x9920, lsl #16
+     7cc: 94000000     	bl	0x7cc <vReplaceDVInit+0x7cc>
+		00000000000007cc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     7d0: 52800243     	mov	w3, #0x12               // =18
+     7d4: 52800242     	mov	w2, #0x12               // =18
+     7d8: 5281df81     	mov	w1, #0xefc              // =3836
+     7dc: aa1303e0     	mov	x0, x19
+     7e0: 72a00183     	movk	w3, #0xc, lsl #16
+     7e4: 72a00082     	movk	w2, #0x4, lsl #16
+     7e8: 72b22401     	movk	w1, #0x9120, lsl #16
+     7ec: 94000000     	bl	0x7ec <vReplaceDVInit+0x7ec>
+		00000000000007ec:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     7f0: 52800243     	mov	w3, #0x12               // =18
+     7f4: 52800242     	mov	w2, #0x12               // =18
+     7f8: 5281ef81     	mov	w1, #0xf7c              // =3964
+     7fc: aa1303e0     	mov	x0, x19
+     800: 72a00183     	movk	w3, #0xc, lsl #16
+     804: 72a00082     	movk	w2, #0x4, lsl #16
+     808: 72b32401     	movk	w1, #0x9920, lsl #16
+     80c: 94000000     	bl	0x80c <vReplaceDVInit+0x80c>
+		000000000000080c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     810: 52804243     	mov	w3, #0x212              // =530
+     814: 5281e001     	mov	w1, #0xf00              // =3840
+     818: 52800024     	mov	w4, #0x1                // =1
+     81c: aa1303e0     	mov	x0, x19
+     820: 2a0403e2     	mov	w2, w4
+     824: 72a00083     	movk	w3, #0x4, lsl #16
+     828: 72aa2401     	movk	w1, #0x5120, lsl #16
+     82c: 94000000     	bl	0x82c <vReplaceDVInit+0x82c>
+		000000000000082c:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     830: 52804243     	mov	w3, #0x212              // =530
+     834: 5281f001     	mov	w1, #0xf80              // =3968
+     838: 52800024     	mov	w4, #0x1                // =1
+     83c: aa1303e0     	mov	x0, x19
+     840: 2a0403e2     	mov	w2, w4
+     844: 72a00083     	movk	w3, #0x4, lsl #16
+     848: 72ab2401     	movk	w1, #0x5920, lsl #16
+     84c: 94000000     	bl	0x84c <vReplaceDVInit+0x84c>
+		000000000000084c:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     850: 52812001     	mov	w1, #0x900              // =2304
+     854: aa1303e0     	mov	x0, x19
+     858: 529fffe3     	mov	w3, #0xffff             // =65535
+     85c: 52800002     	mov	w2, #0x0                // =0
+     860: 72a02401     	movk	w1, #0x120, lsl #16
+     864: 94000000     	bl	0x864 <vReplaceDVInit+0x864>
+		0000000000000864:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     868: 52812401     	mov	w1, #0x920              // =2336
+     86c: aa1303e0     	mov	x0, x19
+     870: 529fffe3     	mov	w3, #0xffff             // =65535
+     874: 52800002     	mov	w2, #0x0                // =0
+     878: 72a02401     	movk	w1, #0x120, lsl #16
+     87c: 94000000     	bl	0x87c <vReplaceDVInit+0x87c>
+		000000000000087c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     880: 5281ce81     	mov	w1, #0xe74              // =3700
+     884: 52b10003     	mov	w3, #-0x78000000        // =-2013265920
+     888: aa1303e0     	mov	x0, x19
+     88c: 2a0303e2     	mov	w2, w3
+     890: 72b12401     	movk	w1, #0x8920, lsl #16
+     894: 94000000     	bl	0x894 <vReplaceDVInit+0x894>
+		0000000000000894:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     898: 52804243     	mov	w3, #0x212              // =530
+     89c: 5281d001     	mov	w1, #0xe80              // =3712
+     8a0: 52800024     	mov	w4, #0x1                // =1
+     8a4: aa1303e0     	mov	x0, x19
+     8a8: 2a0403e2     	mov	w2, w4
+     8ac: 72a00083     	movk	w3, #0x4, lsl #16
+     8b0: 72a92401     	movk	w1, #0x4920, lsl #16
+     8b4: 94000000     	bl	0x8b4 <vReplaceDVInit+0x8b4>
+		00000000000008b4:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     8b8: 5281d101     	mov	w1, #0xe88              // =3720
+     8bc: aa1303e0     	mov	x0, x19
+     8c0: 52bf8603     	mov	w3, #-0x3d00000         // =-63963136
+     8c4: 52bf8402     	mov	w2, #-0x3e00000         // =-65011712
+     8c8: 72a12401     	movk	w1, #0x920, lsl #16
+     8cc: 94000000     	bl	0x8cc <vReplaceDVInit+0x8cc>
+		00000000000008cc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     8d0: 528e0003     	mov	w3, #0x7000             // =28672
+     8d4: 52821181     	mov	w1, #0x108c             // =4236
+     8d8: 72a000e3     	movk	w3, #0x7, lsl #16
+     8dc: 2a0303e2     	mov	w2, w3
+     8e0: 72a02401     	movk	w1, #0x120, lsl #16
+     8e4: aa1303e0     	mov	x0, x19
+     8e8: 94000000     	bl	0x8e8 <vReplaceDVInit+0x8e8>
+		00000000000008e8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     8ec: aa1303e0     	mov	x0, x19
+     8f0: 94000000     	bl	0x8f0 <vReplaceDVInit+0x8f0>
+		00000000000008f0:  R_AARCH64_CALL26	is_ddr3_family
+     8f4: 528007e3     	mov	w3, #0x3f               // =63
+     8f8: 72001c1f     	tst	w0, #0xff
+     8fc: 54000620     	b.eq	0x9c0 <vReplaceDVInit+0x9c0>
+     900: 52800122     	mov	w2, #0x9                // =9
+     904: 52821b81     	mov	w1, #0x10dc             // =4316
+     908: aa1303e0     	mov	x0, x19
+     90c: 72a02401     	movk	w1, #0x120, lsl #16
+     910: 94000000     	bl	0x910 <vReplaceDVInit+0x910>
+		0000000000000910:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     914: 52821881     	mov	w1, #0x10c4             // =4292
+     918: aa1303e0     	mov	x0, x19
+     91c: 528000e3     	mov	w3, #0x7                // =7
+     920: 528000c2     	mov	w2, #0x6                // =6
+     924: 72a02401     	movk	w1, #0x120, lsl #16
+     928: 94000000     	bl	0x928 <vReplaceDVInit+0x928>
+		0000000000000928:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     92c: 52800063     	mov	w3, #0x3                // =3
+     930: 52822401     	mov	w1, #0x1120             // =4384
+     934: aa1303e0     	mov	x0, x19
+     938: 72a01fe3     	movk	w3, #0xff, lsl #16
+     93c: 52a00042     	mov	w2, #0x20000            // =131072
+     940: 72a02401     	movk	w1, #0x120, lsl #16
+     944: 94000000     	bl	0x944 <vReplaceDVInit+0x944>
+		0000000000000944:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     948: 52810e01     	mov	w1, #0x870              // =2160
+     94c: aa1303e0     	mov	x0, x19
+     950: 52a01fe3     	mov	w3, #0xff0000           // =16711680
+     954: 52a00042     	mov	w2, #0x20000            // =131072
+     958: 72a02001     	movk	w1, #0x100, lsl #16
+     95c: 94000000     	bl	0x95c <vReplaceDVInit+0x95c>
+		000000000000095c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     960: 2a1503e0     	mov	w0, w21
+     964: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     968: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     96c: f9401bf7     	ldr	x23, [sp, #0x30]
+     970: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+     974: 14000000     	b	0x974 <vReplaceDVInit+0x974>
+		0000000000000974:  R_AARCH64_JUMP26	DramcBroadcastOnOff
+     978: 2a1403e1     	mov	w1, w20
+     97c: aa1303e0     	mov	x0, x19
+     980: 94000000     	bl	0x980 <vReplaceDVInit+0x980>
+		0000000000000980:  R_AARCH64_CALL26	vSetRank
+     984: 11000694     	add	w20, w20, #0x1
+     988: 2a1603e1     	mov	w1, w22
+     98c: aa1303e0     	mov	x0, x19
+     990: 52ba1003     	mov	w3, #-0x2f800000        // =-796917760
+     994: 52800002     	mov	w2, #0x0                // =0
+     998: 94000000     	bl	0x998 <vReplaceDVInit+0x998>
+		0000000000000998:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     99c: 12001e94     	and	w20, w20, #0xff
+     9a0: 2a1703e1     	mov	w1, w23
+     9a4: aa1303e0     	mov	x0, x19
+     9a8: 52ba1003     	mov	w3, #-0x2f800000        // =-796917760
+     9ac: 52800002     	mov	w2, #0x0                // =0
+     9b0: 94000000     	bl	0x9b0 <vReplaceDVInit+0x9b0>
+		00000000000009b0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     9b4: 17fffdaa     	b	0x5c <vReplaceDVInit+0x5c>
+     9b8: 52800062     	mov	w2, #0x3                // =3
+     9bc: 17fffdc8     	b	0xdc <vReplaceDVInit+0xdc>
+     9c0: 52800102     	mov	w2, #0x8                // =8
+     9c4: 17ffffd0     	b	0x904 <vReplaceDVInit+0x904>
+
+Disassembly of section .text.DramcInit_DutyCalibration:
+
+0000000000000000 <DramcInit_DutyCalibration>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 52800014     	mov	w20, #0x0               // =0
+      14: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      18: 94000000     	bl	0x18 <DramcInit_DutyCalibration+0x18>
+		0000000000000018:  R_AARCH64_CALL26	vGetPHY2ChannelMapping
+      1c: 2a0003f6     	mov	w22, w0
+      20: 94000000     	bl	0x20 <DramcInit_DutyCalibration+0x20>
+		0000000000000020:  R_AARCH64_CALL26	GetDramcBroadcast
+      24: 2a0003f5     	mov	w21, w0
+      28: 52800002     	mov	w2, #0x0                // =0
+      2c: aa1303e0     	mov	x0, x19
+      30: 52800021     	mov	w1, #0x1                // =1
+      34: 94000000     	bl	0x34 <DramcInit_DutyCalibration+0x34>
+		0000000000000034:  R_AARCH64_CALL26	CKE_FIX_ON
+      38: 52800002     	mov	w2, #0x0                // =0
+      3c: 52800001     	mov	w1, #0x0                // =0
+      40: aa1303e0     	mov	x0, x19
+      44: 94000000     	bl	0x44 <DramcInit_DutyCalibration+0x44>
+		0000000000000044:  R_AARCH64_CALL26	CKE_FIX_ON
+      48: 52800000     	mov	w0, #0x0                // =0
+      4c: 94000000     	bl	0x4c <DramcInit_DutyCalibration+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      50: b9400260     	ldr	w0, [x19]
+      54: 6b00029f     	cmp	w20, w0
+      58: 54000123     	b.lo	0x7c <DramcInit_DutyCalibration+0x7c>
+      5c: 2a1603e1     	mov	w1, w22
+      60: aa1303e0     	mov	x0, x19
+      64: 94000000     	bl	0x64 <DramcInit_DutyCalibration+0x64>
+		0000000000000064:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      68: 2a1503e0     	mov	w0, w21
+      6c: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      70: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      74: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      78: 14000000     	b	0x78 <DramcInit_DutyCalibration+0x78>
+		0000000000000078:  R_AARCH64_JUMP26	DramcBroadcastOnOff
+      7c: 2a1403e1     	mov	w1, w20
+      80: aa1303e0     	mov	x0, x19
+      84: 11000694     	add	w20, w20, #0x1
+      88: 94000000     	bl	0x88 <DramcInit_DutyCalibration+0x88>
+		0000000000000088:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      8c: aa1303e0     	mov	x0, x19
+      90: 12001e94     	and	w20, w20, #0xff
+      94: 94000000     	bl	0x94 <DramcInit_DutyCalibration+0x94>
+		0000000000000094:  R_AARCH64_CALL26	DramcNewDutyCalibration
+      98: 17ffffee     	b	0x50 <DramcInit_DutyCalibration+0x50>
+
+Disassembly of section .text.DV_InitialSettings:
+
+0000000000000000 <DV_InitialSettings>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: f9000bf3     	str	x19, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 52800020     	mov	w0, #0x1                // =1
+      14: 94000000     	bl	0x14 <DV_InitialSettings+0x14>
+		0000000000000014:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      18: aa1303e0     	mov	x0, x19
+      1c: 94000000     	bl	0x1c <DV_InitialSettings+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	ANA_init
+      20: aa1303e0     	mov	x0, x19
+      24: 94000000     	bl	0x24 <DV_InitialSettings+0x24>
+		0000000000000024:  R_AARCH64_CALL26	DIG_STATIC_SETTING
+      28: aa1303e0     	mov	x0, x19
+      2c: 52800002     	mov	w2, #0x0                // =0
+      30: 52800001     	mov	w1, #0x0                // =0
+      34: 94000000     	bl	0x34 <DV_InitialSettings+0x34>
+		0000000000000034:  R_AARCH64_CALL26	DIG_CONFIG_SHUF
+      38: f9400bf3     	ldr	x19, [sp, #0x10]
+      3c: 52800000     	mov	w0, #0x0                // =0
+      40: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      44: 14000000     	b	0x44 <DV_InitialSettings+0x44>
+		0000000000000044:  R_AARCH64_JUMP26	DramcBroadcastOnOff
+
+Disassembly of section .text.SA_InitialSettings2:
+
+0000000000000000 <SA_InitialSettings2>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: f9000bf3     	str	x19, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 52800000     	mov	w0, #0x0                // =0
+      14: 94000000     	bl	0x14 <SA_InitialSettings2+0x14>
+		0000000000000014:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      18: aa1303e0     	mov	x0, x19
+      1c: 94000000     	bl	0x1c <SA_InitialSettings2+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	DdrUpdateACTiming
+      20: 91023260     	add	x0, x19, #0x8c
+      24: d2800022     	mov	x2, #0x1                // =1
+      28: 52800001     	mov	w1, #0x0                // =0
+      2c: 94000000     	bl	0x2c <SA_InitialSettings2+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	memset
+      30: aa1303e0     	mov	x0, x19
+      34: f9400bf3     	ldr	x19, [sp, #0x10]
+      38: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      3c: 14000000     	b	0x3c <SA_InitialSettings2+0x3c>
+		000000000000003c:  R_AARCH64_JUMP26	vBeforeCalibration
+
+Disassembly of section .text.DramcInit:
+
+0000000000000000 <DramcInit>:
+       0: 52800000     	mov	w0, #0x0                // =0
+       4: d65f03c0     	ret
+
+Disassembly of section .text.SetCKE2RankIndependent:
+
+0000000000000000 <SetCKE2RankIndependent>:
+       0: 52800001     	mov	w1, #0x0                // =0
+       4: 14000000     	b	0x4 <SetCKE2RankIndependent+0x4>
+		0000000000000004:  R_AARCH64_JUMP26	vCKERankCtrl
+
+Disassembly of section .text.DramcHWGatingOnOff:
+
+0000000000000000 <DramcHWGatingOnOff>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 53040c22     	lsl	w2, w1, #28
+       8: 52a20003     	mov	w3, #0x10000000         // =268435456
+       c: 910003fd     	mov	x29, sp
+      10: f90013f5     	str	x21, [sp, #0x20]
+      14: 12001c35     	and	w21, w1, #0xff
+      18: 5280cd01     	mov	w1, #0x668              // =1640
+      1c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      20: 72a02001     	movk	w1, #0x100, lsl #16
+      24: aa0003f3     	mov	x19, x0
+      28: 52821294     	mov	w20, #0x1094            // =4244
+      2c: 94000000     	bl	0x2c <DramcHWGatingOnOff+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      30: 72a02414     	movk	w20, #0x120, lsl #16
+      34: 53103ea2     	lsl	w2, w21, #16
+      38: 2a1403e1     	mov	w1, w20
+      3c: aa1303e0     	mov	x0, x19
+      40: 52a00023     	mov	w3, #0x10000            // =65536
+      44: 94000000     	bl	0x44 <DramcHWGatingOnOff+0x44>
+		0000000000000044:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      48: 530f3aa2     	lsl	w2, w21, #17
+      4c: 2a1403e1     	mov	w1, w20
+      50: aa1303e0     	mov	x0, x19
+      54: 52a00043     	mov	w3, #0x20000            // =131072
+      58: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      5c: f94013f5     	ldr	x21, [sp, #0x20]
+      60: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      64: 14000000     	b	0x64 <DramcHWGatingOnOff+0x64>
+		0000000000000064:  R_AARCH64_JUMP26	vIO32WriteMsk_All
+
+Disassembly of section .text.Enable_ClkTxRxLatchEn:
+
+0000000000000000 <Enable_ClkTxRxLatchEn>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 5281e681     	mov	w1, #0xf34              // =3892
+       8: 52800024     	mov	w4, #0x1                // =1
+       c: 910003fd     	mov	x29, sp
+      10: a90153f3     	stp	x19, x20, [sp, #0x10]
+      14: 52802054     	mov	w20, #0x102             // =258
+      18: aa0003f3     	mov	x19, x0
+      1c: 72a00094     	movk	w20, #0x4, lsl #16
+      20: 2a0403e2     	mov	w2, w4
+      24: 2a1403e3     	mov	w3, w20
+      28: 72aa2401     	movk	w1, #0x5120, lsl #16
+      2c: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      30: 94000000     	bl	0x30 <Enable_ClkTxRxLatchEn+0x30>
+		0000000000000030:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      34: 5281f681     	mov	w1, #0xfb4              // =4020
+      38: 2a1403e3     	mov	w3, w20
+      3c: aa1303e0     	mov	x0, x19
+      40: 52800024     	mov	w4, #0x1                // =1
+      44: 72b32401     	movk	w1, #0x9920, lsl #16
+      48: 2a0403e2     	mov	w2, w4
+      4c: 94000000     	bl	0x4c <Enable_ClkTxRxLatchEn+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      50: 528021f5     	mov	w21, #0x10f             // =271
+      54: 5281df81     	mov	w1, #0xefc              // =3836
+      58: 72a00095     	movk	w21, #0x4, lsl #16
+      5c: aa1303e0     	mov	x0, x19
+      60: 2a1503e3     	mov	w3, w21
+      64: 52800024     	mov	w4, #0x1                // =1
+      68: 72b22401     	movk	w1, #0x9120, lsl #16
+      6c: 2a0403e2     	mov	w2, w4
+      70: 94000000     	bl	0x70 <Enable_ClkTxRxLatchEn+0x70>
+		0000000000000070:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      74: 52802216     	mov	w22, #0x110             // =272
+      78: 5281ef81     	mov	w1, #0xf7c              // =3964
+      7c: 2a1503e3     	mov	w3, w21
+      80: aa1303e0     	mov	x0, x19
+      84: 52800024     	mov	w4, #0x1                // =1
+      88: 72b32401     	movk	w1, #0x9920, lsl #16
+      8c: 2a0403e2     	mov	w2, w4
+      90: 94000000     	bl	0x90 <Enable_ClkTxRxLatchEn+0x90>
+		0000000000000090:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      94: 72a00096     	movk	w22, #0x4, lsl #16
+      98: 5281df01     	mov	w1, #0xef8              // =3832
+      9c: 2a1603e3     	mov	w3, w22
+      a0: aa1303e0     	mov	x0, x19
+      a4: 52800024     	mov	w4, #0x1                // =1
+      a8: 72aa2401     	movk	w1, #0x5120, lsl #16
+      ac: 2a0403e2     	mov	w2, w4
+      b0: 94000000     	bl	0xb0 <Enable_ClkTxRxLatchEn+0xb0>
+		00000000000000b0:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      b4: 5281ef01     	mov	w1, #0xf78              // =3960
+      b8: 2a1603e3     	mov	w3, w22
+      bc: aa1303e0     	mov	x0, x19
+      c0: 52800024     	mov	w4, #0x1                // =1
+      c4: 72ab2401     	movk	w1, #0x5920, lsl #16
+      c8: 2a0403e2     	mov	w2, w4
+      cc: 94000000     	bl	0xcc <Enable_ClkTxRxLatchEn+0xcc>
+		00000000000000cc:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      d0: 5281e001     	mov	w1, #0xf00              // =3840
+      d4: 2a1403e3     	mov	w3, w20
+      d8: aa1303e0     	mov	x0, x19
+      dc: 52800024     	mov	w4, #0x1                // =1
+      e0: 72aa2401     	movk	w1, #0x5120, lsl #16
+      e4: 2a0403e2     	mov	w2, w4
+      e8: 94000000     	bl	0xe8 <Enable_ClkTxRxLatchEn+0xe8>
+		00000000000000e8:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      ec: 5281f001     	mov	w1, #0xf80              // =3968
+      f0: 2a1403e3     	mov	w3, w20
+      f4: aa1303e0     	mov	x0, x19
+      f8: 52800024     	mov	w4, #0x1                // =1
+      fc: 72ab2401     	movk	w1, #0x5920, lsl #16
+     100: 2a0403e2     	mov	w2, w4
+     104: 94000000     	bl	0x104 <Enable_ClkTxRxLatchEn+0x104>
+		0000000000000104:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     108: 5281d001     	mov	w1, #0xe80              // =3712
+     10c: 2a1403e3     	mov	w3, w20
+     110: aa1303e0     	mov	x0, x19
+     114: 52800024     	mov	w4, #0x1                // =1
+     118: 72a92401     	movk	w1, #0x4920, lsl #16
+     11c: 2a0403e2     	mov	w2, w4
+     120: 94000000     	bl	0x120 <Enable_ClkTxRxLatchEn+0x120>
+		0000000000000120:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     124: 2a1503e3     	mov	w3, w21
+     128: aa1303e0     	mov	x0, x19
+     12c: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     130: 5281cf81     	mov	w1, #0xe7c              // =3708
+     134: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     138: 52800024     	mov	w4, #0x1                // =1
+     13c: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     140: 2a0403e2     	mov	w2, w4
+     144: 72b12401     	movk	w1, #0x8920, lsl #16
+     148: 14000000     	b	0x148 <Enable_ClkTxRxLatchEn+0x148>
+		0000000000000148:  R_AARCH64_JUMP26	vPhyByteWriteFldAlign
+
+Disassembly of section .text.EnableRxDcmDPhy:
+
+0000000000000000 <EnableRxDcmDPhy>:
+       0: 5280e6e3     	mov	w3, #0x737              // =1847
+       4: 5280e4e2     	mov	w2, #0x727              // =1831
+       8: 52822401     	mov	w1, #0x1120             // =4384
+       c: 72a01fe3     	movk	w3, #0xff, lsl #16
+      10: 72a00042     	movk	w2, #0x2, lsl #16
+      14: 72a02401     	movk	w1, #0x120, lsl #16
+      18: 14000000     	b	0x18 <EnableRxDcmDPhy+0x18>
+		0000000000000018:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk_All
+
+Disassembly of section .text.EnableDramcPhyDCMNonShuffle:
+
+0000000000000000 <EnableDramcPhyDCMNonShuffle>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 52800023     	mov	w3, #0x1                // =1
+       8: 2a0303e2     	mov	w2, w3
+       c: 910003fd     	mov	x29, sp
+      10: a90153f3     	stp	x19, x20, [sp, #0x10]
+      14: aa0003f3     	mov	x19, x0
+      18: 12001c34     	and	w20, w1, #0xff
+      1c: 52803201     	mov	w1, #0x190              // =400
+      20: 94000000     	bl	0x20 <EnableDramcPhyDCMNonShuffle+0x20>
+		0000000000000020:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      24: 52802003     	mov	w3, #0x100              // =256
+      28: 5280cd81     	mov	w1, #0x66c              // =1644
+      2c: aa1303e0     	mov	x0, x19
+      30: 72a00a83     	movk	w3, #0x54, lsl #16
+      34: 52802002     	mov	w2, #0x100              // =256
+      38: 72a02001     	movk	w1, #0x100, lsl #16
+      3c: 94000000     	bl	0x3c <EnableDramcPhyDCMNonShuffle+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      40: f9404a60     	ldr	x0, [x19, #0x90]
+      44: b9400400     	ldr	w0, [x0, #0x4]
+      48: 7100081f     	cmp	w0, #0x2
+      4c: 540000e1     	b.ne	0x68 <EnableDramcPhyDCMNonShuffle+0x68>
+      50: 5280cd81     	mov	w1, #0x66c              // =1644
+      54: 52a00083     	mov	w3, #0x40000            // =262144
+      58: aa1303e0     	mov	x0, x19
+      5c: 2a0303e2     	mov	w2, w3
+      60: 72a02001     	movk	w1, #0x100, lsl #16
+      64: 94000000     	bl	0x64 <EnableDramcPhyDCMNonShuffle+0x64>
+		0000000000000064:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      68: 528165c2     	mov	w2, #0xb2e              // =2862
+      6c: 5280ce81     	mov	w1, #0x674              // =1652
+      70: aa1303e0     	mov	x0, x19
+      74: 12801803     	mov	w3, #-0xc1              // =-193
+      78: 72b00c02     	movk	w2, #0x8060, lsl #16
+      7c: 72a02001     	movk	w1, #0x100, lsl #16
+      80: 94000000     	bl	0x80 <EnableDramcPhyDCMNonShuffle+0x80>
+		0000000000000080:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      84: 5280ce81     	mov	w1, #0x674              // =1652
+      88: 52800023     	mov	w3, #0x1                // =1
+      8c: aa1303e0     	mov	x0, x19
+      90: 2a0303e2     	mov	w2, w3
+      94: 72a02001     	movk	w1, #0x100, lsl #16
+      98: 94000000     	bl	0x98 <EnableDramcPhyDCMNonShuffle+0x98>
+		0000000000000098:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      9c: 5280ce81     	mov	w1, #0x674              // =1652
+      a0: aa1303e0     	mov	x0, x19
+      a4: 52800023     	mov	w3, #0x1                // =1
+      a8: 52800002     	mov	w2, #0x0                // =0
+      ac: 72a02001     	movk	w1, #0x100, lsl #16
+      b0: 94000000     	bl	0xb0 <EnableDramcPhyDCMNonShuffle+0xb0>
+		00000000000000b0:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      b4: 52808e01     	mov	w1, #0x470              // =1136
+      b8: aa1303e0     	mov	x0, x19
+      bc: 52a00203     	mov	w3, #0x100000           // =1048576
+      c0: 52800002     	mov	w2, #0x0                // =0
+      c4: 72b12001     	movk	w1, #0x8900, lsl #16
+      c8: 94000000     	bl	0xc8 <EnableDramcPhyDCMNonShuffle+0xc8>
+		00000000000000c8:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      cc: 52a02003     	mov	w3, #0x1000000          // =16777216
+      d0: aa1303e0     	mov	x0, x19
+      d4: 2a0303e2     	mov	w2, w3
+      d8: 52802201     	mov	w1, #0x110              // =272
+      dc: 94000000     	bl	0xdc <EnableDramcPhyDCMNonShuffle+0xdc>
+		00000000000000dc:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      e0: 5280f881     	mov	w1, #0x7c4              // =1988
+      e4: 32009be3     	mov	w3, #0x7f007f           // =8323199
+      e8: aa1303e0     	mov	x0, x19
+      ec: 52800002     	mov	w2, #0x0                // =0
+      f0: 72a02001     	movk	w1, #0x100, lsl #16
+      f4: 94000000     	bl	0xf4 <EnableDramcPhyDCMNonShuffle+0xf4>
+		00000000000000f4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      f8: 528003c3     	mov	w3, #0x1e               // =30
+      fc: 34001034     	cbz	w20, 0x300 <EnableDramcPhyDCMNonShuffle+0x300>
+     100: aa1303e0     	mov	x0, x19
+     104: 52800002     	mov	w2, #0x0                // =0
+     108: 52804781     	mov	w1, #0x23c              // =572
+     10c: 94000000     	bl	0x10c <EnableDramcPhyDCMNonShuffle+0x10c>
+		000000000000010c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     110: 5280d001     	mov	w1, #0x680              // =1664
+     114: 52a00ee3     	mov	w3, #0x770000           // =7798784
+     118: aa1303e0     	mov	x0, x19
+     11c: 2a0303e2     	mov	w2, w3
+     120: 72a02001     	movk	w1, #0x100, lsl #16
+     124: 94000000     	bl	0x124 <EnableDramcPhyDCMNonShuffle+0x124>
+		0000000000000124:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     128: 529fc003     	mov	w3, #0xfe00             // =65024
+     12c: 5280cd81     	mov	w1, #0x66c              // =1644
+     130: aa1303e0     	mov	x0, x19
+     134: 72a00163     	movk	w3, #0xb, lsl #16
+     138: 52800002     	mov	w2, #0x0                // =0
+     13c: 72a02001     	movk	w1, #0x100, lsl #16
+     140: 94000000     	bl	0x140 <EnableDramcPhyDCMNonShuffle+0x140>
+		0000000000000140:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     144: 5280ce81     	mov	w1, #0x674              // =1652
+     148: aa1303e0     	mov	x0, x19
+     14c: 52801803     	mov	w3, #0xc0               // =192
+     150: 52801002     	mov	w2, #0x80               // =128
+     154: 72a02001     	movk	w1, #0x100, lsl #16
+     158: 94000000     	bl	0x158 <EnableDramcPhyDCMNonShuffle+0x158>
+		0000000000000158:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     15c: 5280ce81     	mov	w1, #0x674              // =1652
+     160: 52800023     	mov	w3, #0x1                // =1
+     164: aa1303e0     	mov	x0, x19
+     168: 2a0303e2     	mov	w2, w3
+     16c: 72a02001     	movk	w1, #0x100, lsl #16
+     170: 94000000     	bl	0x170 <EnableDramcPhyDCMNonShuffle+0x170>
+		0000000000000170:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     174: 5280ce81     	mov	w1, #0x674              // =1652
+     178: aa1303e0     	mov	x0, x19
+     17c: 52800023     	mov	w3, #0x1                // =1
+     180: 52800002     	mov	w2, #0x0                // =0
+     184: 72a02001     	movk	w1, #0x100, lsl #16
+     188: 94000000     	bl	0x188 <EnableDramcPhyDCMNonShuffle+0x188>
+		0000000000000188:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     18c: aa1303e0     	mov	x0, x19
+     190: 52800043     	mov	w3, #0x2                // =2
+     194: 52800002     	mov	w2, #0x0                // =0
+     198: 52804a01     	mov	w1, #0x250              // =592
+     19c: 94000000     	bl	0x19c <EnableDramcPhyDCMNonShuffle+0x19c>
+		000000000000019c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     1a0: aa1303e0     	mov	x0, x19
+     1a4: 52820003     	mov	w3, #0x1000             // =4096
+     1a8: 52800002     	mov	w2, #0x0                // =0
+     1ac: 52802d01     	mov	w1, #0x168              // =360
+     1b0: 94000000     	bl	0x1b0 <EnableDramcPhyDCMNonShuffle+0x1b0>
+		00000000000001b0:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     1b4: aa1303e0     	mov	x0, x19
+     1b8: 52b80003     	mov	w3, #-0x40000000        // =-1073741824
+     1bc: 52800002     	mov	w2, #0x0                // =0
+     1c0: 52804881     	mov	w1, #0x244              // =580
+     1c4: 94000000     	bl	0x1c4 <EnableDramcPhyDCMNonShuffle+0x1c4>
+		00000000000001c4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     1c8: aa1303e0     	mov	x0, x19
+     1cc: 528000c3     	mov	w3, #0x6                // =6
+     1d0: 52800002     	mov	w2, #0x0                // =0
+     1d4: 52803201     	mov	w1, #0x190              // =400
+     1d8: 94000000     	bl	0x1d8 <EnableDramcPhyDCMNonShuffle+0x1d8>
+		00000000000001d8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     1dc: aa1303e0     	mov	x0, x19
+     1e0: 52b80003     	mov	w3, #-0x40000000        // =-1073741824
+     1e4: 52800002     	mov	w2, #0x0                // =0
+     1e8: 52805101     	mov	w1, #0x288              // =648
+     1ec: 94000000     	bl	0x1ec <EnableDramcPhyDCMNonShuffle+0x1ec>
+		00000000000001ec:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     1f0: aa1303e0     	mov	x0, x19
+     1f4: 52800203     	mov	w3, #0x10               // =16
+     1f8: 52800002     	mov	w2, #0x0                // =0
+     1fc: 52804381     	mov	w1, #0x21c              // =540
+     200: 94000000     	bl	0x200 <EnableDramcPhyDCMNonShuffle+0x200>
+		0000000000000200:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     204: 528fffe3     	mov	w3, #0x7fff             // =32767
+     208: aa1303e0     	mov	x0, x19
+     20c: 72a10003     	movk	w3, #0x800, lsl #16
+     210: 52800002     	mov	w2, #0x0                // =0
+     214: 52804c01     	mov	w1, #0x260              // =608
+     218: 94000000     	bl	0x218 <EnableDramcPhyDCMNonShuffle+0x218>
+		0000000000000218:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     21c: 5280f481     	mov	w1, #0x7a4              // =1956
+     220: aa1303e0     	mov	x0, x19
+     224: 52800103     	mov	w3, #0x8                // =8
+     228: 52800002     	mov	w2, #0x0                // =0
+     22c: 72a02001     	movk	w1, #0x100, lsl #16
+     230: 94000000     	bl	0x230 <EnableDramcPhyDCMNonShuffle+0x230>
+		0000000000000230:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     234: aa1303e0     	mov	x0, x19
+     238: 52800023     	mov	w3, #0x1                // =1
+     23c: 52800002     	mov	w2, #0x0                // =0
+     240: 52800001     	mov	w1, #0x0                // =0
+     244: 94000000     	bl	0x244 <EnableDramcPhyDCMNonShuffle+0x244>
+		0000000000000244:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     248: aa1303e0     	mov	x0, x19
+     24c: 52a00103     	mov	w3, #0x80000            // =524288
+     250: 52800002     	mov	w2, #0x0                // =0
+     254: 52804101     	mov	w1, #0x208              // =520
+     258: 94000000     	bl	0x258 <EnableDramcPhyDCMNonShuffle+0x258>
+		0000000000000258:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     25c: aa1303e0     	mov	x0, x19
+     260: 52800083     	mov	w3, #0x4                // =4
+     264: 52800002     	mov	w2, #0x0                // =0
+     268: 52804001     	mov	w1, #0x200              // =512
+     26c: 94000000     	bl	0x26c <EnableDramcPhyDCMNonShuffle+0x26c>
+		000000000000026c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     270: 52820de3     	mov	w3, #0x106f             // =4207
+     274: aa1303e0     	mov	x0, x19
+     278: 72b80003     	movk	w3, #0xc000, lsl #16
+     27c: 320213e2     	mov	w2, #-0x3ffffff9        // =-1073741817
+     280: 52803f81     	mov	w1, #0x1fc              // =508
+     284: 94000000     	bl	0x284 <EnableDramcPhyDCMNonShuffle+0x284>
+		0000000000000284:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     288: 5280f881     	mov	w1, #0x7c4              // =1988
+     28c: aa1303e0     	mov	x0, x19
+     290: 52a19003     	mov	w3, #0xc800000          // =209715200
+     294: 52a09002     	mov	w2, #0x4800000          // =75497472
+     298: 72a02001     	movk	w1, #0x100, lsl #16
+     29c: 94000000     	bl	0x29c <EnableDramcPhyDCMNonShuffle+0x29c>
+		000000000000029c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     2a0: 5280f901     	mov	w1, #0x7c8              // =1992
+     2a4: 52803803     	mov	w3, #0x1c0              // =448
+     2a8: aa1303e0     	mov	x0, x19
+     2ac: 2a0303e2     	mov	w2, w3
+     2b0: 72a02001     	movk	w1, #0x100, lsl #16
+     2b4: 94000000     	bl	0x2b4 <EnableDramcPhyDCMNonShuffle+0x2b4>
+		00000000000002b4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     2b8: aa1303e0     	mov	x0, x19
+     2bc: 52a00c43     	mov	w3, #0x620000           // =6422528
+     2c0: 52800002     	mov	w2, #0x0                // =0
+     2c4: 52803601     	mov	w1, #0x1b0              // =432
+     2c8: 94000000     	bl	0x2c8 <EnableDramcPhyDCMNonShuffle+0x2c8>
+		00000000000002c8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     2cc: 52a00303     	mov	w3, #0x180000           // =1572864
+     2d0: 52800002     	mov	w2, #0x0                // =0
+     2d4: aa1303e0     	mov	x0, x19
+     2d8: 52803401     	mov	w1, #0x1a0              // =416
+     2dc: 94000000     	bl	0x2dc <EnableDramcPhyDCMNonShuffle+0x2dc>
+		00000000000002dc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     2e0: 52800103     	mov	w3, #0x8                // =8
+     2e4: 52800002     	mov	w2, #0x0                // =0
+     2e8: aa1303e0     	mov	x0, x19
+     2ec: 5280fd01     	mov	w1, #0x7e8              // =2024
+     2f0: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     2f4: 72a02001     	movk	w1, #0x100, lsl #16
+     2f8: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+     2fc: 14000000     	b	0x2fc <EnableDramcPhyDCMNonShuffle+0x2fc>
+		00000000000002fc:  R_AARCH64_JUMP26	vIO32WriteMsk_All
+     300: 2a0303e2     	mov	w2, w3
+     304: aa1303e0     	mov	x0, x19
+     308: 52804781     	mov	w1, #0x23c              // =572
+     30c: 94000000     	bl	0x30c <EnableDramcPhyDCMNonShuffle+0x30c>
+		000000000000030c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     310: 5280d001     	mov	w1, #0x680              // =1664
+     314: aa1303e0     	mov	x0, x19
+     318: 52a00ee3     	mov	w3, #0x770000           // =7798784
+     31c: 52800002     	mov	w2, #0x0                // =0
+     320: 72a02001     	movk	w1, #0x100, lsl #16
+     324: 94000000     	bl	0x324 <EnableDramcPhyDCMNonShuffle+0x324>
+		0000000000000324:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     328: 529fc003     	mov	w3, #0xfe00             // =65024
+     32c: 5280cd81     	mov	w1, #0x66c              // =1644
+     330: 72a00163     	movk	w3, #0xb, lsl #16
+     334: aa1303e0     	mov	x0, x19
+     338: 2a0303e2     	mov	w2, w3
+     33c: 72a02001     	movk	w1, #0x100, lsl #16
+     340: 94000000     	bl	0x340 <EnableDramcPhyDCMNonShuffle+0x340>
+		0000000000000340:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     344: 5280ce81     	mov	w1, #0x674              // =1652
+     348: aa1303e0     	mov	x0, x19
+     34c: 52801803     	mov	w3, #0xc0               // =192
+     350: 52800802     	mov	w2, #0x40               // =64
+     354: 72a02001     	movk	w1, #0x100, lsl #16
+     358: 94000000     	bl	0x358 <EnableDramcPhyDCMNonShuffle+0x358>
+		0000000000000358:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     35c: 5280ce81     	mov	w1, #0x674              // =1652
+     360: 52800023     	mov	w3, #0x1                // =1
+     364: aa1303e0     	mov	x0, x19
+     368: 2a0303e2     	mov	w2, w3
+     36c: 72a02001     	movk	w1, #0x100, lsl #16
+     370: 94000000     	bl	0x370 <EnableDramcPhyDCMNonShuffle+0x370>
+		0000000000000370:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     374: 5280ce81     	mov	w1, #0x674              // =1652
+     378: aa1303e0     	mov	x0, x19
+     37c: 52800023     	mov	w3, #0x1                // =1
+     380: 52800002     	mov	w2, #0x0                // =0
+     384: 72a02001     	movk	w1, #0x100, lsl #16
+     388: 94000000     	bl	0x388 <EnableDramcPhyDCMNonShuffle+0x388>
+		0000000000000388:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     38c: 52800043     	mov	w3, #0x2                // =2
+     390: aa1303e0     	mov	x0, x19
+     394: 2a0303e2     	mov	w2, w3
+     398: 52804a01     	mov	w1, #0x250              // =592
+     39c: 94000000     	bl	0x39c <EnableDramcPhyDCMNonShuffle+0x39c>
+		000000000000039c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     3a0: 52820003     	mov	w3, #0x1000             // =4096
+     3a4: aa1303e0     	mov	x0, x19
+     3a8: 2a0303e2     	mov	w2, w3
+     3ac: 52802d01     	mov	w1, #0x168              // =360
+     3b0: 94000000     	bl	0x3b0 <EnableDramcPhyDCMNonShuffle+0x3b0>
+		00000000000003b0:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     3b4: 52b80003     	mov	w3, #-0x40000000        // =-1073741824
+     3b8: aa1303e0     	mov	x0, x19
+     3bc: 2a0303e2     	mov	w2, w3
+     3c0: 52804881     	mov	w1, #0x244              // =580
+     3c4: 94000000     	bl	0x3c4 <EnableDramcPhyDCMNonShuffle+0x3c4>
+		00000000000003c4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     3c8: 528000c3     	mov	w3, #0x6                // =6
+     3cc: aa1303e0     	mov	x0, x19
+     3d0: 2a0303e2     	mov	w2, w3
+     3d4: 52803201     	mov	w1, #0x190              // =400
+     3d8: 94000000     	bl	0x3d8 <EnableDramcPhyDCMNonShuffle+0x3d8>
+		00000000000003d8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     3dc: 52b80003     	mov	w3, #-0x40000000        // =-1073741824
+     3e0: aa1303e0     	mov	x0, x19
+     3e4: 2a0303e2     	mov	w2, w3
+     3e8: 52805101     	mov	w1, #0x288              // =648
+     3ec: 94000000     	bl	0x3ec <EnableDramcPhyDCMNonShuffle+0x3ec>
+		00000000000003ec:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     3f0: 52800203     	mov	w3, #0x10               // =16
+     3f4: aa1303e0     	mov	x0, x19
+     3f8: 2a0303e2     	mov	w2, w3
+     3fc: 52804381     	mov	w1, #0x21c              // =540
+     400: 94000000     	bl	0x400 <EnableDramcPhyDCMNonShuffle+0x400>
+		0000000000000400:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     404: 528fffe3     	mov	w3, #0x7fff             // =32767
+     408: aa1303e0     	mov	x0, x19
+     40c: 72a10003     	movk	w3, #0x800, lsl #16
+     410: 52804c01     	mov	w1, #0x260              // =608
+     414: 2a0303e2     	mov	w2, w3
+     418: 94000000     	bl	0x418 <EnableDramcPhyDCMNonShuffle+0x418>
+		0000000000000418:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     41c: 5280f481     	mov	w1, #0x7a4              // =1956
+     420: 52800103     	mov	w3, #0x8                // =8
+     424: aa1303e0     	mov	x0, x19
+     428: 2a0303e2     	mov	w2, w3
+     42c: 72a02001     	movk	w1, #0x100, lsl #16
+     430: 94000000     	bl	0x430 <EnableDramcPhyDCMNonShuffle+0x430>
+		0000000000000430:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     434: 52800023     	mov	w3, #0x1                // =1
+     438: aa1303e0     	mov	x0, x19
+     43c: 2a0303e2     	mov	w2, w3
+     440: 52800001     	mov	w1, #0x0                // =0
+     444: 94000000     	bl	0x444 <EnableDramcPhyDCMNonShuffle+0x444>
+		0000000000000444:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     448: 52a00103     	mov	w3, #0x80000            // =524288
+     44c: aa1303e0     	mov	x0, x19
+     450: 2a0303e2     	mov	w2, w3
+     454: 52804101     	mov	w1, #0x208              // =520
+     458: 94000000     	bl	0x458 <EnableDramcPhyDCMNonShuffle+0x458>
+		0000000000000458:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     45c: 52800083     	mov	w3, #0x4                // =4
+     460: aa1303e0     	mov	x0, x19
+     464: 2a0303e2     	mov	w2, w3
+     468: 52804001     	mov	w1, #0x200              // =512
+     46c: 94000000     	bl	0x46c <EnableDramcPhyDCMNonShuffle+0x46c>
+		000000000000046c:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     470: 52820de3     	mov	w3, #0x106f             // =4207
+     474: aa1303e0     	mov	x0, x19
+     478: 72b80003     	movk	w3, #0xc000, lsl #16
+     47c: 52820d02     	mov	w2, #0x1068             // =4200
+     480: 52803f81     	mov	w1, #0x1fc              // =508
+     484: 94000000     	bl	0x484 <EnableDramcPhyDCMNonShuffle+0x484>
+		0000000000000484:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     488: 5280f881     	mov	w1, #0x7c4              // =1988
+     48c: 52a19003     	mov	w3, #0xc800000          // =209715200
+     490: aa1303e0     	mov	x0, x19
+     494: 2a0303e2     	mov	w2, w3
+     498: 72a02001     	movk	w1, #0x100, lsl #16
+     49c: 94000000     	bl	0x49c <EnableDramcPhyDCMNonShuffle+0x49c>
+		000000000000049c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     4a0: 5280f901     	mov	w1, #0x7c8              // =1992
+     4a4: aa1303e0     	mov	x0, x19
+     4a8: 52803fe3     	mov	w3, #0x1ff              // =511
+     4ac: 52800002     	mov	w2, #0x0                // =0
+     4b0: 72a02001     	movk	w1, #0x100, lsl #16
+     4b4: 94000000     	bl	0x4b4 <EnableDramcPhyDCMNonShuffle+0x4b4>
+		00000000000004b4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     4b8: 52a00c43     	mov	w3, #0x620000           // =6422528
+     4bc: aa1303e0     	mov	x0, x19
+     4c0: 2a0303e2     	mov	w2, w3
+     4c4: 52803601     	mov	w1, #0x1b0              // =432
+     4c8: 94000000     	bl	0x4c8 <EnableDramcPhyDCMNonShuffle+0x4c8>
+		00000000000004c8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     4cc: 52a00303     	mov	w3, #0x180000           // =1572864
+     4d0: aa1303e0     	mov	x0, x19
+     4d4: 2a0303e2     	mov	w2, w3
+     4d8: 52803401     	mov	w1, #0x1a0              // =416
+     4dc: 94000000     	bl	0x4dc <EnableDramcPhyDCMNonShuffle+0x4dc>
+		00000000000004dc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     4e0: 52800103     	mov	w3, #0x8                // =8
+     4e4: 2a0303e2     	mov	w2, w3
+     4e8: 17ffff80     	b	0x2e8 <EnableDramcPhyDCMNonShuffle+0x2e8>
+
+Disassembly of section .text.EnableCommonDCMShuffle:
+
+0000000000000000 <EnableCommonDCMShuffle>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 52802223     	mov	w3, #0x111              // =273
+       8: 5281d681     	mov	w1, #0xeb4              // =3764
+       c: 910003fd     	mov	x29, sp
+      10: 52800024     	mov	w4, #0x1                // =1
+      14: 72a00083     	movk	w3, #0x4, lsl #16
+      18: 52800002     	mov	w2, #0x0                // =0
+      1c: 72b12401     	movk	w1, #0x8920, lsl #16
+      20: f9000bf3     	str	x19, [sp, #0x10]
+      24: aa0003f3     	mov	x19, x0
+      28: 94000000     	bl	0x28 <EnableCommonDCMShuffle+0x28>
+		0000000000000028:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      2c: 52822401     	mov	w1, #0x1120             // =4384
+      30: aa1303e0     	mov	x0, x19
+      34: 5280e003     	mov	w3, #0x700              // =1792
+      38: 52806002     	mov	w2, #0x300              // =768
+      3c: 72a02401     	movk	w1, #0x120, lsl #16
+      40: 94000000     	bl	0x40 <EnableCommonDCMShuffle+0x40>
+		0000000000000040:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      44: 5281e101     	mov	w1, #0xf08              // =3848
+      48: aa1303e0     	mov	x0, x19
+      4c: 52a02403     	mov	w3, #0x1200000          // =18874368
+      50: 72a22401     	movk	w1, #0x1120, lsl #16
+      54: 2a0303e2     	mov	w2, w3
+      58: 94000000     	bl	0x58 <EnableCommonDCMShuffle+0x58>
+		0000000000000058:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      5c: 52860002     	mov	w2, #0x3000             // =12288
+      60: 52822481     	mov	w1, #0x1124             // =4388
+      64: aa1303e0     	mov	x0, x19
+      68: 12800003     	mov	w3, #-0x1               // =-1
+      6c: 72a66802     	movk	w2, #0x3340, lsl #16
+      70: 72a02401     	movk	w1, #0x120, lsl #16
+      74: 94000000     	bl	0x74 <EnableCommonDCMShuffle+0x74>
+		0000000000000074:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      78: 5281f101     	mov	w1, #0xf88              // =3976
+      7c: aa1303e0     	mov	x0, x19
+      80: 52a02403     	mov	w3, #0x1200000          // =18874368
+      84: 72a32401     	movk	w1, #0x1920, lsl #16
+      88: 2a0303e2     	mov	w2, w3
+      8c: 94000000     	bl	0x8c <EnableCommonDCMShuffle+0x8c>
+		000000000000008c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      90: 5281f081     	mov	w1, #0xf84              // =3972
+      94: aa1303e0     	mov	x0, x19
+      98: 52a001c3     	mov	w3, #0xe0000            // =917504
+      9c: 52800002     	mov	w2, #0x0                // =0
+      a0: 72b32401     	movk	w1, #0x9920, lsl #16
+      a4: 94000000     	bl	0xa4 <EnableCommonDCMShuffle+0xa4>
+		00000000000000a4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      a8: aa1303e0     	mov	x0, x19
+      ac: 5281d081     	mov	w1, #0xe84              // =3716
+      b0: f9400bf3     	ldr	x19, [sp, #0x10]
+      b4: 52a00143     	mov	w3, #0xa0000            // =655360
+      b8: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      bc: 52800002     	mov	w2, #0x0                // =0
+      c0: 72a12401     	movk	w1, #0x920, lsl #16
+      c4: 14000000     	b	0xc4 <EnableCommonDCMShuffle+0xc4>
+		00000000000000c4:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk_All
+
+Disassembly of section .text.EnableDramcPhyDCMShuffle:
+
+0000000000000000 <EnableDramcPhyDCMShuffle>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: 12001c34     	and	w20, w1, #0xff
+      10: aa0003f3     	mov	x19, x0
+      14: 94000000     	bl	0x14 <EnableDramcPhyDCMShuffle+0x14>
+		0000000000000014:  R_AARCH64_CALL26	EnableCommonDCMShuffle
+      18: 34000754     	cbz	w20, 0x100 <EnableDramcPhyDCMShuffle+0x100>
+      1c: 5282d181     	mov	w1, #0x168c             // =5772
+      20: aa1303e0     	mov	x0, x19
+      24: 528001e3     	mov	w3, #0xf                // =15
+      28: 52800002     	mov	w2, #0x0                // =0
+      2c: 72a00401     	movk	w1, #0x20, lsl #16
+      30: 94000000     	bl	0x30 <EnableDramcPhyDCMShuffle+0x30>
+		0000000000000030:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      34: 5282d581     	mov	w1, #0x16ac             // =5804
+      38: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+      3c: aa1303e0     	mov	x0, x19
+      40: 2a0303e2     	mov	w2, w3
+      44: 72a00401     	movk	w1, #0x20, lsl #16
+      48: 94000000     	bl	0x48 <EnableDramcPhyDCMShuffle+0x48>
+		0000000000000048:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      4c: 5281d101     	mov	w1, #0xe88              // =3720
+      50: aa1303e0     	mov	x0, x19
+      54: 52bf8003     	mov	w3, #-0x4000000         // =-67108864
+      58: 52800002     	mov	w2, #0x0                // =0
+      5c: 72a12401     	movk	w1, #0x920, lsl #16
+      60: 94000000     	bl	0x60 <EnableDramcPhyDCMShuffle+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      64: 5281e101     	mov	w1, #0xf08              // =3848
+      68: aa1303e0     	mov	x0, x19
+      6c: 52bfbb03     	mov	w3, #-0x2280000         // =-36175872
+      70: 52800002     	mov	w2, #0x0                // =0
+      74: 72a22401     	movk	w1, #0x1120, lsl #16
+      78: 94000000     	bl	0x78 <EnableDramcPhyDCMShuffle+0x78>
+		0000000000000078:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      7c: 5281f101     	mov	w1, #0xf88              // =3976
+      80: aa1303e0     	mov	x0, x19
+      84: 52bfbd03     	mov	w3, #-0x2180000         // =-35127296
+      88: 52800002     	mov	w2, #0x0                // =0
+      8c: 72a32401     	movk	w1, #0x1920, lsl #16
+      90: 94000000     	bl	0x90 <EnableDramcPhyDCMShuffle+0x90>
+		0000000000000090:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      94: 52820101     	mov	w1, #0x1008             // =4104
+      98: aa1303e0     	mov	x0, x19
+      9c: 52bf9b03     	mov	w3, #-0x3280000         // =-52953088
+      a0: 52800002     	mov	w2, #0x0                // =0
+      a4: 72a42401     	movk	w1, #0x2120, lsl #16
+      a8: 94000000     	bl	0xa8 <EnableDramcPhyDCMShuffle+0xa8>
+		00000000000000a8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      ac: 52821501     	mov	w1, #0x10a8             // =4264
+      b0: aa1303e0     	mov	x0, x19
+      b4: 52800043     	mov	w3, #0x2                // =2
+      b8: 52800002     	mov	w2, #0x0                // =0
+      bc: 72a02401     	movk	w1, #0x120, lsl #16
+      c0: 94000000     	bl	0xc0 <EnableDramcPhyDCMShuffle+0xc0>
+		00000000000000c0:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      c4: 52822401     	mov	w1, #0x1120             // =4384
+      c8: 52800403     	mov	w3, #0x20               // =32
+      cc: 72a02401     	movk	w1, #0x120, lsl #16
+      d0: 2a0303e2     	mov	w2, w3
+      d4: aa1303e0     	mov	x0, x19
+      d8: 94000000     	bl	0xd8 <EnableDramcPhyDCMShuffle+0xd8>
+		00000000000000d8:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      dc: 52860002     	mov	w2, #0x3000             // =12288
+      e0: 12800003     	mov	w3, #-0x1               // =-1
+      e4: 72a669e2     	movk	w2, #0x334f, lsl #16
+      e8: 52822481     	mov	w1, #0x1124             // =4388
+      ec: aa1303e0     	mov	x0, x19
+      f0: 72a02401     	movk	w1, #0x120, lsl #16
+      f4: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      f8: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      fc: 14000000     	b	0xfc <EnableDramcPhyDCMShuffle+0xfc>
+		00000000000000fc:  R_AARCH64_JUMP26	vIO32WriteMsk_All
+     100: 5281e101     	mov	w1, #0xf08              // =3848
+     104: 52bf9b03     	mov	w3, #-0x3280000         // =-52953088
+     108: aa1303e0     	mov	x0, x19
+     10c: 2a0303e2     	mov	w2, w3
+     110: 72a22401     	movk	w1, #0x1120, lsl #16
+     114: 94000000     	bl	0x114 <EnableDramcPhyDCMShuffle+0x114>
+		0000000000000114:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     118: 5281d101     	mov	w1, #0xe88              // =3720
+     11c: 52bf8603     	mov	w3, #-0x3d00000         // =-63963136
+     120: aa1303e0     	mov	x0, x19
+     124: 2a0303e2     	mov	w2, w3
+     128: 72a12401     	movk	w1, #0x920, lsl #16
+     12c: 94000000     	bl	0x12c <EnableDramcPhyDCMShuffle+0x12c>
+		000000000000012c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     130: 5282d581     	mov	w1, #0x16ac             // =5804
+     134: aa1303e0     	mov	x0, x19
+     138: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     13c: 52800002     	mov	w2, #0x0                // =0
+     140: 72a00401     	movk	w1, #0x20, lsl #16
+     144: 94000000     	bl	0x144 <EnableDramcPhyDCMShuffle+0x144>
+		0000000000000144:  R_AARCH64_CALL26	vIO32WriteMsk_All
+     148: 5281f101     	mov	w1, #0xf88              // =3976
+     14c: 52bf9b03     	mov	w3, #-0x3280000         // =-52953088
+     150: 72a32401     	movk	w1, #0x1920, lsl #16
+     154: 2a0303e2     	mov	w2, w3
+     158: aa1303e0     	mov	x0, x19
+     15c: 94000000     	bl	0x15c <EnableDramcPhyDCMShuffle+0x15c>
+		000000000000015c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+     160: 52800043     	mov	w3, #0x2                // =2
+     164: 52800002     	mov	w2, #0x0                // =0
+     168: 52821501     	mov	w1, #0x10a8             // =4264
+     16c: 17ffffe0     	b	0xec <EnableDramcPhyDCMShuffle+0xec>
+
+Disassembly of section .text.EnableDramcPhyDCM:
+
+0000000000000000 <EnableDramcPhyDCM>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: f90013f5     	str	x21, [sp, #0x20]
+      14: 12001c35     	and	w21, w1, #0xff
+      18: 94000000     	bl	0x18 <EnableDramcPhyDCM+0x18>
+		0000000000000018:  R_AARCH64_CALL26	GetDramcBroadcast
+      1c: 2a0003f4     	mov	w20, w0
+      20: 52800000     	mov	w0, #0x0                // =0
+      24: 94000000     	bl	0x24 <EnableDramcPhyDCM+0x24>
+		0000000000000024:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      28: 2a1503e1     	mov	w1, w21
+      2c: aa1303e0     	mov	x0, x19
+      30: 94000000     	bl	0x30 <EnableDramcPhyDCM+0x30>
+		0000000000000030:  R_AARCH64_CALL26	EnableDramcPhyDCMNonShuffle
+      34: 2a1503e1     	mov	w1, w21
+      38: aa1303e0     	mov	x0, x19
+      3c: 94000000     	bl	0x3c <EnableDramcPhyDCM+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	EnableDramcPhyDCMShuffle
+      40: 2a1403e0     	mov	w0, w20
+      44: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      48: f94013f5     	ldr	x21, [sp, #0x20]
+      4c: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      50: 14000000     	b	0x50 <EnableDramcPhyDCM+0x50>
+		0000000000000050:  R_AARCH64_JUMP26	DramcBroadcastOnOff
+
+Disassembly of section .text.DramcShuTrackingDcmEnBySRAM:
+
+0000000000000000 <DramcShuTrackingDcmEnBySRAM>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: f9000bf3     	str	x19, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 94000000     	bl	0x10 <DramcShuTrackingDcmEnBySRAM+0x10>
+		0000000000000010:  R_AARCH64_CALL26	EnableRxDcmDPhy
+      14: aa1303e0     	mov	x0, x19
+      18: 94000000     	bl	0x18 <DramcShuTrackingDcmEnBySRAM+0x18>
+		0000000000000018:  R_AARCH64_CALL26	Enable_ClkTxRxLatchEn
+      1c: aa1303e0     	mov	x0, x19
+      20: 52800001     	mov	w1, #0x0                // =0
+      24: f9400bf3     	ldr	x19, [sp, #0x10]
+      28: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      2c: 14000000     	b	0x2c <DramcShuTrackingDcmEnBySRAM+0x2c>
+		000000000000002c:  R_AARCH64_JUMP26	EnableDramcPhyDCMShuffle
+
+Disassembly of section .text.DramcEnablePerBankRefresh:
+
+0000000000000000 <DramcEnablePerBankRefresh>:
+       0: d65f03c0     	ret
+
+Disassembly of section .text.DramcRefreshRateDeBounceEnable:
+
+0000000000000000 <DramcRefreshRateDeBounceEnable>:
+       0: 12980003     	mov	w3, #-0xc001            // =-49153
+       4: 129f5f62     	mov	w2, #-0xfafc            // =-64252
+       8: 52804d81     	mov	w1, #0x26c              // =620
+       c: 14000000     	b	0xc <DramcRefreshRateDeBounceEnable+0xc>
+		000000000000000c:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk_All
+
+Disassembly of section .text.DramcModifiedRefreshMode:
+
+0000000000000000 <DramcModifiedRefreshMode>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 52801803     	mov	w3, #0xc0               // =192
+       8: 52800802     	mov	w2, #0x40               // =64
+       c: 910003fd     	mov	x29, sp
+      10: 52804d01     	mov	w1, #0x268              // =616
+      14: f9000bf3     	str	x19, [sp, #0x10]
+      18: aa0003f3     	mov	x19, x0
+      1c: 94000000     	bl	0x1c <DramcModifiedRefreshMode+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      20: aa1303e0     	mov	x0, x19
+      24: 5282da81     	mov	w1, #0x16d4             // =5844
+      28: f9400bf3     	ldr	x19, [sp, #0x10]
+      2c: 528000e3     	mov	w3, #0x7                // =7
+      30: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      34: 52800082     	mov	w2, #0x4                // =4
+      38: 72a00401     	movk	w1, #0x20, lsl #16
+      3c: 14000000     	b	0x3c <DramcModifiedRefreshMode+0x3c>
+		000000000000003c:  R_AARCH64_JUMP26	vIO32WriteMsk_All
+
+Disassembly of section .text.DramcCKEDebounce:
+
+0000000000000000 <DramcCKEDebounce>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 7940a800     	ldrh	w0, [x0, #0x54]
+      14: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      18: 711d241f     	cmp	w0, #0x749
+      1c: 54000329     	b.ls	0x80 <DramcCKEDebounce+0x80>
+      20: 39403275     	ldrb	w21, [x19, #0xc]
+      24: 52824c16     	mov	w22, #0x1260            // =4704
+      28: 52800014     	mov	w20, #0x0               // =0
+      2c: 72a00c16     	movk	w22, #0x60, lsl #16
+      30: b9400a60     	ldr	w0, [x19, #0x8]
+      34: 6b00029f     	cmp	w20, w0
+      38: 540000e3     	b.lo	0x54 <DramcCKEDebounce+0x54>
+      3c: 2a1503e1     	mov	w1, w21
+      40: aa1303e0     	mov	x0, x19
+      44: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      48: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      4c: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      50: 14000000     	b	0x50 <DramcCKEDebounce+0x50>
+		0000000000000050:  R_AARCH64_JUMP26	vSetRank
+      54: 2a1403e1     	mov	w1, w20
+      58: aa1303e0     	mov	x0, x19
+      5c: 11000694     	add	w20, w20, #0x1
+      60: 94000000     	bl	0x60 <DramcCKEDebounce+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vSetRank
+      64: 2a1603e1     	mov	w1, w22
+      68: aa1303e0     	mov	x0, x19
+      6c: 52801fe3     	mov	w3, #0xff               // =255
+      70: 528001e2     	mov	w2, #0xf                // =15
+      74: 12001e94     	and	w20, w20, #0xff
+      78: 94000000     	bl	0x78 <DramcCKEDebounce+0x78>
+		0000000000000078:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      7c: 17ffffed     	b	0x30 <DramcCKEDebounce+0x30>
+      80: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      84: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      88: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      8c: d65f03c0     	ret
+
+Disassembly of section .text.S0_DCMOffWA:
+
+0000000000000000 <S0_DCMOffWA>:
+       0: 5280cd81     	mov	w1, #0x66c              // =1644
+       4: 321723e3     	mov	w3, #0x3fe00            // =261632
+       8: 52800002     	mov	w2, #0x0                // =0
+       c: 72a02001     	movk	w1, #0x100, lsl #16
+      10: 14000000     	b	0x10 <S0_DCMOffWA+0x10>
+		0000000000000010:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk_All
+
+Disassembly of section .text.DramcHWGatingDebugOnOff:
+
+0000000000000000 <DramcHWGatingDebugOnOff>:
+       0: 12001c21     	and	w1, w1, #0xff
+       4: 52800063     	mov	w3, #0x3                // =3
+       8: 7100043f     	cmp	w1, #0x1
+       c: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+      10: 1a9f0063     	csel	w3, w3, wzr, eq
+      14: 53040024     	ubfiz	w4, w1, #28, #1
+      18: 531f0022     	ubfiz	w2, w1, #1, #1
+      1c: 12000021     	and	w1, w1, #0x1
+      20: 2a040042     	orr	w2, w2, w4
+      24: 2a031021     	orr	w1, w1, w3, lsl #4
+      28: 910003fd     	mov	x29, sp
+      2c: 2a010042     	orr	w2, w2, w1
+      30: 52807e63     	mov	w3, #0x3f3              // =1011
+      34: 5280cd01     	mov	w1, #0x668              // =1640
+      38: 72a20003     	movk	w3, #0x1000, lsl #16
+      3c: 72a02001     	movk	w1, #0x100, lsl #16
+      40: f9000bf3     	str	x19, [sp, #0x10]
+      44: aa0003f3     	mov	x19, x0
+      48: 94000000     	bl	0x48 <DramcHWGatingDebugOnOff+0x48>
+		0000000000000048:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      4c: 5280a301     	mov	w1, #0x518              // =1304
+      50: aa1303e0     	mov	x0, x19
+      54: 52801003     	mov	w3, #0x80               // =128
+      58: 72b22001     	movk	w1, #0x9100, lsl #16
+      5c: 2a0303e2     	mov	w2, w3
+      60: 94000000     	bl	0x60 <DramcHWGatingDebugOnOff+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      64: 5280b301     	mov	w1, #0x598              // =1432
+      68: aa1303e0     	mov	x0, x19
+      6c: 52801003     	mov	w3, #0x80               // =128
+      70: 72b32001     	movk	w1, #0x9900, lsl #16
+      74: 2a0303e2     	mov	w2, w3
+      78: 94000000     	bl	0x78 <DramcHWGatingDebugOnOff+0x78>
+		0000000000000078:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      7c: aa1303e0     	mov	x0, x19
+      80: 5280c301     	mov	w1, #0x618              // =1560
+      84: f9400bf3     	ldr	x19, [sp, #0x10]
+      88: 52801003     	mov	w3, #0x80               // =128
+      8c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      90: 2a0303e2     	mov	w2, w3
+      94: 72b42001     	movk	w1, #0xa100, lsl #16
+      98: 14000000     	b	0x98 <DramcHWGatingDebugOnOff+0x98>
+		0000000000000098:  R_AARCH64_JUMP26	vIO32WriteMsk_All
+
+Disassembly of section .text.DramcRunTimeConfig:
+
+0000000000000000 <DramcRunTimeConfig>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 52800001     	mov	w1, #0x0                // =0
+       8: 910003fd     	mov	x29, sp
+       c: f9000bf3     	str	x19, [sp, #0x10]
+      10: aa0003f3     	mov	x19, x0
+      14: 94000000     	bl	0x14 <DramcRunTimeConfig+0x14>
+		0000000000000014:  R_AARCH64_CALL26	DramcHWGatingDebugOnOff
+      18: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+      1c: 2a0303e2     	mov	w2, w3
+      20: 52803481     	mov	w1, #0x1a4              // =420
+      24: aa1303e0     	mov	x0, x19
+      28: 94000000     	bl	0x28 <DramcRunTimeConfig+0x28>
+		0000000000000028:  R_AARCH64_CALL26	vIO32WriteMsk_All
+      2c: aa1303e0     	mov	x0, x19
+      30: 94000000     	bl	0x30 <DramcRunTimeConfig+0x30>
+		0000000000000030:  R_AARCH64_CALL26	DramcShuTrackingDcmEnBySRAM
+      34: aa1303e0     	mov	x0, x19
+      38: 94000000     	bl	0x38 <DramcRunTimeConfig+0x38>
+		0000000000000038:  R_AARCH64_CALL26	DramcRefreshRateDeBounceEnable
+      3c: aa1303e0     	mov	x0, x19
+      40: 52800021     	mov	w1, #0x1                // =1
+      44: 94000000     	bl	0x44 <DramcRunTimeConfig+0x44>
+		0000000000000044:  R_AARCH64_CALL26	vAutoRefreshSwitch
+      48: 5280d781     	mov	w1, #0x6bc              // =1724
+      4c: aa1303e0     	mov	x0, x19
+      50: 52a06003     	mov	w3, #0x3000000          // =50331648
+      54: 52a04002     	mov	w2, #0x2000000          // =33554432
+      58: 72a02001     	movk	w1, #0x100, lsl #16
+      5c: 94000000     	bl	0x5c <DramcRunTimeConfig+0x5c>
+		000000000000005c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk_All
+      60: aa1303e0     	mov	x0, x19
+      64: 52800023     	mov	w3, #0x1                // =1
+      68: f9400bf3     	ldr	x19, [sp, #0x10]
+      6c: 52800002     	mov	w2, #0x0                // =0
+      70: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      74: 52802f81     	mov	w1, #0x17c              // =380
+      78: 14000000     	b	0x78 <DramcRunTimeConfig+0x78>
+		0000000000000078:  R_AARCH64_JUMP26	vIO32WriteMsk
+
+Disassembly of section .text.RODTSettings:
+
+0000000000000000 <RODTSettings>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: 528022c3     	mov	w3, #0x116              // =278
+       8: 52800004     	mov	w4, #0x0                // =0
+       c: 910003fd     	mov	x29, sp
+      10: b9402001     	ldr	w1, [x0, #0x20]
+      14: 72a00083     	movk	w3, #0x4, lsl #16
+      18: a90153f3     	stp	x19, x20, [sp, #0x10]
+      1c: aa0003f3     	mov	x19, x0
+      20: 7100003f     	cmp	w1, #0x0
+      24: 5281e601     	mov	w1, #0xf30              // =3888
+      28: 1a9f17e2     	cset	w2, eq
+      2c: 72aa2401     	movk	w1, #0x5120, lsl #16
+      30: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      34: a90363f7     	stp	x23, x24, [sp, #0x30]
+      38: 94000000     	bl	0x38 <RODTSettings+0x38>
+		0000000000000038:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      3c: b9402260     	ldr	w0, [x19, #0x20]
+      40: 528022c3     	mov	w3, #0x116              // =278
+      44: 5281f601     	mov	w1, #0xfb0              // =4016
+      48: 7100001f     	cmp	w0, #0x0
+      4c: 52800004     	mov	w4, #0x0                // =0
+      50: 1a9f17e2     	cset	w2, eq
+      54: aa1303e0     	mov	x0, x19
+      58: 72a00083     	movk	w3, #0x4, lsl #16
+      5c: 72ab2401     	movk	w1, #0x5920, lsl #16
+      60: 94000000     	bl	0x60 <RODTSettings+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      64: 5280a101     	mov	w1, #0x508              // =1288
+      68: 52a00023     	mov	w3, #0x10000            // =65536
+      6c: aa1303e0     	mov	x0, x19
+      70: 2a0303e2     	mov	w2, w3
+      74: 72a22001     	movk	w1, #0x1100, lsl #16
+      78: 94000000     	bl	0x78 <RODTSettings+0x78>
+		0000000000000078:  R_AARCH64_CALL26	vIO32WriteMsk
+      7c: 52a00023     	mov	w3, #0x10000            // =65536
+      80: 5280b101     	mov	w1, #0x588              // =1416
+      84: 2a0303e2     	mov	w2, w3
+      88: 72a32001     	movk	w1, #0x1900, lsl #16
+      8c: aa1303e0     	mov	x0, x19
+      90: 94000000     	bl	0x90 <RODTSettings+0x90>
+		0000000000000090:  R_AARCH64_CALL26	vIO32WriteMsk
+      94: aa1303e0     	mov	x0, x19
+      98: 94000000     	bl	0x98 <RODTSettings+0x98>
+		0000000000000098:  R_AARCH64_CALL26	is_ddr4_family
+      9c: 72001c1f     	tst	w0, #0xff
+      a0: 54000dc0     	b.eq	0x258 <RODTSettings+0x258>
+      a4: b9402260     	ldr	w0, [x19, #0x20]
+      a8: 7100041f     	cmp	w0, #0x1
+      ac: 54000e00     	b.eq	0x26c <RODTSettings+0x26c>
+      b0: 528001d4     	mov	w20, #0xe               // =14
+      b4: aa1303e0     	mov	x0, x19
+      b8: 5281dd97     	mov	w23, #0xeec             // =3820
+      bc: 5281ed98     	mov	w24, #0xf6c             // =3948
+      c0: 94000000     	bl	0xc0 <RODTSettings+0xc0>
+		00000000000000c0:  R_AARCH64_CALL26	u1GetRank
+      c4: 2a0003f6     	mov	w22, w0
+      c8: 52800015     	mov	w21, #0x0               // =0
+      cc: 72b22417     	movk	w23, #0x9120, lsl #16
+      d0: 72b32418     	movk	w24, #0x9920, lsl #16
+      d4: b9400a60     	ldr	w0, [x19, #0x8]
+      d8: 6b0002bf     	cmp	w21, w0
+      dc: 54000cc3     	b.lo	0x274 <RODTSettings+0x274>
+      e0: 2a1603e1     	mov	w1, w22
+      e4: aa1303e0     	mov	x0, x19
+      e8: 94000000     	bl	0xe8 <RODTSettings+0xe8>
+		00000000000000e8:  R_AARCH64_CALL26	vSetRank
+      ec: b9402262     	ldr	w2, [x19, #0x20]
+      f0: 52821501     	mov	w1, #0x10a8             // =4264
+      f4: aa1303e0     	mov	x0, x19
+      f8: 52800023     	mov	w3, #0x1                // =1
+      fc: 72a02401     	movk	w1, #0x120, lsl #16
+     100: 94000000     	bl	0x100 <RODTSettings+0x100>
+		0000000000000100:  R_AARCH64_CALL26	vIO32WriteMsk
+     104: b9402262     	ldr	w2, [x19, #0x20]
+     108: 5281e081     	mov	w1, #0xf04              // =3844
+     10c: aa1303e0     	mov	x0, x19
+     110: 52900003     	mov	w3, #0x8000             // =32768
+     114: 72b22401     	movk	w1, #0x9120, lsl #16
+     118: 53114042     	lsl	w2, w2, #15
+     11c: 94000000     	bl	0x11c <RODTSettings+0x11c>
+		000000000000011c:  R_AARCH64_CALL26	vIO32WriteMsk
+     120: b9402262     	ldr	w2, [x19, #0x20]
+     124: 5281f081     	mov	w1, #0xf84              // =3972
+     128: aa1303e0     	mov	x0, x19
+     12c: 52900003     	mov	w3, #0x8000             // =32768
+     130: 72b32401     	movk	w1, #0x9920, lsl #16
+     134: 53114042     	lsl	w2, w2, #15
+     138: 94000000     	bl	0x138 <RODTSettings+0x138>
+		0000000000000138:  R_AARCH64_CALL26	vIO32WriteMsk
+     13c: b9402262     	ldr	w2, [x19, #0x20]
+     140: 52820081     	mov	w1, #0x1004             // =4100
+     144: aa1303e0     	mov	x0, x19
+     148: 52900003     	mov	w3, #0x8000             // =32768
+     14c: 72b42401     	movk	w1, #0xa120, lsl #16
+     150: 53114042     	lsl	w2, w2, #15
+     154: 94000000     	bl	0x154 <RODTSettings+0x154>
+		0000000000000154:  R_AARCH64_CALL26	vIO32WriteMsk
+     158: b9402260     	ldr	w0, [x19, #0x20]
+     15c: 52802003     	mov	w3, #0x100              // =256
+     160: 5281e681     	mov	w1, #0xf34              // =3892
+     164: 52800004     	mov	w4, #0x0                // =0
+     168: 7100001f     	cmp	w0, #0x0
+     16c: 72a00083     	movk	w3, #0x4, lsl #16
+     170: 1a9f17e2     	cset	w2, eq
+     174: aa1303e0     	mov	x0, x19
+     178: 72aa2401     	movk	w1, #0x5120, lsl #16
+     17c: 94000000     	bl	0x17c <RODTSettings+0x17c>
+		000000000000017c:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     180: b9402260     	ldr	w0, [x19, #0x20]
+     184: 52802003     	mov	w3, #0x100              // =256
+     188: 5281f681     	mov	w1, #0xfb4              // =4020
+     18c: 52800004     	mov	w4, #0x0                // =0
+     190: 7100001f     	cmp	w0, #0x0
+     194: 72a00083     	movk	w3, #0x4, lsl #16
+     198: 1a9f17e2     	cset	w2, eq
+     19c: aa1303e0     	mov	x0, x19
+     1a0: 72b32401     	movk	w1, #0x9920, lsl #16
+     1a4: 94000000     	bl	0x1a4 <RODTSettings+0x1a4>
+		00000000000001a4:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     1a8: b9402260     	ldr	w0, [x19, #0x20]
+     1ac: 52802003     	mov	w3, #0x100              // =256
+     1b0: 5281d681     	mov	w1, #0xeb4              // =3764
+     1b4: 52800004     	mov	w4, #0x0                // =0
+     1b8: 7100001f     	cmp	w0, #0x0
+     1bc: 72a00083     	movk	w3, #0x4, lsl #16
+     1c0: 1a9f17e2     	cset	w2, eq
+     1c4: aa1303e0     	mov	x0, x19
+     1c8: 72b12401     	movk	w1, #0x8920, lsl #16
+     1cc: 94000000     	bl	0x1cc <RODTSettings+0x1cc>
+		00000000000001cc:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     1d0: 52801003     	mov	w3, #0x80               // =128
+     1d4: 5281e681     	mov	w1, #0xf34              // =3892
+     1d8: aa1303e0     	mov	x0, x19
+     1dc: 72a00023     	movk	w3, #0x1, lsl #16
+     1e0: 52800002     	mov	w2, #0x0                // =0
+     1e4: 72aa2401     	movk	w1, #0x5120, lsl #16
+     1e8: 94000000     	bl	0x1e8 <RODTSettings+0x1e8>
+		00000000000001e8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1ec: 52802163     	mov	w3, #0x10b              // =267
+     1f0: 5281e701     	mov	w1, #0xf38              // =3896
+     1f4: aa1303e0     	mov	x0, x19
+     1f8: 52800004     	mov	w4, #0x0                // =0
+     1fc: 72a00083     	movk	w3, #0x4, lsl #16
+     200: 52800002     	mov	w2, #0x0                // =0
+     204: 72aa2401     	movk	w1, #0x5120, lsl #16
+     208: 94000000     	bl	0x208 <RODTSettings+0x208>
+		0000000000000208:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     20c: 52801003     	mov	w3, #0x80               // =128
+     210: 5281f681     	mov	w1, #0xfb4              // =4020
+     214: aa1303e0     	mov	x0, x19
+     218: 72a00023     	movk	w3, #0x1, lsl #16
+     21c: 52800002     	mov	w2, #0x0                // =0
+     220: 72b32401     	movk	w1, #0x9920, lsl #16
+     224: 94000000     	bl	0x224 <RODTSettings+0x224>
+		0000000000000224:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     228: aa1303e0     	mov	x0, x19
+     22c: 52802163     	mov	w3, #0x10b              // =267
+     230: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     234: 5281f701     	mov	w1, #0xfb8              // =4024
+     238: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     23c: 52800004     	mov	w4, #0x0                // =0
+     240: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     244: 72a00083     	movk	w3, #0x4, lsl #16
+     248: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+     24c: 52800002     	mov	w2, #0x0                // =0
+     250: 72b32401     	movk	w1, #0x9920, lsl #16
+     254: 14000000     	b	0x254 <RODTSettings+0x254>
+		0000000000000254:  R_AARCH64_JUMP26	vPhyByteWriteFldAlign
+     258: aa1303e0     	mov	x0, x19
+     25c: 94000000     	bl	0x25c <RODTSettings+0x25c>
+		000000000000025c:  R_AARCH64_CALL26	is_ddr3_family
+     260: 72001c14     	ands	w20, w0, #0xff
+     264: 54fff261     	b.ne	0xb0 <RODTSettings+0xb0>
+     268: 17ffff93     	b	0xb4 <RODTSettings+0xb4>
+     26c: 528002d4     	mov	w20, #0x16              // =22
+     270: 17ffff91     	b	0xb4 <RODTSettings+0xb4>
+     274: 2a1503e1     	mov	w1, w21
+     278: aa1303e0     	mov	x0, x19
+     27c: 94000000     	bl	0x27c <RODTSettings+0x27c>
+		000000000000027c:  R_AARCH64_CALL26	vSetRank
+     280: 110006b5     	add	w21, w21, #0x1
+     284: 2a1403e2     	mov	w2, w20
+     288: 2a1703e1     	mov	w1, w23
+     28c: aa1303e0     	mov	x0, x19
+     290: 528007e3     	mov	w3, #0x3f               // =63
+     294: 94000000     	bl	0x294 <RODTSettings+0x294>
+		0000000000000294:  R_AARCH64_CALL26	vIO32WriteMsk
+     298: 12001eb5     	and	w21, w21, #0xff
+     29c: 2a1403e2     	mov	w2, w20
+     2a0: 2a1803e1     	mov	w1, w24
+     2a4: aa1303e0     	mov	x0, x19
+     2a8: 528007e3     	mov	w3, #0x3f               // =63
+     2ac: 94000000     	bl	0x2ac <RODTSettings+0x2ac>
+		00000000000002ac:  R_AARCH64_CALL26	vIO32WriteMsk
+     2b0: 17ffff89     	b	0xd4 <RODTSettings+0xd4>
+
+Disassembly of section .text.DQSSTBSettings:
+
+0000000000000000 <DQSSTBSettings>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 94000000     	bl	0x10 <DQSSTBSettings+0x10>
+		0000000000000010:  R_AARCH64_CALL26	is_ddr4_family
+      14: 72001c1f     	tst	w0, #0xff
+      18: 540004a1     	b.ne	0xac <DQSSTBSettings+0xac>
+      1c: aa1303e0     	mov	x0, x19
+      20: 94000000     	bl	0x20 <DQSSTBSettings+0x20>
+		0000000000000020:  R_AARCH64_CALL26	is_ddr3_family
+      24: 72001c1f     	tst	w0, #0xff
+      28: 1a9f17f4     	cset	w20, eq
+      2c: 52821281     	mov	w1, #0x1094             // =4244
+      30: 53144e82     	lsl	w2, w20, #12
+      34: aa1303e0     	mov	x0, x19
+      38: 52860003     	mov	w3, #0x3000             // =12288
+      3c: 72a02401     	movk	w1, #0x120, lsl #16
+      40: 94000000     	bl	0x40 <DQSSTBSettings+0x40>
+		0000000000000040:  R_AARCH64_CALL26	vIO32WriteMsk
+      44: 52806103     	mov	w3, #0x308              // =776
+      48: 5281df81     	mov	w1, #0xefc              // =3836
+      4c: 2a1403e2     	mov	w2, w20
+      50: aa1303e0     	mov	x0, x19
+      54: 52800004     	mov	w4, #0x0                // =0
+      58: 72a00083     	movk	w3, #0x4, lsl #16
+      5c: 72b22401     	movk	w1, #0x9120, lsl #16
+      60: 94000000     	bl	0x60 <DQSSTBSettings+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      64: 52806103     	mov	w3, #0x308              // =776
+      68: 5281ef81     	mov	w1, #0xf7c              // =3964
+      6c: 2a1403e2     	mov	w2, w20
+      70: aa1303e0     	mov	x0, x19
+      74: 52800004     	mov	w4, #0x0                // =0
+      78: 72a00083     	movk	w3, #0x4, lsl #16
+      7c: 72b32401     	movk	w1, #0x9920, lsl #16
+      80: 94000000     	bl	0x80 <DQSSTBSettings+0x80>
+		0000000000000080:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      84: 2a1403e2     	mov	w2, w20
+      88: aa1303e0     	mov	x0, x19
+      8c: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      90: 52806103     	mov	w3, #0x308              // =776
+      94: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      98: 5281ff81     	mov	w1, #0xffc              // =4092
+      9c: 52800004     	mov	w4, #0x0                // =0
+      a0: 72a00083     	movk	w3, #0x4, lsl #16
+      a4: 72b42401     	movk	w1, #0xa120, lsl #16
+      a8: 14000000     	b	0xa8 <DQSSTBSettings+0xa8>
+		00000000000000a8:  R_AARCH64_JUMP26	vPhyByteWriteFldAlign
+      ac: 52800034     	mov	w20, #0x1               // =1
+      b0: 17ffffdf     	b	0x2c <DQSSTBSettings+0x2c>
+
+Disassembly of section .text.SetMck8xLowPwrOption:
+
+0000000000000000 <SetMck8xLowPwrOption>:
+       0: 52870003     	mov	w3, #0x3800             // =14336
+       4: 5280d681     	mov	w1, #0x6b4              // =1716
+       8: 72a003c3     	movk	w3, #0x1e, lsl #16
+       c: 72a02001     	movk	w1, #0x100, lsl #16
+      10: 2a0303e2     	mov	w2, w3
+      14: 14000000     	b	0x14 <SetMck8xLowPwrOption+0x14>
+		0000000000000014:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk
+
+Disassembly of section .text.PC3_UpdateInitialSettings:
+
+0000000000000000 <PC3_UpdateInitialSettings>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 5280f881     	mov	w1, #0x7c4              // =1988
+       8: 52800183     	mov	w3, #0xc                // =12
+       c: 910003fd     	mov	x29, sp
+      10: 52800002     	mov	w2, #0x0                // =0
+      14: 72a02001     	movk	w1, #0x100, lsl #16
+      18: a90153f3     	stp	x19, x20, [sp, #0x10]
+      1c: aa0003f3     	mov	x19, x0
+      20: 94000000     	bl	0x20 <PC3_UpdateInitialSettings+0x20>
+		0000000000000020:  R_AARCH64_CALL26	vIO32WriteMsk
+      24: 5280f901     	mov	w1, #0x7c8              // =1992
+      28: 52801003     	mov	w3, #0x80               // =128
+      2c: 52800002     	mov	w2, #0x0                // =0
+      30: 72a02001     	movk	w1, #0x100, lsl #16
+      34: aa1303e0     	mov	x0, x19
+      38: 94000000     	bl	0x38 <PC3_UpdateInitialSettings+0x38>
+		0000000000000038:  R_AARCH64_CALL26	vIO32WriteMsk
+      3c: aa1303e0     	mov	x0, x19
+      40: 94000000     	bl	0x40 <PC3_UpdateInitialSettings+0x40>
+		0000000000000040:  R_AARCH64_CALL26	vReplaceDVInit
+      44: 52810203     	mov	w3, #0x810              // =2064
+      48: 5281d701     	mov	w1, #0xeb8              // =3768
+      4c: 52800004     	mov	w4, #0x0                // =0
+      50: aa1303e0     	mov	x0, x19
+      54: 72a000a3     	movk	w3, #0x5, lsl #16
+      58: 52800a02     	mov	w2, #0x50               // =80
+      5c: 72a92401     	movk	w1, #0x4920, lsl #16
+      60: 94000000     	bl	0x60 <PC3_UpdateInitialSettings+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      64: 5281e081     	mov	w1, #0xf04              // =3844
+      68: aa1303e0     	mov	x0, x19
+      6c: 5287e003     	mov	w3, #0x3f00             // =16128
+      70: 52800002     	mov	w2, #0x0                // =0
+      74: 72b22401     	movk	w1, #0x9120, lsl #16
+      78: 94000000     	bl	0x78 <PC3_UpdateInitialSettings+0x78>
+		0000000000000078:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      7c: 5281f081     	mov	w1, #0xf84              // =3972
+      80: 5287e003     	mov	w3, #0x3f00             // =16128
+      84: 52800002     	mov	w2, #0x0                // =0
+      88: 72b32401     	movk	w1, #0x9920, lsl #16
+      8c: aa1303e0     	mov	x0, x19
+      90: 94000000     	bl	0x90 <PC3_UpdateInitialSettings+0x90>
+		0000000000000090:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      94: aa1303e0     	mov	x0, x19
+      98: 94000000     	bl	0x98 <PC3_UpdateInitialSettings+0x98>
+		0000000000000098:  R_AARCH64_CALL26	DQSSTBSettings
+      9c: aa1303e0     	mov	x0, x19
+      a0: 5282d114     	mov	w20, #0x1688            // =5768
+      a4: 94000000     	bl	0xa4 <PC3_UpdateInitialSettings+0xa4>
+		00000000000000a4:  R_AARCH64_CALL26	RODTSettings
+      a8: 72a00414     	movk	w20, #0x20, lsl #16
+      ac: aa1303e0     	mov	x0, x19
+      b0: 2a1403e1     	mov	w1, w20
+      b4: 52820003     	mov	w3, #0x1000             // =4096
+      b8: 52800002     	mov	w2, #0x0                // =0
+      bc: 94000000     	bl	0xbc <PC3_UpdateInitialSettings+0xbc>
+		00000000000000bc:  R_AARCH64_CALL26	vIO32WriteMsk
+      c0: aa1303e0     	mov	x0, x19
+      c4: 52840003     	mov	w3, #0x2000             // =8192
+      c8: 52804d01     	mov	w1, #0x268              // =616
+      cc: 2a0303e2     	mov	w2, w3
+      d0: 94000000     	bl	0xd0 <PC3_UpdateInitialSettings+0xd0>
+		00000000000000d0:  R_AARCH64_CALL26	vIO32WriteMsk
+      d4: aa1303e0     	mov	x0, x19
+      d8: 52800023     	mov	w3, #0x1                // =1
+      dc: 52804a01     	mov	w1, #0x250              // =592
+      e0: 2a0303e2     	mov	w2, w3
+      e4: 94000000     	bl	0xe4 <PC3_UpdateInitialSettings+0xe4>
+		00000000000000e4:  R_AARCH64_CALL26	vIO32WriteMsk
+      e8: aa1303e0     	mov	x0, x19
+      ec: 52804003     	mov	w3, #0x200              // =512
+      f0: 52800002     	mov	w2, #0x0                // =0
+      f4: 52802f81     	mov	w1, #0x17c              // =380
+      f8: 94000000     	bl	0xf8 <PC3_UpdateInitialSettings+0xf8>
+		00000000000000f8:  R_AARCH64_CALL26	vIO32WriteMsk
+      fc: b9401e62     	ldr	w2, [x19, #0x1c]
+     100: 2a1403e1     	mov	w1, w20
+     104: aa1303e0     	mov	x0, x19
+     108: 52900003     	mov	w3, #0x8000             // =32768
+     10c: 53114042     	lsl	w2, w2, #15
+     110: 94000000     	bl	0x110 <PC3_UpdateInitialSettings+0x110>
+		0000000000000110:  R_AARCH64_CALL26	vIO32WriteMsk
+     114: 52821f01     	mov	w1, #0x10f8             // =4344
+     118: aa1303e0     	mov	x0, x19
+     11c: 52800023     	mov	w3, #0x1                // =1
+     120: 52800002     	mov	w2, #0x0                // =0
+     124: 72a02401     	movk	w1, #0x120, lsl #16
+     128: 94000000     	bl	0x128 <PC3_UpdateInitialSettings+0x128>
+		0000000000000128:  R_AARCH64_CALL26	vIO32WriteMsk
+     12c: aa1303e0     	mov	x0, x19
+     130: 52a10403     	mov	w3, #0x8200000          // =136314880
+     134: 52a10002     	mov	w2, #0x8000000          // =134217728
+     138: 52802201     	mov	w1, #0x110              // =272
+     13c: 94000000     	bl	0x13c <PC3_UpdateInitialSettings+0x13c>
+		000000000000013c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     140: aa1303e0     	mov	x0, x19
+     144: 52806003     	mov	w3, #0x300              // =768
+     148: 52804002     	mov	w2, #0x200              // =512
+     14c: 52804981     	mov	w1, #0x24c              // =588
+     150: 94000000     	bl	0x150 <PC3_UpdateInitialSettings+0x150>
+		0000000000000150:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     154: 5280cd01     	mov	w1, #0x668              // =1640
+     158: aa1303e0     	mov	x0, x19
+     15c: 52808003     	mov	w3, #0x400              // =1024
+     160: 72a02001     	movk	w1, #0x100, lsl #16
+     164: 2a0303e2     	mov	w2, w3
+     168: 94000000     	bl	0x168 <PC3_UpdateInitialSettings+0x168>
+		0000000000000168:  R_AARCH64_CALL26	vIO32WriteMsk
+     16c: 52810003     	mov	w3, #0x800              // =2048
+     170: 5280d081     	mov	w1, #0x684              // =1668
+     174: aa1303e0     	mov	x0, x19
+     178: 72a00023     	movk	w3, #0x1, lsl #16
+     17c: 52a00022     	mov	w2, #0x10000            // =65536
+     180: 72a02001     	movk	w1, #0x100, lsl #16
+     184: 94000000     	bl	0x184 <PC3_UpdateInitialSettings+0x184>
+		0000000000000184:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     188: 52980003     	mov	w3, #0xc000             // =49152
+     18c: 52900002     	mov	w2, #0x8000             // =32768
+     190: 52821481     	mov	w1, #0x10a4             // =4260
+     194: aa1303e0     	mov	x0, x19
+     198: 72a0eee3     	movk	w3, #0x777, lsl #16
+     19c: 72a04222     	movk	w2, #0x211, lsl #16
+     1a0: 72a02401     	movk	w1, #0x120, lsl #16
+     1a4: 94000000     	bl	0x1a4 <PC3_UpdateInitialSettings+0x1a4>
+		00000000000001a4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1a8: 52822501     	mov	w1, #0x1128             // =4392
+     1ac: aa1303e0     	mov	x0, x19
+     1b0: 52800023     	mov	w3, #0x1                // =1
+     1b4: 72a02401     	movk	w1, #0x120, lsl #16
+     1b8: 2a0303e2     	mov	w2, w3
+     1bc: 94000000     	bl	0x1bc <PC3_UpdateInitialSettings+0x1bc>
+		00000000000001bc:  R_AARCH64_CALL26	vIO32WriteMsk
+     1c0: aa1303e0     	mov	x0, x19
+     1c4: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     1c8: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+     1cc: 14000000     	b	0x1cc <PC3_UpdateInitialSettings+0x1cc>
+		00000000000001cc:  R_AARCH64_JUMP26	SetMck8xLowPwrOption
+
+Disassembly of section .text.PC4_UpdateInitialSettings:
+
+0000000000000000 <PC4_UpdateInitialSettings>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 52810203     	mov	w3, #0x810              // =2064
+       8: 5281d701     	mov	w1, #0xeb8              // =3768
+       c: 910003fd     	mov	x29, sp
+      10: 52800004     	mov	w4, #0x0                // =0
+      14: 72a000a3     	movk	w3, #0x5, lsl #16
+      18: 52800002     	mov	w2, #0x0                // =0
+      1c: 72a92401     	movk	w1, #0x4920, lsl #16
+      20: a90153f3     	stp	x19, x20, [sp, #0x10]
+      24: aa0003f3     	mov	x19, x0
+      28: 94000000     	bl	0x28 <PC4_UpdateInitialSettings+0x28>
+		0000000000000028:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      2c: aa1303e0     	mov	x0, x19
+      30: 94000000     	bl	0x30 <PC4_UpdateInitialSettings+0x30>
+		0000000000000030:  R_AARCH64_CALL26	vReplaceDVInit
+      34: 5281e081     	mov	w1, #0xf04              // =3844
+      38: aa1303e0     	mov	x0, x19
+      3c: 5287e003     	mov	w3, #0x3f00             // =16128
+      40: 52800002     	mov	w2, #0x0                // =0
+      44: 72b22401     	movk	w1, #0x9120, lsl #16
+      48: 94000000     	bl	0x48 <PC4_UpdateInitialSettings+0x48>
+		0000000000000048:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      4c: 5281f081     	mov	w1, #0xf84              // =3972
+      50: aa1303e0     	mov	x0, x19
+      54: 5287e003     	mov	w3, #0x3f00             // =16128
+      58: 52800002     	mov	w2, #0x0                // =0
+      5c: 72b32401     	movk	w1, #0x9920, lsl #16
+      60: 94000000     	bl	0x60 <PC4_UpdateInitialSettings+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      64: 52820081     	mov	w1, #0x1004             // =4100
+      68: 5287e003     	mov	w3, #0x3f00             // =16128
+      6c: 52800002     	mov	w2, #0x0                // =0
+      70: 72b42401     	movk	w1, #0xa120, lsl #16
+      74: aa1303e0     	mov	x0, x19
+      78: 94000000     	bl	0x78 <PC4_UpdateInitialSettings+0x78>
+		0000000000000078:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      7c: aa1303e0     	mov	x0, x19
+      80: 94000000     	bl	0x80 <PC4_UpdateInitialSettings+0x80>
+		0000000000000080:  R_AARCH64_CALL26	DQSSTBSettings
+      84: aa1303e0     	mov	x0, x19
+      88: 94000000     	bl	0x88 <PC4_UpdateInitialSettings+0x88>
+		0000000000000088:  R_AARCH64_CALL26	RODTSettings
+      8c: aa1303e0     	mov	x0, x19
+      90: 52840003     	mov	w3, #0x2000             // =8192
+      94: 52804d01     	mov	w1, #0x268              // =616
+      98: 2a0303e2     	mov	w2, w3
+      9c: 94000000     	bl	0x9c <PC4_UpdateInitialSettings+0x9c>
+		000000000000009c:  R_AARCH64_CALL26	vIO32WriteMsk
+      a0: 5280cd14     	mov	w20, #0x668             // =1640
+      a4: aa1303e0     	mov	x0, x19
+      a8: 52800023     	mov	w3, #0x1                // =1
+      ac: 52804a01     	mov	w1, #0x250              // =592
+      b0: 2a0303e2     	mov	w2, w3
+      b4: 94000000     	bl	0xb4 <PC4_UpdateInitialSettings+0xb4>
+		00000000000000b4:  R_AARCH64_CALL26	vIO32WriteMsk
+      b8: 72a02014     	movk	w20, #0x100, lsl #16
+      bc: aa1303e0     	mov	x0, x19
+      c0: 52804003     	mov	w3, #0x200              // =512
+      c4: 52800002     	mov	w2, #0x0                // =0
+      c8: 52802f81     	mov	w1, #0x17c              // =380
+      cc: 94000000     	bl	0xcc <PC4_UpdateInitialSettings+0xcc>
+		00000000000000cc:  R_AARCH64_CALL26	vIO32WriteMsk
+      d0: 52821f01     	mov	w1, #0x10f8             // =4344
+      d4: aa1303e0     	mov	x0, x19
+      d8: 52800023     	mov	w3, #0x1                // =1
+      dc: 52800002     	mov	w2, #0x0                // =0
+      e0: 72a02401     	movk	w1, #0x120, lsl #16
+      e4: 94000000     	bl	0xe4 <PC4_UpdateInitialSettings+0xe4>
+		00000000000000e4:  R_AARCH64_CALL26	vIO32WriteMsk
+      e8: 2a1403e1     	mov	w1, w20
+      ec: aa1303e0     	mov	x0, x19
+      f0: 52808003     	mov	w3, #0x400              // =1024
+      f4: 2a0303e2     	mov	w2, w3
+      f8: 94000000     	bl	0xf8 <PC4_UpdateInitialSettings+0xf8>
+		00000000000000f8:  R_AARCH64_CALL26	vIO32WriteMsk
+      fc: aa1303e0     	mov	x0, x19
+     100: 52a10403     	mov	w3, #0x8200000          // =136314880
+     104: 52a10002     	mov	w2, #0x8000000          // =134217728
+     108: 52802201     	mov	w1, #0x110              // =272
+     10c: 94000000     	bl	0x10c <PC4_UpdateInitialSettings+0x10c>
+		000000000000010c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     110: aa1303e0     	mov	x0, x19
+     114: 52806003     	mov	w3, #0x300              // =768
+     118: 52804002     	mov	w2, #0x200              // =512
+     11c: 52804981     	mov	w1, #0x24c              // =588
+     120: 94000000     	bl	0x120 <PC4_UpdateInitialSettings+0x120>
+		0000000000000120:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     124: 2a1403e1     	mov	w1, w20
+     128: aa1303e0     	mov	x0, x19
+     12c: 52808003     	mov	w3, #0x400              // =1024
+     130: 2a0303e2     	mov	w2, w3
+     134: 94000000     	bl	0x134 <PC4_UpdateInitialSettings+0x134>
+		0000000000000134:  R_AARCH64_CALL26	vIO32WriteMsk
+     138: 52810003     	mov	w3, #0x800              // =2048
+     13c: 5280d081     	mov	w1, #0x684              // =1668
+     140: aa1303e0     	mov	x0, x19
+     144: 72a00023     	movk	w3, #0x1, lsl #16
+     148: 52a00022     	mov	w2, #0x10000            // =65536
+     14c: 72a02001     	movk	w1, #0x100, lsl #16
+     150: 94000000     	bl	0x150 <PC4_UpdateInitialSettings+0x150>
+		0000000000000150:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     154: 52980003     	mov	w3, #0xc000             // =49152
+     158: 52900002     	mov	w2, #0x8000             // =32768
+     15c: 52821481     	mov	w1, #0x10a4             // =4260
+     160: aa1303e0     	mov	x0, x19
+     164: 72a0eee3     	movk	w3, #0x777, lsl #16
+     168: 72a04222     	movk	w2, #0x211, lsl #16
+     16c: 72a02401     	movk	w1, #0x120, lsl #16
+     170: 94000000     	bl	0x170 <PC4_UpdateInitialSettings+0x170>
+		0000000000000170:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     174: 52822501     	mov	w1, #0x1128             // =4392
+     178: aa1303e0     	mov	x0, x19
+     17c: 52800023     	mov	w3, #0x1                // =1
+     180: 72a02401     	movk	w1, #0x120, lsl #16
+     184: 2a0303e2     	mov	w2, w3
+     188: 94000000     	bl	0x188 <PC4_UpdateInitialSettings+0x188>
+		0000000000000188:  R_AARCH64_CALL26	vIO32WriteMsk
+     18c: aa1303e0     	mov	x0, x19
+     190: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     194: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+     198: 14000000     	b	0x198 <PC4_UpdateInitialSettings+0x198>
+		0000000000000198:  R_AARCH64_JUMP26	SetMck8xLowPwrOption
+
+Disassembly of section .text.APHY_RG_Check:
+
+0000000000000000 <APHY_RG_Check>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000004:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1
+       8: 91000000     	add	x0, x0, #0x0
+		0000000000000008:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1
+       c: 910003fd     	mov	x29, sp
+      10: 94000000     	bl	0x10 <APHY_RG_Check+0x10>
+		0000000000000010:  R_AARCH64_CALL26	printf
+      14: d2940800     	mov	x0, #0xa040             // =41024
+      18: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      1c: f9400001     	ldr	x1, [x0]
+      20: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000020:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0xf
+      24: 91000000     	add	x0, x0, #0x0
+		0000000000000024:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0xf
+      28: 94000000     	bl	0x28 <APHY_RG_Check+0x28>
+		0000000000000028:  R_AARCH64_CALL26	printf
+      2c: d2940881     	mov	x1, #0xa044             // =41028
+      30: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+      34: b9400020     	ldr	w0, [x1]
+      38: b9400421     	ldr	w1, [x1, #0x4]
+      3c: 2a0003e0     	mov	w0, w0
+      40: aa018001     	orr	x1, x0, x1, lsl #32
+      44: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000044:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x1f
+      48: 91000000     	add	x0, x0, #0x0
+		0000000000000048:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x1f
+      4c: 94000000     	bl	0x4c <APHY_RG_Check+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	printf
+      50: d2949b00     	mov	x0, #0xa4d8             // =42200
+      54: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      58: f9400001     	ldr	x1, [x0]
+      5c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000005c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x2f
+      60: 91000000     	add	x0, x0, #0x0
+		0000000000000060:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x2f
+      64: 94000000     	bl	0x64 <APHY_RG_Check+0x64>
+		0000000000000064:  R_AARCH64_CALL26	printf
+      68: d295e181     	mov	x1, #0xaf0c             // =44812
+      6c: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+      70: b9400020     	ldr	w0, [x1]
+      74: b9400421     	ldr	w1, [x1, #0x4]
+      78: 2a0003e0     	mov	w0, w0
+      7c: aa018001     	orr	x1, x0, x1, lsl #32
+      80: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000080:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x3f
+      84: 91000000     	add	x0, x0, #0x0
+		0000000000000084:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x3f
+      88: 94000000     	bl	0x88 <APHY_RG_Check+0x88>
+		0000000000000088:  R_AARCH64_CALL26	printf
+      8c: d295f181     	mov	x1, #0xaf8c             // =44940
+      90: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+      94: b9400020     	ldr	w0, [x1]
+      98: b9400421     	ldr	w1, [x1, #0x4]
+      9c: 2a0003e0     	mov	w0, w0
+      a0: aa018001     	orr	x1, x0, x1, lsl #32
+      a4: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000000a4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x4f
+      a8: 91000000     	add	x0, x0, #0x0
+		00000000000000a8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x4f
+      ac: 94000000     	bl	0xac <APHY_RG_Check+0xac>
+		00000000000000ac:  R_AARCH64_CALL26	printf
+      b0: d295d181     	mov	x1, #0xae8c             // =44684
+      b4: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+      b8: b9400020     	ldr	w0, [x1]
+      bc: b9400421     	ldr	w1, [x1, #0x4]
+      c0: 2a0003e0     	mov	w0, w0
+      c4: aa018001     	orr	x1, x0, x1, lsl #32
+      c8: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000000c8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x5f
+      cc: 91000000     	add	x0, x0, #0x0
+		00000000000000cc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x5f
+      d0: 94000000     	bl	0xd0 <APHY_RG_Check+0xd0>
+		00000000000000d0:  R_AARCH64_CALL26	printf
+      d4: d295d181     	mov	x1, #0xae8c             // =44684
+      d8: f2a3f921     	movk	x1, #0x1fc9, lsl #16
+      dc: b9400020     	ldr	w0, [x1]
+      e0: b9400421     	ldr	w1, [x1, #0x4]
+      e4: 2a0003e0     	mov	w0, w0
+      e8: aa018001     	orr	x1, x0, x1, lsl #32
+      ec: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000000ec:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x6f
+      f0: 91000000     	add	x0, x0, #0x0
+		00000000000000f0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x6f
+      f4: 94000000     	bl	0xf4 <APHY_RG_Check+0xf4>
+		00000000000000f4:  R_AARCH64_CALL26	printf
+      f8: d295de81     	mov	x1, #0xaef4             // =44788
+      fc: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     100: b9400020     	ldr	w0, [x1]
+     104: b9400421     	ldr	w1, [x1, #0x4]
+     108: 2a0003e0     	mov	w0, w0
+     10c: aa018001     	orr	x1, x0, x1, lsl #32
+     110: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000110:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x7f
+     114: 91000000     	add	x0, x0, #0x0
+		0000000000000114:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x7f
+     118: 94000000     	bl	0x118 <APHY_RG_Check+0x118>
+		0000000000000118:  R_AARCH64_CALL26	printf
+     11c: d295ee81     	mov	x1, #0xaf74             // =44916
+     120: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     124: b9400020     	ldr	w0, [x1]
+     128: b9400421     	ldr	w1, [x1, #0x4]
+     12c: 2a0003e0     	mov	w0, w0
+     130: aa018001     	orr	x1, x0, x1, lsl #32
+     134: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000134:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x8f
+     138: 91000000     	add	x0, x0, #0x0
+		0000000000000138:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x8f
+     13c: 94000000     	bl	0x13c <APHY_RG_Check+0x13c>
+		000000000000013c:  R_AARCH64_CALL26	printf
+     140: d294ab00     	mov	x0, #0xa558             // =42328
+     144: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     148: f9400001     	ldr	x1, [x0]
+     14c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000014c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x9f
+     150: 91000000     	add	x0, x0, #0x0
+		0000000000000150:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x9f
+     154: 94000000     	bl	0x154 <APHY_RG_Check+0x154>
+		0000000000000154:  R_AARCH64_CALL26	printf
+     158: d294bb00     	mov	x0, #0xa5d8             // =42456
+     15c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     160: f9400001     	ldr	x1, [x0]
+     164: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000164:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0xaf
+     168: 91000000     	add	x0, x0, #0x0
+		0000000000000168:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0xaf
+     16c: 94000000     	bl	0x16c <APHY_RG_Check+0x16c>
+		000000000000016c:  R_AARCH64_CALL26	printf
+     170: d294ab00     	mov	x0, #0xa558             // =42328
+     174: f2a3f920     	movk	x0, #0x1fc9, lsl #16
+     178: f9400001     	ldr	x1, [x0]
+     17c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000017c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0xbf
+     180: 91000000     	add	x0, x0, #0x0
+		0000000000000180:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0xbf
+     184: 94000000     	bl	0x184 <APHY_RG_Check+0x184>
+		0000000000000184:  R_AARCH64_CALL26	printf
+     188: d294bb00     	mov	x0, #0xa5d8             // =42456
+     18c: f2a3f920     	movk	x0, #0x1fc9, lsl #16
+     190: f9400001     	ldr	x1, [x0]
+     194: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000194:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0xcf
+     198: 91000000     	add	x0, x0, #0x0
+		0000000000000198:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0xcf
+     19c: 94000000     	bl	0x19c <APHY_RG_Check+0x19c>
+		000000000000019c:  R_AARCH64_CALL26	printf
+     1a0: d295e681     	mov	x1, #0xaf34             // =44852
+     1a4: f2a3f921     	movk	x1, #0x1fc9, lsl #16
+     1a8: b9400020     	ldr	w0, [x1]
+     1ac: b9400421     	ldr	w1, [x1, #0x4]
+     1b0: 2a0003e0     	mov	w0, w0
+     1b4: aa018001     	orr	x1, x0, x1, lsl #32
+     1b8: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000001b8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0xdf
+     1bc: 91000000     	add	x0, x0, #0x0
+		00000000000001bc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0xdf
+     1c0: 94000000     	bl	0x1c0 <APHY_RG_Check+0x1c0>
+		00000000000001c0:  R_AARCH64_CALL26	printf
+     1c4: d295f681     	mov	x1, #0xafb4             // =44980
+     1c8: f2a3f921     	movk	x1, #0x1fc9, lsl #16
+     1cc: b9400020     	ldr	w0, [x1]
+     1d0: b9400421     	ldr	w1, [x1, #0x4]
+     1d4: 2a0003e0     	mov	w0, w0
+     1d8: aa018001     	orr	x1, x0, x1, lsl #32
+     1dc: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000001dc:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0xef
+     1e0: 91000000     	add	x0, x0, #0x0
+		00000000000001e0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0xef
+     1e4: 94000000     	bl	0x1e4 <APHY_RG_Check+0x1e4>
+		00000000000001e4:  R_AARCH64_CALL26	printf
+     1e8: d2949d81     	mov	x1, #0xa4ec             // =42220
+     1ec: f2a3f921     	movk	x1, #0x1fc9, lsl #16
+     1f0: b9400020     	ldr	w0, [x1]
+     1f4: b9400421     	ldr	w1, [x1, #0x4]
+     1f8: 2a0003e0     	mov	w0, w0
+     1fc: aa018001     	orr	x1, x0, x1, lsl #32
+     200: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000200:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0xff
+     204: 91000000     	add	x0, x0, #0x0
+		0000000000000204:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0xff
+     208: 94000000     	bl	0x208 <APHY_RG_Check+0x208>
+		0000000000000208:  R_AARCH64_CALL26	printf
+     20c: d294ad81     	mov	x1, #0xa56c             // =42348
+     210: f2a3f921     	movk	x1, #0x1fc9, lsl #16
+     214: b9400020     	ldr	w0, [x1]
+     218: b9400421     	ldr	w1, [x1, #0x4]
+     21c: 2a0003e0     	mov	w0, w0
+     220: aa018001     	orr	x1, x0, x1, lsl #32
+     224: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000224:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x10f
+     228: 91000000     	add	x0, x0, #0x0
+		0000000000000228:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x10f
+     22c: 94000000     	bl	0x22c <APHY_RG_Check+0x22c>
+		000000000000022c:  R_AARCH64_CALL26	printf
+     230: d294a000     	mov	x0, #0xa500             // =42240
+     234: f2a3f920     	movk	x0, #0x1fc9, lsl #16
+     238: f9400001     	ldr	x1, [x0]
+     23c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000023c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x11f
+     240: 91000000     	add	x0, x0, #0x0
+		0000000000000240:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x11f
+     244: 94000000     	bl	0x244 <APHY_RG_Check+0x244>
+		0000000000000244:  R_AARCH64_CALL26	printf
+     248: d294b000     	mov	x0, #0xa580             // =42368
+     24c: f2a3f920     	movk	x0, #0x1fc9, lsl #16
+     250: f9400001     	ldr	x1, [x0]
+     254: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000254:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x12f
+     258: 91000000     	add	x0, x0, #0x0
+		0000000000000258:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x12f
+     25c: 94000000     	bl	0x25c <APHY_RG_Check+0x25c>
+		000000000000025c:  R_AARCH64_CALL26	printf
+     260: d2949b00     	mov	x0, #0xa4d8             // =42200
+     264: f2a3f920     	movk	x0, #0x1fc9, lsl #16
+     268: f9400001     	ldr	x1, [x0]
+     26c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000026c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x13f
+     270: 91000000     	add	x0, x0, #0x0
+		0000000000000270:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x13f
+     274: 94000000     	bl	0x274 <APHY_RG_Check+0x274>
+		0000000000000274:  R_AARCH64_CALL26	printf
+     278: d295e381     	mov	x1, #0xaf1c             // =44828
+     27c: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     280: b9400020     	ldr	w0, [x1]
+     284: b9400421     	ldr	w1, [x1, #0x4]
+     288: 2a0003e0     	mov	w0, w0
+     28c: aa018001     	orr	x1, x0, x1, lsl #32
+     290: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000290:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x14f
+     294: 91000000     	add	x0, x0, #0x0
+		0000000000000294:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x14f
+     298: 94000000     	bl	0x298 <APHY_RG_Check+0x298>
+		0000000000000298:  R_AARCH64_CALL26	printf
+     29c: d295f381     	mov	x1, #0xaf9c             // =44956
+     2a0: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     2a4: b9400020     	ldr	w0, [x1]
+     2a8: b9400421     	ldr	w1, [x1, #0x4]
+     2ac: 2a0003e0     	mov	w0, w0
+     2b0: aa018001     	orr	x1, x0, x1, lsl #32
+     2b4: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000002b4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x15f
+     2b8: 91000000     	add	x0, x0, #0x0
+		00000000000002b8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x15f
+     2bc: 94000000     	bl	0x2bc <APHY_RG_Check+0x2bc>
+		00000000000002bc:  R_AARCH64_CALL26	printf
+     2c0: d295d381     	mov	x1, #0xae9c             // =44700
+     2c4: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     2c8: b9400020     	ldr	w0, [x1]
+     2cc: b9400421     	ldr	w1, [x1, #0x4]
+     2d0: 2a0003e0     	mov	w0, w0
+     2d4: aa018001     	orr	x1, x0, x1, lsl #32
+     2d8: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000002d8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x16f
+     2dc: 91000000     	add	x0, x0, #0x0
+		00000000000002dc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x16f
+     2e0: 94000000     	bl	0x2e0 <APHY_RG_Check+0x2e0>
+		00000000000002e0:  R_AARCH64_CALL26	printf
+     2e4: d295d381     	mov	x1, #0xae9c             // =44700
+     2e8: f2a3f921     	movk	x1, #0x1fc9, lsl #16
+     2ec: b9400020     	ldr	w0, [x1]
+     2f0: b9400421     	ldr	w1, [x1, #0x4]
+     2f4: 2a0003e0     	mov	w0, w0
+     2f8: aa018001     	orr	x1, x0, x1, lsl #32
+     2fc: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000002fc:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x17f
+     300: 91000000     	add	x0, x0, #0x0
+		0000000000000300:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x17f
+     304: 94000000     	bl	0x304 <APHY_RG_Check+0x304>
+		0000000000000304:  R_AARCH64_CALL26	printf
+     308: d2952800     	mov	x0, #0xa940             // =43328
+     30c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     310: f9400001     	ldr	x1, [x0]
+     314: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000314:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x18f
+     318: 91000000     	add	x0, x0, #0x0
+		0000000000000318:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x18f
+     31c: 94000000     	bl	0x31c <APHY_RG_Check+0x31c>
+		000000000000031c:  R_AARCH64_CALL26	printf
+     320: d2952000     	mov	x0, #0xa900             // =43264
+     324: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     328: f9400001     	ldr	x1, [x0]
+     32c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000032c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x19f
+     330: 91000000     	add	x0, x0, #0x0
+		0000000000000330:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x19f
+     334: 94000000     	bl	0x334 <APHY_RG_Check+0x334>
+		0000000000000334:  R_AARCH64_CALL26	printf
+     338: d2952400     	mov	x0, #0xa920             // =43296
+     33c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     340: f9400001     	ldr	x1, [x0]
+     344: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000344:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x1af
+     348: 91000000     	add	x0, x0, #0x0
+		0000000000000348:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x1af
+     34c: 94000000     	bl	0x34c <APHY_RG_Check+0x34c>
+		000000000000034c:  R_AARCH64_CALL26	printf
+     350: d295d281     	mov	x1, #0xae94             // =44692
+     354: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     358: b9400020     	ldr	w0, [x1]
+     35c: b9400421     	ldr	w1, [x1, #0x4]
+     360: 2a0003e0     	mov	w0, w0
+     364: aa018001     	orr	x1, x0, x1, lsl #32
+     368: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000368:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x1bf
+     36c: 91000000     	add	x0, x0, #0x0
+		000000000000036c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x1bf
+     370: 94000000     	bl	0x370 <APHY_RG_Check+0x370>
+		0000000000000370:  R_AARCH64_CALL26	printf
+     374: d295e281     	mov	x1, #0xaf14             // =44820
+     378: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     37c: b9400020     	ldr	w0, [x1]
+     380: b9400421     	ldr	w1, [x1, #0x4]
+     384: 2a0003e0     	mov	w0, w0
+     388: aa018001     	orr	x1, x0, x1, lsl #32
+     38c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000038c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x1cf
+     390: 91000000     	add	x0, x0, #0x0
+		0000000000000390:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x1cf
+     394: 94000000     	bl	0x394 <APHY_RG_Check+0x394>
+		0000000000000394:  R_AARCH64_CALL26	printf
+     398: d295f281     	mov	x1, #0xaf94             // =44948
+     39c: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     3a0: b9400020     	ldr	w0, [x1]
+     3a4: b9400421     	ldr	w1, [x1, #0x4]
+     3a8: 2a0003e0     	mov	w0, w0
+     3ac: aa018001     	orr	x1, x0, x1, lsl #32
+     3b0: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000003b0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x1df
+     3b4: 91000000     	add	x0, x0, #0x0
+		00000000000003b4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x1df
+     3b8: 94000000     	bl	0x3b8 <APHY_RG_Check+0x3b8>
+		00000000000003b8:  R_AARCH64_CALL26	printf
+     3bc: d295d281     	mov	x1, #0xae94             // =44692
+     3c0: f2a3f921     	movk	x1, #0x1fc9, lsl #16
+     3c4: b9400020     	ldr	w0, [x1]
+     3c8: b9400421     	ldr	w1, [x1, #0x4]
+     3cc: 2a0003e0     	mov	w0, w0
+     3d0: aa018001     	orr	x1, x0, x1, lsl #32
+     3d4: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000003d4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x1ef
+     3d8: 91000000     	add	x0, x0, #0x0
+		00000000000003d8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x1ef
+     3dc: 94000000     	bl	0x3dc <APHY_RG_Check+0x3dc>
+		00000000000003dc:  R_AARCH64_CALL26	printf
+     3e0: d295e281     	mov	x1, #0xaf14             // =44820
+     3e4: f2a3f921     	movk	x1, #0x1fc9, lsl #16
+     3e8: b9400020     	ldr	w0, [x1]
+     3ec: b9400421     	ldr	w1, [x1, #0x4]
+     3f0: 2a0003e0     	mov	w0, w0
+     3f4: aa018001     	orr	x1, x0, x1, lsl #32
+     3f8: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000003f8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x1ff
+     3fc: 91000000     	add	x0, x0, #0x0
+		00000000000003fc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x1ff
+     400: 94000000     	bl	0x400 <APHY_RG_Check+0x400>
+		0000000000000400:  R_AARCH64_CALL26	printf
+     404: d295f281     	mov	x1, #0xaf94             // =44948
+     408: f2a3f921     	movk	x1, #0x1fc9, lsl #16
+     40c: b9400020     	ldr	w0, [x1]
+     410: b9400421     	ldr	w1, [x1, #0x4]
+     414: 2a0003e0     	mov	w0, w0
+     418: aa018001     	orr	x1, x0, x1, lsl #32
+     41c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000041c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x20f
+     420: 91000000     	add	x0, x0, #0x0
+		0000000000000420:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x20f
+     424: 94000000     	bl	0x424 <APHY_RG_Check+0x424>
+		0000000000000424:  R_AARCH64_CALL26	printf
+     428: d295d300     	mov	x0, #0xae98             // =44696
+     42c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     430: f9400001     	ldr	x1, [x0]
+     434: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000434:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x21f
+     438: 91000000     	add	x0, x0, #0x0
+		0000000000000438:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x21f
+     43c: 94000000     	bl	0x43c <APHY_RG_Check+0x43c>
+		000000000000043c:  R_AARCH64_CALL26	printf
+     440: d295e300     	mov	x0, #0xaf18             // =44824
+     444: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     448: f9400001     	ldr	x1, [x0]
+     44c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000044c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x22f
+     450: 91000000     	add	x0, x0, #0x0
+		0000000000000450:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x22f
+     454: 94000000     	bl	0x454 <APHY_RG_Check+0x454>
+		0000000000000454:  R_AARCH64_CALL26	printf
+     458: d295f300     	mov	x0, #0xaf98             // =44952
+     45c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     460: f9400001     	ldr	x1, [x0]
+     464: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000464:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x23f
+     468: 91000000     	add	x0, x0, #0x0
+		0000000000000468:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x23f
+     46c: 94000000     	bl	0x46c <APHY_RG_Check+0x46c>
+		000000000000046c:  R_AARCH64_CALL26	printf
+     470: d295d300     	mov	x0, #0xae98             // =44696
+     474: f2a3f920     	movk	x0, #0x1fc9, lsl #16
+     478: f9400001     	ldr	x1, [x0]
+     47c: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		000000000000047c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x24f
+     480: 91000000     	add	x0, x0, #0x0
+		0000000000000480:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x24f
+     484: 94000000     	bl	0x484 <APHY_RG_Check+0x484>
+		0000000000000484:  R_AARCH64_CALL26	printf
+     488: d295e300     	mov	x0, #0xaf18             // =44824
+     48c: f2a3f920     	movk	x0, #0x1fc9, lsl #16
+     490: f9400001     	ldr	x1, [x0]
+     494: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		0000000000000494:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x25f
+     498: 91000000     	add	x0, x0, #0x0
+		0000000000000498:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x25f
+     49c: 94000000     	bl	0x49c <APHY_RG_Check+0x49c>
+		000000000000049c:  R_AARCH64_CALL26	printf
+     4a0: d295f300     	mov	x0, #0xaf98             // =44952
+     4a4: f2a3f920     	movk	x0, #0x1fc9, lsl #16
+     4a8: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+     4ac: f9400001     	ldr	x1, [x0]
+     4b0: 90000000     	adrp	x0, 0x0 <APHY_RG_Check>
+		00000000000004b0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Check.str1.1+0x26f
+     4b4: 91000000     	add	x0, x0, #0x0
+		00000000000004b4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Check.str1.1+0x26f
+     4b8: 14000000     	b	0x4b8 <APHY_RG_Check+0x4b8>
+		00000000000004b8:  R_AARCH64_JUMP26	printf
+
+Disassembly of section .text.APHY_RG_Setting_Before_K:
+
+0000000000000000 <APHY_RG_Setting_Before_K>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 90000000     	adrp	x0, 0x0 <APHY_RG_Setting_Before_K>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.APHY_RG_Setting_Before_K.str1.1
+      14: 91000000     	add	x0, x0, #0x0
+		0000000000000014:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.APHY_RG_Setting_Before_K.str1.1
+      18: f90013f5     	str	x21, [sp, #0x20]
+      1c: 94000000     	bl	0x1c <APHY_RG_Setting_Before_K+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	printf
+      20: aa1303e0     	mov	x0, x19
+      24: 94000000     	bl	0x24 <APHY_RG_Setting_Before_K+0x24>
+		0000000000000024:  R_AARCH64_CALL26	vGetPHY2ChannelMapping
+      28: 52800001     	mov	w1, #0x0                // =0
+      2c: 2a0003f4     	mov	w20, w0
+      30: aa1303e0     	mov	x0, x19
+      34: 94000000     	bl	0x34 <APHY_RG_Setting_Before_K+0x34>
+		0000000000000034:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      38: 52800881     	mov	w1, #0x44               // =68
+      3c: aa1303e0     	mov	x0, x19
+      40: 529c0003     	mov	w3, #0xe000             // =57344
+      44: 52900002     	mov	w2, #0x8000             // =32768
+      48: 72a02001     	movk	w1, #0x100, lsl #16
+      4c: 94000000     	bl	0x4c <APHY_RG_Setting_Before_K+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      50: 52809b01     	mov	w1, #0x4d8              // =1240
+      54: aa1303e0     	mov	x0, x19
+      58: 52800004     	mov	w4, #0x0                // =0
+      5c: 52800003     	mov	w3, #0x0                // =0
+      60: 52803002     	mov	w2, #0x180              // =384
+      64: 72a12001     	movk	w1, #0x900, lsl #16
+      68: 94000000     	bl	0x68 <APHY_RG_Setting_Before_K+0x68>
+		0000000000000068:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      6c: 90000000     	adrp	x0, 0x0 <APHY_RG_Setting_Before_K>
+		000000000000006c:  R_AARCH64_ADR_PREL_PG_HI21	pkg_type
+      70: b9400015     	ldr	w21, [x0]
+		0000000000000070:  R_AARCH64_LDST32_ABS_LO12_NC	pkg_type
+      74: 710006bf     	cmp	w21, #0x1
+      78: 54000601     	b.ne	0x138 <APHY_RG_Setting_Before_K+0x138>
+      7c: 5281e181     	mov	w1, #0xf0c              // =3852
+      80: aa1303e0     	mov	x0, x19
+      84: 52800004     	mov	w4, #0x0                // =0
+      88: 52800003     	mov	w3, #0x0                // =0
+      8c: 52800502     	mov	w2, #0x28               // =40
+      90: 72a22401     	movk	w1, #0x1120, lsl #16
+      94: 94000000     	bl	0x94 <APHY_RG_Setting_Before_K+0x94>
+		0000000000000094:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      98: 5281f181     	mov	w1, #0xf8c              // =3980
+      9c: aa1303e0     	mov	x0, x19
+      a0: 52800004     	mov	w4, #0x0                // =0
+      a4: 52800003     	mov	w3, #0x0                // =0
+      a8: 52800502     	mov	w2, #0x28               // =40
+      ac: 72a32401     	movk	w1, #0x1920, lsl #16
+      b0: 94000000     	bl	0xb0 <APHY_RG_Setting_Before_K+0xb0>
+		00000000000000b0:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      b4: 52800004     	mov	w4, #0x0                // =0
+      b8: 52800003     	mov	w3, #0x0                // =0
+      bc: 52800502     	mov	w2, #0x28               // =40
+      c0: 5281d181     	mov	w1, #0xe8c              // =3724
+      c4: aa1303e0     	mov	x0, x19
+      c8: 72a12401     	movk	w1, #0x920, lsl #16
+      cc: 94000000     	bl	0xcc <APHY_RG_Setting_Before_K+0xcc>
+		00000000000000cc:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      d0: 2a1503e1     	mov	w1, w21
+      d4: aa1303e0     	mov	x0, x19
+      d8: 94000000     	bl	0xd8 <APHY_RG_Setting_Before_K+0xd8>
+		00000000000000d8:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      dc: 52800004     	mov	w4, #0x0                // =0
+      e0: 52800003     	mov	w3, #0x0                // =0
+      e4: 52800502     	mov	w2, #0x28               // =40
+      e8: 5281d181     	mov	w1, #0xe8c              // =3724
+      ec: aa1303e0     	mov	x0, x19
+      f0: 72a12401     	movk	w1, #0x920, lsl #16
+      f4: 94000000     	bl	0xf4 <APHY_RG_Setting_Before_K+0xf4>
+		00000000000000f4:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+      f8: aa1303e0     	mov	x0, x19
+      fc: 52800001     	mov	w1, #0x0                // =0
+     100: 94000000     	bl	0x100 <APHY_RG_Setting_Before_K+0x100>
+		0000000000000100:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     104: 5281de81     	mov	w1, #0xef4              // =3828
+     108: 5287e003     	mov	w3, #0x3f00             // =16128
+     10c: 52806002     	mov	w2, #0x300              // =768
+     110: aa1303e0     	mov	x0, x19
+     114: 72b22401     	movk	w1, #0x9120, lsl #16
+     118: 94000000     	bl	0x118 <APHY_RG_Setting_Before_K+0x118>
+		0000000000000118:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     11c: 5287e003     	mov	w3, #0x3f00             // =16128
+     120: 52806002     	mov	w2, #0x300              // =768
+     124: 5281ee81     	mov	w1, #0xf74              // =3956
+     128: aa1303e0     	mov	x0, x19
+     12c: 72b32401     	movk	w1, #0x9920, lsl #16
+     130: 94000000     	bl	0x130 <APHY_RG_Setting_Before_K+0x130>
+		0000000000000130:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     134: 1400007b     	b	0x320 <APHY_RG_Setting_Before_K+0x320>
+     138: 35000f55     	cbnz	w21, 0x320 <APHY_RG_Setting_Before_K+0x320>
+     13c: 5281e181     	mov	w1, #0xf0c              // =3852
+     140: aa1303e0     	mov	x0, x19
+     144: 52800004     	mov	w4, #0x0                // =0
+     148: 52800003     	mov	w3, #0x0                // =0
+     14c: 52800902     	mov	w2, #0x48               // =72
+     150: 72a22401     	movk	w1, #0x1120, lsl #16
+     154: 94000000     	bl	0x154 <APHY_RG_Setting_Before_K+0x154>
+		0000000000000154:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     158: 5281f181     	mov	w1, #0xf8c              // =3980
+     15c: aa1303e0     	mov	x0, x19
+     160: 52800004     	mov	w4, #0x0                // =0
+     164: 52800003     	mov	w3, #0x0                // =0
+     168: 52800902     	mov	w2, #0x48               // =72
+     16c: 72a32401     	movk	w1, #0x1920, lsl #16
+     170: 94000000     	bl	0x170 <APHY_RG_Setting_Before_K+0x170>
+		0000000000000170:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     174: 52800004     	mov	w4, #0x0                // =0
+     178: 52800003     	mov	w3, #0x0                // =0
+     17c: 52800902     	mov	w2, #0x48               // =72
+     180: 5281d181     	mov	w1, #0xe8c              // =3724
+     184: aa1303e0     	mov	x0, x19
+     188: 72a12401     	movk	w1, #0x920, lsl #16
+     18c: 94000000     	bl	0x18c <APHY_RG_Setting_Before_K+0x18c>
+		000000000000018c:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     190: aa1303e0     	mov	x0, x19
+     194: 52800021     	mov	w1, #0x1                // =1
+     198: 94000000     	bl	0x198 <APHY_RG_Setting_Before_K+0x198>
+		0000000000000198:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     19c: 5281d181     	mov	w1, #0xe8c              // =3724
+     1a0: 52800004     	mov	w4, #0x0                // =0
+     1a4: aa1303e0     	mov	x0, x19
+     1a8: 52800003     	mov	w3, #0x0                // =0
+     1ac: 52800902     	mov	w2, #0x48               // =72
+     1b0: 72a12401     	movk	w1, #0x920, lsl #16
+     1b4: 94000000     	bl	0x1b4 <APHY_RG_Setting_Before_K+0x1b4>
+		00000000000001b4:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     1b8: 5280ab01     	mov	w1, #0x558              // =1368
+     1bc: aa1303e0     	mov	x0, x19
+     1c0: 52a00043     	mov	w3, #0x20000            // =131072
+     1c4: 52800002     	mov	w2, #0x0                // =0
+     1c8: 72a22001     	movk	w1, #0x1100, lsl #16
+     1cc: 94000000     	bl	0x1cc <APHY_RG_Setting_Before_K+0x1cc>
+		00000000000001cc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1d0: 5280bb01     	mov	w1, #0x5d8              // =1496
+     1d4: aa1303e0     	mov	x0, x19
+     1d8: 52a00043     	mov	w3, #0x20000            // =131072
+     1dc: 52800002     	mov	w2, #0x0                // =0
+     1e0: 72a32001     	movk	w1, #0x1900, lsl #16
+     1e4: 94000000     	bl	0x1e4 <APHY_RG_Setting_Before_K+0x1e4>
+		00000000000001e4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1e8: 5281e681     	mov	w1, #0xf34              // =3892
+     1ec: 52800023     	mov	w3, #0x1                // =1
+     1f0: aa1303e0     	mov	x0, x19
+     1f4: 2a0303e2     	mov	w2, w3
+     1f8: 72aa2401     	movk	w1, #0x5120, lsl #16
+     1fc: 94000000     	bl	0x1fc <APHY_RG_Setting_Before_K+0x1fc>
+		00000000000001fc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     200: 5281f681     	mov	w1, #0xfb4              // =4020
+     204: 52800023     	mov	w3, #0x1                // =1
+     208: aa1303e0     	mov	x0, x19
+     20c: 2a0303e2     	mov	w2, w3
+     210: 72b32401     	movk	w1, #0x9920, lsl #16
+     214: 94000000     	bl	0x214 <APHY_RG_Setting_Before_K+0x214>
+		0000000000000214:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     218: 52809d81     	mov	w1, #0x4ec              // =1260
+     21c: aa1303e0     	mov	x0, x19
+     220: 52800103     	mov	w3, #0x8                // =8
+     224: 52800002     	mov	w2, #0x0                // =0
+     228: 72b22001     	movk	w1, #0x9100, lsl #16
+     22c: 94000000     	bl	0x22c <APHY_RG_Setting_Before_K+0x22c>
+		000000000000022c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     230: 5280ad81     	mov	w1, #0x56c              // =1388
+     234: aa1303e0     	mov	x0, x19
+     238: 52800103     	mov	w3, #0x8                // =8
+     23c: 52800002     	mov	w2, #0x0                // =0
+     240: 72b32001     	movk	w1, #0x9900, lsl #16
+     244: 94000000     	bl	0x244 <APHY_RG_Setting_Before_K+0x244>
+		0000000000000244:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     248: 5280a001     	mov	w1, #0x500              // =1280
+     24c: aa1303e0     	mov	x0, x19
+     250: 52800004     	mov	w4, #0x0                // =0
+     254: 52800003     	mov	w3, #0x0                // =0
+     258: 52800002     	mov	w2, #0x0                // =0
+     25c: 72b22001     	movk	w1, #0x9100, lsl #16
+     260: 94000000     	bl	0x260 <APHY_RG_Setting_Before_K+0x260>
+		0000000000000260:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     264: 5280b001     	mov	w1, #0x580              // =1408
+     268: 52800004     	mov	w4, #0x0                // =0
+     26c: aa1303e0     	mov	x0, x19
+     270: 52800003     	mov	w3, #0x0                // =0
+     274: 52800002     	mov	w2, #0x0                // =0
+     278: 72b32001     	movk	w1, #0x9900, lsl #16
+     27c: 94000000     	bl	0x27c <APHY_RG_Setting_Before_K+0x27c>
+		000000000000027c:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     280: 52800083     	mov	w3, #0x4                // =4
+     284: 52800002     	mov	w2, #0x0                // =0
+     288: 5280b001     	mov	w1, #0x580              // =1408
+     28c: aa1303e0     	mov	x0, x19
+     290: 72b32001     	movk	w1, #0x9900, lsl #16
+     294: 94000000     	bl	0x294 <APHY_RG_Setting_Before_K+0x294>
+		0000000000000294:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     298: aa1303e0     	mov	x0, x19
+     29c: 52800001     	mov	w1, #0x0                // =0
+     2a0: 94000000     	bl	0x2a0 <APHY_RG_Setting_Before_K+0x2a0>
+		00000000000002a0:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     2a4: 90000000     	adrp	x0, 0x0 <APHY_RG_Setting_Before_K>
+		00000000000002a4:  R_AARCH64_ADR_PREL_PG_HI21	ddr_type
+     2a8: b9400000     	ldr	w0, [x0]
+		00000000000002a8:  R_AARCH64_LDST32_ABS_LO12_NC	ddr_type
+     2ac: 35000460     	cbnz	w0, 0x338 <APHY_RG_Setting_Before_K+0x338>
+     2b0: 5281de81     	mov	w1, #0xef4              // =3828
+     2b4: aa1303e0     	mov	x0, x19
+     2b8: 5287e003     	mov	w3, #0x3f00             // =16128
+     2bc: 52806002     	mov	w2, #0x300              // =768
+     2c0: 72b22401     	movk	w1, #0x9120, lsl #16
+     2c4: 94000000     	bl	0x2c4 <APHY_RG_Setting_Before_K+0x2c4>
+		00000000000002c4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2c8: 5281ee81     	mov	w1, #0xf74              // =3956
+     2cc: aa1303e0     	mov	x0, x19
+     2d0: 5287e003     	mov	w3, #0x3f00             // =16128
+     2d4: 52806002     	mov	w2, #0x300              // =768
+     2d8: 72b32401     	movk	w1, #0x9920, lsl #16
+     2dc: 94000000     	bl	0x2dc <APHY_RG_Setting_Before_K+0x2dc>
+		00000000000002dc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2e0: 52920002     	mov	w2, #0x9000             // =36864
+     2e4: 5281d281     	mov	w1, #0xe94              // =3732
+     2e8: aa1303e0     	mov	x0, x19
+     2ec: 52800004     	mov	w4, #0x0                // =0
+     2f0: 52800003     	mov	w3, #0x0                // =0
+     2f4: 72a04002     	movk	w2, #0x200, lsl #16
+     2f8: 72a92401     	movk	w1, #0x4920, lsl #16
+     2fc: 94000000     	bl	0x2fc <APHY_RG_Setting_Before_K+0x2fc>
+		00000000000002fc:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     300: 5283a382     	mov	w2, #0x1d1c             // =7452
+     304: 5281d301     	mov	w1, #0xe98              // =3736
+     308: aa1303e0     	mov	x0, x19
+     30c: 52800004     	mov	w4, #0x0                // =0
+     310: 52800003     	mov	w3, #0x0                // =0
+     314: 72a02022     	movk	w2, #0x101, lsl #16
+     318: 72a92401     	movk	w1, #0x4920, lsl #16
+     31c: 94000000     	bl	0x31c <APHY_RG_Setting_Before_K+0x31c>
+		000000000000031c:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     320: 2a1403e1     	mov	w1, w20
+     324: aa1303e0     	mov	x0, x19
+     328: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     32c: f94013f5     	ldr	x21, [sp, #0x20]
+     330: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     334: 14000000     	b	0x334 <APHY_RG_Setting_Before_K+0x334>
+		0000000000000334:  R_AARCH64_JUMP26	vSetPHY2ChannelMapping
+     338: 7100041f     	cmp	w0, #0x1
+     33c: 54ffff21     	b.ne	0x320 <APHY_RG_Setting_Before_K+0x320>
+     340: 5281de81     	mov	w1, #0xef4              // =3828
+     344: 5287e003     	mov	w3, #0x3f00             // =16128
+     348: 52802002     	mov	w2, #0x100              // =256
+     34c: aa1303e0     	mov	x0, x19
+     350: 72b22401     	movk	w1, #0x9120, lsl #16
+     354: 94000000     	bl	0x354 <APHY_RG_Setting_Before_K+0x354>
+		0000000000000354:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     358: 5287e003     	mov	w3, #0x3f00             // =16128
+     35c: 52802002     	mov	w2, #0x100              // =256
+     360: 17ffff71     	b	0x124 <APHY_RG_Setting_Before_K+0x124>
+
+Disassembly of section .text.SA_InitialSettings1:
+
+0000000000000000 <SA_InitialSettings1>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: f9000bf3     	str	x19, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 52800020     	mov	w0, #0x1                // =1
+      14: 94000000     	bl	0x14 <SA_InitialSettings1+0x14>
+		0000000000000014:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      18: aa1303e0     	mov	x0, x19
+      1c: 94000000     	bl	0x1c <SA_InitialSettings1+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	is_ddr4_family
+      20: 72001c1f     	tst	w0, #0xff
+      24: aa1303e0     	mov	x0, x19
+      28: 540003a0     	b.eq	0x9c <SA_InitialSettings1+0x9c>
+      2c: 94000000     	bl	0x2c <SA_InitialSettings1+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	PC4_UpdateInitialSettings
+      30: aa1303e0     	mov	x0, x19
+      34: 94000000     	bl	0x34 <SA_InitialSettings1+0x34>
+		0000000000000034:  R_AARCH64_CALL26	vResetDelayChainBeforeCalibration
+      38: 52800000     	mov	w0, #0x0                // =0
+      3c: 94000000     	bl	0x3c <SA_InitialSettings1+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      40: 9101d260     	add	x0, x19, #0x74
+      44: d2800102     	mov	x2, #0x8                // =8
+      48: 52801fe1     	mov	w1, #0xff               // =255
+      4c: 94000000     	bl	0x4c <SA_InitialSettings1+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	memset
+      50: d2800102     	mov	x2, #0x8                // =8
+      54: 9101f260     	add	x0, x19, #0x7c
+      58: 52800001     	mov	w1, #0x0                // =0
+      5c: 94000000     	bl	0x5c <SA_InitialSettings1+0x5c>
+		000000000000005c:  R_AARCH64_CALL26	memset
+      60: 52800001     	mov	w1, #0x0                // =0
+      64: aa1303e0     	mov	x0, x19
+      68: 94000000     	bl	0x68 <SA_InitialSettings1+0x68>
+		0000000000000068:  R_AARCH64_CALL26	vSetRank
+      6c: aa1303e0     	mov	x0, x19
+      70: 94000000     	bl	0x70 <SA_InitialSettings1+0x70>
+		0000000000000070:  R_AARCH64_CALL26	APHY_RG_Setting_Before_K
+      74: aa1303e0     	mov	x0, x19
+      78: 94000000     	bl	0x78 <SA_InitialSettings1+0x78>
+		0000000000000078:  R_AARCH64_CALL26	GetVcoreDelayCellTime
+      7c: 7900e660     	strh	w0, [x19, #0x72]
+      80: 52800001     	mov	w1, #0x0                // =0
+      84: aa1303e0     	mov	x0, x19
+      88: 94000000     	bl	0x88 <SA_InitialSettings1+0x88>
+		0000000000000088:  R_AARCH64_CALL26	Dramc8PhaseCal
+      8c: aa1303e0     	mov	x0, x19
+      90: f9400bf3     	ldr	x19, [sp, #0x10]
+      94: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      98: 14000000     	b	0x98 <SA_InitialSettings1+0x98>
+		0000000000000098:  R_AARCH64_JUMP26	DramcInit_DutyCalibration
+      9c: 94000000     	bl	0x9c <SA_InitialSettings1+0x9c>
+		000000000000009c:  R_AARCH64_CALL26	is_ddr3_family
+      a0: 72001c1f     	tst	w0, #0xff
+      a4: 54fffc60     	b.eq	0x30 <SA_InitialSettings1+0x30>
+      a8: aa1303e0     	mov	x0, x19
+      ac: 94000000     	bl	0xac <SA_InitialSettings1+0xac>
+		00000000000000ac:  R_AARCH64_CALL26	PC3_UpdateInitialSettings
+      b0: 17ffffe0     	b	0x30 <SA_InitialSettings1+0x30>
+
+Disassembly of section .text.DFSInitForCalibration:
+
+0000000000000000 <DFSInitForCalibration>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 90000014     	adrp	x20, 0x0 <DFSInitForCalibration>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	.bss.u1PrintModeRegWrite
+      14: f90013f5     	str	x21, [sp, #0x20]
+      18: 94000000     	bl	0x18 <DFSInitForCalibration+0x18>
+		0000000000000018:  R_AARCH64_CALL26	DV_InitialSettings
+      1c: aa1303e0     	mov	x0, x19
+      20: 94000000     	bl	0x20 <DFSInitForCalibration+0x20>
+		0000000000000020:  R_AARCH64_CALL26	SA_InitialSettings1
+      24: 52800020     	mov	w0, #0x1                // =1
+      28: 94000000     	bl	0x28 <DFSInitForCalibration+0x28>
+		0000000000000028:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      2c: 52800021     	mov	w1, #0x1                // =1
+      30: aa1303e0     	mov	x0, x19
+      34: 94000000     	bl	0x34 <DFSInitForCalibration+0x34>
+		0000000000000034:  R_AARCH64_CALL26	SetClkFreeRun
+      38: 52800000     	mov	w0, #0x0                // =0
+      3c: 94000000     	bl	0x3c <DFSInitForCalibration+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      40: 52800020     	mov	w0, #0x1                // =1
+      44: 39000280     	strb	w0, [x20]
+		0000000000000044:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.u1PrintModeRegWrite
+      48: aa1303e0     	mov	x0, x19
+      4c: 94000000     	bl	0x4c <DFSInitForCalibration+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	is_ddr4_family
+      50: 72001c1f     	tst	w0, #0xff
+      54: aa1303e0     	mov	x0, x19
+      58: 540002e0     	b.eq	0xb4 <DFSInitForCalibration+0xb4>
+      5c: 94000000     	bl	0x5c <DFSInitForCalibration+0x5c>
+		000000000000005c:  R_AARCH64_CALL26	PC4_DRAM_INIT
+      60: 3900029f     	strb	wzr, [x20]
+		0000000000000060:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.u1PrintModeRegWrite
+      64: 52800020     	mov	w0, #0x1                // =1
+      68: 94000000     	bl	0x68 <DFSInitForCalibration+0x68>
+		0000000000000068:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      6c: 52800014     	mov	w20, #0x0               // =0
+      70: 52800001     	mov	w1, #0x0                // =0
+      74: aa1303e0     	mov	x0, x19
+      78: 94000000     	bl	0x78 <DFSInitForCalibration+0x78>
+		0000000000000078:  R_AARCH64_CALL26	SetClkFreeRun
+      7c: 52800000     	mov	w0, #0x0                // =0
+      80: 94000000     	bl	0x80 <DFSInitForCalibration+0x80>
+		0000000000000080:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      84: 39401275     	ldrb	w21, [x19, #0x4]
+      88: b9400260     	ldr	w0, [x19]
+      8c: 6b00029f     	cmp	w20, w0
+      90: 540001e3     	b.lo	0xcc <DFSInitForCalibration+0xcc>
+      94: 2a1503e1     	mov	w1, w21
+      98: aa1303e0     	mov	x0, x19
+      9c: 94000000     	bl	0x9c <DFSInitForCalibration+0x9c>
+		000000000000009c:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      a0: aa1303e0     	mov	x0, x19
+      a4: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      a8: f94013f5     	ldr	x21, [sp, #0x20]
+      ac: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      b0: 14000000     	b	0xb0 <DFSInitForCalibration+0xb0>
+		00000000000000b0:  R_AARCH64_JUMP26	SA_InitialSettings2
+      b4: 94000000     	bl	0xb4 <DFSInitForCalibration+0xb4>
+		00000000000000b4:  R_AARCH64_CALL26	is_ddr3_family
+      b8: 72001c1f     	tst	w0, #0xff
+      bc: 54fffd20     	b.eq	0x60 <DFSInitForCalibration+0x60>
+      c0: aa1303e0     	mov	x0, x19
+      c4: 94000000     	bl	0xc4 <DFSInitForCalibration+0xc4>
+		00000000000000c4:  R_AARCH64_CALL26	PC3_DRAM_INIT
+      c8: 17ffffe6     	b	0x60 <DFSInitForCalibration+0x60>
+      cc: 2a1403e1     	mov	w1, w20
+      d0: aa1303e0     	mov	x0, x19
+      d4: 94000000     	bl	0xd4 <DFSInitForCalibration+0xd4>
+		00000000000000d4:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      d8: 2a1403e1     	mov	w1, w20
+      dc: 11000694     	add	w20, w20, #0x1
+      e0: aa1303e0     	mov	x0, x19
+      e4: 12001e94     	and	w20, w20, #0xff
+      e8: 94000000     	bl	0xe8 <DFSInitForCalibration+0xe8>
+		00000000000000e8:  R_AARCH64_CALL26	DIG_HW_NONSHUF_SWITCH
+      ec: 17ffffe7     	b	0x88 <DFSInitForCalibration+0x88>

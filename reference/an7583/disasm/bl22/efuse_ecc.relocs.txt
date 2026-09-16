@@ -1,0 +1,60 @@
+
+Relocation section '.rel.text.efuse_preliminary' at offset 0x9d4 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  0000060a R_ARM_THM_CALL         00000001   efuse_wait_timeout.constprop.0
+
+Relocation section '.rel.text.efuse_reload_page' at offset 0x9dc contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000014  0000060a R_ARM_THM_CALL         00000001   efuse_wait_timeout.constprop.0
+
+Relocation section '.rel.text.efuse_setup_page1_secure_data' at offset 0x9e4 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000038  0000310a R_ARM_THM_CALL         00000000   fill_secure_data
+
+Relocation section '.rel.text.efuse_setup_page2_secure_data' at offset 0x9ec contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0000330a R_ARM_THM_CALL         00000000   get_secure_data_base
+
+Relocation section '.rel.text.efuse_check_remark' at offset 0x9f4 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  0000350a R_ARM_THM_CALL         00000000   ef_read_parse
+
+Relocation section '.rel.text.en7523_packageID_init' at offset 0x9fc contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000004  0000370a R_ARM_THM_CALL         00000001   ef_read_byte
+0000000c  0000370a R_ARM_THM_CALL         00000001   ef_read_byte
+00000020  0000391e R_ARM_THM_JUMP24       00000000   SET_PACKAGE_ID
+
+Relocation section '.rel.text.read_iddq' at offset 0xa14 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000002  0000371e R_ARM_THM_JUMP24       00000001   ef_read_byte
+
+Relocation section '.rel.text.efuse_init' at offset 0xa1c contains 27 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  00003c0a R_ARM_THM_CALL         00000000   printf
+00000018  00003d0a R_ARM_THM_CALL         00000000   is_asic
+00000022  00002f0a R_ARM_THM_CALL         00000001   efuse_reload_page
+00000030  0000300a R_ARM_THM_CALL         00000001   efuse_setup_page1_secure_data
+0000003a  00003c0a R_ARM_THM_CALL         00000000   printf
+00000046  0000300a R_ARM_THM_CALL         00000001   efuse_setup_page1_secure_data
+00000058  0000300a R_ARM_THM_CALL         00000001   efuse_setup_page1_secure_data
+00000066  00003e0a R_ARM_THM_CALL         00000000   get_valid
+00000074  00003f0a R_ARM_THM_CALL         00000000   tf_log
+0000007a  00003f0a R_ARM_THM_CALL         00000000   tf_log
+00000080  00002f0a R_ARM_THM_CALL         00000001   efuse_reload_page
+0000008c  0000320a R_ARM_THM_CALL         00000001   efuse_setup_page2_secure_data
+00000098  00003c0a R_ARM_THM_CALL         00000000   printf
+000000b0  00003f0a R_ARM_THM_CALL         00000000   tf_log
+000000b6  00003f0a R_ARM_THM_CALL         00000000   tf_log
+000000d0  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000d4  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000d8  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000dc  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000e0  00004002 R_ARM_ABS32            00000000   uartDisable
+000000e4  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000e8  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000ec  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000f0  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000f4  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000f8  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000fc  00002302 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1

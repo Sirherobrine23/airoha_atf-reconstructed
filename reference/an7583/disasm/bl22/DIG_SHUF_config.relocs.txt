@@ -1,0 +1,138 @@
+
+Relocation section '.rel.text.DIG_CONFIG_SHUF_ALG_TXCA' at offset 0x1344 contains 18 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000002c  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000098  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000aa  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000ba  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000cc  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000e8  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000f6  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000116  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000124  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000013c  00002b0a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+00000144  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000150  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000158  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+0000015e  00002b0a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+00000166  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000174  00002c02 R_ARM_ABS32            00000000   DV_p
+00000178  00002d02 R_ARM_ABS32            00000000   MEM_TYPE
+000001a4  00002e02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+
+Relocation section '.rel.text.DIG_CONFIG_SHUF_MISC_FIX' at offset 0x13d4 contains 50 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000012a  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000144  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001a4  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001ec  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000206  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000214  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000023a  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000246  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000254  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000002d0  00002c02 R_ARM_ABS32            00000000   DV_p
+000002d4  00002e02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+000002d8  00003002 R_ARM_ABS32            00000000   DUTShufConfigGlobal
+000002dc  00002d02 R_ARM_ABS32            00000000   MEM_TYPE
+000002e0  00002302 R_ARM_ABS32            00000000   .rodata.CSWTCH.962
+000002fe  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000030a  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000322  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000032e  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000356  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000366  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000036e  0000310a R_ARM_THM_CALL         00000000   vSetRank
+0000037e  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000038a  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000398  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000003e4  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000040a  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000042a  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000446  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000452  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000476  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000004a0  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000004b0  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000004d2  0000310a R_ARM_THM_CALL         00000000   vSetRank
+000004e0  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000052a  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000054a  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000055c  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000568  0000310a R_ARM_THM_CALL         00000000   vSetRank
+00000574  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000580  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000059c  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000005a8  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000005b6  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000005ce  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000005de  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000005e6  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000640  00002c02 R_ARM_ABS32            00000000   DV_p
+0000065c  00002e02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000660  00003302 R_ARM_ABS32            00000000   Gat_p
+00000678  00002d02 R_ARM_ABS32            00000000   MEM_TYPE
+
+Relocation section '.rel.text.DIG_CONFIG_SHUF_DCM' at offset 0x1564 contains 19 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000016  0000350a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000042  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000050  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000c8  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000d4  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000e0  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000ec  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000f8  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000104  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000112  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000011e  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000012e  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000140  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000014e  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000166  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000019a  0000360a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000001bc  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000001cc  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001d8  00002e02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+
+Relocation section '.rel.text.DIG_CONFIG_SHUF_PRECAL' at offset 0x15fc contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+
+Relocation section '.rel.text.DIG_CONFIG_SHUF_DBI' at offset 0x1604 contains 5 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000018  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000034  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000042  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000004a  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000058  00002d02 R_ARM_ABS32            00000000   MEM_TYPE
+
+Relocation section '.rel.text.DIG_CONFIG_SHUF_DVFSWLRL' at offset 0x162c contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000018  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000026  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000034  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000003c  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+
+Relocation section '.rel.text.DIG_CONFIG_DVFS_DEPENDENCE' at offset 0x164c contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  00003a0a R_ARM_THM_CALL         00000001   DIG_CONFIG_SHUF_DVFSWLRL
+00000066  00002a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000074  00002c02 R_ARM_ABS32            00000000   DV_p
+
+Relocation section '.rel.text.DIG_CONFIG_SHUF' at offset 0x1664 contains 14 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000001e  0000340a R_ARM_THM_CALL         00000001   DIG_CONFIG_SHUF_DCM
+00000028  0000280a R_ARM_THM_CALL         00000001   DIG_CONFIG_SHUF_ALG_TXCA
+00000032  00003e0a R_ARM_THM_CALL         00000000   DIG_HW_SHUF_CFG
+00000038  00002b0a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+00000042  00003f0a R_ARM_THM_CALL         00000000   RX_PATH_auto_gen_and_set
+0000004c  00003f0a R_ARM_THM_CALL         00000000   RX_PATH_auto_gen_and_set
+00000056  0000400a R_ARM_THM_CALL         00000000   TX_PATH_auto_gen_and_set
+00000060  0000400a R_ARM_THM_CALL         00000000   TX_PATH_auto_gen_and_set
+00000068  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+0000006e  00002b0a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+00000078  00002f0a R_ARM_THM_CALL         00000001   DIG_CONFIG_SHUF_MISC_FIX
+00000082  0000390a R_ARM_THM_CALL         00000001   DIG_CONFIG_SHUF_DBI
+0000008a  0000290a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+0000009c  00003c1e R_ARM_THM_JUMP24       00000001   DIG_CONFIG_DVFS_DEPENDENCE

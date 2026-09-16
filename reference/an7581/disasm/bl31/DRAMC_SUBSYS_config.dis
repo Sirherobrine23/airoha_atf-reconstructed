@@ -1,0 +1,758 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl31/DRAMC_SUBSYS_config.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.Roundup_Operation:
+
+0000000000000000 <Roundup_Operation>:
+       0: 12003c00     	and	w0, w0, #0xffff
+       4: 72003c21     	ands	w1, w1, #0xffff
+       8: 54000180     	b.eq	0x38 <Roundup_Operation+0x38>
+       c: 1b017c01     	mul	w1, w0, w1
+      10: 5280fa03     	mov	w3, #0x7d0              // =2000
+      14: 1ac30822     	udiv	w2, w1, w3
+      18: 12003c40     	and	w0, w2, #0xffff
+      1c: 12003c42     	and	w2, w2, #0xffff
+      20: 1b037c42     	mul	w2, w2, w3
+      24: 6b02003f     	cmp	w1, w2
+      28: 5400006d     	b.le	0x34 <Roundup_Operation+0x34>
+      2c: 11000400     	add	w0, w0, #0x1
+      30: 12003c00     	and	w0, w0, #0xffff
+      34: d65f03c0     	ret
+      38: 529fffe0     	mov	w0, #0xffff             // =65535
+      3c: 17fffffe     	b	0x34 <Roundup_Operation+0x34>
+
+Disassembly of section .text.PC4_WR_INIT_MRfiled_config:
+
+0000000000000000 <PC4_WR_INIT_MRfiled_config>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 2a0003e1     	mov	w1, w0
+       8: 528001e0     	mov	w0, #0xf                // =15
+       c: 910003fd     	mov	x29, sp
+      10: 94000000     	bl	0x10 <PC4_WR_INIT_MRfiled_config+0x10>
+		0000000000000010:  R_AARCH64_CALL26	Roundup_Operation
+      14: 12001c00     	and	w0, w0, #0xff
+      18: 51006401     	sub	w1, w0, #0x19
+      1c: 12001c21     	and	w1, w1, #0xff
+      20: 7100043f     	cmp	w1, #0x1
+      24: 540003e9     	b.ls	0xa0 <PC4_WR_INIT_MRfiled_config+0xa0>
+      28: 51005c01     	sub	w1, w0, #0x17
+      2c: 12001c21     	and	w1, w1, #0xff
+      30: 7100043f     	cmp	w1, #0x1
+      34: 540003a9     	b.ls	0xa8 <PC4_WR_INIT_MRfiled_config+0xa8>
+      38: 51005401     	sub	w1, w0, #0x15
+      3c: 12001c21     	and	w1, w1, #0xff
+      40: 7100043f     	cmp	w1, #0x1
+      44: 54000369     	b.ls	0xb0 <PC4_WR_INIT_MRfiled_config+0xb0>
+      48: 51004c01     	sub	w1, w0, #0x13
+      4c: 12001c21     	and	w1, w1, #0xff
+      50: 7100043f     	cmp	w1, #0x1
+      54: 54000329     	b.ls	0xb8 <PC4_WR_INIT_MRfiled_config+0xb8>
+      58: 51004401     	sub	w1, w0, #0x11
+      5c: 12001c21     	and	w1, w1, #0xff
+      60: 7100043f     	cmp	w1, #0x1
+      64: 540002e9     	b.ls	0xc0 <PC4_WR_INIT_MRfiled_config+0xc0>
+      68: 51003c01     	sub	w1, w0, #0xf
+      6c: 12001c21     	and	w1, w1, #0xff
+      70: 7100043f     	cmp	w1, #0x1
+      74: 540002a9     	b.ls	0xc8 <PC4_WR_INIT_MRfiled_config+0xc8>
+      78: 51003401     	sub	w1, w0, #0xd
+      7c: 12001c21     	and	w1, w1, #0xff
+      80: 7100043f     	cmp	w1, #0x1
+      84: 54000269     	b.ls	0xd0 <PC4_WR_INIT_MRfiled_config+0xd0>
+      88: 51002c00     	sub	w0, w0, #0xb
+      8c: 12001c00     	and	w0, w0, #0xff
+      90: 7100041f     	cmp	w0, #0x1
+      94: 1a9f87e0     	cset	w0, ls
+      98: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      9c: d65f03c0     	ret
+      a0: 52800100     	mov	w0, #0x8                // =8
+      a4: 17fffffd     	b	0x98 <PC4_WR_INIT_MRfiled_config+0x98>
+      a8: 528000c0     	mov	w0, #0x6                // =6
+      ac: 17fffffb     	b	0x98 <PC4_WR_INIT_MRfiled_config+0x98>
+      b0: 528000e0     	mov	w0, #0x7                // =7
+      b4: 17fffff9     	b	0x98 <PC4_WR_INIT_MRfiled_config+0x98>
+      b8: 528000a0     	mov	w0, #0x5                // =5
+      bc: 17fffff7     	b	0x98 <PC4_WR_INIT_MRfiled_config+0x98>
+      c0: 52800080     	mov	w0, #0x4                // =4
+      c4: 17fffff5     	b	0x98 <PC4_WR_INIT_MRfiled_config+0x98>
+      c8: 52800060     	mov	w0, #0x3                // =3
+      cc: 17fffff3     	b	0x98 <PC4_WR_INIT_MRfiled_config+0x98>
+      d0: 52800040     	mov	w0, #0x2                // =2
+      d4: 17fffff1     	b	0x98 <PC4_WR_INIT_MRfiled_config+0x98>
+
+Disassembly of section .text.PC4_WR_INIT_TCCDL_config:
+
+0000000000000000 <PC4_WR_INIT_TCCDL_config>:
+       0: 5129b001     	sub	w1, w0, #0xa6c
+       4: 7108503f     	cmp	w1, #0x214
+       8: 54000169     	b.ls	0x34 <PC4_WR_INIT_TCCDL_config+0x34>
+       c: 51258401     	sub	w1, w0, #0x961
+      10: 7104283f     	cmp	w1, #0x10a
+      14: 54000149     	b.ls	0x3c <PC4_WR_INIT_TCCDL_config+0x3c>
+      18: 511d2c01     	sub	w1, w0, #0x74b
+      1c: 7108543f     	cmp	w1, #0x215
+      20: 54000129     	b.ls	0x44 <PC4_WR_INIT_TCCDL_config+0x44>
+      24: 5114d800     	sub	w0, w0, #0x536
+      28: 7108501f     	cmp	w0, #0x214
+      2c: 1a9f87e0     	cset	w0, ls
+      30: d65f03c0     	ret
+      34: 52800080     	mov	w0, #0x4                // =4
+      38: 17fffffe     	b	0x30 <PC4_WR_INIT_TCCDL_config+0x30>
+      3c: 52800060     	mov	w0, #0x3                // =3
+      40: 17fffffc     	b	0x30 <PC4_WR_INIT_TCCDL_config+0x30>
+      44: 52800040     	mov	w0, #0x2                // =2
+      48: 17fffffa     	b	0x30 <PC4_WR_INIT_TCCDL_config+0x30>
+
+Disassembly of section .text.PC4_DRAM_INIT_CWL_MRfield_config:
+
+0000000000000000 <PC4_DRAM_INIT_CWL_MRfield_config>:
+       0: 512dd801     	sub	w1, w0, #0xb76
+       4: 7104283f     	cmp	w1, #0x10a
+       8: 54000329     	b.ls	0x6c <PC4_DRAM_INIT_CWL_MRfield_config+0x6c>
+       c: 5129b001     	sub	w1, w0, #0xa6c
+      10: 7104243f     	cmp	w1, #0x109
+      14: 54000249     	b.ls	0x5c <PC4_DRAM_INIT_CWL_MRfield_config+0x5c>
+      18: 51258401     	sub	w1, w0, #0x961
+      1c: 7104283f     	cmp	w1, #0x10a
+      20: 54000229     	b.ls	0x64 <PC4_DRAM_INIT_CWL_MRfield_config+0x64>
+      24: 51215801     	sub	w1, w0, #0x856
+      28: 7104283f     	cmp	w1, #0x10a
+      2c: 54000209     	b.ls	0x6c <PC4_DRAM_INIT_CWL_MRfield_config+0x6c>
+      30: 511d2c01     	sub	w1, w0, #0x74b
+      34: 7104283f     	cmp	w1, #0x10a
+      38: 540001e9     	b.ls	0x74 <PC4_DRAM_INIT_CWL_MRfield_config+0x74>
+      3c: 51190401     	sub	w1, w0, #0x641
+      40: 7104243f     	cmp	w1, #0x109
+      44: 540001c9     	b.ls	0x7c <PC4_DRAM_INIT_CWL_MRfield_config+0x7c>
+      48: 7119041f     	cmp	w0, #0x641
+      4c: 52801fe1     	mov	w1, #0xff               // =255
+      50: 52800040     	mov	w0, #0x2                // =2
+      54: 1a813000     	csel	w0, w0, w1, lo
+      58: d65f03c0     	ret
+      5c: 528000e0     	mov	w0, #0x7                // =7
+      60: 17fffffe     	b	0x58 <PC4_DRAM_INIT_CWL_MRfield_config+0x58>
+      64: 528000c0     	mov	w0, #0x6                // =6
+      68: 17fffffc     	b	0x58 <PC4_DRAM_INIT_CWL_MRfield_config+0x58>
+      6c: 528000a0     	mov	w0, #0x5                // =5
+      70: 17fffffa     	b	0x58 <PC4_DRAM_INIT_CWL_MRfield_config+0x58>
+      74: 52800080     	mov	w0, #0x4                // =4
+      78: 17fffff8     	b	0x58 <PC4_DRAM_INIT_CWL_MRfield_config+0x58>
+      7c: 52800060     	mov	w0, #0x3                // =3
+      80: 17fffff6     	b	0x58 <PC4_DRAM_INIT_CWL_MRfield_config+0x58>
+
+Disassembly of section .text.PC4_DRAM_INIT_CL_MRfield_config:
+
+0000000000000000 <PC4_DRAM_INIT_CL_MRfield_config>:
+       0: 512dd801     	sub	w1, w0, #0xb76
+       4: 7104283f     	cmp	w1, #0x10a
+       8: 540002e9     	b.ls	0x64 <PC4_DRAM_INIT_CL_MRfield_config+0x64>
+       c: 5129b001     	sub	w1, w0, #0xa6c
+      10: 7104243f     	cmp	w1, #0x109
+      14: 54000249     	b.ls	0x5c <PC4_DRAM_INIT_CL_MRfield_config+0x5c>
+      18: 51258401     	sub	w1, w0, #0x961
+      1c: 7104283f     	cmp	w1, #0x10a
+      20: 54000229     	b.ls	0x64 <PC4_DRAM_INIT_CL_MRfield_config+0x64>
+      24: 51215801     	sub	w1, w0, #0x856
+      28: 7104283f     	cmp	w1, #0x10a
+      2c: 54000209     	b.ls	0x6c <PC4_DRAM_INIT_CL_MRfield_config+0x6c>
+      30: 511d2c01     	sub	w1, w0, #0x74b
+      34: 7104283f     	cmp	w1, #0x10a
+      38: 540001e9     	b.ls	0x74 <PC4_DRAM_INIT_CL_MRfield_config+0x74>
+      3c: 51190401     	sub	w1, w0, #0x641
+      40: 7104243f     	cmp	w1, #0x109
+      44: 540001c9     	b.ls	0x7c <PC4_DRAM_INIT_CL_MRfield_config+0x7c>
+      48: 7119041f     	cmp	w0, #0x641
+      4c: 52801fe1     	mov	w1, #0xff               // =255
+      50: 52800060     	mov	w0, #0x3                // =3
+      54: 1a813000     	csel	w0, w0, w1, lo
+      58: d65f03c0     	ret
+      5c: 52800140     	mov	w0, #0xa                // =10
+      60: 17fffffe     	b	0x58 <PC4_DRAM_INIT_CL_MRfield_config+0x58>
+      64: 52800120     	mov	w0, #0x9                // =9
+      68: 17fffffc     	b	0x58 <PC4_DRAM_INIT_CL_MRfield_config+0x58>
+      6c: 52800100     	mov	w0, #0x8                // =8
+      70: 17fffffa     	b	0x58 <PC4_DRAM_INIT_CL_MRfield_config+0x58>
+      74: 528000e0     	mov	w0, #0x7                // =7
+      78: 17fffff8     	b	0x58 <PC4_DRAM_INIT_CL_MRfield_config+0x58>
+      7c: 528000a0     	mov	w0, #0x5                // =5
+      80: 17fffff6     	b	0x58 <PC4_DRAM_INIT_CL_MRfield_config+0x58>
+
+Disassembly of section .text.PC4_DRAM_config:
+
+0000000000000000 <PC4_DRAM_config>:
+       0: aa0103e4     	mov	x4, x1
+       4: 2a0003e2     	mov	w2, w0
+       8: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       c: 910003fd     	mov	x29, sp
+      10: 94000000     	bl	0x10 <PC4_DRAM_config+0x10>
+		0000000000000010:  R_AARCH64_CALL26	PC4_DRAM_INIT_CWL_MRfield_config
+      14: 39000080     	strb	w0, [x4]
+      18: 528000c0     	mov	w0, #0x6                // =6
+      1c: 39000480     	strb	w0, [x4, #0x1]
+      20: 3900089f     	strb	wzr, [x4, #0x2]
+      24: 2a0203e0     	mov	w0, w2
+      28: 94000000     	bl	0x28 <PC4_DRAM_config+0x28>
+		0000000000000028:  R_AARCH64_CALL26	PC4_DRAM_INIT_CL_MRfield_config
+      2c: 39000c80     	strb	w0, [x4, #0x3]
+      30: 3900109f     	strb	wzr, [x4, #0x4]
+      34: 2a0203e0     	mov	w0, w2
+      38: 3900149f     	strb	wzr, [x4, #0x5]
+      3c: 3900189f     	strb	wzr, [x4, #0x6]
+      40: 94000000     	bl	0x40 <PC4_DRAM_config+0x40>
+		0000000000000040:  R_AARCH64_CALL26	PC4_WR_INIT_TCCDL_config
+      44: 39002080     	strb	w0, [x4, #0x8]
+      48: 2a0203e0     	mov	w0, w2
+      4c: 94000000     	bl	0x4c <PC4_DRAM_config+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	PC4_WR_INIT_MRfiled_config
+      50: 39001c80     	strb	w0, [x4, #0x7]
+      54: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      58: d65f03c0     	ret
+
+Disassembly of section .text.PC3_DRAM_INIT_CWL_MRfield_config:
+
+0000000000000000 <PC3_DRAM_INIT_CWL_MRfield_config>:
+       0: 51258401     	sub	w1, w0, #0x961
+       4: 7104283f     	cmp	w1, #0x10a
+       8: 540002e9     	b.ls	0x64 <PC3_DRAM_INIT_CWL_MRfield_config+0x64>
+       c: 51215801     	sub	w1, w0, #0x856
+      10: 7104283f     	cmp	w1, #0x10a
+      14: 540002c9     	b.ls	0x6c <PC3_DRAM_INIT_CWL_MRfield_config+0x6c>
+      18: 511d2c01     	sub	w1, w0, #0x74b
+      1c: 7104283f     	cmp	w1, #0x10a
+      20: 540002a9     	b.ls	0x74 <PC3_DRAM_INIT_CWL_MRfield_config+0x74>
+      24: 51190401     	sub	w1, w0, #0x641
+      28: 7104243f     	cmp	w1, #0x109
+      2c: 54000289     	b.ls	0x7c <PC3_DRAM_INIT_CWL_MRfield_config+0x7c>
+      30: 5114d801     	sub	w1, w0, #0x536
+      34: 7104283f     	cmp	w1, #0x10a
+      38: 54000269     	b.ls	0x84 <PC3_DRAM_INIT_CWL_MRfield_config+0x84>
+      3c: 5110ac01     	sub	w1, w0, #0x42b
+      40: 7104283f     	cmp	w1, #0x10a
+      44: 54000249     	b.ls	0x8c <PC3_DRAM_INIT_CWL_MRfield_config+0x8c>
+      48: 510c8401     	sub	w1, w0, #0x321
+      4c: 7104243f     	cmp	w1, #0x109
+      50: 54000229     	b.ls	0x94 <PC3_DRAM_INIT_CWL_MRfield_config+0x94>
+      54: 710c801f     	cmp	w0, #0x320
+      58: 5a9f93e0     	csetm	w0, hi
+      5c: 12001c00     	and	w0, w0, #0xff
+      60: d65f03c0     	ret
+      64: 528000e0     	mov	w0, #0x7                // =7
+      68: 17fffffe     	b	0x60 <PC3_DRAM_INIT_CWL_MRfield_config+0x60>
+      6c: 528000c0     	mov	w0, #0x6                // =6
+      70: 17fffffc     	b	0x60 <PC3_DRAM_INIT_CWL_MRfield_config+0x60>
+      74: 528000a0     	mov	w0, #0x5                // =5
+      78: 17fffffa     	b	0x60 <PC3_DRAM_INIT_CWL_MRfield_config+0x60>
+      7c: 52800080     	mov	w0, #0x4                // =4
+      80: 17fffff8     	b	0x60 <PC3_DRAM_INIT_CWL_MRfield_config+0x60>
+      84: 52800060     	mov	w0, #0x3                // =3
+      88: 17fffff6     	b	0x60 <PC3_DRAM_INIT_CWL_MRfield_config+0x60>
+      8c: 52800040     	mov	w0, #0x2                // =2
+      90: 17fffff4     	b	0x60 <PC3_DRAM_INIT_CWL_MRfield_config+0x60>
+      94: 52800020     	mov	w0, #0x1                // =1
+      98: 17fffff2     	b	0x60 <PC3_DRAM_INIT_CWL_MRfield_config+0x60>
+
+Disassembly of section .text.PC3_DRAM_INIT_CL_MRfield_config:
+
+0000000000000000 <PC3_DRAM_INIT_CL_MRfield_config>:
+       0: 511d2c01     	sub	w1, w0, #0x74b
+       4: 7104283f     	cmp	w1, #0x10a
+       8: 54000249     	b.ls	0x50 <PC3_DRAM_INIT_CL_MRfield_config+0x50>
+       c: 51190401     	sub	w1, w0, #0x641
+      10: 7104243f     	cmp	w1, #0x109
+      14: 54000229     	b.ls	0x58 <PC3_DRAM_INIT_CL_MRfield_config+0x58>
+      18: 5114d801     	sub	w1, w0, #0x536
+      1c: 7104283f     	cmp	w1, #0x10a
+      20: 54000209     	b.ls	0x60 <PC3_DRAM_INIT_CL_MRfield_config+0x60>
+      24: 5110ac01     	sub	w1, w0, #0x42b
+      28: 7104283f     	cmp	w1, #0x10a
+      2c: 540001e9     	b.ls	0x68 <PC3_DRAM_INIT_CL_MRfield_config+0x68>
+      30: 510c8401     	sub	w1, w0, #0x321
+      34: 7104243f     	cmp	w1, #0x109
+      38: 540001c9     	b.ls	0x70 <PC3_DRAM_INIT_CL_MRfield_config+0x70>
+      3c: 710c841f     	cmp	w0, #0x321
+      40: 52801fe1     	mov	w1, #0xff               // =255
+      44: 52800080     	mov	w0, #0x4                // =4
+      48: 1a813000     	csel	w0, w0, w1, lo
+      4c: d65f03c0     	ret
+      50: 528000a0     	mov	w0, #0x5                // =5
+      54: 17fffffe     	b	0x4c <PC3_DRAM_INIT_CL_MRfield_config+0x4c>
+      58: 52800060     	mov	w0, #0x3                // =3
+      5c: 17fffffc     	b	0x4c <PC3_DRAM_INIT_CL_MRfield_config+0x4c>
+      60: 528001c0     	mov	w0, #0xe                // =14
+      64: 17fffffa     	b	0x4c <PC3_DRAM_INIT_CL_MRfield_config+0x4c>
+      68: 52800180     	mov	w0, #0xc                // =12
+      6c: 17fffff8     	b	0x4c <PC3_DRAM_INIT_CL_MRfield_config+0x4c>
+      70: 52800100     	mov	w0, #0x8                // =8
+      74: 17fffff6     	b	0x4c <PC3_DRAM_INIT_CL_MRfield_config+0x4c>
+
+Disassembly of section .text.PC3_DRAM_config:
+
+0000000000000000 <PC3_DRAM_config>:
+       0: aa0103e2     	mov	x2, x1
+       4: 2a0003e3     	mov	w3, w0
+       8: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       c: 910003fd     	mov	x29, sp
+      10: 94000000     	bl	0x10 <PC3_DRAM_config+0x10>
+		0000000000000010:  R_AARCH64_CALL26	PC3_DRAM_INIT_CWL_MRfield_config
+      14: 39000040     	strb	w0, [x2]
+      18: 52800020     	mov	w0, #0x1                // =1
+      1c: 3900045f     	strb	wzr, [x2, #0x1]
+      20: 39000840     	strb	w0, [x2, #0x2]
+      24: 2a0303e0     	mov	w0, w3
+      28: 94000000     	bl	0x28 <PC3_DRAM_config+0x28>
+		0000000000000028:  R_AARCH64_CALL26	PC3_DRAM_INIT_CL_MRfield_config
+      2c: 39000c40     	strb	w0, [x2, #0x3]
+      30: 52800200     	mov	w0, #0x10               // =16
+      34: 3900105f     	strb	wzr, [x2, #0x4]
+      38: 3900145f     	strb	wzr, [x2, #0x5]
+      3c: 3900185f     	strb	wzr, [x2, #0x6]
+      40: 39001c40     	strb	w0, [x2, #0x7]
+      44: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      48: d65f03c0     	ret
+
+Disassembly of section .text.ANA_TOP_FUNCTION_CFG:
+
+0000000000000000 <ANA_TOP_FUNCTION_CFG>:
+       0: 12003c21     	and	w1, w1, #0xffff
+       4: 90000002     	adrp	x2, 0x0 <ANA_TOP_FUNCTION_CFG>
+		0000000000000004:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+       8: 711d283f     	cmp	w1, #0x74a
+       c: 91000042     	add	x2, x2, #0x0
+		000000000000000c:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+      10: 1a9f87e3     	cset	w3, ls
+      14: 39000803     	strb	w3, [x0, #0x2]
+      18: 3941e844     	ldrb	w4, [x2, #0x7a]
+      1c: 3941e442     	ldrb	w2, [x2, #0x79]
+      20: 2a020082     	orr	w2, w4, w2
+      24: 72001c5f     	tst	w2, #0xff
+      28: 54000061     	b.ne	0x34 <ANA_TOP_FUNCTION_CFG+0x34>
+      2c: 7125803f     	cmp	w1, #0x960
+      30: 1a9f87e3     	cset	w3, ls
+      34: 39001803     	strb	w3, [x0, #0x6]
+      38: 3900201f     	strb	wzr, [x0, #0x8]
+      3c: d65f03c0     	ret
+
+Disassembly of section .text.ANA_CLK_DIV_config:
+
+0000000000000000 <ANA_CLK_DIV_config>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 90000000     	adrp	x0, 0x0 <ANA_CLK_DIV_config>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+      14: 91000014     	add	x20, x0, #0x0
+		0000000000000014:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+      18: a90363f7     	stp	x23, x24, [sp, #0x30]
+      1c: 39400018     	ldrb	w24, [x0]
+		000000000000001c:  R_AARCH64_LDST8_ABS_LO12_NC	DUTTopSetGlobal
+      20: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      24: 39400680     	ldrb	w0, [x20, #0x1]
+      28: 39401c35     	ldrb	w21, [x1, #0x7]
+      2c: aa002300     	orr	x0, x24, x0, lsl #8
+      30: 39400a98     	ldrb	w24, [x20, #0x2]
+      34: aa184000     	orr	x0, x0, x24, lsl #16
+      38: 39400e98     	ldrb	w24, [x20, #0x3]
+      3c: aa186018     	orr	x24, x0, x24, lsl #24
+      40: 39401280     	ldrb	w0, [x20, #0x4]
+      44: aa008318     	orr	x24, x24, x0, lsl #32
+      48: 39401680     	ldrb	w0, [x20, #0x5]
+      4c: aa00a300     	orr	x0, x24, x0, lsl #40
+      50: 39401a98     	ldrb	w24, [x20, #0x6]
+      54: aa18c000     	orr	x0, x0, x24, lsl #48
+      58: 39401e98     	ldrb	w24, [x20, #0x7]
+      5c: aa18e018     	orr	x24, x0, x24, lsl #56
+      60: b9400020     	ldr	w0, [x1]
+      64: 39000675     	strb	w21, [x19, #0x1]
+      68: 12003c17     	and	w23, w0, #0xffff
+      6c: 12003c16     	and	w22, w0, #0xffff
+      70: 39402022     	ldrb	w2, [x1, #0x8]
+      74: aa1803e0     	mov	x0, x24
+      78: 39000262     	strb	w2, [x19]
+      7c: 2903fe7f     	stp	wzr, wzr, [x19, #0x1c]
+      80: 1ac20aa2     	udiv	w2, w21, w2
+      84: 1ad50af5     	udiv	w21, w23, w21
+      88: 39000a62     	strb	w2, [x19, #0x2]
+      8c: 94000000     	bl	0x8c <ANA_CLK_DIV_config+0x8c>
+		000000000000008c:  R_AARCH64_CALL26	vGet_DDR_Loop_Mode
+      90: 7100041f     	cmp	w0, #0x1
+      94: 1a9f17e0     	cset	w0, eq
+      98: 39000e60     	strb	w0, [x19, #0x3]
+      9c: aa1803e0     	mov	x0, x24
+      a0: 94000000     	bl	0xa0 <ANA_CLK_DIV_config+0xa0>
+		00000000000000a0:  R_AARCH64_CALL26	vGet_DDR_Loop_Mode
+      a4: 7100081f     	cmp	w0, #0x2
+      a8: 1a9f17e0     	cset	w0, eq
+      ac: 39001260     	strb	w0, [x19, #0x4]
+      b0: aa1803e0     	mov	x0, x24
+      b4: 94000000     	bl	0xb4 <ANA_CLK_DIV_config+0xb4>
+		00000000000000b4:  R_AARCH64_CALL26	vGet_DDR_Loop_Mode
+      b8: 71000c1f     	cmp	w0, #0x3
+      bc: 54000440     	b.eq	0x144 <ANA_CLK_DIV_config+0x144>
+      c0: aa1803e0     	mov	x0, x24
+      c4: 94000000     	bl	0xc4 <ANA_CLK_DIV_config+0xc4>
+		00000000000000c4:  R_AARCH64_CALL26	vGet_DDR_Loop_Mode
+      c8: 7100081f     	cmp	w0, #0x2
+      cc: 1a9f17e7     	cset	w7, eq
+      d0: 39400260     	ldrb	w0, [x19]
+      d4: 12001ce3     	and	w3, w7, #0xff
+      d8: 39400a62     	ldrb	w2, [x19, #0x2]
+      dc: 39001663     	strb	w3, [x19, #0x5]
+      e0: 531f7801     	lsl	w1, w0, #1
+      e4: 39400e6a     	ldrb	w10, [x19, #0x3]
+      e8: 39401269     	ldrb	w9, [x19, #0x4]
+      ec: 7100085f     	cmp	w2, #0x2
+      f0: 1ac10ae1     	udiv	w1, w23, w1
+      f4: 540003e0     	b.eq	0x170 <ANA_CLK_DIV_config+0x170>
+      f8: 7100055f     	cmp	w10, #0x1
+      fc: 54000281     	b.ne	0x14c <ANA_CLK_DIV_config+0x14c>
+     100: 7100041f     	cmp	w0, #0x1
+     104: 1a9f97e2     	cset	w2, hi
+     108: 39001a62     	strb	w2, [x19, #0x6]
+     10c: 52800026     	mov	w6, #0x1                // =1
+     110: 1b010441     	madd	w1, w2, w1, w1
+     114: 53017ec8     	lsr	w8, w22, #1
+     118: 4b0900c6     	sub	w6, w6, w9
+     11c: 7100055f     	cmp	w10, #0x1
+     120: 54000420     	b.eq	0x1a4 <ANA_CLK_DIV_config+0x1a4>
+     124: 1b067d04     	mul	w4, w8, w6
+     128: 7100053f     	cmp	w9, #0x1
+     12c: 54000261     	b.ne	0x178 <ANA_CLK_DIV_config+0x178>
+     130: 531f7903     	lsl	w3, w8, #1
+     134: 7129aedf     	cmp	w22, #0xa6b
+     138: 54000521     	b.ne	0x1dc <ANA_CLK_DIV_config+0x1dc>
+     13c: 52800000     	mov	w0, #0x0                // =0
+     140: 14000024     	b	0x1d0 <ANA_CLK_DIV_config+0x1d0>
+     144: 52800027     	mov	w7, #0x1                // =1
+     148: 17ffffe2     	b	0xd0 <ANA_CLK_DIV_config+0xd0>
+     14c: 53017c02     	lsr	w2, w0, #1
+     150: 7109603f     	cmp	w1, #0x258
+     154: 1b027d22     	mul	w2, w9, w2
+     158: 1b027c62     	mul	w2, w3, w2
+     15c: 52000063     	eor	w3, w3, #0x1
+     160: 1a9fb063     	csel	w3, w3, wzr, lt
+     164: 0b220062     	add	w2, w3, w2, uxtb
+     168: 12001c42     	and	w2, w2, #0xff
+     16c: 17ffffe7     	b	0x108 <ANA_CLK_DIV_config+0x108>
+     170: 52800022     	mov	w2, #0x1                // =1
+     174: 17ffffe5     	b	0x108 <ANA_CLK_DIV_config+0x108>
+     178: 34000107     	cbz	w7, 0x198 <ANA_CLK_DIV_config+0x198>
+     17c: 531f7823     	lsl	w3, w1, #1
+     180: 7129aedf     	cmp	w22, #0xa6b
+     184: 540002c1     	b.ne	0x1dc <ANA_CLK_DIV_config+0x1dc>
+     188: 7112bc9f     	cmp	w4, #0x4af
+     18c: 54000189     	b.ls	0x1bc <ANA_CLK_DIV_config+0x1bc>
+     190: 52800000     	mov	w0, #0x0                // =0
+     194: 1400000d     	b	0x1c8 <ANA_CLK_DIV_config+0x1c8>
+     198: 71095c3f     	cmp	w1, #0x257
+     19c: 1a9fc023     	csel	w3, w1, wzr, gt
+     1a0: 17fffff8     	b	0x180 <ANA_CLK_DIV_config+0x180>
+     1a4: 7129aedf     	cmp	w22, #0xa6b
+     1a8: 52800004     	mov	w4, #0x0                // =0
+     1ac: 52800003     	mov	w3, #0x0                // =0
+     1b0: 54000161     	b.ne	0x1dc <ANA_CLK_DIV_config+0x1dc>
+     1b4: 7100053f     	cmp	w9, #0x1
+     1b8: 54fffc20     	b.eq	0x13c <ANA_CLK_DIV_config+0x13c>
+     1bc: 52800020     	mov	w0, #0x1                // =1
+     1c0: 4b0a0000     	sub	w0, w0, w10
+     1c4: 12001c00     	and	w0, w0, #0xff
+     1c8: 1b067c00     	mul	w0, w0, w6
+     1cc: 12001c00     	and	w0, w0, #0xff
+     1d0: 39001e60     	strb	w0, [x19, #0x7]
+     1d4: 3900227f     	strb	wzr, [x19, #0x8]
+     1d8: 1400000a     	b	0x200 <ANA_CLK_DIV_config+0x200>
+     1dc: 39001e7f     	strb	wzr, [x19, #0x7]
+     1e0: 7112c2df     	cmp	w22, #0x4b0
+     1e4: 54ffff81     	b.ne	0x1d4 <ANA_CLK_DIV_config+0x1d4>
+     1e8: 34ffff67     	cbz	w7, 0x1d4 <ANA_CLK_DIV_config+0x1d4>
+     1ec: 4b0a00e0     	sub	w0, w7, w10
+     1f0: 7112c07f     	cmp	w3, #0x4b0
+     1f4: 12001c00     	and	w0, w0, #0xff
+     1f8: 1a9f3000     	csel	w0, w0, wzr, lo
+     1fc: 39002260     	strb	w0, [x19, #0x8]
+     200: 90000000     	adrp	x0, 0x0 <ANA_CLK_DIV_config>
+		0000000000000200:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+     204: b940000b     	ldr	w11, [x0]
+		0000000000000204:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+     208: 121d7960     	and	w0, w11, #0xfffffffb
+     20c: 7100081f     	cmp	w0, #0x2
+     210: 540006c1     	b.ne	0x2e8 <ANA_CLK_DIV_config+0x2e8>
+     214: 39402260     	ldrb	w0, [x19, #0x8]
+     218: 39401e65     	ldrb	w5, [x19, #0x7]
+     21c: 3900267f     	strb	wzr, [x19, #0x9]
+     220: 1b030c00     	madd	w0, w0, w3, w3
+     224: 1b0410a5     	madd	w5, w5, w4, w4
+     228: 531f7800     	lsl	w0, w0, #1
+     22c: 531f78a5     	lsl	w5, w5, #1
+     230: 6b05001f     	cmp	w0, w5
+     234: 1a852000     	csel	w0, w0, w5, hs
+     238: b9001660     	str	w0, [x19, #0x14]
+     23c: 7100097f     	cmp	w11, #0x2
+     240: 54000981     	b.ne	0x370 <ANA_CLK_DIV_config+0x370>
+     244: 3941e680     	ldrb	w0, [x20, #0x79]
+     248: 7100041f     	cmp	w0, #0x1
+     24c: 540008e1     	b.ne	0x368 <ANA_CLK_DIV_config+0x368>
+     250: 5280e0e0     	mov	w0, #0x707              // =1799
+     254: 79001660     	strh	w0, [x19, #0xa]
+     258: 1b067ce6     	mul	w6, w7, w6
+     25c: 6b01011f     	cmp	w8, w1
+     260: 1b097ce0     	mul	w0, w7, w9
+     264: 1a812108     	csel	w8, w8, w1, hs
+     268: 1ad50863     	udiv	w3, w3, w21
+     26c: 1b017cc6     	mul	w6, w6, w1
+     270: 1b081808     	madd	w8, w0, w8, w6
+     274: 12001c63     	and	w3, w3, #0xff
+     278: 7100011f     	cmp	w8, #0x0
+     27c: 1a9f1060     	csel	w0, w3, wzr, ne
+     280: 39003260     	strb	w0, [x19, #0xc]
+     284: 350008c9     	cbnz	w9, 0x39c <ANA_CLK_DIV_config+0x39c>
+     288: 1ad50884     	udiv	w4, w4, w21
+     28c: 12001c84     	and	w4, w4, #0xff
+     290: 39003664     	strb	w4, [x19, #0xd]
+     294: 35000887     	cbnz	w7, 0x3a4 <ANA_CLK_DIV_config+0x3a4>
+     298: 1ad50821     	udiv	w1, w1, w21
+     29c: 12001c21     	and	w1, w1, #0xff
+     2a0: 52821520     	mov	w0, #0x10a9             // =4265
+     2a4: 6b0002df     	cmp	w22, w0
+     2a8: 1a9f97e0     	cset	w0, hi
+     2ac: 7100045f     	cmp	w2, #0x1
+     2b0: 39004260     	strb	w0, [x19, #0x10]
+     2b4: 52800400     	mov	w0, #0x20               // =32
+     2b8: 39003a61     	strb	w1, [x19, #0xe]
+     2bc: 52800401     	mov	w1, #0x20               // =32
+     2c0: 39003e63     	strb	w3, [x19, #0xf]
+     2c4: 39006260     	strb	w0, [x19, #0x18]
+     2c8: 52800800     	mov	w0, #0x40               // =64
+     2cc: 1a810000     	csel	w0, w0, w1, eq
+     2d0: 39006660     	strb	w0, [x19, #0x19]
+     2d4: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     2d8: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     2dc: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     2e0: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+     2e4: d65f03c0     	ret
+     2e8: 7100055f     	cmp	w10, #0x1
+     2ec: 540001c1     	b.ne	0x324 <ANA_CLK_DIV_config+0x324>
+     2f0: 531d7100     	lsl	w0, w8, #3
+     2f4: b9001660     	str	w0, [x19, #0x14]
+     2f8: 7100055f     	cmp	w10, #0x1
+     2fc: 54000320     	b.eq	0x360 <ANA_CLK_DIV_config+0x360>
+     300: 1ac30800     	udiv	w0, w0, w3
+     304: 39402265     	ldrb	w5, [x19, #0x8]
+     308: 110004a5     	add	w5, w5, #0x1
+     30c: 53017c00     	lsr	w0, w0, #1
+     310: 1ac50800     	udiv	w0, w0, w5
+     314: 51000400     	sub	w0, w0, #0x1
+     318: 12001c00     	and	w0, w0, #0xff
+     31c: 39002660     	strb	w0, [x19, #0x9]
+     320: 17ffffc7     	b	0x23c <ANA_CLK_DIV_config+0x23c>
+     324: 39402265     	ldrb	w5, [x19, #0x8]
+     328: 7100053f     	cmp	w9, #0x1
+     32c: 110004a5     	add	w5, w5, #0x1
+     330: 54000081     	b.ne	0x340 <ANA_CLK_DIV_config+0x340>
+     334: 1b177ca0     	mul	w0, w5, w23
+     338: 531f7800     	lsl	w0, w0, #1
+     33c: 17ffffee     	b	0x2f4 <ANA_CLK_DIV_config+0x2f4>
+     340: 39401e60     	ldrb	w0, [x19, #0x7]
+     344: 1b037ca5     	mul	w5, w5, w3
+     348: 531f78a5     	lsl	w5, w5, #1
+     34c: 1b041000     	madd	w0, w0, w4, w4
+     350: 531f7800     	lsl	w0, w0, #1
+     354: 6b05001f     	cmp	w0, w5
+     358: 1a852000     	csel	w0, w0, w5, hs
+     35c: 17ffffe6     	b	0x2f4 <ANA_CLK_DIV_config+0x2f4>
+     360: 52800000     	mov	w0, #0x0                // =0
+     364: 17ffffee     	b	0x31c <ANA_CLK_DIV_config+0x31c>
+     368: 52802020     	mov	w0, #0x101              // =257
+     36c: 17ffffba     	b	0x254 <ANA_CLK_DIV_config+0x254>
+     370: 7100197f     	cmp	w11, #0x6
+     374: 54fff721     	b.ne	0x258 <ANA_CLK_DIV_config+0x258>
+     378: 3941e680     	ldrb	w0, [x20, #0x79]
+     37c: 7100041f     	cmp	w0, #0x1
+     380: 54fff680     	b.eq	0x250 <ANA_CLK_DIV_config+0x250>
+     384: 39400660     	ldrb	w0, [x19, #0x1]
+     388: 7100201f     	cmp	w0, #0x8
+     38c: 1a9f056b     	csinc	w11, w11, wzr, eq
+     390: 39002a6b     	strb	w11, [x19, #0xa]
+     394: 39002e6b     	strb	w11, [x19, #0xb]
+     398: 17ffffb0     	b	0x258 <ANA_CLK_DIV_config+0x258>
+     39c: 52800004     	mov	w4, #0x0                // =0
+     3a0: 17ffffbc     	b	0x290 <ANA_CLK_DIV_config+0x290>
+     3a4: 52800001     	mov	w1, #0x0                // =0
+     3a8: 17ffffbe     	b	0x2a0 <ANA_CLK_DIV_config+0x2a0>
+
+Disassembly of section .text.DRAMC_SUBSYS_PRE_CONFIG:
+
+0000000000000000 <DRAMC_SUBSYS_PRE_CONFIG>:
+       0: 90000003     	adrp	x3, 0x0 <DRAMC_SUBSYS_PRE_CONFIG>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+       4: 91000063     	add	x3, x3, #0x0
+		0000000000000004:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+       8: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       c: aa0103e5     	mov	x5, x1
+      10: 9000000a     	adrp	x10, 0x0 <DRAMC_SUBSYS_PRE_CONFIG>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	.bss.DFS_TOP
+      14: 910003fd     	mov	x29, sp
+      18: 39423860     	ldrb	w0, [x3, #0x8e]
+      1c: 91000142     	add	x2, x10, #0x0
+		000000000000001c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.DFS_TOP
+      20: 39000420     	strb	w0, [x1, #0x1]
+      24: 52800027     	mov	w7, #0x1                // =1
+      28: 90000000     	adrp	x0, 0x0 <DRAMC_SUBSYS_PRE_CONFIG>
+		0000000000000028:  R_AARCH64_ADR_PREL_PG_HI21	.bss.ANA_option
+      2c: 91000000     	add	x0, x0, #0x0
+		000000000000002c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.ANA_option
+      30: 90000009     	adrp	x9, 0x0 <DRAMC_SUBSYS_PRE_CONFIG>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	.bss.ana_top_p
+      34: 90000008     	adrp	x8, 0x0 <DRAMC_SUBSYS_PRE_CONFIG>
+		0000000000000034:  R_AARCH64_ADR_PREL_PG_HI21	.bss.PC3_INIT
+      38: 91000124     	add	x4, x9, #0x0
+		0000000000000038:  R_AARCH64_ADD_ABS_LO12_NC	.bss.ana_top_p
+      3c: 91000108     	add	x8, x8, #0x0
+		000000000000003c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.PC3_INIT
+      40: 39000827     	strb	w7, [x1, #0x2]
+      44: a9008024     	stp	x4, x0, [x1, #0x8]
+      48: 91004040     	add	x0, x2, #0x10
+      4c: f9000c28     	str	x8, [x1, #0x18]
+      50: 90000001     	adrp	x1, 0x0 <DRAMC_SUBSYS_PRE_CONFIG>
+		0000000000000050:  R_AARCH64_ADR_PREL_PG_HI21	.bss.PC4_INIT
+      54: f90018a0     	str	x0, [x5, #0x30]
+      58: 91008040     	add	x0, x2, #0x20
+      5c: f9001ca0     	str	x0, [x5, #0x38]
+      60: 9100c040     	add	x0, x2, #0x30
+      64: f90020a0     	str	x0, [x5, #0x40]
+      68: 91010040     	add	x0, x2, #0x40
+      6c: f90024a0     	str	x0, [x5, #0x48]
+      70: 91014040     	add	x0, x2, #0x50
+      74: f90028a0     	str	x0, [x5, #0x50]
+      78: 91018040     	add	x0, x2, #0x60
+      7c: f9002ca0     	str	x0, [x5, #0x58]
+      80: 9101c040     	add	x0, x2, #0x70
+      84: f90030a0     	str	x0, [x5, #0x60]
+      88: 91020040     	add	x0, x2, #0x80
+      8c: f90034a0     	str	x0, [x5, #0x68]
+      90: 91024040     	add	x0, x2, #0x90
+      94: f90038a0     	str	x0, [x5, #0x70]
+      98: 90000000     	adrp	x0, 0x0 <DRAMC_SUBSYS_PRE_CONFIG>
+		0000000000000098:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+      9c: 91000021     	add	x1, x1, #0x0
+		000000000000009c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.PC4_INIT
+      a0: a90208a1     	stp	x1, x2, [x5, #0x20]
+      a4: b9400000     	ldr	w0, [x0]
+		00000000000000a4:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+      a8: 7100081f     	cmp	w0, #0x2
+      ac: 54000701     	b.ne	0x18c <DRAMC_SUBSYS_PRE_CONFIG+0x18c>
+      b0: 90000006     	adrp	x6, 0x0 <DRAMC_SUBSYS_PRE_CONFIG>
+		00000000000000b0:  R_AARCH64_ADR_PREL_PG_HI21	DUTShufConfigGlobal
+      b4: 910000c6     	add	x6, x6, #0x0
+		00000000000000b4:  R_AARCH64_ADD_ABS_LO12_NC	DUTShufConfigGlobal
+      b8: 394088c0     	ldrb	w0, [x6, #0x22]
+      bc: 39408cc1     	ldrb	w1, [x6, #0x23]
+      c0: aa012001     	orr	x1, x0, x1, lsl #8
+      c4: 394090c0     	ldrb	w0, [x6, #0x24]
+      c8: aa004021     	orr	x1, x1, x0, lsl #16
+      cc: 394094c0     	ldrb	w0, [x6, #0x25]
+      d0: 3900185f     	strb	wzr, [x2, #0x6]
+      d4: 3900585f     	strb	wzr, [x2, #0x16]
+      d8: aa006020     	orr	x0, x1, x0, lsl #24
+      dc: 394080c1     	ldrb	w1, [x6, #0x20]
+      e0: 39002041     	strb	w1, [x2, #0x8]
+      e4: 39006041     	strb	w1, [x2, #0x18]
+      e8: 3942bc61     	ldrb	w1, [x3, #0xaf]
+      ec: b9000140     	str	w0, [x10]
+		00000000000000ec:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.DFS_TOP
+      f0: 394084ca     	ldrb	w10, [x6, #0x21]
+      f4: 3941e466     	ldrb	w6, [x3, #0x79]
+      f8: 39001c81     	strb	w1, [x4, #0x7]
+      fc: 3941e861     	ldrb	w1, [x3, #0x7a]
+     100: 39001c4a     	strb	w10, [x2, #0x7]
+     104: 2a060021     	orr	w1, w1, w6
+     108: b9001040     	str	w0, [x2, #0x10]
+     10c: 72001c3f     	tst	w1, #0xff
+     110: 39005c4a     	strb	w10, [x2, #0x17]
+     114: 1a9f17e1     	cset	w1, eq
+     118: 39001481     	strb	w1, [x4, #0x5]
+     11c: 39427c61     	ldrb	w1, [x3, #0x9f]
+     120: 39001081     	strb	w1, [x4, #0x4]
+     124: 39429061     	ldrb	w1, [x3, #0xa4]
+     128: 39000c81     	strb	w1, [x4, #0x3]
+     12c: 39421c61     	ldrb	w1, [x3, #0x87]
+     130: 390004a7     	strb	w7, [x5, #0x1]
+     134: 390008bf     	strb	wzr, [x5, #0x2]
+     138: 71000c3f     	cmp	w1, #0x3
+     13c: 39000121     	strb	w1, [x9]
+		000000000000013c:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.ana_top_p
+     140: 1a9f17e1     	cset	w1, eq
+     144: 39422c63     	ldrb	w3, [x3, #0x8b]
+     148: 390000a3     	strb	w3, [x5]
+     14c: 3900245f     	strb	wzr, [x2, #0x9]
+     150: 7900145f     	strh	wzr, [x2, #0xa]
+     154: 3900645f     	strb	wzr, [x2, #0x19]
+     158: 7900345f     	strh	wzr, [x2, #0x1a]
+     15c: 39000481     	strb	w1, [x4, #0x1]
+     160: aa0803e1     	mov	x1, x8
+     164: 94000000     	bl	0x164 <DRAMC_SUBSYS_PRE_CONFIG+0x164>
+		0000000000000164:  R_AARCH64_CALL26	PC3_DRAM_config
+     168: f94014a0     	ldr	x0, [x5, #0x28]
+     16c: 39401002     	ldrb	w2, [x0, #0x4]
+     170: 79400001     	ldrh	w1, [x0]
+     174: f94004a0     	ldr	x0, [x5, #0x8]
+     178: 94000000     	bl	0x178 <DRAMC_SUBSYS_PRE_CONFIG+0x178>
+		0000000000000178:  R_AARCH64_CALL26	ANA_TOP_FUNCTION_CFG
+     17c: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+     180: f94008a0     	ldr	x0, [x5, #0x10]
+     184: f94014a1     	ldr	x1, [x5, #0x28]
+     188: 14000000     	b	0x188 <DRAMC_SUBSYS_PRE_CONFIG+0x188>
+		0000000000000188:  R_AARCH64_JUMP26	ANA_CLK_DIV_config
+     18c: 7100181f     	cmp	w0, #0x6
+     190: 54fffec1     	b.ne	0x168 <DRAMC_SUBSYS_PRE_CONFIG+0x168>
+     194: 90000006     	adrp	x6, 0x0 <DRAMC_SUBSYS_PRE_CONFIG>
+		0000000000000194:  R_AARCH64_ADR_PREL_PG_HI21	DUTShufConfigGlobal
+     198: 910000c6     	add	x6, x6, #0x0
+		0000000000000198:  R_AARCH64_ADD_ABS_LO12_NC	DUTShufConfigGlobal
+     19c: 394088c0     	ldrb	w0, [x6, #0x22]
+     1a0: 39408cc8     	ldrb	w8, [x6, #0x23]
+     1a4: aa082008     	orr	x8, x0, x8, lsl #8
+     1a8: 394090c0     	ldrb	w0, [x6, #0x24]
+     1ac: aa004108     	orr	x8, x8, x0, lsl #16
+     1b0: 394094c0     	ldrb	w0, [x6, #0x25]
+     1b4: 39001847     	strb	w7, [x2, #0x6]
+     1b8: 39005847     	strb	w7, [x2, #0x16]
+     1bc: aa006100     	orr	x0, x8, x0, lsl #24
+     1c0: 394084c8     	ldrb	w8, [x6, #0x21]
+     1c4: 394080c6     	ldrb	w6, [x6, #0x20]
+     1c8: 39002046     	strb	w6, [x2, #0x8]
+     1cc: 39006046     	strb	w6, [x2, #0x18]
+     1d0: 3942bc66     	ldrb	w6, [x3, #0xaf]
+     1d4: 39001c48     	strb	w8, [x2, #0x7]
+     1d8: 39001c86     	strb	w6, [x4, #0x7]
+     1dc: 3941e866     	ldrb	w6, [x3, #0x7a]
+     1e0: 39005c48     	strb	w8, [x2, #0x17]
+     1e4: 3941e468     	ldrb	w8, [x3, #0x79]
+     1e8: b9000140     	str	w0, [x10]
+		00000000000001e8:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.DFS_TOP
+     1ec: 2a0800c6     	orr	w6, w6, w8
+     1f0: b9001040     	str	w0, [x2, #0x10]
+     1f4: 72001cdf     	tst	w6, #0xff
+     1f8: 1a9f17e6     	cset	w6, eq
+     1fc: 39001486     	strb	w6, [x4, #0x5]
+     200: 39427c66     	ldrb	w6, [x3, #0x9f]
+     204: 39001086     	strb	w6, [x4, #0x4]
+     208: 39429066     	ldrb	w6, [x3, #0xa4]
+     20c: 39000c86     	strb	w6, [x4, #0x3]
+     210: 39421c66     	ldrb	w6, [x3, #0x87]
+     214: 390004a7     	strb	w7, [x5, #0x1]
+     218: 390008bf     	strb	wzr, [x5, #0x2]
+     21c: 71000cdf     	cmp	w6, #0x3
+     220: 39000126     	strb	w6, [x9]
+		0000000000000220:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.ana_top_p
+     224: 39422c63     	ldrb	w3, [x3, #0x8b]
+     228: 390000a3     	strb	w3, [x5]
+     22c: 3900245f     	strb	wzr, [x2, #0x9]
+     230: 7900145f     	strh	wzr, [x2, #0xa]
+     234: 3900645f     	strb	wzr, [x2, #0x19]
+     238: 7900345f     	strh	wzr, [x2, #0x1a]
+     23c: 1a9f17e2     	cset	w2, eq
+     240: 39000482     	strb	w2, [x4, #0x1]
+     244: 94000000     	bl	0x244 <DRAMC_SUBSYS_PRE_CONFIG+0x244>
+		0000000000000244:  R_AARCH64_CALL26	PC4_DRAM_config
+     248: 17ffffc8     	b	0x168 <DRAMC_SUBSYS_PRE_CONFIG+0x168>

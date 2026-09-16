@@ -1,0 +1,22 @@
+
+Relocation section '.rel.text.get_dq_ca_p2s_latency' at offset 0x6a0 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000068  00002a02 R_ARM_ABS32            00000000   MEM_TYPE
+0000006c  00002b02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+
+Relocation section '.rel.text.get_dqsien_p2s_latency' at offset 0x6b0 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000005c  00002b02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000060  00002a02 R_ARM_ABS32            00000000   MEM_TYPE
+
+Relocation section '.rel.text.Get_RL_by_MR_PC4' at offset 0x6c0 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  00001e02 R_ARM_ABS32            00000000   .rodata.CSWTCH.17
+
+Relocation section '.rel.text.Get_WL_by_MR_PC4' at offset 0x6c8 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  00002002 R_ARM_ABS32            00000000   .rodata.CSWTCH.19
+
+Relocation section '.rel.text.Get_RL_by_MR_PC3' at offset 0x6d0 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000014  00002202 R_ARM_ABS32            00000000   .rodata.CSWTCH.21

@@ -1,0 +1,2638 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl31/DIG_NONSHUF_config.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.DIG_PHY_config:
+
+0000000000000000 <DIG_PHY_config>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 5280ce81     	mov	w1, #0x674              // =1652
+       8: 52a07c03     	mov	w3, #0x3e00000          // =65011712
+       c: 910003fd     	mov	x29, sp
+      10: f90013f5     	str	x21, [sp, #0x20]
+      14: 90000015     	adrp	x21, 0x0 <DIG_PHY_config>
+		0000000000000014:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+      18: 910002b5     	add	x21, x21, #0x0
+		0000000000000018:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+      1c: 52a00c02     	mov	w2, #0x600000           // =6291456
+      20: 72a02001     	movk	w1, #0x100, lsl #16
+      24: a90153f3     	stp	x19, x20, [sp, #0x10]
+      28: aa0003f3     	mov	x19, x0
+      2c: 39425eb4     	ldrb	w20, [x21, #0x97]
+      30: 94000000     	bl	0x30 <DIG_PHY_config+0x30>
+		0000000000000030:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      34: 5280ce81     	mov	w1, #0x674              // =1652
+      38: aa1303e0     	mov	x0, x19
+      3c: 528007e3     	mov	w3, #0x3f               // =63
+      40: 528007c2     	mov	w2, #0x3e               // =62
+      44: 72a02001     	movk	w1, #0x100, lsl #16
+      48: 94000000     	bl	0x48 <DIG_PHY_config+0x48>
+		0000000000000048:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      4c: 5280ce81     	mov	w1, #0x674              // =1652
+      50: 528007e3     	mov	w3, #0x3f               // =63
+      54: aa1303e0     	mov	x0, x19
+      58: 2a0303e2     	mov	w2, w3
+      5c: 72a02001     	movk	w1, #0x100, lsl #16
+      60: 94000000     	bl	0x60 <DIG_PHY_config+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      64: 5280ce81     	mov	w1, #0x674              // =1652
+      68: aa1303e0     	mov	x0, x19
+      6c: 528007e3     	mov	w3, #0x3f               // =63
+      70: 528007c2     	mov	w2, #0x3e               // =62
+      74: 72a02001     	movk	w1, #0x100, lsl #16
+      78: 94000000     	bl	0x78 <DIG_PHY_config+0x78>
+		0000000000000078:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      7c: 5280ce81     	mov	w1, #0x674              // =1652
+      80: aa1303e0     	mov	x0, x19
+      84: 528007e3     	mov	w3, #0x3f               // =63
+      88: 528005e2     	mov	w2, #0x2f               // =47
+      8c: 72a02001     	movk	w1, #0x100, lsl #16
+      90: 94000000     	bl	0x90 <DIG_PHY_config+0x90>
+		0000000000000090:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      94: 5280f701     	mov	w1, #0x7b8              // =1976
+      98: aa1303e0     	mov	x0, x19
+      9c: 52bf0003     	mov	w3, #-0x8000000         // =-134217728
+      a0: 52a70002     	mov	w2, #0x38000000         // =939524096
+      a4: 72a02001     	movk	w1, #0x100, lsl #16
+      a8: 94000000     	bl	0xa8 <DIG_PHY_config+0xa8>
+		00000000000000a8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      ac: 5280fc01     	mov	w1, #0x7e0              // =2016
+      b0: 52802003     	mov	w3, #0x100              // =256
+      b4: aa1303e0     	mov	x0, x19
+      b8: 2a0303e2     	mov	w2, w3
+      bc: 72a02001     	movk	w1, #0x100, lsl #16
+      c0: 94000000     	bl	0xc0 <DIG_PHY_config+0xc0>
+		00000000000000c0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      c4: 5280f581     	mov	w1, #0x7ac              // =1964
+      c8: 52a02003     	mov	w3, #0x1000000          // =16777216
+      cc: aa1303e0     	mov	x0, x19
+      d0: 2a0303e2     	mov	w2, w3
+      d4: 72a02001     	movk	w1, #0x100, lsl #16
+      d8: 94000000     	bl	0xd8 <DIG_PHY_config+0xd8>
+		00000000000000d8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      dc: 5280a301     	mov	w1, #0x518              // =1304
+      e0: 52801003     	mov	w3, #0x80               // =128
+      e4: aa1303e0     	mov	x0, x19
+      e8: 2a0303e2     	mov	w2, w3
+      ec: 72b22001     	movk	w1, #0x9100, lsl #16
+      f0: 94000000     	bl	0xf0 <DIG_PHY_config+0xf0>
+		00000000000000f0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      f4: 5280b301     	mov	w1, #0x598              // =1432
+      f8: 52801003     	mov	w3, #0x80               // =128
+      fc: aa1303e0     	mov	x0, x19
+     100: 2a0303e2     	mov	w2, w3
+     104: 72b32001     	movk	w1, #0x9900, lsl #16
+     108: 94000000     	bl	0x108 <DIG_PHY_config+0x108>
+		0000000000000108:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     10c: 5280c301     	mov	w1, #0x618              // =1560
+     110: aa1303e0     	mov	x0, x19
+     114: 52801003     	mov	w3, #0x80               // =128
+     118: 72b42001     	movk	w1, #0xa100, lsl #16
+     11c: 2a0303e2     	mov	w2, w3
+     120: 94000000     	bl	0x120 <DIG_PHY_config+0x120>
+		0000000000000120:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     124: 394216a1     	ldrb	w1, [x21, #0x85]
+     128: 12000294     	and	w20, w20, #0x1
+     12c: 394212a0     	ldrb	w0, [x21, #0x84]
+     130: 6b00003f     	cmp	w1, w0
+     134: 54000b60     	b.eq	0x2a0 <DIG_PHY_config+0x2a0>
+     138: 52800000     	mov	w0, #0x0                // =0
+     13c: 94000000     	bl	0x13c <DIG_PHY_config+0x13c>
+		000000000000013c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     140: 2a1403e2     	mov	w2, w20
+     144: 52800023     	mov	w3, #0x1                // =1
+     148: 5280f781     	mov	w1, #0x7bc              // =1980
+     14c: aa1303e0     	mov	x0, x19
+     150: 72a02001     	movk	w1, #0x100, lsl #16
+     154: 94000000     	bl	0x154 <DIG_PHY_config+0x154>
+		0000000000000154:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     158: aa1303e0     	mov	x0, x19
+     15c: 52800021     	mov	w1, #0x1                // =1
+     160: 94000000     	bl	0x160 <DIG_PHY_config+0x160>
+		0000000000000160:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     164: 2a1403e2     	mov	w2, w20
+     168: 5280f781     	mov	w1, #0x7bc              // =1980
+     16c: aa1303e0     	mov	x0, x19
+     170: 52800023     	mov	w3, #0x1                // =1
+     174: 72a02001     	movk	w1, #0x100, lsl #16
+     178: 94000000     	bl	0x178 <DIG_PHY_config+0x178>
+		0000000000000178:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     17c: 52800001     	mov	w1, #0x0                // =0
+     180: aa1303e0     	mov	x0, x19
+     184: 94000000     	bl	0x184 <DIG_PHY_config+0x184>
+		0000000000000184:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     188: 52800020     	mov	w0, #0x1                // =1
+     18c: 94000000     	bl	0x18c <DIG_PHY_config+0x18c>
+		000000000000018c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     190: 90000014     	adrp	x20, 0x0 <DIG_PHY_config>
+		0000000000000190:  R_AARCH64_ADR_PREL_PG_HI21	DV_p
+     194: 91000294     	add	x20, x20, #0x0
+		0000000000000194:  R_AARCH64_ADD_ABS_LO12_NC	DV_p
+     198: 52800020     	mov	w0, #0x1                // =1
+     19c: 94000000     	bl	0x19c <DIG_PHY_config+0x19c>
+		000000000000019c:  R_AARCH64_CALL26	udelay
+     1a0: 529fe803     	mov	w3, #0xff40             // =65344
+     1a4: f9400680     	ldr	x0, [x20, #0x8]
+     1a8: 39400c00     	ldrb	w0, [x0, #0x3]
+     1ac: 35000880     	cbnz	w0, 0x2bc <DIG_PHY_config+0x2bc>
+     1b0: 5280a301     	mov	w1, #0x518              // =1304
+     1b4: aa1303e0     	mov	x0, x19
+     1b8: 52808002     	mov	w2, #0x400              // =1024
+     1bc: 72b22001     	movk	w1, #0x9100, lsl #16
+     1c0: 94000000     	bl	0x1c0 <DIG_PHY_config+0x1c0>
+		00000000000001c0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1c4: 5280b301     	mov	w1, #0x598              // =1432
+     1c8: aa1303e0     	mov	x0, x19
+     1cc: 529fe803     	mov	w3, #0xff40             // =65344
+     1d0: 52808002     	mov	w2, #0x400              // =1024
+     1d4: 72b32001     	movk	w1, #0x9900, lsl #16
+     1d8: 94000000     	bl	0x1d8 <DIG_PHY_config+0x1d8>
+		00000000000001d8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1dc: 5280c301     	mov	w1, #0x618              // =1560
+     1e0: aa1303e0     	mov	x0, x19
+     1e4: 529fe803     	mov	w3, #0xff40             // =65344
+     1e8: 52808002     	mov	w2, #0x400              // =1024
+     1ec: 72b42001     	movk	w1, #0xa100, lsl #16
+     1f0: 94000000     	bl	0x1f0 <DIG_PHY_config+0x1f0>
+		00000000000001f0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1f4: 5280a381     	mov	w1, #0x51c              // =1308
+     1f8: aa1303e0     	mov	x0, x19
+     1fc: 52800023     	mov	w3, #0x1                // =1
+     200: 52800002     	mov	w2, #0x0                // =0
+     204: 72a22001     	movk	w1, #0x1100, lsl #16
+     208: 94000000     	bl	0x208 <DIG_PHY_config+0x208>
+		0000000000000208:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     20c: 5280b381     	mov	w1, #0x59c              // =1436
+     210: aa1303e0     	mov	x0, x19
+     214: 52800023     	mov	w3, #0x1                // =1
+     218: 52800002     	mov	w2, #0x0                // =0
+     21c: 72a32001     	movk	w1, #0x1900, lsl #16
+     220: 94000000     	bl	0x220 <DIG_PHY_config+0x220>
+		0000000000000220:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     224: 5280c381     	mov	w1, #0x61c              // =1564
+     228: 52800023     	mov	w3, #0x1                // =1
+     22c: 52800002     	mov	w2, #0x0                // =0
+     230: aa1303e0     	mov	x0, x19
+     234: 72a42001     	movk	w1, #0x2100, lsl #16
+     238: 94000000     	bl	0x238 <DIG_PHY_config+0x238>
+		0000000000000238:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     23c: 52800803     	mov	w3, #0x40               // =64
+     240: 52800002     	mov	w2, #0x0                // =0
+     244: 52809301     	mov	w1, #0x498              // =1176
+     248: aa1303e0     	mov	x0, x19
+     24c: 72b12001     	movk	w1, #0x8900, lsl #16
+     250: 94000000     	bl	0x250 <DIG_PHY_config+0x250>
+		0000000000000250:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     254: f9400680     	ldr	x0, [x20, #0x8]
+     258: 39401c00     	ldrb	w0, [x0, #0x7]
+     25c: 7100041f     	cmp	w0, #0x1
+     260: 540000e1     	b.ne	0x27c <DIG_PHY_config+0x27c>
+     264: 5280d201     	mov	w1, #0x690              // =1680
+     268: aa1303e0     	mov	x0, x19
+     26c: 52be8003     	mov	w3, #-0xc000000         // =-201326592
+     270: 52a68002     	mov	w2, #0x34000000         // =872415232
+     274: 72a02001     	movk	w1, #0x100, lsl #16
+     278: 94000000     	bl	0x278 <DIG_PHY_config+0x278>
+		0000000000000278:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     27c: aa1303e0     	mov	x0, x19
+     280: 5280d581     	mov	w1, #0x6ac              // =1708
+     284: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     288: 321c33e3     	mov	w3, #0x1fff0            // =131056
+     28c: f94013f5     	ldr	x21, [sp, #0x20]
+     290: 52816a02     	mov	w2, #0xb50              // =2896
+     294: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     298: 72a02001     	movk	w1, #0x100, lsl #16
+     29c: 14000000     	b	0x29c <DIG_PHY_config+0x29c>
+		000000000000029c:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk
+     2a0: 5280f781     	mov	w1, #0x7bc              // =1980
+     2a4: 2a1403e2     	mov	w2, w20
+     2a8: aa1303e0     	mov	x0, x19
+     2ac: 52800023     	mov	w3, #0x1                // =1
+     2b0: 72a02001     	movk	w1, #0x100, lsl #16
+     2b4: 94000000     	bl	0x2b4 <DIG_PHY_config+0x2b4>
+		00000000000002b4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2b8: 17ffffb6     	b	0x190 <DIG_PHY_config+0x190>
+     2bc: 5280a301     	mov	w1, #0x518              // =1304
+     2c0: aa1303e0     	mov	x0, x19
+     2c4: 52800802     	mov	w2, #0x40               // =64
+     2c8: 72b22001     	movk	w1, #0x9100, lsl #16
+     2cc: 94000000     	bl	0x2cc <DIG_PHY_config+0x2cc>
+		00000000000002cc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2d0: 5280b301     	mov	w1, #0x598              // =1432
+     2d4: aa1303e0     	mov	x0, x19
+     2d8: 529fe803     	mov	w3, #0xff40             // =65344
+     2dc: 52800802     	mov	w2, #0x40               // =64
+     2e0: 72b32001     	movk	w1, #0x9900, lsl #16
+     2e4: 94000000     	bl	0x2e4 <DIG_PHY_config+0x2e4>
+		00000000000002e4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2e8: 5280c301     	mov	w1, #0x618              // =1560
+     2ec: aa1303e0     	mov	x0, x19
+     2f0: 529fe803     	mov	w3, #0xff40             // =65344
+     2f4: 52800802     	mov	w2, #0x40               // =64
+     2f8: 72b42001     	movk	w1, #0xa100, lsl #16
+     2fc: 94000000     	bl	0x2fc <DIG_PHY_config+0x2fc>
+		00000000000002fc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     300: 5280a381     	mov	w1, #0x51c              // =1308
+     304: 52800023     	mov	w3, #0x1                // =1
+     308: aa1303e0     	mov	x0, x19
+     30c: 2a0303e2     	mov	w2, w3
+     310: 72a22001     	movk	w1, #0x1100, lsl #16
+     314: 94000000     	bl	0x314 <DIG_PHY_config+0x314>
+		0000000000000314:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     318: 5280b381     	mov	w1, #0x59c              // =1436
+     31c: 52800023     	mov	w3, #0x1                // =1
+     320: aa1303e0     	mov	x0, x19
+     324: 2a0303e2     	mov	w2, w3
+     328: 72a32001     	movk	w1, #0x1900, lsl #16
+     32c: 94000000     	bl	0x32c <DIG_PHY_config+0x32c>
+		000000000000032c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     330: 5280c381     	mov	w1, #0x61c              // =1564
+     334: 52800023     	mov	w3, #0x1                // =1
+     338: aa1303e0     	mov	x0, x19
+     33c: 2a0303e2     	mov	w2, w3
+     340: 72a42001     	movk	w1, #0x2100, lsl #16
+     344: 94000000     	bl	0x344 <DIG_PHY_config+0x344>
+		0000000000000344:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     348: 52800803     	mov	w3, #0x40               // =64
+     34c: 2a0303e2     	mov	w2, w3
+     350: 17ffffbd     	b	0x244 <DIG_PHY_config+0x244>
+
+Disassembly of section .text.GATING_MODE_CFG:
+
+0000000000000000 <GATING_MODE_CFG>:
+       0: 90000001     	adrp	x1, 0x0 <GATING_MODE_CFG>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	DV_p+0x10
+       4: f9400021     	ldr	x1, [x1]
+		0000000000000004:  R_AARCH64_LDST64_ABS_LO12_NC	DV_p+0x10
+       8: 39401022     	ldrb	w2, [x1, #0x4]
+       c: 7100045f     	cmp	w2, #0x1
+      10: 54000280     	b.eq	0x60 <GATING_MODE_CFG+0x60>
+      14: 39400c21     	ldrb	w1, [x1, #0x3]
+      18: 7100043f     	cmp	w1, #0x1
+      1c: 1a9f07e1     	cset	w1, ne
+      20: 39000001     	strb	w1, [x0]
+      24: 90000001     	adrp	x1, 0x0 <GATING_MODE_CFG>
+		0000000000000024:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+      28: b9400021     	ldr	w1, [x1]
+		0000000000000028:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+      2c: 7100083f     	cmp	w1, #0x2
+      30: 1a9f07e1     	cset	w1, ne
+      34: 531f7821     	lsl	w1, w1, #1
+      38: 39000401     	strb	w1, [x0, #0x1]
+      3c: 52800041     	mov	w1, #0x2                // =2
+      40: 39000801     	strb	w1, [x0, #0x2]
+      44: 52800021     	mov	w1, #0x1                // =1
+      48: 39000c01     	strb	w1, [x0, #0x3]
+      4c: 39001001     	strb	w1, [x0, #0x4]
+      50: 90000001     	adrp	x1, 0x0 <GATING_MODE_CFG>
+		0000000000000050:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal+0xa5
+      54: 39400021     	ldrb	w1, [x1]
+		0000000000000054:  R_AARCH64_LDST8_ABS_LO12_NC	DUTTopSetGlobal+0xa5
+      58: 39001401     	strb	w1, [x0, #0x5]
+      5c: d65f03c0     	ret
+      60: 52800001     	mov	w1, #0x0                // =0
+      64: 17ffffef     	b	0x20 <GATING_MODE_CFG+0x20>
+
+Disassembly of section .text.DPHY_GAT_TRACK_Config:
+
+0000000000000000 <DPHY_GAT_TRACK_Config>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 52a00203     	mov	w3, #0x100000           // =1048576
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: aa0103f4     	mov	x20, x1
+      14: aa0003f3     	mov	x19, x0
+      18: 39400c22     	ldrb	w2, [x1, #0x3]
+      1c: 5280cd01     	mov	w1, #0x668              // =1640
+      20: 72a02001     	movk	w1, #0x100, lsl #16
+      24: 530c0042     	ubfiz	w2, w2, #20, #1
+      28: 94000000     	bl	0x28 <DPHY_GAT_TRACK_Config+0x28>
+		0000000000000028:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      2c: 5280cc81     	mov	w1, #0x664              // =1636
+      30: 52800023     	mov	w3, #0x1                // =1
+      34: aa1303e0     	mov	x0, x19
+      38: 2a0303e2     	mov	w2, w3
+      3c: 72a02001     	movk	w1, #0x100, lsl #16
+      40: 94000000     	bl	0x40 <DPHY_GAT_TRACK_Config+0x40>
+		0000000000000040:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      44: 5280cc81     	mov	w1, #0x664              // =1636
+      48: aa1303e0     	mov	x0, x19
+      4c: 52800083     	mov	w3, #0x4                // =4
+      50: 72a02001     	movk	w1, #0x100, lsl #16
+      54: 2a0303e2     	mov	w2, w3
+      58: 94000000     	bl	0x58 <DPHY_GAT_TRACK_Config+0x58>
+		0000000000000058:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      5c: 39401280     	ldrb	w0, [x20, #0x4]
+      60: 7100041f     	cmp	w0, #0x1
+      64: 54000321     	b.ne	0xc8 <DPHY_GAT_TRACK_Config+0xc8>
+      68: 5280a181     	mov	w1, #0x50c              // =1292
+      6c: 52801003     	mov	w3, #0x80               // =128
+      70: aa1303e0     	mov	x0, x19
+      74: 2a0303e2     	mov	w2, w3
+      78: 72b22001     	movk	w1, #0x9100, lsl #16
+      7c: 94000000     	bl	0x7c <DPHY_GAT_TRACK_Config+0x7c>
+		000000000000007c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      80: 5280b181     	mov	w1, #0x58c              // =1420
+      84: 52801003     	mov	w3, #0x80               // =128
+      88: aa1303e0     	mov	x0, x19
+      8c: 2a0303e2     	mov	w2, w3
+      90: 72b32001     	movk	w1, #0x9900, lsl #16
+      94: 94000000     	bl	0x94 <DPHY_GAT_TRACK_Config+0x94>
+		0000000000000094:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      98: 5280c181     	mov	w1, #0x60c              // =1548
+      9c: 52801003     	mov	w3, #0x80               // =128
+      a0: aa1303e0     	mov	x0, x19
+      a4: 2a0303e2     	mov	w2, w3
+      a8: 72b42001     	movk	w1, #0xa100, lsl #16
+      ac: 94000000     	bl	0xac <DPHY_GAT_TRACK_Config+0xac>
+		00000000000000ac:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      b0: 5280cd01     	mov	w1, #0x668              // =1640
+      b4: 52a00023     	mov	w3, #0x10000            // =65536
+      b8: aa1303e0     	mov	x0, x19
+      bc: 2a0303e2     	mov	w2, w3
+      c0: 72a02001     	movk	w1, #0x100, lsl #16
+      c4: 94000000     	bl	0xc4 <DPHY_GAT_TRACK_Config+0xc4>
+		00000000000000c4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      c8: 39400681     	ldrb	w1, [x20, #0x1]
+      cc: 71000c3f     	cmp	w1, #0x3
+      d0: 54000628     	b.hi	0x194 <DPHY_GAT_TRACK_Config+0x194>
+      d4: 90000000     	adrp	x0, 0x0 <DPHY_GAT_TRACK_Config>
+		00000000000000d4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.DPHY_GAT_TRACK_Config
+      d8: 52800403     	mov	w3, #0x20               // =32
+      dc: 91000000     	add	x0, x0, #0x0
+		00000000000000dc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.DPHY_GAT_TRACK_Config
+      e0: 78615800     	ldrh	w0, [x0, w1, uxtw #1]
+      e4: 10000061     	adr	x1, 0xf0 <DPHY_GAT_TRACK_Config+0xf0>
+      e8: 8b20a820     	add	x0, x1, w0, sxth #2
+      ec: d61f0000     	br	x0
+      f0: 5280a301     	mov	w1, #0x518              // =1304
+      f4: aa1303e0     	mov	x0, x19
+      f8: 52800002     	mov	w2, #0x0                // =0
+      fc: 72b22001     	movk	w1, #0x9100, lsl #16
+     100: 94000000     	bl	0x100 <DPHY_GAT_TRACK_Config+0x100>
+		0000000000000100:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     104: 5280b301     	mov	w1, #0x598              // =1432
+     108: aa1303e0     	mov	x0, x19
+     10c: 52800403     	mov	w3, #0x20               // =32
+     110: 52800002     	mov	w2, #0x0                // =0
+     114: 72b32001     	movk	w1, #0x9900, lsl #16
+     118: 94000000     	bl	0x118 <DPHY_GAT_TRACK_Config+0x118>
+		0000000000000118:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     11c: 5280c301     	mov	w1, #0x618              // =1560
+     120: aa1303e0     	mov	x0, x19
+     124: 52800403     	mov	w3, #0x20               // =32
+     128: 52800002     	mov	w2, #0x0                // =0
+     12c: 72b42001     	movk	w1, #0xa100, lsl #16
+     130: 94000000     	bl	0x130 <DPHY_GAT_TRACK_Config+0x130>
+		0000000000000130:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     134: 5280a181     	mov	w1, #0x50c              // =1292
+     138: aa1303e0     	mov	x0, x19
+     13c: 52980003     	mov	w3, #0xc000             // =49152
+     140: 52800002     	mov	w2, #0x0                // =0
+     144: 72b22001     	movk	w1, #0x9100, lsl #16
+     148: 94000000     	bl	0x148 <DPHY_GAT_TRACK_Config+0x148>
+		0000000000000148:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     14c: 5280b181     	mov	w1, #0x58c              // =1420
+     150: aa1303e0     	mov	x0, x19
+     154: 52980003     	mov	w3, #0xc000             // =49152
+     158: 52800002     	mov	w2, #0x0                // =0
+     15c: 72b32001     	movk	w1, #0x9900, lsl #16
+     160: 94000000     	bl	0x160 <DPHY_GAT_TRACK_Config+0x160>
+		0000000000000160:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     164: 5280c181     	mov	w1, #0x60c              // =1548
+     168: 52980003     	mov	w3, #0xc000             // =49152
+     16c: 52800002     	mov	w2, #0x0                // =0
+     170: 72b42001     	movk	w1, #0xa100, lsl #16
+     174: aa1303e0     	mov	x0, x19
+     178: 94000000     	bl	0x178 <DPHY_GAT_TRACK_Config+0x178>
+		0000000000000178:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     17c: 52821281     	mov	w1, #0x1094             // =4244
+     180: 52880003     	mov	w3, #0x4000             // =16384
+     184: 52800002     	mov	w2, #0x0                // =0
+     188: 72a02401     	movk	w1, #0x120, lsl #16
+     18c: aa1303e0     	mov	x0, x19
+     190: 94000000     	bl	0x190 <DPHY_GAT_TRACK_Config+0x190>
+		0000000000000190:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     194: 39400a80     	ldrb	w0, [x20, #0x2]
+     198: 7100041f     	cmp	w0, #0x1
+     19c: 540024a0     	b.eq	0x630 <DPHY_GAT_TRACK_Config+0x630>
+     1a0: 7100081f     	cmp	w0, #0x2
+     1a4: 54002680     	b.eq	0x674 <DPHY_GAT_TRACK_Config+0x674>
+     1a8: 35000740     	cbnz	w0, 0x290 <DPHY_GAT_TRACK_Config+0x290>
+     1ac: 5293e223     	mov	w3, #0x9f11             // =40721
+     1b0: 52800022     	mov	w2, #0x1                // =1
+     1b4: 5280cc01     	mov	w1, #0x660              // =1632
+     1b8: aa1303e0     	mov	x0, x19
+     1bc: 72a18423     	movk	w3, #0xc21, lsl #16
+     1c0: 72a18002     	movk	w2, #0xc00, lsl #16
+     1c4: 72a02001     	movk	w1, #0x100, lsl #16
+     1c8: 94000000     	bl	0x1c8 <DPHY_GAT_TRACK_Config+0x1c8>
+		00000000000001c8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1cc: 52802a02     	mov	w2, #0x150              // =336
+     1d0: 5280cc81     	mov	w1, #0x664              // =1636
+     1d4: 129fd5e3     	mov	w3, #-0xfeb0            // =-65200
+     1d8: 72a00022     	movk	w2, #0x1, lsl #16
+     1dc: aa1303e0     	mov	x0, x19
+     1e0: 72a02001     	movk	w1, #0x100, lsl #16
+     1e4: 94000000     	bl	0x1e4 <DPHY_GAT_TRACK_Config+0x1e4>
+		00000000000001e4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1e8: 5280e6a3     	mov	w3, #0x735              // =1845
+     1ec: 52804202     	mov	w2, #0x210              // =528
+     1f0: 5280f701     	mov	w1, #0x7b8              // =1976
+     1f4: aa1303e0     	mov	x0, x19
+     1f8: 72a02001     	movk	w1, #0x100, lsl #16
+     1fc: 94000000     	bl	0x1fc <DPHY_GAT_TRACK_Config+0x1fc>
+		00000000000001fc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     200: 5280a181     	mov	w1, #0x50c              // =1292
+     204: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     208: aa1303e0     	mov	x0, x19
+     20c: 2a0303e2     	mov	w2, w3
+     210: 72b22001     	movk	w1, #0x9100, lsl #16
+     214: 94000000     	bl	0x214 <DPHY_GAT_TRACK_Config+0x214>
+		0000000000000214:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     218: 5280a301     	mov	w1, #0x518              // =1304
+     21c: aa1303e0     	mov	x0, x19
+     220: 52a00ee3     	mov	w3, #0x770000           // =7798784
+     224: 52800002     	mov	w2, #0x0                // =0
+     228: 72b22001     	movk	w1, #0x9100, lsl #16
+     22c: 94000000     	bl	0x22c <DPHY_GAT_TRACK_Config+0x22c>
+		000000000000022c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     230: 5280b181     	mov	w1, #0x58c              // =1420
+     234: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     238: aa1303e0     	mov	x0, x19
+     23c: 2a0303e2     	mov	w2, w3
+     240: 72b32001     	movk	w1, #0x9900, lsl #16
+     244: 94000000     	bl	0x244 <DPHY_GAT_TRACK_Config+0x244>
+		0000000000000244:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     248: 5280b301     	mov	w1, #0x598              // =1432
+     24c: aa1303e0     	mov	x0, x19
+     250: 52a00ee3     	mov	w3, #0x770000           // =7798784
+     254: 52800002     	mov	w2, #0x0                // =0
+     258: 72b32001     	movk	w1, #0x9900, lsl #16
+     25c: 94000000     	bl	0x25c <DPHY_GAT_TRACK_Config+0x25c>
+		000000000000025c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     260: 5280c181     	mov	w1, #0x60c              // =1548
+     264: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     268: aa1303e0     	mov	x0, x19
+     26c: 2a0303e2     	mov	w2, w3
+     270: 72b42001     	movk	w1, #0xa100, lsl #16
+     274: 94000000     	bl	0x274 <DPHY_GAT_TRACK_Config+0x274>
+		0000000000000274:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     278: 52a00ee3     	mov	w3, #0x770000           // =7798784
+     27c: 52800002     	mov	w2, #0x0                // =0
+     280: 5280c301     	mov	w1, #0x618              // =1560
+     284: aa1303e0     	mov	x0, x19
+     288: 72b42001     	movk	w1, #0xa100, lsl #16
+     28c: 94000000     	bl	0x28c <DPHY_GAT_TRACK_Config+0x28c>
+		000000000000028c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     290: 52801e03     	mov	w3, #0xf0               // =240
+     294: 52800202     	mov	w2, #0x10               // =16
+     298: 5280a481     	mov	w1, #0x524              // =1316
+     29c: aa1303e0     	mov	x0, x19
+     2a0: 72a20003     	movk	w3, #0x1000, lsl #16
+     2a4: 72a20002     	movk	w2, #0x1000, lsl #16
+     2a8: 72aa2001     	movk	w1, #0x5100, lsl #16
+     2ac: 94000000     	bl	0x2ac <DPHY_GAT_TRACK_Config+0x2ac>
+		00000000000002ac:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2b0: 52801e03     	mov	w3, #0xf0               // =240
+     2b4: 52800202     	mov	w2, #0x10               // =16
+     2b8: 5280b481     	mov	w1, #0x5a4              // =1444
+     2bc: aa1303e0     	mov	x0, x19
+     2c0: 72a20003     	movk	w3, #0x1000, lsl #16
+     2c4: 72a20002     	movk	w2, #0x1000, lsl #16
+     2c8: 72ab2001     	movk	w1, #0x5900, lsl #16
+     2cc: 94000000     	bl	0x2cc <DPHY_GAT_TRACK_Config+0x2cc>
+		00000000000002cc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2d0: 52801e03     	mov	w3, #0xf0               // =240
+     2d4: 52800202     	mov	w2, #0x10               // =16
+     2d8: 5280c481     	mov	w1, #0x624              // =1572
+     2dc: aa1303e0     	mov	x0, x19
+     2e0: 72a20003     	movk	w3, #0x1000, lsl #16
+     2e4: 72a20002     	movk	w2, #0x1000, lsl #16
+     2e8: 72ac2001     	movk	w1, #0x6100, lsl #16
+     2ec: 94000000     	bl	0x2ec <DPHY_GAT_TRACK_Config+0x2ec>
+		00000000000002ec:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2f0: 52809481     	mov	w1, #0x4a4              // =1188
+     2f4: aa1303e0     	mov	x0, x19
+     2f8: 52801e03     	mov	w3, #0xf0               // =240
+     2fc: 52800202     	mov	w2, #0x10               // =16
+     300: 72a92001     	movk	w1, #0x4900, lsl #16
+     304: 90000014     	adrp	x20, 0x0 <DPHY_GAT_TRACK_Config>
+		0000000000000304:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+     308: 94000000     	bl	0x308 <DPHY_GAT_TRACK_Config+0x308>
+		0000000000000308:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     30c: 91000294     	add	x20, x20, #0x0
+		000000000000030c:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+     310: 5280cc01     	mov	w1, #0x660              // =1632
+     314: aa1303e0     	mov	x0, x19
+     318: 72a02001     	movk	w1, #0x100, lsl #16
+     31c: 52b21343     	mov	w3, #-0x6f660000        // =-1868955648
+     320: 52b20242     	mov	w2, #-0x6fee0000        // =-1877868544
+     324: 94000000     	bl	0x324 <DPHY_GAT_TRACK_Config+0x324>
+		0000000000000324:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     328: 39421681     	ldrb	w1, [x20, #0x85]
+     32c: 39421280     	ldrb	w0, [x20, #0x84]
+     330: 6b00003f     	cmp	w1, w0
+     334: 54002240     	b.eq	0x77c <DPHY_GAT_TRACK_Config+0x77c>
+     338: 52800000     	mov	w0, #0x0                // =0
+     33c: 94000000     	bl	0x33c <DPHY_GAT_TRACK_Config+0x33c>
+		000000000000033c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     340: 52a02003     	mov	w3, #0x1000000          // =16777216
+     344: 2a0303e2     	mov	w2, w3
+     348: 5280f781     	mov	w1, #0x7bc              // =1980
+     34c: aa1303e0     	mov	x0, x19
+     350: 72a02001     	movk	w1, #0x100, lsl #16
+     354: 94000000     	bl	0x354 <DPHY_GAT_TRACK_Config+0x354>
+		0000000000000354:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     358: aa1303e0     	mov	x0, x19
+     35c: 52800021     	mov	w1, #0x1                // =1
+     360: 94000000     	bl	0x360 <DPHY_GAT_TRACK_Config+0x360>
+		0000000000000360:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     364: 52a02003     	mov	w3, #0x1000000          // =16777216
+     368: 5280f781     	mov	w1, #0x7bc              // =1980
+     36c: 2a0303e2     	mov	w2, w3
+     370: aa1303e0     	mov	x0, x19
+     374: 72a02001     	movk	w1, #0x100, lsl #16
+     378: 94000000     	bl	0x378 <DPHY_GAT_TRACK_Config+0x378>
+		0000000000000378:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     37c: 52800001     	mov	w1, #0x0                // =0
+     380: aa1303e0     	mov	x0, x19
+     384: 94000000     	bl	0x384 <DPHY_GAT_TRACK_Config+0x384>
+		0000000000000384:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     388: 52800020     	mov	w0, #0x1                // =1
+     38c: 94000000     	bl	0x38c <DPHY_GAT_TRACK_Config+0x38c>
+		000000000000038c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     390: 5280cd01     	mov	w1, #0x668              // =1640
+     394: aa1303e0     	mov	x0, x19
+     398: 52be0003     	mov	w3, #-0x10000000        // =-268435456
+     39c: 52a80002     	mov	w2, #0x40000000         // =1073741824
+     3a0: 72a02001     	movk	w1, #0x100, lsl #16
+     3a4: 94000000     	bl	0x3a4 <DPHY_GAT_TRACK_Config+0x3a4>
+		00000000000003a4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3a8: 5280f601     	mov	w1, #0x7b0              // =1968
+     3ac: 52800023     	mov	w3, #0x1                // =1
+     3b0: aa1303e0     	mov	x0, x19
+     3b4: 2a0303e2     	mov	w2, w3
+     3b8: 72a02001     	movk	w1, #0x100, lsl #16
+     3bc: 94000000     	bl	0x3bc <DPHY_GAT_TRACK_Config+0x3bc>
+		00000000000003bc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3c0: 5280f681     	mov	w1, #0x7b4              // =1972
+     3c4: aa1303e0     	mov	x0, x19
+     3c8: 52800023     	mov	w3, #0x1                // =1
+     3cc: 72a02001     	movk	w1, #0x100, lsl #16
+     3d0: 2a0303e2     	mov	w2, w3
+     3d4: 94000000     	bl	0x3d4 <DPHY_GAT_TRACK_Config+0x3d4>
+		00000000000003d4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3d8: 3941ea80     	ldrb	w0, [x20, #0x7a]
+     3dc: 34000380     	cbz	w0, 0x44c <DPHY_GAT_TRACK_Config+0x44c>
+     3e0: 3941e280     	ldrb	w0, [x20, #0x78]
+     3e4: 3941de81     	ldrb	w1, [x20, #0x77]
+     3e8: 2a010000     	orr	w0, w0, w1
+     3ec: 72001c1f     	tst	w0, #0xff
+     3f0: 540002e1     	b.ne	0x44c <DPHY_GAT_TRACK_Config+0x44c>
+     3f4: 52800000     	mov	w0, #0x0                // =0
+     3f8: 94000000     	bl	0x3f8 <DPHY_GAT_TRACK_Config+0x3f8>
+		00000000000003f8:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     3fc: aa1303e0     	mov	x0, x19
+     400: 52800021     	mov	w1, #0x1                // =1
+     404: 94000000     	bl	0x404 <DPHY_GAT_TRACK_Config+0x404>
+		0000000000000404:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     408: 5280f601     	mov	w1, #0x7b0              // =1968
+     40c: aa1303e0     	mov	x0, x19
+     410: 52800023     	mov	w3, #0x1                // =1
+     414: 52800002     	mov	w2, #0x0                // =0
+     418: 72a02001     	movk	w1, #0x100, lsl #16
+     41c: 94000000     	bl	0x41c <DPHY_GAT_TRACK_Config+0x41c>
+		000000000000041c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     420: 5280f681     	mov	w1, #0x7b4              // =1972
+     424: aa1303e0     	mov	x0, x19
+     428: 52800023     	mov	w3, #0x1                // =1
+     42c: 52800002     	mov	w2, #0x0                // =0
+     430: 72a02001     	movk	w1, #0x100, lsl #16
+     434: 94000000     	bl	0x434 <DPHY_GAT_TRACK_Config+0x434>
+		0000000000000434:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     438: 52800001     	mov	w1, #0x0                // =0
+     43c: aa1303e0     	mov	x0, x19
+     440: 94000000     	bl	0x440 <DPHY_GAT_TRACK_Config+0x440>
+		0000000000000440:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     444: 52800020     	mov	w0, #0x1                // =1
+     448: 94000000     	bl	0x448 <DPHY_GAT_TRACK_Config+0x448>
+		0000000000000448:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     44c: 90000000     	adrp	x0, 0x0 <DPHY_GAT_TRACK_Config>
+		000000000000044c:  R_AARCH64_ADR_PREL_PG_HI21	DV_p+0x8
+     450: 52a00383     	mov	w3, #0x1c0000           // =1835008
+     454: f9400000     	ldr	x0, [x0]
+		0000000000000454:  R_AARCH64_LDST64_ABS_LO12_NC	DV_p+0x8
+     458: 39400c00     	ldrb	w0, [x0, #0x3]
+     45c: 530d0001     	ubfiz	w1, w0, #19, #1
+     460: 530e0002     	ubfiz	w2, w0, #18, #1
+     464: 2a010042     	orr	w2, w2, w1
+     468: 530c0000     	ubfiz	w0, w0, #20, #1
+     46c: 2a000042     	orr	w2, w2, w0
+     470: aa1303e0     	mov	x0, x19
+     474: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     478: 5280cd01     	mov	w1, #0x668              // =1640
+     47c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+     480: 72a02001     	movk	w1, #0x100, lsl #16
+     484: 14000000     	b	0x484 <DPHY_GAT_TRACK_Config+0x484>
+		0000000000000484:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk
+     488: 5280a301     	mov	w1, #0x518              // =1304
+     48c: 2a0303e2     	mov	w2, w3
+     490: aa1303e0     	mov	x0, x19
+     494: 72b22001     	movk	w1, #0x9100, lsl #16
+     498: 94000000     	bl	0x498 <DPHY_GAT_TRACK_Config+0x498>
+		0000000000000498:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     49c: 5280b301     	mov	w1, #0x598              // =1432
+     4a0: 52800403     	mov	w3, #0x20               // =32
+     4a4: aa1303e0     	mov	x0, x19
+     4a8: 2a0303e2     	mov	w2, w3
+     4ac: 72b32001     	movk	w1, #0x9900, lsl #16
+     4b0: 94000000     	bl	0x4b0 <DPHY_GAT_TRACK_Config+0x4b0>
+		00000000000004b0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4b4: 5280c301     	mov	w1, #0x618              // =1560
+     4b8: 52800403     	mov	w3, #0x20               // =32
+     4bc: aa1303e0     	mov	x0, x19
+     4c0: 2a0303e2     	mov	w2, w3
+     4c4: 72b42001     	movk	w1, #0xa100, lsl #16
+     4c8: 94000000     	bl	0x4c8 <DPHY_GAT_TRACK_Config+0x4c8>
+		00000000000004c8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4cc: 5280a181     	mov	w1, #0x50c              // =1292
+     4d0: aa1303e0     	mov	x0, x19
+     4d4: 52980003     	mov	w3, #0xc000             // =49152
+     4d8: 52880002     	mov	w2, #0x4000             // =16384
+     4dc: 72b22001     	movk	w1, #0x9100, lsl #16
+     4e0: 94000000     	bl	0x4e0 <DPHY_GAT_TRACK_Config+0x4e0>
+		00000000000004e0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4e4: 5280b181     	mov	w1, #0x58c              // =1420
+     4e8: 52980003     	mov	w3, #0xc000             // =49152
+     4ec: 52880002     	mov	w2, #0x4000             // =16384
+     4f0: aa1303e0     	mov	x0, x19
+     4f4: 72b32001     	movk	w1, #0x9900, lsl #16
+     4f8: 94000000     	bl	0x4f8 <DPHY_GAT_TRACK_Config+0x4f8>
+		00000000000004f8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4fc: 52980003     	mov	w3, #0xc000             // =49152
+     500: 52880002     	mov	w2, #0x4000             // =16384
+     504: 5280c181     	mov	w1, #0x60c              // =1548
+     508: 72b42001     	movk	w1, #0xa100, lsl #16
+     50c: 17ffff20     	b	0x18c <DPHY_GAT_TRACK_Config+0x18c>
+     510: 5280a301     	mov	w1, #0x518              // =1304
+     514: 2a0303e2     	mov	w2, w3
+     518: aa1303e0     	mov	x0, x19
+     51c: 72b22001     	movk	w1, #0x9100, lsl #16
+     520: 94000000     	bl	0x520 <DPHY_GAT_TRACK_Config+0x520>
+		0000000000000520:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     524: 5280b301     	mov	w1, #0x598              // =1432
+     528: 52800403     	mov	w3, #0x20               // =32
+     52c: aa1303e0     	mov	x0, x19
+     530: 2a0303e2     	mov	w2, w3
+     534: 72b32001     	movk	w1, #0x9900, lsl #16
+     538: 94000000     	bl	0x538 <DPHY_GAT_TRACK_Config+0x538>
+		0000000000000538:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     53c: 5280c301     	mov	w1, #0x618              // =1560
+     540: 52800403     	mov	w3, #0x20               // =32
+     544: aa1303e0     	mov	x0, x19
+     548: 2a0303e2     	mov	w2, w3
+     54c: 72b42001     	movk	w1, #0xa100, lsl #16
+     550: 94000000     	bl	0x550 <DPHY_GAT_TRACK_Config+0x550>
+		0000000000000550:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     554: 5280a181     	mov	w1, #0x50c              // =1292
+     558: aa1303e0     	mov	x0, x19
+     55c: 52980003     	mov	w3, #0xc000             // =49152
+     560: 52900002     	mov	w2, #0x8000             // =32768
+     564: 72b22001     	movk	w1, #0x9100, lsl #16
+     568: 94000000     	bl	0x568 <DPHY_GAT_TRACK_Config+0x568>
+		0000000000000568:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     56c: 5280b181     	mov	w1, #0x58c              // =1420
+     570: aa1303e0     	mov	x0, x19
+     574: 52980003     	mov	w3, #0xc000             // =49152
+     578: 52900002     	mov	w2, #0x8000             // =32768
+     57c: 72b32001     	movk	w1, #0x9900, lsl #16
+     580: 94000000     	bl	0x580 <DPHY_GAT_TRACK_Config+0x580>
+		0000000000000580:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     584: 5280c181     	mov	w1, #0x60c              // =1548
+     588: 52980003     	mov	w3, #0xc000             // =49152
+     58c: 52900002     	mov	w2, #0x8000             // =32768
+     590: 72b42001     	movk	w1, #0xa100, lsl #16
+     594: aa1303e0     	mov	x0, x19
+     598: 94000000     	bl	0x598 <DPHY_GAT_TRACK_Config+0x598>
+		0000000000000598:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     59c: 5280cc81     	mov	w1, #0x664              // =1636
+     5a0: 52800403     	mov	w3, #0x20               // =32
+     5a4: 72a02001     	movk	w1, #0x100, lsl #16
+     5a8: 2a0303e2     	mov	w2, w3
+     5ac: 17fffef8     	b	0x18c <DPHY_GAT_TRACK_Config+0x18c>
+     5b0: 5280a301     	mov	w1, #0x518              // =1304
+     5b4: 2a0303e2     	mov	w2, w3
+     5b8: aa1303e0     	mov	x0, x19
+     5bc: 72b22001     	movk	w1, #0x9100, lsl #16
+     5c0: 94000000     	bl	0x5c0 <DPHY_GAT_TRACK_Config+0x5c0>
+		00000000000005c0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     5c4: 5280b301     	mov	w1, #0x598              // =1432
+     5c8: 52800403     	mov	w3, #0x20               // =32
+     5cc: aa1303e0     	mov	x0, x19
+     5d0: 2a0303e2     	mov	w2, w3
+     5d4: 72b32001     	movk	w1, #0x9900, lsl #16
+     5d8: 94000000     	bl	0x5d8 <DPHY_GAT_TRACK_Config+0x5d8>
+		00000000000005d8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     5dc: 5280c301     	mov	w1, #0x618              // =1560
+     5e0: 52800403     	mov	w3, #0x20               // =32
+     5e4: aa1303e0     	mov	x0, x19
+     5e8: 2a0303e2     	mov	w2, w3
+     5ec: 72b42001     	movk	w1, #0xa100, lsl #16
+     5f0: 94000000     	bl	0x5f0 <DPHY_GAT_TRACK_Config+0x5f0>
+		00000000000005f0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     5f4: 5280a181     	mov	w1, #0x50c              // =1292
+     5f8: aa1303e0     	mov	x0, x19
+     5fc: 52980003     	mov	w3, #0xc000             // =49152
+     600: 52800002     	mov	w2, #0x0                // =0
+     604: 72b22001     	movk	w1, #0x9100, lsl #16
+     608: 94000000     	bl	0x608 <DPHY_GAT_TRACK_Config+0x608>
+		0000000000000608:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     60c: 5280b181     	mov	w1, #0x58c              // =1420
+     610: 52980003     	mov	w3, #0xc000             // =49152
+     614: 52800002     	mov	w2, #0x0                // =0
+     618: aa1303e0     	mov	x0, x19
+     61c: 72b32001     	movk	w1, #0x9900, lsl #16
+     620: 94000000     	bl	0x620 <DPHY_GAT_TRACK_Config+0x620>
+		0000000000000620:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     624: 52980003     	mov	w3, #0xc000             // =49152
+     628: 52800002     	mov	w2, #0x0                // =0
+     62c: 17ffffb6     	b	0x504 <DPHY_GAT_TRACK_Config+0x504>
+     630: 5293e223     	mov	w3, #0x9f11             // =40721
+     634: 52900002     	mov	w2, #0x8000             // =32768
+     638: 5280cc01     	mov	w1, #0x660              // =1632
+     63c: aa1303e0     	mov	x0, x19
+     640: 72a18423     	movk	w3, #0xc21, lsl #16
+     644: 72a00402     	movk	w2, #0x20, lsl #16
+     648: 72a02001     	movk	w1, #0x100, lsl #16
+     64c: 94000000     	bl	0x64c <DPHY_GAT_TRACK_Config+0x64c>
+		000000000000064c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     650: 5280cc81     	mov	w1, #0x664              // =1636
+     654: 129fd5e3     	mov	w3, #-0xfeb0            // =-65200
+     658: 52802202     	mov	w2, #0x110              // =272
+     65c: aa1303e0     	mov	x0, x19
+     660: 72a02001     	movk	w1, #0x100, lsl #16
+     664: 94000000     	bl	0x664 <DPHY_GAT_TRACK_Config+0x664>
+		0000000000000664:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     668: 5280e6a3     	mov	w3, #0x735              // =1845
+     66c: 52800402     	mov	w2, #0x20               // =32
+     670: 17fffee0     	b	0x1f0 <DPHY_GAT_TRACK_Config+0x1f0>
+     674: 5293e223     	mov	w3, #0x9f11             // =40721
+     678: 52800022     	mov	w2, #0x1                // =1
+     67c: 5280cc01     	mov	w1, #0x660              // =1632
+     680: aa1303e0     	mov	x0, x19
+     684: 72a18423     	movk	w3, #0xc21, lsl #16
+     688: 72a18002     	movk	w2, #0xc00, lsl #16
+     68c: 72a02001     	movk	w1, #0x100, lsl #16
+     690: 94000000     	bl	0x690 <DPHY_GAT_TRACK_Config+0x690>
+		0000000000000690:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     694: 52802a02     	mov	w2, #0x150              // =336
+     698: 5280cc81     	mov	w1, #0x664              // =1636
+     69c: aa1303e0     	mov	x0, x19
+     6a0: 129fd5e3     	mov	w3, #-0xfeb0            // =-65200
+     6a4: 72a00022     	movk	w2, #0x1, lsl #16
+     6a8: 72a02001     	movk	w1, #0x100, lsl #16
+     6ac: 94000000     	bl	0x6ac <DPHY_GAT_TRACK_Config+0x6ac>
+		00000000000006ac:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     6b0: 5280f701     	mov	w1, #0x7b8              // =1976
+     6b4: aa1303e0     	mov	x0, x19
+     6b8: 5280e6a3     	mov	w3, #0x735              // =1845
+     6bc: 52800422     	mov	w2, #0x21               // =33
+     6c0: 72a02001     	movk	w1, #0x100, lsl #16
+     6c4: 94000000     	bl	0x6c4 <DPHY_GAT_TRACK_Config+0x6c4>
+		00000000000006c4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     6c8: 5280a181     	mov	w1, #0x50c              // =1292
+     6cc: aa1303e0     	mov	x0, x19
+     6d0: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     6d4: 52800002     	mov	w2, #0x0                // =0
+     6d8: 72b22001     	movk	w1, #0x9100, lsl #16
+     6dc: 94000000     	bl	0x6dc <DPHY_GAT_TRACK_Config+0x6dc>
+		00000000000006dc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     6e0: 39401680     	ldrb	w0, [x20, #0x5]
+     6e4: 5280a301     	mov	w1, #0x518              // =1304
+     6e8: 52a00ee3     	mov	w3, #0x770000           // =7798784
+     6ec: 72b22001     	movk	w1, #0x9100, lsl #16
+     6f0: 11000402     	add	w2, w0, #0x1
+     6f4: 53100800     	ubfiz	w0, w0, #16, #3
+     6f8: 530c0842     	ubfiz	w2, w2, #20, #3
+     6fc: 2a000042     	orr	w2, w2, w0
+     700: aa1303e0     	mov	x0, x19
+     704: 94000000     	bl	0x704 <DPHY_GAT_TRACK_Config+0x704>
+		0000000000000704:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     708: 5280b181     	mov	w1, #0x58c              // =1420
+     70c: aa1303e0     	mov	x0, x19
+     710: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     714: 52800002     	mov	w2, #0x0                // =0
+     718: 72b32001     	movk	w1, #0x9900, lsl #16
+     71c: 94000000     	bl	0x71c <DPHY_GAT_TRACK_Config+0x71c>
+		000000000000071c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     720: 39401680     	ldrb	w0, [x20, #0x5]
+     724: 5280b301     	mov	w1, #0x598              // =1432
+     728: 52a00ee3     	mov	w3, #0x770000           // =7798784
+     72c: 72b32001     	movk	w1, #0x9900, lsl #16
+     730: 11000402     	add	w2, w0, #0x1
+     734: 53100800     	ubfiz	w0, w0, #16, #3
+     738: 530c0842     	ubfiz	w2, w2, #20, #3
+     73c: 2a000042     	orr	w2, w2, w0
+     740: aa1303e0     	mov	x0, x19
+     744: 94000000     	bl	0x744 <DPHY_GAT_TRACK_Config+0x744>
+		0000000000000744:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     748: 5280c181     	mov	w1, #0x60c              // =1548
+     74c: aa1303e0     	mov	x0, x19
+     750: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     754: 52800002     	mov	w2, #0x0                // =0
+     758: 72b42001     	movk	w1, #0xa100, lsl #16
+     75c: 94000000     	bl	0x75c <DPHY_GAT_TRACK_Config+0x75c>
+		000000000000075c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     760: 39401680     	ldrb	w0, [x20, #0x5]
+     764: 52a00ee3     	mov	w3, #0x770000           // =7798784
+     768: 11000402     	add	w2, w0, #0x1
+     76c: 53100800     	ubfiz	w0, w0, #16, #3
+     770: 530c0842     	ubfiz	w2, w2, #20, #3
+     774: 2a000042     	orr	w2, w2, w0
+     778: 17fffec2     	b	0x280 <DPHY_GAT_TRACK_Config+0x280>
+     77c: 5280f781     	mov	w1, #0x7bc              // =1980
+     780: 52a02003     	mov	w3, #0x1000000          // =16777216
+     784: aa1303e0     	mov	x0, x19
+     788: 2a0303e2     	mov	w2, w3
+     78c: 72a02001     	movk	w1, #0x100, lsl #16
+     790: 94000000     	bl	0x790 <DPHY_GAT_TRACK_Config+0x790>
+		0000000000000790:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     794: 17fffeff     	b	0x390 <DPHY_GAT_TRACK_Config+0x390>
+
+Disassembly of section .text.DIG_CONFIG_NONSHUF_DCM:
+
+0000000000000000 <DIG_CONFIG_NONSHUF_DCM>:
+       0: a9b67bfd     	stp	x29, x30, [sp, #-0xa0]!
+       4: 529fe003     	mov	w3, #0xff00             // =65280
+       8: 72a0cbe3     	movk	w3, #0x65f, lsl #16
+       c: 910003fd     	mov	x29, sp
+      10: a90363f7     	stp	x23, x24, [sp, #0x30]
+      14: 72001c38     	ands	w24, w1, #0xff
+      18: 52a08001     	mov	w1, #0x4000000          // =67108864
+      1c: 1a9f0021     	csel	w1, w1, wzr, eq
+      20: b9006fe1     	str	w1, [sp, #0x6c]
+      24: 7100031f     	cmp	w24, #0x0
+      28: 52a04001     	mov	w1, #0x2000000          // =33554432
+      2c: 1a9f17f7     	cset	w23, eq
+      30: b9406fe2     	ldr	w2, [sp, #0x6c]
+      34: 1a9f0021     	csel	w1, w1, wzr, eq
+      38: a90153f3     	stp	x19, x20, [sp, #0x10]
+      3c: 52a00114     	mov	w20, #0x80000           // =524288
+      40: 1a9413f4     	csel	w20, wzr, w20, ne
+      44: a90573fb     	stp	x27, x28, [sp, #0x50]
+      48: 52a0005c     	mov	w28, #0x20000           // =131072
+      4c: 1a9c13fc     	csel	w28, wzr, w28, ne
+      50: 2a020021     	orr	w1, w1, w2
+      54: 2a140382     	orr	w2, w28, w20
+      58: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      5c: 531142f6     	lsl	w22, w23, #15
+      60: 2a010041     	orr	w1, w2, w1
+      64: 2a17439c     	orr	w28, w28, w23, lsl #16
+      68: 2a1742c2     	orr	w2, w22, w23, lsl #16
+      6c: 52810015     	mov	w21, #0x800             // =2048
+      70: 2a010042     	orr	w2, w2, w1
+      74: 2a1c02c1     	orr	w1, w22, w28
+      78: 52880016     	mov	w22, #0x4000            // =16384
+      7c: 1a9613f6     	csel	w22, wzr, w22, ne
+      80: b9007fe1     	str	w1, [sp, #0x7c]
+      84: 52840001     	mov	w1, #0x2000             // =8192
+      88: 1a8113e1     	csel	w1, wzr, w1, ne
+      8c: 1a9513f5     	csel	w21, wzr, w21, ne
+      90: 2a0102d6     	orr	w22, w22, w1
+      94: a9046bf9     	stp	x25, x26, [sp, #0x40]
+      98: 52820019     	mov	w25, #0x1000            // =4096
+      9c: 1a9913e1     	csel	w1, wzr, w25, ne
+      a0: 2a160042     	orr	w2, w2, w22
+      a4: 2a150035     	orr	w21, w1, w21
+      a8: 5280401a     	mov	w26, #0x200             // =512
+      ac: 1a9a13fa     	csel	w26, wzr, w26, ne
+      b0: b9006be1     	str	w1, [sp, #0x68]
+      b4: 52808001     	mov	w1, #0x400              // =1024
+      b8: 1a8113e1     	csel	w1, wzr, w1, ne
+      bc: 2a1a0021     	orr	w1, w1, w26
+      c0: 2a0202a2     	orr	w2, w21, w2
+      c4: 2a010042     	orr	w2, w2, w1
+      c8: b90067e1     	str	w1, [sp, #0x64]
+      cc: 5280cd81     	mov	w1, #0x66c              // =1644
+      d0: aa0003f3     	mov	x19, x0
+      d4: 5319031b     	ubfiz	w27, w24, #7, #1
+      d8: 32180042     	orr	w2, w2, #0x100
+      dc: 72a02001     	movk	w1, #0x100, lsl #16
+      e0: 94000000     	bl	0xe0 <DIG_CONFIG_NONSHUF_DCM+0xe0>
+		00000000000000e0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      e4: 2a171b80     	orr	w0, w28, w23, lsl #6
+      e8: 531a66fa     	lsl	w26, w23, #6
+      ec: 528165e2     	mov	w2, #0xb2f              // =2863
+      f0: 2a171b77     	orr	w23, w27, w23, lsl #6
+      f4: 5280ce81     	mov	w1, #0x674              // =1652
+      f8: 52800004     	mov	w4, #0x0                // =0
+      fc: 52800003     	mov	w3, #0x0                // =0
+     100: 72a02001     	movk	w1, #0x100, lsl #16
+     104: 72a00c02     	movk	w2, #0x60, lsl #16
+     108: 2a0202e2     	orr	w2, w23, w2
+     10c: b9007be0     	str	w0, [sp, #0x78]
+     110: aa1303e0     	mov	x0, x19
+     114: 94000000     	bl	0x114 <DIG_CONFIG_NONSHUF_DCM+0x114>
+		0000000000000114:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     118: 53020317     	ubfiz	w23, w24, #30, #1
+     11c: 5280cf81     	mov	w1, #0x67c              // =1660
+     120: 52800004     	mov	w4, #0x0                // =0
+     124: aa1303e0     	mov	x0, x19
+     128: 52800003     	mov	w3, #0x0                // =0
+     12c: 12b00002     	mov	w2, #0x7fffffff         // =2147483647
+     130: 72a02001     	movk	w1, #0x100, lsl #16
+     134: 94000000     	bl	0x134 <DIG_CONFIG_NONSHUF_DCM+0x134>
+		0000000000000134:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     138: 531d0319     	ubfiz	w25, w24, #3, #1
+     13c: 53040302     	ubfiz	w2, w24, #28, #1
+     140: 530e0300     	ubfiz	w0, w24, #18, #1
+     144: 2a020000     	orr	w0, w0, w2
+     148: 530f0301     	ubfiz	w1, w24, #17, #1
+     14c: 53100302     	ubfiz	w2, w24, #16, #1
+     150: 52ae0ee3     	mov	w3, #0x70770000         // =1886846976
+     154: 2a010042     	orr	w2, w2, w1
+     158: 530b0301     	ubfiz	w1, w24, #21, #1
+     15c: 2a020000     	orr	w0, w0, w2
+     160: 53030302     	ubfiz	w2, w24, #29, #1
+     164: 2a170042     	orr	w2, w2, w23
+     168: 2a19037b     	orr	w27, w27, w25
+     16c: 2a020000     	orr	w0, w0, w2
+     170: 530c0302     	ubfiz	w2, w24, #20, #1
+     174: 2a010042     	orr	w2, w2, w1
+     178: 5280d001     	mov	w1, #0x680              // =1664
+     17c: 2a020000     	orr	w0, w0, w2
+     180: 530a0302     	ubfiz	w2, w24, #22, #1
+     184: 2a020002     	orr	w2, w0, w2
+     188: 72a02001     	movk	w1, #0x100, lsl #16
+     18c: aa1303e0     	mov	x0, x19
+     190: 94000000     	bl	0x190 <DIG_CONFIG_NONSHUF_DCM+0x190>
+		0000000000000190:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     194: 5280f481     	mov	w1, #0x7a4              // =1956
+     198: 2a1903e2     	mov	w2, w25
+     19c: aa1303e0     	mov	x0, x19
+     1a0: 52800103     	mov	w3, #0x8                // =8
+     1a4: 72a02001     	movk	w1, #0x100, lsl #16
+     1a8: 94000000     	bl	0x1a8 <DIG_CONFIG_NONSHUF_DCM+0x1a8>
+		00000000000001a8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1ac: 52a09000     	mov	w0, #0x4800000          // =75497472
+     1b0: 7100031f     	cmp	w24, #0x0
+     1b4: 52a19002     	mov	w2, #0xc800000          // =209715200
+     1b8: 1a800042     	csel	w2, w2, w0, eq
+     1bc: 90000000     	adrp	x0, 0x0 <DIG_CONFIG_NONSHUF_DCM>
+		00000000000001bc:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+     1c0: 91000000     	add	x0, x0, #0x0
+		00000000000001c0:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+     1c4: f9003be0     	str	x0, [sp, #0x70]
+     1c8: 3941ec00     	ldrb	w0, [x0, #0x7b]
+     1cc: 34001e60     	cbz	w0, 0x598 <DIG_CONFIG_NONSHUF_DCM+0x598>
+     1d0: 90000000     	adrp	x0, 0x0 <DIG_CONFIG_NONSHUF_DCM>
+		00000000000001d0:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+     1d4: b9400001     	ldr	w1, [x0]
+		00000000000001d4:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+     1d8: 53160300     	ubfiz	w0, w24, #10, #1
+     1dc: 7100183f     	cmp	w1, #0x6
+     1e0: 1a9f0000     	csel	w0, w0, wzr, eq
+     1e4: 52808fe3     	mov	w3, #0x47f              // =1151
+     1e8: 5280f881     	mov	w1, #0x7c4              // =1988
+     1ec: 2a000042     	orr	w2, w2, w0
+     1f0: 72a19fe3     	movk	w3, #0xcff, lsl #16
+     1f4: aa1303e0     	mov	x0, x19
+     1f8: 72a02001     	movk	w1, #0x100, lsl #16
+     1fc: 94000000     	bl	0x1fc <DIG_CONFIG_NONSHUF_DCM+0x1fc>
+		00000000000001fc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     200: 531b031c     	ubfiz	w28, w24, #5, #1
+     204: 531a0302     	ubfiz	w2, w24, #6, #1
+     208: 531e0308     	ubfiz	w8, w24, #2, #1
+     20c: 2a1c0042     	orr	w2, w2, w28
+     210: 531f0300     	ubfiz	w0, w24, #1, #1
+     214: 2a1b005b     	orr	w27, w2, w27
+     218: 531c0302     	ubfiz	w2, w24, #4, #1
+     21c: 2a0802e7     	orr	w7, w23, w8
+     220: 2a14000e     	orr	w14, w0, w20
+     224: 2a080042     	orr	w2, w2, w8
+     228: 12000317     	and	w23, w24, #0x1
+     22c: 2a020362     	orr	w2, w27, w2
+     230: 2a170000     	orr	w0, w0, w23
+     234: 2a000042     	orr	w2, w2, w0
+     238: 5280f901     	mov	w1, #0x7c8              // =1992
+     23c: 32180042     	orr	w2, w2, #0x100
+     240: aa1303e0     	mov	x0, x19
+     244: 52803fe3     	mov	w3, #0x1ff              // =511
+     248: 72a02001     	movk	w1, #0x100, lsl #16
+     24c: 2912bbe8     	stp	w8, w14, [sp, #0x94]
+     250: b9009fe7     	str	w7, [sp, #0x9c]
+     254: 94000000     	bl	0x254 <DIG_CONFIG_NONSHUF_DCM+0x254>
+		0000000000000254:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     258: 5280fd01     	mov	w1, #0x7e8              // =2024
+     25c: 2a1903e2     	mov	w2, w25
+     260: aa1303e0     	mov	x0, x19
+     264: 52800103     	mov	w3, #0x8                // =8
+     268: 72a02001     	movk	w1, #0x100, lsl #16
+     26c: 94000000     	bl	0x26c <DIG_CONFIG_NONSHUF_DCM+0x26c>
+		000000000000026c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     270: 52810801     	mov	w1, #0x840              // =2112
+     274: 53170302     	ubfiz	w2, w24, #9, #1
+     278: aa1303e0     	mov	x0, x19
+     27c: 52804003     	mov	w3, #0x200              // =512
+     280: 72a02001     	movk	w1, #0x100, lsl #16
+     284: 94000000     	bl	0x284 <DIG_CONFIG_NONSHUF_DCM+0x284>
+		0000000000000284:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     288: 52810a81     	mov	w1, #0x854              // =2132
+     28c: 2a1a03e2     	mov	w2, w26
+     290: aa1303e0     	mov	x0, x19
+     294: 52800803     	mov	w3, #0x40               // =64
+     298: 72a02001     	movk	w1, #0x100, lsl #16
+     29c: 94000000     	bl	0x29c <DIG_CONFIG_NONSHUF_DCM+0x29c>
+		000000000000029c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2a0: 7100031f     	cmp	w24, #0x0
+     2a4: 52802003     	mov	w3, #0x100              // =256
+     2a8: 1a9f17e4     	cset	w4, eq
+     2ac: 1a8313e0     	csel	w0, wzr, w3, ne
+     2b0: 52801002     	mov	w2, #0x80               // =128
+     2b4: 1a8213e2     	csel	w2, wzr, w2, ne
+     2b8: b9407fe5     	ldr	w5, [sp, #0x7c]
+     2bc: 2a000043     	orr	w3, w2, w0
+     2c0: 531b6882     	lsl	w2, w4, #5
+     2c4: 2a044b50     	orr	w16, w26, w4, lsl #18
+     2c8: 2a041041     	orr	w1, w2, w4, lsl #4
+     2cc: 2a04484f     	orr	w15, w2, w4, lsl #18
+     2d0: 2a140082     	orr	w2, w4, w20
+     2d4: 5280008a     	mov	w10, #0x4               // =4
+     2d8: 2a050042     	orr	w2, w2, w5
+     2dc: 1a8a13e9     	csel	w9, wzr, w10, ne
+     2e0: 2a160056     	orr	w22, w2, w22
+     2e4: b94067e2     	ldr	w2, [sp, #0x64]
+     2e8: 2a1502d5     	orr	w21, w22, w21
+     2ec: 5280011a     	mov	w26, #0x8               // =8
+     2f0: 2a0202a2     	orr	w2, w21, w2
+     2f4: 1a9a13fa     	csel	w26, wzr, w26, ne
+     2f8: 2a100042     	orr	w2, w2, w16
+     2fc: 2a090340     	orr	w0, w26, w9
+     300: 2a00002c     	orr	w12, w1, w0
+     304: 531c6c8d     	lsl	w13, w4, #4
+     308: 2a030042     	orr	w2, w2, w3
+     30c: 531f789b     	lsl	w27, w4, #1
+     310: 2a010042     	orr	w2, w2, w1
+     314: 52810b01     	mov	w1, #0x858              // =2136
+     318: 2a000042     	orr	w2, w2, w0
+     31c: 12bffe03     	mov	w3, #0xfffff            // =1048575
+     320: 2a040442     	orr	w2, w2, w4, lsl #1
+     324: aa1303e0     	mov	x0, x19
+     328: 72a02001     	movk	w1, #0x100, lsl #16
+     32c: b90067e4     	str	w4, [sp, #0x64]
+     330: 291033e4     	stp	w4, w12, [sp, #0x80]
+     334: 291137e9     	stp	w9, w13, [sp, #0x88]
+     338: b90093ef     	str	w15, [sp, #0x90]
+     33c: 94000000     	bl	0x33c <DIG_CONFIG_NONSHUF_DCM+0x33c>
+		000000000000033c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     340: 52810b81     	mov	w1, #0x85c              // =2140
+     344: aa1303e0     	mov	x0, x19
+     348: 12bffe03     	mov	w3, #0xfffff            // =1048575
+     34c: 52800002     	mov	w2, #0x0                // =0
+     350: 72a02001     	movk	w1, #0x100, lsl #16
+     354: 94000000     	bl	0x354 <DIG_CONFIG_NONSHUF_DCM+0x354>
+		0000000000000354:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     358: b94083eb     	ldr	w11, [sp, #0x80]
+     35c: aa1303e0     	mov	x0, x19
+     360: 52800023     	mov	w3, #0x1                // =1
+     364: 52800001     	mov	w1, #0x0                // =0
+     368: 2a0b03e2     	mov	w2, w11
+     36c: 94000000     	bl	0x36c <DIG_CONFIG_NONSHUF_DCM+0x36c>
+		000000000000036c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     370: 52a02003     	mov	w3, #0x1000000          // =16777216
+     374: aa1303e0     	mov	x0, x19
+     378: 2a0303e2     	mov	w2, w3
+     37c: 52802201     	mov	w1, #0x110              // =272
+     380: 94000000     	bl	0x380 <DIG_CONFIG_NONSHUF_DCM+0x380>
+		0000000000000380:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     384: 294d07e0     	ldp	w0, w1, [sp, #0x68]
+     388: 52820003     	mov	w3, #0x1000             // =4096
+     38c: 72a08003     	movk	w3, #0x400, lsl #16
+     390: 2a010002     	orr	w2, w0, w1
+     394: aa1303e0     	mov	x0, x19
+     398: 52802d01     	mov	w1, #0x168              // =360
+     39c: 94000000     	bl	0x39c <DIG_CONFIG_NONSHUF_DCM+0x39c>
+		000000000000039c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3a0: b94097e8     	ldr	w8, [sp, #0x94]
+     3a4: aa1303e0     	mov	x0, x19
+     3a8: 528001a3     	mov	w3, #0xd                // =13
+     3ac: 52803201     	mov	w1, #0x190              // =400
+     3b0: 2a080322     	orr	w2, w25, w8
+     3b4: 32000042     	orr	w2, w2, #0x1
+     3b8: 94000000     	bl	0x3b8 <DIG_CONFIG_NONSHUF_DCM+0x3b8>
+		00000000000003b8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3bc: 29531fee     	ldp	w14, w7, [sp, #0x98]
+     3c0: 2a187ee2     	orr	w2, w23, w24, lsl #31
+     3c4: b9407be0     	ldr	w0, [sp, #0x78]
+     3c8: 52800de3     	mov	w3, #0x6f               // =111
+     3cc: 2a070042     	orr	w2, w2, w7
+     3d0: b94093ef     	ldr	w15, [sp, #0x90]
+     3d4: 2a0e0042     	orr	w2, w2, w14
+     3d8: b94067e4     	ldr	w4, [sp, #0x64]
+     3dc: 2a000042     	orr	w2, w2, w0
+     3e0: 72b803e3     	movk	w3, #0xc01f, lsl #16
+     3e4: 2a0f004f     	orr	w15, w2, w15
+     3e8: aa1303e0     	mov	x0, x19
+     3ec: 2a045342     	orr	w2, w26, w4, lsl #20
+     3f0: 52803f81     	mov	w1, #0x1fc              // =508
+     3f4: 2a0f0042     	orr	w2, w2, w15
+     3f8: 94000000     	bl	0x3f8 <DIG_CONFIG_NONSHUF_DCM+0x3f8>
+		00000000000003f8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3fc: b9408be9     	ldr	w9, [sp, #0x88]
+     400: 5280008a     	mov	w10, #0x4               // =4
+     404: aa1303e0     	mov	x0, x19
+     408: 2a0a03e3     	mov	w3, w10
+     40c: 2a0903e2     	mov	w2, w9
+     410: 52804001     	mov	w1, #0x200              // =512
+     414: 94000000     	bl	0x414 <DIG_CONFIG_NONSHUF_DCM+0x414>
+		0000000000000414:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     418: 2a1403e2     	mov	w2, w20
+     41c: aa1303e0     	mov	x0, x19
+     420: 52a00103     	mov	w3, #0x80000            // =524288
+     424: 52804101     	mov	w1, #0x208              // =520
+     428: 94000000     	bl	0x428 <DIG_CONFIG_NONSHUF_DCM+0x428>
+		0000000000000428:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     42c: 52b00014     	mov	w20, #-0x80000000       // =-2147483648
+     430: b9408fed     	ldr	w13, [sp, #0x8c]
+     434: aa1303e0     	mov	x0, x19
+     438: 52800203     	mov	w3, #0x10               // =16
+     43c: 52804381     	mov	w1, #0x21c              // =540
+     440: 2a0d03e2     	mov	w2, w13
+     444: 94000000     	bl	0x444 <DIG_CONFIG_NONSHUF_DCM+0x444>
+		0000000000000444:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     448: b94087ec     	ldr	w12, [sp, #0x84]
+     44c: aa1303e0     	mov	x0, x19
+     450: 528007c3     	mov	w3, #0x3e               // =62
+     454: 52804781     	mov	w1, #0x23c              // =572
+     458: 2a0c0362     	orr	w2, w27, w12
+     45c: 94000000     	bl	0x45c <DIG_CONFIG_NONSHUF_DCM+0x45c>
+		000000000000045c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     460: 7100031f     	cmp	w24, #0x0
+     464: 52b80003     	mov	w3, #-0x40000000        // =-1073741824
+     468: 1a9413e0     	csel	w0, wzr, w20, ne
+     46c: 52a80014     	mov	w20, #0x40000000        // =1073741824
+     470: 1a9413f4     	csel	w20, wzr, w20, ne
+     474: 52804881     	mov	w1, #0x244              // =580
+     478: 2a000294     	orr	w20, w20, w0
+     47c: aa1303e0     	mov	x0, x19
+     480: 2a1403e2     	mov	w2, w20
+     484: 94000000     	bl	0x484 <DIG_CONFIG_NONSHUF_DCM+0x484>
+		0000000000000484:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     488: 2a1b03e2     	mov	w2, w27
+     48c: aa1303e0     	mov	x0, x19
+     490: 52800043     	mov	w3, #0x2                // =2
+     494: 52804a01     	mov	w1, #0x250              // =592
+     498: 94000000     	bl	0x498 <DIG_CONFIG_NONSHUF_DCM+0x498>
+		0000000000000498:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     49c: 34000838     	cbz	w24, 0x5a0 <DIG_CONFIG_NONSHUF_DCM+0x5a0>
+     4a0: 7100071f     	cmp	w24, #0x1
+     4a4: 528fffe0     	mov	w0, #0x7fff             // =32767
+     4a8: 1a9f1000     	csel	w0, w0, wzr, ne
+     4ac: 52800002     	mov	w2, #0x0                // =0
+     4b0: 528fffe3     	mov	w3, #0x7fff             // =32767
+     4b4: 2a020002     	orr	w2, w0, w2
+     4b8: 72a10003     	movk	w3, #0x800, lsl #16
+     4bc: aa1303e0     	mov	x0, x19
+     4c0: 52804c01     	mov	w1, #0x260              // =608
+     4c4: 94000000     	bl	0x4c4 <DIG_CONFIG_NONSHUF_DCM+0x4c4>
+		00000000000004c4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4c8: 2a1403e2     	mov	w2, w20
+     4cc: aa1303e0     	mov	x0, x19
+     4d0: 52b80003     	mov	w3, #-0x40000000        // =-1073741824
+     4d4: 52805101     	mov	w1, #0x288              // =648
+     4d8: 94000000     	bl	0x4d8 <DIG_CONFIG_NONSHUF_DCM+0x4d8>
+		00000000000004d8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4dc: 7100071f     	cmp	w24, #0x1
+     4e0: 52a001e0     	mov	w0, #0xf0000            // =983040
+     4e4: 529e0002     	mov	w2, #0xf000             // =61440
+     4e8: 1a9f1000     	csel	w0, w0, wzr, ne
+     4ec: 1a9f1042     	csel	w2, w2, wzr, ne
+     4f0: 12affe03     	mov	w3, #-0x7ff00001        // =-2146435073
+     4f4: 2a000042     	orr	w2, w2, w0
+     4f8: 5281e000     	mov	w0, #0xf00              // =3840
+     4fc: 1a9f1001     	csel	w1, w0, wzr, ne
+     500: 52801e00     	mov	w0, #0xf0               // =240
+     504: 1a9f1000     	csel	w0, w0, wzr, ne
+     508: 2a010000     	orr	w0, w0, w1
+     50c: 52806801     	mov	w1, #0x340              // =832
+     510: 2a020000     	orr	w0, w0, w2
+     514: 528001e2     	mov	w2, #0xf                // =15
+     518: 1a8203e2     	csel	w2, wzr, w2, eq
+     51c: 2a000042     	orr	w2, w2, w0
+     520: aa1303e0     	mov	x0, x19
+     524: 94000000     	bl	0x524 <DIG_CONFIG_NONSHUF_DCM+0x524>
+		0000000000000524:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     528: 2a1c03e2     	mov	w2, w28
+     52c: aa1303e0     	mov	x0, x19
+     530: 52800403     	mov	w3, #0x20               // =32
+     534: 52804801     	mov	w1, #0x240              // =576
+     538: 94000000     	bl	0x538 <DIG_CONFIG_NONSHUF_DCM+0x538>
+		0000000000000538:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     53c: f9403be0     	ldr	x0, [sp, #0x70]
+     540: 52840003     	mov	w3, #0x2000             // =8192
+     544: 52806201     	mov	w1, #0x310              // =784
+     548: 39403400     	ldrb	w0, [x0, #0xd]
+     54c: 7100001f     	cmp	w0, #0x0
+     550: aa1303e0     	mov	x0, x19
+     554: 1a9f17e2     	cset	w2, eq
+     558: 53134842     	lsl	w2, w2, #13
+     55c: 94000000     	bl	0x55c <DIG_CONFIG_NONSHUF_DCM+0x55c>
+		000000000000055c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     560: 7100071f     	cmp	w24, #0x1
+     564: aa1303e0     	mov	x0, x19
+     568: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     56c: 52800004     	mov	w4, #0x0                // =0
+     570: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     574: 52800003     	mov	w3, #0x0                // =0
+     578: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     57c: 52800062     	mov	w2, #0x3                // =3
+     580: a9446bf9     	ldp	x25, x26, [sp, #0x40]
+     584: 1a9f0042     	csel	w2, w2, wzr, eq
+     588: a94573fb     	ldp	x27, x28, [sp, #0x50]
+     58c: 52801f81     	mov	w1, #0xfc               // =252
+     590: a8ca7bfd     	ldp	x29, x30, [sp], #0xa0
+     594: 14000000     	b	0x594 <DIG_CONFIG_NONSHUF_DCM+0x594>
+		0000000000000594:  R_AARCH64_JUMP26	vPhyByteWriteFldAlign
+     598: 52800000     	mov	w0, #0x0                // =0
+     59c: 17ffff12     	b	0x1e4 <DIG_CONFIG_NONSHUF_DCM+0x1e4>
+     5a0: 52a10002     	mov	w2, #0x8000000          // =134217728
+     5a4: 528fffe0     	mov	w0, #0x7fff             // =32767
+     5a8: 17ffffc2     	b	0x4b0 <DIG_CONFIG_NONSHUF_DCM+0x4b0>
+
+Disassembly of section .text.DDRPHY_PICG_Config:
+
+0000000000000000 <DDRPHY_PICG_Config>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 5280f901     	mov	w1, #0x7c8              // =1992
+       8: 528007e3     	mov	w3, #0x3f               // =63
+       c: 910003fd     	mov	x29, sp
+      10: 2a0303e2     	mov	w2, w3
+      14: 72a02001     	movk	w1, #0x100, lsl #16
+      18: f9000bf3     	str	x19, [sp, #0x10]
+      1c: aa0003f3     	mov	x19, x0
+      20: 94000000     	bl	0x20 <DDRPHY_PICG_Config+0x20>
+		0000000000000020:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      24: aa1303e0     	mov	x0, x19
+      28: 5280f881     	mov	w1, #0x7c4              // =1988
+      2c: f9400bf3     	ldr	x19, [sp, #0x10]
+      30: 52a007e3     	mov	w3, #0x3f0000           // =4128768
+      34: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      38: 52800002     	mov	w2, #0x0                // =0
+      3c: 72a02001     	movk	w1, #0x100, lsl #16
+      40: 14000000     	b	0x40 <DDRPHY_PICG_Config+0x40>
+		0000000000000040:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk
+
+Disassembly of section .text.DRAMC_COMMON_Config:
+
+0000000000000000 <DRAMC_COMMON_Config>:
+       0: a9ba7bfd     	stp	x29, x30, [sp, #-0x60]!
+       4: 52a14003     	mov	w3, #0xa000000          // =167772160
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: 90000014     	adrp	x20, 0x0 <DRAMC_COMMON_Config>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+      14: 91000294     	add	x20, x20, #0x0
+		0000000000000014:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+      18: aa0003f3     	mov	x19, x0
+      1c: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      20: 90000015     	adrp	x21, 0x0 <DRAMC_COMMON_Config>
+		0000000000000020:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+      24: 3942c281     	ldrb	w1, [x20, #0xb0]
+      28: a90363f7     	stp	x23, x24, [sp, #0x30]
+      2c: 53070022     	ubfiz	w2, w1, #25, #1
+      30: 53050021     	ubfiz	w1, w1, #27, #1
+      34: 2a010042     	orr	w2, w2, w1
+      38: 52804381     	mov	w1, #0x21c              // =540
+      3c: a9046bf9     	stp	x25, x26, [sp, #0x40]
+      40: a90573fb     	stp	x27, x28, [sp, #0x50]
+      44: 94000000     	bl	0x44 <DRAMC_COMMON_Config+0x44>
+		0000000000000044:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      48: 39428e82     	ldrb	w2, [x20, #0xa3]
+      4c: 52802903     	mov	w3, #0x148              // =328
+      50: 72a03303     	movk	w3, #0x198, lsl #16
+      54: 531a0041     	ubfiz	w1, w2, #6, #1
+      58: b94002a2     	ldr	w2, [x21]
+		0000000000000058:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+      5c: 7100085f     	cmp	w2, #0x2
+      60: 1a9f17e0     	cset	w0, eq
+      64: 7100185f     	cmp	w2, #0x6
+      68: 1a9f17e2     	cset	w2, eq
+      6c: 53092000     	lsl	w0, w0, #23
+      70: 32180000     	orr	w0, w0, #0x100
+      74: 2a026022     	orr	w2, w1, w2, lsl #24
+      78: 2a000042     	orr	w2, w2, w0
+      7c: 52800001     	mov	w1, #0x0                // =0
+      80: aa1303e0     	mov	x0, x19
+      84: 94000000     	bl	0x84 <DRAMC_COMMON_Config+0x84>
+		0000000000000084:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      88: 39421680     	ldrb	w0, [x20, #0x85]
+      8c: 39421282     	ldrb	w2, [x20, #0x84]
+      90: 6b00005f     	cmp	w2, w0
+      94: 54004be0     	b.eq	0xa10 <DRAMC_COMMON_Config+0xa10>
+      98: 52800000     	mov	w0, #0x0                // =0
+      9c: 94000000     	bl	0x9c <DRAMC_COMMON_Config+0x9c>
+		000000000000009c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      a0: 39421682     	ldrb	w2, [x20, #0x85]
+      a4: 5280f781     	mov	w1, #0x7bc              // =1980
+      a8: aa1303e0     	mov	x0, x19
+      ac: 5281e003     	mov	w3, #0xf00              // =3840
+      b0: 72a02001     	movk	w1, #0x100, lsl #16
+      b4: 53180c42     	ubfiz	w2, w2, #8, #4
+      b8: 94000000     	bl	0xb8 <DRAMC_COMMON_Config+0xb8>
+		00000000000000b8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      bc: 39421682     	ldrb	w2, [x20, #0x85]
+      c0: 5281e003     	mov	w3, #0xf00              // =3840
+      c4: 5280f801     	mov	w1, #0x7c0              // =1984
+      c8: aa1303e0     	mov	x0, x19
+      cc: 72a02001     	movk	w1, #0x100, lsl #16
+      d0: 53180c42     	ubfiz	w2, w2, #8, #4
+      d4: 94000000     	bl	0xd4 <DRAMC_COMMON_Config+0xd4>
+		00000000000000d4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      d8: aa1303e0     	mov	x0, x19
+      dc: 52800021     	mov	w1, #0x1                // =1
+      e0: 94000000     	bl	0xe0 <DRAMC_COMMON_Config+0xe0>
+		00000000000000e0:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      e4: 39421282     	ldrb	w2, [x20, #0x84]
+      e8: 5280f781     	mov	w1, #0x7bc              // =1980
+      ec: aa1303e0     	mov	x0, x19
+      f0: 5281e003     	mov	w3, #0xf00              // =3840
+      f4: 72a02001     	movk	w1, #0x100, lsl #16
+      f8: 53180c42     	ubfiz	w2, w2, #8, #4
+      fc: 94000000     	bl	0xfc <DRAMC_COMMON_Config+0xfc>
+		00000000000000fc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     100: 39421282     	ldrb	w2, [x20, #0x84]
+     104: 5280f801     	mov	w1, #0x7c0              // =1984
+     108: aa1303e0     	mov	x0, x19
+     10c: 5281e003     	mov	w3, #0xf00              // =3840
+     110: 72a02001     	movk	w1, #0x100, lsl #16
+     114: 53180c42     	ubfiz	w2, w2, #8, #4
+     118: 94000000     	bl	0x118 <DRAMC_COMMON_Config+0x118>
+		0000000000000118:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     11c: 52800001     	mov	w1, #0x0                // =0
+     120: aa1303e0     	mov	x0, x19
+     124: 94000000     	bl	0x124 <DRAMC_COMMON_Config+0x124>
+		0000000000000124:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     128: 52800020     	mov	w0, #0x1                // =1
+     12c: 94000000     	bl	0x12c <DRAMC_COMMON_Config+0x12c>
+		000000000000012c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     130: b94002b6     	ldr	w22, [x21]
+		0000000000000130:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+     134: 121d7ad6     	and	w22, w22, #0xfffffffb
+     138: 71000adf     	cmp	w22, #0x2
+     13c: 54000721     	b.ne	0x220 <DRAMC_COMMON_Config+0x220>
+     140: 3941ee80     	ldrb	w0, [x20, #0x7b]
+     144: 7100041f     	cmp	w0, #0x1
+     148: 54004800     	b.eq	0xa48 <DRAMC_COMMON_Config+0xa48>
+     14c: 3941ea80     	ldrb	w0, [x20, #0x7a]
+     150: 7100041f     	cmp	w0, #0x1
+     154: 1a9f17e2     	cset	w2, eq
+     158: 531c6c42     	lsl	w2, w2, #4
+     15c: 5280f781     	mov	w1, #0x7bc              // =1980
+     160: 52800603     	mov	w3, #0x30               // =48
+     164: 72a02001     	movk	w1, #0x100, lsl #16
+     168: aa1303e0     	mov	x0, x19
+     16c: 94000000     	bl	0x16c <DRAMC_COMMON_Config+0x16c>
+		000000000000016c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     170: 52800000     	mov	w0, #0x0                // =0
+     174: 94000000     	bl	0x174 <DRAMC_COMMON_Config+0x174>
+		0000000000000174:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     178: aa1303e0     	mov	x0, x19
+     17c: 52800021     	mov	w1, #0x1                // =1
+     180: 94000000     	bl	0x180 <DRAMC_COMMON_Config+0x180>
+		0000000000000180:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     184: 3941ee80     	ldrb	w0, [x20, #0x7b]
+     188: 5280f701     	mov	w1, #0x7b8              // =1976
+     18c: 52a02003     	mov	w3, #0x1000000          // =16777216
+     190: 72a02001     	movk	w1, #0x100, lsl #16
+     194: 7100041f     	cmp	w0, #0x1
+     198: aa1303e0     	mov	x0, x19
+     19c: 1a9f17e2     	cset	w2, eq
+     1a0: 53081c42     	lsl	w2, w2, #24
+     1a4: 94000000     	bl	0x1a4 <DRAMC_COMMON_Config+0x1a4>
+		00000000000001a4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1a8: 52800001     	mov	w1, #0x0                // =0
+     1ac: aa1303e0     	mov	x0, x19
+     1b0: 94000000     	bl	0x1b0 <DRAMC_COMMON_Config+0x1b0>
+		00000000000001b0:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     1b4: 52800020     	mov	w0, #0x1                // =1
+     1b8: 94000000     	bl	0x1b8 <DRAMC_COMMON_Config+0x1b8>
+		00000000000001b8:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     1bc: 3941ee80     	ldrb	w0, [x20, #0x7b]
+     1c0: 7100041f     	cmp	w0, #0x1
+     1c4: 54004460     	b.eq	0xa50 <DRAMC_COMMON_Config+0xa50>
+     1c8: 3941ea80     	ldrb	w0, [x20, #0x7a]
+     1cc: 7100041f     	cmp	w0, #0x1
+     1d0: 1a9f17e2     	cset	w2, eq
+     1d4: 531b6842     	lsl	w2, w2, #5
+     1d8: 5280b701     	mov	w1, #0x5b8              // =1464
+     1dc: aa1303e0     	mov	x0, x19
+     1e0: 52800603     	mov	w3, #0x30               // =48
+     1e4: 72a32001     	movk	w1, #0x1900, lsl #16
+     1e8: 94000000     	bl	0x1e8 <DRAMC_COMMON_Config+0x1e8>
+		00000000000001e8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1ec: 3941ee80     	ldrb	w0, [x20, #0x7b]
+     1f0: 7100041f     	cmp	w0, #0x1
+     1f4: 540000a0     	b.eq	0x208 <DRAMC_COMMON_Config+0x208>
+     1f8: 3941ea80     	ldrb	w0, [x20, #0x7a]
+     1fc: 7100041f     	cmp	w0, #0x1
+     200: 52800060     	mov	w0, #0x3                // =3
+     204: 1a8002d6     	csel	w22, w22, w0, eq
+     208: 5280b701     	mov	w1, #0x5b8              // =1464
+     20c: 2a1603e2     	mov	w2, w22
+     210: aa1303e0     	mov	x0, x19
+     214: 52800063     	mov	w3, #0x3                // =3
+     218: 72a32001     	movk	w1, #0x1900, lsl #16
+     21c: 94000000     	bl	0x21c <DRAMC_COMMON_Config+0x21c>
+		000000000000021c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     220: 528e21e3     	mov	w3, #0x710f             // =28943
+     224: 52860122     	mov	w2, #0x3009             // =12297
+     228: aa1303e0     	mov	x0, x19
+     22c: 72a1e063     	movk	w3, #0xf03, lsl #16
+     230: 72a0a022     	movk	w2, #0x501, lsl #16
+     234: 52804c81     	mov	w1, #0x264              // =612
+     238: 94000000     	bl	0x238 <DRAMC_COMMON_Config+0x238>
+		0000000000000238:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     23c: 52980423     	mov	w3, #0xc021             // =49185
+     240: 52800422     	mov	w2, #0x21               // =33
+     244: aa1303e0     	mov	x0, x19
+     248: 72a1e003     	movk	w3, #0xf00, lsl #16
+     24c: 72a04002     	movk	w2, #0x200, lsl #16
+     250: 52804d01     	mov	w1, #0x268              // =616
+     254: 94000000     	bl	0x254 <DRAMC_COMMON_Config+0x254>
+		0000000000000254:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     258: aa1303e0     	mov	x0, x19
+     25c: 52bfffe3     	mov	w3, #-0x10000           // =-65536
+     260: 52800002     	mov	w2, #0x0                // =0
+     264: 52805181     	mov	w1, #0x28c              // =652
+     268: 94000000     	bl	0x268 <DRAMC_COMMON_Config+0x268>
+		0000000000000268:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     26c: aa1303e0     	mov	x0, x19
+     270: 52803003     	mov	w3, #0x180              // =384
+     274: 52800002     	mov	w2, #0x0                // =0
+     278: 52802e01     	mov	w1, #0x170              // =368
+     27c: 94000000     	bl	0x27c <DRAMC_COMMON_Config+0x27c>
+		000000000000027c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     280: 3941ee80     	ldrb	w0, [x20, #0x7b]
+     284: 7100041f     	cmp	w0, #0x1
+     288: 54003e80     	b.eq	0xa58 <DRAMC_COMMON_Config+0xa58>
+     28c: 3941ea80     	ldrb	w0, [x20, #0x7a]
+     290: 7100041f     	cmp	w0, #0x1
+     294: 1a9f07e0     	cset	w0, ne
+     298: 5284c202     	mov	w2, #0x2610             // =9744
+     29c: 5287c3a3     	mov	w3, #0x3e1d             // =15901
+     2a0: 72a08102     	movk	w2, #0x408, lsl #16
+     2a4: 72a08103     	movk	w3, #0x408, lsl #16
+     2a8: 2a002c42     	orr	w2, w2, w0, lsl #11
+     2ac: 52804981     	mov	w1, #0x24c              // =588
+     2b0: aa1303e0     	mov	x0, x19
+     2b4: 94000000     	bl	0x2b4 <DRAMC_COMMON_Config+0x2b4>
+		00000000000002b4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2b8: 52806823     	mov	w3, #0x341              // =833
+     2bc: 52800822     	mov	w2, #0x41               // =65
+     2c0: 52803201     	mov	w1, #0x190              // =400
+     2c4: aa1303e0     	mov	x0, x19
+     2c8: 72a02c03     	movk	w3, #0x160, lsl #16
+     2cc: 72a00402     	movk	w2, #0x20, lsl #16
+     2d0: 94000000     	bl	0x2d0 <DRAMC_COMMON_Config+0x2d0>
+		00000000000002d0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2d4: 3941ea81     	ldrb	w1, [x20, #0x7a]
+     2d8: 34003c41     	cbz	w1, 0xa60 <DRAMC_COMMON_Config+0xa60>
+     2dc: 3941de83     	ldrb	w3, [x20, #0x77]
+     2e0: 52801002     	mov	w2, #0x80               // =128
+     2e4: 7100007f     	cmp	w3, #0x0
+     2e8: 1a9f0040     	csel	w0, w2, wzr, eq
+     2ec: 52802002     	mov	w2, #0x100              // =256
+     2f0: 1a8203e2     	csel	w2, wzr, w2, eq
+     2f4: 2a000042     	orr	w2, w2, w0
+     2f8: 34003ba1     	cbz	w1, 0xa6c <DRAMC_COMMON_Config+0xa6c>
+     2fc: 3941de80     	ldrb	w0, [x20, #0x77]
+     300: 7100001f     	cmp	w0, #0x0
+     304: 1a9f07e0     	cset	w0, ne
+     308: 53175800     	lsl	w0, w0, #9
+     30c: 2a000042     	orr	w2, w2, w0
+     310: 52807fe3     	mov	w3, #0x3ff              // =1023
+     314: aa1303e0     	mov	x0, x19
+     318: 52804b01     	mov	w1, #0x258              // =600
+     31c: 94000000     	bl	0x31c <DRAMC_COMMON_Config+0x31c>
+		000000000000031c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     320: 5280007b     	mov	w27, #0x3               // =3
+     324: 52800023     	mov	w3, #0x1                // =1
+     328: aa1303e0     	mov	x0, x19
+     32c: 2a0303e2     	mov	w2, w3
+     330: 52806601     	mov	w1, #0x330              // =816
+     334: 94000000     	bl	0x334 <DRAMC_COMMON_Config+0x334>
+		0000000000000334:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     338: 5280061a     	mov	w26, #0x30              // =48
+     33c: 52a02003     	mov	w3, #0x1000000          // =16777216
+     340: aa1303e0     	mov	x0, x19
+     344: 2a0303e2     	mov	w2, w3
+     348: 52804c01     	mov	w1, #0x260              // =608
+     34c: 94000000     	bl	0x34c <DRAMC_COMMON_Config+0x34c>
+		000000000000034c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     350: 52806019     	mov	w25, #0x300             // =768
+     354: 52804863     	mov	w3, #0x243              // =579
+     358: aa1303e0     	mov	x0, x19
+     35c: 72b80003     	movk	w3, #0xc000, lsl #16
+     360: 32020fe2     	mov	w2, #-0x3ffffffd        // =-1073741821
+     364: 52803f81     	mov	w1, #0x1fc              // =508
+     368: 94000000     	bl	0x368 <DRAMC_COMMON_Config+0x368>
+		0000000000000368:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     36c: aa1303e0     	mov	x0, x19
+     370: 52828003     	mov	w3, #0x1400             // =5120
+     374: 52800002     	mov	w2, #0x0                // =0
+     378: 52804501     	mov	w1, #0x228              // =552
+     37c: 94000000     	bl	0x37c <DRAMC_COMMON_Config+0x37c>
+		000000000000037c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     380: 528a0017     	mov	w23, #0x5000            // =20480
+     384: 528d0003     	mov	w3, #0x6800             // =26624
+     388: 52880002     	mov	w2, #0x4000             // =16384
+     38c: aa1303e0     	mov	x0, x19
+     390: 72b33a03     	movk	w3, #0x99d0, lsl #16
+     394: 72b02a02     	movk	w2, #0x8150, lsl #16
+     398: 52804081     	mov	w1, #0x204              // =516
+     39c: 94000000     	bl	0x39c <DRAMC_COMMON_Config+0x39c>
+		000000000000039c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3a0: 52860018     	mov	w24, #0x3000            // =12288
+     3a4: 5285d003     	mov	w3, #0x2e80             // =11904
+     3a8: 5280d002     	mov	w2, #0x680              // =1664
+     3ac: aa1303e0     	mov	x0, x19
+     3b0: 72bc0be3     	movk	w3, #0xe05f, lsl #16
+     3b4: 72a00902     	movk	w2, #0x48, lsl #16
+     3b8: 52802d01     	mov	w1, #0x168              // =360
+     3bc: 94000000     	bl	0x3bc <DRAMC_COMMON_Config+0x3bc>
+		00000000000003bc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3c0: 52a06016     	mov	w22, #0x3000000         // =50331648
+     3c4: 3942a680     	ldrb	w0, [x20, #0xa9]
+     3c8: 52802c63     	mov	w3, #0x163              // =355
+     3cc: 52802f81     	mov	w1, #0x17c              // =380
+     3d0: 52802c22     	mov	w2, #0x161              // =353
+     3d4: 52a6001c     	mov	w28, #0x30000000        // =805306368
+     3d8: 531f0000     	ubfiz	w0, w0, #1, #1
+     3dc: 2a020002     	orr	w2, w0, w2
+     3e0: aa1303e0     	mov	x0, x19
+     3e4: 94000000     	bl	0x3e4 <DRAMC_COMMON_Config+0x3e4>
+		00000000000003e4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3e8: 5289e043     	mov	w3, #0x4f02             // =20226
+     3ec: aa1303e0     	mov	x0, x19
+     3f0: 72a00183     	movk	w3, #0xc, lsl #16
+     3f4: 5289e002     	mov	w2, #0x4f00             // =20224
+     3f8: 52804a81     	mov	w1, #0x254              // =596
+     3fc: 94000000     	bl	0x3fc <DRAMC_COMMON_Config+0x3fc>
+		00000000000003fc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     400: 52810003     	mov	w3, #0x800              // =2048
+     404: aa1303e0     	mov	x0, x19
+     408: 2a0303e2     	mov	w2, w3
+     40c: 52802f01     	mov	w1, #0x178              // =376
+     410: 94000000     	bl	0x410 <DRAMC_COMMON_Config+0x410>
+		0000000000000410:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     414: aa1303e0     	mov	x0, x19
+     418: 529fffe3     	mov	w3, #0xffff             // =65535
+     41c: 52814ac2     	mov	w2, #0xa56              // =2646
+     420: 52803401     	mov	w1, #0x1a0              // =416
+     424: 94000000     	bl	0x424 <DRAMC_COMMON_Config+0x424>
+		0000000000000424:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     428: 52a00043     	mov	w3, #0x20000            // =131072
+     42c: aa1303e0     	mov	x0, x19
+     430: 2a0303e2     	mov	w2, w3
+     434: 52803901     	mov	w1, #0x1c8              // =456
+     438: 94000000     	bl	0x438 <DRAMC_COMMON_Config+0x438>
+		0000000000000438:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     43c: aa1303e0     	mov	x0, x19
+     440: 528005e3     	mov	w3, #0x2f               // =47
+     444: 528001e2     	mov	w2, #0xf                // =15
+     448: 52802e81     	mov	w1, #0x174              // =372
+     44c: 94000000     	bl	0x44c <DRAMC_COMMON_Config+0x44c>
+		000000000000044c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     450: 52800083     	mov	w3, #0x4                // =4
+     454: aa1303e0     	mov	x0, x19
+     458: 2a0303e2     	mov	w2, w3
+     45c: 52804401     	mov	w1, #0x220              // =544
+     460: 94000000     	bl	0x460 <DRAMC_COMMON_Config+0x460>
+		0000000000000460:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     464: 5280a001     	mov	w1, #0x500              // =1280
+     468: aa1303e0     	mov	x0, x19
+     46c: 128000e3     	mov	w3, #-0x8               // =-8
+     470: 52a00102     	mov	w2, #0x80000            // =524288
+     474: 72a00801     	movk	w1, #0x40, lsl #16
+     478: 94000000     	bl	0x478 <DRAMC_COMMON_Config+0x478>
+		0000000000000478:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     47c: aa1303e0     	mov	x0, x19
+     480: 128001e3     	mov	w3, #-0x10              // =-16
+     484: 52804002     	mov	w2, #0x200              // =512
+     488: 52802081     	mov	w1, #0x104              // =260
+     48c: 94000000     	bl	0x48c <DRAMC_COMMON_Config+0x48c>
+		000000000000048c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     490: 52801003     	mov	w3, #0x80               // =128
+     494: aa1303e0     	mov	x0, x19
+     498: 72a20023     	movk	w3, #0x1001, lsl #16
+     49c: 52a20022     	mov	w2, #0x10010000         // =268500992
+     4a0: 52802101     	mov	w1, #0x108              // =264
+     4a4: 94000000     	bl	0x4a4 <DRAMC_COMMON_Config+0x4a4>
+		00000000000004a4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4a8: 5283e3e3     	mov	w3, #0x1f1f             // =7967
+     4ac: 528221a2     	mov	w2, #0x110d             // =4365
+     4b0: aa1303e0     	mov	x0, x19
+     4b4: 72ae0023     	movk	w3, #0x7001, lsl #16
+     4b8: 72a80022     	movk	w2, #0x4001, lsl #16
+     4bc: 52802181     	mov	w1, #0x10c              // =268
+     4c0: 94000000     	bl	0x4c0 <DRAMC_COMMON_Config+0x4c0>
+		00000000000004c0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4c4: aa1303e0     	mov	x0, x19
+     4c8: 5280e003     	mov	w3, #0x700              // =1792
+     4cc: 52802002     	mov	w2, #0x100              // =256
+     4d0: 52804381     	mov	w1, #0x21c              // =540
+     4d4: 94000000     	bl	0x4d4 <DRAMC_COMMON_Config+0x4d4>
+		00000000000004d4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4d8: 5299e003     	mov	w3, #0xcf00             // =52992
+     4dc: 52882002     	mov	w2, #0x4100             // =16640
+     4e0: aa1303e0     	mov	x0, x19
+     4e4: 72b13143     	movk	w3, #0x898a, lsl #16
+     4e8: 72b02102     	movk	w2, #0x8108, lsl #16
+     4ec: 52804a01     	mov	w1, #0x250              // =592
+     4f0: 94000000     	bl	0x4f0 <DRAMC_COMMON_Config+0x4f0>
+		00000000000004f0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     4f4: 52800063     	mov	w3, #0x3                // =3
+     4f8: aa1303e0     	mov	x0, x19
+     4fc: 2a0303e2     	mov	w2, w3
+     500: 52805081     	mov	w1, #0x284              // =644
+     504: 94000000     	bl	0x504 <DRAMC_COMMON_Config+0x504>
+		0000000000000504:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     508: aa1303e0     	mov	x0, x19
+     50c: 52801fe3     	mov	w3, #0xff               // =255
+     510: 52800342     	mov	w2, #0x1a               // =26
+     514: 52804181     	mov	w1, #0x20c              // =524
+     518: 94000000     	bl	0x518 <DRAMC_COMMON_Config+0x518>
+		0000000000000518:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     51c: aa1303e0     	mov	x0, x19
+     520: 52a007e3     	mov	w3, #0x3f0000           // =4128768
+     524: 52a00022     	mov	w2, #0x10000            // =65536
+     528: 52804201     	mov	w1, #0x210              // =528
+     52c: 94000000     	bl	0x52c <DRAMC_COMMON_Config+0x52c>
+		000000000000052c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     530: b94002a0     	ldr	w0, [x21]
+		0000000000000530:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+     534: 52800042     	mov	w2, #0x2                // =2
+     538: 52800401     	mov	w1, #0x20               // =32
+     53c: 52a00604     	mov	w4, #0x300000           // =3145728
+     540: 121d7800     	and	w0, w0, #0xfffffffb
+     544: 52a04006     	mov	w6, #0x2000000          // =33554432
+     548: 7100081f     	cmp	w0, #0x2
+     54c: 52a40005     	mov	w5, #0x20000000         // =536870912
+     550: 1a9b1042     	csel	w2, w2, w27, ne
+     554: 1a9a1021     	csel	w1, w1, w26, ne
+     558: 2a020021     	orr	w1, w1, w2
+     55c: 52808002     	mov	w2, #0x400              // =1024
+     560: 1a991043     	csel	w3, w2, w25, ne
+     564: 1a9812e2     	csel	w2, w23, w24, ne
+     568: 2a030042     	orr	w2, w2, w3
+     56c: 52a00063     	mov	w3, #0x30000            // =196608
+     570: 2a010042     	orr	w2, w2, w1
+     574: 52a000a1     	mov	w1, #0x50000            // =327680
+     578: 1a831023     	csel	w3, w1, w3, ne
+     57c: 52a00401     	mov	w1, #0x200000           // =2097152
+     580: 1a841021     	csel	w1, w1, w4, ne
+     584: aa1303e0     	mov	x0, x19
+     588: 2a030021     	orr	w1, w1, w3
+     58c: 1a9610c3     	csel	w3, w6, w22, ne
+     590: 2a020021     	orr	w1, w1, w2
+     594: 1a9c10a2     	csel	w2, w5, w28, ne
+     598: 2a030042     	orr	w2, w2, w3
+     59c: 52800004     	mov	w4, #0x0                // =0
+     5a0: 2a010042     	orr	w2, w2, w1
+     5a4: 52800003     	mov	w3, #0x0                // =0
+     5a8: 52804f01     	mov	w1, #0x278              // =632
+     5ac: 94000000     	bl	0x5ac <DRAMC_COMMON_Config+0x5ac>
+		00000000000005ac:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     5b0: b94002a0     	ldr	w0, [x21]
+		00000000000005b0:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+     5b4: 528000a1     	mov	w1, #0x5                // =5
+     5b8: 52800a02     	mov	w2, #0x50               // =80
+     5bc: 52a04006     	mov	w6, #0x2000000          // =33554432
+     5c0: 121d7800     	and	w0, w0, #0xfffffffb
+     5c4: 52a40005     	mov	w5, #0x20000000         // =536870912
+     5c8: 7100081f     	cmp	w0, #0x2
+     5cc: 52800004     	mov	w4, #0x0                // =0
+     5d0: 1a9a1042     	csel	w2, w2, w26, ne
+     5d4: 1a9b1021     	csel	w1, w1, w27, ne
+     5d8: 2a010041     	orr	w1, w2, w1
+     5dc: 5280a002     	mov	w2, #0x500              // =1280
+     5e0: 1a991059     	csel	w25, w2, w25, ne
+     5e4: 1a9812e2     	csel	w2, w23, w24, ne
+     5e8: 1a8602d6     	csel	w22, w22, w6, eq
+     5ec: 1a85039c     	csel	w28, w28, w5, eq
+     5f0: 2a190042     	orr	w2, w2, w25
+     5f4: 2a1c02d6     	orr	w22, w22, w28
+     5f8: 2a010042     	orr	w2, w2, w1
+     5fc: aa1303e0     	mov	x0, x19
+     600: 2a0202d6     	orr	w22, w22, w2
+     604: 52800003     	mov	w3, #0x0                // =0
+     608: 52804f81     	mov	w1, #0x27c              // =636
+     60c: 52a00662     	mov	w2, #0x330000           // =3342336
+     610: 2a0202c2     	orr	w2, w22, w2
+     614: 94000000     	bl	0x614 <DRAMC_COMMON_Config+0x614>
+		0000000000000614:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     618: 3941e681     	ldrb	w1, [x20, #0x79]
+     61c: 52830002     	mov	w2, #0x1800             // =6144
+     620: 3941ea80     	ldrb	w0, [x20, #0x7a]
+     624: 32152fe3     	mov	w3, #0x7ff800           // =8386560
+     628: 90000016     	adrp	x22, 0x0 <DRAMC_COMMON_Config>
+		0000000000000628:  R_AARCH64_ADR_PREL_PG_HI21	DV_p
+     62c: 910002d6     	add	x22, x22, #0x0
+		000000000000062c:  R_AARCH64_ADD_ABS_LO12_NC	DV_p
+     630: 2a010000     	orr	w0, w0, w1
+     634: 52802a01     	mov	w1, #0x150              // =336
+     638: 72001c1f     	tst	w0, #0xff
+     63c: aa1303e0     	mov	x0, x19
+     640: 1a8213e2     	csel	w2, wzr, w2, ne
+     644: 320d0042     	orr	w2, w2, #0x80000
+     648: 94000000     	bl	0x648 <DRAMC_COMMON_Config+0x648>
+		0000000000000648:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     64c: b94002a0     	ldr	w0, [x21]
+		000000000000064c:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+     650: 52a82803     	mov	w3, #0x41400000         // =1094713344
+     654: 52804701     	mov	w1, #0x238              // =568
+     658: 121d7800     	and	w0, w0, #0xfffffffb
+     65c: 7100081f     	cmp	w0, #0x2
+     660: aa1303e0     	mov	x0, x19
+     664: 1a9f07e2     	cset	w2, ne
+     668: 530a2442     	lsl	w2, w2, #22
+     66c: 32080042     	orr	w2, w2, #0x1000000
+     670: 94000000     	bl	0x670 <DRAMC_COMMON_Config+0x670>
+		0000000000000670:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     674: f94006c0     	ldr	x0, [x22, #0x8]
+     678: 39401400     	ldrb	w0, [x0, #0x5]
+     67c: 7100041f     	cmp	w0, #0x1
+     680: 540000c1     	b.ne	0x698 <DRAMC_COMMON_Config+0x698>
+     684: 52800803     	mov	w3, #0x40               // =64
+     688: aa1303e0     	mov	x0, x19
+     68c: 2a0303e2     	mov	w2, w3
+     690: 52804701     	mov	w1, #0x238              // =568
+     694: 94000000     	bl	0x694 <DRAMC_COMMON_Config+0x694>
+		0000000000000694:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     698: 5283e003     	mov	w3, #0x1f00             // =7936
+     69c: 52828002     	mov	w2, #0x1400             // =5120
+     6a0: aa1303e0     	mov	x0, x19
+     6a4: 72a11003     	movk	w3, #0x880, lsl #16
+     6a8: 72a10002     	movk	w2, #0x800, lsl #16
+     6ac: 52804901     	mov	w1, #0x248              // =584
+     6b0: 94000000     	bl	0x6b0 <DRAMC_COMMON_Config+0x6b0>
+		00000000000006b0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     6b4: 52a10003     	mov	w3, #0x8000000          // =134217728
+     6b8: aa1303e0     	mov	x0, x19
+     6bc: 2a0303e2     	mov	w2, w3
+     6c0: 52802201     	mov	w1, #0x110              // =272
+     6c4: 94000000     	bl	0x6c4 <DRAMC_COMMON_Config+0x6c4>
+		00000000000006c4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     6c8: 39420e80     	ldrb	w0, [x20, #0x83]
+     6cc: 39420a83     	ldrb	w3, [x20, #0x82]
+     6d0: 6b00007f     	cmp	w3, w0
+     6d4: 54001d80     	b.eq	0xa84 <DRAMC_COMMON_Config+0xa84>
+     6d8: 52800000     	mov	w0, #0x0                // =0
+     6dc: 94000000     	bl	0x6dc <DRAMC_COMMON_Config+0x6dc>
+		00000000000006dc:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     6e0: 3942ce81     	ldrb	w1, [x20, #0xb3]
+     6e4: 3942d280     	ldrb	w0, [x20, #0xb4]
+     6e8: aa002020     	orr	x0, x1, x0, lsl #8
+     6ec: 3942d681     	ldrb	w1, [x20, #0xb5]
+     6f0: aa014000     	orr	x0, x0, x1, lsl #16
+     6f4: 3942da81     	ldrb	w1, [x20, #0xb6]
+     6f8: aa016001     	orr	x1, x0, x1, lsl #24
+     6fc: 2a0103e0     	mov	w0, w1
+     700: b5002481     	cbnz	x1, 0xb90 <DRAMC_COMMON_Config+0xb90>
+     704: 52800002     	mov	w2, #0x0                // =0
+     708: 2a020002     	orr	w2, w0, w2
+     70c: 52a60003     	mov	w3, #0x30000000         // =805306368
+     710: 5280b201     	mov	w1, #0x590              // =1424
+     714: aa1303e0     	mov	x0, x19
+     718: 72a00801     	movk	w1, #0x40, lsl #16
+     71c: 94000000     	bl	0x71c <DRAMC_COMMON_Config+0x71c>
+		000000000000071c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     720: aa1303e0     	mov	x0, x19
+     724: 52800021     	mov	w1, #0x1                // =1
+     728: 94000000     	bl	0x728 <DRAMC_COMMON_Config+0x728>
+		0000000000000728:  R_AARCH64_CALL26	vSetRank
+     72c: 3942ce80     	ldrb	w0, [x20, #0xb3]
+     730: 3942d281     	ldrb	w1, [x20, #0xb4]
+     734: aa012001     	orr	x1, x0, x1, lsl #8
+     738: 3942d680     	ldrb	w0, [x20, #0xb5]
+     73c: aa004021     	orr	x1, x1, x0, lsl #16
+     740: 3942da80     	ldrb	w0, [x20, #0xb6]
+     744: aa006020     	orr	x0, x1, x0, lsl #24
+     748: 2a0003e1     	mov	w1, w0
+     74c: 7100041f     	cmp	w0, #0x1
+     750: 54001920     	b.eq	0xa74 <DRAMC_COMMON_Config+0xa74>
+     754: 52800002     	mov	w2, #0x0                // =0
+     758: b4000060     	cbz	x0, 0x764 <DRAMC_COMMON_Config+0x764>
+     75c: 39420e81     	ldrb	w1, [x20, #0x83]
+     760: 53040021     	ubfiz	w1, w1, #28, #1
+     764: 2a020022     	orr	w2, w1, w2
+     768: 52a60003     	mov	w3, #0x30000000         // =805306368
+     76c: 5280b201     	mov	w1, #0x590              // =1424
+     770: aa1303e0     	mov	x0, x19
+     774: 72a00801     	movk	w1, #0x40, lsl #16
+     778: 94000000     	bl	0x778 <DRAMC_COMMON_Config+0x778>
+		0000000000000778:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     77c: aa1303e0     	mov	x0, x19
+     780: 52800001     	mov	w1, #0x0                // =0
+     784: 94000000     	bl	0x784 <DRAMC_COMMON_Config+0x784>
+		0000000000000784:  R_AARCH64_CALL26	vSetRank
+     788: aa1303e0     	mov	x0, x19
+     78c: 52800021     	mov	w1, #0x1                // =1
+     790: 94000000     	bl	0x790 <DRAMC_COMMON_Config+0x790>
+		0000000000000790:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     794: 3942ce81     	ldrb	w1, [x20, #0xb3]
+     798: 3942d280     	ldrb	w0, [x20, #0xb4]
+     79c: aa002020     	orr	x0, x1, x0, lsl #8
+     7a0: 3942d681     	ldrb	w1, [x20, #0xb5]
+     7a4: aa014000     	orr	x0, x0, x1, lsl #16
+     7a8: 3942da81     	ldrb	w1, [x20, #0xb6]
+     7ac: aa016001     	orr	x1, x0, x1, lsl #24
+     7b0: 2a0103e0     	mov	w0, w1
+     7b4: b5001e61     	cbnz	x1, 0xb80 <DRAMC_COMMON_Config+0xb80>
+     7b8: 52800002     	mov	w2, #0x0                // =0
+     7bc: 2a020002     	orr	w2, w0, w2
+     7c0: 52a60003     	mov	w3, #0x30000000         // =805306368
+     7c4: 5280b201     	mov	w1, #0x590              // =1424
+     7c8: aa1303e0     	mov	x0, x19
+     7cc: 72a00801     	movk	w1, #0x40, lsl #16
+     7d0: 94000000     	bl	0x7d0 <DRAMC_COMMON_Config+0x7d0>
+		00000000000007d0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     7d4: aa1303e0     	mov	x0, x19
+     7d8: 52800021     	mov	w1, #0x1                // =1
+     7dc: 94000000     	bl	0x7dc <DRAMC_COMMON_Config+0x7dc>
+		00000000000007dc:  R_AARCH64_CALL26	vSetRank
+     7e0: 3942ce80     	ldrb	w0, [x20, #0xb3]
+     7e4: 3942d281     	ldrb	w1, [x20, #0xb4]
+     7e8: aa012001     	orr	x1, x0, x1, lsl #8
+     7ec: 3942d680     	ldrb	w0, [x20, #0xb5]
+     7f0: aa004021     	orr	x1, x1, x0, lsl #16
+     7f4: 3942da80     	ldrb	w0, [x20, #0xb6]
+     7f8: aa006020     	orr	x0, x1, x0, lsl #24
+     7fc: 2a0003e1     	mov	w1, w0
+     800: 7100041f     	cmp	w0, #0x1
+     804: 540013c0     	b.eq	0xa7c <DRAMC_COMMON_Config+0xa7c>
+     808: 52800002     	mov	w2, #0x0                // =0
+     80c: b4000060     	cbz	x0, 0x818 <DRAMC_COMMON_Config+0x818>
+     810: 39420a81     	ldrb	w1, [x20, #0x82]
+     814: 53040021     	ubfiz	w1, w1, #28, #1
+     818: 2a020022     	orr	w2, w1, w2
+     81c: 52a60003     	mov	w3, #0x30000000         // =805306368
+     820: 5280b201     	mov	w1, #0x590              // =1424
+     824: aa1303e0     	mov	x0, x19
+     828: 72a00801     	movk	w1, #0x40, lsl #16
+     82c: 94000000     	bl	0x82c <DRAMC_COMMON_Config+0x82c>
+		000000000000082c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     830: aa1303e0     	mov	x0, x19
+     834: 52800001     	mov	w1, #0x0                // =0
+     838: 94000000     	bl	0x838 <DRAMC_COMMON_Config+0x838>
+		0000000000000838:  R_AARCH64_CALL26	vSetRank
+     83c: 52800001     	mov	w1, #0x0                // =0
+     840: aa1303e0     	mov	x0, x19
+     844: 94000000     	bl	0x844 <DRAMC_COMMON_Config+0x844>
+		0000000000000844:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     848: 52800020     	mov	w0, #0x1                // =1
+     84c: 94000000     	bl	0x84c <DRAMC_COMMON_Config+0x84c>
+		000000000000084c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     850: aa1303e0     	mov	x0, x19
+     854: 52900003     	mov	w3, #0x8000             // =32768
+     858: 52800002     	mov	w2, #0x0                // =0
+     85c: 52803601     	mov	w1, #0x1b0              // =432
+     860: 94000000     	bl	0x860 <DRAMC_COMMON_Config+0x860>
+		0000000000000860:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     864: 394006c2     	ldrb	w2, [x22, #0x1]
+     868: aa1303e0     	mov	x0, x19
+     86c: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     870: 52805201     	mov	w1, #0x290              // =656
+     874: 53010042     	lsl	w2, w2, #31
+     878: 94000000     	bl	0x878 <DRAMC_COMMON_Config+0x878>
+		0000000000000878:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     87c: aa1303e0     	mov	x0, x19
+     880: 52b00003     	mov	w3, #-0x80000000        // =-2147483648
+     884: 52802581     	mov	w1, #0x12c              // =300
+     888: 2a0303e2     	mov	w2, w3
+     88c: 94000000     	bl	0x88c <DRAMC_COMMON_Config+0x88c>
+		000000000000088c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     890: b94002a0     	ldr	w0, [x21]
+		0000000000000890:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+     894: 7100081f     	cmp	w0, #0x2
+     898: 540014e0     	b.eq	0xb34 <DRAMC_COMMON_Config+0xb34>
+     89c: 7100181f     	cmp	w0, #0x6
+     8a0: 52800802     	mov	w2, #0x40               // =64
+     8a4: 52801001     	mov	w1, #0x80               // =128
+     8a8: 5280a003     	mov	w3, #0x500              // =1280
+     8ac: 1a810041     	csel	w1, w2, w1, eq
+     8b0: 52808002     	mov	w2, #0x400              // =1024
+     8b4: 1a830042     	csel	w2, w2, w3, eq
+     8b8: 7100181f     	cmp	w0, #0x6
+     8bc: 121d7800     	and	w0, w0, #0xfffffffb
+     8c0: 2a010042     	orr	w2, w2, w1
+     8c4: 52880015     	mov	w21, #0x4000            // =16384
+     8c8: 528a0001     	mov	w1, #0x5000             // =20480
+     8cc: 1a8102a1     	csel	w1, w21, w1, eq
+     8d0: 7100081f     	cmp	w0, #0x2
+     8d4: 529ffee3     	mov	w3, #0xfff7             // =65527
+     8d8: 1a9f17e0     	cset	w0, eq
+     8dc: 2a000820     	orr	w0, w1, w0, lsl #2
+     8e0: 52805801     	mov	w1, #0x2c0              // =704
+     8e4: 2a020002     	orr	w2, w0, w2
+     8e8: aa1303e0     	mov	x0, x19
+     8ec: 94000000     	bl	0x8ec <DRAMC_COMMON_Config+0x8ec>
+		00000000000008ec:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     8f0: aa1303e0     	mov	x0, x19
+     8f4: 52800063     	mov	w3, #0x3                // =3
+     8f8: 52800022     	mov	w2, #0x1                // =1
+     8fc: 52804681     	mov	w1, #0x234              // =564
+     900: 94000000     	bl	0x900 <DRAMC_COMMON_Config+0x900>
+		0000000000000900:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     904: 528003c3     	mov	w3, #0x1e               // =30
+     908: aa1303e0     	mov	x0, x19
+     90c: 2a0303e2     	mov	w2, w3
+     910: 52804801     	mov	w1, #0x240              // =576
+     914: 94000000     	bl	0x914 <DRAMC_COMMON_Config+0x914>
+		0000000000000914:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     918: 52800803     	mov	w3, #0x40               // =64
+     91c: aa1303e0     	mov	x0, x19
+     920: 2a0303e2     	mov	w2, w3
+     924: 52802e81     	mov	w1, #0x174              // =372
+     928: 94000000     	bl	0x928 <DRAMC_COMMON_Config+0x928>
+		0000000000000928:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     92c: 52811301     	mov	w1, #0x898              // =2200
+     930: 2a1503e2     	mov	w2, w21
+     934: aa1303e0     	mov	x0, x19
+     938: 32120fe3     	mov	w3, #0x3c000            // =245760
+     93c: 72a02001     	movk	w1, #0x100, lsl #16
+     940: 94000000     	bl	0x940 <DRAMC_COMMON_Config+0x940>
+		0000000000000940:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     944: 52811c81     	mov	w1, #0x8e4              // =2276
+     948: aa1303e0     	mov	x0, x19
+     94c: 529fffe3     	mov	w3, #0xffff             // =65535
+     950: 52804802     	mov	w2, #0x240              // =576
+     954: 72a02001     	movk	w1, #0x100, lsl #16
+     958: 94000000     	bl	0x958 <DRAMC_COMMON_Config+0x958>
+		0000000000000958:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     95c: 5280ff81     	mov	w1, #0x7fc              // =2044
+     960: 12800003     	mov	w3, #-0x1               // =-1
+     964: aa1303e0     	mov	x0, x19
+     968: 2a0303e2     	mov	w2, w3
+     96c: 72a02001     	movk	w1, #0x100, lsl #16
+     970: 94000000     	bl	0x970 <DRAMC_COMMON_Config+0x970>
+		0000000000000970:  R_AARCH64_CALL26	vIO32WriteMsk
+     974: 52810101     	mov	w1, #0x808              // =2056
+     978: 12800003     	mov	w3, #-0x1               // =-1
+     97c: aa1303e0     	mov	x0, x19
+     980: 2a0303e2     	mov	w2, w3
+     984: 72a02001     	movk	w1, #0x100, lsl #16
+     988: 94000000     	bl	0x988 <DRAMC_COMMON_Config+0x988>
+		0000000000000988:  R_AARCH64_CALL26	vIO32WriteMsk
+     98c: 52810281     	mov	w1, #0x814              // =2068
+     990: aa1303e0     	mov	x0, x19
+     994: 12800003     	mov	w3, #-0x1               // =-1
+     998: 72a02001     	movk	w1, #0x100, lsl #16
+     99c: 2a0303e2     	mov	w2, w3
+     9a0: 94000000     	bl	0x9a0 <DRAMC_COMMON_Config+0x9a0>
+		00000000000009a0:  R_AARCH64_CALL26	vIO32WriteMsk
+     9a4: 3941e280     	ldrb	w0, [x20, #0x78]
+     9a8: 3941de81     	ldrb	w1, [x20, #0x77]
+     9ac: 2a010000     	orr	w0, w0, w1
+     9b0: 72001c1f     	tst	w0, #0xff
+     9b4: 54000c61     	b.ne	0xb40 <DRAMC_COMMON_Config+0xb40>
+     9b8: 52800000     	mov	w0, #0x0                // =0
+     9bc: 94000000     	bl	0x9bc <DRAMC_COMMON_Config+0x9bc>
+		00000000000009bc:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     9c0: aa1303e0     	mov	x0, x19
+     9c4: 52800021     	mov	w1, #0x1                // =1
+     9c8: 94000000     	bl	0x9c8 <DRAMC_COMMON_Config+0x9c8>
+		00000000000009c8:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     9cc: 52810781     	mov	w1, #0x83c              // =2108
+     9d0: 52800023     	mov	w3, #0x1                // =1
+     9d4: 52800002     	mov	w2, #0x0                // =0
+     9d8: 72a02001     	movk	w1, #0x100, lsl #16
+     9dc: aa1303e0     	mov	x0, x19
+     9e0: 94000000     	bl	0x9e0 <DRAMC_COMMON_Config+0x9e0>
+		00000000000009e0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     9e4: 52800020     	mov	w0, #0x1                // =1
+     9e8: 94000000     	bl	0x9e8 <DRAMC_COMMON_Config+0x9e8>
+		00000000000009e8:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     9ec: aa1303e0     	mov	x0, x19
+     9f0: 52800001     	mov	w1, #0x0                // =0
+     9f4: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     9f8: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     9fc: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     a00: a9446bf9     	ldp	x25, x26, [sp, #0x40]
+     a04: a94573fb     	ldp	x27, x28, [sp, #0x50]
+     a08: a8c67bfd     	ldp	x29, x30, [sp], #0x60
+     a0c: 14000000     	b	0xa0c <DRAMC_COMMON_Config+0xa0c>
+		0000000000000a0c:  R_AARCH64_JUMP26	vSetPHY2ChannelMapping
+     a10: 5280f781     	mov	w1, #0x7bc              // =1980
+     a14: aa1303e0     	mov	x0, x19
+     a18: 53180c42     	ubfiz	w2, w2, #8, #4
+     a1c: 5281e003     	mov	w3, #0xf00              // =3840
+     a20: 72a02001     	movk	w1, #0x100, lsl #16
+     a24: 94000000     	bl	0xa24 <DRAMC_COMMON_Config+0xa24>
+		0000000000000a24:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     a28: 39421682     	ldrb	w2, [x20, #0x85]
+     a2c: 5280f801     	mov	w1, #0x7c0              // =1984
+     a30: aa1303e0     	mov	x0, x19
+     a34: 5281e003     	mov	w3, #0xf00              // =3840
+     a38: 72a02001     	movk	w1, #0x100, lsl #16
+     a3c: 53180c42     	ubfiz	w2, w2, #8, #4
+     a40: 94000000     	bl	0xa40 <DRAMC_COMMON_Config+0xa40>
+		0000000000000a40:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     a44: 17fffdbb     	b	0x130 <DRAMC_COMMON_Config+0x130>
+     a48: 52800202     	mov	w2, #0x10               // =16
+     a4c: 17fffdc4     	b	0x15c <DRAMC_COMMON_Config+0x15c>
+     a50: 52800402     	mov	w2, #0x20               // =32
+     a54: 17fffde1     	b	0x1d8 <DRAMC_COMMON_Config+0x1d8>
+     a58: 52800000     	mov	w0, #0x0                // =0
+     a5c: 17fffe0f     	b	0x298 <DRAMC_COMMON_Config+0x298>
+     a60: 52801000     	mov	w0, #0x80               // =128
+     a64: 52800002     	mov	w2, #0x0                // =0
+     a68: 17fffe23     	b	0x2f4 <DRAMC_COMMON_Config+0x2f4>
+     a6c: 52800000     	mov	w0, #0x0                // =0
+     a70: 17fffe27     	b	0x30c <DRAMC_COMMON_Config+0x30c>
+     a74: 52a40002     	mov	w2, #0x20000000         // =536870912
+     a78: 17ffff39     	b	0x75c <DRAMC_COMMON_Config+0x75c>
+     a7c: 52a40002     	mov	w2, #0x20000000         // =536870912
+     a80: 17ffff64     	b	0x810 <DRAMC_COMMON_Config+0x810>
+     a84: 3942ce80     	ldrb	w0, [x20, #0xb3]
+     a88: 3942d281     	ldrb	w1, [x20, #0xb4]
+     a8c: aa012001     	orr	x1, x0, x1, lsl #8
+     a90: 3942d680     	ldrb	w0, [x20, #0xb5]
+     a94: aa004021     	orr	x1, x1, x0, lsl #16
+     a98: 3942da80     	ldrb	w0, [x20, #0xb6]
+     a9c: aa006020     	orr	x0, x1, x0, lsl #24
+     aa0: 2a0003e2     	mov	w2, w0
+     aa4: b50007e0     	cbnz	x0, 0xba0 <DRAMC_COMMON_Config+0xba0>
+     aa8: 2a000042     	orr	w2, w2, w0
+     aac: 52a60003     	mov	w3, #0x30000000         // =805306368
+     ab0: 5280b201     	mov	w1, #0x590              // =1424
+     ab4: aa1303e0     	mov	x0, x19
+     ab8: 72a00801     	movk	w1, #0x40, lsl #16
+     abc: 94000000     	bl	0xabc <DRAMC_COMMON_Config+0xabc>
+		0000000000000abc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     ac0: aa1303e0     	mov	x0, x19
+     ac4: 52800021     	mov	w1, #0x1                // =1
+     ac8: 94000000     	bl	0xac8 <DRAMC_COMMON_Config+0xac8>
+		0000000000000ac8:  R_AARCH64_CALL26	vSetRank
+     acc: 3942ce80     	ldrb	w0, [x20, #0xb3]
+     ad0: 3942d281     	ldrb	w1, [x20, #0xb4]
+     ad4: aa012001     	orr	x1, x0, x1, lsl #8
+     ad8: 3942d680     	ldrb	w0, [x20, #0xb5]
+     adc: aa004021     	orr	x1, x1, x0, lsl #16
+     ae0: 3942da80     	ldrb	w0, [x20, #0xb6]
+     ae4: aa006020     	orr	x0, x1, x0, lsl #24
+     ae8: 2a0003e1     	mov	w1, w0
+     aec: 7100041f     	cmp	w0, #0x1
+     af0: 540001e0     	b.eq	0xb2c <DRAMC_COMMON_Config+0xb2c>
+     af4: 52800002     	mov	w2, #0x0                // =0
+     af8: b4000060     	cbz	x0, 0xb04 <DRAMC_COMMON_Config+0xb04>
+     afc: 39420e81     	ldrb	w1, [x20, #0x83]
+     b00: 53040021     	ubfiz	w1, w1, #28, #1
+     b04: 2a020022     	orr	w2, w1, w2
+     b08: 52a60003     	mov	w3, #0x30000000         // =805306368
+     b0c: 5280b201     	mov	w1, #0x590              // =1424
+     b10: aa1303e0     	mov	x0, x19
+     b14: 72a00801     	movk	w1, #0x40, lsl #16
+     b18: 94000000     	bl	0xb18 <DRAMC_COMMON_Config+0xb18>
+		0000000000000b18:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     b1c: aa1303e0     	mov	x0, x19
+     b20: 52800001     	mov	w1, #0x0                // =0
+     b24: 94000000     	bl	0xb24 <DRAMC_COMMON_Config+0xb24>
+		0000000000000b24:  R_AARCH64_CALL26	vSetRank
+     b28: 17ffff4a     	b	0x850 <DRAMC_COMMON_Config+0x850>
+     b2c: 52a40002     	mov	w2, #0x20000000         // =536870912
+     b30: 17fffff3     	b	0xafc <DRAMC_COMMON_Config+0xafc>
+     b34: 52800a01     	mov	w1, #0x50               // =80
+     b38: 5280a002     	mov	w2, #0x500              // =1280
+     b3c: 17ffff5f     	b	0x8b8 <DRAMC_COMMON_Config+0x8b8>
+     b40: aa1303e0     	mov	x0, x19
+     b44: 52a02003     	mov	w3, #0x1000000          // =16777216
+     b48: 52802101     	mov	w1, #0x108              // =264
+     b4c: 2a0303e2     	mov	w2, w3
+     b50: 94000000     	bl	0xb50 <DRAMC_COMMON_Config+0xb50>
+		0000000000000b50:  R_AARCH64_CALL26	vIO32WriteMsk
+     b54: 3941e280     	ldrb	w0, [x20, #0x78]
+     b58: 34fff300     	cbz	w0, 0x9b8 <DRAMC_COMMON_Config+0x9b8>
+     b5c: 3941de80     	ldrb	w0, [x20, #0x77]
+     b60: 34fff2c0     	cbz	w0, 0x9b8 <DRAMC_COMMON_Config+0x9b8>
+     b64: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     b68: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     b6c: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     b70: a9446bf9     	ldp	x25, x26, [sp, #0x40]
+     b74: a94573fb     	ldp	x27, x28, [sp, #0x50]
+     b78: a8c67bfd     	ldp	x29, x30, [sp], #0x60
+     b7c: d65f03c0     	ret
+     b80: 39420a80     	ldrb	w0, [x20, #0x82]
+     b84: 52a40002     	mov	w2, #0x20000000         // =536870912
+     b88: 53040000     	ubfiz	w0, w0, #28, #1
+     b8c: 17ffff0c     	b	0x7bc <DRAMC_COMMON_Config+0x7bc>
+     b90: 39420e80     	ldrb	w0, [x20, #0x83]
+     b94: 52a40002     	mov	w2, #0x20000000         // =536870912
+     b98: 53040000     	ubfiz	w0, w0, #28, #1
+     b9c: 17fffedb     	b	0x708 <DRAMC_COMMON_Config+0x708>
+     ba0: 53040062     	ubfiz	w2, w3, #28, #1
+     ba4: 52a40000     	mov	w0, #0x20000000         // =536870912
+     ba8: 17ffffc0     	b	0xaa8 <DRAMC_COMMON_Config+0xaa8>
+
+Disassembly of section .text.IO_Release:
+
+0000000000000000 <IO_Release>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: 90000014     	adrp	x20, 0x0 <IO_Release>
+		000000000000000c:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+      10: 91000294     	add	x20, x20, #0x0
+		0000000000000010:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+      14: aa0003f3     	mov	x19, x0
+      18: 39421682     	ldrb	w2, [x20, #0x85]
+      1c: 39421281     	ldrb	w1, [x20, #0x84]
+      20: 6b01005f     	cmp	w2, w1
+      24: 54000960     	b.eq	0x150 <IO_Release+0x150>
+      28: 52800000     	mov	w0, #0x0                // =0
+      2c: 94000000     	bl	0x2c <IO_Release+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      30: 52800183     	mov	w3, #0xc                // =12
+      34: 2a0303e2     	mov	w2, w3
+      38: 5280f781     	mov	w1, #0x7bc              // =1980
+      3c: aa1303e0     	mov	x0, x19
+      40: 72a02001     	movk	w1, #0x100, lsl #16
+      44: 94000000     	bl	0x44 <IO_Release+0x44>
+		0000000000000044:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      48: aa1303e0     	mov	x0, x19
+      4c: 52800021     	mov	w1, #0x1                // =1
+      50: 94000000     	bl	0x50 <IO_Release+0x50>
+		0000000000000050:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      54: 52800183     	mov	w3, #0xc                // =12
+      58: 5280f781     	mov	w1, #0x7bc              // =1980
+      5c: 2a0303e2     	mov	w2, w3
+      60: aa1303e0     	mov	x0, x19
+      64: 72a02001     	movk	w1, #0x100, lsl #16
+      68: 94000000     	bl	0x68 <IO_Release+0x68>
+		0000000000000068:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      6c: 52800001     	mov	w1, #0x0                // =0
+      70: aa1303e0     	mov	x0, x19
+      74: 94000000     	bl	0x74 <IO_Release+0x74>
+		0000000000000074:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      78: 52800020     	mov	w0, #0x1                // =1
+      7c: 94000000     	bl	0x7c <IO_Release+0x7c>
+		000000000000007c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      80: 52809201     	mov	w1, #0x490              // =1168
+      84: aa1303e0     	mov	x0, x19
+      88: 52801fe3     	mov	w3, #0xff               // =255
+      8c: 52800002     	mov	w2, #0x0                // =0
+      90: 72b12001     	movk	w1, #0x8900, lsl #16
+      94: 94000000     	bl	0x94 <IO_Release+0x94>
+		0000000000000094:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      98: 5280a201     	mov	w1, #0x510              // =1296
+      9c: aa1303e0     	mov	x0, x19
+      a0: 52801fe3     	mov	w3, #0xff               // =255
+      a4: 52800002     	mov	w2, #0x0                // =0
+      a8: 72aa2001     	movk	w1, #0x5100, lsl #16
+      ac: 94000000     	bl	0xac <IO_Release+0xac>
+		00000000000000ac:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      b0: 5280b201     	mov	w1, #0x590              // =1424
+      b4: aa1303e0     	mov	x0, x19
+      b8: 52801fe3     	mov	w3, #0xff               // =255
+      bc: 52800002     	mov	w2, #0x0                // =0
+      c0: 72b32001     	movk	w1, #0x9900, lsl #16
+      c4: 94000000     	bl	0xc4 <IO_Release+0xc4>
+		00000000000000c4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      c8: 5280c201     	mov	w1, #0x610              // =1552
+      cc: aa1303e0     	mov	x0, x19
+      d0: 72ac2001     	movk	w1, #0x6100, lsl #16
+      d4: 52801fe3     	mov	w3, #0xff               // =255
+      d8: 52800002     	mov	w2, #0x0                // =0
+      dc: 94000000     	bl	0xdc <IO_Release+0xdc>
+		00000000000000dc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      e0: 39421681     	ldrb	w1, [x20, #0x85]
+      e4: 39421280     	ldrb	w0, [x20, #0x84]
+      e8: 6b00003f     	cmp	w1, w0
+      ec: 540003e0     	b.eq	0x168 <IO_Release+0x168>
+      f0: 52800000     	mov	w0, #0x0                // =0
+      f4: 94000000     	bl	0xf4 <IO_Release+0xf4>
+		00000000000000f4:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      f8: 52880003     	mov	w3, #0x4000             // =16384
+      fc: 2a0303e2     	mov	w2, w3
+     100: 5280f781     	mov	w1, #0x7bc              // =1980
+     104: aa1303e0     	mov	x0, x19
+     108: 72a02001     	movk	w1, #0x100, lsl #16
+     10c: 94000000     	bl	0x10c <IO_Release+0x10c>
+		000000000000010c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     110: aa1303e0     	mov	x0, x19
+     114: 52800021     	mov	w1, #0x1                // =1
+     118: 94000000     	bl	0x118 <IO_Release+0x118>
+		0000000000000118:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     11c: 52880003     	mov	w3, #0x4000             // =16384
+     120: 2a0303e2     	mov	w2, w3
+     124: 5280f781     	mov	w1, #0x7bc              // =1980
+     128: aa1303e0     	mov	x0, x19
+     12c: 72a02001     	movk	w1, #0x100, lsl #16
+     130: 94000000     	bl	0x130 <IO_Release+0x130>
+		0000000000000130:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     134: aa1303e0     	mov	x0, x19
+     138: 52800001     	mov	w1, #0x0                // =0
+     13c: 94000000     	bl	0x13c <IO_Release+0x13c>
+		000000000000013c:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     140: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     144: 52800020     	mov	w0, #0x1                // =1
+     148: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+     14c: 14000000     	b	0x14c <IO_Release+0x14c>
+		000000000000014c:  R_AARCH64_JUMP26	DramcBroadcastOnOff
+     150: 5280f781     	mov	w1, #0x7bc              // =1980
+     154: 52800183     	mov	w3, #0xc                // =12
+     158: 72a02001     	movk	w1, #0x100, lsl #16
+     15c: 2a0303e2     	mov	w2, w3
+     160: 94000000     	bl	0x160 <IO_Release+0x160>
+		0000000000000160:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     164: 17ffffc7     	b	0x80 <IO_Release+0x80>
+     168: aa1303e0     	mov	x0, x19
+     16c: 5280f781     	mov	w1, #0x7bc              // =1980
+     170: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     174: 52880003     	mov	w3, #0x4000             // =16384
+     178: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+     17c: 2a0303e2     	mov	w2, w3
+     180: 72a02001     	movk	w1, #0x100, lsl #16
+     184: 14000000     	b	0x184 <IO_Release+0x184>
+		0000000000000184:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk
+
+Disassembly of section .text.DVFS_PRE_config:
+
+0000000000000000 <DVFS_PRE_config>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 5280e003     	mov	w3, #0x700              // =1792
+       8: 72a00803     	movk	w3, #0x40, lsl #16
+       c: 910003fd     	mov	x29, sp
+      10: 5280e002     	mov	w2, #0x700              // =1792
+      14: 52804101     	mov	w1, #0x208              // =520
+      18: a90153f3     	stp	x19, x20, [sp, #0x10]
+      1c: aa0003f3     	mov	x19, x0
+      20: 90000014     	adrp	x20, 0x0 <DVFS_PRE_config>
+		0000000000000020:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+      24: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      28: 94000000     	bl	0x28 <DVFS_PRE_config+0x28>
+		0000000000000028:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      2c: 52800023     	mov	w3, #0x1                // =1
+      30: 5280d701     	mov	w1, #0x6b8              // =1720
+      34: aa1303e0     	mov	x0, x19
+      38: 72a00203     	movk	w3, #0x10, lsl #16
+      3c: 52800002     	mov	w2, #0x0                // =0
+      40: 72a02001     	movk	w1, #0x100, lsl #16
+      44: 94000000     	bl	0x44 <DVFS_PRE_config+0x44>
+		0000000000000044:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      48: 90000015     	adrp	x21, 0x0 <DVFS_PRE_config>
+		0000000000000048:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+      4c: 52811301     	mov	w1, #0x898              // =2200
+      50: aa1303e0     	mov	x0, x19
+      54: 52a00083     	mov	w3, #0x40000            // =262144
+      58: 52800002     	mov	w2, #0x0                // =0
+      5c: 72a02001     	movk	w1, #0x100, lsl #16
+      60: 94000000     	bl	0x60 <DVFS_PRE_config+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      64: 90000016     	adrp	x22, 0x0 <DVFS_PRE_config>
+		0000000000000064:  R_AARCH64_ADR_PREL_PG_HI21	DUTShufConfigGlobal
+      68: b94002a0     	ldr	w0, [x21]
+		0000000000000068:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+      6c: 52811381     	mov	w1, #0x89c              // =2204
+      70: 12bffe03     	mov	w3, #0xfffff            // =1048575
+      74: 72a02001     	movk	w1, #0x100, lsl #16
+      78: 121d7800     	and	w0, w0, #0xfffffffb
+      7c: 12bffee2     	mov	w2, #0x8ffff            // =589823
+      80: 7100081f     	cmp	w0, #0x2
+      84: 12bfffc0     	mov	w0, #0x1ffff            // =131071
+      88: 1a800042     	csel	w2, w2, w0, eq
+      8c: aa1303e0     	mov	x0, x19
+      90: 910002d6     	add	x22, x22, #0x0
+		0000000000000090:  R_AARCH64_ADD_ABS_LO12_NC	DUTShufConfigGlobal
+      94: 91000294     	add	x20, x20, #0x0
+		0000000000000094:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+      98: 94000000     	bl	0x98 <DVFS_PRE_config+0x98>
+		0000000000000098:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      9c: 5280d081     	mov	w1, #0x684              // =1668
+      a0: 52a00023     	mov	w3, #0x10000            // =65536
+      a4: aa1303e0     	mov	x0, x19
+      a8: 2a0303e2     	mov	w2, w3
+      ac: 72a02001     	movk	w1, #0x100, lsl #16
+      b0: 94000000     	bl	0xb0 <DVFS_PRE_config+0xb0>
+		00000000000000b0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      b4: 5280d201     	mov	w1, #0x690              // =1680
+      b8: 52a10003     	mov	w3, #0x8000000          // =134217728
+      bc: aa1303e0     	mov	x0, x19
+      c0: 2a0303e2     	mov	w2, w3
+      c4: 72a02001     	movk	w1, #0x100, lsl #16
+      c8: 94000000     	bl	0xc8 <DVFS_PRE_config+0xc8>
+		00000000000000c8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      cc: aa1303e0     	mov	x0, x19
+      d0: 52a00283     	mov	w3, #0x140000           // =1310720
+      d4: 52a00202     	mov	w2, #0x100000           // =1048576
+      d8: 52804101     	mov	w1, #0x208              // =520
+      dc: 94000000     	bl	0xdc <DVFS_PRE_config+0xdc>
+		00000000000000dc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      e0: b94002a3     	ldr	w3, [x21]
+		00000000000000e0:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+      e4: 52804004     	mov	w4, #0x200              // =512
+      e8: 39404ec2     	ldrb	w2, [x22, #0x13]
+      ec: 121d7863     	and	w3, w3, #0xfffffffb
+      f0: 7100087f     	cmp	w3, #0x2
+      f4: 1a9f07e0     	cset	w0, ne
+      f8: 7100005f     	cmp	w2, #0x0
+      fc: 52ae0002     	mov	w2, #0x70000000         // =1879048192
+     100: 53196001     	lsl	w1, w0, #7
+     104: 2a001425     	orr	w5, w1, w0, lsl #5
+     108: 52806001     	mov	w1, #0x300              // =768
+     10c: 1a840021     	csel	w1, w1, w4, eq
+     110: 52808004     	mov	w4, #0x400              // =1024
+     114: 2a003021     	orr	w1, w1, w0, lsl #12
+     118: 1a9f0084     	csel	w4, w4, wzr, eq
+     11c: 7100087f     	cmp	w3, #0x2
+     120: 2a050021     	orr	w1, w1, w5
+     124: 1a8203e2     	csel	w2, wzr, w2, eq
+     128: 2a006880     	orr	w0, w4, w0, lsl #26
+     12c: 2a010000     	orr	w0, w0, w1
+     130: 321c0042     	orr	w2, w2, #0x10
+     134: 529ffe03     	mov	w3, #0xfff0             // =65520
+     138: 5280d301     	mov	w1, #0x698              // =1688
+     13c: 2a020002     	orr	w2, w0, w2
+     140: 72bff863     	movk	w3, #0xffc3, lsl #16
+     144: aa1303e0     	mov	x0, x19
+     148: 72a02001     	movk	w1, #0x100, lsl #16
+     14c: 94000000     	bl	0x14c <DVFS_PRE_config+0x14c>
+		000000000000014c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     150: 528000e3     	mov	w3, #0x7                // =7
+     154: 5280d401     	mov	w1, #0x6a0              // =1696
+     158: aa1303e0     	mov	x0, x19
+     15c: 72a001e3     	movk	w3, #0xf, lsl #16
+     160: 528000e2     	mov	w2, #0x7                // =7
+     164: 72a02001     	movk	w1, #0x100, lsl #16
+     168: 94000000     	bl	0x168 <DVFS_PRE_config+0x168>
+		0000000000000168:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     16c: 52801fe3     	mov	w3, #0xff               // =255
+     170: 528001e2     	mov	w2, #0xf                // =15
+     174: aa1303e0     	mov	x0, x19
+     178: 72a007e3     	movk	w3, #0x3f, lsl #16
+     17c: 72a00022     	movk	w2, #0x1, lsl #16
+     180: 52804201     	mov	w1, #0x210              // =528
+     184: 94000000     	bl	0x184 <DVFS_PRE_config+0x184>
+		0000000000000184:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     188: 3942c680     	ldrb	w0, [x20, #0xb1]
+     18c: 5283cea3     	mov	w3, #0x1e75             // =7797
+     190: 39404ec2     	ldrb	w2, [x22, #0x13]
+     194: 5280d281     	mov	w1, #0x694              // =1684
+     198: 72a1e003     	movk	w3, #0xf00, lsl #16
+     19c: 72a02001     	movk	w1, #0x100, lsl #16
+     1a0: 12000042     	and	w2, w2, #0x1
+     1a4: 531e0000     	ubfiz	w0, w0, #2, #1
+     1a8: 2a020000     	orr	w0, w0, w2
+     1ac: 5280ce02     	mov	w2, #0x670              // =1648
+     1b0: 72a04002     	movk	w2, #0x200, lsl #16
+     1b4: 2a020002     	orr	w2, w0, w2
+     1b8: aa1303e0     	mov	x0, x19
+     1bc: 94000000     	bl	0x1bc <DVFS_PRE_config+0x1bc>
+		00000000000001bc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1c0: 5281a1a3     	mov	w3, #0xd0d              // =3341
+     1c4: 52812122     	mov	w2, #0x909              // =2313
+     1c8: 5280fb01     	mov	w1, #0x7d8              // =2008
+     1cc: aa1303e0     	mov	x0, x19
+     1d0: 72a1a1a3     	movk	w3, #0xd0d, lsl #16
+     1d4: 72a0a122     	movk	w2, #0x509, lsl #16
+     1d8: 72a02001     	movk	w1, #0x100, lsl #16
+     1dc: 94000000     	bl	0x1dc <DVFS_PRE_config+0x1dc>
+		00000000000001dc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1e0: 5280d201     	mov	w1, #0x690              // =1680
+     1e4: aa1303e0     	mov	x0, x19
+     1e8: 5281ffe3     	mov	w3, #0xfff              // =4095
+     1ec: 52806662     	mov	w2, #0x333              // =819
+     1f0: 72a02001     	movk	w1, #0x100, lsl #16
+     1f4: 94000000     	bl	0x1f4 <DVFS_PRE_config+0x1f4>
+		00000000000001f4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1f8: 90000000     	adrp	x0, 0x0 <DVFS_PRE_config>
+		00000000000001f8:  R_AARCH64_ADR_PREL_PG_HI21	DV_p+0x8
+     1fc: f9400000     	ldr	x0, [x0]
+		00000000000001fc:  R_AARCH64_LDST64_ABS_LO12_NC	DV_p+0x8
+     200: 39400400     	ldrb	w0, [x0, #0x1]
+     204: 350002c0     	cbnz	w0, 0x25c <DVFS_PRE_config+0x25c>
+     208: 94000000     	bl	0x208 <DVFS_PRE_config+0x208>
+		0000000000000208:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     20c: aa1303e0     	mov	x0, x19
+     210: 52800021     	mov	w1, #0x1                // =1
+     214: 94000000     	bl	0x214 <DVFS_PRE_config+0x214>
+		0000000000000214:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     218: 5280d281     	mov	w1, #0x694              // =1684
+     21c: aa1303e0     	mov	x0, x19
+     220: 52820003     	mov	w3, #0x1000             // =4096
+     224: 52800002     	mov	w2, #0x0                // =0
+     228: 72a02001     	movk	w1, #0x100, lsl #16
+     22c: 94000000     	bl	0x22c <DVFS_PRE_config+0x22c>
+		000000000000022c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     230: 5280fb01     	mov	w1, #0x7d8              // =2008
+     234: aa1303e0     	mov	x0, x19
+     238: 52a18003     	mov	w3, #0xc000000          // =201326592
+     23c: 52a10002     	mov	w2, #0x8000000          // =134217728
+     240: 72a02001     	movk	w1, #0x100, lsl #16
+     244: 94000000     	bl	0x244 <DVFS_PRE_config+0x244>
+		0000000000000244:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     248: 52800001     	mov	w1, #0x0                // =0
+     24c: aa1303e0     	mov	x0, x19
+     250: 94000000     	bl	0x250 <DVFS_PRE_config+0x250>
+		0000000000000250:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     254: 52800020     	mov	w0, #0x1                // =1
+     258: 94000000     	bl	0x258 <DVFS_PRE_config+0x258>
+		0000000000000258:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     25c: 52800000     	mov	w0, #0x0                // =0
+     260: 94000000     	bl	0x260 <DVFS_PRE_config+0x260>
+		0000000000000260:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     264: aa1303e0     	mov	x0, x19
+     268: 52800021     	mov	w1, #0x1                // =1
+     26c: 94000000     	bl	0x26c <DVFS_PRE_config+0x26c>
+		000000000000026c:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     270: 3942c680     	ldrb	w0, [x20, #0xb1]
+     274: 5280d281     	mov	w1, #0x694              // =1684
+     278: 52a40003     	mov	w3, #0x20000000         // =536870912
+     27c: 72a02001     	movk	w1, #0x100, lsl #16
+     280: 7100001f     	cmp	w0, #0x0
+     284: aa1303e0     	mov	x0, x19
+     288: 1a9f17e2     	cset	w2, eq
+     28c: 53030842     	lsl	w2, w2, #29
+     290: 94000000     	bl	0x290 <DVFS_PRE_config+0x290>
+		0000000000000290:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     294: 52800001     	mov	w1, #0x0                // =0
+     298: aa1303e0     	mov	x0, x19
+     29c: 94000000     	bl	0x29c <DVFS_PRE_config+0x29c>
+		000000000000029c:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     2a0: 52800020     	mov	w0, #0x1                // =1
+     2a4: 94000000     	bl	0x2a4 <DVFS_PRE_config+0x2a4>
+		00000000000002a4:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     2a8: 52800000     	mov	w0, #0x0                // =0
+     2ac: 94000000     	bl	0x2ac <DVFS_PRE_config+0x2ac>
+		00000000000002ac:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     2b0: aa1303e0     	mov	x0, x19
+     2b4: 52800021     	mov	w1, #0x1                // =1
+     2b8: 94000000     	bl	0x2b8 <DVFS_PRE_config+0x2b8>
+		00000000000002b8:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     2bc: 5280d201     	mov	w1, #0x690              // =1680
+     2c0: aa1303e0     	mov	x0, x19
+     2c4: 528001e3     	mov	w3, #0xf                // =15
+     2c8: 528000c2     	mov	w2, #0x6                // =6
+     2cc: 72a02001     	movk	w1, #0x100, lsl #16
+     2d0: 94000000     	bl	0x2d0 <DVFS_PRE_config+0x2d0>
+		00000000000002d0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2d4: b94002a0     	ldr	w0, [x21]
+		00000000000002d4:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+     2d8: 52b20002     	mov	w2, #-0x70000000        // =-1879048192
+     2dc: 5280d301     	mov	w1, #0x698              // =1688
+     2e0: 52be0003     	mov	w3, #-0x10000000        // =-268435456
+     2e4: 121d7800     	and	w0, w0, #0xfffffffb
+     2e8: 72a02001     	movk	w1, #0x100, lsl #16
+     2ec: 7100081f     	cmp	w0, #0x2
+     2f0: aa1303e0     	mov	x0, x19
+     2f4: 1a9f1042     	csel	w2, w2, wzr, ne
+     2f8: 94000000     	bl	0x2f8 <DVFS_PRE_config+0x2f8>
+		00000000000002f8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2fc: 52800001     	mov	w1, #0x0                // =0
+     300: aa1303e0     	mov	x0, x19
+     304: 94000000     	bl	0x304 <DVFS_PRE_config+0x304>
+		0000000000000304:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+     308: 52800020     	mov	w0, #0x1                // =1
+     30c: 94000000     	bl	0x30c <DVFS_PRE_config+0x30c>
+		000000000000030c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+     310: 5280d181     	mov	w1, #0x68c              // =1676
+     314: 52800043     	mov	w3, #0x2                // =2
+     318: aa1303e0     	mov	x0, x19
+     31c: 2a0303e2     	mov	w2, w3
+     320: 72a02001     	movk	w1, #0x100, lsl #16
+     324: 94000000     	bl	0x324 <DVFS_PRE_config+0x324>
+		0000000000000324:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     328: 5280d181     	mov	w1, #0x68c              // =1676
+     32c: aa1303e0     	mov	x0, x19
+     330: 52800083     	mov	w3, #0x4                // =4
+     334: 52800002     	mov	w2, #0x0                // =0
+     338: 72a02001     	movk	w1, #0x100, lsl #16
+     33c: 94000000     	bl	0x33c <DVFS_PRE_config+0x33c>
+		000000000000033c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     340: b94002a0     	ldr	w0, [x21]
+		0000000000000340:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+     344: 5280d181     	mov	w1, #0x68c              // =1676
+     348: 52bfe003     	mov	w3, #-0x1000000         // =-16777216
+     34c: 52b00002     	mov	w2, #-0x80000000        // =-2147483648
+     350: 121d7800     	and	w0, w0, #0xfffffffb
+     354: 72a02001     	movk	w1, #0x100, lsl #16
+     358: 7100081f     	cmp	w0, #0x2
+     35c: 52b40000     	mov	w0, #-0x60000000        // =-1610612736
+     360: 1a800042     	csel	w2, w2, w0, eq
+     364: aa1303e0     	mov	x0, x19
+     368: 94000000     	bl	0x368 <DVFS_PRE_config+0x368>
+		0000000000000368:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     36c: 39405a80     	ldrb	w0, [x20, #0x16]
+     370: 7100041f     	cmp	w0, #0x1
+     374: 540001a1     	b.ne	0x3a8 <DVFS_PRE_config+0x3a8>
+     378: 5280d181     	mov	w1, #0x68c              // =1676
+     37c: 52800103     	mov	w3, #0x8                // =8
+     380: aa1303e0     	mov	x0, x19
+     384: 2a0303e2     	mov	w2, w3
+     388: 72a02001     	movk	w1, #0x100, lsl #16
+     38c: 94000000     	bl	0x38c <DVFS_PRE_config+0x38c>
+		000000000000038c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     390: 5280d181     	mov	w1, #0x68c              // =1676
+     394: aa1303e0     	mov	x0, x19
+     398: 52a01e03     	mov	w3, #0xf00000           // =15728640
+     39c: 52800002     	mov	w2, #0x0                // =0
+     3a0: 72a02001     	movk	w1, #0x100, lsl #16
+     3a4: 94000000     	bl	0x3a4 <DVFS_PRE_config+0x3a4>
+		00000000000003a4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3a8: 39405680     	ldrb	w0, [x20, #0x15]
+     3ac: 340001c0     	cbz	w0, 0x3e4 <DVFS_PRE_config+0x3e4>
+     3b0: 39426280     	ldrb	w0, [x20, #0x98]
+     3b4: 35000180     	cbnz	w0, 0x3e4 <DVFS_PRE_config+0x3e4>
+     3b8: 39403e80     	ldrb	w0, [x20, #0xf]
+     3bc: 7100041f     	cmp	w0, #0x1
+     3c0: 1a9f17e2     	cset	w2, eq
+     3c4: aa1303e0     	mov	x0, x19
+     3c8: 53103c42     	lsl	w2, w2, #16
+     3cc: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     3d0: 52a00023     	mov	w3, #0x10000            // =65536
+     3d4: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     3d8: 52804101     	mov	w1, #0x208              // =520
+     3dc: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     3e0: 14000000     	b	0x3e0 <DVFS_PRE_config+0x3e0>
+		00000000000003e0:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk
+     3e4: 52800002     	mov	w2, #0x0                // =0
+     3e8: 17fffff7     	b	0x3c4 <DVFS_PRE_config+0x3c4>
+
+Disassembly of section .text.MP_SETTING_NONSHUF:
+
+0000000000000000 <MP_SETTING_NONSHUF>:
+       0: 90000001     	adrp	x1, 0x0 <MP_SETTING_NONSHUF>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+       4: b9400021     	ldr	w1, [x1]
+		0000000000000004:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+       8: 121d7821     	and	w1, w1, #0xfffffffb
+       c: 7100083f     	cmp	w1, #0x2
+      10: 54000281     	b.ne	0x60 <MP_SETTING_NONSHUF+0x60>
+      14: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+      18: 52860003     	mov	w3, #0x3000             // =12288
+      1c: 52840002     	mov	w2, #0x2000             // =8192
+      20: 910003fd     	mov	x29, sp
+      24: 5280f981     	mov	w1, #0x7cc              // =1996
+      28: 72a0ac03     	movk	w3, #0x560, lsl #16
+      2c: 72a02802     	movk	w2, #0x140, lsl #16
+      30: 72a02001     	movk	w1, #0x100, lsl #16
+      34: f9000bf3     	str	x19, [sp, #0x10]
+      38: aa0003f3     	mov	x19, x0
+      3c: 94000000     	bl	0x3c <MP_SETTING_NONSHUF+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      40: aa1303e0     	mov	x0, x19
+      44: 5280fa01     	mov	w1, #0x7d0              // =2000
+      48: f9400bf3     	ldr	x19, [sp, #0x10]
+      4c: 32184fe3     	mov	w3, #0xfffff00          // =268435200
+      50: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      54: 52804002     	mov	w2, #0x200              // =512
+      58: 72a02001     	movk	w1, #0x100, lsl #16
+      5c: 14000000     	b	0x5c <MP_SETTING_NONSHUF+0x5c>
+		000000000000005c:  R_AARCH64_JUMP26	vPhyByteIO32WriteMsk
+      60: d65f03c0     	ret
+
+Disassembly of section .text.DIG_STATIC_SETTING:
+
+0000000000000000 <DIG_STATIC_SETTING>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 52800001     	mov	w1, #0x0                // =0
+       8: 910003fd     	mov	x29, sp
+       c: f9000bf3     	str	x19, [sp, #0x10]
+      10: aa0003f3     	mov	x19, x0
+      14: 94000000     	bl	0x14 <DIG_STATIC_SETTING+0x14>
+		0000000000000014:  R_AARCH64_CALL26	DIG_CONFIG_NONSHUF_DCM
+      18: aa1303e0     	mov	x0, x19
+      1c: 94000000     	bl	0x1c <DIG_STATIC_SETTING+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	DIG_PHY_config
+      20: 90000000     	adrp	x0, 0x0 <DIG_STATIC_SETTING>
+		0000000000000020:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Gat_p
+      24: 91000000     	add	x0, x0, #0x0
+		0000000000000024:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Gat_p
+      28: 94000000     	bl	0x28 <DIG_STATIC_SETTING+0x28>
+		0000000000000028:  R_AARCH64_CALL26	GATING_MODE_CFG
+      2c: aa0003e1     	mov	x1, x0
+      30: aa1303e0     	mov	x0, x19
+      34: 94000000     	bl	0x34 <DIG_STATIC_SETTING+0x34>
+		0000000000000034:  R_AARCH64_CALL26	DPHY_GAT_TRACK_Config
+      38: aa1303e0     	mov	x0, x19
+      3c: 94000000     	bl	0x3c <DIG_STATIC_SETTING+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	DRAMC_COMMON_Config
+      40: 52800001     	mov	w1, #0x0                // =0
+      44: aa1303e0     	mov	x0, x19
+      48: 94000000     	bl	0x48 <DIG_STATIC_SETTING+0x48>
+		0000000000000048:  R_AARCH64_CALL26	DIG_HW_NONSHUF_CFG
+      4c: aa1303e0     	mov	x0, x19
+      50: 94000000     	bl	0x50 <DIG_STATIC_SETTING+0x50>
+		0000000000000050:  R_AARCH64_CALL26	DVFS_PRE_config
+      54: 52800001     	mov	w1, #0x0                // =0
+      58: aa1303e0     	mov	x0, x19
+      5c: 94000000     	bl	0x5c <DIG_STATIC_SETTING+0x5c>
+		000000000000005c:  R_AARCH64_CALL26	DDRPHY_PICG_Config
+      60: aa1303e0     	mov	x0, x19
+      64: 94000000     	bl	0x64 <DIG_STATIC_SETTING+0x64>
+		0000000000000064:  R_AARCH64_CALL26	IO_Release
+      68: aa1303e0     	mov	x0, x19
+      6c: f9400bf3     	ldr	x19, [sp, #0x10]
+      70: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      74: 14000000     	b	0x74 <DIG_STATIC_SETTING+0x74>
+		0000000000000074:  R_AARCH64_JUMP26	MP_SETTING_NONSHUF

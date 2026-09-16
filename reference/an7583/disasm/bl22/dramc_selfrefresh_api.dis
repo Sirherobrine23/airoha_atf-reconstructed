@@ -1,0 +1,1590 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl22/dramc_selfrefresh_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.READ_RG_FLD:
+
+00000000 <READ_RG_FLD>:
+       0: f1c1 0120    	rsb.w	r1, r1, #0x20
+       4: f04f 33ff    	mov.w	r3, #0xffffffff
+       8: 6800         	ldr	r0, [r0]
+       a: 40cb         	lsrs	r3, r1
+       c: 4093         	lsls	r3, r2
+       e: 4018         	ands	r0, r3
+      10: 40d0         	lsrs	r0, r2
+      12: 4770         	bx	lr
+
+Disassembly of section .text.WRITE_RG_FLD:
+
+00000000 <WRITE_RG_FLD>:
+       0: b510         	push	{r4, lr}
+       2: f1c1 0420    	rsb.w	r4, r1, #0x20
+       6: f04f 31ff    	mov.w	r1, #0xffffffff
+       a: 40e1         	lsrs	r1, r4
+       c: 6803         	ldr	r3, [r0]
+       e: 4091         	lsls	r1, r2
+      10: ea23 0101    	bic.w	r1, r3, r1
+      14: 9b02         	ldr	r3, [sp, #0x8]
+      16: 4093         	lsls	r3, r2
+      18: 430b         	orrs	r3, r1
+      1a: 6003         	str	r3, [r0]
+      1c: bd10         	pop	{r4, pc}
+
+Disassembly of section .text.MPLLRGByFreq:
+
+00000000 <MPLLRGByFreq>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: f1c2 04c8    	rsb.w	r4, r2, #0xc8
+       6: 25c8         	movs	r5, #0xc8
+       8: 2800         	cmp	r0, #0x0
+       a: f04f 50c8    	mov.w	r0, #0x19000000
+       e: fb04 f101    	mul	r1, r4, r1
+      12: f04f 0404    	mov.w	r4, #0x4
+      16: bf18         	it	ne
+      18: 2406         	movne	r4, #0x6
+      1a: 4344         	muls	r4, r0, r4
+      1c: fb91 f1f5    	sdiv	r1, r1, r5
+      20: b289         	uxth	r1, r1
+      22: fbb4 f0f1    	udiv	r0, r4, r1
+      26: fb00 1601    	mla	r6, r0, r1, r1
+      2a: fb01 4110    	mls	r1, r1, r0, r4
+      2e: 1b36         	subs	r6, r6, r4
+      30: 428e         	cmp	r6, r1
+      32: f44f 717a    	mov.w	r1, #0x3e8
+      36: bf98         	it	ls
+      38: 3001         	addls	r0, #0x1
+      3a: 6018         	str	r0, [r3]
+      3c: 231e         	movs	r3, #0x1e
+      3e: 4343         	muls	r3, r0, r3
+      40: 4342         	muls	r2, r0, r2
+      42: fbb3 f3f1    	udiv	r3, r3, r1
+      46: f04f 7158    	mov.w	r1, #0x3600000
+      4a: fbb2 f2f5    	udiv	r2, r2, r5
+      4e: fbb1 f1f3    	udiv	r1, r1, r3
+      52: fb01 3403    	mla	r4, r1, r3, r3
+      56: 434b         	muls	r3, r1, r3
+      58: f1a4 7458    	sub.w	r4, r4, #0x3600000
+      5c: f1c3 7358    	rsb.w	r3, r3, #0x3600000
+      60: 429c         	cmp	r4, r3
+      62: 9b04         	ldr	r3, [sp, #0x10]
+      64: bf98         	it	ls
+      66: 3101         	addls	r1, #0x1
+      68: 6019         	str	r1, [r3]
+      6a: fbb2 f3f1    	udiv	r3, r2, r1
+      6e: fb03 1001    	mla	r0, r3, r1, r1
+      72: 1a80         	subs	r0, r0, r2
+      74: fb01 2213    	mls	r2, r1, r3, r2
+      78: 4290         	cmp	r0, r2
+      7a: 9a05         	ldr	r2, [sp, #0x14]
+      7c: bf98         	it	ls
+      7e: 3301         	addls	r3, #0x1
+      80: 6013         	str	r3, [r2]
+      82: bd70         	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.SwitchSynthPLLSSC:
+
+00000000 <SwitchSynthPLLSSC>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4606         	mov	r6, r0
+       4: 460c         	mov	r4, r1
+       6: b086         	sub	sp, #0x18
+       8: 4615         	mov	r5, r2
+       a: 2b00         	cmp	r3, #0x0
+       c: d13d         	bne	0x8a <SwitchSynthPLLSSC+0x8a> @ imm = #0x7a
+       e: 4849         	ldr	r0, [pc, #0x124]        @ 0x134 <SwitchSynthPLLSSC+0x134>
+      10: f7ff fffe    	bl	0x10 <SwitchSynthPLLSSC+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	printf
+      14: 4b48         	ldr	r3, [pc, #0x120]        @ 0x138 <SwitchSynthPLLSSC+0x138>
+      16: 2e01         	cmp	r6, #0x1
+      18: 6859         	ldr	r1, [r3, #0x4]
+      1a: f001 417f    	and	r1, r1, #0xff000000
+      1e: d12a         	bne	0x76 <SwitchSynthPLLSSC+0x76> @ imm = #0x54
+      20: 2d01         	cmp	r5, #0x1
+      22: d122         	bne	0x6a <SwitchSynthPLLSSC+0x6a> @ imm = #0x44
+      24: 4a45         	ldr	r2, [pc, #0x114]        @ 0x13c <SwitchSynthPLLSSC+0x13c>
+      26: 430a         	orrs	r2, r1
+      28: 605a         	str	r2, [r3, #0x4]
+      2a: 4b43         	ldr	r3, [pc, #0x10c]        @ 0x138 <SwitchSynthPLLSSC+0x138>
+      2c: f44f 707a    	mov.w	r0, #0x3e8
+      30: 689a         	ldr	r2, [r3, #0x8]
+      32: f422 527f    	bic	r2, r2, #0x3fc0
+      36: f022 023f    	bic	r2, r2, #0x3f
+      3a: 609a         	str	r2, [r3, #0x8]
+      3c: 68da         	ldr	r2, [r3, #0xc]
+      3e: f422 727f    	bic	r2, r2, #0x3fc
+      42: f022 0203    	bic	r2, r2, #0x3
+      46: 60da         	str	r2, [r3, #0xc]
+      48: 695a         	ldr	r2, [r3, #0x14]
+      4a: f022 0201    	bic	r2, r2, #0x1
+      4e: 615a         	str	r2, [r3, #0x14]
+      50: 69da         	ldr	r2, [r3, #0x1c]
+      52: f022 0201    	bic	r2, r2, #0x1
+      56: 61da         	str	r2, [r3, #0x1c]
+      58: 681a         	ldr	r2, [r3]
+      5a: f042 0201    	orr	r2, r2, #0x1
+      5e: 601a         	str	r2, [r3]
+      60: b006         	add	sp, #0x18
+      62: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      66: f7ff bffe    	b.w	0x66 <SwitchSynthPLLSSC+0x66> @ imm = #-0x4
+			00000066:  R_ARM_THM_JUMP24	udelay
+      6a: 2c01         	cmp	r4, #0x1
+      6c: d101         	bne	0x72 <SwitchSynthPLLSSC+0x72> @ imm = #0x2
+      6e: 4a34         	ldr	r2, [pc, #0xd0]         @ 0x140 <SwitchSynthPLLSSC+0x140>
+      70: e7d9         	b	0x26 <SwitchSynthPLLSSC+0x26> @ imm = #-0x4e
+      72: 4a34         	ldr	r2, [pc, #0xd0]         @ 0x144 <SwitchSynthPLLSSC+0x144>
+      74: e7d7         	b	0x26 <SwitchSynthPLLSSC+0x26> @ imm = #-0x52
+      76: 2d01         	cmp	r5, #0x1
+      78: d101         	bne	0x7e <SwitchSynthPLLSSC+0x7e> @ imm = #0x2
+      7a: 4a33         	ldr	r2, [pc, #0xcc]         @ 0x148 <SwitchSynthPLLSSC+0x148>
+      7c: e7d3         	b	0x26 <SwitchSynthPLLSSC+0x26> @ imm = #-0x5a
+      7e: 2c01         	cmp	r4, #0x1
+      80: d101         	bne	0x86 <SwitchSynthPLLSSC+0x86> @ imm = #0x2
+      82: 4a32         	ldr	r2, [pc, #0xc8]         @ 0x14c <SwitchSynthPLLSSC+0x14c>
+      84: e7cf         	b	0x26 <SwitchSynthPLLSSC+0x26> @ imm = #-0x62
+      86: 4a32         	ldr	r2, [pc, #0xc8]         @ 0x150 <SwitchSynthPLLSSC+0x150>
+      88: e7cd         	b	0x26 <SwitchSynthPLLSSC+0x26> @ imm = #-0x66
+      8a: 4832         	ldr	r0, [pc, #0xc8]         @ 0x154 <SwitchSynthPLLSSC+0x154>
+      8c: f7ff fffe    	bl	0x8c <SwitchSynthPLLSSC+0x8c> @ imm = #-0x4
+			0000008c:  R_ARM_THM_CALL	printf
+      90: 2e01         	cmp	r6, #0x1
+      92: d13e         	bne	0x112 <SwitchSynthPLLSSC+0x112> @ imm = #0x7c
+      94: 2d01         	cmp	r5, #0x1
+      96: d046         	beq	0x126 <SwitchSynthPLLSSC+0x126> @ imm = #0x8c
+      98: 2c01         	cmp	r4, #0x1
+      9a: f240 5135    	movw	r1, #0x535
+      9e: f44f 63c8    	mov.w	r3, #0x640
+      a2: bf08         	it	eq
+      a4: 4619         	moveq	r1, r3
+      a6: 4b2c         	ldr	r3, [pc, #0xb0]         @ 0x158 <SwitchSynthPLLSSC+0x158>
+      a8: 4630         	mov	r0, r6
+      aa: f8d3 2410    	ldr.w	r2, [r3, #0x410]
+      ae: ab05         	add	r3, sp, #0x14
+      b0: 9301         	str	r3, [sp, #0x4]
+      b2: ab04         	add	r3, sp, #0x10
+      b4: 9300         	str	r3, [sp]
+      b6: ab03         	add	r3, sp, #0xc
+      b8: f3c2 4203    	ubfx	r2, r2, #0x10, #0x4
+      bc: f7ff fffe    	bl	0xbc <SwitchSynthPLLSSC+0xbc> @ imm = #-0x4
+			000000bc:  R_ARM_THM_CALL	MPLLRGByFreq
+      c0: 4b1d         	ldr	r3, [pc, #0x74]         @ 0x138 <SwitchSynthPLLSSC+0x138>
+      c2: 9a03         	ldr	r2, [sp, #0xc]
+      c4: f44f 707a    	mov.w	r0, #0x3e8
+      c8: 6859         	ldr	r1, [r3, #0x4]
+      ca: f001 417f    	and	r1, r1, #0xff000000
+      ce: 430a         	orrs	r2, r1
+      d0: 605a         	str	r2, [r3, #0x4]
+      d2: 9904         	ldr	r1, [sp, #0x10]
+      d4: 689a         	ldr	r2, [r3, #0x8]
+      d6: f422 527f    	bic	r2, r2, #0x3fc0
+      da: f022 023f    	bic	r2, r2, #0x3f
+      de: 430a         	orrs	r2, r1
+      e0: 609a         	str	r2, [r3, #0x8]
+      e2: 9905         	ldr	r1, [sp, #0x14]
+      e4: 68da         	ldr	r2, [r3, #0xc]
+      e6: f422 727f    	bic	r2, r2, #0x3fc
+      ea: f022 0203    	bic	r2, r2, #0x3
+      ee: 430a         	orrs	r2, r1
+      f0: 60da         	str	r2, [r3, #0xc]
+      f2: 695a         	ldr	r2, [r3, #0x14]
+      f4: f042 0201    	orr	r2, r2, #0x1
+      f8: 615a         	str	r2, [r3, #0x14]
+      fa: 69da         	ldr	r2, [r3, #0x1c]
+      fc: f042 0201    	orr	r2, r2, #0x1
+     100: 61da         	str	r2, [r3, #0x1c]
+     102: 681a         	ldr	r2, [r3]
+     104: f042 0201    	orr	r2, r2, #0x1
+     108: 601a         	str	r2, [r3]
+     10a: f7ff fffe    	bl	0x10a <SwitchSynthPLLSSC+0x10a> @ imm = #-0x4
+			0000010a:  R_ARM_THM_CALL	udelay
+     10e: b006         	add	sp, #0x18
+     110: bd70         	pop	{r4, r5, r6, pc}
+     112: 2d01         	cmp	r5, #0x1
+     114: d00a         	beq	0x12c <SwitchSynthPLLSSC+0x12c> @ imm = #0x14
+     116: f240 432a    	movw	r3, #0x42a
+     11a: f240 31a5    	movw	r1, #0x3a5
+     11e: 2c01         	cmp	r4, #0x1
+     120: bf08         	it	eq
+     122: 4619         	moveq	r1, r3
+     124: e7bf         	b	0xa6 <SwitchSynthPLLSSC+0xa6> @ imm = #-0x82
+     126: f240 412a    	movw	r1, #0x42a
+     12a: e7bc         	b	0xa6 <SwitchSynthPLLSSC+0xa6> @ imm = #-0x88
+     12c: f44f 7148    	mov.w	r1, #0x320
+     130: e7b9         	b	0xa6 <SwitchSynthPLLSSC+0xa6> @ imm = #-0x8e
+     132: bf00         	nop
+     134: 00 00 00 00  	.word	0x00000000
+			00000134:  R_ARM_ABS32	.rodata.SwitchSynthPLLSSC.str1.1
+     138: 00 c0 ca 1f  	.word	0x1fcac000
+     13c: 6c 0e 24 00  	.word	0x00240e6c
+     140: b1 07 18 00  	.word	0x001807b1
+     144: 2e d4 1c 00  	.word	0x001cd42e
+     148: 41 0a 20 00  	.word	0x00200a41
+     14c: 9d 09 18 00  	.word	0x0018099d
+     150: c2 77 1b 00  	.word	0x001b77c2
+     154: 25 00 00 00  	.word	0x00000025
+			00000154:  R_ARM_ABS32	.rodata.SwitchSynthPLLSSC.str1.1
+     158: 00 10 c8 1f  	.word	0x1fc81000
+
+Disassembly of section .text.StepSynthPLL:
+
+00000000 <StepSynthPLL>:
+       0: e92d 43f0    	push.w	{r4, r5, r6, r7, r8, r9, lr}
+       4: 4606         	mov	r6, r0
+       6: 4d79         	ldr	r5, [pc, #0x1e4]        @ 0x1ec <StepSynthPLL+0x1ec>
+       8: b0a7         	sub	sp, #0x9c
+       a: 4689         	mov	r9, r1
+       c: af0d         	add	r7, sp, #0x34
+       e: 4978         	ldr	r1, [pc, #0x1e0]        @ 0x1f0 <StepSynthPLL+0x1f0>
+      10: 4690         	mov	r8, r2
+      12: 4638         	mov	r0, r7
+      14: 2264         	movs	r2, #0x64
+      16: 466c         	mov	r4, sp
+      18: f7ff fffe    	bl	0x18 <StepSynthPLL+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	memcpy
+      1c: cd0f         	ldm	r5!, {r0, r1, r2, r3}
+      1e: c40f         	stm	r4!, {r0, r1, r2, r3}
+      20: cd0f         	ldm	r5!, {r0, r1, r2, r3}
+      22: c40f         	stm	r4!, {r0, r1, r2, r3}
+      24: cd0f         	ldm	r5!, {r0, r1, r2, r3}
+      26: c40f         	stm	r4!, {r0, r1, r2, r3}
+      28: 682b         	ldr	r3, [r5]
+      2a: 6023         	str	r3, [r4]
+      2c: 4b71         	ldr	r3, [pc, #0x1c4]        @ 0x1f4 <StepSynthPLL+0x1f4>
+      2e: 6f5b         	ldr	r3, [r3, #0x74]
+      30: 065b         	lsls	r3, r3, #0x19
+      32: f140 80d9    	bpl.w	0x1e8 <StepSynthPLL+0x1e8> @ imm = #0x1b2
+      36: 4c70         	ldr	r4, [pc, #0x1c0]        @ 0x1f8 <StepSynthPLL+0x1f8>
+      38: 2e01         	cmp	r6, #0x1
+      3a: 69a3         	ldr	r3, [r4, #0x18]
+      3c: f043 0301    	orr	r3, r3, #0x1
+      40: 61a3         	str	r3, [r4, #0x18]
+      42: 69a3         	ldr	r3, [r4, #0x18]
+      44: f023 0301    	bic	r3, r3, #0x1
+      48: 61a3         	str	r3, [r4, #0x18]
+      4a: d168         	bne	0x11e <StepSynthPLL+0x11e> @ imm = #0xd0
+      4c: f1b9 0f01    	cmp.w	r9, #0x1
+      50: d135         	bne	0xbe <StepSynthPLL+0xbe> @ imm = #0x6a
+      52: f1b8 0f01    	cmp.w	r8, #0x1
+      56: d11b         	bne	0x90 <StepSynthPLL+0x90> @ imm = #0x36
+      58: 2518         	movs	r5, #0x18
+      5a: 4868         	ldr	r0, [pc, #0x1a0]        @ 0x1fc <StepSynthPLL+0x1fc>
+      5c: f7ff fffe    	bl	0x5c <StepSynthPLL+0x5c> @ imm = #-0x4
+			0000005c:  R_ARM_THM_CALL	printf
+      60: 6862         	ldr	r2, [r4, #0x4]
+      62: f44f 707a    	mov.w	r0, #0x3e8
+      66: f857 3025    	ldr.w	r3, [r7, r5, lsl #2]
+      6a: f002 427f    	and	r2, r2, #0xff000000
+      6e: 4313         	orrs	r3, r2
+      70: 6063         	str	r3, [r4, #0x4]
+      72: 6823         	ldr	r3, [r4]
+      74: f043 0301    	orr	r3, r3, #0x1
+      78: 6023         	str	r3, [r4]
+      7a: f7ff fffe    	bl	0x7a <StepSynthPLL+0x7a> @ imm = #-0x4
+			0000007a:  R_ARM_THM_CALL	udelay
+      7e: 3d01         	subs	r5, #0x1
+      80: d2ee         	bhs	0x60 <StepSynthPLL+0x60> @ imm = #-0x24
+      82: 485f         	ldr	r0, [pc, #0x17c]        @ 0x200 <StepSynthPLL+0x200>
+      84: f7ff fffe    	bl	0x84 <StepSynthPLL+0x84> @ imm = #-0x4
+			00000084:  R_ARM_THM_CALL	printf
+      88: 2004         	movs	r0, #0x4
+      8a: b027         	add	sp, #0x9c
+      8c: e8bd 83f0    	pop.w	{r4, r5, r6, r7, r8, r9, pc}
+      90: 2500         	movs	r5, #0x0
+      92: 485c         	ldr	r0, [pc, #0x170]        @ 0x204 <StepSynthPLL+0x204>
+      94: f7ff fffe    	bl	0x94 <StepSynthPLL+0x94> @ imm = #-0x4
+			00000094:  R_ARM_THM_CALL	printf
+      98: 6862         	ldr	r2, [r4, #0x4]
+      9a: 3501         	adds	r5, #0x1
+      9c: f857 3b04    	ldr	r3, [r7], #4
+      a0: f44f 707a    	mov.w	r0, #0x3e8
+      a4: f002 427f    	and	r2, r2, #0xff000000
+      a8: 4313         	orrs	r3, r2
+      aa: 6063         	str	r3, [r4, #0x4]
+      ac: 6823         	ldr	r3, [r4]
+      ae: f043 0301    	orr	r3, r3, #0x1
+      b2: 6023         	str	r3, [r4]
+      b4: f7ff fffe    	bl	0xb4 <StepSynthPLL+0xb4> @ imm = #-0x4
+			000000b4:  R_ARM_THM_CALL	udelay
+      b8: 2d19         	cmp	r5, #0x19
+      ba: d1ed         	bne	0x98 <StepSynthPLL+0x98> @ imm = #-0x26
+      bc: e7e1         	b	0x82 <StepSynthPLL+0x82> @ imm = #-0x3e
+      be: f1b8 0f01    	cmp.w	r8, #0x1
+      c2: d115         	bne	0xf0 <StepSynthPLL+0xf0> @ imm = #0x2a
+      c4: 250c         	movs	r5, #0xc
+      c6: 4850         	ldr	r0, [pc, #0x140]        @ 0x208 <StepSynthPLL+0x208>
+      c8: f7ff fffe    	bl	0xc8 <StepSynthPLL+0xc8> @ imm = #-0x4
+			000000c8:  R_ARM_THM_CALL	printf
+      cc: 6862         	ldr	r2, [r4, #0x4]
+      ce: f44f 707a    	mov.w	r0, #0x3e8
+      d2: f857 3025    	ldr.w	r3, [r7, r5, lsl #2]
+      d6: f002 427f    	and	r2, r2, #0xff000000
+      da: 4313         	orrs	r3, r2
+      dc: 6063         	str	r3, [r4, #0x4]
+      de: 6823         	ldr	r3, [r4]
+      e0: f043 0301    	orr	r3, r3, #0x1
+      e4: 6023         	str	r3, [r4]
+      e6: f7ff fffe    	bl	0xe6 <StepSynthPLL+0xe6> @ imm = #-0x4
+			000000e6:  R_ARM_THM_CALL	udelay
+      ea: 3d01         	subs	r5, #0x1
+      ec: d2ee         	bhs	0xcc <StepSynthPLL+0xcc> @ imm = #-0x24
+      ee: e7c8         	b	0x82 <StepSynthPLL+0x82> @ imm = #-0x70
+      f0: 2500         	movs	r5, #0x0
+      f2: 4846         	ldr	r0, [pc, #0x118]        @ 0x20c <StepSynthPLL+0x20c>
+      f4: f7ff fffe    	bl	0xf4 <StepSynthPLL+0xf4> @ imm = #-0x4
+			000000f4:  R_ARM_THM_CALL	printf
+      f8: 6862         	ldr	r2, [r4, #0x4]
+      fa: 3501         	adds	r5, #0x1
+      fc: f857 3b04    	ldr	r3, [r7], #4
+     100: f44f 707a    	mov.w	r0, #0x3e8
+     104: f002 427f    	and	r2, r2, #0xff000000
+     108: 4313         	orrs	r3, r2
+     10a: 6063         	str	r3, [r4, #0x4]
+     10c: 6823         	ldr	r3, [r4]
+     10e: f043 0301    	orr	r3, r3, #0x1
+     112: 6023         	str	r3, [r4]
+     114: f7ff fffe    	bl	0x114 <StepSynthPLL+0x114> @ imm = #-0x4
+			00000114:  R_ARM_THM_CALL	udelay
+     118: 2d0d         	cmp	r5, #0xd
+     11a: d1ed         	bne	0xf8 <StepSynthPLL+0xf8> @ imm = #-0x26
+     11c: e7b1         	b	0x82 <StepSynthPLL+0x82> @ imm = #-0x9e
+     11e: 2e00         	cmp	r6, #0x0
+     120: d1af         	bne	0x82 <StepSynthPLL+0x82> @ imm = #-0xa2
+     122: f1b9 0f01    	cmp.w	r9, #0x1
+     126: d12f         	bne	0x188 <StepSynthPLL+0x188> @ imm = #0x5e
+     128: f1b8 0f01    	cmp.w	r8, #0x1
+     12c: d115         	bne	0x15a <StepSynthPLL+0x15a> @ imm = #0x2a
+     12e: 250c         	movs	r5, #0xc
+     130: 4837         	ldr	r0, [pc, #0xdc]         @ 0x210 <StepSynthPLL+0x210>
+     132: f7ff fffe    	bl	0x132 <StepSynthPLL+0x132> @ imm = #-0x4
+			00000132:  R_ARM_THM_CALL	printf
+     136: 6862         	ldr	r2, [r4, #0x4]
+     138: f44f 707a    	mov.w	r0, #0x3e8
+     13c: f85d 3025    	ldr.w	r3, [sp, r5, lsl #2]
+     140: f002 427f    	and	r2, r2, #0xff000000
+     144: 4313         	orrs	r3, r2
+     146: 6063         	str	r3, [r4, #0x4]
+     148: 6823         	ldr	r3, [r4]
+     14a: f043 0301    	orr	r3, r3, #0x1
+     14e: 6023         	str	r3, [r4]
+     150: f7ff fffe    	bl	0x150 <StepSynthPLL+0x150> @ imm = #-0x4
+			00000150:  R_ARM_THM_CALL	udelay
+     154: 3d01         	subs	r5, #0x1
+     156: d2ee         	bhs	0x136 <StepSynthPLL+0x136> @ imm = #-0x24
+     158: e793         	b	0x82 <StepSynthPLL+0x82> @ imm = #-0xda
+     15a: 466d         	mov	r5, sp
+     15c: 482d         	ldr	r0, [pc, #0xb4]         @ 0x214 <StepSynthPLL+0x214>
+     15e: f7ff fffe    	bl	0x15e <StepSynthPLL+0x15e> @ imm = #-0x4
+			0000015e:  R_ARM_THM_CALL	printf
+     162: 6862         	ldr	r2, [r4, #0x4]
+     164: 3601         	adds	r6, #0x1
+     166: f855 3b04    	ldr	r3, [r5], #4
+     16a: f44f 707a    	mov.w	r0, #0x3e8
+     16e: f002 427f    	and	r2, r2, #0xff000000
+     172: 4313         	orrs	r3, r2
+     174: 6063         	str	r3, [r4, #0x4]
+     176: 6823         	ldr	r3, [r4]
+     178: f043 0301    	orr	r3, r3, #0x1
+     17c: 6023         	str	r3, [r4]
+     17e: f7ff fffe    	bl	0x17e <StepSynthPLL+0x17e> @ imm = #-0x4
+			0000017e:  R_ARM_THM_CALL	udelay
+     182: 2e0d         	cmp	r6, #0xd
+     184: d1ed         	bne	0x162 <StepSynthPLL+0x162> @ imm = #-0x26
+     186: e77c         	b	0x82 <StepSynthPLL+0x82> @ imm = #-0x108
+     188: f1b8 0f01    	cmp.w	r8, #0x1
+     18c: d115         	bne	0x1ba <StepSynthPLL+0x1ba> @ imm = #0x2a
+     18e: 2506         	movs	r5, #0x6
+     190: 4821         	ldr	r0, [pc, #0x84]         @ 0x218 <StepSynthPLL+0x218>
+     192: f7ff fffe    	bl	0x192 <StepSynthPLL+0x192> @ imm = #-0x4
+			00000192:  R_ARM_THM_CALL	printf
+     196: 6862         	ldr	r2, [r4, #0x4]
+     198: f44f 707a    	mov.w	r0, #0x3e8
+     19c: f85d 3025    	ldr.w	r3, [sp, r5, lsl #2]
+     1a0: f002 427f    	and	r2, r2, #0xff000000
+     1a4: 4313         	orrs	r3, r2
+     1a6: 6063         	str	r3, [r4, #0x4]
+     1a8: 6823         	ldr	r3, [r4]
+     1aa: f043 0301    	orr	r3, r3, #0x1
+     1ae: 6023         	str	r3, [r4]
+     1b0: f7ff fffe    	bl	0x1b0 <StepSynthPLL+0x1b0> @ imm = #-0x4
+			000001b0:  R_ARM_THM_CALL	udelay
+     1b4: 3d01         	subs	r5, #0x1
+     1b6: d2ee         	bhs	0x196 <StepSynthPLL+0x196> @ imm = #-0x24
+     1b8: e763         	b	0x82 <StepSynthPLL+0x82> @ imm = #-0x13a
+     1ba: 466d         	mov	r5, sp
+     1bc: 4817         	ldr	r0, [pc, #0x5c]         @ 0x21c <StepSynthPLL+0x21c>
+     1be: f7ff fffe    	bl	0x1be <StepSynthPLL+0x1be> @ imm = #-0x4
+			000001be:  R_ARM_THM_CALL	printf
+     1c2: 6862         	ldr	r2, [r4, #0x4]
+     1c4: 3601         	adds	r6, #0x1
+     1c6: f855 3b04    	ldr	r3, [r5], #4
+     1ca: f44f 707a    	mov.w	r0, #0x3e8
+     1ce: f002 427f    	and	r2, r2, #0xff000000
+     1d2: 4313         	orrs	r3, r2
+     1d4: 6063         	str	r3, [r4, #0x4]
+     1d6: 6823         	ldr	r3, [r4]
+     1d8: f043 0301    	orr	r3, r3, #0x1
+     1dc: 6023         	str	r3, [r4]
+     1de: f7ff fffe    	bl	0x1de <StepSynthPLL+0x1de> @ imm = #-0x4
+			000001de:  R_ARM_THM_CALL	udelay
+     1e2: 2e07         	cmp	r6, #0x7
+     1e4: d1ed         	bne	0x1c2 <StepSynthPLL+0x1c2> @ imm = #-0x26
+     1e6: e74c         	b	0x82 <StepSynthPLL+0x82> @ imm = #-0x168
+     1e8: 2003         	movs	r0, #0x3
+     1ea: e74e         	b	0x8a <StepSynthPLL+0x8a> @ imm = #-0x164
+     1ec: 64 00 00 00  	.word	0x00000064
+			000001ec:  R_ARM_ABS32	.rodata
+     1f0: 00 00 00 00  	.word	0x00000000
+			000001f0:  R_ARM_ABS32	.rodata
+     1f4: 00 00 b0 1f  	.word	0x1fb00000
+     1f8: 00 c0 ca 1f  	.word	0x1fcac000
+     1fc: 00 00 00 00  	.word	0x00000000
+			000001fc:  R_ARM_ABS32	.rodata.StepSynthPLL.str1.1
+     200: 98 00 00 00  	.word	0x00000098
+			00000200:  R_ARM_ABS32	.rodata.StepSynthPLL.str1.1
+     204: 15 00 00 00  	.word	0x00000015
+			00000204:  R_ARM_ABS32	.rodata.StepSynthPLL.str1.1
+     208: 26 00 00 00  	.word	0x00000026
+			00000208:  R_ARM_ABS32	.rodata.StepSynthPLL.str1.1
+     20c: 3b 00 00 00  	.word	0x0000003b
+			0000020c:  R_ARM_ABS32	.rodata.StepSynthPLL.str1.1
+     210: 4c 00 00 00  	.word	0x0000004c
+			00000210:  R_ARM_ABS32	.rodata.StepSynthPLL.str1.1
+     214: 61 00 00 00  	.word	0x00000061
+			00000214:  R_ARM_ABS32	.rodata.StepSynthPLL.str1.1
+     218: 72 00 00 00  	.word	0x00000072
+			00000218:  R_ARM_ABS32	.rodata.StepSynthPLL.str1.1
+     21c: 87 00 00 00  	.word	0x00000087
+			0000021c:  R_ARM_ABS32	.rodata.StepSynthPLL.str1.1
+
+Disassembly of section .text.DramPhyResetSelfRefresh:
+
+00000000 <DramPhyResetSelfRefresh>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 2001         	movs	r0, #0x1
+       4: 4d26         	ldr	r5, [pc, #0x98]         @ 0xa0 <DramPhyResetSelfRefresh+0xa0>
+       6: 4c27         	ldr	r4, [pc, #0x9c]         @ 0xa4 <DramPhyResetSelfRefresh+0xa4>
+       8: f8d5 3240    	ldr.w	r3, [r5, #0x240]
+       c: f043 0301    	orr	r3, r3, #0x1
+      10: f8c5 3240    	str.w	r3, [r5, #0x240]
+      14: f8d4 37bc    	ldr.w	r3, [r4, #0x7bc]
+      18: f043 0302    	orr	r3, r3, #0x2
+      1c: f8c4 37bc    	str.w	r3, [r4, #0x7bc]
+      20: f8d4 3518    	ldr.w	r3, [r4, #0x518]
+      24: f023 0310    	bic	r3, r3, #0x10
+      28: f8c4 3518    	str.w	r3, [r4, #0x518]
+      2c: f8d4 3518    	ldr.w	r3, [r4, #0x518]
+      30: f023 0301    	bic	r3, r3, #0x1
+      34: f8c4 3518    	str.w	r3, [r4, #0x518]
+      38: f8d4 3598    	ldr.w	r3, [r4, #0x598]
+      3c: f023 0310    	bic	r3, r3, #0x10
+      40: f8c4 3598    	str.w	r3, [r4, #0x598]
+      44: f8d4 3598    	ldr.w	r3, [r4, #0x598]
+      48: f023 0301    	bic	r3, r3, #0x1
+      4c: f8c4 3598    	str.w	r3, [r4, #0x598]
+      50: f7ff fffe    	bl	0x50 <DramPhyResetSelfRefresh+0x50> @ imm = #-0x4
+			00000050:  R_ARM_THM_CALL	udelay
+      54: f8d4 3598    	ldr.w	r3, [r4, #0x598]
+      58: f043 0310    	orr	r3, r3, #0x10
+      5c: f8c4 3598    	str.w	r3, [r4, #0x598]
+      60: f8d4 3598    	ldr.w	r3, [r4, #0x598]
+      64: f043 0301    	orr	r3, r3, #0x1
+      68: f8c4 3598    	str.w	r3, [r4, #0x598]
+      6c: f8d4 3518    	ldr.w	r3, [r4, #0x518]
+      70: f043 0310    	orr	r3, r3, #0x10
+      74: f8c4 3518    	str.w	r3, [r4, #0x518]
+      78: f8d4 3518    	ldr.w	r3, [r4, #0x518]
+      7c: f043 0301    	orr	r3, r3, #0x1
+      80: f8c4 3518    	str.w	r3, [r4, #0x518]
+      84: f8d4 37bc    	ldr.w	r3, [r4, #0x7bc]
+      88: f023 0302    	bic	r3, r3, #0x2
+      8c: f8c4 37bc    	str.w	r3, [r4, #0x7bc]
+      90: f8d5 3240    	ldr.w	r3, [r5, #0x240]
+      94: f023 0301    	bic	r3, r3, #0x1
+      98: f8c5 3240    	str.w	r3, [r5, #0x240]
+      9c: bd38         	pop	{r3, r4, r5, pc}
+      9e: bf00         	nop
+      a0: 00 00 c8 1f  	.word	0x1fc80000
+      a4: 00 a0 c8 1f  	.word	0x1fc8a000
+
+Disassembly of section .text.SetMR6_SREF:
+
+00000000 <SetMR6_SREF>:
+       0: 4b32         	ldr	r3, [pc, #0xc8]         @ 0xcc <SetMR6_SREF+0xcc>
+       2: b2c1         	uxtb	r1, r0
+       4: b570         	push	{r4, r5, r6, lr}
+       6: f3c0 2005    	ubfx	r0, r0, #0x8, #0x6
+       a: 4e31         	ldr	r6, [pc, #0xc4]         @ 0xd0 <SetMR6_SREF+0xd0>
+       c: 2464         	movs	r4, #0x64
+       e: f8d3 2130    	ldr.w	r2, [r3, #0x130]
+      12: f422 727f    	bic	r2, r2, #0x3fc
+      16: f022 0203    	bic	r2, r2, #0x3
+      1a: f8c3 2130    	str.w	r2, [r3, #0x130]
+      1e: f8d3 2130    	ldr.w	r2, [r3, #0x130]
+      22: f422 6240    	bic	r2, r2, #0xc00
+      26: f8c3 2130    	str.w	r2, [r3, #0x130]
+      2a: f8d3 2460    	ldr.w	r2, [r3, #0x460]
+      2e: f422 02e0    	bic	r2, r2, #0x700000
+      32: f8c3 2460    	str.w	r2, [r3, #0x460]
+      36: f8d3 2130    	ldr.w	r2, [r3, #0x130]
+      3a: f022 627f    	bic	r2, r2, #0xff00000
+      3e: ea42 5201    	orr.w	r2, r2, r1, lsl #20
+      42: f8c3 2130    	str.w	r2, [r3, #0x130]
+      46: f8d3 24ec    	ldr.w	r2, [r3, #0x4ec]
+      4a: f022 527c    	bic	r2, r2, #0x3f000000
+      4e: ea42 6000    	orr.w	r0, r2, r0, lsl #24
+      52: f8c3 04ec    	str.w	r0, [r3, #0x4ec]
+      56: f8d3 24ec    	ldr.w	r2, [r3, #0x4ec]
+      5a: f022 020f    	bic	r2, r2, #0xf
+      5e: f042 0206    	orr	r2, r2, #0x6
+      62: f8c3 24ec    	str.w	r2, [r3, #0x4ec]
+      66: f8d3 2174    	ldr.w	r2, [r3, #0x174]
+      6a: f042 0280    	orr	r2, r2, #0x80
+      6e: f8c3 2174    	str.w	r2, [r3, #0x174]
+      72: f8d3 22d4    	ldr.w	r2, [r3, #0x2d4]
+      76: 2230         	movs	r2, #0x30
+      78: f8c3 22d4    	str.w	r2, [r3, #0x2d4]
+      7c: f8d3 2124    	ldr.w	r2, [r3, #0x124]
+      80: f022 427c    	bic	r2, r2, #0xfc000000
+      84: f042 5280    	orr	r2, r2, #0x10000000
+      88: f8c3 2124    	str.w	r2, [r3, #0x124]
+      8c: f8d3 2124    	ldr.w	r2, [r3, #0x124]
+      90: f042 7200    	orr	r2, r2, #0x2000000
+      94: f8c3 2124    	str.w	r2, [r3, #0x124]
+      98: 6d35         	ldr	r5, [r6, #0x50]
+      9a: 2001         	movs	r0, #0x1
+      9c: 3c01         	subs	r4, #0x1
+      9e: f005 0501    	and	r5, r5, #0x1
+      a2: f7ff fffe    	bl	0xa2 <SetMR6_SREF+0xa2> @ imm = #-0x4
+			000000a2:  R_ARM_THM_CALL	udelay
+      a6: b96d         	cbnz	r5, 0xc4 <SetMR6_SREF+0xc4> @ imm = #0x1a
+      a8: 2c00         	cmp	r4, #0x0
+      aa: d1f5         	bne	0x98 <SetMR6_SREF+0x98> @ imm = #-0x16
+      ac: 4809         	ldr	r0, [pc, #0x24]         @ 0xd4 <SetMR6_SREF+0xd4>
+      ae: 4621         	mov	r1, r4
+      b0: f7ff fffe    	bl	0xb0 <SetMR6_SREF+0xb0> @ imm = #-0x4
+			000000b0:  R_ARM_THM_CALL	printf
+      b4: 4a05         	ldr	r2, [pc, #0x14]         @ 0xcc <SetMR6_SREF+0xcc>
+      b6: f8d2 3124    	ldr.w	r3, [r2, #0x124]
+      ba: f023 7300    	bic	r3, r3, #0x2000000
+      be: f8c2 3124    	str.w	r3, [r2, #0x124]
+      c2: bd70         	pop	{r4, r5, r6, pc}
+      c4: 2c00         	cmp	r4, #0x0
+      c6: d1f5         	bne	0xb4 <SetMR6_SREF+0xb4> @ imm = #-0x16
+      c8: 462c         	mov	r4, r5
+      ca: e7ef         	b	0xac <SetMR6_SREF+0xac> @ imm = #-0x22
+      cc: 00 00 c8 1f  	.word	0x1fc80000
+      d0: 00 40 c8 1f  	.word	0x1fc84000
+      d4: 00 00 00 00  	.word	0x00000000
+			000000d4:  R_ARM_ABS32	.rodata.SetMR6_SREF.str1.1
+
+Disassembly of section .text.SetTXVref_SREF.part.0:
+
+00000000 <SetTXVref_SREF.part.0>:
+       0: 2800         	cmp	r0, #0x0
+       2: b538         	push	{r3, r4, r5, lr}
+       4: f44f 6340    	mov.w	r3, #0xc00
+       8: 4615         	mov	r5, r2
+       a: bf08         	it	eq
+       c: 4618         	moveq	r0, r3
+       e: f44f 5280    	mov.w	r2, #0x1000
+      12: bf18         	it	ne
+      14: 4610         	movne	r0, r2
+      16: ea40 1481    	orr.w	r4, r0, r1, lsl #6
+      1a: f044 0480    	orr	r4, r4, #0x80
+      1e: 4620         	mov	r0, r4
+      20: 432c         	orrs	r4, r5
+      22: f7ff fffe    	bl	0x22 <SetTXVref_SREF.part.0+0x22> @ imm = #-0x4
+			00000022:  R_ARM_THM_CALL	SetMR6_SREF
+      26: 4620         	mov	r0, r4
+      28: f7ff fffe    	bl	0x28 <SetTXVref_SREF.part.0+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_CALL	SetMR6_SREF
+      2c: f024 0080    	bic	r0, r4, #0x80
+      30: e8bd 4038    	pop.w	{r3, r4, r5, lr}
+      34: f7ff bffe    	b.w	0x34 <SetTXVref_SREF.part.0+0x34> @ imm = #-0x4
+			00000034:  R_ARM_THM_JUMP24	SetMR6_SREF
+
+Disassembly of section .text.SetTXVref_SREF:
+
+00000000 <SetTXVref_SREF>:
+       0: b410         	push	{r4}
+       2: 4604         	mov	r4, r0
+       4: 2c01         	cmp	r4, #0x1
+       6: 4608         	mov	r0, r1
+       8: 4611         	mov	r1, r2
+       a: 461a         	mov	r2, r3
+       c: d102         	bne	0x14 <SetTXVref_SREF+0x14> @ imm = #0x4
+       e: bc10         	pop	{r4}
+      10: f7ff bffe    	b.w	0x10 <SetTXVref_SREF+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_JUMP24	SetTXVref_SREF.part.0
+      14: bc10         	pop	{r4}
+      16: 4770         	bx	lr
+
+Disassembly of section .text.HW_AUTO_SREF_IDLE_TIME:
+
+00000000 <HW_AUTO_SREF_IDLE_TIME>:
+       0: 4a04         	ldr	r2, [pc, #0x10]         @ 0x14 <HW_AUTO_SREF_IDLE_TIME+0x14>
+       2: 4601         	mov	r1, r0
+       4: 6c53         	ldr	r3, [r2, #0x44]
+       6: f003 437f    	and	r3, r3, #0xff000000
+       a: 4303         	orrs	r3, r0
+       c: 4802         	ldr	r0, [pc, #0x8]          @ 0x18 <HW_AUTO_SREF_IDLE_TIME+0x18>
+       e: 6453         	str	r3, [r2, #0x44]
+      10: f7ff bffe    	b.w	0x10 <HW_AUTO_SREF_IDLE_TIME+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_JUMP24	printf
+      14: 00 00 b0 1f  	.word	0x1fb00000
+      18: 00 00 00 00  	.word	0x00000000
+			00000018:  R_ARM_ABS32	.rodata.HW_AUTO_SREF_IDLE_TIME.str1.1
+
+Disassembly of section .text.HW_AUTO_SREF_SETTING:
+
+00000000 <HW_AUTO_SREF_SETTING>:
+       0: 4b0f         	ldr	r3, [pc, #0x3c]         @ 0x40 <HW_AUTO_SREF_SETTING+0x40>
+       2: f8d3 26bc    	ldr.w	r2, [r3, #0x6bc]
+       6: f022 7200    	bic	r2, r2, #0x2000000
+       a: f8c3 26bc    	str.w	r2, [r3, #0x6bc]
+       e: f8d3 2460    	ldr.w	r2, [r3, #0x460]
+      12: f042 0201    	orr	r2, r2, #0x1
+      16: f8c3 2460    	str.w	r2, [r3, #0x460]
+      1a: f8d3 2460    	ldr.w	r2, [r3, #0x460]
+      1e: f042 0210    	orr	r2, r2, #0x10
+      22: f8c3 2460    	str.w	r2, [r3, #0x460]
+      26: f8d3 24b4    	ldr.w	r2, [r3, #0x4b4]
+      2a: f442 2280    	orr	r2, r2, #0x40000
+      2e: f8c3 24b4    	str.w	r2, [r3, #0x4b4]
+      32: f8d3 24b4    	ldr.w	r2, [r3, #0x4b4]
+      36: f442 2200    	orr	r2, r2, #0x80000
+      3a: f8c3 24b4    	str.w	r2, [r3, #0x4b4]
+      3e: 4770         	bx	lr
+      40: 00 a0 c8 1f  	.word	0x1fc8a000
+
+Disassembly of section .text.HW_AUTO_SREF_TIMES:
+
+00000000 <HW_AUTO_SREF_TIMES>:
+       0: 4b01         	ldr	r3, [pc, #0x4]          @ 0x8 <HW_AUTO_SREF_TIMES+0x8>
+       2: 6c58         	ldr	r0, [r3, #0x44]
+       4: 0e00         	lsrs	r0, r0, #0x18
+       6: 4770         	bx	lr
+       8: 00 00 b0 1f  	.word	0x1fb00000
+
+Disassembly of section .text.HW_AUTO_SREF_ONOFF:
+
+00000000 <HW_AUTO_SREF_ONOFF>:
+       0: 4a03         	ldr	r2, [pc, #0xc]          @ 0x10 <HW_AUTO_SREF_ONOFF+0x10>
+       2: 6f53         	ldr	r3, [r2, #0x74]
+       4: f023 0310    	bic	r3, r3, #0x10
+       8: ea43 1300    	orr.w	r3, r3, r0, lsl #4
+       c: 6753         	str	r3, [r2, #0x74]
+       e: 4770         	bx	lr
+      10: 00 00 b0 1f  	.word	0x1fb00000
+
+Disassembly of section .text.DVFS_MEM_CK_MUX:
+
+00000000 <DVFS_MEM_CK_MUX>:
+       0: b510         	push	{r4, lr}
+       2: 4604         	mov	r4, r0
+       4: 480d         	ldr	r0, [pc, #0x34]         @ 0x3c <DVFS_MEM_CK_MUX+0x3c>
+       6: f7ff fffe    	bl	0x6 <DVFS_MEM_CK_MUX+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	printf
+       a: 4b0d         	ldr	r3, [pc, #0x34]         @ 0x40 <DVFS_MEM_CK_MUX+0x40>
+       c: f8d3 26a0    	ldr.w	r2, [r3, #0x6a0]
+      10: f022 0201    	bic	r2, r2, #0x1
+      14: 4322         	orrs	r2, r4
+      16: f8c3 26a0    	str.w	r2, [r3, #0x6a0]
+      1a: 1922         	adds	r2, r4, r4
+      1c: f8d3 16a0    	ldr.w	r1, [r3, #0x6a0]
+      20: f021 0102    	bic	r1, r1, #0x2
+      24: 430a         	orrs	r2, r1
+      26: f8c3 26a0    	str.w	r2, [r3, #0x6a0]
+      2a: f8d3 06a0    	ldr.w	r0, [r3, #0x6a0]
+      2e: f020 0004    	bic	r0, r0, #0x4
+      32: ea40 0484    	orr.w	r4, r0, r4, lsl #2
+      36: f8c3 46a0    	str.w	r4, [r3, #0x6a0]
+      3a: bd10         	pop	{r4, pc}
+      3c: 00 00 00 00  	.word	0x00000000
+			0000003c:  R_ARM_ABS32	.rodata.DVFS_MEM_CK_MUX.str1.1
+      40: 00 a0 c8 1f  	.word	0x1fc8a000
+
+Disassembly of section .text.BACKUP_DRAM_K_RESULT_RK0:
+
+00000000 <BACKUP_DRAM_K_RESULT_RK0>:
+       0: 4b39         	ldr	r3, [pc, #0xe4]         @ 0xe8 <BACKUP_DRAM_K_RESULT_RK0+0xe8>
+       2: 493a         	ldr	r1, [pc, #0xe8]         @ 0xec <BACKUP_DRAM_K_RESULT_RK0+0xec>
+       4: b510         	push	{r4, lr}
+       6: 68d8         	ldr	r0, [r3, #0xc]
+       8: f503 4320    	add.w	r3, r3, #0xa000
+       c: f8d3 2f0c    	ldr.w	r2, [r3, #0xf0c]
+      10: f3c2 1242    	ubfx	r2, r2, #0x5, #0x3
+      14: 700a         	strb	r2, [r1]
+      16: f8d3 2ef4    	ldr.w	r2, [r3, #0xef4]
+      1a: f3c2 2205    	ubfx	r2, r2, #0x8, #0x6
+      1e: 704a         	strb	r2, [r1, #0x1]
+      20: 4a33         	ldr	r2, [pc, #0xcc]         @ 0xf0 <BACKUP_DRAM_K_RESULT_RK0+0xf0>
+      22: f8d3 1970    	ldr.w	r1, [r3, #0x970]
+      26: 6011         	str	r1, [r2]
+      28: f8d3 19e8    	ldr.w	r1, [r3, #0x9e8]
+      2c: 6051         	str	r1, [r2, #0x4]
+      2e: f8d3 1a68    	ldr.w	r1, [r3, #0xa68]
+      32: 6091         	str	r1, [r2, #0x8]
+      34: 4a2f         	ldr	r2, [pc, #0xbc]         @ 0xf4 <BACKUP_DRAM_K_RESULT_RK0+0xf4>
+      36: f8d3 1a2c    	ldr.w	r1, [r3, #0xa2c]
+      3a: 6011         	str	r1, [r2]
+      3c: f8d3 1aac    	ldr.w	r1, [r3, #0xaac]
+      40: 6051         	str	r1, [r2, #0x4]
+      42: 492d         	ldr	r1, [pc, #0xb4]         @ 0xf8 <BACKUP_DRAM_K_RESULT_RK0+0xf8>
+      44: 4a2d         	ldr	r2, [pc, #0xb4]         @ 0xfc <BACKUP_DRAM_K_RESULT_RK0+0xfc>
+      46: f8d1 4200    	ldr.w	r4, [r1, #0x200]
+      4a: 6014         	str	r4, [r2]
+      4c: f8d1 4204    	ldr.w	r4, [r1, #0x204]
+      50: 6054         	str	r4, [r2, #0x4]
+      52: f8d1 4208    	ldr.w	r4, [r1, #0x208]
+      56: 6094         	str	r4, [r2, #0x8]
+      58: f8d1 420c    	ldr.w	r4, [r1, #0x20c]
+      5c: 60d4         	str	r4, [r2, #0xc]
+      5e: f8d3 4a20    	ldr.w	r4, [r3, #0xa20]
+      62: 6114         	str	r4, [r2, #0x10]
+      64: f8d3 4aa0    	ldr.w	r4, [r3, #0xaa0]
+      68: 6154         	str	r4, [r2, #0x14]
+      6a: f8d3 49e0    	ldr.w	r4, [r3, #0x9e0]
+      6e: 6194         	str	r4, [r2, #0x18]
+      70: f8d3 49e4    	ldr.w	r4, [r3, #0x9e4]
+      74: 61d4         	str	r4, [r2, #0x1c]
+      76: f8d3 4a60    	ldr.w	r4, [r3, #0xa60]
+      7a: 6214         	str	r4, [r2, #0x20]
+      7c: f8d3 4a64    	ldr.w	r4, [r3, #0xa64]
+      80: 6254         	str	r4, [r2, #0x24]
+      82: f8d3 49ec    	ldr.w	r4, [r3, #0x9ec]
+      86: 6294         	str	r4, [r2, #0x28]
+      88: f8d3 4a6c    	ldr.w	r4, [r3, #0xa6c]
+      8c: 62d4         	str	r4, [r2, #0x2c]
+      8e: f3c0 4205    	ubfx	r2, r0, #0x10, #0x6
+      92: 481b         	ldr	r0, [pc, #0x6c]         @ 0x100 <BACKUP_DRAM_K_RESULT_RK0+0x100>
+      94: 7002         	strb	r2, [r0]
+      96: 4a1b         	ldr	r2, [pc, #0x6c]         @ 0x104 <BACKUP_DRAM_K_RESULT_RK0+0x104>
+      98: f8d2 00b8    	ldr.w	r0, [r2, #0xb8]
+      9c: 4a1a         	ldr	r2, [pc, #0x68]         @ 0x108 <BACKUP_DRAM_K_RESULT_RK0+0x108>
+      9e: 6010         	str	r0, [r2]
+      a0: f8d1 168c    	ldr.w	r1, [r1, #0x68c]
+      a4: 6051         	str	r1, [r2, #0x4]
+      a6: 4a19         	ldr	r2, [pc, #0x64]         @ 0x10c <BACKUP_DRAM_K_RESULT_RK0+0x10c>
+      a8: f8d3 19f8    	ldr.w	r1, [r3, #0x9f8]
+      ac: 6011         	str	r1, [r2]
+      ae: f8d3 19fc    	ldr.w	r1, [r3, #0x9fc]
+      b2: 6051         	str	r1, [r2, #0x4]
+      b4: f8d3 1a00    	ldr.w	r1, [r3, #0xa00]
+      b8: 6091         	str	r1, [r2, #0x8]
+      ba: f8d3 1a04    	ldr.w	r1, [r3, #0xa04]
+      be: 60d1         	str	r1, [r2, #0xc]
+      c0: f8d3 1a78    	ldr.w	r1, [r3, #0xa78]
+      c4: 6111         	str	r1, [r2, #0x10]
+      c6: f8d3 1a7c    	ldr.w	r1, [r3, #0xa7c]
+      ca: 6151         	str	r1, [r2, #0x14]
+      cc: f8d3 1a80    	ldr.w	r1, [r3, #0xa80]
+      d0: 6191         	str	r1, [r2, #0x18]
+      d2: f8d3 1a84    	ldr.w	r1, [r3, #0xa84]
+      d6: 61d1         	str	r1, [r2, #0x1c]
+      d8: f8d3 1eec    	ldr.w	r1, [r3, #0xeec]
+      dc: 6211         	str	r1, [r2, #0x20]
+      de: f8d3 3f6c    	ldr.w	r3, [r3, #0xf6c]
+      e2: 6253         	str	r3, [r2, #0x24]
+      e4: bd10         	pop	{r4, pc}
+      e6: bf00         	nop
+      e8: 00 00 c8 1f  	.word	0x1fc80000
+      ec: 00 00 00 00  	.word	0x00000000
+			000000ec:  R_ARM_ABS32	.bss.phase8_result_rg_rk0
+      f0: 00 00 00 00  	.word	0x00000000
+			000000f0:  R_ARM_ABS32	.bss.DCC_K_result_rg_rk0
+      f4: 00 00 00 00  	.word	0x00000000
+			000000f4:  R_ARM_ABS32	.bss.dqs_gating_K_result_rg_rk0
+      f8: 00 10 c8 1f  	.word	0x1fc81000
+      fc: 00 00 00 00  	.word	0x00000000
+			000000fc:  R_ARM_ABS32	.bss.Tx_win_K_result_rg_rk0
+     100: 00 00 00 00  	.word	0x00000000
+			00000100:  R_ARM_ABS32	.bss.Tx_vref_K_result_rg_rk0
+     104: 00 b0 c8 1f  	.word	0x1fc8b000
+     108: 00 00 00 00  	.word	0x00000000
+			00000108:  R_ARM_ABS32	.bss.Rx_datlat_K_result_rg_rk0
+     10c: 00 00 00 00  	.word	0x00000000
+			0000010c:  R_ARM_ABS32	.bss.Rx_win_K_result_rg_rk0
+
+Disassembly of section .text.BACKUP_DRAM_K_RESULT_RK1:
+
+00000000 <BACKUP_DRAM_K_RESULT_RK1>:
+       0: 4b36         	ldr	r3, [pc, #0xd8]         @ 0xdc <BACKUP_DRAM_K_RESULT_RK1+0xdc>
+       2: b510         	push	{r4, lr}
+       4: 68d9         	ldr	r1, [r3, #0xc]
+       6: 4b36         	ldr	r3, [pc, #0xd8]         @ 0xe0 <BACKUP_DRAM_K_RESULT_RK1+0xe0>
+       8: f3c1 02c2    	ubfx	r2, r1, #0x3, #0x3
+       c: 701a         	strb	r2, [r3]
+       e: f001 0207    	and	r2, r1, #0x7
+      12: 705a         	strb	r2, [r3, #0x1]
+      14: 4b33         	ldr	r3, [pc, #0xcc]         @ 0xe4 <BACKUP_DRAM_K_RESULT_RK1+0xe4>
+      16: 4a34         	ldr	r2, [pc, #0xd0]         @ 0xe8 <BACKUP_DRAM_K_RESULT_RK1+0xe8>
+      18: f8d3 0bf0    	ldr.w	r0, [r3, #0xbf0]
+      1c: 6010         	str	r0, [r2]
+      1e: f8d3 0c68    	ldr.w	r0, [r3, #0xc68]
+      22: 6050         	str	r0, [r2, #0x4]
+      24: f8d3 0ce8    	ldr.w	r0, [r3, #0xce8]
+      28: 6090         	str	r0, [r2, #0x8]
+      2a: 4a30         	ldr	r2, [pc, #0xc0]         @ 0xec <BACKUP_DRAM_K_RESULT_RK1+0xec>
+      2c: f8d3 0cac    	ldr.w	r0, [r3, #0xcac]
+      30: 6010         	str	r0, [r2]
+      32: f8d3 0d2c    	ldr.w	r0, [r3, #0xd2c]
+      36: 6050         	str	r0, [r2, #0x4]
+      38: 482d         	ldr	r0, [pc, #0xb4]         @ 0xf0 <BACKUP_DRAM_K_RESULT_RK1+0xf0>
+      3a: 4a2e         	ldr	r2, [pc, #0xb8]         @ 0xf4 <BACKUP_DRAM_K_RESULT_RK1+0xf4>
+      3c: f8d0 4400    	ldr.w	r4, [r0, #0x400]
+      40: 6014         	str	r4, [r2]
+      42: f8d0 4404    	ldr.w	r4, [r0, #0x404]
+      46: 6054         	str	r4, [r2, #0x4]
+      48: f8d0 4408    	ldr.w	r4, [r0, #0x408]
+      4c: 6094         	str	r4, [r2, #0x8]
+      4e: f8d0 040c    	ldr.w	r0, [r0, #0x40c]
+      52: 60d0         	str	r0, [r2, #0xc]
+      54: f8d3 0ca0    	ldr.w	r0, [r3, #0xca0]
+      58: 6110         	str	r0, [r2, #0x10]
+      5a: f8d3 0d20    	ldr.w	r0, [r3, #0xd20]
+      5e: 6150         	str	r0, [r2, #0x14]
+      60: f8d3 0c60    	ldr.w	r0, [r3, #0xc60]
+      64: 6190         	str	r0, [r2, #0x18]
+      66: f8d3 0c64    	ldr.w	r0, [r3, #0xc64]
+      6a: 61d0         	str	r0, [r2, #0x1c]
+      6c: f8d3 0ce0    	ldr.w	r0, [r3, #0xce0]
+      70: 6210         	str	r0, [r2, #0x20]
+      72: f8d3 0ce4    	ldr.w	r0, [r3, #0xce4]
+      76: 6250         	str	r0, [r2, #0x24]
+      78: f8d3 0c6c    	ldr.w	r0, [r3, #0xc6c]
+      7c: 6290         	str	r0, [r2, #0x28]
+      7e: f8d3 0cec    	ldr.w	r0, [r3, #0xcec]
+      82: 62d0         	str	r0, [r2, #0x2c]
+      84: f3c1 5085    	ubfx	r0, r1, #0x16, #0x6
+      88: 4a1b         	ldr	r2, [pc, #0x6c]         @ 0xf8 <BACKUP_DRAM_K_RESULT_RK1+0xf8>
+      8a: 7010         	strb	r0, [r2]
+      8c: 4a1b         	ldr	r2, [pc, #0x6c]         @ 0xfc <BACKUP_DRAM_K_RESULT_RK1+0xfc>
+      8e: f8d3 0510    	ldr.w	r0, [r3, #0x510]
+      92: 6010         	str	r0, [r2]
+      94: f8d3 0490    	ldr.w	r0, [r3, #0x490]
+      98: 6050         	str	r0, [r2, #0x4]
+      9a: 4a19         	ldr	r2, [pc, #0x64]         @ 0x100 <BACKUP_DRAM_K_RESULT_RK1+0x100>
+      9c: f8d3 0c78    	ldr.w	r0, [r3, #0xc78]
+      a0: 6010         	str	r0, [r2]
+      a2: f8d3 0c7c    	ldr.w	r0, [r3, #0xc7c]
+      a6: 6050         	str	r0, [r2, #0x4]
+      a8: f8d3 0c80    	ldr.w	r0, [r3, #0xc80]
+      ac: 6090         	str	r0, [r2, #0x8]
+      ae: f8d3 0c84    	ldr.w	r0, [r3, #0xc84]
+      b2: 60d0         	str	r0, [r2, #0xc]
+      b4: f8d3 0cf8    	ldr.w	r0, [r3, #0xcf8]
+      b8: 6110         	str	r0, [r2, #0x10]
+      ba: f8d3 0cfc    	ldr.w	r0, [r3, #0xcfc]
+      be: 6150         	str	r0, [r2, #0x14]
+      c0: f8d3 0d00    	ldr.w	r0, [r3, #0xd00]
+      c4: 6190         	str	r0, [r2, #0x18]
+      c6: f8d3 3d04    	ldr.w	r3, [r3, #0xd04]
+      ca: 61d3         	str	r3, [r2, #0x1c]
+      cc: f3c1 1384    	ubfx	r3, r1, #0x6, #0x5
+      d0: f3c1 21c4    	ubfx	r1, r1, #0xb, #0x5
+      d4: 6213         	str	r3, [r2, #0x20]
+      d6: 6251         	str	r1, [r2, #0x24]
+      d8: bd10         	pop	{r4, pc}
+      da: bf00         	nop
+      dc: 00 00 c8 1f  	.word	0x1fc80000
+      e0: 00 00 00 00  	.word	0x00000000
+			000000e0:  R_ARM_ABS32	.bss.phase8_result_rg_rk1
+      e4: 00 a0 c8 1f  	.word	0x1fc8a000
+      e8: 00 00 00 00  	.word	0x00000000
+			000000e8:  R_ARM_ABS32	.bss.DCC_K_result_rg_rk1
+      ec: 00 00 00 00  	.word	0x00000000
+			000000ec:  R_ARM_ABS32	.bss.dqs_gating_K_result_rg_rk1
+      f0: 00 10 c8 1f  	.word	0x1fc81000
+      f4: 00 00 00 00  	.word	0x00000000
+			000000f4:  R_ARM_ABS32	.bss.Tx_win_K_result_rg_rk1
+      f8: 00 00 00 00  	.word	0x00000000
+			000000f8:  R_ARM_ABS32	.bss.Tx_vref_K_result_rg_rk1
+      fc: 00 00 00 00  	.word	0x00000000
+			000000fc:  R_ARM_ABS32	.bss.Rx_datlat_K_result_rg_rk1
+     100: 00 00 00 00  	.word	0x00000000
+			00000100:  R_ARM_ABS32	.bss.Rx_win_K_result_rg_rk1
+
+Disassembly of section .text.APPLY_DRAM_K_RESULT_RK1_TO_RK0:
+
+00000000 <APPLY_DRAM_K_RESULT_RK1_TO_RK0>:
+       0: 4b68         	ldr	r3, [pc, #0x1a0]        @ 0x1a4 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1a4>
+       2: 4a69         	ldr	r2, [pc, #0x1a4]        @ 0x1a8 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1a8>
+       4: b530         	push	{r4, r5, lr}
+       6: f8d3 1f0c    	ldr.w	r1, [r3, #0xf0c]
+       a: 7810         	ldrb	r0, [r2]
+       c: f021 01e0    	bic	r1, r1, #0xe0
+      10: ea41 1140    	orr.w	r1, r1, r0, lsl #5
+      14: f8c3 1f0c    	str.w	r1, [r3, #0xf0c]
+      18: f8d3 1f8c    	ldr.w	r1, [r3, #0xf8c]
+      1c: 7810         	ldrb	r0, [r2]
+      1e: f021 01e0    	bic	r1, r1, #0xe0
+      22: ea41 1140    	orr.w	r1, r1, r0, lsl #5
+      26: f8c3 1f8c    	str.w	r1, [r3, #0xf8c]
+      2a: f8d3 1e8c    	ldr.w	r1, [r3, #0xe8c]
+      2e: 7810         	ldrb	r0, [r2]
+      30: f021 01e0    	bic	r1, r1, #0xe0
+      34: ea41 1140    	orr.w	r1, r1, r0, lsl #5
+      38: f8c3 1e8c    	str.w	r1, [r3, #0xe8c]
+      3c: f8d3 1ef4    	ldr.w	r1, [r3, #0xef4]
+      40: 7850         	ldrb	r0, [r2, #0x1]
+      42: f421 517c    	bic	r1, r1, #0x3f00
+      46: ea41 2100    	orr.w	r1, r1, r0, lsl #8
+      4a: f8c3 1ef4    	str.w	r1, [r3, #0xef4]
+      4e: f8d3 1f74    	ldr.w	r1, [r3, #0xf74]
+      52: 7850         	ldrb	r0, [r2, #0x1]
+      54: f421 517c    	bic	r1, r1, #0x3f00
+      58: ea41 2100    	orr.w	r1, r1, r0, lsl #8
+      5c: f8c3 1f74    	str.w	r1, [r3, #0xf74]
+      60: f8d3 1e74    	ldr.w	r1, [r3, #0xe74]
+      64: 7852         	ldrb	r2, [r2, #0x1]
+      66: f421 517c    	bic	r1, r1, #0x3f00
+      6a: ea41 2202    	orr.w	r2, r1, r2, lsl #8
+      6e: f8c3 2e74    	str.w	r2, [r3, #0xe74]
+      72: 4a4e         	ldr	r2, [pc, #0x138]        @ 0x1ac <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1ac>
+      74: f8d3 0970    	ldr.w	r0, [r3, #0x970]
+      78: 6811         	ldr	r1, [r2]
+      7a: f8c3 1970    	str.w	r1, [r3, #0x970]
+      7e: 6851         	ldr	r1, [r2, #0x4]
+      80: f8d3 09e8    	ldr.w	r0, [r3, #0x9e8]
+      84: f8c3 19e8    	str.w	r1, [r3, #0x9e8]
+      88: 6892         	ldr	r2, [r2, #0x8]
+      8a: f8d3 1a68    	ldr.w	r1, [r3, #0xa68]
+      8e: f8c3 2a68    	str.w	r2, [r3, #0xa68]
+      92: 4a47         	ldr	r2, [pc, #0x11c]        @ 0x1b0 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1b0>
+      94: f8d3 0a2c    	ldr.w	r0, [r3, #0xa2c]
+      98: 6811         	ldr	r1, [r2]
+      9a: f8c3 1a2c    	str.w	r1, [r3, #0xa2c]
+      9e: 6852         	ldr	r2, [r2, #0x4]
+      a0: f8d3 1aac    	ldr.w	r1, [r3, #0xaac]
+      a4: f8c3 2aac    	str.w	r2, [r3, #0xaac]
+      a8: 4a42         	ldr	r2, [pc, #0x108]        @ 0x1b4 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1b4>
+      aa: 4943         	ldr	r1, [pc, #0x10c]        @ 0x1b8 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1b8>
+      ac: 6810         	ldr	r0, [r2]
+      ae: f8d1 4200    	ldr.w	r4, [r1, #0x200]
+      b2: f8c1 0200    	str.w	r0, [r1, #0x200]
+      b6: 6850         	ldr	r0, [r2, #0x4]
+      b8: f8d1 4204    	ldr.w	r4, [r1, #0x204]
+      bc: f8c1 0204    	str.w	r0, [r1, #0x204]
+      c0: 6890         	ldr	r0, [r2, #0x8]
+      c2: f8d1 4208    	ldr.w	r4, [r1, #0x208]
+      c6: f8c1 0208    	str.w	r0, [r1, #0x208]
+      ca: 68d0         	ldr	r0, [r2, #0xc]
+      cc: f8d1 420c    	ldr.w	r4, [r1, #0x20c]
+      d0: f8c1 020c    	str.w	r0, [r1, #0x20c]
+      d4: 6910         	ldr	r0, [r2, #0x10]
+      d6: f8d3 4a20    	ldr.w	r4, [r3, #0xa20]
+      da: f8c3 0a20    	str.w	r0, [r3, #0xa20]
+      de: 6950         	ldr	r0, [r2, #0x14]
+      e0: f8d3 4aa0    	ldr.w	r4, [r3, #0xaa0]
+      e4: f8c3 0aa0    	str.w	r0, [r3, #0xaa0]
+      e8: 6990         	ldr	r0, [r2, #0x18]
+      ea: f8d3 49e0    	ldr.w	r4, [r3, #0x9e0]
+      ee: f8c3 09e0    	str.w	r0, [r3, #0x9e0]
+      f2: 69d0         	ldr	r0, [r2, #0x1c]
+      f4: f8d3 49e4    	ldr.w	r4, [r3, #0x9e4]
+      f8: f8c3 09e4    	str.w	r0, [r3, #0x9e4]
+      fc: 6a10         	ldr	r0, [r2, #0x20]
+      fe: f8d3 4a60    	ldr.w	r4, [r3, #0xa60]
+     102: f8c3 0a60    	str.w	r0, [r3, #0xa60]
+     106: 6a50         	ldr	r0, [r2, #0x24]
+     108: f8d3 4a64    	ldr.w	r4, [r3, #0xa64]
+     10c: f8c3 0a64    	str.w	r0, [r3, #0xa64]
+     110: 6a90         	ldr	r0, [r2, #0x28]
+     112: f8d3 49ec    	ldr.w	r4, [r3, #0x9ec]
+     116: f8c3 09ec    	str.w	r0, [r3, #0x9ec]
+     11a: 6ad2         	ldr	r2, [r2, #0x2c]
+     11c: f8d3 0a6c    	ldr.w	r0, [r3, #0xa6c]
+     120: f8c3 2a6c    	str.w	r2, [r3, #0xa6c]
+     124: 4a25         	ldr	r2, [pc, #0x94]         @ 0x1bc <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1bc>
+     126: 4826         	ldr	r0, [pc, #0x98]         @ 0x1c0 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1c0>
+     128: 6814         	ldr	r4, [r2]
+     12a: f8d0 50b8    	ldr.w	r5, [r0, #0xb8]
+     12e: f8c0 40b8    	str.w	r4, [r0, #0xb8]
+     132: 6852         	ldr	r2, [r2, #0x4]
+     134: f8d1 068c    	ldr.w	r0, [r1, #0x68c]
+     138: f8c1 268c    	str.w	r2, [r1, #0x68c]
+     13c: 4a21         	ldr	r2, [pc, #0x84]         @ 0x1c4 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1c4>
+     13e: f8d3 09f8    	ldr.w	r0, [r3, #0x9f8]
+     142: 6811         	ldr	r1, [r2]
+     144: f8c3 19f8    	str.w	r1, [r3, #0x9f8]
+     148: 6851         	ldr	r1, [r2, #0x4]
+     14a: f8d3 09fc    	ldr.w	r0, [r3, #0x9fc]
+     14e: f8c3 19fc    	str.w	r1, [r3, #0x9fc]
+     152: 6891         	ldr	r1, [r2, #0x8]
+     154: f8d3 0a00    	ldr.w	r0, [r3, #0xa00]
+     158: f8c3 1a00    	str.w	r1, [r3, #0xa00]
+     15c: 68d1         	ldr	r1, [r2, #0xc]
+     15e: f8d3 0a04    	ldr.w	r0, [r3, #0xa04]
+     162: f8c3 1a04    	str.w	r1, [r3, #0xa04]
+     166: 6911         	ldr	r1, [r2, #0x10]
+     168: f8d3 0a78    	ldr.w	r0, [r3, #0xa78]
+     16c: f8c3 1a78    	str.w	r1, [r3, #0xa78]
+     170: 6951         	ldr	r1, [r2, #0x14]
+     172: f8d3 0a7c    	ldr.w	r0, [r3, #0xa7c]
+     176: f8c3 1a7c    	str.w	r1, [r3, #0xa7c]
+     17a: 6991         	ldr	r1, [r2, #0x18]
+     17c: f8d3 0a80    	ldr.w	r0, [r3, #0xa80]
+     180: f8c3 1a80    	str.w	r1, [r3, #0xa80]
+     184: 69d1         	ldr	r1, [r2, #0x1c]
+     186: f8d3 0a84    	ldr.w	r0, [r3, #0xa84]
+     18a: f8c3 1a84    	str.w	r1, [r3, #0xa84]
+     18e: 6a11         	ldr	r1, [r2, #0x20]
+     190: f8d3 0eec    	ldr.w	r0, [r3, #0xeec]
+     194: f8c3 1eec    	str.w	r1, [r3, #0xeec]
+     198: 6a52         	ldr	r2, [r2, #0x24]
+     19a: f8d3 1f6c    	ldr.w	r1, [r3, #0xf6c]
+     19e: f8c3 2f6c    	str.w	r2, [r3, #0xf6c]
+     1a2: bd30         	pop	{r4, r5, pc}
+     1a4: 00 a0 c8 1f  	.word	0x1fc8a000
+     1a8: 00 00 00 00  	.word	0x00000000
+			000001a8:  R_ARM_ABS32	.bss.phase8_result_rg_rk1
+     1ac: 00 00 00 00  	.word	0x00000000
+			000001ac:  R_ARM_ABS32	.bss.DCC_K_result_rg_rk1
+     1b0: 00 00 00 00  	.word	0x00000000
+			000001b0:  R_ARM_ABS32	.bss.dqs_gating_K_result_rg_rk1
+     1b4: 00 00 00 00  	.word	0x00000000
+			000001b4:  R_ARM_ABS32	.bss.Tx_win_K_result_rg_rk1
+     1b8: 00 10 c8 1f  	.word	0x1fc81000
+     1bc: 00 00 00 00  	.word	0x00000000
+			000001bc:  R_ARM_ABS32	.bss.Rx_datlat_K_result_rg_rk1
+     1c0: 00 b0 c8 1f  	.word	0x1fc8b000
+     1c4: 00 00 00 00  	.word	0x00000000
+			000001c4:  R_ARM_ABS32	.bss.Rx_win_K_result_rg_rk1
+
+Disassembly of section .text.APPLY_DRAM_K_RESULT_RK0_TO_RK1:
+
+00000000 <APPLY_DRAM_K_RESULT_RK0_TO_RK1>:
+       0: 4958         	ldr	r1, [pc, #0x160]        @ 0x164 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x164>
+       2: 4859         	ldr	r0, [pc, #0x164]        @ 0x168 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x168>
+       4: b530         	push	{r4, r5, lr}
+       6: 780c         	ldrb	r4, [r1]
+       8: 784b         	ldrb	r3, [r1, #0x1]
+       a: 68c2         	ldr	r2, [r0, #0xc]
+       c: ea43 03c4    	orr.w	r3, r3, r4, lsl #3
+      10: f022 023f    	bic	r2, r2, #0x3f
+      14: 4313         	orrs	r3, r2
+      16: 68c2         	ldr	r2, [r0, #0xc]
+      18: 4a54         	ldr	r2, [pc, #0x150]        @ 0x16c <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x16c>
+      1a: 60c3         	str	r3, [r0, #0xc]
+      1c: 4b54         	ldr	r3, [pc, #0x150]        @ 0x170 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x170>
+      1e: 6811         	ldr	r1, [r2]
+      20: f8d3 4bf0    	ldr.w	r4, [r3, #0xbf0]
+      24: f8c3 1bf0    	str.w	r1, [r3, #0xbf0]
+      28: 6851         	ldr	r1, [r2, #0x4]
+      2a: f8d3 4c68    	ldr.w	r4, [r3, #0xc68]
+      2e: f8c3 1c68    	str.w	r1, [r3, #0xc68]
+      32: 6892         	ldr	r2, [r2, #0x8]
+      34: f8d3 1ce8    	ldr.w	r1, [r3, #0xce8]
+      38: f8c3 2ce8    	str.w	r2, [r3, #0xce8]
+      3c: 4a4d         	ldr	r2, [pc, #0x134]        @ 0x174 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x174>
+      3e: f8d3 4cac    	ldr.w	r4, [r3, #0xcac]
+      42: 6811         	ldr	r1, [r2]
+      44: f8c3 1cac    	str.w	r1, [r3, #0xcac]
+      48: 6852         	ldr	r2, [r2, #0x4]
+      4a: f8d3 1d2c    	ldr.w	r1, [r3, #0xd2c]
+      4e: f8c3 2d2c    	str.w	r2, [r3, #0xd2c]
+      52: 4a49         	ldr	r2, [pc, #0x124]        @ 0x178 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x178>
+      54: 4949         	ldr	r1, [pc, #0x124]        @ 0x17c <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x17c>
+      56: 6814         	ldr	r4, [r2]
+      58: f8d1 5400    	ldr.w	r5, [r1, #0x400]
+      5c: f8c1 4400    	str.w	r4, [r1, #0x400]
+      60: 6854         	ldr	r4, [r2, #0x4]
+      62: f8d1 5404    	ldr.w	r5, [r1, #0x404]
+      66: f8c1 4404    	str.w	r4, [r1, #0x404]
+      6a: 6894         	ldr	r4, [r2, #0x8]
+      6c: f8d1 5408    	ldr.w	r5, [r1, #0x408]
+      70: f8c1 4408    	str.w	r4, [r1, #0x408]
+      74: 68d4         	ldr	r4, [r2, #0xc]
+      76: f8d1 540c    	ldr.w	r5, [r1, #0x40c]
+      7a: f8c1 440c    	str.w	r4, [r1, #0x40c]
+      7e: 6911         	ldr	r1, [r2, #0x10]
+      80: f8d3 4ca0    	ldr.w	r4, [r3, #0xca0]
+      84: f8c3 1ca0    	str.w	r1, [r3, #0xca0]
+      88: 6951         	ldr	r1, [r2, #0x14]
+      8a: f8d3 4d20    	ldr.w	r4, [r3, #0xd20]
+      8e: f8c3 1d20    	str.w	r1, [r3, #0xd20]
+      92: 6991         	ldr	r1, [r2, #0x18]
+      94: f8d3 4c60    	ldr.w	r4, [r3, #0xc60]
+      98: f8c3 1c60    	str.w	r1, [r3, #0xc60]
+      9c: 69d1         	ldr	r1, [r2, #0x1c]
+      9e: f8d3 4c64    	ldr.w	r4, [r3, #0xc64]
+      a2: f8c3 1c64    	str.w	r1, [r3, #0xc64]
+      a6: 6a11         	ldr	r1, [r2, #0x20]
+      a8: f8d3 4ce0    	ldr.w	r4, [r3, #0xce0]
+      ac: f8c3 1ce0    	str.w	r1, [r3, #0xce0]
+      b0: 6a51         	ldr	r1, [r2, #0x24]
+      b2: f8d3 4ce4    	ldr.w	r4, [r3, #0xce4]
+      b6: f8c3 1ce4    	str.w	r1, [r3, #0xce4]
+      ba: 6a91         	ldr	r1, [r2, #0x28]
+      bc: f8d3 4c6c    	ldr.w	r4, [r3, #0xc6c]
+      c0: f8c3 1c6c    	str.w	r1, [r3, #0xc6c]
+      c4: 6ad2         	ldr	r2, [r2, #0x2c]
+      c6: f8d3 1cec    	ldr.w	r1, [r3, #0xcec]
+      ca: f8c3 2cec    	str.w	r2, [r3, #0xcec]
+      ce: 4a2c         	ldr	r2, [pc, #0xb0]         @ 0x180 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x180>
+      d0: f8d3 4510    	ldr.w	r4, [r3, #0x510]
+      d4: 6811         	ldr	r1, [r2]
+      d6: f8c3 1510    	str.w	r1, [r3, #0x510]
+      da: 6852         	ldr	r2, [r2, #0x4]
+      dc: f8d3 1490    	ldr.w	r1, [r3, #0x490]
+      e0: f8c3 2490    	str.w	r2, [r3, #0x490]
+      e4: 4a27         	ldr	r2, [pc, #0x9c]         @ 0x184 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x184>
+      e6: f8d3 4c78    	ldr.w	r4, [r3, #0xc78]
+      ea: 6811         	ldr	r1, [r2]
+      ec: f8c3 1c78    	str.w	r1, [r3, #0xc78]
+      f0: 6851         	ldr	r1, [r2, #0x4]
+      f2: f8d3 4c7c    	ldr.w	r4, [r3, #0xc7c]
+      f6: f8c3 1c7c    	str.w	r1, [r3, #0xc7c]
+      fa: 6891         	ldr	r1, [r2, #0x8]
+      fc: f8d3 4c80    	ldr.w	r4, [r3, #0xc80]
+     100: f8c3 1c80    	str.w	r1, [r3, #0xc80]
+     104: 68d1         	ldr	r1, [r2, #0xc]
+     106: f8d3 4c84    	ldr.w	r4, [r3, #0xc84]
+     10a: f8c3 1c84    	str.w	r1, [r3, #0xc84]
+     10e: 6911         	ldr	r1, [r2, #0x10]
+     110: f8d3 4cf8    	ldr.w	r4, [r3, #0xcf8]
+     114: f8c3 1cf8    	str.w	r1, [r3, #0xcf8]
+     118: 6951         	ldr	r1, [r2, #0x14]
+     11a: f8d3 4cfc    	ldr.w	r4, [r3, #0xcfc]
+     11e: f8c3 1cfc    	str.w	r1, [r3, #0xcfc]
+     122: 6991         	ldr	r1, [r2, #0x18]
+     124: f8d3 4d00    	ldr.w	r4, [r3, #0xd00]
+     128: f8c3 1d00    	str.w	r1, [r3, #0xd00]
+     12c: f8d3 4d04    	ldr.w	r4, [r3, #0xd04]
+     130: 69d1         	ldr	r1, [r2, #0x1c]
+     132: 4c15         	ldr	r4, [pc, #0x54]         @ 0x188 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x188>
+     134: f8c3 1d04    	str.w	r1, [r3, #0xd04]
+     138: 6a11         	ldr	r1, [r2, #0x20]
+     13a: f8d4 316c    	ldr.w	r3, [r4, #0x16c]
+     13e: f8c4 116c    	str.w	r1, [r4, #0x16c]
+     142: 6a52         	ldr	r2, [r2, #0x24]
+     144: f8d4 31ec    	ldr.w	r3, [r4, #0x1ec]
+     148: f8c4 21ec    	str.w	r2, [r4, #0x1ec]
+     14c: ea41 1142    	orr.w	r1, r1, r2, lsl #5
+     150: 68c3         	ldr	r3, [r0, #0xc]
+     152: 68c2         	ldr	r2, [r0, #0xc]
+     154: f423 437f    	bic	r3, r3, #0xff00
+     158: f023 03c0    	bic	r3, r3, #0xc0
+     15c: ea43 1381    	orr.w	r3, r3, r1, lsl #6
+     160: 60c3         	str	r3, [r0, #0xc]
+     162: bd30         	pop	{r4, r5, pc}
+     164: 00 00 00 00  	.word	0x00000000
+			00000164:  R_ARM_ABS32	.bss.phase8_result_rg_rk0
+     168: 00 00 c8 1f  	.word	0x1fc80000
+     16c: 00 00 00 00  	.word	0x00000000
+			0000016c:  R_ARM_ABS32	.bss.DCC_K_result_rg_rk0
+     170: 00 a0 c8 1f  	.word	0x1fc8a000
+     174: 00 00 00 00  	.word	0x00000000
+			00000174:  R_ARM_ABS32	.bss.dqs_gating_K_result_rg_rk0
+     178: 00 00 00 00  	.word	0x00000000
+			00000178:  R_ARM_ABS32	.bss.Tx_win_K_result_rg_rk0
+     17c: 00 10 c8 1f  	.word	0x1fc81000
+     180: 00 00 00 00  	.word	0x00000000
+			00000180:  R_ARM_ABS32	.bss.Rx_datlat_K_result_rg_rk0
+     184: 00 00 00 00  	.word	0x00000000
+			00000184:  R_ARM_ABS32	.bss.Rx_win_K_result_rg_rk0
+     188: 00 b0 c8 1f  	.word	0x1fc8b000
+
+Disassembly of section .text.APPLY_DRAM_K_RESULT:
+
+00000000 <APPLY_DRAM_K_RESULT>:
+       0: b508         	push	{r3, lr}
+       2: f7ff fffe    	bl	0x2 <APPLY_DRAM_K_RESULT+0x2> @ imm = #-0x4
+			00000002:  R_ARM_THM_CALL	BACKUP_DRAM_K_RESULT_RK0
+       6: f7ff fffe    	bl	0x6 <APPLY_DRAM_K_RESULT+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	BACKUP_DRAM_K_RESULT_RK1
+       a: f7ff fffe    	bl	0xa <APPLY_DRAM_K_RESULT+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	APPLY_DRAM_K_RESULT_RK0_TO_RK1
+       e: e8bd 4008    	pop.w	{r3, lr}
+      12: f7ff bffe    	b.w	0x12 <APPLY_DRAM_K_RESULT+0x12> @ imm = #-0x4
+			00000012:  R_ARM_THM_JUMP24	APPLY_DRAM_K_RESULT_RK1_TO_RK0
+
+Disassembly of section .text.Enter_SelfRefresh_api:
+
+00000000 <Enter_SelfRefresh_api>:
+       0: e92d 4ff7    	push.w	{r0, r1, r2, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4605         	mov	r5, r0
+       6: 4c61         	ldr	r4, [pc, #0x184]        @ 0x18c <Enter_SelfRefresh_api+0x18c>
+       8: 4f61         	ldr	r7, [pc, #0x184]        @ 0x190 <Enter_SelfRefresh_api+0x190>
+       a: 4601         	mov	r1, r0
+       c: 4861         	ldr	r0, [pc, #0x184]        @ 0x194 <Enter_SelfRefresh_api+0x194>
+       e: 6f63         	ldr	r3, [r4, #0x74]
+      10: f023 0304    	bic	r3, r3, #0x4
+      14: 6763         	str	r3, [r4, #0x74]
+      16: f7ff fffe    	bl	0x16 <Enter_SelfRefresh_api+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	printf
+      1a: f8d4 b08c    	ldr.w	r11, [r4, #0x8c]
+      1e: 4b5e         	ldr	r3, [pc, #0x178]        @ 0x198 <Enter_SelfRefresh_api+0x198>
+      20: f8d4 608c    	ldr.w	r6, [r4, #0x8c]
+      24: f8d7 2410    	ldr.w	r2, [r7, #0x410]
+      28: f8d3 a014    	ldr.w	r10, [r3, #0x14]
+      2c: f3c2 5900    	ubfx	r9, r2, #0x14, #0x1
+      30: 454d         	cmp	r5, r9
+      32: d10e         	bne	0x52 <Enter_SelfRefresh_api+0x52> @ imm = #0x1c
+      34: 6f63         	ldr	r3, [r4, #0x74]
+      36: 2d01         	cmp	r5, #0x1
+      38: f043 0304    	orr	r3, r3, #0x4
+      3c: 6763         	str	r3, [r4, #0x74]
+      3e: d106         	bne	0x4e <Enter_SelfRefresh_api+0x4e> @ imm = #0xc
+      40: 4856         	ldr	r0, [pc, #0x158]        @ 0x19c <Enter_SelfRefresh_api+0x19c>
+      42: f7ff fffe    	bl	0x42 <Enter_SelfRefresh_api+0x42> @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	printf
+      46: 2002         	movs	r0, #0x2
+      48: b003         	add	sp, #0xc
+      4a: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+      4e: 4854         	ldr	r0, [pc, #0x150]        @ 0x1a0 <Enter_SelfRefresh_api+0x1a0>
+      50: e7f7         	b	0x42 <Enter_SelfRefresh_api+0x42> @ imm = #-0x12
+      52: f8d7 3410    	ldr.w	r3, [r7, #0x410]
+      56: 2001         	movs	r0, #0x1
+      58: f423 1380    	bic	r3, r3, #0x100000
+      5c: ea43 5305    	orr.w	r3, r3, r5, lsl #20
+      60: f8c7 3410    	str.w	r3, [r7, #0x410]
+      64: f7ff fffe    	bl	0x64 <Enter_SelfRefresh_api+0x64> @ imm = #-0x4
+			00000064:  R_ARM_THM_CALL	HW_AUTO_SREF_IDLE_TIME
+      68: 2000         	movs	r0, #0x0
+      6a: f7ff fffe    	bl	0x6a <Enter_SelfRefresh_api+0x6a> @ imm = #-0x4
+			0000006a:  R_ARM_THM_CALL	HW_AUTO_SREF_SETTING
+      6e: f7ff fffe    	bl	0x6e <Enter_SelfRefresh_api+0x6e> @ imm = #-0x4
+			0000006e:  R_ARM_THM_CALL	DVFS_MEM_CK_MUX
+      72: f44f 707a    	mov.w	r0, #0x3e8
+      76: f7ff fffe    	bl	0x76 <Enter_SelfRefresh_api+0x76> @ imm = #-0x4
+			00000076:  R_ARM_THM_CALL	udelay
+      7a: f8d7 3684    	ldr.w	r3, [r7, #0x684]
+      7e: f023 0308    	bic	r3, r3, #0x8
+      82: f8c7 3684    	str.w	r3, [r7, #0x684]
+      86: f7ff fffe    	bl	0x86 <Enter_SelfRefresh_api+0x86> @ imm = #-0x4
+			00000086:  R_ARM_THM_CALL	HW_AUTO_SREF_TIMES
+      8a: 4680         	mov	r8, r0
+      8c: 2001         	movs	r0, #0x1
+      8e: f7ff fffe    	bl	0x8e <Enter_SelfRefresh_api+0x8e> @ imm = #-0x4
+			0000008e:  R_ARM_THM_CALL	HW_AUTO_SREF_ONOFF
+      92: f44f 707a    	mov.w	r0, #0x3e8
+      96: f7ff fffe    	bl	0x96 <Enter_SelfRefresh_api+0x96> @ imm = #-0x4
+			00000096:  R_ARM_THM_CALL	udelay
+      9a: f7ff fffe    	bl	0x9a <Enter_SelfRefresh_api+0x9a> @ imm = #-0x4
+			0000009a:  R_ARM_THM_CALL	HW_AUTO_SREF_TIMES
+      9e: f1b8 0fff    	cmp.w	r8, #0xff
+      a2: d01d         	beq	0xe0 <Enter_SelfRefresh_api+0xe0> @ imm = #0x3a
+      a4: 1e43         	subs	r3, r0, #0x1
+      a6: 9001         	str	r0, [sp, #0x4]
+      a8: 4543         	cmp	r3, r8
+      aa: d019         	beq	0xe0 <Enter_SelfRefresh_api+0xe0> @ imm = #0x32
+      ac: 483d         	ldr	r0, [pc, #0xf4]         @ 0x1a4 <Enter_SelfRefresh_api+0x1a4>
+      ae: f7ff fffe    	bl	0xae <Enter_SelfRefresh_api+0xae> @ imm = #-0x4
+			000000ae:  R_ARM_THM_CALL	printf
+      b2: 9a01         	ldr	r2, [sp, #0x4]
+      b4: 483c         	ldr	r0, [pc, #0xf0]         @ 0x1a8 <Enter_SelfRefresh_api+0x1a8>
+      b6: 4641         	mov	r1, r8
+      b8: f7ff fffe    	bl	0xb8 <Enter_SelfRefresh_api+0xb8> @ imm = #-0x4
+			000000b8:  R_ARM_THM_CALL	printf
+      bc: 2000         	movs	r0, #0x0
+      be: f7ff fffe    	bl	0xbe <Enter_SelfRefresh_api+0xbe> @ imm = #-0x4
+			000000be:  R_ARM_THM_CALL	HW_AUTO_SREF_ONOFF
+      c2: f8d7 3684    	ldr.w	r3, [r7, #0x684]
+      c6: f043 0308    	orr	r3, r3, #0x8
+      ca: f8c7 3684    	str.w	r3, [r7, #0x684]
+      ce: 6f63         	ldr	r3, [r4, #0x74]
+      d0: f043 0304    	orr	r3, r3, #0x4
+      d4: 6763         	str	r3, [r4, #0x74]
+      d6: 2001         	movs	r0, #0x1
+      d8: f7ff fffe    	bl	0xd8 <Enter_SelfRefresh_api+0xd8> @ imm = #-0x4
+			000000d8:  R_ARM_THM_CALL	DVFS_MEM_CK_MUX
+      dc: 2001         	movs	r0, #0x1
+      de: e7b3         	b	0x48 <Enter_SelfRefresh_api+0x48> @ imm = #-0x9a
+      e0: f3c6 1480    	ubfx	r4, r6, #0x6, #0x1
+      e4: f3cb 1740    	ubfx	r7, r11, #0x5, #0x1
+      e8: f01a 0601    	ands	r6, r10, #0x1
+      ec: d005         	beq	0xfa <Enter_SelfRefresh_api+0xfa> @ imm = #0xa
+      ee: 464a         	mov	r2, r9
+      f0: 4621         	mov	r1, r4
+      f2: 4638         	mov	r0, r7
+      f4: 2300         	movs	r3, #0x0
+      f6: f7ff fffe    	bl	0xf6 <Enter_SelfRefresh_api+0xf6> @ imm = #-0x4
+			000000f6:  R_ARM_THM_CALL	SwitchSynthPLLSSC
+      fa: 462a         	mov	r2, r5
+      fc: 4621         	mov	r1, r4
+      fe: 4638         	mov	r0, r7
+     100: f7ff fffe    	bl	0x100 <Enter_SelfRefresh_api+0x100> @ imm = #-0x4
+			00000100:  R_ARM_THM_CALL	StepSynthPLL
+     104: 4680         	mov	r8, r0
+     106: b12e         	cbz	r6, 0x114 <Enter_SelfRefresh_api+0x114> @ imm = #0xa
+     108: b2ea         	uxtb	r2, r5
+     10a: 4621         	mov	r1, r4
+     10c: 4638         	mov	r0, r7
+     10e: 2301         	movs	r3, #0x1
+     110: f7ff fffe    	bl	0x110 <Enter_SelfRefresh_api+0x110> @ imm = #-0x4
+			00000110:  R_ARM_THM_CALL	SwitchSynthPLLSSC
+     114: 4e1e         	ldr	r6, [pc, #0x78]         @ 0x190 <Enter_SelfRefresh_api+0x190>
+     116: f1b8 0f04    	cmp.w	r8, #0x4
+     11a: d011         	beq	0x140 <Enter_SelfRefresh_api+0x140> @ imm = #0x22
+     11c: 4823         	ldr	r0, [pc, #0x8c]         @ 0x1ac <Enter_SelfRefresh_api+0x1ac>
+     11e: f7ff fffe    	bl	0x11e <Enter_SelfRefresh_api+0x11e> @ imm = #-0x4
+			0000011e:  R_ARM_THM_CALL	printf
+     122: 2000         	movs	r0, #0x0
+     124: f7ff fffe    	bl	0x124 <Enter_SelfRefresh_api+0x124> @ imm = #-0x4
+			00000124:  R_ARM_THM_CALL	HW_AUTO_SREF_ONOFF
+     128: f8d6 3684    	ldr.w	r3, [r6, #0x684]
+     12c: 4a17         	ldr	r2, [pc, #0x5c]         @ 0x18c <Enter_SelfRefresh_api+0x18c>
+     12e: f043 0308    	orr	r3, r3, #0x8
+     132: f8c6 3684    	str.w	r3, [r6, #0x684]
+     136: 6f53         	ldr	r3, [r2, #0x74]
+     138: f043 0304    	orr	r3, r3, #0x4
+     13c: 6753         	str	r3, [r2, #0x74]
+     13e: e7ca         	b	0xd6 <Enter_SelfRefresh_api+0xd6> @ imm = #-0x6c
+     140: f7ff fffe    	bl	0x140 <Enter_SelfRefresh_api+0x140> @ imm = #-0x4
+			00000140:  R_ARM_THM_CALL	APPLY_DRAM_K_RESULT
+     144: 2000         	movs	r0, #0x0
+     146: f7ff fffe    	bl	0x146 <Enter_SelfRefresh_api+0x146> @ imm = #-0x4
+			00000146:  R_ARM_THM_CALL	HW_AUTO_SREF_ONOFF
+     14a: 2002         	movs	r0, #0x2
+     14c: f7ff fffe    	bl	0x14c <Enter_SelfRefresh_api+0x14c> @ imm = #-0x4
+			0000014c:  R_ARM_THM_CALL	udelay
+     150: f8d6 3684    	ldr.w	r3, [r6, #0x684]
+     154: f043 0308    	orr	r3, r3, #0x8
+     158: f8c6 3684    	str.w	r3, [r6, #0x684]
+     15c: b13f         	cbz	r7, 0x16e <Enter_SelfRefresh_api+0x16e> @ imm = #0xe
+     15e: 2d01         	cmp	r5, #0x1
+     160: d112         	bne	0x188 <Enter_SelfRefresh_api+0x188> @ imm = #0x24
+     162: 4b13         	ldr	r3, [pc, #0x4c]         @ 0x1b0 <Enter_SelfRefresh_api+0x1b0>
+     164: 781a         	ldrb	r2, [r3]
+     166: 4620         	mov	r0, r4
+     168: 2100         	movs	r1, #0x0
+     16a: f7ff fffe    	bl	0x16a <Enter_SelfRefresh_api+0x16a> @ imm = #-0x4
+			0000016a:  R_ARM_THM_CALL	SetTXVref_SREF.part.0
+     16e: 2001         	movs	r0, #0x1
+     170: f7ff fffe    	bl	0x170 <Enter_SelfRefresh_api+0x170> @ imm = #-0x4
+			00000170:  R_ARM_THM_CALL	DVFS_MEM_CK_MUX
+     174: 4a05         	ldr	r2, [pc, #0x14]         @ 0x18c <Enter_SelfRefresh_api+0x18c>
+     176: 480f         	ldr	r0, [pc, #0x3c]         @ 0x1b4 <Enter_SelfRefresh_api+0x1b4>
+     178: 6f53         	ldr	r3, [r2, #0x74]
+     17a: f043 0304    	orr	r3, r3, #0x4
+     17e: 6753         	str	r3, [r2, #0x74]
+     180: f7ff fffe    	bl	0x180 <Enter_SelfRefresh_api+0x180> @ imm = #-0x4
+			00000180:  R_ARM_THM_CALL	printf
+     184: 2000         	movs	r0, #0x0
+     186: e75f         	b	0x48 <Enter_SelfRefresh_api+0x48> @ imm = #-0x142
+     188: 4b0b         	ldr	r3, [pc, #0x2c]         @ 0x1b8 <Enter_SelfRefresh_api+0x1b8>
+     18a: e7eb         	b	0x164 <Enter_SelfRefresh_api+0x164> @ imm = #-0x2a
+     18c: 00 00 b0 1f  	.word	0x1fb00000
+     190: 00 10 c8 1f  	.word	0x1fc81000
+     194: 00 00 00 00  	.word	0x00000000
+			00000194:  R_ARM_ABS32	.rodata.Enter_SelfRefresh_api.str1.1
+     198: 00 c0 ca 1f  	.word	0x1fcac000
+     19c: 22 00 00 00  	.word	0x00000022
+			0000019c:  R_ARM_ABS32	.rodata.Enter_SelfRefresh_api.str1.1
+     1a0: 5a 00 00 00  	.word	0x0000005a
+			000001a0:  R_ARM_ABS32	.rodata.Enter_SelfRefresh_api.str1.1
+     1a4: 95 00 00 00  	.word	0x00000095
+			000001a4:  R_ARM_ABS32	.rodata.Enter_SelfRefresh_api.str1.1
+     1a8: b5 00 00 00  	.word	0x000000b5
+			000001a8:  R_ARM_ABS32	.rodata.Enter_SelfRefresh_api.str1.1
+     1ac: ce 00 00 00  	.word	0x000000ce
+			000001ac:  R_ARM_ABS32	.rodata.Enter_SelfRefresh_api.str1.1
+     1b0: 00 00 00 00  	.word	0x00000000
+			000001b0:  R_ARM_ABS32	.bss.Tx_vref_K_result_rg_rk1
+     1b4: f0 00 00 00  	.word	0x000000f0
+			000001b4:  R_ARM_ABS32	.rodata.Enter_SelfRefresh_api.str1.1
+     1b8: 00 00 00 00  	.word	0x00000000
+			000001b8:  R_ARM_ABS32	.bss.Tx_vref_K_result_rg_rk0
+
+Disassembly of section .text.TX_DQ_delay_shift:
+
+00000000 <TX_DQ_delay_shift>:
+       0: b573         	push	{r0, r1, r4, r5, r6, lr}
+       2: 460a         	mov	r2, r1
+       4: 4604         	mov	r4, r0
+       6: 460d         	mov	r5, r1
+       8: 4601         	mov	r1, r0
+       a: 483e         	ldr	r0, [pc, #0xf8]         @ 0x104 <TX_DQ_delay_shift+0x104>
+       c: f7ff fffe    	bl	0xc <TX_DQ_delay_shift+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	printf
+      10: 2c03         	cmp	r4, #0x3
+      12: d819         	bhi	0x48 <TX_DQ_delay_shift+0x48> @ imm = #0x32
+      14: 4b3c         	ldr	r3, [pc, #0xf0]         @ 0x108 <TX_DQ_delay_shift+0x108>
+      16: 00e2         	lsls	r2, r4, #0x3
+      18: 493c         	ldr	r1, [pc, #0xf0]         @ 0x10c <TX_DQ_delay_shift+0x10c>
+      1a: 26ff         	movs	r6, #0xff
+      1c: 4096         	lsls	r6, r2
+      1e: f8d3 39e0    	ldr.w	r3, [r3, #0x9e0]
+      22: 401e         	ands	r6, r3
+      24: f851 3024    	ldr.w	r3, [r1, r4, lsl #2]
+      28: 40d6         	lsrs	r6, r2
+      2a: 1af6         	subs	r6, r6, r3
+      2c: 19ab         	adds	r3, r5, r6
+      2e: 2bff         	cmp	r3, #0xff
+      30: d85d         	bhi	0xee <TX_DQ_delay_shift+0xee> @ imm = #0xba
+      32: 4837         	ldr	r0, [pc, #0xdc]         @ 0x110 <TX_DQ_delay_shift+0x110>
+      34: f841 5024    	str.w	r5, [r1, r4, lsl #2]
+      38: 2108         	movs	r1, #0x8
+      3a: 9300         	str	r3, [sp]
+      3c: 2300         	movs	r3, #0x0
+      3e: 9301         	str	r3, [sp, #0x4]
+      40: f7ff fffe    	bl	0x40 <TX_DQ_delay_shift+0x40> @ imm = #-0x4
+			00000040:  R_ARM_THM_CALL	WRITE_RG_FLD
+      44: b002         	add	sp, #0x8
+      46: bd70         	pop	{r4, r5, r6, pc}
+      48: 1f22         	subs	r2, r4, #0x4
+      4a: b2d3         	uxtb	r3, r2
+      4c: 2b03         	cmp	r3, #0x3
+      4e: d816         	bhi	0x7e <TX_DQ_delay_shift+0x7e> @ imm = #0x2c
+      50: 4b2d         	ldr	r3, [pc, #0xb4]         @ 0x108 <TX_DQ_delay_shift+0x108>
+      52: 00d2         	lsls	r2, r2, #0x3
+      54: 492d         	ldr	r1, [pc, #0xb4]         @ 0x10c <TX_DQ_delay_shift+0x10c>
+      56: 26ff         	movs	r6, #0xff
+      58: 4096         	lsls	r6, r2
+      5a: f8d3 39e4    	ldr.w	r3, [r3, #0x9e4]
+      5e: 401e         	ands	r6, r3
+      60: f851 3024    	ldr.w	r3, [r1, r4, lsl #2]
+      64: 40d6         	lsrs	r6, r2
+      66: 1af6         	subs	r6, r6, r3
+      68: 19ab         	adds	r3, r5, r6
+      6a: 2bff         	cmp	r3, #0xff
+      6c: d83f         	bhi	0xee <TX_DQ_delay_shift+0xee> @ imm = #0x7e
+      6e: f841 5024    	str.w	r5, [r1, r4, lsl #2]
+      72: 2108         	movs	r1, #0x8
+      74: 9300         	str	r3, [sp]
+      76: 2300         	movs	r3, #0x0
+      78: 4826         	ldr	r0, [pc, #0x98]         @ 0x114 <TX_DQ_delay_shift+0x114>
+      7a: 9301         	str	r3, [sp, #0x4]
+      7c: e7e0         	b	0x40 <TX_DQ_delay_shift+0x40> @ imm = #-0x40
+      7e: f1a4 0208    	sub.w	r2, r4, #0x8
+      82: b2d3         	uxtb	r3, r2
+      84: 2b03         	cmp	r3, #0x3
+      86: d816         	bhi	0xb6 <TX_DQ_delay_shift+0xb6> @ imm = #0x2c
+      88: 4b1f         	ldr	r3, [pc, #0x7c]         @ 0x108 <TX_DQ_delay_shift+0x108>
+      8a: 00d2         	lsls	r2, r2, #0x3
+      8c: 491f         	ldr	r1, [pc, #0x7c]         @ 0x10c <TX_DQ_delay_shift+0x10c>
+      8e: 26ff         	movs	r6, #0xff
+      90: 4096         	lsls	r6, r2
+      92: f8d3 3a60    	ldr.w	r3, [r3, #0xa60]
+      96: 401e         	ands	r6, r3
+      98: f851 3024    	ldr.w	r3, [r1, r4, lsl #2]
+      9c: 40d6         	lsrs	r6, r2
+      9e: 1af6         	subs	r6, r6, r3
+      a0: 19ab         	adds	r3, r5, r6
+      a2: 2bff         	cmp	r3, #0xff
+      a4: d823         	bhi	0xee <TX_DQ_delay_shift+0xee> @ imm = #0x46
+      a6: f841 5024    	str.w	r5, [r1, r4, lsl #2]
+      aa: 2108         	movs	r1, #0x8
+      ac: 9300         	str	r3, [sp]
+      ae: 2300         	movs	r3, #0x0
+      b0: 4819         	ldr	r0, [pc, #0x64]         @ 0x118 <TX_DQ_delay_shift+0x118>
+      b2: 9301         	str	r3, [sp, #0x4]
+      b4: e7c4         	b	0x40 <TX_DQ_delay_shift+0x40> @ imm = #-0x78
+      b6: f1a4 020c    	sub.w	r2, r4, #0xc
+      ba: b2d3         	uxtb	r3, r2
+      bc: 2b03         	cmp	r3, #0x3
+      be: d8c1         	bhi	0x44 <TX_DQ_delay_shift+0x44> @ imm = #-0x7e
+      c0: 4b11         	ldr	r3, [pc, #0x44]         @ 0x108 <TX_DQ_delay_shift+0x108>
+      c2: 00d2         	lsls	r2, r2, #0x3
+      c4: 4911         	ldr	r1, [pc, #0x44]         @ 0x10c <TX_DQ_delay_shift+0x10c>
+      c6: 26ff         	movs	r6, #0xff
+      c8: 4096         	lsls	r6, r2
+      ca: f8d3 3a64    	ldr.w	r3, [r3, #0xa64]
+      ce: 401e         	ands	r6, r3
+      d0: f851 3024    	ldr.w	r3, [r1, r4, lsl #2]
+      d4: 40d6         	lsrs	r6, r2
+      d6: 1af6         	subs	r6, r6, r3
+      d8: 19ab         	adds	r3, r5, r6
+      da: 2bff         	cmp	r3, #0xff
+      dc: d807         	bhi	0xee <TX_DQ_delay_shift+0xee> @ imm = #0xe
+      de: f841 5024    	str.w	r5, [r1, r4, lsl #2]
+      e2: 2108         	movs	r1, #0x8
+      e4: 9300         	str	r3, [sp]
+      e6: 2300         	movs	r3, #0x0
+      e8: 480c         	ldr	r0, [pc, #0x30]         @ 0x11c <TX_DQ_delay_shift+0x11c>
+      ea: 9301         	str	r3, [sp, #0x4]
+      ec: e7a8         	b	0x40 <TX_DQ_delay_shift+0x40> @ imm = #-0xb0
+      ee: 480c         	ldr	r0, [pc, #0x30]         @ 0x120 <TX_DQ_delay_shift+0x120>
+      f0: f7ff fffe    	bl	0xf0 <TX_DQ_delay_shift+0xf0> @ imm = #-0x4
+			000000f0:  R_ARM_THM_CALL	printf
+      f4: 480b         	ldr	r0, [pc, #0x2c]         @ 0x124 <TX_DQ_delay_shift+0x124>
+      f6: 4632         	mov	r2, r6
+      f8: 4621         	mov	r1, r4
+      fa: b002         	add	sp, #0x8
+      fc: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+     100: f7ff bffe    	b.w	0x100 <TX_DQ_delay_shift+0x100> @ imm = #-0x4
+			00000100:  R_ARM_THM_JUMP24	printf
+     104: 00 00 00 00  	.word	0x00000000
+			00000104:  R_ARM_ABS32	.rodata.TX_DQ_delay_shift.str1.1
+     108: 00 a0 c8 1f  	.word	0x1fc8a000
+     10c: 00 00 00 00  	.word	0x00000000
+			0000010c:  R_ARM_ABS32	.bss.TX_dly_ADD
+     110: e0 a9 c8 1f  	.word	0x1fc8a9e0
+     114: e4 a9 c8 1f  	.word	0x1fc8a9e4
+     118: 60 aa c8 1f  	.word	0x1fc8aa60
+     11c: 64 aa c8 1f  	.word	0x1fc8aa64
+     120: 1b 00 00 00  	.word	0x0000001b
+			00000120:  R_ARM_ABS32	.rodata.TX_DQ_delay_shift.str1.1
+     124: 3e 00 00 00  	.word	0x0000003e
+			00000124:  R_ARM_ABS32	.rodata.TX_DQ_delay_shift.str1.1
+
+Disassembly of section .text.RX_DQ_delay_shift:
+
+00000000 <RX_DQ_delay_shift>:
+       0: b573         	push	{r0, r1, r4, r5, r6, lr}
+       2: 460a         	mov	r2, r1
+       4: 4604         	mov	r4, r0
+       6: 460e         	mov	r6, r1
+       8: 4601         	mov	r1, r0
+       a: 481f         	ldr	r0, [pc, #0x7c]         @ 0x88 <RX_DQ_delay_shift+0x88>
+       c: f7ff fffe    	bl	0xc <RX_DQ_delay_shift+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	printf
+      10: 2c07         	cmp	r4, #0x7
+      12: d81f         	bhi	0x54 <RX_DQ_delay_shift+0x54> @ imm = #0x3e
+      14: 491d         	ldr	r1, [pc, #0x74]         @ 0x8c <RX_DQ_delay_shift+0x8c>
+      16: 0863         	lsrs	r3, r4, #0x1
+      18: 0122         	lsls	r2, r4, #0x4
+      1a: f002 0210    	and	r2, r2, #0x10
+      1e: eb01 0083    	add.w	r0, r1, r3, lsl #2
+      22: f851 3023    	ldr.w	r3, [r1, r3, lsl #2]
+      26: 491a         	ldr	r1, [pc, #0x68]         @ 0x90 <RX_DQ_delay_shift+0x90>
+      28: 25ff         	movs	r5, #0xff
+      2a: 4095         	lsls	r5, r2
+      2c: 401d         	ands	r5, r3
+      2e: f851 3024    	ldr.w	r3, [r1, r4, lsl #2]
+      32: 40d5         	lsrs	r5, r2
+      34: 1aed         	subs	r5, r5, r3
+      36: 1973         	adds	r3, r6, r5
+      38: 2bff         	cmp	r3, #0xff
+      3a: d819         	bhi	0x70 <RX_DQ_delay_shift+0x70> @ imm = #0x32
+      3c: ea43 2303    	orr.w	r3, r3, r3, lsl #8
+      40: f841 6024    	str.w	r6, [r1, r4, lsl #2]
+      44: 17d9         	asrs	r1, r3, #0x1f
+      46: e9cd 3100    	strd	r3, r1, [sp]
+      4a: 2110         	movs	r1, #0x10
+      4c: f7ff fffe    	bl	0x4c <RX_DQ_delay_shift+0x4c> @ imm = #-0x4
+			0000004c:  R_ARM_THM_CALL	WRITE_RG_FLD
+      50: b002         	add	sp, #0x8
+      52: bd70         	pop	{r4, r5, r6, pc}
+      54: f1a4 0308    	sub.w	r3, r4, #0x8
+      58: 2b07         	cmp	r3, #0x7
+      5a: d8f9         	bhi	0x50 <RX_DQ_delay_shift+0x50> @ imm = #-0xe
+      5c: 490d         	ldr	r1, [pc, #0x34]         @ 0x94 <RX_DQ_delay_shift+0x94>
+      5e: 0063         	lsls	r3, r4, #0x1
+      60: f003 030c    	and	r3, r3, #0xc
+      64: 0122         	lsls	r2, r4, #0x4
+      66: 1858         	adds	r0, r3, r1
+      68: f002 0210    	and	r2, r2, #0x10
+      6c: 585b         	ldr	r3, [r3, r1]
+      6e: e7da         	b	0x26 <RX_DQ_delay_shift+0x26> @ imm = #-0x4c
+      70: 4809         	ldr	r0, [pc, #0x24]         @ 0x98 <RX_DQ_delay_shift+0x98>
+      72: f7ff fffe    	bl	0x72 <RX_DQ_delay_shift+0x72> @ imm = #-0x4
+			00000072:  R_ARM_THM_CALL	printf
+      76: 4809         	ldr	r0, [pc, #0x24]         @ 0x9c <RX_DQ_delay_shift+0x9c>
+      78: 462a         	mov	r2, r5
+      7a: 4621         	mov	r1, r4
+      7c: b002         	add	sp, #0x8
+      7e: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      82: f7ff bffe    	b.w	0x82 <RX_DQ_delay_shift+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_JUMP24	printf
+      86: bf00         	nop
+      88: 00 00 00 00  	.word	0x00000000
+			00000088:  R_ARM_ABS32	.rodata.RX_DQ_delay_shift.str1.1
+      8c: f8 a9 c8 1f  	.word	0x1fc8a9f8
+      90: 00 00 00 00  	.word	0x00000000
+			00000090:  R_ARM_ABS32	.bss.RX_dly_ADD
+      94: 78 aa c8 1f  	.word	0x1fc8aa78
+      98: 1b 00 00 00  	.word	0x0000001b
+			00000098:  R_ARM_ABS32	.rodata.TX_DQ_delay_shift.str1.1
+      9c: 3e 00 00 00  	.word	0x0000003e
+			0000009c:  R_ARM_ABS32	.rodata.TX_DQ_delay_shift.str1.1

@@ -1,0 +1,431 @@
+00000000 <ephyEfuseWrite>:
+       0: b5f7         	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+       2: 206c         	movs	r0, #0x6c
+       4: 2101         	movs	r1, #0x1
+       6: f10d 0206    	add.w	r2, sp, #0x6
+       a: f7ff fffe    	bl	0xa <ephyEfuseWrite+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	ef_read_parse.part.0
+       e: f89d 3006    	ldrb.w	r3, [sp, #0x6]
+      12: 2b01         	cmp	r3, #0x1
+      14: f040 8244    	bne.w	0x4a0 <ephyEfuseWrite+0x4a0> @ imm = #0x488
+      18: f240 1065    	movw	r0, #0x165
+      1c: 2103         	movs	r1, #0x3
+      1e: f10d 0206    	add.w	r2, sp, #0x6
+      22: 2400         	movs	r4, #0x0
+      24: f7ff fffe    	bl	0x24 <ephyEfuseWrite+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	ef_read_parse.part.0
+      28: f89d 3006    	ldrb.w	r3, [sp, #0x6]
+      2c: 2009         	movs	r0, #0x9
+      2e: 211f         	movs	r1, #0x1f
+      30: f240 1215    	movw	r2, #0x115
+      34: 4626         	mov	r6, r4
+      36: f7ff fffe    	bl	0x36 <ephyEfuseWrite+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	MiiExtStationWrite
+      3a: 2106         	movs	r1, #0x6
+      3c: eb0d 0201    	add.w	r2, sp, r1
+      40: f44f 70b4    	mov.w	r0, #0x168
+      44: f7ff fffe    	bl	0x44 <ephyEfuseWrite+0x44> @ imm = #-0x4
+			00000044:  R_ARM_THM_CALL	ef_read_parse.part.0
+      48: f89d 3006    	ldrb.w	r3, [sp, #0x6]
+      4c: 2009         	movs	r0, #0x9
+      4e: 211e         	movs	r1, #0x1e
+      50: 22e0         	movs	r2, #0xe0
+      52: 021b         	lsls	r3, r3, #0x8
+      54: f7ff fffe    	bl	0x54 <ephyEfuseWrite+0x54> @ imm = #-0x4
+			00000054:  R_ARM_THM_CALL	MiiExtStationWrite
+      58: 2106         	movs	r1, #0x6
+      5a: f104 006d    	add.w	r0, r4, #0x6d
+      5e: eb0d 0201    	add.w	r2, sp, r1
+      62: f106 0509    	add.w	r5, r6, #0x9
+      66: f7ff fffe    	bl	0x66 <ephyEfuseWrite+0x66> @ imm = #-0x4
+			00000066:  R_ARM_THM_CALL	ef_read_parse
+      6a: f104 00a9    	add.w	r0, r4, #0xa9
+      6e: 2106         	movs	r1, #0x6
+      70: f10d 0207    	add.w	r2, sp, #0x7
+      74: f7ff fffe    	bl	0x74 <ephyEfuseWrite+0x74> @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	ef_read_parse
+      78: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+      7c: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+      80: 4628         	mov	r0, r5
+      82: 211e         	movs	r1, #0x1e
+      84: 2212         	movs	r2, #0x12
+      86: ea43 2387    	orr.w	r3, r3, r7, lsl #10
+      8a: f7ff fffe    	bl	0x8a <ephyEfuseWrite+0x8a> @ imm = #-0x4
+			0000008a:  R_ARM_THM_CALL	MiiExtStationWrite
+      8e: 2106         	movs	r1, #0x6
+      90: f104 0073    	add.w	r0, r4, #0x73
+      94: eb0d 0201    	add.w	r2, sp, r1
+      98: f7ff fffe    	bl	0x98 <ephyEfuseWrite+0x98> @ imm = #-0x4
+			00000098:  R_ARM_THM_CALL	ef_read_parse
+      9c: f104 00af    	add.w	r0, r4, #0xaf
+      a0: 2106         	movs	r1, #0x6
+      a2: f10d 0207    	add.w	r2, sp, #0x7
+      a6: f7ff fffe    	bl	0xa6 <ephyEfuseWrite+0xa6> @ imm = #-0x4
+			000000a6:  R_ARM_THM_CALL	ef_read_parse
+      aa: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+      ae: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+      b2: 4628         	mov	r0, r5
+      b4: 211e         	movs	r1, #0x1e
+      b6: 2217         	movs	r2, #0x17
+      b8: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+      bc: f7ff fffe    	bl	0xbc <ephyEfuseWrite+0xbc> @ imm = #-0x4
+			000000bc:  R_ARM_THM_CALL	MiiExtStationWrite
+      c0: 2106         	movs	r1, #0x6
+      c2: f104 0079    	add.w	r0, r4, #0x79
+      c6: eb0d 0201    	add.w	r2, sp, r1
+      ca: f7ff fffe    	bl	0xca <ephyEfuseWrite+0xca> @ imm = #-0x4
+			000000ca:  R_ARM_THM_CALL	ef_read_parse
+      ce: f89d 3006    	ldrb.w	r3, [sp, #0x6]
+      d2: 4628         	mov	r0, r5
+      d4: 211e         	movs	r1, #0x1e
+      d6: 2219         	movs	r2, #0x19
+      d8: 021b         	lsls	r3, r3, #0x8
+      da: f7ff fffe    	bl	0xda <ephyEfuseWrite+0xda> @ imm = #-0x4
+			000000da:  R_ARM_THM_CALL	MiiExtStationWrite
+      de: 2106         	movs	r1, #0x6
+      e0: f104 007f    	add.w	r0, r4, #0x7f
+      e4: eb0d 0201    	add.w	r2, sp, r1
+      e8: f7ff fffe    	bl	0xe8 <ephyEfuseWrite+0xe8> @ imm = #-0x4
+			000000e8:  R_ARM_THM_CALL	ef_read_parse
+      ec: f89d 3006    	ldrb.w	r3, [sp, #0x6]
+      f0: 4628         	mov	r0, r5
+      f2: 211e         	movs	r1, #0x1e
+      f4: 2221         	movs	r2, #0x21
+      f6: 021b         	lsls	r3, r3, #0x8
+      f8: f7ff fffe    	bl	0xf8 <ephyEfuseWrite+0xf8> @ imm = #-0x4
+			000000f8:  R_ARM_THM_CALL	MiiExtStationWrite
+      fc: 2106         	movs	r1, #0x6
+      fe: f104 009d    	add.w	r0, r4, #0x9d
+     102: eb0d 0201    	add.w	r2, sp, r1
+     106: f7ff fffe    	bl	0x106 <ephyEfuseWrite+0x106> @ imm = #-0x4
+			00000106:  R_ARM_THM_CALL	ef_read_parse
+     10a: f104 0085    	add.w	r0, r4, #0x85
+     10e: 2106         	movs	r1, #0x6
+     110: f10d 0207    	add.w	r2, sp, #0x7
+     114: f7ff fffe    	bl	0x114 <ephyEfuseWrite+0x114> @ imm = #-0x4
+			00000114:  R_ARM_THM_CALL	ef_read_parse
+     118: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     11c: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     120: 4628         	mov	r0, r5
+     122: 211e         	movs	r1, #0x1e
+     124: 2216         	movs	r2, #0x16
+     126: ea43 2387    	orr.w	r3, r3, r7, lsl #10
+     12a: f7ff fffe    	bl	0x12a <ephyEfuseWrite+0x12a> @ imm = #-0x4
+			0000012a:  R_ARM_THM_CALL	MiiExtStationWrite
+     12e: 2106         	movs	r1, #0x6
+     130: f104 00a3    	add.w	r0, r4, #0xa3
+     134: eb0d 0201    	add.w	r2, sp, r1
+     138: f7ff fffe    	bl	0x138 <ephyEfuseWrite+0x138> @ imm = #-0x4
+			00000138:  R_ARM_THM_CALL	ef_read_parse
+     13c: f104 008b    	add.w	r0, r4, #0x8b
+     140: 2106         	movs	r1, #0x6
+     142: f10d 0207    	add.w	r2, sp, #0x7
+     146: f7ff fffe    	bl	0x146 <ephyEfuseWrite+0x146> @ imm = #-0x4
+			00000146:  R_ARM_THM_CALL	ef_read_parse
+     14a: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     14e: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     152: 4628         	mov	r0, r5
+     154: 211e         	movs	r1, #0x1e
+     156: 2218         	movs	r2, #0x18
+     158: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     15c: f7ff fffe    	bl	0x15c <ephyEfuseWrite+0x15c> @ imm = #-0x4
+			0000015c:  R_ARM_THM_CALL	MiiExtStationWrite
+     160: f104 0091    	add.w	r0, r4, #0x91
+     164: 2106         	movs	r1, #0x6
+     166: f10d 0207    	add.w	r2, sp, #0x7
+     16a: f7ff fffe    	bl	0x16a <ephyEfuseWrite+0x16a> @ imm = #-0x4
+			0000016a:  R_ARM_THM_CALL	ef_read_parse
+     16e: 4628         	mov	r0, r5
+     170: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     174: 211e         	movs	r1, #0x1e
+     176: 2220         	movs	r2, #0x20
+     178: f7ff fffe    	bl	0x178 <ephyEfuseWrite+0x178> @ imm = #-0x4
+			00000178:  R_ARM_THM_CALL	MiiExtStationWrite
+     17c: f104 0097    	add.w	r0, r4, #0x97
+     180: 2106         	movs	r1, #0x6
+     182: f10d 0207    	add.w	r2, sp, #0x7
+     186: f7ff fffe    	bl	0x186 <ephyEfuseWrite+0x186> @ imm = #-0x4
+			00000186:  R_ARM_THM_CALL	ef_read_parse
+     18a: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     18e: 4628         	mov	r0, r5
+     190: 211e         	movs	r1, #0x1e
+     192: 2222         	movs	r2, #0x22
+     194: f7ff fffe    	bl	0x194 <ephyEfuseWrite+0x194> @ imm = #-0x4
+			00000194:  R_ARM_THM_CALL	MiiExtStationWrite
+     198: 2106         	movs	r1, #0x6
+     19a: f104 00b5    	add.w	r0, r4, #0xb5
+     19e: eb0d 0201    	add.w	r2, sp, r1
+     1a2: f7ff fffe    	bl	0x1a2 <ephyEfuseWrite+0x1a2> @ imm = #-0x4
+			000001a2:  R_ARM_THM_CALL	ef_read_parse
+     1a6: f104 00bb    	add.w	r0, r4, #0xbb
+     1aa: 2106         	movs	r1, #0x6
+     1ac: f10d 0207    	add.w	r2, sp, #0x7
+     1b0: f7ff fffe    	bl	0x1b0 <ephyEfuseWrite+0x1b0> @ imm = #-0x4
+			000001b0:  R_ARM_THM_CALL	ef_read_parse
+     1b4: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     1b8: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     1bc: 4628         	mov	r0, r5
+     1be: 211e         	movs	r1, #0x1e
+     1c0: f44f 72b9    	mov.w	r2, #0x172
+     1c4: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     1c8: f7ff fffe    	bl	0x1c8 <ephyEfuseWrite+0x1c8> @ imm = #-0x4
+			000001c8:  R_ARM_THM_CALL	MiiExtStationWrite
+     1cc: 2106         	movs	r1, #0x6
+     1ce: f104 00c1    	add.w	r0, r4, #0xc1
+     1d2: eb0d 0201    	add.w	r2, sp, r1
+     1d6: f7ff fffe    	bl	0x1d6 <ephyEfuseWrite+0x1d6> @ imm = #-0x4
+			000001d6:  R_ARM_THM_CALL	ef_read_parse
+     1da: f104 00c7    	add.w	r0, r4, #0xc7
+     1de: 2106         	movs	r1, #0x6
+     1e0: f10d 0207    	add.w	r2, sp, #0x7
+     1e4: f7ff fffe    	bl	0x1e4 <ephyEfuseWrite+0x1e4> @ imm = #-0x4
+			000001e4:  R_ARM_THM_CALL	ef_read_parse
+     1e8: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     1ec: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     1f0: 4628         	mov	r0, r5
+     1f2: 211e         	movs	r1, #0x1e
+     1f4: f240 1273    	movw	r2, #0x173
+     1f8: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     1fc: f7ff fffe    	bl	0x1fc <ephyEfuseWrite+0x1fc> @ imm = #-0x4
+			000001fc:  R_ARM_THM_CALL	MiiExtStationWrite
+     200: f104 00cd    	add.w	r0, r4, #0xcd
+     204: 2107         	movs	r1, #0x7
+     206: f10d 0206    	add.w	r2, sp, #0x6
+     20a: f7ff fffe    	bl	0x20a <ephyEfuseWrite+0x20a> @ imm = #-0x4
+			0000020a:  R_ARM_THM_CALL	ef_read_parse
+     20e: 2107         	movs	r1, #0x7
+     210: f104 00d4    	add.w	r0, r4, #0xd4
+     214: eb0d 0201    	add.w	r2, sp, r1
+     218: f7ff fffe    	bl	0x218 <ephyEfuseWrite+0x218> @ imm = #-0x4
+			00000218:  R_ARM_THM_CALL	ef_read_parse
+     21c: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     220: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     224: 4628         	mov	r0, r5
+     226: f047 0780    	orr	r7, r7, #0x80
+     22a: 211e         	movs	r1, #0x1e
+     22c: f043 0380    	orr	r3, r3, #0x80
+     230: f44f 72ba    	mov.w	r2, #0x174
+     234: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     238: f7ff fffe    	bl	0x238 <ephyEfuseWrite+0x238> @ imm = #-0x4
+			00000238:  R_ARM_THM_CALL	MiiExtStationWrite
+     23c: f104 00db    	add.w	r0, r4, #0xdb
+     240: 2107         	movs	r1, #0x7
+     242: f10d 0206    	add.w	r2, sp, #0x6
+     246: f7ff fffe    	bl	0x246 <ephyEfuseWrite+0x246> @ imm = #-0x4
+			00000246:  R_ARM_THM_CALL	ef_read_parse
+     24a: 2107         	movs	r1, #0x7
+     24c: f104 00e2    	add.w	r0, r4, #0xe2
+     250: eb0d 0201    	add.w	r2, sp, r1
+     254: f7ff fffe    	bl	0x254 <ephyEfuseWrite+0x254> @ imm = #-0x4
+			00000254:  R_ARM_THM_CALL	ef_read_parse
+     258: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     25c: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     260: 4628         	mov	r0, r5
+     262: f047 0780    	orr	r7, r7, #0x80
+     266: 211e         	movs	r1, #0x1e
+     268: f043 0380    	orr	r3, r3, #0x80
+     26c: f240 1275    	movw	r2, #0x175
+     270: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     274: f106 050b    	add.w	r5, r6, #0xb
+     278: f7ff fffe    	bl	0x278 <ephyEfuseWrite+0x278> @ imm = #-0x4
+			00000278:  R_ARM_THM_CALL	MiiExtStationWrite
+     27c: 2106         	movs	r1, #0x6
+     27e: f504 70b7    	add.w	r0, r4, #0x16e
+     282: eb0d 0201    	add.w	r2, sp, r1
+     286: f7ff fffe    	bl	0x286 <ephyEfuseWrite+0x286> @ imm = #-0x4
+			00000286:  R_ARM_THM_CALL	ef_read_parse
+     28a: f504 70d5    	add.w	r0, r4, #0x1aa
+     28e: 2106         	movs	r1, #0x6
+     290: f10d 0207    	add.w	r2, sp, #0x7
+     294: f7ff fffe    	bl	0x294 <ephyEfuseWrite+0x294> @ imm = #-0x4
+			00000294:  R_ARM_THM_CALL	ef_read_parse
+     298: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     29c: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     2a0: 4628         	mov	r0, r5
+     2a2: 211e         	movs	r1, #0x1e
+     2a4: 2212         	movs	r2, #0x12
+     2a6: ea43 2387    	orr.w	r3, r3, r7, lsl #10
+     2aa: f7ff fffe    	bl	0x2aa <ephyEfuseWrite+0x2aa> @ imm = #-0x4
+			000002aa:  R_ARM_THM_CALL	MiiExtStationWrite
+     2ae: 2106         	movs	r1, #0x6
+     2b0: f504 70ba    	add.w	r0, r4, #0x174
+     2b4: eb0d 0201    	add.w	r2, sp, r1
+     2b8: f7ff fffe    	bl	0x2b8 <ephyEfuseWrite+0x2b8> @ imm = #-0x4
+			000002b8:  R_ARM_THM_CALL	ef_read_parse
+     2bc: f504 70d8    	add.w	r0, r4, #0x1b0
+     2c0: 2106         	movs	r1, #0x6
+     2c2: f10d 0207    	add.w	r2, sp, #0x7
+     2c6: f7ff fffe    	bl	0x2c6 <ephyEfuseWrite+0x2c6> @ imm = #-0x4
+			000002c6:  R_ARM_THM_CALL	ef_read_parse
+     2ca: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     2ce: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     2d2: 4628         	mov	r0, r5
+     2d4: 211e         	movs	r1, #0x1e
+     2d6: 2217         	movs	r2, #0x17
+     2d8: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     2dc: f7ff fffe    	bl	0x2dc <ephyEfuseWrite+0x2dc> @ imm = #-0x4
+			000002dc:  R_ARM_THM_CALL	MiiExtStationWrite
+     2e0: 2106         	movs	r1, #0x6
+     2e2: f504 70bd    	add.w	r0, r4, #0x17a
+     2e6: eb0d 0201    	add.w	r2, sp, r1
+     2ea: f7ff fffe    	bl	0x2ea <ephyEfuseWrite+0x2ea> @ imm = #-0x4
+			000002ea:  R_ARM_THM_CALL	ef_read_parse
+     2ee: f89d 3006    	ldrb.w	r3, [sp, #0x6]
+     2f2: 4628         	mov	r0, r5
+     2f4: 211e         	movs	r1, #0x1e
+     2f6: 2219         	movs	r2, #0x19
+     2f8: 021b         	lsls	r3, r3, #0x8
+     2fa: f7ff fffe    	bl	0x2fa <ephyEfuseWrite+0x2fa> @ imm = #-0x4
+			000002fa:  R_ARM_THM_CALL	MiiExtStationWrite
+     2fe: 2106         	movs	r1, #0x6
+     300: f504 70c0    	add.w	r0, r4, #0x180
+     304: eb0d 0201    	add.w	r2, sp, r1
+     308: f7ff fffe    	bl	0x308 <ephyEfuseWrite+0x308> @ imm = #-0x4
+			00000308:  R_ARM_THM_CALL	ef_read_parse
+     30c: f89d 3006    	ldrb.w	r3, [sp, #0x6]
+     310: 4628         	mov	r0, r5
+     312: 211e         	movs	r1, #0x1e
+     314: 2221         	movs	r2, #0x21
+     316: 021b         	lsls	r3, r3, #0x8
+     318: f7ff fffe    	bl	0x318 <ephyEfuseWrite+0x318> @ imm = #-0x4
+			00000318:  R_ARM_THM_CALL	MiiExtStationWrite
+     31c: 2106         	movs	r1, #0x6
+     31e: f504 70cf    	add.w	r0, r4, #0x19e
+     322: eb0d 0201    	add.w	r2, sp, r1
+     326: f7ff fffe    	bl	0x326 <ephyEfuseWrite+0x326> @ imm = #-0x4
+			00000326:  R_ARM_THM_CALL	ef_read_parse
+     32a: f504 70c3    	add.w	r0, r4, #0x186
+     32e: 2106         	movs	r1, #0x6
+     330: f10d 0207    	add.w	r2, sp, #0x7
+     334: f7ff fffe    	bl	0x334 <ephyEfuseWrite+0x334> @ imm = #-0x4
+			00000334:  R_ARM_THM_CALL	ef_read_parse
+     338: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     33c: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     340: 4628         	mov	r0, r5
+     342: 211e         	movs	r1, #0x1e
+     344: 2216         	movs	r2, #0x16
+     346: ea43 2387    	orr.w	r3, r3, r7, lsl #10
+     34a: f7ff fffe    	bl	0x34a <ephyEfuseWrite+0x34a> @ imm = #-0x4
+			0000034a:  R_ARM_THM_CALL	MiiExtStationWrite
+     34e: 2106         	movs	r1, #0x6
+     350: f504 70d2    	add.w	r0, r4, #0x1a4
+     354: eb0d 0201    	add.w	r2, sp, r1
+     358: f7ff fffe    	bl	0x358 <ephyEfuseWrite+0x358> @ imm = #-0x4
+			00000358:  R_ARM_THM_CALL	ef_read_parse
+     35c: f504 70c6    	add.w	r0, r4, #0x18c
+     360: 2106         	movs	r1, #0x6
+     362: f10d 0207    	add.w	r2, sp, #0x7
+     366: f7ff fffe    	bl	0x366 <ephyEfuseWrite+0x366> @ imm = #-0x4
+			00000366:  R_ARM_THM_CALL	ef_read_parse
+     36a: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     36e: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     372: 4628         	mov	r0, r5
+     374: 211e         	movs	r1, #0x1e
+     376: 2218         	movs	r2, #0x18
+     378: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     37c: f7ff fffe    	bl	0x37c <ephyEfuseWrite+0x37c> @ imm = #-0x4
+			0000037c:  R_ARM_THM_CALL	MiiExtStationWrite
+     380: f504 70c9    	add.w	r0, r4, #0x192
+     384: 2106         	movs	r1, #0x6
+     386: f10d 0207    	add.w	r2, sp, #0x7
+     38a: f7ff fffe    	bl	0x38a <ephyEfuseWrite+0x38a> @ imm = #-0x4
+			0000038a:  R_ARM_THM_CALL	ef_read_parse
+     38e: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     392: 4628         	mov	r0, r5
+     394: 211e         	movs	r1, #0x1e
+     396: 2220         	movs	r2, #0x20
+     398: f7ff fffe    	bl	0x398 <ephyEfuseWrite+0x398> @ imm = #-0x4
+			00000398:  R_ARM_THM_CALL	MiiExtStationWrite
+     39c: f504 70cc    	add.w	r0, r4, #0x198
+     3a0: 2106         	movs	r1, #0x6
+     3a2: f10d 0207    	add.w	r2, sp, #0x7
+     3a6: f7ff fffe    	bl	0x3a6 <ephyEfuseWrite+0x3a6> @ imm = #-0x4
+			000003a6:  R_ARM_THM_CALL	ef_read_parse
+     3aa: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     3ae: 4628         	mov	r0, r5
+     3b0: 211e         	movs	r1, #0x1e
+     3b2: 2222         	movs	r2, #0x22
+     3b4: f7ff fffe    	bl	0x3b4 <ephyEfuseWrite+0x3b4> @ imm = #-0x4
+			000003b4:  R_ARM_THM_CALL	MiiExtStationWrite
+     3b8: 2106         	movs	r1, #0x6
+     3ba: f504 70db    	add.w	r0, r4, #0x1b6
+     3be: eb0d 0201    	add.w	r2, sp, r1
+     3c2: f7ff fffe    	bl	0x3c2 <ephyEfuseWrite+0x3c2> @ imm = #-0x4
+			000003c2:  R_ARM_THM_CALL	ef_read_parse
+     3c6: f504 70de    	add.w	r0, r4, #0x1bc
+     3ca: 2106         	movs	r1, #0x6
+     3cc: f10d 0207    	add.w	r2, sp, #0x7
+     3d0: f7ff fffe    	bl	0x3d0 <ephyEfuseWrite+0x3d0> @ imm = #-0x4
+			000003d0:  R_ARM_THM_CALL	ef_read_parse
+     3d4: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     3d8: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     3dc: 4628         	mov	r0, r5
+     3de: 211e         	movs	r1, #0x1e
+     3e0: f44f 72b9    	mov.w	r2, #0x172
+     3e4: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     3e8: f7ff fffe    	bl	0x3e8 <ephyEfuseWrite+0x3e8> @ imm = #-0x4
+			000003e8:  R_ARM_THM_CALL	MiiExtStationWrite
+     3ec: 2106         	movs	r1, #0x6
+     3ee: f504 70e1    	add.w	r0, r4, #0x1c2
+     3f2: eb0d 0201    	add.w	r2, sp, r1
+     3f6: f7ff fffe    	bl	0x3f6 <ephyEfuseWrite+0x3f6> @ imm = #-0x4
+			000003f6:  R_ARM_THM_CALL	ef_read_parse
+     3fa: f504 70e4    	add.w	r0, r4, #0x1c8
+     3fe: 2106         	movs	r1, #0x6
+     400: f10d 0207    	add.w	r2, sp, #0x7
+     404: f7ff fffe    	bl	0x404 <ephyEfuseWrite+0x404> @ imm = #-0x4
+			00000404:  R_ARM_THM_CALL	ef_read_parse
+     408: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     40c: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     410: 4628         	mov	r0, r5
+     412: 211e         	movs	r1, #0x1e
+     414: f240 1273    	movw	r2, #0x173
+     418: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     41c: f7ff fffe    	bl	0x41c <ephyEfuseWrite+0x41c> @ imm = #-0x4
+			0000041c:  R_ARM_THM_CALL	MiiExtStationWrite
+     420: f504 70e7    	add.w	r0, r4, #0x1ce
+     424: 2107         	movs	r1, #0x7
+     426: f10d 0206    	add.w	r2, sp, #0x6
+     42a: f7ff fffe    	bl	0x42a <ephyEfuseWrite+0x42a> @ imm = #-0x4
+			0000042a:  R_ARM_THM_CALL	ef_read_parse
+     42e: 2107         	movs	r1, #0x7
+     430: f204 10d5    	addw	r0, r4, #0x1d5
+     434: eb0d 0201    	add.w	r2, sp, r1
+     438: f7ff fffe    	bl	0x438 <ephyEfuseWrite+0x438> @ imm = #-0x4
+			00000438:  R_ARM_THM_CALL	ef_read_parse
+     43c: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     440: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     444: 4628         	mov	r0, r5
+     446: f047 0780    	orr	r7, r7, #0x80
+     44a: 211e         	movs	r1, #0x1e
+     44c: f043 0380    	orr	r3, r3, #0x80
+     450: f44f 72ba    	mov.w	r2, #0x174
+     454: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     458: f7ff fffe    	bl	0x458 <ephyEfuseWrite+0x458> @ imm = #-0x4
+			00000458:  R_ARM_THM_CALL	MiiExtStationWrite
+     45c: f504 70ee    	add.w	r0, r4, #0x1dc
+     460: 2107         	movs	r1, #0x7
+     462: f10d 0206    	add.w	r2, sp, #0x6
+     466: f7ff fffe    	bl	0x466 <ephyEfuseWrite+0x466> @ imm = #-0x4
+			00000466:  R_ARM_THM_CALL	ef_read_parse
+     46a: 2107         	movs	r1, #0x7
+     46c: f204 10e3    	addw	r0, r4, #0x1e3
+     470: eb0d 0201    	add.w	r2, sp, r1
+     474: f7ff fffe    	bl	0x474 <ephyEfuseWrite+0x474> @ imm = #-0x4
+			00000474:  R_ARM_THM_CALL	ef_read_parse
+     478: f89d 7006    	ldrb.w	r7, [sp, #0x6]
+     47c: f89d 3007    	ldrb.w	r3, [sp, #0x7]
+     480: 4628         	mov	r0, r5
+     482: f047 0780    	orr	r7, r7, #0x80
+     486: 211e         	movs	r1, #0x1e
+     488: f043 0380    	orr	r3, r3, #0x80
+     48c: f240 1275    	movw	r2, #0x175
+     490: ea43 2307    	orr.w	r3, r3, r7, lsl #8
+     494: 347c         	adds	r4, #0x7c
+     496: f7ff fffe    	bl	0x496 <ephyEfuseWrite+0x496> @ imm = #-0x4
+			00000496:  R_ARM_THM_CALL	MiiExtStationWrite
+     49a: b90e         	cbnz	r6, 0x4a0 <ephyEfuseWrite+0x4a0> @ imm = #0x2
+     49c: 2601         	movs	r6, #0x1
+     49e: e5db         	b	0x58 <ephyEfuseWrite+0x58> @ imm = #-0x44a
+     4a0: b003         	add	sp, #0xc
+     4a2: bdf0         	pop	{r4, r5, r6, r7, pc}

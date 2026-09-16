@@ -1,0 +1,23 @@
+00000000 <_efuse2rg>:
+       0: b573         	push	{r0, r1, r4, r5, r6, lr}
+       2: 460d         	mov	r5, r1
+       4: 4611         	mov	r1, r2
+       6: aa02         	add	r2, sp, #0x8
+       8: 461e         	mov	r6, r3
+       a: f04f 34ff    	mov.w	r4, #0xffffffff
+       e: 2300         	movs	r3, #0x0
+      10: f842 3d04    	str	r3, [r2, #-4]!
+      14: f1c1 0320    	rsb.w	r3, r1, #0x20
+      18: 40dc         	lsrs	r4, r3
+      1a: f7ff fffe    	bl	0x1a <_efuse2rg+0x1a>   @ imm = #-0x4
+			0000001a:  R_ARM_THM_CALL	ef_read_parse
+      1e: 682a         	ldr	r2, [r5]
+      20: 40b4         	lsls	r4, r6
+      22: ea22 0004    	bic.w	r0, r2, r4
+      26: 9a01         	ldr	r2, [sp, #0x4]
+      28: 40b2         	lsls	r2, r6
+      2a: 4022         	ands	r2, r4
+      2c: 4302         	orrs	r2, r0
+      2e: 602a         	str	r2, [r5]
+      30: b002         	add	sp, #0x8
+      32: bd70         	pop	{r4, r5, r6, pc}

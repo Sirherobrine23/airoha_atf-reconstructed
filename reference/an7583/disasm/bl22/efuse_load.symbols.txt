@@ -1,0 +1,33 @@
+
+Symbol table '.symtab' contains 30 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS efuse_load.c
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 SECTION LOCAL  DEFAULT    2 .data
+     4: 00000000     0 SECTION LOCAL  DEFAULT    3 .bss
+     5: 00000000     0 SECTION LOCAL  DEFAULT    4 .rodata.ef_read_parse.str1.1
+     6: 00000000     0 SECTION LOCAL  DEFAULT    5 .text.ef_read_parse
+     7: 00000000     0 NOTYPE  LOCAL  DEFAULT    5 $t
+     8: 00000060     0 NOTYPE  LOCAL  DEFAULT    5 $d
+     9: 00000000     0 SECTION LOCAL  DEFAULT    7 .rodata.ef_read_parse_new.str1.1
+    10: 00000000     0 SECTION LOCAL  DEFAULT    8 .text.ef_read_parse_new
+    11: 00000000     0 NOTYPE  LOCAL  DEFAULT    8 $t
+    12: 00000074     0 NOTYPE  LOCAL  DEFAULT    8 $d
+    13: 00000000     0 SECTION LOCAL  DEFAULT   10 .text.phy_config_efuse_load
+    14: 00000000     0 NOTYPE  LOCAL  DEFAULT   10 $t
+    15: 00000000     0 SECTION LOCAL  DEFAULT   11 .rodata.phy_config_efuse_load_new.str1.1
+    16: 00000000     0 SECTION LOCAL  DEFAULT   12 .text.phy_config_efuse_load_new
+    17: 00000000     0 NOTYPE  LOCAL  DEFAULT   12 $t
+    18: 00000034     0 NOTYPE  LOCAL  DEFAULT   12 $d
+    19: 00000000     0 SECTION LOCAL  DEFAULT   15 .note.GNU-stack
+    20: 00000000     0 SECTION LOCAL  DEFAULT   14 .comment
+    21: 00000000     0 SECTION LOCAL  DEFAULT   16 .ARM.attributes
+    22: 00000001   100 FUNC    GLOBAL DEFAULT    5 ef_read_parse
+    23: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND tf_log
+    24: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memset
+    25: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND ef_read_byte
+    26: 00000001   128 FUNC    GLOBAL DEFAULT    8 ef_read_parse_new
+    27: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND printf
+    28: 00000001     2 FUNC    GLOBAL DEFAULT   10 phy_config_efuse_load
+    29: 00000001    60 FUNC    GLOBAL DEFAULT   12 phy_config_efuse_load_new

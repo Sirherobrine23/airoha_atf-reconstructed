@@ -1,0 +1,1207 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/RX_path_auto_gen.o:	file format elf32-littlearm
+
+Disassembly of section .text.get_max_val:
+
+00000000 <get_max_val>:
+       0: 4603         	mov	r3, r0
+       2: e9d0 0200    	ldrd	r0, r2, [r0]
+       6: 4290         	cmp	r0, r2
+       8: bf38         	it	lo
+       a: 4610         	movlo	r0, r2
+       c: 689a         	ldr	r2, [r3, #0x8]
+       e: 68db         	ldr	r3, [r3, #0xc]
+      10: 4290         	cmp	r0, r2
+      12: bf38         	it	lo
+      14: 4610         	movlo	r0, r2
+      16: 4298         	cmp	r0, r3
+      18: bf38         	it	lo
+      1a: 4618         	movlo	r0, r3
+      1c: 4770         	bx	lr
+
+Disassembly of section .text.get_min_val:
+
+00000000 <get_min_val>:
+       0: 4603         	mov	r3, r0
+       2: e9d0 0200    	ldrd	r0, r2, [r0]
+       6: 4290         	cmp	r0, r2
+       8: bf28         	it	hs
+       a: 4610         	movhs	r0, r2
+       c: 689a         	ldr	r2, [r3, #0x8]
+       e: 68db         	ldr	r3, [r3, #0xc]
+      10: 4290         	cmp	r0, r2
+      12: bf28         	it	hs
+      14: 4610         	movhs	r0, r2
+      16: 4298         	cmp	r0, r3
+      18: bf28         	it	hs
+      1a: 4618         	movhs	r0, r3
+      1c: 4770         	bx	lr
+
+Disassembly of section .text.print_RX_path_config:
+
+00000000 <print_RX_path_config>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.print_RX_path_rg_val:
+
+00000000 <print_RX_path_rg_val>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.get_RX_path_config:
+
+00000000 <get_RX_path_config>:
+       0: e92d 4ff0    	push.w	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4604         	mov	r4, r0
+       6: f8df 8284    	ldr.w	r8, [pc, #0x284]        @ 0x28c <get_RX_path_config+0x28c>
+       a: 4ea1         	ldr	r6, [pc, #0x284]        @ 0x290 <get_RX_path_config+0x290>
+       c: b087         	sub	sp, #0x1c
+       e: 4693         	mov	r11, r2
+      10: f102 0a04    	add.w	r10, r2, #0x4
+      14: f8d8 3000    	ldr.w	r3, [r8]
+      18: 2b02         	cmp	r3, #0x2
+      1a: d106         	bne	0x2a <get_RX_path_config+0x2a> @ imm = #0xc
+      1c: eb06 038a    	add.w	r3, r6, r10, lsl #2
+      20: a901         	add	r1, sp, #0x4
+      22: 685b         	ldr	r3, [r3, #0x4]
+      24: 6818         	ldr	r0, [r3]
+      26: f7ff fffe    	bl	0x26 <get_RX_path_config+0x26> @ imm = #-0x4
+			00000026:  R_ARM_THM_CALL	PC3_DRAM_config
+      2a: f8d8 3000    	ldr.w	r3, [r8]
+      2e: 2b06         	cmp	r3, #0x6
+      30: d106         	bne	0x40 <get_RX_path_config+0x40> @ imm = #0xc
+      32: eb06 038a    	add.w	r3, r6, r10, lsl #2
+      36: a903         	add	r1, sp, #0xc
+      38: 685b         	ldr	r3, [r3, #0x4]
+      3a: 6818         	ldr	r0, [r3]
+      3c: f7ff fffe    	bl	0x3c <get_RX_path_config+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	PC4_DRAM_config
+      40: eb06 038a    	add.w	r3, r6, r10, lsl #2
+      44: 4d93         	ldr	r5, [pc, #0x24c]        @ 0x294 <get_RX_path_config+0x294>
+      46: 685b         	ldr	r3, [r3, #0x4]
+      48: 681a         	ldr	r2, [r3]
+      4a: 6562         	str	r2, [r4, #0x54]
+      4c: 68b2         	ldr	r2, [r6, #0x8]
+      4e: 7851         	ldrb	r1, [r2, #0x1]
+      50: f884 1048    	strb.w	r1, [r4, #0x48]
+      54: 7812         	ldrb	r2, [r2]
+      56: f884 204a    	strb.w	r2, [r4, #0x4a]
+      5a: 799b         	ldrb	r3, [r3, #0x6]
+      5c: f884 3050    	strb.w	r3, [r4, #0x50]
+      60: f8d8 3000    	ldr.w	r3, [r8]
+      64: 2b02         	cmp	r3, #0x2
+      66: d149         	bne	0xfc <get_RX_path_config+0xfc> @ imm = #0x92
+      68: f89d 2008    	ldrb.w	r2, [sp, #0x8]
+      6c: 2000         	movs	r0, #0x0
+      6e: f89d 1007    	ldrb.w	r1, [sp, #0x7]
+      72: f7ff fffe    	bl	0x72 <get_RX_path_config+0x72> @ imm = #-0x4
+			00000072:  R_ARM_THM_CALL	Get_RL_by_MR_PC3
+      76: 60a0         	str	r0, [r4, #0x8]
+      78: 60e0         	str	r0, [r4, #0xc]
+      7a: f895 2060    	ldrb.w	r2, [r5, #0x60]
+      7e: f895 305f    	ldrb.w	r3, [r5, #0x5f]
+      82: ea43 2302    	orr.w	r3, r3, r2, lsl #8
+      86: f895 2061    	ldrb.w	r2, [r5, #0x61]
+      8a: ea43 4302    	orr.w	r3, r3, r2, lsl #16
+      8e: f895 2062    	ldrb.w	r2, [r5, #0x62]
+      92: ea43 6302    	orr.w	r3, r3, r2, lsl #24
+      96: 61a3         	str	r3, [r4, #0x18]
+      98: f895 205c    	ldrb.w	r2, [r5, #0x5c]
+      9c: f895 305b    	ldrb.w	r3, [r5, #0x5b]
+      a0: ea43 2302    	orr.w	r3, r3, r2, lsl #8
+      a4: f895 205d    	ldrb.w	r2, [r5, #0x5d]
+      a8: ea43 4302    	orr.w	r3, r3, r2, lsl #16
+      ac: f895 205e    	ldrb.w	r2, [r5, #0x5e]
+      b0: ea43 6302    	orr.w	r3, r3, r2, lsl #24
+      b4: 61e3         	str	r3, [r4, #0x1c]
+      b6: f895 2058    	ldrb.w	r2, [r5, #0x58]
+      ba: f895 3057    	ldrb.w	r3, [r5, #0x57]
+      be: ea43 2302    	orr.w	r3, r3, r2, lsl #8
+      c2: f895 2059    	ldrb.w	r2, [r5, #0x59]
+      c6: ea43 4302    	orr.w	r3, r3, r2, lsl #16
+      ca: f895 205a    	ldrb.w	r2, [r5, #0x5a]
+      ce: ea43 6302    	orr.w	r3, r3, r2, lsl #24
+      d2: 6223         	str	r3, [r4, #0x20]
+      d4: f895 2054    	ldrb.w	r2, [r5, #0x54]
+      d8: f895 3053    	ldrb.w	r3, [r5, #0x53]
+      dc: ea43 2302    	orr.w	r3, r3, r2, lsl #8
+      e0: f895 2055    	ldrb.w	r2, [r5, #0x55]
+      e4: ea43 4302    	orr.w	r3, r3, r2, lsl #16
+      e8: f895 2056    	ldrb.w	r2, [r5, #0x56]
+      ec: ea43 6302    	orr.w	r3, r3, r2, lsl #24
+      f0: 6263         	str	r3, [r4, #0x24]
+      f2: 2300         	movs	r3, #0x0
+      f4: 6623         	str	r3, [r4, #0x60]
+      f6: f44f 73b4    	mov.w	r3, #0x168
+      fa: 6663         	str	r3, [r4, #0x64]
+      fc: f8d8 3000    	ldr.w	r3, [r8]
+     100: 2b06         	cmp	r3, #0x6
+     102: d111         	bne	0x128 <get_RX_path_config+0x128> @ imm = #0x22
+     104: f89d 2010    	ldrb.w	r2, [sp, #0x10]
+     108: 2000         	movs	r0, #0x0
+     10a: f89d 100f    	ldrb.w	r1, [sp, #0xf]
+     10e: f7ff fffe    	bl	0x10e <get_RX_path_config+0x10e> @ imm = #-0x4
+			0000010e:  R_ARM_THM_CALL	Get_RL_by_MR_PC4
+     112: 2300         	movs	r3, #0x0
+     114: 60a0         	str	r0, [r4, #0x8]
+     116: 61a3         	str	r3, [r4, #0x18]
+     118: 61e3         	str	r3, [r4, #0x1c]
+     11a: 6223         	str	r3, [r4, #0x20]
+     11c: 6263         	str	r3, [r4, #0x24]
+     11e: 6623         	str	r3, [r4, #0x60]
+     120: f44f 73b4    	mov.w	r3, #0x168
+     124: 60e0         	str	r0, [r4, #0xc]
+     126: 6663         	str	r3, [r4, #0x64]
+     128: f04f 0902    	mov.w	r9, #0x2
+     12c: f884 9003    	strb.w	r9, [r4, #0x3]
+     130: 6d61         	ldr	r1, [r4, #0x54]
+     132: 2701         	movs	r7, #0x1
+     134: f8d8 2000    	ldr.w	r2, [r8]
+     138: 2300         	movs	r3, #0x0
+     13a: f894 0048    	ldrb.w	r0, [r4, #0x48]
+     13e: 454a         	cmp	r2, r9
+     140: f04f 0201    	mov.w	r2, #0x1
+     144: bf18         	it	ne
+     146: 464a         	movne	r2, r9
+     148: f884 202a    	strb.w	r2, [r4, #0x2a]
+     14c: f04f 0264    	mov.w	r2, #0x64
+     150: 6322         	str	r2, [r4, #0x30]
+     152: f04f 0200    	mov.w	r2, #0x0
+     156: bf18         	it	ne
+     158: 2210         	movne	r2, #0x10
+     15a: 6362         	str	r2, [r4, #0x34]
+     15c: 4a4e         	ldr	r2, [pc, #0x138]        @ 0x298 <get_RX_path_config+0x298>
+     15e: f884 3028    	strb.w	r3, [r4, #0x28]
+     162: 230b         	movs	r3, #0xb
+     164: f884 9004    	strb.w	r9, [r4, #0x4]
+     168: 62e3         	str	r3, [r4, #0x2c]
+     16a: fbb2 f2f1    	udiv	r2, r2, r1
+     16e: 68a1         	ldr	r1, [r4, #0x8]
+     170: f884 7053    	strb.w	r7, [r4, #0x53]
+     174: f884 9038    	strb.w	r9, [r4, #0x38]
+     178: 63e2         	str	r2, [r4, #0x3c]
+     17a: f894 204a    	ldrb.w	r2, [r4, #0x4a]
+     17e: fbb0 f2f2    	udiv	r2, r0, r2
+     182: f884 205c    	strb.w	r2, [r4, #0x5c]
+     186: 68e2         	ldr	r2, [r4, #0xc]
+     188: 428a         	cmp	r2, r1
+     18a: 4694         	mov	r12, r2
+     18c: bf28         	it	hs
+     18e: 468c         	movhs	r12, r1
+     190: 428a         	cmp	r2, r1
+     192: bf38         	it	lo
+     194: 460a         	movlo	r2, r1
+     196: 6162         	str	r2, [r4, #0x14]
+     198: 4a40         	ldr	r2, [pc, #0x100]        @ 0x29c <get_RX_path_config+0x29c>
+     19a: 2126         	movs	r1, #0x26
+     19c: f8c4 c010    	str.w	r12, [r4, #0x10]
+     1a0: fb01 2b0b    	mla	r11, r1, r11, r2
+     1a4: f89b 1019    	ldrb.w	r1, [r11, #0x19]
+     1a8: f884 1051    	strb.w	r1, [r4, #0x51]
+     1ac: f7ff fffe    	bl	0x1ac <get_RX_path_config+0x1ac> @ imm = #-0x4
+			000001ac:  R_ARM_THM_CALL	get_dqsien_p2s_latency
+     1b0: f894 1051    	ldrb.w	r1, [r4, #0x51]
+     1b4: f884 0029    	strb.w	r0, [r4, #0x29]
+     1b8: f894 0048    	ldrb.w	r0, [r4, #0x48]
+     1bc: f7ff fffe    	bl	0x1bc <get_RX_path_config+0x1bc> @ imm = #-0x4
+			000001bc:  R_ARM_THM_CALL	get_oe_p2s_latency
+     1c0: 68b1         	ldr	r1, [r6, #0x8]
+     1c2: f884 004e    	strb.w	r0, [r4, #0x4e]
+     1c6: f894 2051    	ldrb.w	r2, [r4, #0x51]
+     1ca: 7989         	ldrb	r1, [r1, #0x6]
+     1cc: f894 005c    	ldrb.w	r0, [r4, #0x5c]
+     1d0: f7ff fffe    	bl	0x1d0 <get_RX_path_config+0x1d0> @ imm = #-0x4
+			000001d0:  R_ARM_THM_CALL	get_dq_ca_p2s_latency
+     1d4: f894 1048    	ldrb.w	r1, [r4, #0x48]
+     1d8: 7060         	strb	r0, [r4, #0x1]
+     1da: 2300         	movs	r3, #0x0
+     1dc: 6be0         	ldr	r0, [r4, #0x3c]
+     1de: fb00 f201    	mul	r2, r0, r1
+     1e2: 6462         	str	r2, [r4, #0x44]
+     1e4: f894 2038    	ldrb.w	r2, [r4, #0x38]
+     1e8: fbb1 f1f2    	udiv	r1, r1, r2
+     1ec: f894 204a    	ldrb.w	r2, [r4, #0x4a]
+     1f0: f884 1049    	strb.w	r1, [r4, #0x49]
+     1f4: 4342         	muls	r2, r0, r2
+     1f6: 68b1         	ldr	r1, [r6, #0x8]
+     1f8: eb06 068a    	add.w	r6, r6, r10, lsl #2
+     1fc: 6422         	str	r2, [r4, #0x40]
+     1fe: 7989         	ldrb	r1, [r1, #0x6]
+     200: 7027         	strb	r7, [r4]
+     202: 4439         	add	r1, r7
+     204: f884 304b    	strb.w	r3, [r4, #0x4b]
+     208: f8a4 904c    	strh.w	r9, [r4, #0x4c]
+     20c: f04f 030b    	mov.w	r3, #0xb
+     210: f884 7068    	strb.w	r7, [r4, #0x68]
+     214: fbb2 f2f1    	udiv	r2, r2, r1
+     218: f884 3052    	strb.w	r3, [r4, #0x52]
+     21c: 65a2         	str	r2, [r4, #0x58]
+     21e: f8d8 2000    	ldr.w	r2, [r8]
+     222: 70a7         	strb	r7, [r4, #0x2]
+     224: 454a         	cmp	r2, r9
+     226: f04f 0208    	mov.w	r2, #0x8
+     22a: bf18         	it	ne
+     22c: 2210         	movne	r2, #0x10
+     22e: f884 204f    	strb.w	r2, [r4, #0x4f]
+     232: f895 30a0    	ldrb.w	r3, [r5, #0xa0]
+     236: f884 3069    	strb.w	r3, [r4, #0x69]
+     23a: f895 3085    	ldrb.w	r3, [r5, #0x85]
+     23e: 7868         	ldrb	r0, [r5, #0x1]
+     240: 67e3         	str	r3, [r4, #0x7c]
+     242: 782b         	ldrb	r3, [r5]
+     244: ea43 2300    	orr.w	r3, r3, r0, lsl #8
+     248: 78a8         	ldrb	r0, [r5, #0x2]
+     24a: ea43 4300    	orr.w	r3, r3, r0, lsl #16
+     24e: 78e8         	ldrb	r0, [r5, #0x3]
+     250: ea43 6000    	orr.w	r0, r3, r0, lsl #24
+     254: f7ff fffe    	bl	0x254 <get_RX_path_config+0x254> @ imm = #-0x4
+			00000254:  R_ARM_THM_CALL	u1IsPhaseMode
+     258: fab0 f080    	clz	r0, r0
+     25c: 6727         	str	r7, [r4, #0x70]
+     25e: f8c4 906c    	str.w	r9, [r4, #0x6c]
+     262: 0940         	lsrs	r0, r0, #0x5
+     264: 6767         	str	r7, [r4, #0x74]
+     266: f884 006a    	strb.w	r0, [r4, #0x6a]
+     26a: f895 3089    	ldrb.w	r3, [r5, #0x89]
+     26e: 1bdb         	subs	r3, r3, r7
+     270: bf18         	it	ne
+     272: 2301         	movne	r3, #0x1
+     274: 67a3         	str	r3, [r4, #0x78]
+     276: f89b 3007    	ldrb.w	r3, [r11, #0x7]
+     27a: f884 306b    	strb.w	r3, [r4, #0x6b]
+     27e: 6873         	ldr	r3, [r6, #0x4]
+     280: 7a9b         	ldrb	r3, [r3, #0xa]
+     282: f884 3080    	strb.w	r3, [r4, #0x80]
+     286: b007         	add	sp, #0x1c
+     288: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     28c: 00 00 00 00  	.word	0x00000000
+			0000028c:  R_ARM_ABS32	MEM_TYPE
+     290: 00 00 00 00  	.word	0x00000000
+			00000290:  R_ARM_ABS32	DV_p
+     294: 00 00 00 00  	.word	0x00000000
+			00000294:  R_ARM_ABS32	DUTTopSetGlobal
+     298: 40 42 0f 00  	.word	0x000f4240
+     29c: 00 00 00 00  	.word	0x00000000
+			0000029c:  R_ARM_ABS32	DUTShufConfigGlobal
+
+Disassembly of section .text.calculate_RX_path_rg_val:
+
+00000000 <calculate_RX_path_rg_val>:
+       0: e92d 4ff0    	push.w	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4605         	mov	r5, r0
+       6: 460c         	mov	r4, r1
+       8: f100 0118    	add.w	r1, r0, #0x18
+       c: b089         	sub	sp, #0x24
+       e: 4608         	mov	r0, r1
+      10: f7ff fffe    	bl	0x10 <calculate_RX_path_rg_val+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	get_max_val
+      14: 4680         	mov	r8, r0
+      16: 4608         	mov	r0, r1
+      18: f7ff fffe    	bl	0x18 <calculate_RX_path_rg_val+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	get_min_val
+      1c: 6beb         	ldr	r3, [r5, #0x3c]
+      1e: 6c69         	ldr	r1, [r5, #0x44]
+      20: eb08 0343    	add.w	r3, r8, r3, lsl #1
+      24: 1a18         	subs	r0, r3, r0
+      26: f7ff fffe    	bl	0x26 <calculate_RX_path_rg_val+0x26> @ imm = #-0x4
+			00000026:  R_ARM_THM_CALL	A_div_B_RU
+      2a: f895 3050    	ldrb.w	r3, [r5, #0x50]
+      2e: 4607         	mov	r7, r0
+      30: 2b01         	cmp	r3, #0x1
+      32: f240 80fd    	bls.w	0x230 <calculate_RX_path_rg_val+0x230> @ imm = #0x1fa
+      36: f895 3048    	ldrb.w	r3, [r5, #0x48]
+      3a: f1a3 0010    	sub.w	r0, r3, #0x10
+      3e: 4243         	rsbs	r3, r0, #0
+      40: 4143         	adcs	r3, r0
+      42: f8c4 3160    	str.w	r3, [r4, #0x160]
+      46: 2100         	movs	r1, #0x0
+      48: f895 c003    	ldrb.w	r12, [r5, #0x3]
+      4c: 7928         	ldrb	r0, [r5, #0x4]
+      4e: fb10 f00c    	smulbb	r0, r0, r12
+      52: 4281         	cmp	r1, r0
+      54: f2c0 80ee    	blt.w	0x234 <calculate_RX_path_rg_val+0x234> @ imm = #0x1dc
+      58: a804         	add	r0, sp, #0x10
+      5a: f04f 0a00    	mov.w	r10, #0x0
+      5e: f7ff fffe    	bl	0x5e <calculate_RX_path_rg_val+0x5e> @ imm = #-0x4
+			0000005e:  R_ARM_THM_CALL	get_min_val
+      62: 4681         	mov	r9, r0
+      64: 1bc3         	subs	r3, r0, r7
+      66: f04f 0b1f    	mov.w	r11, #0x1f
+      6a: 6523         	str	r3, [r4, #0x50]
+      6c: 78ea         	ldrb	r2, [r5, #0x3]
+      6e: fa5f fe8a    	uxtb.w	lr, r10
+      72: 792b         	ldrb	r3, [r5, #0x4]
+      74: fb12 f203    	smulbb	r2, r2, r3
+      78: 4596         	cmp	lr, r2
+      7a: f2c0 812e    	blt.w	0x2da <calculate_RX_path_rg_val+0x2da> @ imm = #0x25c
+      7e: 2000         	movs	r0, #0x0
+      80: b2c1         	uxtb	r1, r0
+      82: 3001         	adds	r0, #0x1
+      84: 428a         	cmp	r2, r1
+      86: f300 8175    	bgt.w	0x374 <calculate_RX_path_rg_val+0x374> @ imm = #0x2ea
+      8a: f104 0020    	add.w	r0, r4, #0x20
+      8e: f7ff fffe    	bl	0x8e <calculate_RX_path_rg_val+0x8e> @ imm = #-0x4
+			0000008e:  R_ARM_THM_CALL	get_max_val
+      92: 78ab         	ldrb	r3, [r5, #0x2]
+      94: 4606         	mov	r6, r0
+      96: 6968         	ldr	r0, [r5, #0x14]
+      98: f895 c04a    	ldrb.w	r12, [r5, #0x4a]
+      9c: 6daf         	ldr	r7, [r5, #0x58]
+      9e: eb03 0340    	add.w	r3, r3, r0, lsl #1
+      a2: f895 0038    	ldrb.w	r0, [r5, #0x38]
+      a6: 6c2a         	ldr	r2, [r5, #0x40]
+      a8: f895 e000    	ldrb.w	lr, [r5]
+      ac: eb00 0080    	add.w	r0, r0, r0, lsl #2
+      b0: 6c69         	ldr	r1, [r5, #0x44]
+      b2: fb0c 0c03    	mla	r12, r12, r3, r0
+      b6: 7868         	ldrb	r0, [r5, #0x1]
+      b8: 6beb         	ldr	r3, [r5, #0x3c]
+      ba: 4378         	muls	r0, r7, r0
+      bc: fb02 000e    	mla	r0, r2, lr, r0
+      c0: eb01 0241    	add.w	r2, r1, r1, lsl #1
+      c4: 4410         	add	r0, r2
+      c6: fb03 000c    	mla	r0, r3, r12, r0
+      ca: 4440         	add	r0, r8
+      cc: f7ff fffe    	bl	0xcc <calculate_RX_path_rg_val+0xcc> @ imm = #-0x4
+			000000cc:  R_ARM_THM_CALL	A_div_B_RU
+      d0: 6f6b         	ldr	r3, [r5, #0x74]
+      d2: 6eea         	ldr	r2, [r5, #0x6c]
+      d4: 1899         	adds	r1, r3, r2
+      d6: 6f2a         	ldr	r2, [r5, #0x70]
+      d8: 1a52         	subs	r2, r2, r1
+      da: f895 1080    	ldrb.w	r1, [r5, #0x80]
+      de: 440a         	add	r2, r1
+      e0: 4410         	add	r0, r2
+      e2: 6faa         	ldr	r2, [r5, #0x78]
+      e4: 4413         	add	r3, r2
+      e6: 4403         	add	r3, r0
+      e8: 3001         	adds	r0, #0x1
+      ea: 1e5a         	subs	r2, r3, #0x1
+      ec: 2b07         	cmp	r3, #0x7
+      ee: 67a2         	str	r2, [r4, #0x78]
+      f0: 6720         	str	r0, [r4, #0x70]
+      f2: 6763         	str	r3, [r4, #0x74]
+      f4: f8c4 308c    	str.w	r3, [r4, #0x8c]
+      f8: f240 814c    	bls.w	0x394 <calculate_RX_path_rg_val+0x394> @ imm = #0x298
+      fc: f1a3 0208    	sub.w	r2, r3, #0x8
+     100: 2a05         	cmp	r2, #0x5
+     102: f240 8149    	bls.w	0x398 <calculate_RX_path_rg_val+0x398> @ imm = #0x292
+     106: 3b0e         	subs	r3, #0xe
+     108: 2b05         	cmp	r3, #0x5
+     10a: f04f 0303    	mov.w	r3, #0x3
+     10e: bf28         	it	hs
+     110: 2307         	movhs	r3, #0x7
+     112: 2200         	movs	r2, #0x0
+     114: f8c4 3090    	str.w	r3, [r4, #0x90]
+     118: 67e2         	str	r2, [r4, #0x7c]
+     11a: f8c4 2080    	str.w	r2, [r4, #0x80]
+     11e: f8c4 2084    	str.w	r2, [r4, #0x84]
+     122: f8c4 2088    	str.w	r2, [r4, #0x88]
+     126: 6bef         	ldr	r7, [r5, #0x3c]
+     128: f895 3048    	ldrb.w	r3, [r5, #0x48]
+     12c: f895 0029    	ldrb.w	r0, [r5, #0x29]
+     130: 6c69         	ldr	r1, [r5, #0x44]
+     132: eb00 0053    	add.w	r0, r0, r3, lsr #1
+     136: f895 304c    	ldrb.w	r3, [r5, #0x4c]
+     13a: 4298         	cmp	r0, r3
+     13c: f2c0 8134    	blt.w	0x3a8 <calculate_RX_path_rg_val+0x3a8> @ imm = #0x268
+     140: 1ac0         	subs	r0, r0, r3
+     142: 4378         	muls	r0, r7, r0
+     144: f5b0 6ffa    	cmp.w	r0, #0x7d0
+     148: f240 8128    	bls.w	0x39c <calculate_RX_path_rg_val+0x39c> @ imm = #0x250
+     14c: 6562         	str	r2, [r4, #0x54]
+     14e: 6c69         	ldr	r1, [r5, #0x44]
+     150: 004b         	lsls	r3, r1, #0x1
+     152: f5b3 5ffa    	cmp.w	r3, #0x1f40
+     156: f0c0 812c    	blo.w	0x3b2 <calculate_RX_path_rg_val+0x3b2> @ imm = #0x258
+     15a: 2300         	movs	r3, #0x0
+     15c: 65e3         	str	r3, [r4, #0x5c]
+     15e: f895 302a    	ldrb.w	r3, [r5, #0x2a]
+     162: f895 0029    	ldrb.w	r0, [r5, #0x29]
+     166: f895 204f    	ldrb.w	r2, [r5, #0x4f]
+     16a: 6c69         	ldr	r1, [r5, #0x44]
+     16c: eb00 0043    	add.w	r0, r0, r3, lsl #1
+     170: f895 304b    	ldrb.w	r3, [r5, #0x4b]
+     174: 6bef         	ldr	r7, [r5, #0x3c]
+     176: 3a01         	subs	r2, #0x1
+     178: 4418         	add	r0, r3
+     17a: f895 304d    	ldrb.w	r3, [r5, #0x4d]
+     17e: 4410         	add	r0, r2
+     180: 4418         	add	r0, r3
+     182: 19cb         	adds	r3, r1, r7
+     184: eb03 0351    	add.w	r3, r3, r1, lsr #1
+     188: fb07 3000    	mla	r0, r7, r0, r3
+     18c: 2306         	movs	r3, #0x6
+     18e: 434b         	muls	r3, r1, r3
+     190: 4283         	cmp	r3, r0
+     192: f240 8115    	bls.w	0x3c0 <calculate_RX_path_rg_val+0x3c0> @ imm = #0x22a
+     196: 1a18         	subs	r0, r3, r0
+     198: 4281         	cmp	r1, r0
+     19a: f200 8113    	bhi.w	0x3c4 <calculate_RX_path_rg_val+0x3c4> @ imm = #0x226
+     19e: 2300         	movs	r3, #0x0
+     1a0: 65a3         	str	r3, [r4, #0x58]
+     1a2: 6da3         	ldr	r3, [r4, #0x58]
+     1a4: 2b02         	cmp	r3, #0x2
+     1a6: f240 8111    	bls.w	0x3cc <calculate_RX_path_rg_val+0x3cc> @ imm = #0x222
+     1aa: 3b02         	subs	r3, #0x2
+     1ac: 6d21         	ldr	r1, [r4, #0x50]
+     1ae: 6623         	str	r3, [r4, #0x60]
+     1b0: 2901         	cmp	r1, #0x1
+     1b2: f200 810d    	bhi.w	0x3d0 <calculate_RX_path_rg_val+0x3d0> @ imm = #0x21a
+     1b6: 2300         	movs	r3, #0x0
+     1b8: f8c4 3094    	str.w	r3, [r4, #0x94]
+     1bc: f8c4 3098    	str.w	r3, [r4, #0x98]
+     1c0: 2900         	cmp	r1, #0x0
+     1c2: f040 810a    	bne.w	0x3da <calculate_RX_path_rg_val+0x3da> @ imm = #0x214
+     1c6: 4608         	mov	r0, r1
+     1c8: f8c4 009c    	str.w	r0, [r4, #0x9c]
+     1cc: 2200         	movs	r2, #0x0
+     1ce: f8c4 212c    	str.w	r2, [r4, #0x12c]
+     1d2: f8d5 8054    	ldr.w	r8, [r5, #0x54]
+     1d6: f895 3052    	ldrb.w	r3, [r5, #0x52]
+     1da: f895 c04e    	ldrb.w	r12, [r5, #0x4e]
+     1de: f895 7048    	ldrb.w	r7, [r5, #0x48]
+     1e2: 3302         	adds	r3, #0x2
+     1e4: 4463         	add	r3, r12
+     1e6: fb00 3307    	mla	r3, r0, r7, r3
+     1ea: f895 0029    	ldrb.w	r0, [r5, #0x29]
+     1ee: fb07 0001    	mla	r0, r7, r1, r0
+     1f2: 4283         	cmp	r3, r0
+     1f4: bf88         	it	hi
+     1f6: 1a1a         	subhi	r2, r3, r0
+     1f8: f8c4 2128    	str.w	r2, [r4, #0x128]
+     1fc: f5b8 6f16    	cmp.w	r8, #0x960
+     200: f04f 0201    	mov.w	r2, #0x1
+     204: f895 3068    	ldrb.w	r3, [r5, #0x68]
+     208: bf88         	it	hi
+     20a: 2202         	movhi	r2, #0x2
+     20c: 6663         	str	r3, [r4, #0x64]
+     20e: 66a2         	str	r2, [r4, #0x68]
+     210: f895 2049    	ldrb.w	r2, [r5, #0x49]
+     214: 2a02         	cmp	r2, #0x2
+     216: f04f 0201    	mov.w	r2, #0x1
+     21a: bf18         	it	ne
+     21c: 2202         	movne	r2, #0x2
+     21e: 2902         	cmp	r1, #0x2
+     220: 66e2         	str	r2, [r4, #0x6c]
+     222: f240 8167    	bls.w	0x4f4 <calculate_RX_path_rg_val+0x4f4> @ imm = #0x2ce
+     226: 2b00         	cmp	r3, #0x0
+     228: f040 80d9    	bne.w	0x3de <calculate_RX_path_rg_val+0x3de> @ imm = #0x1b2
+     22c: 1e8b         	subs	r3, r1, #0x2
+     22e: e0e0         	b	0x3f2 <calculate_RX_path_rg_val+0x3f2> @ imm = #0x1c0
+     230: 2301         	movs	r3, #0x1
+     232: e706         	b	0x42 <calculate_RX_path_rg_val+0x42> @ imm = #-0x1f4
+     234: 786b         	ldrb	r3, [r5, #0x1]
+     236: 458c         	cmp	r12, r1
+     238: 6dae         	ldr	r6, [r5, #0x58]
+     23a: f895 a000    	ldrb.w	r10, [r5]
+     23e: 6c2a         	ldr	r2, [r5, #0x40]
+     240: f8d5 9044    	ldr.w	r9, [r5, #0x44]
+     244: fb03 f606    	mul	r6, r3, r6
+     248: 6b6b         	ldr	r3, [r5, #0x34]
+     24a: f8d5 e03c    	ldr.w	lr, [r5, #0x3c]
+     24e: fb02 620a    	mla	r2, r2, r10, r6
+     252: f895 a053    	ldrb.w	r10, [r5, #0x53]
+     256: eba2 0203    	sub.w	r2, r2, r3
+     25a: f895 3080    	ldrb.w	r3, [r5, #0x80]
+     25e: fb09 2203    	mla	r2, r9, r3, r2
+     262: f895 3048    	ldrb.w	r3, [r5, #0x48]
+     266: fb1a fa03    	smulbb	r10, r10, r3
+     26a: f895 3029    	ldrb.w	r3, [r5, #0x29]
+     26e: fb0e 221a    	mls	r2, lr, r10, r2
+     272: f895 a028    	ldrb.w	r10, [r5, #0x28]
+     276: 449a         	add	r10, r3
+     278: f895 302a    	ldrb.w	r3, [r5, #0x2a]
+     27c: 449a         	add	r10, r3
+     27e: f895 304b    	ldrb.w	r3, [r5, #0x4b]
+     282: 449a         	add	r10, r3
+     284: f101 0306    	add.w	r3, r1, #0x6
+     288: fb0e 221a    	mls	r2, lr, r10, r2
+     28c: f855 3023    	ldr.w	r3, [r5, r3, lsl #2]
+     290: 441a         	add	r2, r3
+     292: bf88         	it	hi
+     294: 2300         	movhi	r3, #0x0
+     296: bf98         	it	ls
+     298: 2301         	movls	r3, #0x1
+     29a: 3302         	adds	r3, #0x2
+     29c: f855 6023    	ldr.w	r6, [r5, r3, lsl #2]
+     2a0: 78ab         	ldrb	r3, [r5, #0x2]
+     2a2: eb03 0346    	add.w	r3, r3, r6, lsl #1
+     2a6: f895 604a    	ldrb.w	r6, [r5, #0x4a]
+     2aa: fb0e f606    	mul	r6, lr, r6
+     2ae: fb06 2303    	mla	r3, r6, r3, r2
+     2b2: aa08         	add	r2, sp, #0x20
+     2b4: eb02 0681    	add.w	r6, r2, r1, lsl #2
+     2b8: fbb3 f2f9    	udiv	r2, r3, r9
+     2bc: f846 3c20    	str	r3, [r6, #-32]
+     2c0: fb09 3312    	mls	r3, r9, r2, r3
+     2c4: f846 2c10    	str	r2, [r6, #-16]
+     2c8: f101 0608    	add.w	r6, r1, #0x8
+     2cc: 3101         	adds	r1, #0x1
+     2ce: b2c9         	uxtb	r1, r1
+     2d0: fbb3 f3fe    	udiv	r3, r3, lr
+     2d4: f844 3026    	str.w	r3, [r4, r6, lsl #2]
+     2d8: e6bb         	b	0x52 <calculate_RX_path_rg_val+0x52> @ imm = #-0x28a
+     2da: ab08         	add	r3, sp, #0x20
+     2dc: 6c68         	ldr	r0, [r5, #0x44]
+     2de: eb03 038e    	add.w	r3, r3, lr, lsl #2
+     2e2: 6be9         	ldr	r1, [r5, #0x3c]
+     2e4: f895 c048    	ldrb.w	r12, [r5, #0x48]
+     2e8: ea4f 068e    	lsl.w	r6, lr, #0x2
+     2ec: f853 2c20    	ldr	r2, [r3, #-32]
+     2f0: fb09 2310    	mls	r3, r9, r0, r2
+     2f4: fbb3 f3f1    	udiv	r3, r3, r1
+     2f8: 4563         	cmp	r3, r12
+     2fa: d328         	blo	0x34e <calculate_RX_path_rg_val+0x34e> @ imm = #0x50
+     2fc: fbb3 f3fc    	udiv	r3, r3, r12
+     300: 443b         	add	r3, r7
+     302: 4426         	add	r6, r4
+     304: f844 302e    	str.w	r3, [r4, lr, lsl #2]
+     308: 6133         	str	r3, [r6, #0x10]
+     30a: f8d4 e050    	ldr.w	lr, [r4, #0x50]
+     30e: 449e         	add	lr, r3
+     310: fb00 221e    	mls	r2, r0, lr, r2
+     314: fbb2 fef1    	udiv	lr, r2, r1
+     318: f8c6 e020    	str.w	lr, [r6, #0x20]
+     31c: f895 0049    	ldrb.w	r0, [r5, #0x49]
+     320: 4470         	add	r0, lr
+     322: 4584         	cmp	r12, r0
+     324: d915         	bls	0x352 <calculate_RX_path_rg_val+0x352> @ imm = #0x2a
+     326: 6330         	str	r0, [r6, #0x30]
+     328: fb01 201e    	mls	r0, r1, lr, r2
+     32c: 0140         	lsls	r0, r0, #0x5
+     32e: f7ff fffe    	bl	0x32e <calculate_RX_path_rg_val+0x32e> @ imm = #-0x4
+			0000032e:  R_ARM_THM_CALL	A_div_B_RU
+     332: 2820         	cmp	r0, #0x20
+     334: bf08         	it	eq
+     336: 4658         	moveq	r0, r11
+     338: 6430         	str	r0, [r6, #0x40]
+     33a: f895 206a    	ldrb.w	r2, [r5, #0x6a]
+     33e: b91a         	cbnz	r2, 0x348 <calculate_RX_path_rg_val+0x348> @ imm = #0x6
+     340: 4603         	mov	r3, r0
+     342: 2804         	cmp	r0, #0x4
+     344: d80b         	bhi	0x35e <calculate_RX_path_rg_val+0x35e> @ imm = #0x16
+     346: 6432         	str	r2, [r6, #0x40]
+     348: f10a 0a01    	add.w	r10, r10, #0x1
+     34c: e68e         	b	0x6c <calculate_RX_path_rg_val+0x6c> @ imm = #-0x2e4
+     34e: 463b         	mov	r3, r7
+     350: e7d7         	b	0x302 <calculate_RX_path_rg_val+0x302> @ imm = #-0x52
+     352: eba0 000c    	sub.w	r0, r0, r12
+     356: 3301         	adds	r3, #0x1
+     358: 6330         	str	r0, [r6, #0x30]
+     35a: 6133         	str	r3, [r6, #0x10]
+     35c: e7e4         	b	0x328 <calculate_RX_path_rg_val+0x328> @ imm = #-0x38
+     35e: 280c         	cmp	r0, #0xc
+     360: d802         	bhi	0x368 <calculate_RX_path_rg_val+0x368> @ imm = #0x4
+     362: 2308         	movs	r3, #0x8
+     364: 6433         	str	r3, [r6, #0x40]
+     366: e7ef         	b	0x348 <calculate_RX_path_rg_val+0x348> @ imm = #-0x22
+     368: 2814         	cmp	r0, #0x14
+     36a: bf98         	it	ls
+     36c: 2310         	movls	r3, #0x10
+     36e: bf88         	it	hi
+     370: 2318         	movhi	r3, #0x18
+     372: e7f7         	b	0x364 <calculate_RX_path_rg_val+0x364> @ imm = #-0x12
+     374: eb04 0381    	add.w	r3, r4, r1, lsl #2
+     378: f895 7048    	ldrb.w	r7, [r5, #0x48]
+     37c: f854 1021    	ldr.w	r1, [r4, r1, lsl #2]
+     380: 6a1e         	ldr	r6, [r3, #0x20]
+     382: fb01 6607    	mla	r6, r1, r7, r6
+     386: 6b19         	ldr	r1, [r3, #0x30]
+     388: 621e         	str	r6, [r3, #0x20]
+     38a: 691e         	ldr	r6, [r3, #0x10]
+     38c: fb06 1107    	mla	r1, r6, r7, r1
+     390: 6319         	str	r1, [r3, #0x30]
+     392: e675         	b	0x80 <calculate_RX_path_rg_val+0x80> @ imm = #-0x316
+     394: 2300         	movs	r3, #0x0
+     396: e6bc         	b	0x112 <calculate_RX_path_rg_val+0x112> @ imm = #-0x288
+     398: 2301         	movs	r3, #0x1
+     39a: e6ba         	b	0x112 <calculate_RX_path_rg_val+0x112> @ imm = #-0x28c
+     39c: f5c0 60fa    	rsb.w	r0, r0, #0x7d0
+     3a0: f7ff fffe    	bl	0x3a0 <calculate_RX_path_rg_val+0x3a0> @ imm = #-0x4
+			000003a0:  R_ARM_THM_CALL	A_div_B_RU
+     3a4: 6560         	str	r0, [r4, #0x54]
+     3a6: e6d2         	b	0x14e <calculate_RX_path_rg_val+0x14e> @ imm = #-0x25c
+     3a8: 1a18         	subs	r0, r3, r0
+     3aa: 4378         	muls	r0, r7, r0
+     3ac: f500 60fa    	add.w	r0, r0, #0x7d0
+     3b0: e7f6         	b	0x3a0 <calculate_RX_path_rg_val+0x3a0> @ imm = #-0x14
+     3b2: f5c1 607a    	rsb.w	r0, r1, #0xfa0
+     3b6: 0040         	lsls	r0, r0, #0x1
+     3b8: f7ff fffe    	bl	0x3b8 <calculate_RX_path_rg_val+0x3b8> @ imm = #-0x4
+			000003b8:  R_ARM_THM_CALL	A_div_B_RU
+     3bc: 65e0         	str	r0, [r4, #0x5c]
+     3be: e6ce         	b	0x15e <calculate_RX_path_rg_val+0x15e> @ imm = #-0x264
+     3c0: 1acb         	subs	r3, r1, r3
+     3c2: 4418         	add	r0, r3
+     3c4: f7ff fffe    	bl	0x3c4 <calculate_RX_path_rg_val+0x3c4> @ imm = #-0x4
+			000003c4:  R_ARM_THM_CALL	A_div_B_RU
+     3c8: 65a0         	str	r0, [r4, #0x58]
+     3ca: e6ea         	b	0x1a2 <calculate_RX_path_rg_val+0x1a2> @ imm = #-0x22c
+     3cc: 2300         	movs	r3, #0x0
+     3ce: e6ed         	b	0x1ac <calculate_RX_path_rg_val+0x1ac> @ imm = #-0x226
+     3d0: 1e8b         	subs	r3, r1, #0x2
+     3d2: f8c4 3094    	str.w	r3, [r4, #0x94]
+     3d6: f8c4 3098    	str.w	r3, [r4, #0x98]
+     3da: 1e48         	subs	r0, r1, #0x1
+     3dc: e6f4         	b	0x1c8 <calculate_RX_path_rg_val+0x1c8> @ imm = #-0x218
+     3de: f895 3069    	ldrb.w	r3, [r5, #0x69]
+     3e2: 2b01         	cmp	r3, #0x1
+     3e4: f43f af22    	beq.w	0x22c <calculate_RX_path_rg_val+0x22c> @ imm = #-0x1bc
+     3e8: f241 03aa    	movw	r3, #0x10aa
+     3ec: 4598         	cmp	r8, r3
+     3ee: d17b         	bne	0x4e8 <calculate_RX_path_rg_val+0x4e8> @ imm = #0xf6
+     3f0: 1f0b         	subs	r3, r1, #0x4
+     3f2: f8c4 30a0    	str.w	r3, [r4, #0xa0]
+     3f6: 4620         	mov	r0, r4
+     3f8: f7ff fffe    	bl	0x3f8 <calculate_RX_path_rg_val+0x3f8> @ imm = #-0x4
+			000003f8:  R_ARM_THM_CALL	get_max_val
+     3fc: 4681         	mov	r9, r0
+     3fe: f104 0010    	add.w	r0, r4, #0x10
+     402: f7ff fffe    	bl	0x402 <calculate_RX_path_rg_val+0x402> @ imm = #-0x4
+			00000402:  R_ARM_THM_CALL	get_max_val
+     406: 4581         	cmp	r9, r0
+     408: 464b         	mov	r3, r9
+     40a: bf38         	it	lo
+     40c: 4603         	movlo	r3, r0
+     40e: 4419         	add	r1, r3
+     410: 2302         	movs	r3, #0x2
+     412: f8c4 1104    	str.w	r1, [r4, #0x104]
+     416: 2200         	movs	r2, #0x0
+     418: f8c4 3108    	str.w	r3, [r4, #0x108]
+     41c: 2303         	movs	r3, #0x3
+     41e: f8c4 310c    	str.w	r3, [r4, #0x10c]
+     422: 2101         	movs	r1, #0x1
+     424: f8c4 3110    	str.w	r3, [r4, #0x110]
+     428: f895 3069    	ldrb.w	r3, [r5, #0x69]
+     42c: f8c4 2118    	str.w	r2, [r4, #0x118]
+     430: f8c4 2120    	str.w	r2, [r4, #0x120]
+     434: f8d4 2094    	ldr.w	r2, [r4, #0x94]
+     438: f8c4 3114    	str.w	r3, [r4, #0x114]
+     43c: 440a         	add	r2, r1
+     43e: f8c4 111c    	str.w	r1, [r4, #0x11c]
+     442: f8c4 2124    	str.w	r2, [r4, #0x124]
+     446: f1b9 0f00    	cmp.w	r9, #0x0
+     44a: d001         	beq	0x450 <calculate_RX_path_rg_val+0x450> @ imm = #0x2
+     44c: f109 39ff    	add.w	r9, r9, #0xffffffff
+     450: 2e0f         	cmp	r6, #0xf
+     452: f8c4 9130    	str.w	r9, [r4, #0x130]
+     456: bf38         	it	lo
+     458: 260f         	movlo	r6, #0xf
+     45a: 3e0f         	subs	r6, #0xf
+     45c: f8c4 6134    	str.w	r6, [r4, #0x134]
+     460: b100         	cbz	r0, 0x464 <calculate_RX_path_rg_val+0x464> @ imm = #0x0
+     462: 3801         	subs	r0, #0x1
+     464: 2200         	movs	r2, #0x0
+     466: f8c4 0138    	str.w	r0, [r4, #0x138]
+     46a: f8c4 213c    	str.w	r2, [r4, #0x13c]
+     46e: b98b         	cbnz	r3, 0x494 <calculate_RX_path_rg_val+0x494> @ imm = #0x22
+     470: 2f04         	cmp	r7, #0x4
+     472: d003         	beq	0x47c <calculate_RX_path_rg_val+0x47c> @ imm = #0x6
+     474: f5a8 6296    	sub.w	r2, r8, #0x4b0
+     478: 4253         	rsbs	r3, r2, #0
+     47a: 4153         	adcs	r3, r2
+     47c: 2f04         	cmp	r7, #0x4
+     47e: f8c4 30fc    	str.w	r3, [r4, #0xfc]
+     482: d039         	beq	0x4f8 <calculate_RX_path_rg_val+0x4f8> @ imm = #0x72
+     484: f5b8 6f96    	cmp.w	r8, #0x4b0
+     488: f04f 0301    	mov.w	r3, #0x1
+     48c: bf08         	it	eq
+     48e: 2302         	moveq	r3, #0x2
+     490: f8c4 3100    	str.w	r3, [r4, #0x100]
+     494: 2301         	movs	r3, #0x1
+     496: 2160         	movs	r1, #0x60
+     498: f8c4 3140    	str.w	r3, [r4, #0x140]
+     49c: 223f         	movs	r2, #0x3f
+     49e: f8c4 1144    	str.w	r1, [r4, #0x144]
+     4a2: f8c4 3148    	str.w	r3, [r4, #0x148]
+     4a6: f8c4 3150    	str.w	r3, [r4, #0x150]
+     4aa: f8c4 1154    	str.w	r1, [r4, #0x154]
+     4ae: f8c4 3158    	str.w	r3, [r4, #0x158]
+     4b2: f8c4 30b4    	str.w	r3, [r4, #0xb4]
+     4b6: f8c4 30b8    	str.w	r3, [r4, #0xb8]
+     4ba: 2300         	movs	r3, #0x0
+     4bc: f8c4 214c    	str.w	r2, [r4, #0x14c]
+     4c0: 4619         	mov	r1, r3
+     4c2: f8c4 215c    	str.w	r2, [r4, #0x15c]
+     4c6: f8c4 30b0    	str.w	r3, [r4, #0xb0]
+     4ca: f8c4 30a8    	str.w	r3, [r4, #0xa8]
+     4ce: f8c4 30ac    	str.w	r3, [r4, #0xac]
+     4d2: 78e8         	ldrb	r0, [r5, #0x3]
+     4d4: 792a         	ldrb	r2, [r5, #0x4]
+     4d6: fb10 f002    	smulbb	r0, r0, r2
+     4da: b2da         	uxtb	r2, r3
+     4dc: 3301         	adds	r3, #0x1
+     4de: 4282         	cmp	r2, r0
+     4e0: db0c         	blt	0x4fc <calculate_RX_path_rg_val+0x4fc> @ imm = #0x18
+     4e2: b009         	add	sp, #0x24
+     4e4: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     4e8: f5b8 6f16    	cmp.w	r8, #0x960
+     4ec: f67f ae9e    	bls.w	0x22c <calculate_RX_path_rg_val+0x22c> @ imm = #-0x2c4
+     4f0: 1ecb         	subs	r3, r1, #0x3
+     4f2: e77e         	b	0x3f2 <calculate_RX_path_rg_val+0x3f2> @ imm = #-0x104
+     4f4: 2300         	movs	r3, #0x0
+     4f6: e77c         	b	0x3f2 <calculate_RX_path_rg_val+0x3f2> @ imm = #-0x108
+     4f8: 2301         	movs	r3, #0x1
+     4fa: e7c9         	b	0x490 <calculate_RX_path_rg_val+0x490> @ imm = #-0x6e
+     4fc: eb04 0282    	add.w	r2, r4, r2, lsl #2
+     500: f8c2 10bc    	str.w	r1, [r2, #0xbc]
+     504: f8c2 10cc    	str.w	r1, [r2, #0xcc]
+     508: f8c2 10dc    	str.w	r1, [r2, #0xdc]
+     50c: f8c2 10ec    	str.w	r1, [r2, #0xec]
+     510: e7e3         	b	0x4da <calculate_RX_path_rg_val+0x4da> @ imm = #-0x3a
+
+Disassembly of section .text.RX_PATH_auto_gen_and_set:
+
+00000000 <RX_PATH_auto_gen_and_set>:
+       0: e92d 47f0    	push.w	{r4, r5, r6, r7, r8, r9, r10, lr}
+       4: fa5f f881    	uxtb.w	r8, r1
+       8: 4605         	mov	r5, r0
+       a: b0fa         	sub	sp, #0x1e8
+       c: 460f         	mov	r7, r1
+       e: ac21         	add	r4, sp, #0x84
+      10: 4641         	mov	r1, r8
+      12: 4616         	mov	r6, r2
+      14: 4668         	mov	r0, sp
+      16: b2d2         	uxtb	r2, r2
+      18: f8df 92e8    	ldr.w	r9, [pc, #0x2e8]        @ 0x304 <RX_PATH_auto_gen_and_set+0x304>
+      1c: f7ff fffe    	bl	0x1c <RX_PATH_auto_gen_and_set+0x1c> @ imm = #-0x4
+			0000001c:  R_ARM_THM_CALL	get_RX_path_config
+      20: 463a         	mov	r2, r7
+      22: 4621         	mov	r1, r4
+      24: 4668         	mov	r0, sp
+      26: f7ff fffe    	bl	0x26 <RX_PATH_auto_gen_and_set+0x26> @ imm = #-0x4
+			00000026:  R_ARM_THM_CALL	calculate_RX_path_rg_val
+      2a: 4641         	mov	r1, r8
+      2c: 4628         	mov	r0, r5
+      2e: f8df 82d8    	ldr.w	r8, [pc, #0x2d8]        @ 0x308 <RX_PATH_auto_gen_and_set+0x308>
+      32: f7ff fffe    	bl	0x32 <RX_PATH_auto_gen_and_set+0x32> @ imm = #-0x4
+			00000032:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      36: 6de3         	ldr	r3, [r4, #0x5c]
+      38: f8d4 0160    	ldr.w	r0, [r4, #0x160]
+      3c: 3e00         	subs	r6, #0x0
+      3e: f8df a2cc    	ldr.w	r10, [pc, #0x2cc]       @ 0x30c <RX_PATH_auto_gen_and_set+0x30c>
+      42: f04f 0700    	mov.w	r7, #0x0
+      46: ea4f 6103    	lsl.w	r1, r3, #0x18
+      4a: 6e23         	ldr	r3, [r4, #0x60]
+      4c: f001 61e0    	and	r1, r1, #0x7000000
+      50: bf18         	it	ne
+      52: 2601         	movne	r6, #0x1
+      54: f8c5 6098    	str.w	r6, [r5, #0x98]
+      58: 071b         	lsls	r3, r3, #0x1c
+      5a: 4ead         	ldr	r6, [pc, #0x2b4]        @ 0x310 <RX_PATH_auto_gen_and_set+0x310>
+      5c: f003 43e0    	and	r3, r3, #0x70000000
+      60: 4319         	orrs	r1, r3
+      62: f000 0301    	and	r3, r0, #0x1
+      66: 4319         	orrs	r1, r3
+      68: 6d63         	ldr	r3, [r4, #0x54]
+      6a: 041b         	lsls	r3, r3, #0x10
+      6c: f403 23e0    	and	r3, r3, #0x70000
+      70: 4319         	orrs	r1, r3
+      72: 6da3         	ldr	r3, [r4, #0x58]
+      74: 051b         	lsls	r3, r3, #0x14
+      76: f403 03e0    	and	r3, r3, #0x700000
+      7a: 4319         	orrs	r1, r3
+      7c: 6e63         	ldr	r3, [r4, #0x64]
+      7e: 021b         	lsls	r3, r3, #0x8
+      80: f403 7380    	and	r3, r3, #0x100
+      84: 4319         	orrs	r1, r3
+      86: 6ea3         	ldr	r3, [r4, #0x68]
+      88: 025b         	lsls	r3, r3, #0x9
+      8a: f403 6260    	and	r2, r3, #0xe00
+      8e: 4ba1         	ldr	r3, [pc, #0x284]        @ 0x314 <RX_PATH_auto_gen_and_set+0x314>
+      90: 4311         	orrs	r1, r2
+      92: 6ee2         	ldr	r2, [r4, #0x6c]
+      94: 0392         	lsls	r2, r2, #0xe
+      96: b292         	uxth	r2, r2
+      98: 4311         	orrs	r1, r2
+      9a: 0042         	lsls	r2, r0, #0x1
+      9c: f002 0202    	and	r2, r2, #0x2
+      a0: 4628         	mov	r0, r5
+      a2: 430a         	orrs	r2, r1
+      a4: 499c         	ldr	r1, [pc, #0x270]        @ 0x318 <RX_PATH_auto_gen_and_set+0x318>
+      a6: f7ff fffe    	bl	0xa6 <RX_PATH_auto_gen_and_set+0xa6> @ imm = #-0x4
+			000000a6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      aa: f8d4 3094    	ldr.w	r3, [r4, #0x94]
+      ae: f8d4 20a0    	ldr.w	r2, [r4, #0xa0]
+      b2: 4628         	mov	r0, r5
+      b4: 0419         	lsls	r1, r3, #0x10
+      b6: f8d4 3104    	ldr.w	r3, [r4, #0x104]
+      ba: f401 11f8    	and	r1, r1, #0x1f0000
+      be: f002 021f    	and	r2, r2, #0x1f
+      c2: 055b         	lsls	r3, r3, #0x15
+      c4: f003 7378    	and	r3, r3, #0x3e00000
+      c8: 4319         	orrs	r1, r3
+      ca: 4b94         	ldr	r3, [pc, #0x250]        @ 0x31c <RX_PATH_auto_gen_and_set+0x31c>
+      cc: 4311         	orrs	r1, r2
+      ce: f8d4 2098    	ldr.w	r2, [r4, #0x98]
+      d2: 0292         	lsls	r2, r2, #0xa
+      d4: f402 42f8    	and	r2, r2, #0x7c00
+      d8: 4311         	orrs	r1, r2
+      da: f8d4 209c    	ldr.w	r2, [r4, #0x9c]
+      de: 0152         	lsls	r2, r2, #0x5
+      e0: f402 7278    	and	r2, r2, #0x3e0
+      e4: 430a         	orrs	r2, r1
+      e6: 498e         	ldr	r1, [pc, #0x238]        @ 0x320 <RX_PATH_auto_gen_and_set+0x320>
+      e8: f7ff fffe    	bl	0xe8 <RX_PATH_auto_gen_and_set+0xe8> @ imm = #-0x4
+			000000e8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ec: f8d4 3114    	ldr.w	r3, [r4, #0x114]
+      f0: f8d4 1128    	ldr.w	r1, [r4, #0x128]
+      f4: 4628         	mov	r0, r5
+      f6: f003 0201    	and	r2, r3, #0x1
+      fa: f8d4 3118    	ldr.w	r3, [r4, #0x118]
+      fe: ea42 6201    	orr.w	r2, r2, r1, lsl #24
+     102: 4988         	ldr	r1, [pc, #0x220]        @ 0x324 <RX_PATH_auto_gen_and_set+0x324>
+     104: 015b         	lsls	r3, r3, #0x5
+     106: f003 0320    	and	r3, r3, #0x20
+     10a: 431a         	orrs	r2, r3
+     10c: f8d4 312c    	ldr.w	r3, [r4, #0x12c]
+     110: 041b         	lsls	r3, r3, #0x10
+     112: f403 037f    	and	r3, r3, #0xff0000
+     116: 431a         	orrs	r2, r3
+     118: f8d4 3120    	ldr.w	r3, [r4, #0x120]
+     11c: 01db         	lsls	r3, r3, #0x7
+     11e: b2db         	uxtb	r3, r3
+     120: 431a         	orrs	r2, r3
+     122: f8d4 3124    	ldr.w	r3, [r4, #0x124]
+     126: 021b         	lsls	r3, r3, #0x8
+     128: f403 6370    	and	r3, r3, #0xf00
+     12c: 431a         	orrs	r2, r3
+     12e: f8d4 311c    	ldr.w	r3, [r4, #0x11c]
+     132: 011b         	lsls	r3, r3, #0x4
+     134: f003 0310    	and	r3, r3, #0x10
+     138: 431a         	orrs	r2, r3
+     13a: 4b7b         	ldr	r3, [pc, #0x1ec]        @ 0x328 <RX_PATH_auto_gen_and_set+0x328>
+     13c: f042 0240    	orr	r2, r2, #0x40
+     140: f7ff fffe    	bl	0x140 <RX_PATH_auto_gen_and_set+0x140> @ imm = #-0x4
+			00000140:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     144: f894 2134    	ldrb.w	r2, [r4, #0x134]
+     148: 4978         	ldr	r1, [pc, #0x1e0]        @ 0x32c <RX_PATH_auto_gen_and_set+0x32c>
+     14a: 4628         	mov	r0, r5
+     14c: 23ff         	movs	r3, #0xff
+     14e: f7ff fffe    	bl	0x14e <RX_PATH_auto_gen_and_set+0x14e> @ imm = #-0x4
+			0000014e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     152: f894 2134    	ldrb.w	r2, [r4, #0x134]
+     156: 4976         	ldr	r1, [pc, #0x1d8]        @ 0x330 <RX_PATH_auto_gen_and_set+0x330>
+     158: 4628         	mov	r0, r5
+     15a: 23ff         	movs	r3, #0xff
+     15c: f7ff fffe    	bl	0x15c <RX_PATH_auto_gen_and_set+0x15c> @ imm = #-0x4
+			0000015c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     160: f8d4 2100    	ldr.w	r2, [r4, #0x100]
+     164: f8d4 30fc    	ldr.w	r3, [r4, #0xfc]
+     168: 4628         	mov	r0, r5
+     16a: 4972         	ldr	r1, [pc, #0x1c8]        @ 0x334 <RX_PATH_auto_gen_and_set+0x334>
+     16c: 0652         	lsls	r2, r2, #0x19
+     16e: f002 6260    	and	r2, r2, #0xe000000
+     172: ea42 7243    	orr.w	r2, r2, r3, lsl #29
+     176: 4b70         	ldr	r3, [pc, #0x1c0]        @ 0x338 <RX_PATH_auto_gen_and_set+0x338>
+     178: 4332         	orrs	r2, r6
+     17a: f7ff fffe    	bl	0x17a <RX_PATH_auto_gen_and_set+0x17a> @ imm = #-0x4
+			0000017a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     17e: f8d4 2100    	ldr.w	r2, [r4, #0x100]
+     182: f8d4 30fc    	ldr.w	r3, [r4, #0xfc]
+     186: 4628         	mov	r0, r5
+     188: 496c         	ldr	r1, [pc, #0x1b0]        @ 0x33c <RX_PATH_auto_gen_and_set+0x33c>
+     18a: 0652         	lsls	r2, r2, #0x19
+     18c: f002 6260    	and	r2, r2, #0xe000000
+     190: ea42 7243    	orr.w	r2, r2, r3, lsl #29
+     194: 4b68         	ldr	r3, [pc, #0x1a0]        @ 0x338 <RX_PATH_auto_gen_and_set+0x338>
+     196: 4332         	orrs	r2, r6
+     198: f7ff fffe    	bl	0x198 <RX_PATH_auto_gen_and_set+0x198> @ imm = #-0x4
+			00000198:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     19c: 4b68         	ldr	r3, [pc, #0x1a0]        @ 0x340 <RX_PATH_auto_gen_and_set+0x340>
+     19e: 4969         	ldr	r1, [pc, #0x1a4]        @ 0x344 <RX_PATH_auto_gen_and_set+0x344>
+     1a0: 4628         	mov	r0, r5
+     1a2: f893 2089    	ldrb.w	r2, [r3, #0x89]
+     1a6: 2301         	movs	r3, #0x1
+     1a8: 401a         	ands	r2, r3
+     1aa: f7ff fffe    	bl	0x1aa <RX_PATH_auto_gen_and_set+0x1aa> @ imm = #-0x4
+			000001aa:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1ae: 6f22         	ldr	r2, [r4, #0x70]
+     1b0: 6fa3         	ldr	r3, [r4, #0x78]
+     1b2: 4628         	mov	r0, r5
+     1b4: 0212         	lsls	r2, r2, #0x8
+     1b6: 041b         	lsls	r3, r3, #0x10
+     1b8: f402 52f8    	and	r2, r2, #0x1f00
+     1bc: f403 13f8    	and	r3, r3, #0x1f0000
+     1c0: 431a         	orrs	r2, r3
+     1c2: 6f63         	ldr	r3, [r4, #0x74]
+     1c4: f003 011f    	and	r1, r3, #0x1f
+     1c8: 4b5f         	ldr	r3, [pc, #0x17c]        @ 0x348 <RX_PATH_auto_gen_and_set+0x348>
+     1ca: 430a         	orrs	r2, r1
+     1cc: 495f         	ldr	r1, [pc, #0x17c]        @ 0x34c <RX_PATH_auto_gen_and_set+0x34c>
+     1ce: f7ff fffe    	bl	0x1ce <RX_PATH_auto_gen_and_set+0x1ce> @ imm = #-0x4
+			000001ce:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1d2: f8d4 3088    	ldr.w	r3, [r4, #0x88]
+     1d6: 6fe2         	ldr	r2, [r4, #0x7c]
+     1d8: 4628         	mov	r0, r5
+     1da: 0199         	lsls	r1, r3, #0x6
+     1dc: f8d4 3084    	ldr.w	r3, [r4, #0x84]
+     1e0: f001 0140    	and	r1, r1, #0x40
+     1e4: 01db         	lsls	r3, r3, #0x7
+     1e6: b2db         	uxtb	r3, r3
+     1e8: 4319         	orrs	r1, r3
+     1ea: f8d4 3080    	ldr.w	r3, [r4, #0x80]
+     1ee: ea41 5102    	orr.w	r1, r1, r2, lsl #20
+     1f2: 4a57         	ldr	r2, [pc, #0x15c]        @ 0x350 <RX_PATH_auto_gen_and_set+0x350>
+     1f4: ea02 2203    	and.w	r2, r2, r3, lsl #8
+     1f8: f06f 0320    	mvn	r3, #0x20
+     1fc: 430a         	orrs	r2, r1
+     1fe: 4955         	ldr	r1, [pc, #0x154]        @ 0x354 <RX_PATH_auto_gen_and_set+0x354>
+     200: f7ff fffe    	bl	0x200 <RX_PATH_auto_gen_and_set+0x200> @ imm = #-0x4
+			00000200:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     204: f8d4 3090    	ldr.w	r3, [r4, #0x90]
+     208: 0119         	lsls	r1, r3, #0x4
+     20a: f3c3 0280    	ubfx	r2, r3, #0x2, #0x1
+     20e: f001 0110    	and	r1, r1, #0x10
+     212: 0858         	lsrs	r0, r3, #0x1
+     214: 4311         	orrs	r1, r2
+     216: 015a         	lsls	r2, r3, #0x5
+     218: f002 0220    	and	r2, r2, #0x20
+     21c: 233f         	movs	r3, #0x3f
+     21e: 4311         	orrs	r1, r2
+     220: f000 0202    	and	r2, r0, #0x2
+     224: 4311         	orrs	r1, r2
+     226: 0082         	lsls	r2, r0, #0x2
+     228: f002 0204    	and	r2, r2, #0x4
+     22c: 4311         	orrs	r1, r2
+     22e: 00c2         	lsls	r2, r0, #0x3
+     230: f002 0208    	and	r2, r2, #0x8
+     234: 4628         	mov	r0, r5
+     236: 430a         	orrs	r2, r1
+     238: 4947         	ldr	r1, [pc, #0x11c]        @ 0x358 <RX_PATH_auto_gen_and_set+0x358>
+     23a: f7ff fffe    	bl	0x23a <RX_PATH_auto_gen_and_set+0x23a> @ imm = #-0x4
+			0000023a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     23e: f8d4 30b4    	ldr.w	r3, [r4, #0xb4]
+     242: f8d4 20a8    	ldr.w	r2, [r4, #0xa8]
+     246: 4628         	mov	r0, r5
+     248: f003 0101    	and	r1, r3, #0x1
+     24c: f8d4 30b0    	ldr.w	r3, [r4, #0xb0]
+     250: ea41 71c2    	orr.w	r1, r1, r2, lsl #31
+     254: f8d4 20ac    	ldr.w	r2, [r4, #0xac]
+     258: 011b         	lsls	r3, r3, #0x4
+     25a: 0792         	lsls	r2, r2, #0x1e
+     25c: b2db         	uxtb	r3, r3
+     25e: 4319         	orrs	r1, r3
+     260: f002 4280    	and	r2, r2, #0x40000000
+     264: 4311         	orrs	r1, r2
+     266: f8d4 20b8    	ldr.w	r2, [r4, #0xb8]
+     26a: 4b3c         	ldr	r3, [pc, #0xf0]         @ 0x35c <RX_PATH_auto_gen_and_set+0x35c>
+     26c: 0752         	lsls	r2, r2, #0x1d
+     26e: f002 5200    	and	r2, r2, #0x20000000
+     272: 430a         	orrs	r2, r1
+     274: 493a         	ldr	r1, [pc, #0xe8]         @ 0x360 <RX_PATH_auto_gen_and_set+0x360>
+     276: f7ff fffe    	bl	0x276 <RX_PATH_auto_gen_and_set+0x276> @ imm = #-0x4
+			00000276:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     27a: f89d 3004    	ldrb.w	r3, [sp, #0x4]
+     27e: b2fe         	uxtb	r6, r7
+     280: 42b3         	cmp	r3, r6
+     282: d871         	bhi	0x368 <RX_PATH_auto_gen_and_set+0x368> @ imm = #0xe2
+     284: 4628         	mov	r0, r5
+     286: 2100         	movs	r1, #0x0
+     288: f7ff fffe    	bl	0x288 <RX_PATH_auto_gen_and_set+0x288> @ imm = #-0x4
+			00000288:  R_ARM_THM_CALL	vSetRank
+     28c: f8d4 3140    	ldr.w	r3, [r4, #0x140]
+     290: f8d4 2144    	ldr.w	r2, [r4, #0x144]
+     294: 4628         	mov	r0, r5
+     296: 01d9         	lsls	r1, r3, #0x7
+     298: f8d4 3148    	ldr.w	r3, [r4, #0x148]
+     29c: f002 027f    	and	r2, r2, #0x7f
+     2a0: b2c9         	uxtb	r1, r1
+     2a2: 03db         	lsls	r3, r3, #0xf
+     2a4: b29b         	uxth	r3, r3
+     2a6: 4319         	orrs	r1, r3
+     2a8: f64f 73ff    	movw	r3, #0xffff
+     2ac: 4311         	orrs	r1, r2
+     2ae: f8d4 214c    	ldr.w	r2, [r4, #0x14c]
+     2b2: 0212         	lsls	r2, r2, #0x8
+     2b4: f402 42fe    	and	r2, r2, #0x7f00
+     2b8: 430a         	orrs	r2, r1
+     2ba: 492a         	ldr	r1, [pc, #0xa8]         @ 0x364 <RX_PATH_auto_gen_and_set+0x364>
+     2bc: f7ff fffe    	bl	0x2bc <RX_PATH_auto_gen_and_set+0x2bc> @ imm = #-0x4
+			000002bc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2c0: 4628         	mov	r0, r5
+     2c2: 2101         	movs	r1, #0x1
+     2c4: f7ff fffe    	bl	0x2c4 <RX_PATH_auto_gen_and_set+0x2c4> @ imm = #-0x4
+			000002c4:  R_ARM_THM_CALL	vSetRank
+     2c8: f8d4 3150    	ldr.w	r3, [r4, #0x150]
+     2cc: f8d4 2154    	ldr.w	r2, [r4, #0x154]
+     2d0: 4628         	mov	r0, r5
+     2d2: 01d9         	lsls	r1, r3, #0x7
+     2d4: f8d4 3158    	ldr.w	r3, [r4, #0x158]
+     2d8: f002 027f    	and	r2, r2, #0x7f
+     2dc: b2c9         	uxtb	r1, r1
+     2de: 03db         	lsls	r3, r3, #0xf
+     2e0: b29b         	uxth	r3, r3
+     2e2: 4319         	orrs	r1, r3
+     2e4: f64f 73ff    	movw	r3, #0xffff
+     2e8: 4311         	orrs	r1, r2
+     2ea: f8d4 215c    	ldr.w	r2, [r4, #0x15c]
+     2ee: 0212         	lsls	r2, r2, #0x8
+     2f0: f402 42fe    	and	r2, r2, #0x7f00
+     2f4: 430a         	orrs	r2, r1
+     2f6: 491b         	ldr	r1, [pc, #0x6c]         @ 0x364 <RX_PATH_auto_gen_and_set+0x364>
+     2f8: f7ff fffe    	bl	0x2f8 <RX_PATH_auto_gen_and_set+0x2f8> @ imm = #-0x4
+			000002f8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2fc: b07a         	add	sp, #0x1e8
+     2fe: e8bd 87f0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, pc}
+     302: bf00         	nop
+     304: 60 0b 60 01  	.word	0x01600b60
+     308: ff 00 7f 00  	.word	0x007f00ff
+     30c: 2c 0a 60 11  	.word	0x11600a2c
+     310: 00 80 00 11  	.word	0x11008000
+     314: 03 cf 77 77  	.word	0x7777cf03
+     318: a4 10 20 01  	.word	0x012010a4
+     31c: ff 7f ff 03  	.word	0x03ff7fff
+     320: a0 10 20 01  	.word	0x012010a0
+     324: f8 10 20 01  	.word	0x012010f8
+     328: f1 0f ff ff  	.word	0xffff0ff1
+     32c: 20 0f 20 11  	.word	0x11200f20
+     330: a0 0f 20 19  	.word	0x19200fa0
+     334: 04 0f 20 91  	.word	0x91200f04
+     338: 00 80 00 ff  	.word	0xff008000
+     33c: 84 0f 20 99  	.word	0x99200f84
+     340: 00 00 00 00  	.word	0x00000000
+			00000340:  R_ARM_ABS32	DUTTopSetGlobal
+     344: ec 10 20 01  	.word	0x012010ec
+     348: 1f 1f 1f 00  	.word	0x001f1f1f
+     34c: b8 10 20 01  	.word	0x012010b8
+     350: 00 ff 0f 00  	.word	0x000fff00
+     354: fc 10 20 01  	.word	0x012010fc
+     358: 8c 16 20 00  	.word	0x0020168c
+     35c: f1 00 00 e0  	.word	0xe00000f1
+     360: a8 10 20 01  	.word	0x012010a8
+     364: 68 0b 60 01  	.word	0x01600b68
+     368: 4631         	mov	r1, r6
+     36a: 4628         	mov	r0, r5
+     36c: f7ff fffe    	bl	0x36c <RX_PATH_auto_gen_and_set+0x36c> @ imm = #-0x4
+			0000036c:  R_ARM_THM_CALL	vSetRank
+     370: 6d22         	ldr	r2, [r4, #0x50]
+     372: 231f         	movs	r3, #0x1f
+     374: 4649         	mov	r1, r9
+     376: 401a         	ands	r2, r3
+     378: 4628         	mov	r0, r5
+     37a: f7ff fffe    	bl	0x37a <RX_PATH_auto_gen_and_set+0x37a> @ imm = #-0x4
+			0000037a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     37e: f89d 3004    	ldrb.w	r3, [sp, #0x4]
+     382: 4628         	mov	r0, r5
+     384: 3701         	adds	r7, #0x1
+     386: 4373         	muls	r3, r6, r3
+     388: f103 0210    	add.w	r2, r3, #0x10
+     38c: 3308         	adds	r3, #0x8
+     38e: f854 2022    	ldr.w	r2, [r4, r2, lsl #2]
+     392: f814 1023    	ldrb.w	r1, [r4, r3, lsl #2]
+     396: 4643         	mov	r3, r8
+     398: 0412         	lsls	r2, r2, #0x10
+     39a: f402 02fe    	and	r2, r2, #0x7f0000
+     39e: 430a         	orrs	r2, r1
+     3a0: 4651         	mov	r1, r10
+     3a2: f7ff fffe    	bl	0x3a2 <RX_PATH_auto_gen_and_set+0x3a2> @ imm = #-0x4
+			000003a2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3a6: f89d 3004    	ldrb.w	r3, [sp, #0x4]
+     3aa: 4628         	mov	r0, r5
+     3ac: 4373         	muls	r3, r6, r3
+     3ae: f103 0211    	add.w	r2, r3, #0x11
+     3b2: 3309         	adds	r3, #0x9
+     3b4: f854 2022    	ldr.w	r2, [r4, r2, lsl #2]
+     3b8: f814 1023    	ldrb.w	r1, [r4, r3, lsl #2]
+     3bc: 4643         	mov	r3, r8
+     3be: 0412         	lsls	r2, r2, #0x10
+     3c0: f402 02fe    	and	r2, r2, #0x7f0000
+     3c4: 430a         	orrs	r2, r1
+     3c6: 493d         	ldr	r1, [pc, #0xf4]         @ 0x4bc <RX_PATH_auto_gen_and_set+0x4bc>
+     3c8: f7ff fffe    	bl	0x3c8 <RX_PATH_auto_gen_and_set+0x3c8> @ imm = #-0x4
+			000003c8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3cc: f89d 2004    	ldrb.w	r2, [sp, #0x4]
+     3d0: 493b         	ldr	r1, [pc, #0xec]         @ 0x4c0 <RX_PATH_auto_gen_and_set+0x4c0>
+     3d2: 4628         	mov	r0, r5
+     3d4: 23ff         	movs	r3, #0xff
+     3d6: 4372         	muls	r2, r6, r2
+     3d8: eb04 0282    	add.w	r2, r4, r2, lsl #2
+     3dc: f892 20dc    	ldrb.w	r2, [r2, #0xdc]
+     3e0: f7ff fffe    	bl	0x3e0 <RX_PATH_auto_gen_and_set+0x3e0> @ imm = #-0x4
+			000003e0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3e4: f89d 2004    	ldrb.w	r2, [sp, #0x4]
+     3e8: 4936         	ldr	r1, [pc, #0xd8]         @ 0x4c4 <RX_PATH_auto_gen_and_set+0x4c4>
+     3ea: 4628         	mov	r0, r5
+     3ec: 23ff         	movs	r3, #0xff
+     3ee: 4372         	muls	r2, r6, r2
+     3f0: eb04 0282    	add.w	r2, r4, r2, lsl #2
+     3f4: f892 20e0    	ldrb.w	r2, [r2, #0xe0]
+     3f8: f7ff fffe    	bl	0x3f8 <RX_PATH_auto_gen_and_set+0x3f8> @ imm = #-0x4
+			000003f8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3fc: f89d 3004    	ldrb.w	r3, [sp, #0x4]
+     400: 4628         	mov	r0, r5
+     402: 4373         	muls	r3, r6, r3
+     404: f103 0208    	add.w	r2, r3, #0x8
+     408: 3310         	adds	r3, #0x10
+     40a: f854 1022    	ldr.w	r1, [r4, r2, lsl #2]
+     40e: f854 2023    	ldr.w	r2, [r4, r3, lsl #2]
+     412: f64f 737f    	movw	r3, #0xff7f
+     416: 0209         	lsls	r1, r1, #0x8
+     418: f002 027f    	and	r2, r2, #0x7f
+     41c: b289         	uxth	r1, r1
+     41e: 430a         	orrs	r2, r1
+     420: 4929         	ldr	r1, [pc, #0xa4]         @ 0x4c8 <RX_PATH_auto_gen_and_set+0x4c8>
+     422: f7ff fffe    	bl	0x422 <RX_PATH_auto_gen_and_set+0x422> @ imm = #-0x4
+			00000422:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     426: f89d 3004    	ldrb.w	r3, [sp, #0x4]
+     42a: 4628         	mov	r0, r5
+     42c: 4373         	muls	r3, r6, r3
+     42e: f103 0209    	add.w	r2, r3, #0x9
+     432: 3311         	adds	r3, #0x11
+     434: f854 1022    	ldr.w	r1, [r4, r2, lsl #2]
+     438: f854 2023    	ldr.w	r2, [r4, r3, lsl #2]
+     43c: f64f 737f    	movw	r3, #0xff7f
+     440: 0209         	lsls	r1, r1, #0x8
+     442: f002 027f    	and	r2, r2, #0x7f
+     446: b289         	uxth	r1, r1
+     448: 430a         	orrs	r2, r1
+     44a: 4920         	ldr	r1, [pc, #0x80]         @ 0x4cc <RX_PATH_auto_gen_and_set+0x4cc>
+     44c: f7ff fffe    	bl	0x44c <RX_PATH_auto_gen_and_set+0x44c> @ imm = #-0x4
+			0000044c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     450: f89d 3004    	ldrb.w	r3, [sp, #0x4]
+     454: 4628         	mov	r0, r5
+     456: 4373         	muls	r3, r6, r3
+     458: f103 020c    	add.w	r2, r3, #0xc
+     45c: f103 0110    	add.w	r1, r3, #0x10
+     460: 3308         	adds	r3, #0x8
+     462: f854 2022    	ldr.w	r2, [r4, r2, lsl #2]
+     466: f854 1021    	ldr.w	r1, [r4, r1, lsl #2]
+     46a: f001 017f    	and	r1, r1, #0x7f
+     46e: ea41 6102    	orr.w	r1, r1, r2, lsl #24
+     472: f854 2023    	ldr.w	r2, [r4, r3, lsl #2]
+     476: 4b16         	ldr	r3, [pc, #0x58]         @ 0x4d0 <RX_PATH_auto_gen_and_set+0x4d0>
+     478: 0212         	lsls	r2, r2, #0x8
+     47a: b292         	uxth	r2, r2
+     47c: 430a         	orrs	r2, r1
+     47e: 4915         	ldr	r1, [pc, #0x54]         @ 0x4d4 <RX_PATH_auto_gen_and_set+0x4d4>
+     480: f7ff fffe    	bl	0x480 <RX_PATH_auto_gen_and_set+0x480> @ imm = #-0x4
+			00000480:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     484: f89d 3004    	ldrb.w	r3, [sp, #0x4]
+     488: 4628         	mov	r0, r5
+     48a: 435e         	muls	r6, r3, r6
+     48c: f106 030d    	add.w	r3, r6, #0xd
+     490: f854 2023    	ldr.w	r2, [r4, r3, lsl #2]
+     494: f106 0311    	add.w	r3, r6, #0x11
+     498: 3609         	adds	r6, #0x9
+     49a: f854 1023    	ldr.w	r1, [r4, r3, lsl #2]
+     49e: 4b0c         	ldr	r3, [pc, #0x30]         @ 0x4d0 <RX_PATH_auto_gen_and_set+0x4d0>
+     4a0: f001 017f    	and	r1, r1, #0x7f
+     4a4: ea41 6102    	orr.w	r1, r1, r2, lsl #24
+     4a8: f854 2026    	ldr.w	r2, [r4, r6, lsl #2]
+     4ac: 0212         	lsls	r2, r2, #0x8
+     4ae: b292         	uxth	r2, r2
+     4b0: 430a         	orrs	r2, r1
+     4b2: 4909         	ldr	r1, [pc, #0x24]         @ 0x4d8 <RX_PATH_auto_gen_and_set+0x4d8>
+     4b4: f7ff fffe    	bl	0x4b4 <RX_PATH_auto_gen_and_set+0x4b4> @ imm = #-0x4
+			000004b4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     4b8: e6df         	b	0x27a <RX_PATH_auto_gen_and_set+0x27a> @ imm = #-0x242
+     4ba: bf00         	nop
+     4bc: ac 0a 60 19  	.word	0x19600aac
+     4c0: 30 0a 60 11  	.word	0x11600a30
+     4c4: b0 0a 60 19  	.word	0x19600ab0
+     4c8: 24 0a 60 11  	.word	0x11600a24
+     4cc: a4 0a 60 19  	.word	0x19600aa4
+     4d0: 7f ff 00 ff  	.word	0xff00ff7f
+     4d4: 28 0a 60 11  	.word	0x11600a28
+     4d8: a8 0a 60 19  	.word	0x19600aa8

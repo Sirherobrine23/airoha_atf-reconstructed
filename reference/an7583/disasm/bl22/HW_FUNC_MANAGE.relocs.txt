@@ -1,0 +1,101 @@
+
+Relocation section '.rel.text.DRAMC_HW_FUNC_ZQCAL_config' at offset 0xf70 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000002c  00003f02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000030  00004002 R_ARM_ABS32            00000000   MEM_TYPE
+
+Relocation section '.rel.text.DIG_HW_NONSHUF_ZQCAL_CFG' at offset 0xf80 contains 5 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000420a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000030  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000060  00004002 R_ARM_ABS32            00000000   MEM_TYPE
+00000064  00003602 R_ARM_ABS32            00000000   .bss.HW_ZQCAL_CTRL
+0000003c  0000421e R_ARM_THM_JUMP24       00000000   vSetPHY2ChannelMapping
+
+Relocation section '.rel.text.DIG_HW_SHUF_ZQCAL_CFG' at offset 0xfa8 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000420a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000024  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000002c  0000420a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000038  00003602 R_ARM_ABS32            00000000   .bss.HW_ZQCAL_CTRL
+
+Relocation section '.rel.text.DIG_HW_NONSHUF_ZQCAL_SWITCH' at offset 0xfc8 contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000420a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000016  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000022  0000421e R_ARM_THM_JUMP24       00000000   vSetPHY2ChannelMapping
+
+Relocation section '.rel.text.DRAMC_HW_FUNC_IMPCAL_config' at offset 0xfe0 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000078  00004902 R_ARM_ABS32            00000000   DV_p
+
+Relocation section '.rel.text.DIG_HW_SHUF_IMPCAL_CFG' at offset 0xfe8 contains 15 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0000420a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000024  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000007a  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000c4  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000100  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000013c  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000014a  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000176  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000192  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001b8  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001e2  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000025e  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000002f0  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000324  00003402 R_ARM_ABS32            00000000   .bss.HW_IMPCAL_CTRL
+00000300  0000421e R_ARM_THM_JUMP24       00000000   vSetPHY2ChannelMapping
+
+Relocation section '.rel.text.DIG_HW_NONSHUF_IMPCAL_SWITCH' at offset 0x1060 contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000420a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000014  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000020  0000421e R_ARM_THM_JUMP24       00000000   vSetPHY2ChannelMapping
+
+Relocation section '.rel.text.DIG_HW_NONSHUF_DQSG_SWITCH' at offset 0x1078 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0000420a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+00000016  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000036  0000430a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000042  0000421e R_ARM_THM_JUMP24       00000000   vSetPHY2ChannelMapping
+
+Relocation section '.rel.text.DIG_HW_ATTRIBUTE_INIT' at offset 0x1098 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  00003e0a R_ARM_THM_CALL         00000001   DRAMC_HW_FUNC_ZQCAL_config
+00000014  00003602 R_ARM_ABS32            00000000   .bss.HW_ZQCAL_CTRL
+00000018  00003402 R_ARM_ABS32            00000000   .bss.HW_IMPCAL_CTRL
+00000010  0000481e R_ARM_THM_JUMP24       00000001   DRAMC_HW_FUNC_IMPCAL_config
+
+Relocation section '.rel.text.DIG_HW_NONSHU_MISC_FIX' at offset 0x10b8 contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000e  0000500a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000001e  0000500a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000002c  0000500a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000003e  0000510a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000050  0000510a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000060  0000500a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000006e  0000500a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000082  0000501e R_ARM_THM_JUMP24       00000000   vIO32WriteMsk_All
+
+Relocation section '.rel.text.DIG_HW_NONSHUF_CFG' at offset 0x10f8 contains 5 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000530a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+0000000e  0000410a R_ARM_THM_CALL         00000001   DIG_HW_NONSHUF_ZQCAL_CFG
+00000016  0000410a R_ARM_THM_CALL         00000001   DIG_HW_NONSHUF_ZQCAL_CFG
+0000001c  00004f0a R_ARM_THM_CALL         00000001   DIG_HW_NONSHU_MISC_FIX
+00000026  0000531e R_ARM_THM_JUMP24       00000000   DramcBroadcastOnOff
+
+Relocation section '.rel.text.DIG_HW_SHUF_CFG' at offset 0x1120 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0000440a R_ARM_THM_CALL         00000001   DIG_HW_SHUF_ZQCAL_CFG
+00000010  0000480a R_ARM_THM_CALL         00000001   DRAMC_HW_FUNC_IMPCAL_config
+00000024  00003402 R_ARM_ABS32            00000000   .bss.HW_IMPCAL_CTRL
+0000001e  00004a1e R_ARM_THM_JUMP24       00000001   DIG_HW_SHUF_IMPCAL_CFG
+
+Relocation section '.rel.text.DIG_HW_NONSHUF_SWITCH' at offset 0x1140 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000a  0000450a R_ARM_THM_CALL         00000001   DIG_HW_NONSHUF_ZQCAL_SWITCH
+00000014  00004b0a R_ARM_THM_CALL         00000001   DIG_HW_NONSHUF_IMPCAL_SWITCH
+00000028  00005602 R_ARM_ABS32            00000000   HWFUNCEnableGlobal
+00000022  00004d1e R_ARM_THM_JUMP24       00000001   DIG_HW_NONSHUF_DQSG_SWITCH

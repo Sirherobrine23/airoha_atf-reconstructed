@@ -1,0 +1,138 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl23/efuse_load.o:	file format elf32-littlearm
+
+Disassembly of section .text.ef_read_parse:
+
+00000000 <ef_read_parse>:
+       0: 1843         	adds	r3, r0, r1
+       2: e92d 41f0    	push.w	{r4, r5, r6, r7, r8, lr}
+       6: f5b3 6fc0    	cmp.w	r3, #0x600
+       a: 4606         	mov	r6, r0
+       c: 460c         	mov	r4, r1
+       e: 4617         	mov	r7, r2
+      10: d904         	bls	0x1c <ef_read_parse+0x1c> @ imm = #0x8
+      12: e8bd 41f0    	pop.w	{r4, r5, r6, r7, r8, lr}
+      16: 4812         	ldr	r0, [pc, #0x48]         @ 0x60 <ef_read_parse+0x60>
+      18: f7ff bffe    	b.w	0x18 <ef_read_parse+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_JUMP24	tf_log
+      1c: 08ca         	lsrs	r2, r1, #0x3
+      1e: 2500         	movs	r5, #0x0
+      20: 074b         	lsls	r3, r1, #0x1d
+      22: 4638         	mov	r0, r7
+      24: bf18         	it	ne
+      26: 3201         	addne	r2, #0x1
+      28: 2100         	movs	r1, #0x0
+      2a: f7ff fffe    	bl	0x2a <ef_read_parse+0x2a> @ imm = #-0x4
+			0000002a:  R_ARM_THM_CALL	memset
+      2e: 42a5         	cmp	r5, r4
+      30: d101         	bne	0x36 <ef_read_parse+0x36> @ imm = #0x2
+      32: e8bd 81f0    	pop.w	{r4, r5, r6, r7, r8, pc}
+      36: eb05 0806    	add.w	r8, r5, r6
+      3a: ea4f 00d8    	lsr.w	r0, r8, #0x3
+      3e: f7ff fffe    	bl	0x3e <ef_read_parse+0x3e> @ imm = #-0x4
+			0000003e:  R_ARM_THM_CALL	ef_read_byte
+      42: f008 0307    	and	r3, r8, #0x7
+      46: 10ea         	asrs	r2, r5, #0x3
+      48: fa40 f303    	asr.w	r3, r0, r3
+      4c: f005 0007    	and	r0, r5, #0x7
+      50: f003 0301    	and	r3, r3, #0x1
+      54: 3501         	adds	r5, #0x1
+      56: 5cb9         	ldrb	r1, [r7, r2]
+      58: 4083         	lsls	r3, r0
+      5a: 430b         	orrs	r3, r1
+      5c: 54bb         	strb	r3, [r7, r2]
+      5e: e7e6         	b	0x2e <ef_read_parse+0x2e> @ imm = #-0x34
+      60: 00 00 00 00  	.word	0x00000000
+			00000060:  R_ARM_ABS32	.rodata.ef_read_parse.str1.1
+
+Disassembly of section .text.ef_read_parse_new:
+
+00000000 <ef_read_parse_new>:
+       0: 1a09         	subs	r1, r1, r0
+       2: e92d 41f0    	push.w	{r4, r5, r6, r7, r8, lr}
+       6: 1c4c         	adds	r4, r1, #0x1
+       8: 4606         	mov	r6, r0
+       a: 4611         	mov	r1, r2
+       c: 4819         	ldr	r0, [pc, #0x64]         @ 0x74 <ef_read_parse_new+0x74>
+       e: 4617         	mov	r7, r2
+      10: f7ff fffe    	bl	0x10 <ef_read_parse_new+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	printf
+      14: 4818         	ldr	r0, [pc, #0x60]         @ 0x78 <ef_read_parse_new+0x78>
+      16: 4621         	mov	r1, r4
+      18: f7ff fffe    	bl	0x18 <ef_read_parse_new+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	printf
+      1c: 1933         	adds	r3, r6, r4
+      1e: f5b3 6fc0    	cmp.w	r3, #0x600
+      22: d904         	bls	0x2e <ef_read_parse_new+0x2e> @ imm = #0x8
+      24: e8bd 41f0    	pop.w	{r4, r5, r6, r7, r8, lr}
+      28: 4814         	ldr	r0, [pc, #0x50]         @ 0x7c <ef_read_parse_new+0x7c>
+      2a: f7ff bffe    	b.w	0x2a <ef_read_parse_new+0x2a> @ imm = #-0x4
+			0000002a:  R_ARM_THM_JUMP24	tf_log
+      2e: 08e2         	lsrs	r2, r4, #0x3
+      30: 2500         	movs	r5, #0x0
+      32: 0763         	lsls	r3, r4, #0x1d
+      34: 4638         	mov	r0, r7
+      36: bf18         	it	ne
+      38: 3201         	addne	r2, #0x1
+      3a: 2100         	movs	r1, #0x0
+      3c: f7ff fffe    	bl	0x3c <ef_read_parse_new+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	memset
+      40: 42ac         	cmp	r4, r5
+      42: d801         	bhi	0x48 <ef_read_parse_new+0x48> @ imm = #0x2
+      44: e8bd 81f0    	pop.w	{r4, r5, r6, r7, r8, pc}
+      48: eb06 0805    	add.w	r8, r6, r5
+      4c: ea4f 00d8    	lsr.w	r0, r8, #0x3
+      50: f7ff fffe    	bl	0x50 <ef_read_parse_new+0x50> @ imm = #-0x4
+			00000050:  R_ARM_THM_CALL	ef_read_byte
+      54: f008 0307    	and	r3, r8, #0x7
+      58: 10ea         	asrs	r2, r5, #0x3
+      5a: fa40 f303    	asr.w	r3, r0, r3
+      5e: f005 0007    	and	r0, r5, #0x7
+      62: f003 0301    	and	r3, r3, #0x1
+      66: 3501         	adds	r5, #0x1
+      68: 5cb9         	ldrb	r1, [r7, r2]
+      6a: 4083         	lsls	r3, r0
+      6c: 430b         	orrs	r3, r1
+      6e: 54bb         	strb	r3, [r7, r2]
+      70: e7e6         	b	0x40 <ef_read_parse_new+0x40> @ imm = #-0x34
+      72: bf00         	nop
+      74: 00 00 00 00  	.word	0x00000000
+			00000074:  R_ARM_ABS32	.rodata.ef_read_parse_new.str1.1
+      78: 16 00 00 00  	.word	0x00000016
+			00000078:  R_ARM_ABS32	.rodata.ef_read_parse_new.str1.1
+      7c: 00 00 00 00  	.word	0x00000000
+			0000007c:  R_ARM_ABS32	.rodata.ef_read_parse.str1.1
+
+Disassembly of section .text.phy_config_efuse_load:
+
+00000000 <phy_config_efuse_load>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.phy_config_efuse_load_new:
+
+00000000 <phy_config_efuse_load_new>:
+       0: b510         	push	{r4, lr}
+       2: 4604         	mov	r4, r0
+       4: 480b         	ldr	r0, [pc, #0x2c]         @ 0x34 <phy_config_efuse_load_new+0x34>
+       6: f7ff fffe    	bl	0x6 <phy_config_efuse_load_new+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	printf
+       a: 4621         	mov	r1, r4
+       c: 480a         	ldr	r0, [pc, #0x28]         @ 0x38 <phy_config_efuse_load_new+0x38>
+       e: f7ff fffe    	bl	0xe <phy_config_efuse_load_new+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	printf
+      12: 4622         	mov	r2, r4
+      14: f44f 7166    	mov.w	r1, #0x398
+      18: 201b         	movs	r0, #0x1b
+      1a: f7ff fffe    	bl	0x1a <phy_config_efuse_load_new+0x1a> @ imm = #-0x4
+			0000001a:  R_ARM_THM_CALL	ef_read_parse_new
+      1e: f104 0270    	add.w	r2, r4, #0x70
+      22: f240 619f    	movw	r1, #0x69f
+      26: f240 6016    	movw	r0, #0x616
+      2a: e8bd 4010    	pop.w	{r4, lr}
+      2e: f7ff bffe    	b.w	0x2e <phy_config_efuse_load_new+0x2e> @ imm = #-0x4
+			0000002e:  R_ARM_THM_JUMP24	ef_read_parse_new
+      32: bf00         	nop
+      34: 00 00 00 00  	.word	0x00000000
+			00000034:  R_ARM_ABS32	.rodata.phy_config_efuse_load_new.str1.1
+      38: 1b 00 00 00  	.word	0x0000001b
+			00000038:  R_ARM_ABS32	.rodata.phy_config_efuse_load_new.str1.1

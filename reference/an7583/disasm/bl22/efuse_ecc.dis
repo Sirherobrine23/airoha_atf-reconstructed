@@ -1,0 +1,346 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl22/efuse_ecc.o:	file format elf32-littlearm
+
+Disassembly of section .text.efuse_wait_timeout.constprop.0:
+
+00000000 <efuse_wait_timeout.constprop.0>:
+       0: 4a0b         	ldr	r2, [pc, #0x2c]         @ 0x30 <efuse_wait_timeout.constprop.0+0x30>
+       2: b082         	sub	sp, #0x8
+       4: 4b0b         	ldr	r3, [pc, #0x2c]         @ 0x34 <efuse_wait_timeout.constprop.0+0x34>
+       6: 2801         	cmp	r0, #0x1
+       8: bf18         	it	ne
+       a: 4613         	movne	r3, r2
+       c: f44f 1280    	mov.w	r2, #0x100000
+      10: 9201         	str	r2, [sp, #0x4]
+      12: 681a         	ldr	r2, [r3]
+      14: 07d2         	lsls	r2, r2, #0x1f
+      16: d401         	bmi	0x1c <efuse_wait_timeout.constprop.0+0x1c> @ imm = #0x2
+      18: 9a01         	ldr	r2, [sp, #0x4]
+      1a: b92a         	cbnz	r2, 0x28 <efuse_wait_timeout.constprop.0+0x28> @ imm = #0xa
+      1c: 9801         	ldr	r0, [sp, #0x4]
+      1e: fab0 f080    	clz	r0, r0
+      22: 0940         	lsrs	r0, r0, #0x5
+      24: b002         	add	sp, #0x8
+      26: 4770         	bx	lr
+      28: 9a01         	ldr	r2, [sp, #0x4]
+      2a: 3a01         	subs	r2, #0x1
+      2c: e7f0         	b	0x10 <efuse_wait_timeout.constprop.0+0x10> @ imm = #-0x20
+      2e: bf00         	nop
+      30: 00 00 aa 1f  	.word	0x1faa0000
+      34: 00 84 bf 1f  	.word	0x1fbf8400
+
+Disassembly of section .text.efuse_preliminary:
+
+00000000 <efuse_preliminary>:
+       0: b508         	push	{r3, lr}
+       2: 4906         	ldr	r1, [pc, #0x18]         @ 0x1c <efuse_preliminary+0x1c>
+       4: 4b06         	ldr	r3, [pc, #0x18]         @ 0x20 <efuse_preliminary+0x20>
+       6: 2801         	cmp	r0, #0x1
+       8: bf18         	it	ne
+       a: 4619         	movne	r1, r3
+       c: f7ff fffe    	bl	0xc <efuse_preliminary+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	efuse_wait_timeout.constprop.0
+      10: b910         	cbnz	r0, 0x18 <efuse_preliminary+0x18> @ imm = #0x4
+      12: 4b04         	ldr	r3, [pc, #0x10]         @ 0x24 <efuse_preliminary+0x24>
+      14: 608b         	str	r3, [r1, #0x8]
+      16: bd08         	pop	{r3, pc}
+      18: 2001         	movs	r0, #0x1
+      1a: e7fc         	b	0x16 <efuse_preliminary+0x16> @ imm = #-0x8
+      1c: 00 84 bf 1f  	.word	0x1fbf8400
+      20: 00 00 aa 1f  	.word	0x1faa0000
+      24: b6 23 79 a0  	.word	0xa07923b6
+
+Disassembly of section .text.efuse_postsetting:
+
+00000000 <efuse_postsetting>:
+       0: 4a03         	ldr	r2, [pc, #0xc]          @ 0x10 <efuse_postsetting+0x10>
+       2: 4b04         	ldr	r3, [pc, #0x10]         @ 0x14 <efuse_postsetting+0x14>
+       4: 2801         	cmp	r0, #0x1
+       6: bf18         	it	ne
+       8: 4613         	movne	r3, r2
+       a: 2200         	movs	r2, #0x0
+       c: 609a         	str	r2, [r3, #0x8]
+       e: 4770         	bx	lr
+      10: 00 00 aa 1f  	.word	0x1faa0000
+      14: 00 84 bf 1f  	.word	0x1fbf8400
+
+Disassembly of section .text.efuse_reload_page:
+
+00000000 <efuse_reload_page>:
+       0: b508         	push	{r3, lr}
+       2: 4a07         	ldr	r2, [pc, #0x1c]         @ 0x20 <efuse_reload_page+0x20>
+       4: 4b07         	ldr	r3, [pc, #0x1c]         @ 0x24 <efuse_reload_page+0x24>
+       6: 2801         	cmp	r0, #0x1
+       8: bf18         	it	ne
+       a: 4613         	movne	r3, r2
+       c: 681a         	ldr	r2, [r3]
+       e: f442 3280    	orr	r2, r2, #0x10000
+      12: 601a         	str	r2, [r3]
+      14: f7ff fffe    	bl	0x14 <efuse_reload_page+0x14> @ imm = #-0x4
+			00000014:  R_ARM_THM_CALL	efuse_wait_timeout.constprop.0
+      18: 3800         	subs	r0, #0x0
+      1a: bf18         	it	ne
+      1c: 2001         	movne	r0, #0x1
+      1e: bd08         	pop	{r3, pc}
+      20: 00 00 aa 1f  	.word	0x1faa0000
+      24: 00 84 bf 1f  	.word	0x1fbf8400
+
+Disassembly of section .text.efuse_setup_page1_secure_data:
+
+00000000 <efuse_setup_page1_secure_data>:
+       0: e92d 41f3    	push.w	{r0, r1, r4, r5, r6, r7, r8, lr}
+       4: 460d         	mov	r5, r1
+       6: 4c0e         	ldr	r4, [pc, #0x38]         @ 0x40 <efuse_setup_page1_secure_data+0x40>
+       8: f8df 8038    	ldr.w	r8, [pc, #0x38]         @ 0x44 <efuse_setup_page1_secure_data+0x44>
+       c: 1847         	adds	r7, r0, r1
+       e: 4404         	add	r4, r0
+      10: 1a16         	subs	r6, r2, r0
+      12: eb04 0308    	add.w	r3, r4, r8
+      16: 429f         	cmp	r7, r3
+      18: d803         	bhi	0x22 <efuse_setup_page1_secure_data+0x22> @ imm = #0x6
+      1a: 2000         	movs	r0, #0x0
+      1c: b002         	add	sp, #0x8
+      1e: e8bd 81f0    	pop.w	{r4, r5, r6, r7, r8, pc}
+      22: 7823         	ldrb	r3, [r4]
+      24: 1931         	adds	r1, r6, r4
+      26: 5d2a         	ldrb	r2, [r5, r4]
+      28: f10d 0007    	add.w	r0, sp, #0x7
+      2c: b2c9         	uxtb	r1, r1
+      2e: 3401         	adds	r4, #0x1
+      30: 4313         	orrs	r3, r2
+      32: 2201         	movs	r2, #0x1
+      34: f88d 3007    	strb.w	r3, [sp, #0x7]
+      38: f7ff fffe    	bl	0x38 <efuse_setup_page1_secure_data+0x38> @ imm = #-0x4
+			00000038:  R_ARM_THM_CALL	fill_secure_data
+      3c: e7e9         	b	0x12 <efuse_setup_page1_secure_data+0x12> @ imm = #-0x2e
+      3e: bf00         	nop
+      40: 00 85 bf 1f  	.word	0x1fbf8500
+      44: 00 7b 40 e0  	.word	0xe0407b00
+
+Disassembly of section .text.efuse_setup_page2_secure_data:
+
+00000000 <efuse_setup_page2_secure_data>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 460d         	mov	r5, r1
+       4: 4604         	mov	r4, r0
+       6: 4616         	mov	r6, r2
+       8: f7ff fffe    	bl	0x8 <efuse_setup_page2_secure_data+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_CALL	get_secure_data_base
+       c: 490a         	ldr	r1, [pc, #0x28]         @ 0x38 <efuse_setup_page2_secure_data+0x38>
+       e: f026 0203    	bic	r2, r6, #0x3
+      12: 4425         	add	r5, r4
+      14: 4402         	add	r2, r0
+      16: 2000         	movs	r0, #0x0
+      18: 42ac         	cmp	r4, r5
+      1a: d100         	bne	0x1e <efuse_setup_page2_secure_data+0x1e> @ imm = #0x0
+      1c: bd70         	pop	{r4, r5, r6, pc}
+      1e: 2c35         	cmp	r4, #0x35
+      20: d807         	bhi	0x32 <efuse_setup_page2_secure_data+0x32> @ imm = #0xe
+      22: f851 3024    	ldr.w	r3, [r1, r4, lsl #2]
+      26: 6013         	str	r3, [r2]
+      28: 2300         	movs	r3, #0x0
+      2a: 4318         	orrs	r0, r3
+      2c: 3204         	adds	r2, #0x4
+      2e: 3401         	adds	r4, #0x1
+      30: e7f2         	b	0x18 <efuse_setup_page2_secure_data+0x18> @ imm = #-0x1c
+      32: 2302         	movs	r3, #0x2
+      34: e7f9         	b	0x2a <efuse_setup_page2_secure_data+0x2a> @ imm = #-0xe
+      36: bf00         	nop
+      38: 00 01 aa 1f  	.word	0x1faa0100
+
+Disassembly of section .text.efuse_check_remark:
+
+00000000 <efuse_check_remark>:
+       0: b507         	push	{r0, r1, r2, lr}
+       2: 2101         	movs	r1, #0x1
+       4: 2003         	movs	r0, #0x3
+       6: f10d 0207    	add.w	r2, sp, #0x7
+       a: 2300         	movs	r3, #0x0
+       c: f88d 3007    	strb.w	r3, [sp, #0x7]
+      10: f7ff fffe    	bl	0x10 <efuse_check_remark+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	ef_read_parse
+      14: f89d 0007    	ldrb.w	r0, [sp, #0x7]
+      18: f000 0001    	and	r0, r0, #0x1
+      1c: b003         	add	sp, #0xc
+      1e: f85d fb04    	ldr	pc, [sp], #4
+
+Disassembly of section .text.efuse_test:
+
+00000000 <efuse_test>:
+       0: 2000         	movs	r0, #0x0
+       2: 4770         	bx	lr
+
+Disassembly of section .text.ef_read_byte:
+
+00000000 <ef_read_byte>:
+       0: 4b07         	ldr	r3, [pc, #0x1c]         @ 0x20 <ef_read_byte+0x20>
+       2: f8d3 2400    	ldr.w	r2, [r3, #0x400]
+       6: 4b07         	ldr	r3, [pc, #0x1c]         @ 0x24 <ef_read_byte+0x24>
+       8: 429a         	cmp	r2, r3
+       a: d006         	beq	0x1a <ef_read_byte+0x1a> @ imm = #0xc
+       c: f100 50fd    	add.w	r0, r0, #0x1fa00000
+      10: f500 10fc    	add.w	r0, r0, #0x1f8000
+      14: f890 0500    	ldrb.w	r0, [r0, #0x500]
+      18: 4770         	bx	lr
+      1a: 2000         	movs	r0, #0x0
+      1c: 4770         	bx	lr
+      1e: bf00         	nop
+      20: 00 80 bf 1f  	.word	0x1fbf8000
+      24: ef be ad de  	.word	0xdeadbeef
+
+Disassembly of section .text.en7523_packageID_init:
+
+00000000 <en7523_packageID_init>:
+       0: b508         	push	{r3, lr}
+       2: 2001         	movs	r0, #0x1
+       4: f7ff fffe    	bl	0x4 <en7523_packageID_init+0x4> @ imm = #-0x4
+			00000004:  R_ARM_THM_CALL	ef_read_byte
+       8: 4601         	mov	r1, r0
+       a: 2000         	movs	r0, #0x0
+       c: f7ff fffe    	bl	0xc <en7523_packageID_init+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	ef_read_byte
+      10: 0702         	lsls	r2, r0, #0x1c
+      12: ea40 2301    	orr.w	r3, r0, r1, lsl #8
+      16: d405         	bmi	0x24 <en7523_packageID_init+0x24> @ imm = #0xa
+      18: f3c3 1004    	ubfx	r0, r3, #0x4, #0x5
+      1c: e8bd 4008    	pop.w	{r3, lr}
+      20: f7ff bffe    	b.w	0x20 <en7523_packageID_init+0x20> @ imm = #-0x4
+			00000020:  R_ARM_THM_JUMP24	SET_PACKAGE_ID
+      24: f3c3 2044    	ubfx	r0, r3, #0x9, #0x5
+      28: e7f8         	b	0x1c <en7523_packageID_init+0x1c> @ imm = #-0x10
+
+Disassembly of section .text.read_iddq:
+
+00000000 <read_iddq>:
+       0: 20bb         	movs	r0, #0xbb
+       2: f7ff bffe    	b.w	0x2 <read_iddq+0x2>     @ imm = #-0x4
+			00000002:  R_ARM_THM_JUMP24	ef_read_byte
+
+Disassembly of section .text.efuse_init:
+
+00000000 <efuse_init>:
+       0: 4b31         	ldr	r3, [pc, #0xc4]         @ 0xc8 <efuse_init+0xc8>
+       2: b570         	push	{r4, r5, r6, lr}
+       4: f8d3 2400    	ldr.w	r2, [r3, #0x400]
+       8: 4b30         	ldr	r3, [pc, #0xc0]         @ 0xcc <efuse_init+0xcc>
+       a: 429a         	cmp	r2, r3
+       c: d104         	bne	0x18 <efuse_init+0x18>  @ imm = #0x8
+       e: 4830         	ldr	r0, [pc, #0xc0]         @ 0xd0 <efuse_init+0xd0>
+      10: f7ff fffe    	bl	0x10 <efuse_init+0x10>  @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	printf
+      14: 2400         	movs	r4, #0x0
+      16: e041         	b	0x9c <efuse_init+0x9c>  @ imm = #0x82
+      18: f7ff fffe    	bl	0x18 <efuse_init+0x18>  @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	is_asic
+      1c: 2800         	cmp	r0, #0x0
+      1e: d0f6         	beq	0xe <efuse_init+0xe>    @ imm = #-0x14
+      20: 2001         	movs	r0, #0x1
+      22: f7ff fffe    	bl	0x22 <efuse_init+0x22>  @ imm = #-0x4
+			00000022:  R_ARM_THM_CALL	efuse_reload_page
+      26: 4602         	mov	r2, r0
+      28: 2800         	cmp	r0, #0x0
+      2a: d14b         	bne	0xc4 <efuse_init+0xc4>  @ imm = #0x96
+      2c: 2102         	movs	r1, #0x2
+      2e: 207e         	movs	r0, #0x7e
+      30: f7ff fffe    	bl	0x30 <efuse_init+0x30>  @ imm = #-0x4
+			00000030:  R_ARM_THM_CALL	efuse_setup_page1_secure_data
+      34: 4604         	mov	r4, r0
+      36: b118         	cbz	r0, 0x40 <efuse_init+0x40> @ imm = #0x6
+      38: 4826         	ldr	r0, [pc, #0x98]         @ 0xd4 <efuse_init+0xd4>
+      3a: f7ff fffe    	bl	0x3a <efuse_init+0x3a>  @ imm = #-0x4
+			0000003a:  R_ARM_THM_CALL	printf
+      3e: e02d         	b	0x9c <efuse_init+0x9c>  @ imm = #0x5a
+      40: 2202         	movs	r2, #0x2
+      42: 2108         	movs	r1, #0x8
+      44: 2082         	movs	r0, #0x82
+      46: f7ff fffe    	bl	0x46 <efuse_init+0x46>  @ imm = #-0x4
+			00000046:  R_ARM_THM_CALL	efuse_setup_page1_secure_data
+      4a: 4604         	mov	r4, r0
+      4c: b108         	cbz	r0, 0x52 <efuse_init+0x52> @ imm = #0x2
+      4e: 4822         	ldr	r0, [pc, #0x88]         @ 0xd8 <efuse_init+0xd8>
+      50: e7f3         	b	0x3a <efuse_init+0x3a>  @ imm = #-0x1a
+      52: 220a         	movs	r2, #0xa
+      54: 2110         	movs	r1, #0x10
+      56: 2092         	movs	r0, #0x92
+      58: f7ff fffe    	bl	0x58 <efuse_init+0x58>  @ imm = #-0x4
+			00000058:  R_ARM_THM_CALL	efuse_setup_page1_secure_data
+      5c: 4604         	mov	r4, r0
+      5e: b108         	cbz	r0, 0x64 <efuse_init+0x64> @ imm = #0x2
+      60: 481e         	ldr	r0, [pc, #0x78]         @ 0xdc <efuse_init+0xdc>
+      62: e7ea         	b	0x3a <efuse_init+0x3a>  @ imm = #-0x2c
+      64: 4d1e         	ldr	r5, [pc, #0x78]         @ 0xe0 <efuse_init+0xe0>
+      66: f7ff fffe    	bl	0x66 <efuse_init+0x66>  @ imm = #-0x4
+			00000066:  R_ARM_THM_CALL	get_valid
+      6a: 4604         	mov	r4, r0
+      6c: 682b         	ldr	r3, [r5]
+      6e: b1e0         	cbz	r0, 0xaa <efuse_init+0xaa> @ imm = #0x38
+      70: b92b         	cbnz	r3, 0x7e <efuse_init+0x7e> @ imm = #0xa
+      72: 481c         	ldr	r0, [pc, #0x70]         @ 0xe4 <efuse_init+0xe4>
+      74: f7ff fffe    	bl	0x74 <efuse_init+0x74>  @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	tf_log
+      78: 481b         	ldr	r0, [pc, #0x6c]         @ 0xe8 <efuse_init+0xe8>
+      7a: f7ff fffe    	bl	0x7a <efuse_init+0x7a>  @ imm = #-0x4
+			0000007a:  R_ARM_THM_CALL	tf_log
+      7e: 2002         	movs	r0, #0x2
+      80: f7ff fffe    	bl	0x80 <efuse_init+0x80>  @ imm = #-0x4
+			00000080:  R_ARM_THM_CALL	efuse_reload_page
+      84: 4604         	mov	r4, r0
+      86: b948         	cbnz	r0, 0x9c <efuse_init+0x9c> @ imm = #0x12
+      88: 221c         	movs	r2, #0x1c
+      8a: 2135         	movs	r1, #0x35
+      8c: f7ff fffe    	bl	0x8c <efuse_init+0x8c>  @ imm = #-0x4
+			0000008c:  R_ARM_THM_CALL	efuse_setup_page2_secure_data
+      90: 4606         	mov	r6, r0
+      92: b128         	cbz	r0, 0xa0 <efuse_init+0xa0> @ imm = #0xa
+      94: 4634         	mov	r4, r6
+      96: 4815         	ldr	r0, [pc, #0x54]         @ 0xec <efuse_init+0xec>
+      98: f7ff fffe    	bl	0x98 <efuse_init+0x98>  @ imm = #-0x4
+			00000098:  R_ARM_THM_CALL	printf
+      9c: 4620         	mov	r0, r4
+      9e: bd70         	pop	{r4, r5, r6, pc}
+      a0: 682b         	ldr	r3, [r5]
+      a2: 2b00         	cmp	r3, #0x0
+      a4: d1b6         	bne	0x14 <efuse_init+0x14>  @ imm = #-0x94
+      a6: 4812         	ldr	r0, [pc, #0x48]         @ 0xf0 <efuse_init+0xf0>
+      a8: e7c7         	b	0x3a <efuse_init+0x3a>  @ imm = #-0x72
+      aa: 2b00         	cmp	r3, #0x0
+      ac: d1b2         	bne	0x14 <efuse_init+0x14>  @ imm = #-0x9c
+      ae: 4811         	ldr	r0, [pc, #0x44]         @ 0xf4 <efuse_init+0xf4>
+      b0: f7ff fffe    	bl	0xb0 <efuse_init+0xb0>  @ imm = #-0x4
+			000000b0:  R_ARM_THM_CALL	tf_log
+      b4: 4810         	ldr	r0, [pc, #0x40]         @ 0xf8 <efuse_init+0xf8>
+      b6: f7ff fffe    	bl	0xb6 <efuse_init+0xb6>  @ imm = #-0x4
+			000000b6:  R_ARM_THM_CALL	tf_log
+      ba: 682b         	ldr	r3, [r5]
+      bc: 2b00         	cmp	r3, #0x0
+      be: d1a9         	bne	0x14 <efuse_init+0x14>  @ imm = #-0xae
+      c0: 480e         	ldr	r0, [pc, #0x38]         @ 0xfc <efuse_init+0xfc>
+      c2: e7ba         	b	0x3a <efuse_init+0x3a>  @ imm = #-0x8c
+      c4: 4604         	mov	r4, r0
+      c6: e7e9         	b	0x9c <efuse_init+0x9c>  @ imm = #-0x2e
+      c8: 00 80 bf 1f  	.word	0x1fbf8000
+      cc: ef be ad de  	.word	0xdeadbeef
+      d0: 00 00 00 00  	.word	0x00000000
+			000000d0:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      d4: 23 00 00 00  	.word	0x00000023
+			000000d4:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      d8: 39 00 00 00  	.word	0x00000039
+			000000d8:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      dc: 4f 00 00 00  	.word	0x0000004f
+			000000dc:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      e0: 00 00 00 00  	.word	0x00000000
+			000000e0:  R_ARM_ABS32	uartDisable
+      e4: 65 00 00 00  	.word	0x00000065
+			000000e4:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      e8: 6d 00 00 00  	.word	0x0000006d
+			000000e8:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      ec: 7c 00 00 00  	.word	0x0000007c
+			000000ec:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      f0: 9c 00 00 00  	.word	0x0000009c
+			000000f0:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      f4: ae 00 00 00  	.word	0x000000ae
+			000000f4:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      f8: b6 00 00 00  	.word	0x000000b6
+			000000f8:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      fc: c7 00 00 00  	.word	0x000000c7
+			000000fc:  R_ARM_ABS32	.rodata.efuse_init.str1.1

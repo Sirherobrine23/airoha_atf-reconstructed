@@ -1,0 +1,1367 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/DIG_SHUF_config.o:	file format elf32-littlearm
+
+Disassembly of section .text.DIG_CONFIG_SHUF_ALG_TXCA:
+
+00000000 <DIG_CONFIG_SHUF_ALG_TXCA>:
+       0: e92d 4ff8    	push.w	{r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: b2c9         	uxtb	r1, r1
+       6: 4b5b         	ldr	r3, [pc, #0x16c]        @ 0x174 <DIG_CONFIG_SHUF_ALG_TXCA+0x174>
+       8: f8df 916c    	ldr.w	r9, [pc, #0x16c]        @ 0x178 <DIG_CONFIG_SHUF_ALG_TXCA+0x178>
+       c: 4604         	mov	r4, r0
+       e: 4615         	mov	r5, r2
+      10: f890 a004    	ldrb.w	r10, [r0, #0x4]
+      14: eb03 0382    	add.w	r3, r3, r2, lsl #2
+      18: f8d9 6000    	ldr.w	r6, [r9]
+      1c: 695b         	ldr	r3, [r3, #0x14]
+      1e: f026 0604    	bic	r6, r6, #0x4
+      22: 3e02         	subs	r6, #0x2
+      24: f893 b00b    	ldrb.w	r11, [r3, #0xb]
+      28: bf18         	it	ne
+      2a: 2601         	movne	r6, #0x1
+      2c: f7ff fffe    	bl	0x2c <DIG_CONFIG_SHUF_ALG_TXCA+0x2c> @ imm = #-0x4
+			0000002c:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      30: 3d00         	subs	r5, #0x0
+      32: 4952         	ldr	r1, [pc, #0x148]        @ 0x17c <DIG_CONFIG_SHUF_ALG_TXCA+0x17c>
+      34: ea4f 170b    	lsl.w	r7, r11, #0x4
+      38: ea4f 230b    	lsl.w	r3, r11, #0x8
+      3c: f403 63e0    	and	r3, r3, #0x700
+      40: f007 0770    	and	r7, r7, #0x70
+      44: ea47 0703    	orr.w	r7, r7, r3
+      48: f00b 0307    	and	r3, r11, #0x7
+      4c: bf18         	it	ne
+      4e: 2501         	movne	r5, #0x1
+      50: 431f         	orrs	r7, r3
+      52: f8c4 5098    	str.w	r5, [r4, #0x98]
+      56: ea4f 430b    	lsl.w	r3, r11, #0x10
+      5a: ea4f 350b    	lsl.w	r5, r11, #0xc
+      5e: f403 23e0    	and	r3, r3, #0x70000
+      62: f405 45e0    	and	r5, r5, #0x7000
+      66: ea4f 680b    	lsl.w	r8, r11, #0x18
+      6a: 431d         	orrs	r5, r3
+      6c: ea4f 530b    	lsl.w	r3, r11, #0x14
+      70: f403 03e0    	and	r3, r3, #0x700000
+      74: f008 68e0    	and	r8, r8, #0x7000000
+      78: 431d         	orrs	r5, r3
+      7a: ea4f 7b0b    	lsl.w	r11, r11, #0x1c
+      7e: ea45 0508    	orr.w	r5, r5, r8
+      82: f00b 4be0    	and	r11, r11, #0x70000000
+      86: ea45 050b    	orr.w	r5, r5, r11
+      8a: 4620         	mov	r0, r4
+      8c: 433d         	orrs	r5, r7
+      8e: f04f 3377    	mov.w	r3, #0x77777777
+      92: 462a         	mov	r2, r5
+      94: ea4f 5b06    	lsl.w	r11, r6, #0x14
+      98: f7ff fffe    	bl	0x98 <DIG_CONFIG_SHUF_ALG_TXCA+0x98> @ imm = #-0x4
+			00000098:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      9c: ea47 0208    	orr.w	r2, r7, r8
+      a0: 4b37         	ldr	r3, [pc, #0xdc]         @ 0x180 <DIG_CONFIG_SHUF_ALG_TXCA+0x180>
+      a2: 4620         	mov	r0, r4
+      a4: 4937         	ldr	r1, [pc, #0xdc]         @ 0x184 <DIG_CONFIG_SHUF_ALG_TXCA+0x184>
+      a6: ea4f 6806    	lsl.w	r8, r6, #0x18
+      aa: f7ff fffe    	bl	0xaa <DIG_CONFIG_SHUF_ALG_TXCA+0xaa> @ imm = #-0x4
+			000000aa:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ae: 462a         	mov	r2, r5
+      b0: 4935         	ldr	r1, [pc, #0xd4]         @ 0x188 <DIG_CONFIG_SHUF_ALG_TXCA+0x188>
+      b2: 4620         	mov	r0, r4
+      b4: f04f 3377    	mov.w	r3, #0x77777777
+      b8: 0237         	lsls	r7, r6, #0x8
+      ba: f7ff fffe    	bl	0xba <DIG_CONFIG_SHUF_ALG_TXCA+0xba> @ imm = #-0x4
+			000000ba:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      be: 462a         	mov	r2, r5
+      c0: 4932         	ldr	r1, [pc, #0xc8]         @ 0x18c <DIG_CONFIG_SHUF_ALG_TXCA+0x18c>
+      c2: 4620         	mov	r0, r4
+      c4: f04f 3377    	mov.w	r3, #0x77777777
+      c8: ea47 1706    	orr.w	r7, r7, r6, lsl #4
+      cc: f7ff fffe    	bl	0xcc <DIG_CONFIG_SHUF_ALG_TXCA+0xcc> @ imm = #-0x4
+			000000cc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      d0: ea48 4106    	orr.w	r1, r8, r6, lsl #16
+      d4: 4a2e         	ldr	r2, [pc, #0xb8]         @ 0x190 <DIG_CONFIG_SHUF_ALG_TXCA+0x190>
+      d6: ea41 5106    	orr.w	r1, r1, r6, lsl #20
+      da: 4337         	orrs	r7, r6
+      dc: 4620         	mov	r0, r4
+      de: 430a         	orrs	r2, r1
+      e0: f04f 3377    	mov.w	r3, #0x77777777
+      e4: 492b         	ldr	r1, [pc, #0xac]         @ 0x194 <DIG_CONFIG_SHUF_ALG_TXCA+0x194>
+      e6: 0435         	lsls	r5, r6, #0x10
+      e8: f7ff fffe    	bl	0xe8 <DIG_CONFIG_SHUF_ALG_TXCA+0xe8> @ imm = #-0x4
+			000000e8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ec: 4b24         	ldr	r3, [pc, #0x90]         @ 0x180 <DIG_CONFIG_SHUF_ALG_TXCA+0x180>
+      ee: 492a         	ldr	r1, [pc, #0xa8]         @ 0x198 <DIG_CONFIG_SHUF_ALG_TXCA+0x198>
+      f0: f047 7280    	orr	r2, r7, #0x1000000
+      f4: 4620         	mov	r0, r4
+      f6: f7ff fffe    	bl	0xf6 <DIG_CONFIG_SHUF_ALG_TXCA+0xf6> @ imm = #-0x4
+			000000f6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      fa: ea45 020b    	orr.w	r2, r5, r11
+      fe: ea42 0208    	orr.w	r2, r2, r8
+     102: 4926         	ldr	r1, [pc, #0x98]         @ 0x19c <DIG_CONFIG_SHUF_ALG_TXCA+0x19c>
+     104: ea42 3206    	orr.w	r2, r2, r6, lsl #12
+     108: 4620         	mov	r0, r4
+     10a: ea42 7606    	orr.w	r6, r2, r6, lsl #28
+     10e: f04f 3377    	mov.w	r3, #0x77777777
+     112: 433e         	orrs	r6, r7
+     114: 4632         	mov	r2, r6
+     116: f7ff fffe    	bl	0x116 <DIG_CONFIG_SHUF_ALG_TXCA+0x116> @ imm = #-0x4
+			00000116:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     11a: f04f 3377    	mov.w	r3, #0x77777777
+     11e: 4920         	ldr	r1, [pc, #0x80]         @ 0x1a0 <DIG_CONFIG_SHUF_ALG_TXCA+0x1a0>
+     120: 4632         	mov	r2, r6
+     122: 4620         	mov	r0, r4
+     124: f7ff fffe    	bl	0x124 <DIG_CONFIG_SHUF_ALG_TXCA+0x124> @ imm = #-0x4
+			00000124:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     128: 4b1e         	ldr	r3, [pc, #0x78]         @ 0x1a4 <DIG_CONFIG_SHUF_ALG_TXCA+0x1a4>
+     12a: f893 5077    	ldrb.w	r5, [r3, #0x77]
+     12e: 2d01         	cmp	r5, #0x1
+     130: d117         	bne	0x162 <DIG_CONFIG_SHUF_ALG_TXCA+0x162> @ imm = #0x2e
+     132: f8d9 3000    	ldr.w	r3, [r9]
+     136: 2b06         	cmp	r3, #0x6
+     138: d113         	bne	0x162 <DIG_CONFIG_SHUF_ALG_TXCA+0x162> @ imm = #0x26
+     13a: 2000         	movs	r0, #0x0
+     13c: f7ff fffe    	bl	0x13c <DIG_CONFIG_SHUF_ALG_TXCA+0x13c> @ imm = #-0x4
+			0000013c:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     140: 4629         	mov	r1, r5
+     142: 4620         	mov	r0, r4
+     144: f7ff fffe    	bl	0x144 <DIG_CONFIG_SHUF_ALG_TXCA+0x144> @ imm = #-0x4
+			00000144:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     148: 4912         	ldr	r1, [pc, #0x48]         @ 0x194 <DIG_CONFIG_SHUF_ALG_TXCA+0x194>
+     14a: 4620         	mov	r0, r4
+     14c: 2370         	movs	r3, #0x70
+     14e: 2250         	movs	r2, #0x50
+     150: f7ff fffe    	bl	0x150 <DIG_CONFIG_SHUF_ALG_TXCA+0x150> @ imm = #-0x4
+			00000150:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     154: 4620         	mov	r0, r4
+     156: 2100         	movs	r1, #0x0
+     158: f7ff fffe    	bl	0x158 <DIG_CONFIG_SHUF_ALG_TXCA+0x158> @ imm = #-0x4
+			00000158:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     15c: 4628         	mov	r0, r5
+     15e: f7ff fffe    	bl	0x15e <DIG_CONFIG_SHUF_ALG_TXCA+0x15e> @ imm = #-0x4
+			0000015e:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     162: 4651         	mov	r1, r10
+     164: 4620         	mov	r0, r4
+     166: f7ff fffe    	bl	0x166 <DIG_CONFIG_SHUF_ALG_TXCA+0x166> @ imm = #-0x4
+			00000166:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     16a: 2300         	movs	r3, #0x0
+     16c: f8c4 3098    	str.w	r3, [r4, #0x98]
+     170: e8bd 8ff8    	pop.w	{r3, r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     174: 00 00 00 00  	.word	0x00000000
+			00000174:  R_ARM_ABS32	DV_p
+     178: 00 00 00 00  	.word	0x00000000
+			00000178:  R_ARM_ABS32	MEM_TYPE
+     17c: 18 16 20 00  	.word	0x00201618
+     180: 77 07 00 07  	.word	0x07000777
+     184: 1c 16 20 00  	.word	0x0020161c
+     188: 20 16 20 00  	.word	0x00201620
+     18c: 24 16 20 00  	.word	0x00201624
+     190: 11 11 00 10  	.word	0x10001111
+     194: 28 16 20 00  	.word	0x00201628
+     198: 2c 16 20 00  	.word	0x0020162c
+     19c: 30 16 20 00  	.word	0x00201630
+     1a0: 34 16 20 00  	.word	0x00201634
+     1a4: 00 00 00 00  	.word	0x00000000
+			000001a4:  R_ARM_ABS32	DUTTopSetGlobal
+
+Disassembly of section .text.DIG_CONFIG_SHUF_MISC_FIX:
+
+00000000 <DIG_CONFIG_SHUF_MISC_FIX>:
+       0: e92d 4ff0    	push.w	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4617         	mov	r7, r2
+       6: f8df e2cc    	ldr.w	lr, [pc, #0x2cc]        @ 0x2d4 <DIG_CONFIG_SHUF_MISC_FIX+0x2d4>
+       a: f640 246a    	movw	r4, #0xa6a
+       e: b08b         	sub	sp, #0x2c
+      10: 4681         	mov	r9, r0
+      12: eb0e 0382    	add.w	r3, lr, r2, lsl #2
+      16: 695a         	ldr	r2, [r3, #0x14]
+      18: 6813         	ldr	r3, [r2]
+      1a: 42a3         	cmp	r3, r4
+      1c: 4cae         	ldr	r4, [pc, #0x2b8]        @ 0x2d8 <DIG_CONFIG_SHUF_MISC_FIX+0x2d8>
+      1e: d926         	bls	0x6e <DIG_CONFIG_SHUF_MISC_FIX+0x6e> @ imm = #0x4c
+      20: f894 009d    	ldrb.w	r0, [r4, #0x9d]
+      24: 9003         	str	r0, [sp, #0xc]
+      26: 2526         	movs	r5, #0x26
+      28: f894 00a0    	ldrb.w	r0, [r4, #0xa0]
+      2c: 9006         	str	r0, [sp, #0x18]
+      2e: 48ab         	ldr	r0, [pc, #0x2ac]        @ 0x2dc <DIG_CONFIG_SHUF_MISC_FIX+0x2dc>
+      30: f894 6074    	ldrb.w	r6, [r4, #0x74]
+      34: f894 4073    	ldrb.w	r4, [r4, #0x73]
+      38: fb05 0507    	mla	r5, r5, r7, r0
+      3c: 4326         	orrs	r6, r4
+      3e: f8de 4008    	ldr.w	r4, [lr, #0x8]
+      42: 796d         	ldrb	r5, [r5, #0x5]
+      44: 9507         	str	r5, [sp, #0x1c]
+      46: 7ad5         	ldrb	r5, [r2, #0xb]
+      48: 9508         	str	r5, [sp, #0x20]
+      4a: 7865         	ldrb	r5, [r4, #0x1]
+      4c: 4ca4         	ldr	r4, [pc, #0x290]        @ 0x2e0 <DIG_CONFIG_SHUF_MISC_FIX+0x2e0>
+      4e: 2d04         	cmp	r5, #0x4
+      50: 6824         	ldr	r4, [r4]
+      52: d10e         	bne	0x72 <DIG_CONFIG_SHUF_MISC_FIX+0x72> @ imm = #0x1c
+      54: fab6 fa86    	clz	r10, r6
+      58: f024 0e04    	bic	lr, r4, #0x4
+      5c: f1be 0f02    	cmp.w	lr, #0x2
+      60: ea4f 1a5a    	lsr.w	r10, r10, #0x5
+      64: d107         	bne	0x76 <DIG_CONFIG_SHUF_MISC_FIX+0x76> @ imm = #0xe
+      66: 2001         	movs	r0, #0x1
+      68: 9005         	str	r0, [sp, #0x14]
+      6a: 9004         	str	r0, [sp, #0x10]
+      6c: e010         	b	0x90 <DIG_CONFIG_SHUF_MISC_FIX+0x90> @ imm = #0x20
+      6e: 2000         	movs	r0, #0x0
+      70: e7d8         	b	0x24 <DIG_CONFIG_SHUF_MISC_FIX+0x24> @ imm = #-0x50
+      72: f04f 0a00    	mov.w	r10, #0x0
+      76: f04f 0e26    	mov.w	lr, #0x26
+      7a: fb0e 0c07    	mla	r12, lr, r7, r0
+      7e: f89c c019    	ldrb.w	r12, [r12, #0x19]
+      82: ea4f 0c4c    	lsl.w	r12, r12, #0x1
+      86: fa5f f08c    	uxtb.w	r0, r12
+      8a: 9004         	str	r0, [sp, #0x10]
+      8c: 2000         	movs	r0, #0x0
+      8e: 9005         	str	r0, [sp, #0x14]
+      90: f899 800c    	ldrb.w	r8, [r9, #0xc]
+      94: 2c02         	cmp	r4, #0x2
+      96: d124         	bne	0xe2 <DIG_CONFIG_SHUF_MISC_FIX+0xe2> @ imm = #0x48
+      98: 3d04         	subs	r5, #0x4
+      9a: bf18         	it	ne
+      9c: 2501         	movne	r5, #0x1
+      9e: 7992         	ldrb	r2, [r2, #0x6]
+      a0: 3a01         	subs	r2, #0x1
+      a2: b2d2         	uxtb	r2, r2
+      a4: 2a06         	cmp	r2, #0x6
+      a6: d82c         	bhi	0x102 <DIG_CONFIG_SHUF_MISC_FIX+0x102> @ imm = #0x58
+      a8: 4c8e         	ldr	r4, [pc, #0x238]        @ 0x2e4 <DIG_CONFIG_SHUF_MISC_FIX+0x2e4>
+      aa: f814 b002    	ldrb.w	r11, [r4, r2]
+      ae: f5b3 6f48    	cmp.w	r3, #0xc80
+      b2: f000 80ee    	beq.w	0x292 <DIG_CONFIG_SHUF_MISC_FIX+0x292> @ imm = #0x1dc
+      b6: f200 80d2    	bhi.w	0x25e <DIG_CONFIG_SHUF_MISC_FIX+0x25e> @ imm = #0x1a4
+      ba: f5b3 6fc8    	cmp.w	r3, #0x640
+      be: f000 80eb    	beq.w	0x298 <DIG_CONFIG_SHUF_MISC_FIX+0x298> @ imm = #0x1d6
+      c2: d821         	bhi	0x108 <DIG_CONFIG_SHUF_MISC_FIX+0x108> @ imm = #0x42
+      c4: f5b3 7f48    	cmp.w	r3, #0x320
+      c8: f000 80e9    	beq.w	0x29e <DIG_CONFIG_SHUF_MISC_FIX+0x29e> @ imm = #0x1d2
+      cc: f5b3 6f96    	cmp.w	r3, #0x4b0
+      d0: f000 80e8    	beq.w	0x2a4 <DIG_CONFIG_SHUF_MISC_FIX+0x2a4> @ imm = #0x1d0
+      d4: f5b3 7fc8    	cmp.w	r3, #0x190
+      d8: f241 7472    	movw	r4, #0x1772
+      dc: bf18         	it	ne
+      de: 2400         	movne	r4, #0x0
+      e0: e022         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #0x44
+      e2: 2c06         	cmp	r4, #0x6
+      e4: d10b         	bne	0xfe <DIG_CONFIG_SHUF_MISC_FIX+0xfe> @ imm = #0x16
+      e6: 2d04         	cmp	r5, #0x4
+      e8: d007         	beq	0xfa <DIG_CONFIG_SHUF_MISC_FIX+0xfa> @ imm = #0xe
+      ea: 4c7b         	ldr	r4, [pc, #0x1ec]        @ 0x2d8 <DIG_CONFIG_SHUF_MISC_FIX+0x2d8>
+      ec: f894 5077    	ldrb.w	r5, [r4, #0x77]
+      f0: 3d01         	subs	r5, #0x1
+      f2: bf18         	it	ne
+      f4: 2501         	movne	r5, #0x1
+      f6: b2ed         	uxtb	r5, r5
+      f8: e7d1         	b	0x9e <DIG_CONFIG_SHUF_MISC_FIX+0x9e> @ imm = #-0x5e
+      fa: 2500         	movs	r5, #0x0
+      fc: e7fb         	b	0xf6 <DIG_CONFIG_SHUF_MISC_FIX+0xf6> @ imm = #-0xa
+      fe: 2501         	movs	r5, #0x1
+     100: e7cd         	b	0x9e <DIG_CONFIG_SHUF_MISC_FIX+0x9e> @ imm = #-0x66
+     102: f04f 0b00    	mov.w	r11, #0x0
+     106: e7d2         	b	0xae <DIG_CONFIG_SHUF_MISC_FIX+0xae> @ imm = #-0x5c
+     108: f5b3 6f16    	cmp.w	r3, #0x960
+     10c: f000 80cd    	beq.w	0x2aa <DIG_CONFIG_SHUF_MISC_FIX+0x2aa> @ imm = #0x19a
+     110: f640 226b    	movw	r2, #0xa6b
+     114: 4293         	cmp	r3, r2
+     116: f000 80cb    	beq.w	0x2b0 <DIG_CONFIG_SHUF_MISC_FIX+0x2b0> @ imm = #0x196
+     11a: f240 724a    	movw	r2, #0x74a
+     11e: f642 24d0    	movw	r4, #0x2ad0
+     122: 4293         	cmp	r3, r2
+     124: bf18         	it	ne
+     126: 2400         	movne	r4, #0x0
+     128: f899 3004    	ldrb.w	r3, [r9, #0x4]
+     12c: b2c9         	uxtb	r1, r1
+     12e: 4648         	mov	r0, r9
+     130: 9309         	str	r3, [sp, #0x24]
+     132: f7ff fffe    	bl	0x132 <DIG_CONFIG_SHUF_MISC_FIX+0x132> @ imm = #-0x4
+			00000132:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     136: 1e3b         	subs	r3, r7, #0x0
+     138: 496b         	ldr	r1, [pc, #0x1ac]        @ 0x2e8 <DIG_CONFIG_SHUF_MISC_FIX+0x2e8>
+     13a: ea4f 220a    	lsl.w	r2, r10, #0x8
+     13e: bf18         	it	ne
+     140: 2301         	movne	r3, #0x1
+     142: 4648         	mov	r0, r9
+     144: f8c9 3098    	str.w	r3, [r9, #0x98]
+     148: f44f 7380    	mov.w	r3, #0x100
+     14c: f7ff fffe    	bl	0x14c <DIG_CONFIG_SHUF_MISC_FIX+0x14c> @ imm = #-0x4
+			0000014c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     150: 4b60         	ldr	r3, [pc, #0x180]        @ 0x2d4 <DIG_CONFIG_SHUF_MISC_FIX+0x2d4>
+     152: f04f 0c26    	mov.w	r12, #0x26
+     156: 2102         	movs	r1, #0x2
+     158: 689b         	ldr	r3, [r3, #0x8]
+     15a: 785a         	ldrb	r2, [r3, #0x1]
+     15c: f1a2 0008    	sub.w	r0, r2, #0x8
+     160: 4243         	rsbs	r3, r0, #0
+     162: 4143         	adcs	r3, r0
+     164: 2a04         	cmp	r2, #0x4
+     166: 4a5d         	ldr	r2, [pc, #0x174]        @ 0x2dc <DIG_CONFIG_SHUF_MISC_FIX+0x2dc>
+     168: bf18         	it	ne
+     16a: 2100         	movne	r1, #0x0
+     16c: fb0c 2207    	mla	r2, r12, r7, r2
+     170: 7d92         	ldrb	r2, [r2, #0x16]
+     172: ea4f 3202    	lsl.w	r2, r2, #0xc
+     176: f402 5c80    	and	r12, r2, #0x1000
+     17a: f040 80a8    	bne.w	0x2ce <DIG_CONFIG_SHUF_MISC_FIX+0x2ce> @ imm = #0x150
+     17e: 4a56         	ldr	r2, [pc, #0x158]        @ 0x2d8 <DIG_CONFIG_SHUF_MISC_FIX+0x2d8>
+     180: f892 2076    	ldrb.w	r2, [r2, #0x76]
+     184: b112         	cbz	r2, 0x18c <DIG_CONFIG_SHUF_MISC_FIX+0x18c> @ imm = #0x4
+     186: 1e32         	subs	r2, r6, #0x0
+     188: bf18         	it	ne
+     18a: 2201         	movne	r2, #0x1
+     18c: ea43 1202    	orr.w	r2, r3, r2, lsl #4
+     190: f8df a144    	ldr.w	r10, [pc, #0x144]       @ 0x2d8 <DIG_CONFIG_SHUF_MISC_FIX+0x2d8>
+     194: ea42 020c    	orr.w	r2, r2, r12
+     198: 4b54         	ldr	r3, [pc, #0x150]        @ 0x2ec <DIG_CONFIG_SHUF_MISC_FIX+0x2ec>
+     19a: 430a         	orrs	r2, r1
+     19c: 4648         	mov	r0, r9
+     19e: f042 4280    	orr	r2, r2, #0x40000000
+     1a2: 4953         	ldr	r1, [pc, #0x14c]        @ 0x2f0 <DIG_CONFIG_SHUF_MISC_FIX+0x2f0>
+     1a4: f442 6280    	orr	r2, r2, #0x400
+     1a8: f7ff fffe    	bl	0x1a8 <DIG_CONFIG_SHUF_MISC_FIX+0x1a8> @ imm = #-0x4
+			000001a8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1ac: f89a 3076    	ldrb.w	r3, [r10, #0x76]
+     1b0: 2b00         	cmp	r3, #0x0
+     1b2: f000 80b3    	beq.w	0x31c <DIG_CONFIG_SHUF_MISC_FIX+0x31c> @ imm = #0x166
+     1b6: 4b47         	ldr	r3, [pc, #0x11c]        @ 0x2d4 <DIG_CONFIG_SHUF_MISC_FIX+0x2d4>
+     1b8: 689b         	ldr	r3, [r3, #0x8]
+     1ba: 785b         	ldrb	r3, [r3, #0x1]
+     1bc: 2b04         	cmp	r3, #0x4
+     1be: f000 8099    	beq.w	0x2f4 <DIG_CONFIG_SHUF_MISC_FIX+0x2f4> @ imm = #0x132
+     1c2: 4b47         	ldr	r3, [pc, #0x11c]        @ 0x2e0 <DIG_CONFIG_SHUF_MISC_FIX+0x2e0>
+     1c4: 681b         	ldr	r3, [r3]
+     1c6: 2b06         	cmp	r3, #0x6
+     1c8: d12c         	bne	0x224 <DIG_CONFIG_SHUF_MISC_FIX+0x224> @ imm = #0x58
+     1ca: 4e43         	ldr	r6, [pc, #0x10c]        @ 0x2d8 <DIG_CONFIG_SHUF_MISC_FIX+0x2d8>
+     1cc: f896 3073    	ldrb.w	r3, [r6, #0x73]
+     1d0: 2b00         	cmp	r3, #0x0
+     1d2: f000 80a3    	beq.w	0x31c <DIG_CONFIG_SHUF_MISC_FIX+0x31c> @ imm = #0x146
+     1d6: f8df a0fc    	ldr.w	r10, [pc, #0xfc]        @ 0x2d4 <DIG_CONFIG_SHUF_MISC_FIX+0x2d4>
+     1da: 4648         	mov	r0, r9
+     1dc: 4944         	ldr	r1, [pc, #0x110]        @ 0x2f0 <DIG_CONFIG_SHUF_MISC_FIX+0x2f0>
+     1de: f8da 3008    	ldr.w	r3, [r10, #0x8]
+     1e2: 785b         	ldrb	r3, [r3, #0x1]
+     1e4: 2b08         	cmp	r3, #0x8
+     1e6: f04f 0320    	mov.w	r3, #0x20
+     1ea: 461a         	mov	r2, r3
+     1ec: bf18         	it	ne
+     1ee: 2200         	movne	r2, #0x0
+     1f0: f7ff fffe    	bl	0x1f0 <DIG_CONFIG_SHUF_MISC_FIX+0x1f0> @ imm = #-0x4
+			000001f0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1f4: f8da 3008    	ldr.w	r3, [r10, #0x8]
+     1f8: 4648         	mov	r0, r9
+     1fa: 2100         	movs	r1, #0x0
+     1fc: 785b         	ldrb	r3, [r3, #0x1]
+     1fe: 2b08         	cmp	r3, #0x8
+     200: f04f 0380    	mov.w	r3, #0x80
+     204: 461a         	mov	r2, r3
+     206: bf18         	it	ne
+     208: 2200         	movne	r2, #0x0
+     20a: f7ff fffe    	bl	0x20a <DIG_CONFIG_SHUF_MISC_FIX+0x20a> @ imm = #-0x4
+			0000020a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     20e: 2320         	movs	r3, #0x20
+     210: 4648         	mov	r0, r9
+     212: 461a         	mov	r2, r3
+     214: f44f 710e    	mov.w	r1, #0x238
+     218: f7ff fffe    	bl	0x218 <DIG_CONFIG_SHUF_MISC_FIX+0x218> @ imm = #-0x4
+			00000218:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     21c: f896 3076    	ldrb.w	r3, [r6, #0x76]
+     220: 2b00         	cmp	r3, #0x0
+     222: d07b         	beq	0x31c <DIG_CONFIG_SHUF_MISC_FIX+0x31c> @ imm = #0xf6
+     224: 4b2e         	ldr	r3, [pc, #0xb8]         @ 0x2e0 <DIG_CONFIG_SHUF_MISC_FIX+0x2e0>
+     226: 681b         	ldr	r3, [r3]
+     228: 2b02         	cmp	r3, #0x2
+     22a: d177         	bne	0x31c <DIG_CONFIG_SHUF_MISC_FIX+0x31c> @ imm = #0xee
+     22c: 4b2a         	ldr	r3, [pc, #0xa8]         @ 0x2d8 <DIG_CONFIG_SHUF_MISC_FIX+0x2d8>
+     22e: f893 3074    	ldrb.w	r3, [r3, #0x74]
+     232: 2b00         	cmp	r3, #0x0
+     234: d072         	beq	0x31c <DIG_CONFIG_SHUF_MISC_FIX+0x31c> @ imm = #0xe4
+     236: 4648         	mov	r0, r9
+     238: 492d         	ldr	r1, [pc, #0xb4]         @ 0x2f0 <DIG_CONFIG_SHUF_MISC_FIX+0x2f0>
+     23a: 2320         	movs	r3, #0x20
+     23c: 2200         	movs	r2, #0x0
+     23e: f7ff fffe    	bl	0x23e <DIG_CONFIG_SHUF_MISC_FIX+0x23e> @ imm = #-0x4
+			0000023e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     242: 4648         	mov	r0, r9
+     244: 2200         	movs	r2, #0x0
+     246: 2380         	movs	r3, #0x80
+     248: 4611         	mov	r1, r2
+     24a: f7ff fffe    	bl	0x24a <DIG_CONFIG_SHUF_MISC_FIX+0x24a> @ imm = #-0x4
+			0000024a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     24e: 2320         	movs	r3, #0x20
+     250: 4648         	mov	r0, r9
+     252: 461a         	mov	r2, r3
+     254: f44f 710e    	mov.w	r1, #0x238
+     258: f7ff fffe    	bl	0x258 <DIG_CONFIG_SHUF_MISC_FIX+0x258> @ imm = #-0x4
+			00000258:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     25c: e05e         	b	0x31c <DIG_CONFIG_SHUF_MISC_FIX+0x31c> @ imm = #0xbc
+     25e: f5b3 5f96    	cmp.w	r3, #0x12c0
+     262: d028         	beq	0x2b6 <DIG_CONFIG_SHUF_MISC_FIX+0x2b6> @ imm = #0x50
+     264: d80c         	bhi	0x280 <DIG_CONFIG_SHUF_MISC_FIX+0x280> @ imm = #0x18
+     266: f241 0204    	movw	r2, #0x1004
+     26a: 4293         	cmp	r3, r2
+     26c: d026         	beq	0x2bc <DIG_CONFIG_SHUF_MISC_FIX+0x2bc> @ imm = #0x4c
+     26e: f241 02aa    	movw	r2, #0x10aa
+     272: 4293         	cmp	r3, r2
+     274: d025         	beq	0x2c2 <DIG_CONFIG_SHUF_MISC_FIX+0x2c2> @ imm = #0x4a
+     276: f640 6295    	movw	r2, #0xe95
+     27a: f244 347a    	movw	r4, #0x437a
+     27e: e750         	b	0x122 <DIG_CONFIG_SHUF_MISC_FIX+0x122> @ imm = #-0x160
+     280: f241 527c    	movw	r2, #0x157c
+     284: 4293         	cmp	r3, r2
+     286: d01f         	beq	0x2c8 <DIG_CONFIG_SHUF_MISC_FIX+0x2c8> @ imm = #0x3e
+     288: f5b3 5fc8    	cmp.w	r3, #0x1900
+     28c: f246 64b6    	movw	r4, #0x66b6
+     290: e724         	b	0xdc <DIG_CONFIG_SHUF_MISC_FIX+0xdc> @ imm = #-0x1b8
+     292: f643 4470    	movw	r4, #0x3c70
+     296: e747         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x172
+     298: f242 744d    	movw	r4, #0x274d
+     29c: e744         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x178
+     29e: f641 44bb    	movw	r4, #0x1cbb
+     2a2: e741         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x17e
+     2a4: f242 2404    	movw	r4, #0x2204
+     2a8: e73e         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x184
+     2aa: f243 14de    	movw	r4, #0x31de
+     2ae: e73b         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x18a
+     2b0: f243 5465    	movw	r4, #0x3565
+     2b4: e738         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x190
+     2b6: f245 1492    	movw	r4, #0x5192
+     2ba: e735         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x196
+     2bc: f644 0453    	movw	r4, #0x4853
+     2c0: e732         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x19c
+     2c2: f644 2485    	movw	r4, #0x4a85
+     2c6: e72f         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x1a2
+     2c8: f645 24d2    	movw	r4, #0x5ad2
+     2cc: e72c         	b	0x128 <DIG_CONFIG_SHUF_MISC_FIX+0x128> @ imm = #-0x1a8
+     2ce: 2201         	movs	r2, #0x1
+     2d0: e75c         	b	0x18c <DIG_CONFIG_SHUF_MISC_FIX+0x18c> @ imm = #-0x148
+     2d2: bf00         	nop
+     2d4: 00 00 00 00  	.word	0x00000000
+			000002d4:  R_ARM_ABS32	DV_p
+     2d8: 00 00 00 00  	.word	0x00000000
+			000002d8:  R_ARM_ABS32	DUTTopSetGlobal
+     2dc: 00 00 00 00  	.word	0x00000000
+			000002dc:  R_ARM_ABS32	DUTShufConfigGlobal
+     2e0: 00 00 00 00  	.word	0x00000000
+			000002e0:  R_ARM_ABS32	MEM_TYPE
+     2e4: 00 00 00 00  	.word	0x00000000
+			000002e4:  R_ARM_ABS32	.rodata.CSWTCH.977
+     2e8: bc 10 20 01  	.word	0x012010bc
+     2ec: 13 14 ff ff  	.word	0xffff1413
+     2f0: 04 16 20 00  	.word	0x00201604
+     2f4: 2e00         	cmp	r6, #0x0
+     2f6: f43f af64    	beq.w	0x1c2 <DIG_CONFIG_SHUF_MISC_FIX+0x1c2> @ imm = #-0x138
+     2fa: 2310         	movs	r3, #0x10
+     2fc: 49cb         	ldr	r1, [pc, #0x32c]        @ 0x62c <DIG_CONFIG_SHUF_MISC_FIX+0x62c>
+     2fe: 461a         	mov	r2, r3
+     300: 4648         	mov	r0, r9
+     302: f7ff fffe    	bl	0x302 <DIG_CONFIG_SHUF_MISC_FIX+0x302> @ imm = #-0x4
+			00000302:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     306: 2320         	movs	r3, #0x20
+     308: 49c8         	ldr	r1, [pc, #0x320]        @ 0x62c <DIG_CONFIG_SHUF_MISC_FIX+0x62c>
+     30a: 4648         	mov	r0, r9
+     30c: 2200         	movs	r2, #0x0
+     30e: f7ff fffe    	bl	0x30e <DIG_CONFIG_SHUF_MISC_FIX+0x30e> @ imm = #-0x4
+			0000030e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     312: f89a 3076    	ldrb.w	r3, [r10, #0x76]
+     316: 2b00         	cmp	r3, #0x0
+     318: f47f af53    	bne.w	0x1c2 <DIG_CONFIG_SHUF_MISC_FIX+0x1c2> @ imm = #-0x15a
+     31c: 4bc4         	ldr	r3, [pc, #0x310]        @ 0x630 <DIG_CONFIG_SHUF_MISC_FIX+0x630>
+     31e: 4648         	mov	r0, r9
+     320: 4ac4         	ldr	r2, [pc, #0x310]        @ 0x634 <DIG_CONFIG_SHUF_MISC_FIX+0x634>
+     322: 49c5         	ldr	r1, [pc, #0x314]        @ 0x638 <DIG_CONFIG_SHUF_MISC_FIX+0x638>
+     324: f7ff fffe    	bl	0x324 <DIG_CONFIG_SHUF_MISC_FIX+0x324> @ imm = #-0x4
+			00000324:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     328: 4bc4         	ldr	r3, [pc, #0x310]        @ 0x63c <DIG_CONFIG_SHUF_MISC_FIX+0x63c>
+     32a: 4ac5         	ldr	r2, [pc, #0x314]        @ 0x640 <DIG_CONFIG_SHUF_MISC_FIX+0x640>
+     32c: 4648         	mov	r0, r9
+     32e: 49c5         	ldr	r1, [pc, #0x314]        @ 0x644 <DIG_CONFIG_SHUF_MISC_FIX+0x644>
+     330: f7ff fffe    	bl	0x330 <DIG_CONFIG_SHUF_MISC_FIX+0x330> @ imm = #-0x4
+			00000330:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     334: 4bc4         	ldr	r3, [pc, #0x310]        @ 0x648 <DIG_CONFIG_SHUF_MISC_FIX+0x648>
+     336: 49c5         	ldr	r1, [pc, #0x314]        @ 0x64c <DIG_CONFIG_SHUF_MISC_FIX+0x64c>
+     338: 4648         	mov	r0, r9
+     33a: f893 209e    	ldrb.w	r2, [r3, #0x9e]
+     33e: f893 3095    	ldrb.w	r3, [r3, #0x95]
+     342: 0292         	lsls	r2, r2, #0xa
+     344: 041b         	lsls	r3, r3, #0x10
+     346: f402 6280    	and	r2, r2, #0x400
+     34a: f403 2370    	and	r3, r3, #0xf0000
+     34e: 431a         	orrs	r2, r3
+     350: 4bbf         	ldr	r3, [pc, #0x2fc]        @ 0x650 <DIG_CONFIG_SHUF_MISC_FIX+0x650>
+     352: f442 720f    	orr	r2, r2, #0x23c
+     356: f042 0203    	orr	r2, r2, #0x3
+     35a: f7ff fffe    	bl	0x35a <DIG_CONFIG_SHUF_MISC_FIX+0x35a> @ imm = #-0x4
+			0000035a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     35e: f04f 4378    	mov.w	r3, #0xf8000000
+     362: f04f 4258    	mov.w	r2, #0xd8000000
+     366: 49bb         	ldr	r1, [pc, #0x2ec]        @ 0x654 <DIG_CONFIG_SHUF_MISC_FIX+0x654>
+     368: 4648         	mov	r0, r9
+     36a: f7ff fffe    	bl	0x36a <DIG_CONFIG_SHUF_MISC_FIX+0x36a> @ imm = #-0x4
+			0000036a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     36e: 4641         	mov	r1, r8
+     370: 4648         	mov	r0, r9
+     372: f7ff fffe    	bl	0x372 <DIG_CONFIG_SHUF_MISC_FIX+0x372> @ imm = #-0x4
+			00000372:  R_ARM_THM_CALL	vSetRank
+     376: 9a07         	ldr	r2, [sp, #0x1c]
+     378: 49b7         	ldr	r1, [pc, #0x2dc]        @ 0x658 <DIG_CONFIG_SHUF_MISC_FIX+0x658>
+     37a: 4648         	mov	r0, r9
+     37c: f04f 4300    	mov.w	r3, #0x80000000
+     380: 07d2         	lsls	r2, r2, #0x1f
+     382: f7ff fffe    	bl	0x382 <DIG_CONFIG_SHUF_MISC_FIX+0x382> @ imm = #-0x4
+			00000382:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     386: 49b5         	ldr	r1, [pc, #0x2d4]        @ 0x65c <DIG_CONFIG_SHUF_MISC_FIX+0x65c>
+     388: 4648         	mov	r0, r9
+     38a: 2303         	movs	r3, #0x3
+     38c: 2202         	movs	r2, #0x2
+     38e: f7ff fffe    	bl	0x38e <DIG_CONFIG_SHUF_MISC_FIX+0x38e> @ imm = #-0x4
+			0000038e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     392: 00aa         	lsls	r2, r5, #0x2
+     394: 4db2         	ldr	r5, [pc, #0x2c8]        @ 0x660 <DIG_CONFIG_SHUF_MISC_FIX+0x660>
+     396: 4648         	mov	r0, r9
+     398: 49b2         	ldr	r1, [pc, #0x2c8]        @ 0x664 <DIG_CONFIG_SHUF_MISC_FIX+0x664>
+     39a: 2304         	movs	r3, #0x4
+     39c: f7ff fffe    	bl	0x39c <DIG_CONFIG_SHUF_MISC_FIX+0x39c> @ imm = #-0x4
+			0000039c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3a0: 9a03         	ldr	r2, [sp, #0xc]
+     3a2: 9808         	ldr	r0, [sp, #0x20]
+     3a4: f44f 5100    	mov.w	r1, #0x2000
+     3a8: 68ab         	ldr	r3, [r5, #0x8]
+     3aa: 03d2         	lsls	r2, r2, #0xf
+     3ac: 0406         	lsls	r6, r0, #0x10
+     3ae: 785b         	ldrb	r3, [r3, #0x1]
+     3b0: b292         	uxth	r2, r2
+     3b2: f406 2670    	and	r6, r6, #0xf0000
+     3b6: 2b04         	cmp	r3, #0x4
+     3b8: ea42 0206    	orr.w	r2, r2, r6
+     3bc: bf18         	it	ne
+     3be: 2100         	movne	r1, #0x0
+     3c0: 430a         	orrs	r2, r1
+     3c2: eb05 0187    	add.w	r1, r5, r7, lsl #2
+     3c6: 6949         	ldr	r1, [r1, #0x14]
+     3c8: 6809         	ldr	r1, [r1]
+     3ca: f5b1 6fc8    	cmp.w	r1, #0x640
+     3ce: f040 80be    	bne.w	0x54e <DIG_CONFIG_SHUF_MISC_FIX+0x54e> @ imm = #0x17c
+     3d2: 2b08         	cmp	r3, #0x8
+     3d4: f44f 61a0    	mov.w	r1, #0x500
+     3d8: f44f 7300    	mov.w	r3, #0x200
+     3dc: bf18         	it	ne
+     3de: 4619         	movne	r1, r3
+     3e0: 430a         	orrs	r2, r1
+     3e2: 4ba1         	ldr	r3, [pc, #0x284]        @ 0x668 <DIG_CONFIG_SHUF_MISC_FIX+0x668>
+     3e4: 49a1         	ldr	r1, [pc, #0x284]        @ 0x66c <DIG_CONFIG_SHUF_MISC_FIX+0x66c>
+     3e6: 4648         	mov	r0, r9
+     3e8: f7ff fffe    	bl	0x3e8 <DIG_CONFIG_SHUF_MISC_FIX+0x3e8> @ imm = #-0x4
+			000003e8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3ec: eb05 0387    	add.w	r3, r5, r7, lsl #2
+     3f0: f44f 3280    	mov.w	r2, #0x10000
+     3f4: 499e         	ldr	r1, [pc, #0x278]        @ 0x670 <DIG_CONFIG_SHUF_MISC_FIX+0x670>
+     3f6: 4648         	mov	r0, r9
+     3f8: 695b         	ldr	r3, [r3, #0x14]
+     3fa: 681b         	ldr	r3, [r3]
+     3fc: f5b3 6fc8    	cmp.w	r3, #0x640
+     400: 4b9c         	ldr	r3, [pc, #0x270]        @ 0x674 <DIG_CONFIG_SHUF_MISC_FIX+0x674>
+     402: bf88         	it	hi
+     404: 2200         	movhi	r2, #0x0
+     406: f042 7240    	orr	r2, r2, #0x3000000
+     40a: f442 4218    	orr	r2, r2, #0x9800
+     40e: f7ff fffe    	bl	0x40e <DIG_CONFIG_SHUF_MISC_FIX+0x40e> @ imm = #-0x4
+			0000040e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     412: 68ab         	ldr	r3, [r5, #0x8]
+     414: 785b         	ldrb	r3, [r3, #0x1]
+     416: 2b08         	cmp	r3, #0x8
+     418: f000 809c    	beq.w	0x554 <DIG_CONFIG_SHUF_MISC_FIX+0x554> @ imm = #0x138
+     41c: 2b10         	cmp	r3, #0x10
+     41e: f000 80b2    	beq.w	0x586 <DIG_CONFIG_SHUF_MISC_FIX+0x586> @ imm = #0x164
+     422: 2b04         	cmp	r3, #0x4
+     424: d119         	bne	0x45a <DIG_CONFIG_SHUF_MISC_FIX+0x45a> @ imm = #0x32
+     426: 4994         	ldr	r1, [pc, #0x250]        @ 0x678 <DIG_CONFIG_SHUF_MISC_FIX+0x678>
+     428: 4648         	mov	r0, r9
+     42a: 2303         	movs	r3, #0x3
+     42c: 2201         	movs	r2, #0x1
+     42e: f7ff fffe    	bl	0x42e <DIG_CONFIG_SHUF_MISC_FIX+0x42e> @ imm = #-0x4
+			0000042e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     432: 4b85         	ldr	r3, [pc, #0x214]        @ 0x648 <DIG_CONFIG_SHUF_MISC_FIX+0x648>
+     434: 4990         	ldr	r1, [pc, #0x240]        @ 0x678 <DIG_CONFIG_SHUF_MISC_FIX+0x678>
+     436: 4648         	mov	r0, r9
+     438: f893 2076    	ldrb.w	r2, [r3, #0x76]
+     43c: f893 3075    	ldrb.w	r3, [r3, #0x75]
+     440: 431a         	orrs	r2, r3
+     442: f04f 03f0    	mov.w	r3, #0xf0
+     446: bf18         	it	ne
+     448: 2210         	movne	r2, #0x10
+     44a: f7ff fffe    	bl	0x44a <DIG_CONFIG_SHUF_MISC_FIX+0x44a> @ imm = #-0x4
+			0000044a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     44e: 2307         	movs	r3, #0x7
+     450: 2203         	movs	r2, #0x3
+     452: 4976         	ldr	r1, [pc, #0x1d8]        @ 0x62c <DIG_CONFIG_SHUF_MISC_FIX+0x62c>
+     454: 4648         	mov	r0, r9
+     456: f7ff fffe    	bl	0x456 <DIG_CONFIG_SHUF_MISC_FIX+0x456> @ imm = #-0x4
+			00000456:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     45a: 4e88         	ldr	r6, [pc, #0x220]        @ 0x67c <DIG_CONFIG_SHUF_MISC_FIX+0x67c>
+     45c: 4648         	mov	r0, r9
+     45e: 4988         	ldr	r1, [pc, #0x220]        @ 0x680 <DIG_CONFIG_SHUF_MISC_FIX+0x680>
+     460: 7833         	ldrb	r3, [r6]
+     462: 041a         	lsls	r2, r3, #0x10
+     464: 045b         	lsls	r3, r3, #0x11
+     466: f403 3300    	and	r3, r3, #0x20000
+     46a: f402 3280    	and	r2, r2, #0x10000
+     46e: 431a         	orrs	r2, r3
+     470: f44f 334c    	mov.w	r3, #0x33000
+     474: ea42 320b    	orr.w	r2, r2, r11, lsl #12
+     478: f7ff fffe    	bl	0x478 <DIG_CONFIG_SHUF_MISC_FIX+0x478> @ imm = #-0x4
+			00000478:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     47c: 9b06         	ldr	r3, [sp, #0x18]
+     47e: 2b00         	cmp	r3, #0x0
+     480: f000 808a    	beq.w	0x598 <DIG_CONFIG_SHUF_MISC_FIX+0x598> @ imm = #0x114
+     484: 4b7f         	ldr	r3, [pc, #0x1fc]        @ 0x684 <DIG_CONFIG_SHUF_MISC_FIX+0x684>
+     486: 681a         	ldr	r2, [r3]
+     488: 1e91         	subs	r1, r2, #0x2
+     48a: 424a         	rsbs	r2, r1, #0
+     48c: 414a         	adcs	r2, r1
+     48e: 0412         	lsls	r2, r2, #0x10
+     490: 497d         	ldr	r1, [pc, #0x1f4]        @ 0x688 <DIG_CONFIG_SHUF_MISC_FIX+0x688>
+     492: 4648         	mov	r0, r9
+     494: f44f 3380    	mov.w	r3, #0x10000
+     498: f7ff fffe    	bl	0x498 <DIG_CONFIG_SHUF_MISC_FIX+0x498> @ imm = #-0x4
+			00000498:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     49c: 7832         	ldrb	r2, [r6]
+     49e: b152         	cbz	r2, 0x4b6 <DIG_CONFIG_SHUF_MISC_FIX+0x4b6> @ imm = #0x14
+     4a0: eb05 0787    	add.w	r7, r5, r7, lsl #2
+     4a4: 697b         	ldr	r3, [r7, #0x14]
+     4a6: 681a         	ldr	r2, [r3]
+     4a8: f240 7349    	movw	r3, #0x749
+     4ac: 429a         	cmp	r2, r3
+     4ae: f04f 0202    	mov.w	r2, #0x2
+     4b2: bf98         	it	ls
+     4b4: 2200         	movls	r2, #0x0
+     4b6: 4972         	ldr	r1, [pc, #0x1c8]        @ 0x680 <DIG_CONFIG_SHUF_MISC_FIX+0x680>
+     4b8: f442 7244    	orr	r2, r2, #0x310
+     4bc: 4648         	mov	r0, r9
+     4be: f240 337f    	movw	r3, #0x37f
+     4c2: f7ff fffe    	bl	0x4c2 <DIG_CONFIG_SHUF_MISC_FIX+0x4c2> @ imm = #-0x4
+			000004c2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     4c6: f44f 4300    	mov.w	r3, #0x8000
+     4ca: 4970         	ldr	r1, [pc, #0x1c0]        @ 0x68c <DIG_CONFIG_SHUF_MISC_FIX+0x68c>
+     4cc: 461a         	mov	r2, r3
+     4ce: 4648         	mov	r0, r9
+     4d0: f8df a1bc    	ldr.w	r10, [pc, #0x1bc]       @ 0x690 <DIG_CONFIG_SHUF_MISC_FIX+0x690>
+     4d4: f7ff fffe    	bl	0x4d4 <DIG_CONFIG_SHUF_MISC_FIX+0x4d4> @ imm = #-0x4
+			000004d4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     4d8: 230f         	movs	r3, #0xf
+     4da: 496e         	ldr	r1, [pc, #0x1b8]        @ 0x694 <DIG_CONFIG_SHUF_MISC_FIX+0x694>
+     4dc: 4648         	mov	r0, r9
+     4de: 2201         	movs	r2, #0x1
+     4e0: f8df b1b4    	ldr.w	r11, [pc, #0x1b4]       @ 0x698 <DIG_CONFIG_SHUF_MISC_FIX+0x698>
+     4e4: f7ff fffe    	bl	0x4e4 <DIG_CONFIG_SHUF_MISC_FIX+0x4e4> @ imm = #-0x4
+			000004e4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     4e8: 9b04         	ldr	r3, [sp, #0x10]
+     4ea: 2700         	movs	r7, #0x0
+     4ec: 011e         	lsls	r6, r3, #0x4
+     4ee: f006 0670    	and	r6, r6, #0x70
+     4f2: f8d9 3008    	ldr.w	r3, [r9, #0x8]
+     4f6: b2f9         	uxtb	r1, r7
+     4f8: 3701         	adds	r7, #0x1
+     4fa: 428b         	cmp	r3, r1
+     4fc: d84e         	bhi	0x59c <DIG_CONFIG_SHUF_MISC_FIX+0x59c> @ imm = #0x9c
+     4fe: 4641         	mov	r1, r8
+     500: 4648         	mov	r0, r9
+     502: f7ff fffe    	bl	0x502 <DIG_CONFIG_SHUF_MISC_FIX+0x502> @ imm = #-0x4
+			00000502:  R_ARM_THM_CALL	vSetRank
+     506: 2301         	movs	r3, #0x1
+     508: 4964         	ldr	r1, [pc, #0x190]        @ 0x69c <DIG_CONFIG_SHUF_MISC_FIX+0x69c>
+     50a: 461a         	mov	r2, r3
+     50c: 4648         	mov	r0, r9
+     50e: 4e5d         	ldr	r6, [pc, #0x174]        @ 0x684 <DIG_CONFIG_SHUF_MISC_FIX+0x684>
+     510: f7ff fffe    	bl	0x510 <DIG_CONFIG_SHUF_MISC_FIX+0x510> @ imm = #-0x4
+			00000510:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     514: 4b4c         	ldr	r3, [pc, #0x130]        @ 0x648 <DIG_CONFIG_SHUF_MISC_FIX+0x648>
+     516: f893 2076    	ldrb.w	r2, [r3, #0x76]
+     51a: f893 3075    	ldrb.w	r3, [r3, #0x75]
+     51e: 431a         	orrs	r2, r3
+     520: 68ab         	ldr	r3, [r5, #0x8]
+     522: 785b         	ldrb	r3, [r3, #0x1]
+     524: f000 80d5    	beq.w	0x6d2 <DIG_CONFIG_SHUF_MISC_FIX+0x6d2> @ imm = #0x1aa
+     528: 6832         	ldr	r2, [r6]
+     52a: 2a06         	cmp	r2, #0x6
+     52c: f040 80c2    	bne.w	0x6b4 <DIG_CONFIG_SHUF_MISC_FIX+0x6b4> @ imm = #0x184
+     530: 2b04         	cmp	r3, #0x4
+     532: f000 80c9    	beq.w	0x6c8 <DIG_CONFIG_SHUF_MISC_FIX+0x6c8> @ imm = #0x192
+     536: 2b08         	cmp	r3, #0x8
+     538: d040         	beq	0x5bc <DIG_CONFIG_SHUF_MISC_FIX+0x5bc> @ imm = #0x80
+     53a: 2b10         	cmp	r3, #0x10
+     53c: f44f 2270    	mov.w	r2, #0xf0000
+     540: f44f 23c0    	mov.w	r3, #0x60000
+     544: f04f 0100    	mov.w	r1, #0x0
+     548: bf18         	it	ne
+     54a: 461a         	movne	r2, r3
+     54c: e03a         	b	0x5c4 <DIG_CONFIG_SHUF_MISC_FIX+0x5c4> @ imm = #0x74
+     54e: f44f 7100    	mov.w	r1, #0x200
+     552: e745         	b	0x3e0 <DIG_CONFIG_SHUF_MISC_FIX+0x3e0> @ imm = #-0x176
+     554: 2303         	movs	r3, #0x3
+     556: 2202         	movs	r2, #0x2
+     558: 4947         	ldr	r1, [pc, #0x11c]        @ 0x678 <DIG_CONFIG_SHUF_MISC_FIX+0x678>
+     55a: 4648         	mov	r0, r9
+     55c: f7ff fffe    	bl	0x55c <DIG_CONFIG_SHUF_MISC_FIX+0x55c> @ imm = #-0x4
+			0000055c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     560: 4b39         	ldr	r3, [pc, #0xe4]         @ 0x648 <DIG_CONFIG_SHUF_MISC_FIX+0x648>
+     562: f893 2076    	ldrb.w	r2, [r3, #0x76]
+     566: f893 3075    	ldrb.w	r3, [r3, #0x75]
+     56a: 4313         	orrs	r3, r2
+     56c: f04f 03f0    	mov.w	r3, #0xf0
+     570: bf18         	it	ne
+     572: 2220         	movne	r2, #0x20
+     574: bf08         	it	eq
+     576: 2250         	moveq	r2, #0x50
+     578: 493f         	ldr	r1, [pc, #0xfc]         @ 0x678 <DIG_CONFIG_SHUF_MISC_FIX+0x678>
+     57a: 4648         	mov	r0, r9
+     57c: f7ff fffe    	bl	0x57c <DIG_CONFIG_SHUF_MISC_FIX+0x57c> @ imm = #-0x4
+			0000057c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     580: 2307         	movs	r3, #0x7
+     582: 2200         	movs	r2, #0x0
+     584: e765         	b	0x452 <DIG_CONFIG_SHUF_MISC_FIX+0x452> @ imm = #-0x136
+     586: 2303         	movs	r3, #0x3
+     588: 493b         	ldr	r1, [pc, #0xec]         @ 0x678 <DIG_CONFIG_SHUF_MISC_FIX+0x678>
+     58a: 461a         	mov	r2, r3
+     58c: 4648         	mov	r0, r9
+     58e: f7ff fffe    	bl	0x58e <DIG_CONFIG_SHUF_MISC_FIX+0x58e> @ imm = #-0x4
+			0000058e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     592: 23f0         	movs	r3, #0xf0
+     594: 22a0         	movs	r2, #0xa0
+     596: e7ef         	b	0x578 <DIG_CONFIG_SHUF_MISC_FIX+0x578> @ imm = #-0x22
+     598: 2201         	movs	r2, #0x1
+     59a: e778         	b	0x48e <DIG_CONFIG_SHUF_MISC_FIX+0x48e> @ imm = #-0x110
+     59c: 4648         	mov	r0, r9
+     59e: f7ff fffe    	bl	0x59e <DIG_CONFIG_SHUF_MISC_FIX+0x59e> @ imm = #-0x4
+			0000059e:  R_ARM_THM_CALL	vSetRank
+     5a2: 4632         	mov	r2, r6
+     5a4: 4651         	mov	r1, r10
+     5a6: 4648         	mov	r0, r9
+     5a8: 2377         	movs	r3, #0x77
+     5aa: f7ff fffe    	bl	0x5aa <DIG_CONFIG_SHUF_MISC_FIX+0x5aa> @ imm = #-0x4
+			000005aa:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5ae: 4659         	mov	r1, r11
+     5b0: 4648         	mov	r0, r9
+     5b2: 23ff         	movs	r3, #0xff
+     5b4: 2200         	movs	r2, #0x0
+     5b6: f7ff fffe    	bl	0x5b6 <DIG_CONFIG_SHUF_MISC_FIX+0x5b6> @ imm = #-0x4
+			000005b6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5ba: e79a         	b	0x4f2 <DIG_CONFIG_SHUF_MISC_FIX+0x4f2> @ imm = #-0xcc
+     5bc: f44f 6120    	mov.w	r1, #0xa00
+     5c0: f44f 2200    	mov.w	r2, #0x80000
+     5c4: 430a         	orrs	r2, r1
+     5c6: f06f 03e4    	mvn	r3, #0xe4
+     5ca: 4935         	ldr	r1, [pc, #0xd4]         @ 0x6a0 <DIG_CONFIG_SHUF_MISC_FIX+0x6a0>
+     5cc: f042 0219    	orr	r2, r2, #0x19
+     5d0: 4648         	mov	r0, r9
+     5d2: f7ff fffe    	bl	0x5d2 <DIG_CONFIG_SHUF_MISC_FIX+0x5d2> @ imm = #-0x4
+			000005d2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5d6: 4933         	ldr	r1, [pc, #0xcc]         @ 0x6a4 <DIG_CONFIG_SHUF_MISC_FIX+0x6a4>
+     5d8: 2304         	movs	r3, #0x4
+     5da: 2200         	movs	r2, #0x0
+     5dc: 4648         	mov	r0, r9
+     5de: f7ff fffe    	bl	0x5de <DIG_CONFIG_SHUF_MISC_FIX+0x5de> @ imm = #-0x4
+			000005de:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5e2: 9a05         	ldr	r2, [sp, #0x14]
+     5e4: 23f0         	movs	r3, #0xf0
+     5e6: 4930         	ldr	r1, [pc, #0xc0]         @ 0x6a8 <DIG_CONFIG_SHUF_MISC_FIX+0x6a8>
+     5e8: 4648         	mov	r0, r9
+     5ea: 0192         	lsls	r2, r2, #0x6
+     5ec: f7ff fffe    	bl	0x5ec <DIG_CONFIG_SHUF_MISC_FIX+0x5ec> @ imm = #-0x4
+			000005ec:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5f0: 6833         	ldr	r3, [r6]
+     5f2: f023 0304    	bic	r3, r3, #0x4
+     5f6: 2b02         	cmp	r3, #0x2
+     5f8: f040 8087    	bne.w	0x70a <DIG_CONFIG_SHUF_MISC_FIX+0x70a> @ imm = #0x10e
+     5fc: 2301         	movs	r3, #0x1
+     5fe: 461a         	mov	r2, r3
+     600: 4648         	mov	r0, r9
+     602: 492a         	ldr	r1, [pc, #0xa8]         @ 0x6ac <DIG_CONFIG_SHUF_MISC_FIX+0x6ac>
+     604: f7ff fffe    	bl	0x604 <DIG_CONFIG_SHUF_MISC_FIX+0x604> @ imm = #-0x4
+			00000604:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     608: 2500         	movs	r5, #0x0
+     60a: 4622         	mov	r2, r4
+     60c: 462b         	mov	r3, r5
+     60e: 4648         	mov	r0, r9
+     610: 4927         	ldr	r1, [pc, #0x9c]         @ 0x6b0 <DIG_CONFIG_SHUF_MISC_FIX+0x6b0>
+     612: 9500         	str	r5, [sp]
+     614: f7ff fffe    	bl	0x614 <DIG_CONFIG_SHUF_MISC_FIX+0x614> @ imm = #-0x4
+			00000614:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     618: 9909         	ldr	r1, [sp, #0x24]
+     61a: 4648         	mov	r0, r9
+     61c: f7ff fffe    	bl	0x61c <DIG_CONFIG_SHUF_MISC_FIX+0x61c> @ imm = #-0x4
+			0000061c:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     620: f8c9 5098    	str.w	r5, [r9, #0x98]
+     624: b00b         	add	sp, #0x2c
+     626: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     62a: bf00         	nop
+     62c: bc 10 20 01  	.word	0x012010bc
+     630: 3f 00 00 80  	.word	0x8000003f
+     634: 36 00 00 80  	.word	0x80000036
+     638: 74 16 20 00  	.word	0x00201674
+     63c: 00 00 0f a0  	.word	0xa00f0000
+     640: 00 00 02 a0  	.word	0xa0020000
+     644: 10 16 20 00  	.word	0x00201610
+     648: 00 00 00 00  	.word	0x00000000
+			00000648:  R_ARM_ABS32	DUTTopSetGlobal
+     64c: a0 16 20 00  	.word	0x002016a0
+     650: ff f7 0f 00  	.word	0x000ff7ff
+     654: 9c 16 20 00  	.word	0x0020169c
+     658: 80 16 20 00  	.word	0x00201680
+     65c: 00 16 20 00  	.word	0x00201600
+     660: 00 00 00 00  	.word	0x00000000
+			00000660:  R_ARM_ABS32	DV_p
+     664: 0c 16 20 00  	.word	0x0020160c
+     668: 1f a7 8f 03  	.word	0x038fa71f
+     66c: 88 16 20 00  	.word	0x00201688
+     670: 98 10 20 01  	.word	0x01201098
+     674: 00 f8 f1 03  	.word	0x03f1f800
+     678: 08 11 20 01  	.word	0x01201108
+     67c: 00 00 00 00  	.word	0x00000000
+			0000067c:  R_ARM_ABS32	Gat_p
+     680: 94 10 20 01  	.word	0x01201094
+     684: 00 00 00 00  	.word	0x00000000
+			00000684:  R_ARM_ABS32	MEM_TYPE
+     688: 0c 11 20 01  	.word	0x0120110c
+     68c: a0 10 20 01  	.word	0x012010a0
+     690: 64 0b 60 01  	.word	0x01600b64
+     694: a4 16 20 00  	.word	0x002016a4
+     698: 60 12 60 00  	.word	0x00601260
+     69c: d8 16 20 00  	.word	0x002016d8
+     6a0: ac 10 20 01  	.word	0x012010ac
+     6a4: a8 10 20 01  	.word	0x012010a8
+     6a8: b0 10 20 01  	.word	0x012010b0
+     6ac: 28 11 20 01  	.word	0x01201128
+     6b0: 00 17 20 00  	.word	0x00201700
+     6b4: 2b04         	cmp	r3, #0x4
+     6b6: d007         	beq	0x6c8 <DIG_CONFIG_SHUF_MISC_FIX+0x6c8> @ imm = #0xe
+     6b8: 2b08         	cmp	r3, #0x8
+     6ba: f47f af3e    	bne.w	0x53a <DIG_CONFIG_SHUF_MISC_FIX+0x53a> @ imm = #-0x184
+     6be: f44f 6180    	mov.w	r1, #0x400
+     6c2: f44f 2250    	mov.w	r2, #0xd0000
+     6c6: e77d         	b	0x5c4 <DIG_CONFIG_SHUF_MISC_FIX+0x5c4> @ imm = #-0x106
+     6c8: f44f 6110    	mov.w	r1, #0x900
+     6cc: f44f 22c0    	mov.w	r2, #0x60000
+     6d0: e778         	b	0x5c4 <DIG_CONFIG_SHUF_MISC_FIX+0x5c4> @ imm = #-0x110
+     6d2: 2b04         	cmp	r3, #0x4
+     6d4: d00f         	beq	0x6f6 <DIG_CONFIG_SHUF_MISC_FIX+0x6f6> @ imm = #0x1e
+     6d6: 2b08         	cmp	r3, #0x8
+     6d8: d012         	beq	0x700 <DIG_CONFIG_SHUF_MISC_FIX+0x700> @ imm = #0x24
+     6da: 2b10         	cmp	r3, #0x10
+     6dc: f44f 2170    	mov.w	r1, #0xf0000
+     6e0: f44f 2320    	mov.w	r3, #0xa0000
+     6e4: bf08         	it	eq
+     6e6: 460b         	moveq	r3, r1
+     6e8: 431a         	orrs	r2, r3
+     6ea: 490d         	ldr	r1, [pc, #0x34]         @ 0x720 <DIG_CONFIG_SHUF_MISC_FIX+0x720>
+     6ec: f042 0219    	orr	r2, r2, #0x19
+     6f0: f06f 03e4    	mvn	r3, #0xe4
+     6f4: e772         	b	0x5dc <DIG_CONFIG_SHUF_MISC_FIX+0x5dc> @ imm = #-0x11c
+     6f6: f44f 6210    	mov.w	r2, #0x900
+     6fa: f44f 2320    	mov.w	r3, #0xa0000
+     6fe: e7f3         	b	0x6e8 <DIG_CONFIG_SHUF_MISC_FIX+0x6e8> @ imm = #-0x1a
+     700: f44f 6280    	mov.w	r2, #0x400
+     704: f44f 2350    	mov.w	r3, #0xd0000
+     708: e7ee         	b	0x6e8 <DIG_CONFIG_SHUF_MISC_FIX+0x6e8> @ imm = #-0x24
+     70a: 68ab         	ldr	r3, [r5, #0x8]
+     70c: 791a         	ldrb	r2, [r3, #0x4]
+     70e: 2a01         	cmp	r2, #0x1
+     710: d003         	beq	0x71a <DIG_CONFIG_SHUF_MISC_FIX+0x71a> @ imm = #0x6
+     712: 78da         	ldrb	r2, [r3, #0x3]
+     714: 1e53         	subs	r3, r2, #0x1
+     716: 425a         	rsbs	r2, r3, #0
+     718: 415a         	adcs	r2, r3
+     71a: 2301         	movs	r3, #0x1
+     71c: e770         	b	0x600 <DIG_CONFIG_SHUF_MISC_FIX+0x600> @ imm = #-0x120
+     71e: bf00         	nop
+     720: ac 10 20 01  	.word	0x012010ac
+
+Disassembly of section .text.DIG_CONFIG_SHUF_DCM:
+
+00000000 <DIG_CONFIG_SHUF_DCM>:
+       0: b5f7         	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+       2: 3a00         	subs	r2, #0x0
+       4: 461f         	mov	r7, r3
+       6: bf18         	it	ne
+       8: 2201         	movne	r2, #0x1
+       a: 497c         	ldr	r1, [pc, #0x1f0]        @ 0x1fc <DIG_CONFIG_SHUF_DCM+0x1fc>
+       c: f8c0 2098    	str.w	r2, [r0, #0x98]
+      10: 2200         	movs	r2, #0x0
+      12: 4604         	mov	r4, r0
+      14: 4e7a         	ldr	r6, [pc, #0x1e8]        @ 0x200 <DIG_CONFIG_SHUF_DCM+0x200>
+      16: f7ff fffe    	bl	0x16 <DIG_CONFIG_SHUF_DCM+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	vPhyByteReadFldAlign
+      1a: 2f01         	cmp	r7, #0x1
+      1c: 4605         	mov	r5, r0
+      1e: f040 80b1    	bne.w	0x184 <DIG_CONFIG_SHUF_DCM+0x184> @ imm = #0x162
+      22: f896 2098    	ldrb.w	r2, [r6, #0x98]
+      26: 4620         	mov	r0, r4
+      28: f896 3097    	ldrb.w	r3, [r6, #0x97]
+      2c: 4975         	ldr	r1, [pc, #0x1d4]        @ 0x204 <DIG_CONFIG_SHUF_DCM+0x204>
+      2e: 0412         	lsls	r2, r2, #0x10
+      30: 051b         	lsls	r3, r3, #0x14
+      32: f402 2270    	and	r2, r2, #0xf0000
+      36: f403 0370    	and	r3, r3, #0xf00000
+      3a: 431a         	orrs	r2, r3
+      3c: 4b72         	ldr	r3, [pc, #0x1c8]        @ 0x208 <DIG_CONFIG_SHUF_DCM+0x208>
+      3e: f042 0207    	orr	r2, r2, #0x7
+      42: f7ff fffe    	bl	0x42 <DIG_CONFIG_SHUF_DCM+0x42> @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      46: 4971         	ldr	r1, [pc, #0x1c4]        @ 0x20c <DIG_CONFIG_SHUF_DCM+0x20c>
+      48: 4620         	mov	r0, r4
+      4a: f44f 2360    	mov.w	r3, #0xe0000
+      4e: 2200         	movs	r2, #0x0
+      50: f7ff fffe    	bl	0x50 <DIG_CONFIG_SHUF_DCM+0x50> @ imm = #-0x4
+			00000050:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      54: 496e         	ldr	r1, [pc, #0x1b8]        @ 0x210 <DIG_CONFIG_SHUF_DCM+0x210>
+      56: 4620         	mov	r0, r4
+      58: f44f 2360    	mov.w	r3, #0xe0000
+      5c: 2200         	movs	r2, #0x0
+      5e: f7ff fffe    	bl	0x5e <DIG_CONFIG_SHUF_DCM+0x5e> @ imm = #-0x4
+			0000005e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      62: 496c         	ldr	r1, [pc, #0x1b0]        @ 0x214 <DIG_CONFIG_SHUF_DCM+0x214>
+      64: 4620         	mov	r0, r4
+      66: f44f 2360    	mov.w	r3, #0xe0000
+      6a: 2200         	movs	r2, #0x0
+      6c: f7ff fffe    	bl	0x6c <DIG_CONFIG_SHUF_DCM+0x6c> @ imm = #-0x4
+			0000006c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      70: 2f00         	cmp	r7, #0x0
+      72: f000 80a9    	beq.w	0x1c8 <DIG_CONFIG_SHUF_DCM+0x1c8> @ imm = #0x152
+      76: 2500         	movs	r5, #0x0
+      78: 462b         	mov	r3, r5
+      7a: 2f00         	cmp	r7, #0x0
+      7c: ea45 0503    	orr.w	r5, r5, r3
+      80: f04f 5300    	mov.w	r3, #0x20000000
+      84: bf18         	it	ne
+      86: 2300         	movne	r3, #0x0
+      88: ea45 0503    	orr.w	r5, r5, r3
+      8c: f04f 5380    	mov.w	r3, #0x10000000
+      90: bf18         	it	ne
+      92: 2300         	movne	r3, #0x0
+      94: ea45 0503    	orr.w	r5, r5, r3
+      98: f04f 6300    	mov.w	r3, #0x8000000
+      9c: bf18         	it	ne
+      9e: 2300         	movne	r3, #0x0
+      a0: ea45 0503    	orr.w	r5, r5, r3
+      a4: f04f 6380    	mov.w	r3, #0x4000000
+      a8: bf18         	it	ne
+      aa: 2300         	movne	r3, #0x0
+      ac: ea45 0503    	orr.w	r5, r5, r3
+      b0: f04f 7380    	mov.w	r3, #0x1000000
+      b4: bf18         	it	ne
+      b6: 2300         	movne	r3, #0x0
+      b8: ea45 0503    	orr.w	r5, r5, r3
+      bc: f040 8089    	bne.w	0x1d2 <DIG_CONFIG_SHUF_DCM+0x1d2> @ imm = #0x112
+      c0: f44f 1280    	mov.w	r2, #0x100000
+      c4: f44f 0380    	mov.w	r3, #0x400000
+      c8: f44f 0600    	mov.w	r6, #0x800000
+      cc: f44f 2100    	mov.w	r1, #0x80000
+      d0: 4329         	orrs	r1, r5
+      d2: 4620         	mov	r0, r4
+      d4: 430e         	orrs	r6, r1
+      d6: 4950         	ldr	r1, [pc, #0x140]        @ 0x218 <DIG_CONFIG_SHUF_DCM+0x218>
+      d8: 431e         	orrs	r6, r3
+      da: 4b50         	ldr	r3, [pc, #0x140]        @ 0x21c <DIG_CONFIG_SHUF_DCM+0x21c>
+      dc: 4316         	orrs	r6, r2
+      de: f446 1600    	orr	r6, r6, #0x200000
+      e2: 4632         	mov	r2, r6
+      e4: f7ff fffe    	bl	0xe4 <DIG_CONFIG_SHUF_DCM+0xe4> @ imm = #-0x4
+			000000e4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      e8: 4b4c         	ldr	r3, [pc, #0x130]        @ 0x21c <DIG_CONFIG_SHUF_DCM+0x21c>
+      ea: 494d         	ldr	r1, [pc, #0x134]        @ 0x220 <DIG_CONFIG_SHUF_DCM+0x220>
+      ec: 4632         	mov	r2, r6
+      ee: 4620         	mov	r0, r4
+      f0: f7ff fffe    	bl	0xf0 <DIG_CONFIG_SHUF_DCM+0xf0> @ imm = #-0x4
+			000000f0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      f4: 4b49         	ldr	r3, [pc, #0x124]        @ 0x21c <DIG_CONFIG_SHUF_DCM+0x21c>
+      f6: 494b         	ldr	r1, [pc, #0x12c]        @ 0x224 <DIG_CONFIG_SHUF_DCM+0x224>
+      f8: 4632         	mov	r2, r6
+      fa: 4620         	mov	r0, r4
+      fc: f7ff fffe    	bl	0xfc <DIG_CONFIG_SHUF_DCM+0xfc> @ imm = #-0x4
+			000000fc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     100: 2302         	movs	r3, #0x2
+     102: 4949         	ldr	r1, [pc, #0x124]        @ 0x228 <DIG_CONFIG_SHUF_DCM+0x228>
+     104: 461a         	mov	r2, r3
+     106: 4620         	mov	r0, r4
+     108: f7ff fffe    	bl	0x108 <DIG_CONFIG_SHUF_DCM+0x108> @ imm = #-0x4
+			00000108:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     10c: 2302         	movs	r3, #0x2
+     10e: 4947         	ldr	r1, [pc, #0x11c]        @ 0x22c <DIG_CONFIG_SHUF_DCM+0x22c>
+     110: 461a         	mov	r2, r3
+     112: 4620         	mov	r0, r4
+     114: f7ff fffe    	bl	0x114 <DIG_CONFIG_SHUF_DCM+0x114> @ imm = #-0x4
+			00000114:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     118: 2302         	movs	r3, #0x2
+     11a: 4945         	ldr	r1, [pc, #0x114]        @ 0x230 <DIG_CONFIG_SHUF_DCM+0x230>
+     11c: 461a         	mov	r2, r3
+     11e: 4620         	mov	r0, r4
+     120: f7ff fffe    	bl	0x120 <DIG_CONFIG_SHUF_DCM+0x120> @ imm = #-0x4
+			00000120:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     124: 2302         	movs	r3, #0x2
+     126: 4943         	ldr	r1, [pc, #0x10c]        @ 0x234 <DIG_CONFIG_SHUF_DCM+0x234>
+     128: 461a         	mov	r2, r3
+     12a: 4620         	mov	r0, r4
+     12c: f7ff fffe    	bl	0x12c <DIG_CONFIG_SHUF_DCM+0x12c> @ imm = #-0x4
+			0000012c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     130: 4b41         	ldr	r3, [pc, #0x104]        @ 0x238 <DIG_CONFIG_SHUF_DCM+0x238>
+     132: 4942         	ldr	r1, [pc, #0x108]        @ 0x23c <DIG_CONFIG_SHUF_DCM+0x23c>
+     134: f445 1200    	orr	r2, r5, #0x200000
+     138: 4620         	mov	r0, r4
+     13a: f7ff fffe    	bl	0x13a <DIG_CONFIG_SHUF_DCM+0x13a> @ imm = #-0x4
+			0000013a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     13e: 4940         	ldr	r1, [pc, #0x100]        @ 0x240 <DIG_CONFIG_SHUF_DCM+0x240>
+     140: 4620         	mov	r0, r4
+     142: 2302         	movs	r3, #0x2
+     144: 2200         	movs	r2, #0x0
+     146: f7ff fffe    	bl	0x146 <DIG_CONFIG_SHUF_DCM+0x146> @ imm = #-0x4
+			00000146:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     14a: 017a         	lsls	r2, r7, #0x5
+     14c: 2330         	movs	r3, #0x30
+     14e: 492d         	ldr	r1, [pc, #0xb4]         @ 0x204 <DIG_CONFIG_SHUF_DCM+0x204>
+     150: f002 0220    	and	r2, r2, #0x20
+     154: 4620         	mov	r0, r4
+     156: f7ff fffe    	bl	0x156 <DIG_CONFIG_SHUF_DCM+0x156> @ imm = #-0x4
+			00000156:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     15a: 2300         	movs	r3, #0x0
+     15c: 2f01         	cmp	r7, #0x1
+     15e: 9300         	str	r3, [sp]
+     160: d13c         	bne	0x1dc <DIG_CONFIG_SHUF_DCM+0x1dc> @ imm = #0x78
+     162: 4a38         	ldr	r2, [pc, #0xe0]         @ 0x244 <DIG_CONFIG_SHUF_DCM+0x244>
+     164: 4620         	mov	r0, r4
+     166: 4925         	ldr	r1, [pc, #0x94]         @ 0x1fc <DIG_CONFIG_SHUF_DCM+0x1fc>
+     168: f7ff fffe    	bl	0x168 <DIG_CONFIG_SHUF_DCM+0x168> @ imm = #-0x4
+			00000168:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     16c: 4936         	ldr	r1, [pc, #0xd8]         @ 0x248 <DIG_CONFIG_SHUF_DCM+0x248>
+     16e: 07fa         	lsls	r2, r7, #0x1f
+     170: 4620         	mov	r0, r4
+     172: f04f 4300    	mov.w	r3, #0x80000000
+     176: f7ff fffe    	bl	0x176 <DIG_CONFIG_SHUF_DCM+0x176> @ imm = #-0x4
+			00000176:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     17a: 2300         	movs	r3, #0x0
+     17c: f8c4 3098    	str.w	r3, [r4, #0x98]
+     180: b003         	add	sp, #0xc
+     182: bdf0         	pop	{r4, r5, r6, r7, pc}
+     184: 4620         	mov	r0, r4
+     186: 4b20         	ldr	r3, [pc, #0x80]         @ 0x208 <DIG_CONFIG_SHUF_DCM+0x208>
+     188: 491e         	ldr	r1, [pc, #0x78]         @ 0x204 <DIG_CONFIG_SHUF_DCM+0x204>
+     18a: f44f 0286    	mov.w	r2, #0x430000
+     18e: f7ff fffe    	bl	0x18e <DIG_CONFIG_SHUF_DCM+0x18e> @ imm = #-0x4
+			0000018e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     192: f896 3096    	ldrb.w	r3, [r6, #0x96]
+     196: 4919         	ldr	r1, [pc, #0x64]         @ 0x1fc <DIG_CONFIG_SHUF_DCM+0x1fc>
+     198: 4620         	mov	r0, r4
+     19a: 071a         	lsls	r2, r3, #0x1c
+     19c: 061b         	lsls	r3, r3, #0x18
+     19e: f003 7340    	and	r3, r3, #0x3000000
+     1a2: f002 5240    	and	r2, r2, #0x30000000
+     1a6: 431a         	orrs	r2, r3
+     1a8: 03ab         	lsls	r3, r5, #0xe
+     1aa: b29b         	uxth	r3, r3
+     1ac: 431a         	orrs	r2, r3
+     1ae: f04f 33ff    	mov.w	r3, #0xffffffff
+     1b2: ea42 7285    	orr.w	r2, r2, r5, lsl #30
+     1b6: 06ad         	lsls	r5, r5, #0x1a
+     1b8: f005 6540    	and	r5, r5, #0xc000000
+     1bc: 432a         	orrs	r2, r5
+     1be: f442 0280    	orr	r2, r2, #0x400000
+     1c2: f7ff fffe    	bl	0x1c2 <DIG_CONFIG_SHUF_DCM+0x1c2> @ imm = #-0x4
+			000001c2:  R_ARM_THM_CALL	vIO32WriteMsk
+     1c6: e73e         	b	0x46 <DIG_CONFIG_SHUF_DCM+0x46> @ imm = #-0x184
+     1c8: f04f 4500    	mov.w	r5, #0x80000000
+     1cc: f04f 4380    	mov.w	r3, #0x40000000
+     1d0: e753         	b	0x7a <DIG_CONFIG_SHUF_DCM+0x7a> @ imm = #-0x15a
+     1d2: 2200         	movs	r2, #0x0
+     1d4: 4613         	mov	r3, r2
+     1d6: 4616         	mov	r6, r2
+     1d8: 4611         	mov	r1, r2
+     1da: e779         	b	0xd0 <DIG_CONFIG_SHUF_DCM+0xd0> @ imm = #-0x10e
+     1dc: 4907         	ldr	r1, [pc, #0x1c]         @ 0x1fc <DIG_CONFIG_SHUF_DCM+0x1fc>
+     1de: 4620         	mov	r0, r4
+     1e0: f04f 528a    	mov.w	r2, #0x11400000
+     1e4: f7ff fffe    	bl	0x1e4 <DIG_CONFIG_SHUF_DCM+0x1e4> @ imm = #-0x4
+			000001e4:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     1e8: 2f00         	cmp	r7, #0x0
+     1ea: d1bf         	bne	0x16c <DIG_CONFIG_SHUF_DCM+0x16c> @ imm = #-0x82
+     1ec: 233f         	movs	r3, #0x3f
+     1ee: 4917         	ldr	r1, [pc, #0x5c]         @ 0x24c <DIG_CONFIG_SHUF_DCM+0x24c>
+     1f0: 461a         	mov	r2, r3
+     1f2: 4620         	mov	r0, r4
+     1f4: f7ff fffe    	bl	0x1f4 <DIG_CONFIG_SHUF_DCM+0x1f4> @ imm = #-0x4
+			000001f4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1f8: e7b8         	b	0x16c <DIG_CONFIG_SHUF_DCM+0x16c> @ imm = #-0x90
+     1fa: bf00         	nop
+     1fc: 24 11 20 01  	.word	0x01201124
+     200: 00 00 00 00  	.word	0x00000000
+			00000200:  R_ARM_ABS32	DUTTopSetGlobal
+     204: 20 11 20 01  	.word	0x01201120
+     208: 07 00 ff 00  	.word	0x00ff0007
+     20c: 04 0f 20 91  	.word	0x91200f04
+     210: 84 0f 20 99  	.word	0x99200f84
+     214: 04 10 20 a1  	.word	0xa1201004
+     218: 08 0f 20 11  	.word	0x11200f08
+     21c: 00 00 f8 fd  	.word	0xfdf80000
+     220: 88 0f 20 19  	.word	0x19200f88
+     224: 08 10 20 21  	.word	0x21201008
+     228: fc 0e 20 91  	.word	0x91200efc
+     22c: 7c 0f 20 99  	.word	0x99200f7c
+     230: fc 0f 20 a1  	.word	0xa1200ffc
+     234: 7c 0e 20 89  	.word	0x89200e7c
+     238: 00 00 20 fd  	.word	0xfd200000
+     23c: 88 0e 20 09  	.word	0x09200e88
+     240: a8 10 20 01  	.word	0x012010a8
+     244: 00 30 4f 33  	.word	0x334f3000
+     248: ac 16 20 00  	.word	0x002016ac
+     24c: 8c 16 20 00  	.word	0x0020168c
+
+Disassembly of section .text.DIG_CONFIG_SHUF_PRECAL:
+
+00000000 <DIG_CONFIG_SHUF_PRECAL>:
+       0: b510         	push	{r4, lr}
+       2: 4604         	mov	r4, r0
+       4: b2c9         	uxtb	r1, r1
+       6: f7ff fffe    	bl	0x6 <DIG_CONFIG_SHUF_PRECAL+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+       a: 2300         	movs	r3, #0x0
+       c: f8c4 3098    	str.w	r3, [r4, #0x98]
+      10: bd10         	pop	{r4, pc}
+
+Disassembly of section .text.DIG_CONFIG_SHUF_MD32_FW_DEFINE:
+
+00000000 <DIG_CONFIG_SHUF_MD32_FW_DEFINE>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.DIG_CONFIG_SHUF_DBI:
+
+00000000 <DIG_CONFIG_SHUF_DBI>:
+       0: b5f8         	push	{r3, r4, r5, r6, r7, lr}
+       2: b2c9         	uxtb	r1, r1
+       4: 4b1a         	ldr	r3, [pc, #0x68]         @ 0x70 <DIG_CONFIG_SHUF_DBI+0x70>
+       6: 4604         	mov	r4, r0
+       8: 4616         	mov	r6, r2
+       a: 7907         	ldrb	r7, [r0, #0x4]
+       c: 681d         	ldr	r5, [r3]
+       e: f025 0504    	bic	r5, r5, #0x4
+      12: 3d02         	subs	r5, #0x2
+      14: bf18         	it	ne
+      16: 2501         	movne	r5, #0x1
+      18: f7ff fffe    	bl	0x18 <DIG_CONFIG_SHUF_DBI+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      1c: 3e00         	subs	r6, #0x0
+      1e: 4915         	ldr	r1, [pc, #0x54]         @ 0x74 <DIG_CONFIG_SHUF_DBI+0x74>
+      20: 4620         	mov	r0, r4
+      22: f04f 03c0    	mov.w	r3, #0xc0
+      26: bf18         	it	ne
+      28: 2601         	movne	r6, #0x1
+      2a: f8c4 6098    	str.w	r6, [r4, #0x98]
+      2e: 01ae         	lsls	r6, r5, #0x6
+      30: ea46 16c5    	orr.w	r6, r6, r5, lsl #7
+      34: 4632         	mov	r2, r6
+      36: f7ff fffe    	bl	0x36 <DIG_CONFIG_SHUF_DBI+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      3a: 490f         	ldr	r1, [pc, #0x3c]         @ 0x78 <DIG_CONFIG_SHUF_DBI+0x78>
+      3c: 4632         	mov	r2, r6
+      3e: 4620         	mov	r0, r4
+      40: 23c0         	movs	r3, #0xc0
+      42: f7ff fffe    	bl	0x42 <DIG_CONFIG_SHUF_DBI+0x42> @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      46: 490d         	ldr	r1, [pc, #0x34]         @ 0x7c <DIG_CONFIG_SHUF_DBI+0x7c>
+      48: 4632         	mov	r2, r6
+      4a: 4620         	mov	r0, r4
+      4c: 23c0         	movs	r3, #0xc0
+      4e: f7ff fffe    	bl	0x4e <DIG_CONFIG_SHUF_DBI+0x4e> @ imm = #-0x4
+			0000004e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      52: f44f 5380    	mov.w	r3, #0x1000
+      56: 490a         	ldr	r1, [pc, #0x28]         @ 0x80 <DIG_CONFIG_SHUF_DBI+0x80>
+      58: 032a         	lsls	r2, r5, #0xc
+      5a: 4620         	mov	r0, r4
+      5c: f7ff fffe    	bl	0x5c <DIG_CONFIG_SHUF_DBI+0x5c> @ imm = #-0x4
+			0000005c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      60: 4639         	mov	r1, r7
+      62: 4620         	mov	r0, r4
+      64: f7ff fffe    	bl	0x64 <DIG_CONFIG_SHUF_DBI+0x64> @ imm = #-0x4
+			00000064:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      68: 2300         	movs	r3, #0x0
+      6a: f8c4 3098    	str.w	r3, [r4, #0x98]
+      6e: bdf8         	pop	{r3, r4, r5, r6, r7, pc}
+      70: 00 00 00 00  	.word	0x00000000
+			00000070:  R_ARM_ABS32	MEM_TYPE
+      74: 04 0f 20 91  	.word	0x91200f04
+      78: 84 0f 20 99  	.word	0x99200f84
+      7c: 04 10 20 a1  	.word	0xa1201004
+      80: 88 16 20 00  	.word	0x00201688
+
+Disassembly of section .text.DIG_CONFIG_SHUF_DVFSWLRL:
+
+00000000 <DIG_CONFIG_SHUF_DVFSWLRL>:
+       0: 3a00         	subs	r2, #0x0
+       2: b538         	push	{r3, r4, r5, lr}
+       4: 4910         	ldr	r1, [pc, #0x40]         @ 0x48 <DIG_CONFIG_SHUF_DVFSWLRL+0x48>
+       6: bf18         	it	ne
+       8: 2201         	movne	r2, #0x1
+       a: 4604         	mov	r4, r0
+       c: f8c0 2098    	str.w	r2, [r0, #0x98]
+      10: f44f 037f    	mov.w	r3, #0xff0000
+      14: 2200         	movs	r2, #0x0
+      16: 7905         	ldrb	r5, [r0, #0x4]
+      18: f7ff fffe    	bl	0x18 <DIG_CONFIG_SHUF_DVFSWLRL+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      1c: 490b         	ldr	r1, [pc, #0x2c]         @ 0x4c <DIG_CONFIG_SHUF_DVFSWLRL+0x4c>
+      1e: 4620         	mov	r0, r4
+      20: f44f 037f    	mov.w	r3, #0xff0000
+      24: 2200         	movs	r2, #0x0
+      26: f7ff fffe    	bl	0x26 <DIG_CONFIG_SHUF_DVFSWLRL+0x26> @ imm = #-0x4
+			00000026:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      2a: f44f 037f    	mov.w	r3, #0xff0000
+      2e: 4908         	ldr	r1, [pc, #0x20]         @ 0x50 <DIG_CONFIG_SHUF_DVFSWLRL+0x50>
+      30: 4620         	mov	r0, r4
+      32: 2200         	movs	r2, #0x0
+      34: f7ff fffe    	bl	0x34 <DIG_CONFIG_SHUF_DVFSWLRL+0x34> @ imm = #-0x4
+			00000034:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      38: 4629         	mov	r1, r5
+      3a: 4620         	mov	r0, r4
+      3c: f7ff fffe    	bl	0x3c <DIG_CONFIG_SHUF_DVFSWLRL+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      40: 2300         	movs	r3, #0x0
+      42: f8c4 3098    	str.w	r3, [r4, #0x98]
+      46: bd38         	pop	{r3, r4, r5, pc}
+      48: 3c 16 20 00  	.word	0x0020163c
+      4c: 40 16 20 00  	.word	0x00201640
+      50: 38 16 20 00  	.word	0x00201638
+
+Disassembly of section .text.TX_RX_jumpratio_calculate:
+
+00000000 <TX_RX_jumpratio_calculate>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.DIG_CONFIG_DVFS_DEPENDENCE:
+
+00000000 <DIG_CONFIG_DVFS_DEPENDENCE>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4604         	mov	r4, r0
+       4: 4615         	mov	r5, r2
+       6: f7ff fffe    	bl	0x6 <DIG_CONFIG_DVFS_DEPENDENCE+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	DIG_CONFIG_SHUF_DVFSWLRL
+       a: 4a1a         	ldr	r2, [pc, #0x68]         @ 0x74 <DIG_CONFIG_DVFS_DEPENDENCE+0x74>
+       c: 1e2b         	subs	r3, r5, #0x0
+       e: f44f 7170    	mov.w	r1, #0x3c0
+      12: eb02 0585    	add.w	r5, r2, r5, lsl #2
+      16: bf18         	it	ne
+      18: 2301         	movne	r3, #0x1
+      1a: f8c4 3098    	str.w	r3, [r4, #0x98]
+      1e: 696b         	ldr	r3, [r5, #0x14]
+      20: 79da         	ldrb	r2, [r3, #0x7]
+      22: 2a10         	cmp	r2, #0x10
+      24: f44f 725c    	mov.w	r2, #0x370
+      28: bf18         	it	ne
+      2a: 4608         	movne	r0, r1
+      2c: bf08         	it	eq
+      2e: 4610         	moveq	r0, r2
+      30: f44f 0186    	mov.w	r1, #0x430000
+      34: f44f 029a    	mov.w	r2, #0x4d0000
+      38: bf18         	it	ne
+      3a: 460a         	movne	r2, r1
+      3c: 6819         	ldr	r1, [r3]
+      3e: f240 734a    	movw	r3, #0x74a
+      42: 4302         	orrs	r2, r0
+      44: 4299         	cmp	r1, r3
+      46: 4620         	mov	r0, r4
+      48: bf88         	it	hi
+      4a: 2300         	movhi	r3, #0x0
+      4c: bf98         	it	ls
+      4e: 2301         	movls	r3, #0x1
+      50: f5b1 7fc8    	cmp.w	r1, #0x190
+      54: ea42 0203    	orr.w	r2, r2, r3
+      58: f04f 0102    	mov.w	r1, #0x2
+      5c: 4b06         	ldr	r3, [pc, #0x18]         @ 0x78 <DIG_CONFIG_DVFS_DEPENDENCE+0x78>
+      5e: bf88         	it	hi
+      60: 2100         	movhi	r1, #0x0
+      62: 430a         	orrs	r2, r1
+      64: 4905         	ldr	r1, [pc, #0x14]         @ 0x7c <DIG_CONFIG_DVFS_DEPENDENCE+0x7c>
+      66: f7ff fffe    	bl	0x66 <DIG_CONFIG_DVFS_DEPENDENCE+0x66> @ imm = #-0x4
+			00000066:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      6a: 2300         	movs	r3, #0x0
+      6c: f8c4 3098    	str.w	r3, [r4, #0x98]
+      70: bd38         	pop	{r3, r4, r5, pc}
+      72: bf00         	nop
+      74: 00 00 00 00  	.word	0x00000000
+			00000074:  R_ARM_ABS32	DV_p
+      78: f3 07 7f 00  	.word	0x007f07f3
+      7c: 9c 10 20 01  	.word	0x0120109c
+
+Disassembly of section .text.DIG_CONFIG_SHUF:
+
+00000000 <DIG_CONFIG_SHUF>:
+       0: e92d 43f8    	push.w	{r3, r4, r5, r6, r7, r8, r9, lr}
+       4: fa5f f881    	uxtb.w	r8, r1
+       8: fa5f f982    	uxtb.w	r9, r2
+       c: 4604         	mov	r4, r0
+       e: 4615         	mov	r5, r2
+      10: 2700         	movs	r7, #0x0
+      12: 460e         	mov	r6, r1
+      14: 463b         	mov	r3, r7
+      16: 464a         	mov	r2, r9
+      18: 4641         	mov	r1, r8
+      1a: f8c0 7098    	str.w	r7, [r0, #0x98]
+      1e: f7ff fffe    	bl	0x1e <DIG_CONFIG_SHUF+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	DIG_CONFIG_SHUF_DCM
+      22: 462a         	mov	r2, r5
+      24: 4631         	mov	r1, r6
+      26: 4620         	mov	r0, r4
+      28: f7ff fffe    	bl	0x28 <DIG_CONFIG_SHUF+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_CALL	DIG_CONFIG_SHUF_ALG_TXCA
+      2c: 464a         	mov	r2, r9
+      2e: 4641         	mov	r1, r8
+      30: 4620         	mov	r0, r4
+      32: f7ff fffe    	bl	0x32 <DIG_CONFIG_SHUF+0x32> @ imm = #-0x4
+			00000032:  R_ARM_THM_CALL	DIG_HW_SHUF_CFG
+      36: 4638         	mov	r0, r7
+      38: f7ff fffe    	bl	0x38 <DIG_CONFIG_SHUF+0x38> @ imm = #-0x4
+			00000038:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      3c: 462a         	mov	r2, r5
+      3e: 4639         	mov	r1, r7
+      40: 4620         	mov	r0, r4
+      42: f7ff fffe    	bl	0x42 <DIG_CONFIG_SHUF+0x42> @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	RX_PATH_auto_gen_and_set
+      46: 462a         	mov	r2, r5
+      48: 4620         	mov	r0, r4
+      4a: 2101         	movs	r1, #0x1
+      4c: f7ff fffe    	bl	0x4c <DIG_CONFIG_SHUF+0x4c> @ imm = #-0x4
+			0000004c:  R_ARM_THM_CALL	RX_PATH_auto_gen_and_set
+      50: 462a         	mov	r2, r5
+      52: 4639         	mov	r1, r7
+      54: 4620         	mov	r0, r4
+      56: f7ff fffe    	bl	0x56 <DIG_CONFIG_SHUF+0x56> @ imm = #-0x4
+			00000056:  R_ARM_THM_CALL	TX_PATH_auto_gen_and_set
+      5a: 462a         	mov	r2, r5
+      5c: 4620         	mov	r0, r4
+      5e: 2101         	movs	r1, #0x1
+      60: f7ff fffe    	bl	0x60 <DIG_CONFIG_SHUF+0x60> @ imm = #-0x4
+			00000060:  R_ARM_THM_CALL	TX_PATH_auto_gen_and_set
+      64: 4639         	mov	r1, r7
+      66: 4620         	mov	r0, r4
+      68: f7ff fffe    	bl	0x68 <DIG_CONFIG_SHUF+0x68> @ imm = #-0x4
+			00000068:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      6c: 2001         	movs	r0, #0x1
+      6e: f7ff fffe    	bl	0x6e <DIG_CONFIG_SHUF+0x6e> @ imm = #-0x4
+			0000006e:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      72: 462a         	mov	r2, r5
+      74: 4631         	mov	r1, r6
+      76: 4620         	mov	r0, r4
+      78: f7ff fffe    	bl	0x78 <DIG_CONFIG_SHUF+0x78> @ imm = #-0x4
+			00000078:  R_ARM_THM_CALL	DIG_CONFIG_SHUF_MISC_FIX
+      7c: 462a         	mov	r2, r5
+      7e: 4631         	mov	r1, r6
+      80: 4620         	mov	r0, r4
+      82: f7ff fffe    	bl	0x82 <DIG_CONFIG_SHUF+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_CALL	DIG_CONFIG_SHUF_DBI
+      86: 4641         	mov	r1, r8
+      88: 4620         	mov	r0, r4
+      8a: f7ff fffe    	bl	0x8a <DIG_CONFIG_SHUF+0x8a> @ imm = #-0x4
+			0000008a:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      8e: 462a         	mov	r2, r5
+      90: 4631         	mov	r1, r6
+      92: 4620         	mov	r0, r4
+      94: f8c4 7098    	str.w	r7, [r4, #0x98]
+      98: e8bd 43f8    	pop.w	{r3, r4, r5, r6, r7, r8, r9, lr}
+      9c: f7ff bffe    	b.w	0x9c <DIG_CONFIG_SHUF+0x9c> @ imm = #-0x4
+			0000009c:  R_ARM_THM_JUMP24	DIG_CONFIG_DVFS_DEPENDENCE

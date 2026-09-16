@@ -1,0 +1,27 @@
+
+Relocation section '.rel.text.ef_read_parse' at offset 0x480 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000002a  0000180a R_ARM_THM_CALL         00000000   memset
+0000003e  0000190a R_ARM_THM_CALL         00000000   ef_read_byte
+00000060  00000502 R_ARM_ABS32            00000000   .rodata.ef_read_parse.str1.1
+00000018  0000171e R_ARM_THM_JUMP24       00000000   tf_log
+
+Relocation section '.rel.text.ef_read_parse_new' at offset 0x4a0 contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  00001b0a R_ARM_THM_CALL         00000000   printf
+00000018  00001b0a R_ARM_THM_CALL         00000000   printf
+0000003c  0000180a R_ARM_THM_CALL         00000000   memset
+00000050  0000190a R_ARM_THM_CALL         00000000   ef_read_byte
+00000074  00000902 R_ARM_ABS32            00000000   .rodata.ef_read_parse_new.str1.1
+00000078  00000902 R_ARM_ABS32            00000000   .rodata.ef_read_parse_new.str1.1
+0000007c  00000502 R_ARM_ABS32            00000000   .rodata.ef_read_parse.str1.1
+0000002a  0000171e R_ARM_THM_JUMP24       00000000   tf_log
+
+Relocation section '.rel.text.phy_config_efuse_load_new' at offset 0x4e0 contains 6 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  00001b0a R_ARM_THM_CALL         00000000   printf
+0000000e  00001b0a R_ARM_THM_CALL         00000000   printf
+0000001a  00001a0a R_ARM_THM_CALL         00000001   ef_read_parse_new
+00000034  00000f02 R_ARM_ABS32            00000000   .rodata.phy_config_efuse_load_new.str1.1
+00000038  00000f02 R_ARM_ABS32            00000000   .rodata.phy_config_efuse_load_new.str1.1
+0000002e  00001a1e R_ARM_THM_JUMP24       00000001   ef_read_parse_new

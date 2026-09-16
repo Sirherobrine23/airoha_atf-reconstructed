@@ -1,0 +1,1974 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl31/efuse_ecc.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.efuse_wait_timeout:
+
+0000000000000000 <efuse_wait_timeout>:
+       0: d10043ff     	sub	sp, sp, #0x10
+       4: 7100041f     	cmp	w0, #0x1
+       8: d2a3f542     	mov	x2, #0x1faa0000         // =531234816
+       c: d2908000     	mov	x0, #0x8400             // =33792
+      10: f2a3f7e0     	movk	x0, #0x1fbf, lsl #16
+      14: 9a820000     	csel	x0, x0, x2, eq
+      18: 52a00202     	mov	w2, #0x100000           // =1048576
+      1c: b9000fe2     	str	w2, [sp, #0xc]
+      20: 7100043f     	cmp	w1, #0x1
+      24: 54000221     	b.ne	0x68 <efuse_wait_timeout+0x68>
+      28: b9400001     	ldr	w1, [x0]
+      2c: 360000c1     	tbz	w1, #0x0, 0x44 <efuse_wait_timeout+0x44>
+      30: b9400fe0     	ldr	w0, [sp, #0xc]
+      34: 910043ff     	add	sp, sp, #0x10
+      38: 7100001f     	cmp	w0, #0x0
+      3c: 1a9f17e0     	cset	w0, eq
+      40: d65f03c0     	ret
+      44: b9400fe1     	ldr	w1, [sp, #0xc]
+      48: 34ffff41     	cbz	w1, 0x30 <efuse_wait_timeout+0x30>
+      4c: b9400fe1     	ldr	w1, [sp, #0xc]
+      50: 51000421     	sub	w1, w1, #0x1
+      54: b9000fe1     	str	w1, [sp, #0xc]
+      58: 17fffff4     	b	0x28 <efuse_wait_timeout+0x28>
+      5c: b9400fe1     	ldr	w1, [sp, #0xc]
+      60: 51000421     	sub	w1, w1, #0x1
+      64: b9000fe1     	str	w1, [sp, #0xc]
+      68: b9400001     	ldr	w1, [x0]
+      6c: 3647fe21     	tbz	w1, #0x8, 0x30 <efuse_wait_timeout+0x30>
+      70: b9400fe1     	ldr	w1, [sp, #0xc]
+      74: 35ffff41     	cbnz	w1, 0x5c <efuse_wait_timeout+0x5c>
+      78: 17ffffee     	b	0x30 <efuse_wait_timeout+0x30>
+
+Disassembly of section .text.efuse_write_enable:
+
+0000000000000000 <efuse_write_enable>:
+       0: d2804281     	mov	x1, #0x214              // =532
+       4: d2804402     	mov	x2, #0x220              // =544
+       8: f2a3f7e1     	movk	x1, #0x1fbf, lsl #16
+       c: f2a3f7e2     	movk	x2, #0x1fbf, lsl #16
+      10: b9400020     	ldr	w0, [x1]
+      14: 120c7800     	and	w0, w0, #0xfff7ffff
+      18: b9000020     	str	w0, [x1]
+      1c: b9400040     	ldr	w0, [x2]
+      20: 12187400     	and	w0, w0, #0xffffff3f
+      24: 321a0000     	orr	w0, w0, #0x40
+      28: b9000040     	str	w0, [x2]
+      2c: d2804082     	mov	x2, #0x204              // =516
+      30: f2a3f7e2     	movk	x2, #0x1fbf, lsl #16
+      34: b9400040     	ldr	w0, [x2]
+      38: 120c7800     	and	w0, w0, #0xfff7ffff
+      3c: b9000040     	str	w0, [x2]
+      40: b9400020     	ldr	w0, [x1]
+      44: 320d0000     	orr	w0, w0, #0x80000
+      48: b9000020     	str	w0, [x1]
+      4c: 52813880     	mov	w0, #0x9c4              // =2500
+      50: 14000000     	b	0x50 <efuse_write_enable+0x50>
+		0000000000000050:  R_AARCH64_JUMP26	udelay
+
+Disassembly of section .text.efuse_write_disable:
+
+0000000000000000 <efuse_write_disable>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 52803e80     	mov	w0, #0x1f4              // =500
+       8: 910003fd     	mov	x29, sp
+       c: 94000000     	bl	0xc <efuse_write_disable+0xc>
+		000000000000000c:  R_AARCH64_CALL26	udelay
+      10: d2804081     	mov	x1, #0x204              // =516
+      14: f2a3f7e1     	movk	x1, #0x1fbf, lsl #16
+      18: b9400020     	ldr	w0, [x1]
+      1c: 320d0000     	orr	w0, w0, #0x80000
+      20: b9000020     	str	w0, [x1]
+      24: b9401020     	ldr	w0, [x1, #0x10]
+      28: 120c7800     	and	w0, w0, #0xfff7ffff
+      2c: b9001020     	str	w0, [x1, #0x10]
+      30: b9401c20     	ldr	w0, [x1, #0x1c]
+      34: 12187400     	and	w0, w0, #0xffffff3f
+      38: b9001c20     	str	w0, [x1, #0x1c]
+      3c: 52803e80     	mov	w0, #0x1f4              // =500
+      40: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      44: 14000000     	b	0x44 <efuse_write_disable+0x44>
+		0000000000000044:  R_AARCH64_JUMP26	udelay
+
+Disassembly of section .text.efuse_preliminary:
+
+0000000000000000 <efuse_preliminary>:
+       0: 13001c00     	sxtb	w0, w0
+       4: d2908003     	mov	x3, #0x8400             // =33792
+       8: 7100041f     	cmp	w0, #0x1
+       c: d2a3f541     	mov	x1, #0x1faa0000         // =531234816
+      10: f2a3f7e3     	movk	x3, #0x1fbf, lsl #16
+      14: 9a810063     	csel	x3, x3, x1, eq
+      18: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+      1c: 52800021     	mov	w1, #0x1                // =1
+      20: 910003fd     	mov	x29, sp
+      24: 94000000     	bl	0x24 <efuse_preliminary+0x24>
+		0000000000000024:  R_AARCH64_CALL26	.text.efuse_wait_timeout
+      28: 350000e0     	cbnz	w0, 0x44 <efuse_preliminary+0x44>
+      2c: 528476c0     	mov	w0, #0x23b6             // =9142
+      30: 72b40f20     	movk	w0, #0xa079, lsl #16
+      34: b9000860     	str	w0, [x3, #0x8]
+      38: 52800000     	mov	w0, #0x0                // =0
+      3c: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      40: d65f03c0     	ret
+      44: 52800020     	mov	w0, #0x1                // =1
+      48: 17fffffd     	b	0x3c <efuse_preliminary+0x3c>
+
+Disassembly of section .text.efuse_postsetting:
+
+0000000000000000 <efuse_postsetting>:
+       0: 13001c00     	sxtb	w0, w0
+       4: d2a3f541     	mov	x1, #0x1faa0000         // =531234816
+       8: 7100041f     	cmp	w0, #0x1
+       c: d2908000     	mov	x0, #0x8400             // =33792
+      10: f2a3f7e0     	movk	x0, #0x1fbf, lsl #16
+      14: 9a810000     	csel	x0, x0, x1, eq
+      18: b900081f     	str	wzr, [x0, #0x8]
+      1c: d65f03c0     	ret
+
+Disassembly of section .text.efuse_reload_page:
+
+0000000000000000 <efuse_reload_page>:
+       0: 13001c00     	sxtb	w0, w0
+       4: d2908001     	mov	x1, #0x8400             // =33792
+       8: 7100041f     	cmp	w0, #0x1
+       c: d2a3f542     	mov	x2, #0x1faa0000         // =531234816
+      10: f2a3f7e1     	movk	x1, #0x1fbf, lsl #16
+      14: 9a820021     	csel	x1, x1, x2, eq
+      18: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+      1c: 910003fd     	mov	x29, sp
+      20: b9400022     	ldr	w2, [x1]
+      24: 32100042     	orr	w2, w2, #0x10000
+      28: b9000022     	str	w2, [x1]
+      2c: 52800021     	mov	w1, #0x1                // =1
+      30: 94000000     	bl	0x30 <efuse_reload_page+0x30>
+		0000000000000030:  R_AARCH64_CALL26	.text.efuse_wait_timeout
+      34: 7100001f     	cmp	w0, #0x0
+      38: 1a9f07e0     	cset	w0, ne
+      3c: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      40: d65f03c0     	ret
+
+Disassembly of section .text.efuse_write_byte:
+
+0000000000000000 <efuse_write_byte>:
+       0: a9b77bfd     	stp	x29, x30, [sp, #-0x90]!
+       4: 910003fd     	mov	x29, sp
+       8: a90363f7     	stp	x23, x24, [sp, #0x30]
+       c: 12001c17     	and	w23, w0, #0xff
+      10: 710006ff     	cmp	w23, #0x1
+      14: a9046bf9     	stp	x25, x26, [sp, #0x40]
+      18: d290801a     	mov	x26, #0x8400            // =33792
+      1c: f2a3f7fa     	movk	x26, #0x1fbf, lsl #16
+      20: d2a3f540     	mov	x0, #0x1faa0000         // =531234816
+      24: 9a800340     	csel	x0, x26, x0, eq
+      28: a90153f3     	stp	x19, x20, [sp, #0x10]
+      2c: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      30: a90573fb     	stp	x27, x28, [sp, #0x50]
+      34: f90037e0     	str	x0, [sp, #0x68]
+      38: 0b020020     	add	w0, w1, w2
+      3c: 7108001f     	cmp	w0, #0x200
+      40: 54000a88     	b.hi	0x190 <efuse_write_byte+0x190>
+      44: 13001ef9     	sxtb	w25, w23
+      48: 2a0103f4     	mov	w20, w1
+      4c: 2a0203f5     	mov	w21, w2
+      50: aa0303f8     	mov	x24, x3
+      54: 2a1903e0     	mov	w0, w25
+      58: 94000000     	bl	0x58 <efuse_write_byte+0x58>
+		0000000000000058:  R_AARCH64_CALL26	efuse_preliminary
+      5c: 13001c13     	sxtb	w19, w0
+      60: 34000133     	cbz	w19, 0x84 <efuse_write_byte+0x84>
+      64: 2a1303e0     	mov	w0, w19
+      68: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      6c: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      70: a94363f7     	ldp	x23, x24, [sp, #0x30]
+      74: a9446bf9     	ldp	x25, x26, [sp, #0x40]
+      78: a94573fb     	ldp	x27, x28, [sp, #0x50]
+      7c: a8c97bfd     	ldp	x29, x30, [sp], #0x90
+      80: d65f03c0     	ret
+      84: 94000000     	bl	0x84 <efuse_write_byte+0x84>
+		0000000000000084:  R_AARCH64_CALL26	.text.efuse_write_enable
+      88: 9000001b     	adrp	x27, 0x0 <efuse_write_byte>
+		0000000000000088:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_byte.str1.1
+      8c: 2a1403e5     	mov	w5, w20
+      90: 2a1503e0     	mov	w0, w21
+      94: 910400ba     	add	x26, x5, #0x100
+      98: d280001c     	mov	x28, #0x0               // =0
+      9c: f9003be0     	str	x0, [sp, #0x70]
+      a0: 91000360     	add	x0, x27, #0x0
+		00000000000000a0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_byte.str1.1
+      a4: f9003fe0     	str	x0, [sp, #0x78]
+      a8: f9403be0     	ldr	x0, [sp, #0x70]
+      ac: 2a1c03e7     	mov	w7, w28
+      b0: eb00039f     	cmp	x28, x0
+      b4: 54000181     	b.ne	0xe4 <efuse_write_byte+0xe4>
+      b8: 94000000     	bl	0xb8 <efuse_write_byte+0xb8>
+		00000000000000b8:  R_AARCH64_CALL26	.text.efuse_write_disable
+      bc: 2a1903e0     	mov	w0, w25
+      c0: 94000000     	bl	0xc0 <efuse_write_byte+0xc0>
+		00000000000000c0:  R_AARCH64_CALL26	efuse_postsetting
+      c4: 34000553     	cbz	w19, 0x16c <efuse_write_byte+0x16c>
+      c8: 90000001     	adrp	x1, 0x0 <efuse_write_byte>
+		00000000000000c8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.__FUNCTION__.3219
+      cc: 90000000     	adrp	x0, 0x0 <efuse_write_byte>
+		00000000000000cc:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_byte.str1.1+0x7b
+      d0: 91000021     	add	x1, x1, #0x0
+		00000000000000d0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.__FUNCTION__.3219
+      d4: 91000000     	add	x0, x0, #0x0
+		00000000000000d4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_byte.str1.1+0x7b
+      d8: 94000000     	bl	0xd8 <efuse_write_byte+0xd8>
+		00000000000000d8:  R_AARCH64_CALL26	printf
+      dc: 52800020     	mov	w0, #0x1                // =1
+      e0: 17ffffe2     	b	0x68 <efuse_write_byte+0x68>
+      e4: f94037e1     	ldr	x1, [sp, #0x68]
+      e8: 387c6b00     	ldrb	w0, [x24, x28]
+      ec: 8b1c003b     	add	x27, x1, x28
+      f0: 8b1a0368     	add	x8, x27, x26
+      f4: 387a6b76     	ldrb	w22, [x27, x26]
+      f8: 387a6b61     	ldrb	w1, [x27, x26]
+      fc: 12001ed6     	and	w22, w22, #0xff
+     100: 0a360016     	bic	w22, w0, w22
+     104: 6a01001f     	tst	w0, w1
+     108: 54000160     	b.eq	0x134 <efuse_write_byte+0x134>
+     10c: 387a6b63     	ldrb	w3, [x27, x26]
+     110: 2a1c03e2     	mov	w2, w28
+     114: 2a1703e1     	mov	w1, w23
+     118: b90087e7     	str	w7, [sp, #0x84]
+     11c: 0a030003     	and	w3, w0, w3
+     120: f90047e8     	str	x8, [sp, #0x88]
+     124: f9403fe0     	ldr	x0, [sp, #0x78]
+     128: 94000000     	bl	0x128 <efuse_write_byte+0x128>
+		0000000000000128:  R_AARCH64_CALL26	printf
+     12c: b94087e7     	ldr	w7, [sp, #0x84]
+     130: f94047e8     	ldr	x8, [sp, #0x88]
+     134: aa0803e2     	mov	x2, x8
+     138: 387c6b03     	ldrb	w3, [x24, x28]
+     13c: 2a0703e1     	mov	w1, w7
+     140: 90000000     	adrp	x0, 0x0 <efuse_write_byte>
+		0000000000000140:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_byte.str1.1+0x51
+     144: 91000000     	add	x0, x0, #0x0
+		0000000000000144:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_byte.str1.1+0x51
+     148: 9100079c     	add	x28, x28, #0x1
+     14c: 94000000     	bl	0x14c <efuse_write_byte+0x14c>
+		000000000000014c:  R_AARCH64_CALL26	printf
+     150: 383a6b76     	strb	w22, [x27, x26]
+     154: 2a1703e0     	mov	w0, w23
+     158: 52800041     	mov	w1, #0x2                // =2
+     15c: 94000000     	bl	0x15c <efuse_write_byte+0x15c>
+		000000000000015c:  R_AARCH64_CALL26	.text.efuse_wait_timeout
+     160: 34fffa40     	cbz	w0, 0xa8 <efuse_write_byte+0xa8>
+     164: 52800033     	mov	w19, #0x1               // =1
+     168: 17ffffd4     	b	0xb8 <efuse_write_byte+0xb8>
+     16c: 2a1503e2     	mov	w2, w21
+     170: 2a1403e1     	mov	w1, w20
+     174: 90000000     	adrp	x0, 0x0 <efuse_write_byte>
+		0000000000000174:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_byte.str1.1+0x90
+     178: 91000000     	add	x0, x0, #0x0
+		0000000000000178:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_byte.str1.1+0x90
+     17c: 94000000     	bl	0x17c <efuse_write_byte+0x17c>
+		000000000000017c:  R_AARCH64_CALL26	printf
+     180: 2a1903e0     	mov	w0, w25
+     184: 94000000     	bl	0x184 <efuse_write_byte+0x184>
+		0000000000000184:  R_AARCH64_CALL26	efuse_reload_page
+     188: 13001c00     	sxtb	w0, w0
+     18c: 17ffffb7     	b	0x68 <efuse_write_byte+0x68>
+     190: 52800040     	mov	w0, #0x2                // =2
+     194: 17ffffb5     	b	0x68 <efuse_write_byte+0x68>
+
+Disassembly of section .text.efuse_enable_secure_config:
+
+0000000000000000 <efuse_enable_secure_config>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: 52800022     	mov	w2, #0x1                // =1
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: 2a0003f4     	mov	w20, w0
+      14: 90000000     	adrp	x0, 0x0 <efuse_enable_secure_config>
+		0000000000000014:  R_AARCH64_ADR_PREL_PG_HI21	.data.secureConfigOffset
+      18: 91000000     	add	x0, x0, #0x0
+		0000000000000018:  R_AARCH64_ADD_ABS_LO12_NC	.data.secureConfigOffset
+      1c: f90013f5     	str	x21, [sp, #0x20]
+      20: 38744801     	ldrb	w1, [x0, w20, uxtw]
+      24: 71001c3f     	cmp	w1, #0x7
+      28: 540003e9     	b.ls	0xa4 <efuse_enable_secure_config+0xa4>
+      2c: 51002021     	sub	w1, w1, #0x8
+      30: 52800ff5     	mov	w21, #0x7f              // =127
+      34: 1ac12042     	lsl	w2, w2, w1
+      38: 12001c42     	and	w2, w2, #0xff
+      3c: 9100ffe3     	add	x3, sp, #0x3f
+      40: 2a1503e1     	mov	w1, w21
+      44: 3900ffe2     	strb	w2, [sp, #0x3f]
+      48: 52800022     	mov	w2, #0x1                // =1
+      4c: 2a0203e0     	mov	w0, w2
+      50: 94000000     	bl	0x50 <efuse_enable_secure_config+0x50>
+		0000000000000050:  R_AARCH64_CALL26	.text.efuse_write_byte
+      54: 2a0003f3     	mov	w19, w0
+      58: 52800022     	mov	w2, #0x1                // =1
+      5c: 9100ffe3     	add	x3, sp, #0x3f
+      60: 11000aa1     	add	w1, w21, #0x2
+      64: 2a0203e0     	mov	w0, w2
+      68: 94000000     	bl	0x68 <efuse_enable_secure_config+0x68>
+		0000000000000068:  R_AARCH64_CALL26	.text.efuse_write_byte
+      6c: 2a000273     	orr	w19, w19, w0
+      70: 34000113     	cbz	w19, 0x90 <efuse_enable_secure_config+0x90>
+      74: 90000001     	adrp	x1, 0x0 <efuse_enable_secure_config>
+		0000000000000074:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.__FUNCTION__.3252
+      78: 90000000     	adrp	x0, 0x0 <efuse_enable_secure_config>
+		0000000000000078:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_enable_secure_config.str1.1
+      7c: 2a1303e3     	mov	w3, w19
+      80: 2a1403e2     	mov	w2, w20
+      84: 91000021     	add	x1, x1, #0x0
+		0000000000000084:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.__FUNCTION__.3252
+      88: 91000000     	add	x0, x0, #0x0
+		0000000000000088:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_enable_secure_config.str1.1
+      8c: 94000000     	bl	0x8c <efuse_enable_secure_config+0x8c>
+		000000000000008c:  R_AARCH64_CALL26	printf
+      90: 2a1303e0     	mov	w0, w19
+      94: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      98: f94013f5     	ldr	x21, [sp, #0x20]
+      9c: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+      a0: d65f03c0     	ret
+      a4: 1ac12042     	lsl	w2, w2, w1
+      a8: 52800fd5     	mov	w21, #0x7e              // =126
+      ac: 12001c42     	and	w2, w2, #0xff
+      b0: 17ffffe3     	b	0x3c <efuse_enable_secure_config+0x3c>
+
+Disassembly of section .text.efuse_write_secure_data:
+
+0000000000000000 <efuse_write_secure_data>:
+       0: a9b57bfd     	stp	x29, x30, [sp, #-0xb0]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0303f3     	mov	x19, x3
+      10: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      14: 2a0103f6     	mov	w22, w1
+      18: 2a0203f5     	mov	w21, w2
+      1c: a90363f7     	stp	x23, x24, [sp, #0x30]
+      20: 12001c18     	and	w24, w0, #0xff
+      24: 7100071f     	cmp	w24, #0x1
+      28: a9046bf9     	stp	x25, x26, [sp, #0x40]
+      2c: a90573fb     	stp	x27, x28, [sp, #0x50]
+      30: 54000901     	b.ne	0x150 <efuse_write_secure_data+0x150>
+      34: 2a1803e0     	mov	w0, w24
+      38: 0b1602b7     	add	w23, w21, w22
+      3c: a9077fff     	stp	xzr, xzr, [sp, #0x70]
+      40: a9087fff     	stp	xzr, xzr, [sp, #0x80]
+      44: a9097fff     	stp	xzr, xzr, [sp, #0x90]
+      48: a90a7fff     	stp	xzr, xzr, [sp, #0xa0]
+      4c: 94000000     	bl	0x4c <efuse_write_secure_data+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	.text.efuse_write_byte
+      50: 2a0003f4     	mov	w20, w0
+      54: aa1303e3     	mov	x3, x19
+      58: 2a1503e2     	mov	w2, w21
+      5c: 2a1703e1     	mov	w1, w23
+      60: 2a1803e0     	mov	w0, w24
+      64: 94000000     	bl	0x64 <efuse_write_secure_data+0x64>
+		0000000000000064:  R_AARCH64_CALL26	.text.efuse_write_byte
+      68: 2a000294     	orr	w20, w20, w0
+      6c: 340000d4     	cbz	w20, 0x84 <efuse_write_secure_data+0x84>
+      70: 90000000     	adrp	x0, 0x0 <efuse_write_secure_data>
+		0000000000000070:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1
+      74: 91000000     	add	x0, x0, #0x0
+		0000000000000074:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1
+      78: 94000000     	bl	0x78 <efuse_write_secure_data+0x78>
+		0000000000000078:  R_AARCH64_CALL26	tf_log
+      7c: 2a1403e0     	mov	w0, w20
+      80: 1400009d     	b	0x2f4 <efuse_write_secure_data+0x2f4>
+      84: d290a001     	mov	x1, #0x8500             // =34048
+      88: 9101c3f8     	add	x24, sp, #0x70
+      8c: f2a3f7e1     	movk	x1, #0x1fbf, lsl #16
+      90: d2800000     	mov	x0, #0x0                // =0
+      94: 8b364036     	add	x22, x1, w22, uxtw
+      98: 8b374037     	add	x23, x1, w23, uxtw
+      9c: 38606ac3     	ldrb	w3, [x22, x0]
+      a0: 38606ae2     	ldrb	w2, [x23, x0]
+      a4: 2a030042     	orr	w2, w2, w3
+      a8: 38206b02     	strb	w2, [x24, x0]
+      ac: 91000400     	add	x0, x0, #0x1
+      b0: 6b0002bf     	cmp	w21, w0
+      b4: 54ffff48     	b.hi	0x9c <efuse_write_secure_data+0x9c>
+      b8: 90000019     	adrp	x25, 0x0 <efuse_write_secure_data>
+		00000000000000b8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1+0x12
+      bc: aa1803f6     	mov	x22, x24
+      c0: 91000339     	add	x25, x25, #0x0
+		00000000000000c0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1+0x12
+      c4: 52800017     	mov	w23, #0x0               // =0
+      c8: 39400ec5     	ldrb	w5, [x22, #0x3]
+      cc: 2a1703e1     	mov	w1, w23
+      d0: 39400ac4     	ldrb	w4, [x22, #0x2]
+      d4: aa1903e0     	mov	x0, x25
+      d8: 394006c3     	ldrb	w3, [x22, #0x1]
+      dc: 110012f7     	add	w23, w23, #0x4
+      e0: 384046c2     	ldrb	w2, [x22], #0x4
+      e4: 94000000     	bl	0xe4 <efuse_write_secure_data+0xe4>
+		00000000000000e4:  R_AARCH64_CALL26	printf
+      e8: 6b1702bf     	cmp	w21, w23
+      ec: 54fffee8     	b.hi	0xc8 <efuse_write_secure_data+0xc8>
+      f0: 90000017     	adrp	x23, 0x0 <efuse_write_secure_data>
+		00000000000000f0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1+0x3b
+      f4: 910002f7     	add	x23, x23, #0x0
+		00000000000000f4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1+0x3b
+      f8: 52800016     	mov	w22, #0x0               // =0
+      fc: 8b364260     	add	x0, x19, w22, uxtw
+     100: 38764a62     	ldrb	w2, [x19, w22, uxtw]
+     104: 2a1603e1     	mov	w1, w22
+     108: 110012d6     	add	w22, w22, #0x4
+     10c: 39400c05     	ldrb	w5, [x0, #0x3]
+     110: 39400804     	ldrb	w4, [x0, #0x2]
+     114: 39400403     	ldrb	w3, [x0, #0x1]
+     118: aa1703e0     	mov	x0, x23
+     11c: 94000000     	bl	0x11c <efuse_write_secure_data+0x11c>
+		000000000000011c:  R_AARCH64_CALL26	printf
+     120: 6b1602bf     	cmp	w21, w22
+     124: 54fffec8     	b.hi	0xfc <efuse_write_secure_data+0xfc>
+     128: 2a1503e2     	mov	w2, w21
+     12c: aa1303e1     	mov	x1, x19
+     130: aa1803e0     	mov	x0, x24
+     134: 94000000     	bl	0x134 <efuse_write_secure_data+0x134>
+		0000000000000134:  R_AARCH64_CALL26	memcmp
+     138: 34fffa20     	cbz	w0, 0x7c <efuse_write_secure_data+0x7c>
+     13c: 90000000     	adrp	x0, 0x0 <efuse_write_secure_data>
+		000000000000013c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1+0x65
+     140: 52800094     	mov	w20, #0x4               // =4
+     144: 91000000     	add	x0, x0, #0x0
+		0000000000000144:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1+0x65
+     148: 94000000     	bl	0x148 <efuse_write_secure_data+0x148>
+		0000000000000148:  R_AARCH64_CALL26	tf_log
+     14c: 17ffffcc     	b	0x7c <efuse_write_secure_data+0x7c>
+     150: d2a3f554     	mov	x20, #0x1faa0000        // =531234816
+     154: b9400680     	ldr	w0, [x20, #0x4]
+     158: 32000000     	orr	w0, w0, #0x1
+     15c: b9000680     	str	w0, [x20, #0x4]
+     160: b942aa80     	ldr	w0, [x20, #0x2a8]
+     164: 350003c0     	cbnz	w0, 0x1dc <efuse_write_secure_data+0x1dc>
+     168: 52800040     	mov	w0, #0x2                // =2
+     16c: 94000000     	bl	0x16c <efuse_write_secure_data+0x16c>
+		000000000000016c:  R_AARCH64_CALL26	efuse_preliminary
+     170: 72001c1f     	tst	w0, #0xff
+     174: 54000221     	b.ne	0x1b8 <efuse_write_secure_data+0x1b8>
+     178: 94000000     	bl	0x178 <efuse_write_secure_data+0x178>
+		0000000000000178:  R_AARCH64_CALL26	.text.efuse_write_enable
+     17c: 528007e0     	mov	w0, #0x3f               // =63
+     180: b902aa80     	str	w0, [x20, #0x2a8]
+     184: 52800041     	mov	w1, #0x2                // =2
+     188: 2a0103e0     	mov	w0, w1
+     18c: 94000000     	bl	0x18c <efuse_write_secure_data+0x18c>
+		000000000000018c:  R_AARCH64_CALL26	.text.efuse_wait_timeout
+     190: 2a0003f4     	mov	w20, w0
+     194: 52800040     	mov	w0, #0x2                // =2
+     198: 94000000     	bl	0x198 <efuse_write_secure_data+0x198>
+		0000000000000198:  R_AARCH64_CALL26	efuse_postsetting
+     19c: 94000000     	bl	0x19c <efuse_write_secure_data+0x19c>
+		000000000000019c:  R_AARCH64_CALL26	.text.efuse_write_disable
+     1a0: 34000174     	cbz	w20, 0x1cc <efuse_write_secure_data+0x1cc>
+     1a4: 90000001     	adrp	x1, 0x0 <efuse_write_secure_data>
+		00000000000001a4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.__FUNCTION__.3245
+     1a8: 90000000     	adrp	x0, 0x0 <efuse_write_secure_data>
+		00000000000001a8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_byte.str1.1+0x7b
+     1ac: 91000021     	add	x1, x1, #0x0
+		00000000000001ac:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.__FUNCTION__.3245
+     1b0: 91000000     	add	x0, x0, #0x0
+		00000000000001b0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_byte.str1.1+0x7b
+     1b4: 94000000     	bl	0x1b4 <efuse_write_secure_data+0x1b4>
+		00000000000001b4:  R_AARCH64_CALL26	printf
+     1b8: 90000000     	adrp	x0, 0x0 <efuse_write_secure_data>
+		00000000000001b8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1+0x79
+     1bc: 91000000     	add	x0, x0, #0x0
+		00000000000001bc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1+0x79
+     1c0: 94000000     	bl	0x1c0 <efuse_write_secure_data+0x1c0>
+		00000000000001c0:  R_AARCH64_CALL26	tf_log
+     1c4: 52800080     	mov	w0, #0x4                // =4
+     1c8: 1400004b     	b	0x2f4 <efuse_write_secure_data+0x2f4>
+     1cc: 52800040     	mov	w0, #0x2                // =2
+     1d0: 94000000     	bl	0x1d0 <efuse_write_secure_data+0x1d0>
+		00000000000001d0:  R_AARCH64_CALL26	efuse_reload_page
+     1d4: 72001c1f     	tst	w0, #0xff
+     1d8: 54ffff01     	b.ne	0x1b8 <efuse_write_secure_data+0x1b8>
+     1dc: 53027ea0     	lsr	w0, w21, #2
+     1e0: 90000019     	adrp	x25, 0x0 <efuse_write_secure_data>
+		00000000000001e0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_byte.str1.1
+     1e4: 9000001a     	adrp	x26, 0x0 <efuse_write_secure_data>
+		00000000000001e4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1+0x90
+     1e8: 91000339     	add	x25, x25, #0x0
+		00000000000001e8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_byte.str1.1
+     1ec: 9100035a     	add	x26, x26, #0x0
+		00000000000001ec:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1+0x90
+     1f0: d100127b     	sub	x27, x19, #0x4
+     1f4: d2800015     	mov	x21, #0x0               // =0
+     1f8: b9006be0     	str	w0, [sp, #0x68]
+     1fc: 53027ec0     	lsr	w0, w22, #2
+     200: b9006fe0     	str	w0, [sp, #0x6c]
+     204: b9406be0     	ldr	w0, [sp, #0x68]
+     208: 2a1503f6     	mov	w22, w21
+     20c: 6b15001f     	cmp	w0, w21
+     210: 54000068     	b.hi	0x21c <efuse_write_secure_data+0x21c>
+     214: 52800014     	mov	w20, #0x0               // =0
+     218: 17ffff99     	b	0x7c <efuse_write_secure_data+0x7c>
+     21c: 52800040     	mov	w0, #0x2                // =2
+     220: 94000000     	bl	0x220 <efuse_write_secure_data+0x220>
+		0000000000000220:  R_AARCH64_CALL26	efuse_preliminary
+     224: 13001c00     	sxtb	w0, w0
+     228: 34000060     	cbz	w0, 0x234 <efuse_write_secure_data+0x234>
+     22c: 2a0003f3     	mov	w19, w0
+     230: 1400002d     	b	0x2e4 <efuse_write_secure_data+0x2e4>
+     234: b9406fe0     	ldr	w0, [sp, #0x6c]
+     238: d2802014     	mov	x20, #0x100             // =256
+     23c: d2a3f557     	mov	x23, #0x1faa0000        // =531234816
+     240: 0b160016     	add	w22, w0, w22
+     244: b8757a60     	ldr	w0, [x19, x21, lsl #2]
+     248: 8b364a94     	add	x20, x20, w22, uxtw #2
+     24c: 8b17029c     	add	x28, x20, x23
+     250: b8776a98     	ldr	w24, [x20, x23]
+     254: b8776a81     	ldr	w1, [x20, x23]
+     258: 0a380018     	bic	w24, w0, w24
+     25c: 6a01001f     	tst	w0, w1
+     260: 54000100     	b.eq	0x280 <efuse_write_secure_data+0x280>
+     264: 38776a83     	ldrb	w3, [x20, x23]
+     268: 2a1603e2     	mov	w2, w22
+     26c: 52800041     	mov	w1, #0x2                // =2
+     270: 12001c63     	and	w3, w3, #0xff
+     274: 0a000063     	and	w3, w3, w0
+     278: aa1903e0     	mov	x0, x25
+     27c: 94000000     	bl	0x27c <efuse_write_secure_data+0x27c>
+		000000000000027c:  R_AARCH64_CALL26	printf
+     280: 94000000     	bl	0x280 <efuse_write_secure_data+0x280>
+		0000000000000280:  R_AARCH64_CALL26	.text.efuse_write_enable
+     284: b8757a62     	ldr	w2, [x19, x21, lsl #2]
+     288: aa1c03e1     	mov	x1, x28
+     28c: aa1a03e0     	mov	x0, x26
+     290: 94000000     	bl	0x290 <efuse_write_secure_data+0x290>
+		0000000000000290:  R_AARCH64_CALL26	printf
+     294: b8376a98     	str	w24, [x20, x23]
+     298: 52800041     	mov	w1, #0x2                // =2
+     29c: 2a0103e0     	mov	w0, w1
+     2a0: 94000000     	bl	0x2a0 <efuse_write_secure_data+0x2a0>
+		00000000000002a0:  R_AARCH64_CALL26	.text.efuse_wait_timeout
+     2a4: 2a0003fc     	mov	w28, w0
+     2a8: 2a1803e2     	mov	w2, w24
+     2ac: 2a1603e1     	mov	w1, w22
+     2b0: 90000000     	adrp	x0, 0x0 <efuse_write_secure_data>
+		00000000000002b0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1+0xb0
+     2b4: 91000000     	add	x0, x0, #0x0
+		00000000000002b4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1+0xb0
+     2b8: 94000000     	bl	0x2b8 <efuse_write_secure_data+0x2b8>
+		00000000000002b8:  R_AARCH64_CALL26	printf
+     2bc: 52800040     	mov	w0, #0x2                // =2
+     2c0: 94000000     	bl	0x2c0 <efuse_write_secure_data+0x2c0>
+		00000000000002c0:  R_AARCH64_CALL26	efuse_postsetting
+     2c4: 94000000     	bl	0x2c4 <efuse_write_secure_data+0x2c4>
+		00000000000002c4:  R_AARCH64_CALL26	.text.efuse_write_disable
+     2c8: 3400025c     	cbz	w28, 0x310 <efuse_write_secure_data+0x310>
+     2cc: 52800033     	mov	w19, #0x1               // =1
+     2d0: 90000001     	adrp	x1, 0x0 <efuse_write_secure_data>
+		00000000000002d0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.__FUNCTION__.3230
+     2d4: 90000000     	adrp	x0, 0x0 <efuse_write_secure_data>
+		00000000000002d4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_byte.str1.1+0x7b
+     2d8: 91000021     	add	x1, x1, #0x0
+		00000000000002d8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.__FUNCTION__.3230
+     2dc: 91000000     	add	x0, x0, #0x0
+		00000000000002dc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_byte.str1.1+0x7b
+     2e0: 94000000     	bl	0x2e0 <efuse_write_secure_data+0x2e0>
+		00000000000002e0:  R_AARCH64_CALL26	printf
+     2e4: 90000000     	adrp	x0, 0x0 <efuse_write_secure_data>
+		00000000000002e4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1
+     2e8: 91000000     	add	x0, x0, #0x0
+		00000000000002e8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1
+     2ec: 94000000     	bl	0x2ec <efuse_write_secure_data+0x2ec>
+		00000000000002ec:  R_AARCH64_CALL26	tf_log
+     2f0: 2a1303e0     	mov	w0, w19
+     2f4: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     2f8: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     2fc: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     300: a9446bf9     	ldp	x25, x26, [sp, #0x40]
+     304: a94573fb     	ldp	x27, x28, [sp, #0x50]
+     308: a8cb7bfd     	ldp	x29, x30, [sp], #0xb0
+     30c: d65f03c0     	ret
+     310: 52800040     	mov	w0, #0x2                // =2
+     314: 94000000     	bl	0x314 <efuse_write_secure_data+0x314>
+		0000000000000314:  R_AARCH64_CALL26	efuse_reload_page
+     318: 13001c00     	sxtb	w0, w0
+     31c: 35fff880     	cbnz	w0, 0x22c <efuse_write_secure_data+0x22c>
+     320: 7100d6df     	cmp	w22, #0x35
+     324: 540000c9     	b.ls	0x33c <efuse_write_secure_data+0x33c>
+     328: 90000000     	adrp	x0, 0x0 <efuse_write_secure_data>
+		0000000000000328:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1+0xe3
+     32c: 91000000     	add	x0, x0, #0x0
+		000000000000032c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1+0xe3
+     330: 94000000     	bl	0x330 <efuse_write_secure_data+0x330>
+		0000000000000330:  R_AARCH64_CALL26	tf_log
+     334: 52800040     	mov	w0, #0x2                // =2
+     338: 17ffffef     	b	0x2f4 <efuse_write_secure_data+0x2f4>
+     33c: 910006b5     	add	x21, x21, #0x1
+     340: b8776a80     	ldr	w0, [x20, x23]
+     344: b8757b61     	ldr	w1, [x27, x21, lsl #2]
+     348: 6b00003f     	cmp	w1, w0
+     34c: 54fff5c0     	b.eq	0x204 <efuse_write_secure_data+0x204>
+     350: 90000000     	adrp	x0, 0x0 <efuse_write_secure_data>
+		0000000000000350:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_data.str1.1+0x65
+     354: 91000000     	add	x0, x0, #0x0
+		0000000000000354:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_data.str1.1+0x65
+     358: 17ffff9a     	b	0x1c0 <efuse_write_secure_data+0x1c0>
+
+Disassembly of section .text.efuse_setup_page1_secure_data:
+
+0000000000000000 <efuse_setup_page1_secure_data>:
+       0: a9bb7bfd     	stp	x29, x30, [sp, #-0x50]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: 2a0103f4     	mov	w20, w1
+      10: 2a0003f3     	mov	w19, w0
+      14: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      18: d2908016     	mov	x22, #0x8400            // =33792
+      1c: 4b000055     	sub	w21, w2, w0
+      20: f9001bf7     	str	x23, [sp, #0x30]
+      24: 0b010017     	add	w23, w0, w1
+      28: f2a3f7f6     	movk	x22, #0x1fbf, lsl #16
+      2c: 6b1302ff     	cmp	w23, w19
+      30: 540000e8     	b.hi	0x4c <efuse_setup_page1_secure_data+0x4c>
+      34: 52800000     	mov	w0, #0x0                // =0
+      38: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      3c: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      40: f9401bf7     	ldr	x23, [sp, #0x30]
+      44: a8c57bfd     	ldp	x29, x30, [sp], #0x50
+      48: d65f03c0     	ret
+      4c: 93407e60     	sxtw	x0, w19
+      50: d2800022     	mov	x2, #0x1                // =1
+      54: 91040000     	add	x0, x0, #0x100
+      58: 38766801     	ldrb	w1, [x0, x22]
+      5c: 0b140260     	add	w0, w19, w20
+      60: 93407c00     	sxtw	x0, w0
+      64: 91040000     	add	x0, x0, #0x100
+      68: 38766800     	ldrb	w0, [x0, x22]
+      6c: 2a010000     	orr	w0, w0, w1
+      70: 0b1302a1     	add	w1, w21, w19
+      74: 11000673     	add	w19, w19, #0x1
+      78: 39013fe0     	strb	w0, [sp, #0x4f]
+      7c: 91013fe0     	add	x0, sp, #0x4f
+      80: 94000000     	bl	0x80 <efuse_setup_page1_secure_data+0x80>
+		0000000000000080:  R_AARCH64_CALL26	fill_secure_data
+      84: 17ffffea     	b	0x2c <efuse_setup_page1_secure_data+0x2c>
+
+Disassembly of section .text.efuse_setup_page2_secure_data:
+
+0000000000000000 <efuse_setup_page2_secure_data>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: 2a0203f3     	mov	w19, w2
+      10: 2a0103f4     	mov	w20, w1
+      14: 927e7673     	and	x19, x19, #0xfffffffc
+      18: f90013f5     	str	x21, [sp, #0x20]
+      1c: 2a0003f5     	mov	w21, w0
+      20: 94000000     	bl	0x20 <efuse_setup_page2_secure_data+0x20>
+		0000000000000020:  R_AARCH64_CALL26	get_secure_data_base
+      24: d2800002     	mov	x2, #0x0                // =0
+      28: 8b130013     	add	x19, x0, x19
+      2c: d2802004     	mov	x4, #0x100              // =256
+      30: 52800000     	mov	w0, #0x0                // =0
+      34: d2a3f545     	mov	x5, #0x1faa0000         // =531234816
+      38: 6b02029f     	cmp	w20, w2
+      3c: 540000a8     	b.hi	0x50 <efuse_setup_page2_secure_data+0x50>
+      40: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      44: f94013f5     	ldr	x21, [sp, #0x20]
+      48: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      4c: d65f03c0     	ret
+      50: 0b0202a3     	add	w3, w21, w2
+      54: 7100d47f     	cmp	w3, #0x35
+      58: 54000108     	b.hi	0x78 <efuse_setup_page2_secure_data+0x78>
+      5c: 8b234883     	add	x3, x4, w3, uxtw #2
+      60: b8656861     	ldr	w1, [x3, x5]
+      64: b8227a61     	str	w1, [x19, x2, lsl #2]
+      68: 52800001     	mov	w1, #0x0                // =0
+      6c: 2a010000     	orr	w0, w0, w1
+      70: 91000442     	add	x2, x2, #0x1
+      74: 17fffff1     	b	0x38 <efuse_setup_page2_secure_data+0x38>
+      78: 52800041     	mov	w1, #0x2                // =2
+      7c: 17fffffc     	b	0x6c <efuse_setup_page2_secure_data+0x6c>
+
+Disassembly of section .text.efuse_write_dbg:
+
+0000000000000000 <efuse_write_dbg>:
+       0: 14000000     	b	0x0 <efuse_write_dbg>
+		0000000000000000:  R_AARCH64_JUMP26	.text.efuse_write_byte
+
+Disassembly of section .text.efuse_enable_dual_key:
+
+0000000000000000 <efuse_enable_dual_key>:
+       0: 52800060     	mov	w0, #0x3                // =3
+       4: 14000000     	b	0x4 <efuse_enable_dual_key+0x4>
+		0000000000000004:  R_AARCH64_JUMP26	.text.efuse_enable_secure_config
+
+Disassembly of section .text.efuse_dump_secure_cfg:
+
+0000000000000000 <efuse_dump_secure_cfg>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 52800002     	mov	w2, #0x0                // =0
+       8: 52800041     	mov	w1, #0x2                // =2
+       c: 910003fd     	mov	x29, sp
+      10: 52800fc0     	mov	w0, #0x7e               // =126
+      14: a90153f3     	stp	x19, x20, [sp, #0x10]
+      18: 94000000     	bl	0x18 <efuse_dump_secure_cfg+0x18>
+		0000000000000018:  R_AARCH64_CALL26	efuse_setup_page1_secure_data
+      1c: 2a0003f4     	mov	w20, w0
+      20: 94000000     	bl	0x20 <efuse_dump_secure_cfg+0x20>
+		0000000000000020:  R_AARCH64_CALL26	get_secure_data_base
+      24: 39400001     	ldrb	w1, [x0]
+      28: aa0003f3     	mov	x19, x0
+      2c: 90000000     	adrp	x0, 0x0 <efuse_dump_secure_cfg>
+		000000000000002c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_dump_secure_cfg.str1.1
+      30: 91000000     	add	x0, x0, #0x0
+		0000000000000030:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_dump_secure_cfg.str1.1
+      34: d3471c21     	ubfx	x1, x1, #7, #1
+      38: 94000000     	bl	0x38 <efuse_dump_secure_cfg+0x38>
+		0000000000000038:  R_AARCH64_CALL26	printf
+      3c: 39400661     	ldrb	w1, [x19, #0x1]
+      40: 90000000     	adrp	x0, 0x0 <efuse_dump_secure_cfg>
+		0000000000000040:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_dump_secure_cfg.str1.1+0x18
+      44: 91000000     	add	x0, x0, #0x0
+		0000000000000044:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_dump_secure_cfg.str1.1+0x18
+      48: 12000021     	and	w1, w1, #0x1
+      4c: 94000000     	bl	0x4c <efuse_dump_secure_cfg+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	printf
+      50: 39400661     	ldrb	w1, [x19, #0x1]
+      54: 90000000     	adrp	x0, 0x0 <efuse_dump_secure_cfg>
+		0000000000000054:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_dump_secure_cfg.str1.1+0x37
+      58: 91000000     	add	x0, x0, #0x0
+		0000000000000058:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_dump_secure_cfg.str1.1+0x37
+      5c: d3420821     	ubfx	x1, x1, #2, #1
+      60: 94000000     	bl	0x60 <efuse_dump_secure_cfg+0x60>
+		0000000000000060:  R_AARCH64_CALL26	printf
+      64: 39400661     	ldrb	w1, [x19, #0x1]
+      68: 90000000     	adrp	x0, 0x0 <efuse_dump_secure_cfg>
+		0000000000000068:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_dump_secure_cfg.str1.1+0x4d
+      6c: 91000000     	add	x0, x0, #0x0
+		000000000000006c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_dump_secure_cfg.str1.1+0x4d
+      70: d3430c21     	ubfx	x1, x1, #3, #1
+      74: 94000000     	bl	0x74 <efuse_dump_secure_cfg+0x74>
+		0000000000000074:  R_AARCH64_CALL26	printf
+      78: 39400661     	ldrb	w1, [x19, #0x1]
+      7c: 90000000     	adrp	x0, 0x0 <efuse_dump_secure_cfg>
+		000000000000007c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_dump_secure_cfg.str1.1+0x64
+      80: 91000000     	add	x0, x0, #0x0
+		0000000000000080:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_dump_secure_cfg.str1.1+0x64
+      84: d3441021     	ubfx	x1, x1, #4, #1
+      88: 94000000     	bl	0x88 <efuse_dump_secure_cfg+0x88>
+		0000000000000088:  R_AARCH64_CALL26	printf
+      8c: 2a1403e0     	mov	w0, w20
+      90: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      94: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      98: d65f03c0     	ret
+
+Disassembly of section .text.efuse_bl2_version:
+
+0000000000000000 <efuse_bl2_version>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      10: 90000015     	adrp	x21, 0x0 <efuse_bl2_version>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.__FUNCTION__.3277
+      14: 910002b5     	add	x21, x21, #0x0
+		0000000000000014:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.__FUNCTION__.3277
+      18: b9003fff     	str	wzr, [sp, #0x3c]
+      1c: 35000180     	cbnz	w0, 0x4c <efuse_bl2_version+0x4c>
+      20: 12800013     	mov	w19, #-0x1              // =-1
+      24: aa1503e1     	mov	x1, x21
+      28: 52800002     	mov	w2, #0x0                // =0
+      2c: 90000000     	adrp	x0, 0x0 <efuse_bl2_version>
+		000000000000002c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_bl2_version.str1.1
+      30: 91000000     	add	x0, x0, #0x0
+		0000000000000030:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_bl2_version.str1.1
+      34: 94000000     	bl	0x34 <efuse_bl2_version+0x34>
+		0000000000000034:  R_AARCH64_CALL26	printf
+      38: 2a1303e0     	mov	w0, w19
+      3c: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      40: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      44: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+      48: d65f03c0     	ret
+      4c: 2a0003f4     	mov	w20, w0
+      50: 2a0103f3     	mov	w19, w1
+      54: 94000000     	bl	0x54 <efuse_bl2_version+0x54>
+		0000000000000054:  R_AARCH64_CALL26	get_anti_rb_en
+      58: 35000320     	cbnz	w0, 0xbc <efuse_bl2_version+0xbc>
+      5c: b9403fe1     	ldr	w1, [sp, #0x3c]
+      60: 531a0273     	ubfiz	w19, w19, #6, #1
+      64: 52800022     	mov	w2, #0x1                // =1
+      68: 9100f3e3     	add	x3, sp, #0x3c
+      6c: 2a010273     	orr	w19, w19, w1
+      70: 2a0203e0     	mov	w0, w2
+      74: 321b0273     	orr	w19, w19, #0x20
+      78: 52800fc1     	mov	w1, #0x7e               // =126
+      7c: b9003ff3     	str	w19, [sp, #0x3c]
+      80: 94000000     	bl	0x80 <efuse_bl2_version+0x80>
+		0000000000000080:  R_AARCH64_CALL26	.text.efuse_write_byte
+      84: 2a0003f3     	mov	w19, w0
+      88: 52800022     	mov	w2, #0x1                // =1
+      8c: 9100f3e3     	add	x3, sp, #0x3c
+      90: 2a0203e0     	mov	w0, w2
+      94: 52801001     	mov	w1, #0x80               // =128
+      98: 94000000     	bl	0x98 <efuse_bl2_version+0x98>
+		0000000000000098:  R_AARCH64_CALL26	.text.efuse_write_byte
+      9c: 2a000273     	orr	w19, w19, w0
+      a0: 340000f3     	cbz	w19, 0xbc <efuse_bl2_version+0xbc>
+      a4: 90000000     	adrp	x0, 0x0 <efuse_bl2_version>
+		00000000000000a4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_bl2_version.str1.1+0x1f
+      a8: 2a1303e2     	mov	w2, w19
+      ac: aa1503e1     	mov	x1, x21
+      b0: 91000000     	add	x0, x0, #0x0
+		00000000000000b0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_bl2_version.str1.1+0x1f
+      b4: 94000000     	bl	0xb4 <efuse_bl2_version+0xb4>
+		00000000000000b4:  R_AARCH64_CALL26	printf
+      b8: 17ffffe0     	b	0x38 <efuse_bl2_version+0x38>
+      bc: 51000680     	sub	w0, w20, #0x1
+      c0: 52800036     	mov	w22, #0x1               // =1
+      c4: 9100f3e3     	add	x3, sp, #0x3c
+      c8: 52800082     	mov	w2, #0x4                // =4
+      cc: 1ac022c0     	lsl	w0, w22, w0
+      d0: 52801041     	mov	w1, #0x82               // =130
+      d4: b9003fe0     	str	w0, [sp, #0x3c]
+      d8: 2a1603e0     	mov	w0, w22
+      dc: 94000000     	bl	0xdc <efuse_bl2_version+0xdc>
+		00000000000000dc:  R_AARCH64_CALL26	.text.efuse_write_byte
+      e0: 2a0003f3     	mov	w19, w0
+      e4: 9100f3e3     	add	x3, sp, #0x3c
+      e8: 2a1603e0     	mov	w0, w22
+      ec: 52800082     	mov	w2, #0x4                // =4
+      f0: 52801141     	mov	w1, #0x8a               // =138
+      f4: 94000000     	bl	0xf4 <efuse_bl2_version+0xf4>
+		00000000000000f4:  R_AARCH64_CALL26	.text.efuse_write_byte
+      f8: 2a000273     	orr	w19, w19, w0
+      fc: 35fffd53     	cbnz	w19, 0xa4 <efuse_bl2_version+0xa4>
+     100: 90000000     	adrp	x0, 0x0 <efuse_bl2_version>
+		0000000000000100:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_bl2_version.str1.1+0x48
+     104: 2a1403e2     	mov	w2, w20
+     108: aa1503e1     	mov	x1, x21
+     10c: 91000000     	add	x0, x0, #0x0
+		000000000000010c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_bl2_version.str1.1+0x48
+     110: 17ffffe9     	b	0xb4 <efuse_bl2_version+0xb4>
+
+Disassembly of section .text.efuse_check_eco:
+
+0000000000000000 <efuse_check_eco>:
+       0: 52800000     	mov	w0, #0x0                // =0
+       4: d65f03c0     	ret
+
+Disassembly of section .text.efuse_write_pkgid:
+
+0000000000000000 <efuse_write_pkgid>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 72001c3f     	tst	w1, #0xff
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: 12001c14     	and	w20, w0, #0xff
+      14: 52800100     	mov	w0, #0x8                // =8
+      18: 3900bfe0     	strb	w0, [sp, #0x2f]
+      1c: 54000300     	b.eq	0x7c <efuse_write_pkgid+0x7c>
+      20: 531f1280     	ubfiz	w0, w20, #1, #5
+      24: 52800022     	mov	w2, #0x1                // =1
+      28: 9100bbe3     	add	x3, sp, #0x2e
+      2c: 2a0203e1     	mov	w1, w2
+      30: 3900bbe0     	strb	w0, [sp, #0x2e]
+      34: 2a0203e0     	mov	w0, w2
+      38: 94000000     	bl	0x38 <efuse_write_pkgid+0x38>
+		0000000000000038:  R_AARCH64_CALL26	.text.efuse_write_byte
+      3c: 3900bbff     	strb	wzr, [sp, #0x2e]
+      40: 2a0003f3     	mov	w19, w0
+      44: 34000100     	cbz	w0, 0x64 <efuse_write_pkgid+0x64>
+      48: 90000000     	adrp	x0, 0x0 <efuse_write_pkgid>
+		0000000000000048:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_pkgid.str1.1
+      4c: 91000000     	add	x0, x0, #0x0
+		000000000000004c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_pkgid.str1.1
+      50: 94000000     	bl	0x50 <efuse_write_pkgid+0x50>
+		0000000000000050:  R_AARCH64_CALL26	tf_log
+      54: 2a1303e0     	mov	w0, w19
+      58: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      5c: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      60: d65f03c0     	ret
+      64: 9100bfe3     	add	x3, sp, #0x2f
+      68: 52800022     	mov	w2, #0x1                // =1
+      6c: 52800001     	mov	w1, #0x0                // =0
+      70: 2a0203e0     	mov	w0, w2
+      74: 94000000     	bl	0x74 <efuse_write_pkgid+0x74>
+		0000000000000074:  R_AARCH64_CALL26	.text.efuse_write_byte
+      78: 1400000b     	b	0xa4 <efuse_write_pkgid+0xa4>
+      7c: 531c1293     	ubfiz	w19, w20, #4, #5
+      80: 52800022     	mov	w2, #0x1                // =1
+      84: 9100bbe3     	add	x3, sp, #0x2e
+      88: 2a0203e0     	mov	w0, w2
+      8c: 52800001     	mov	w1, #0x0                // =0
+      90: 3900bbf3     	strb	w19, [sp, #0x2e]
+      94: 53087e73     	lsr	w19, w19, #8
+      98: 94000000     	bl	0x98 <efuse_write_pkgid+0x98>
+		0000000000000098:  R_AARCH64_CALL26	.text.efuse_write_byte
+      9c: 3900bbf3     	strb	w19, [sp, #0x2e]
+      a0: 35000133     	cbnz	w19, 0xc4 <efuse_write_pkgid+0xc4>
+      a4: 2a0003f3     	mov	w19, w0
+      a8: 35fffd00     	cbnz	w0, 0x48 <efuse_write_pkgid+0x48>
+      ac: 2a1403e1     	mov	w1, w20
+      b0: 90000000     	adrp	x0, 0x0 <efuse_write_pkgid>
+		00000000000000b0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_pkgid.str1.1+0x1c
+      b4: 52800013     	mov	w19, #0x0               // =0
+      b8: 91000000     	add	x0, x0, #0x0
+		00000000000000b8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_pkgid.str1.1+0x1c
+      bc: 94000000     	bl	0xbc <efuse_write_pkgid+0xbc>
+		00000000000000bc:  R_AARCH64_CALL26	printf
+      c0: 17ffffe5     	b	0x54 <efuse_write_pkgid+0x54>
+      c4: 52800022     	mov	w2, #0x1                // =1
+      c8: 9100bbe3     	add	x3, sp, #0x2e
+      cc: 2a0203e1     	mov	w1, w2
+      d0: 17ffffe8     	b	0x70 <efuse_write_pkgid+0x70>
+
+Disassembly of section .text.efuse_write_ddr_mode:
+
+0000000000000000 <efuse_write_ddr_mode>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 72001c1f     	tst	w0, #0xff
+       8: d290afa0     	mov	x0, #0x857d             // =34173
+       c: 910003fd     	mov	x29, sp
+      10: f2a3f7e0     	movk	x0, #0x1fbf, lsl #16
+      14: f9000bf3     	str	x19, [sp, #0x10]
+      18: 3900bfff     	strb	wzr, [sp, #0x2f]
+      1c: 52800281     	mov	w1, #0x14               // =20
+      20: 39400000     	ldrb	w0, [x0]
+      24: 12001c00     	and	w0, w0, #0xff
+      28: 3900bfe0     	strb	w0, [sp, #0x2f]
+      2c: 540005c0     	b.eq	0xe4 <efuse_write_ddr_mode+0xe4>
+      30: 6a01001f     	tst	w0, w1
+      34: 54000121     	b.ne	0x58 <efuse_write_ddr_mode+0x58>
+      38: 90000000     	adrp	x0, 0x0 <efuse_write_ddr_mode>
+		0000000000000038:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_ddr_mode.str1.1
+      3c: 91000000     	add	x0, x0, #0x0
+		000000000000003c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_ddr_mode.str1.1
+      40: 52800093     	mov	w19, #0x4               // =4
+      44: 94000000     	bl	0x44 <efuse_write_ddr_mode+0x44>
+		0000000000000044:  R_AARCH64_CALL26	tf_log
+      48: 2a1303e0     	mov	w0, w19
+      4c: f9400bf3     	ldr	x19, [sp, #0x10]
+      50: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      54: d65f03c0     	ret
+      58: 52800501     	mov	w1, #0x28               // =40
+      5c: 6a01001f     	tst	w0, w1
+      60: 54000080     	b.eq	0x70 <efuse_write_ddr_mode+0x70>
+      64: 90000000     	adrp	x0, 0x0 <efuse_write_ddr_mode>
+		0000000000000064:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_ddr_mode.str1.1+0x1d
+      68: 91000000     	add	x0, x0, #0x0
+		0000000000000068:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_ddr_mode.str1.1+0x1d
+      6c: 17fffff5     	b	0x40 <efuse_write_ddr_mode+0x40>
+      70: 52800100     	mov	w0, #0x8                // =8
+      74: 52800022     	mov	w2, #0x1                // =1
+      78: 9100bfe3     	add	x3, sp, #0x2f
+      7c: 52800fa1     	mov	w1, #0x7d               // =125
+      80: 3900bfe0     	strb	w0, [sp, #0x2f]
+      84: 2a0203e0     	mov	w0, w2
+      88: 94000000     	bl	0x88 <efuse_write_ddr_mode+0x88>
+		0000000000000088:  R_AARCH64_CALL26	.text.efuse_write_byte
+      8c: 2a0003f3     	mov	w19, w0
+      90: 52800400     	mov	w0, #0x20               // =32
+      94: 52800022     	mov	w2, #0x1                // =1
+      98: 9100bfe3     	add	x3, sp, #0x2f
+      9c: 52800fa1     	mov	w1, #0x7d               // =125
+      a0: 3900bfe0     	strb	w0, [sp, #0x2f]
+      a4: 2a0203e0     	mov	w0, w2
+      a8: 94000000     	bl	0xa8 <efuse_write_ddr_mode+0xa8>
+		00000000000000a8:  R_AARCH64_CALL26	.text.efuse_write_byte
+      ac: 2a000273     	orr	w19, w19, w0
+      b0: 340000b3     	cbz	w19, 0xc4 <efuse_write_ddr_mode+0xc4>
+      b4: 90000000     	adrp	x0, 0x0 <efuse_write_ddr_mode>
+		00000000000000b4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_ddr_mode.str1.1+0x3d
+      b8: 91000000     	add	x0, x0, #0x0
+		00000000000000b8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_ddr_mode.str1.1+0x3d
+      bc: 94000000     	bl	0xbc <efuse_write_ddr_mode+0xbc>
+		00000000000000bc:  R_AARCH64_CALL26	tf_log
+      c0: 17ffffe2     	b	0x48 <efuse_write_ddr_mode+0x48>
+      c4: 90000000     	adrp	x0, 0x0 <efuse_write_ddr_mode>
+		00000000000000c4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_ddr_mode.str1.1+0x5d
+      c8: 91000000     	add	x0, x0, #0x0
+		00000000000000c8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_ddr_mode.str1.1+0x5d
+      cc: 94000000     	bl	0xcc <efuse_write_ddr_mode+0xcc>
+		00000000000000cc:  R_AARCH64_CALL26	printf
+      d0: 52800013     	mov	w19, #0x0               // =0
+      d4: 90000000     	adrp	x0, 0x0 <efuse_write_ddr_mode>
+		00000000000000d4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_ddr_mode.str1.1+0xcd
+      d8: 91000000     	add	x0, x0, #0x0
+		00000000000000d8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_ddr_mode.str1.1+0xcd
+      dc: 94000000     	bl	0xdc <efuse_write_ddr_mode+0xdc>
+		00000000000000dc:  R_AARCH64_CALL26	printf
+      e0: 17ffffda     	b	0x48 <efuse_write_ddr_mode+0x48>
+      e4: 6a01001f     	tst	w0, w1
+      e8: 54000080     	b.eq	0xf8 <efuse_write_ddr_mode+0xf8>
+      ec: 90000000     	adrp	x0, 0x0 <efuse_write_ddr_mode>
+		00000000000000ec:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_ddr_mode.str1.1+0x75
+      f0: 91000000     	add	x0, x0, #0x0
+		00000000000000f0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_ddr_mode.str1.1+0x75
+      f4: 17ffffd3     	b	0x40 <efuse_write_ddr_mode+0x40>
+      f8: 52800080     	mov	w0, #0x4                // =4
+      fc: 52800022     	mov	w2, #0x1                // =1
+     100: 9100bfe3     	add	x3, sp, #0x2f
+     104: 52800fa1     	mov	w1, #0x7d               // =125
+     108: 3900bfe0     	strb	w0, [sp, #0x2f]
+     10c: 2a0203e0     	mov	w0, w2
+     110: 94000000     	bl	0x110 <efuse_write_ddr_mode+0x110>
+		0000000000000110:  R_AARCH64_CALL26	.text.efuse_write_byte
+     114: 2a0003f3     	mov	w19, w0
+     118: 52800200     	mov	w0, #0x10               // =16
+     11c: 52800022     	mov	w2, #0x1                // =1
+     120: 9100bfe3     	add	x3, sp, #0x2f
+     124: 52800fa1     	mov	w1, #0x7d               // =125
+     128: 3900bfe0     	strb	w0, [sp, #0x2f]
+     12c: 2a0203e0     	mov	w0, w2
+     130: 94000000     	bl	0x130 <efuse_write_ddr_mode+0x130>
+		0000000000000130:  R_AARCH64_CALL26	.text.efuse_write_byte
+     134: 2a000273     	orr	w19, w19, w0
+     138: 34000093     	cbz	w19, 0x148 <efuse_write_ddr_mode+0x148>
+     13c: 90000000     	adrp	x0, 0x0 <efuse_write_ddr_mode>
+		000000000000013c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_ddr_mode.str1.1+0x95
+     140: 91000000     	add	x0, x0, #0x0
+		0000000000000140:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_ddr_mode.str1.1+0x95
+     144: 17ffffde     	b	0xbc <efuse_write_ddr_mode+0xbc>
+     148: 90000000     	adrp	x0, 0x0 <efuse_write_ddr_mode>
+		0000000000000148:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_ddr_mode.str1.1+0xb5
+     14c: 91000000     	add	x0, x0, #0x0
+		000000000000014c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_ddr_mode.str1.1+0xb5
+     150: 17ffffdf     	b	0xcc <efuse_write_ddr_mode+0xcc>
+
+Disassembly of section .text.efuse_check_ddr_mode:
+
+0000000000000000 <efuse_check_ddr_mode>:
+       0: d290afa0     	mov	x0, #0x857d             // =34173
+       4: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       8: f2a3f7e0     	movk	x0, #0x1fbf, lsl #16
+       c: 910003fd     	mov	x29, sp
+      10: 39400000     	ldrb	w0, [x0]
+      14: 52800282     	mov	w2, #0x14               // =20
+      18: 6a00005f     	tst	w2, w0
+      1c: 54000160     	b.eq	0x48 <efuse_check_ddr_mode+0x48>
+      20: 12001c01     	and	w1, w0, #0xff
+      24: 52800500     	mov	w0, #0x28               // =40
+      28: 6a00003f     	tst	w1, w0
+      2c: 540000e1     	b.ne	0x48 <efuse_check_ddr_mode+0x48>
+      30: 90000000     	adrp	x0, 0x0 <efuse_check_ddr_mode>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_check_ddr_mode.str1.1
+      34: 91000000     	add	x0, x0, #0x0
+		0000000000000034:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_check_ddr_mode.str1.1
+      38: 94000000     	bl	0x38 <efuse_check_ddr_mode+0x38>
+		0000000000000038:  R_AARCH64_CALL26	printf
+      3c: 52800000     	mov	w0, #0x0                // =0
+      40: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      44: d65f03c0     	ret
+      48: 90000000     	adrp	x0, 0x0 <efuse_check_ddr_mode>
+		0000000000000048:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_check_ddr_mode.str1.1+0x16
+      4c: 91000000     	add	x0, x0, #0x0
+		000000000000004c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_check_ddr_mode.str1.1+0x16
+      50: 17fffffa     	b	0x38 <efuse_check_ddr_mode+0x38>
+
+Disassembly of section .text.efuse_write_board_id:
+
+0000000000000000 <efuse_write_board_id>:
+       0: a9bb7bfd     	stp	x29, x30, [sp, #-0x50]!
+       4: 12001c42     	and	w2, w2, #0xff
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: 12001c34     	and	w20, w1, #0xff
+      14: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      18: 12001c16     	and	w22, w0, #0xff
+      1c: 710006df     	cmp	w22, #0x1
+      20: f9001bf7     	str	x23, [sp, #0x30]
+      24: 54000381     	b.ne	0x94 <efuse_write_board_id+0x94>
+      28: 528001e1     	mov	w1, #0xf                // =15
+      2c: 2a0103e0     	mov	w0, w1
+      30: 52800284     	mov	w4, #0x14               // =20
+      34: 52800203     	mov	w3, #0x10               // =16
+      38: 53037c37     	lsr	w23, w1, #3
+      3c: 12000821     	and	w1, w1, #0x7
+      40: 52800035     	mov	w21, #0x1               // =1
+      44: d2908005     	mov	x5, #0x8400             // =33792
+      48: 1ac122a1     	lsl	w1, w21, w1
+      4c: 39013fe1     	strb	w1, [sp, #0x4f]
+      50: f2a3f7e5     	movk	x5, #0x1fbf, lsl #16
+      54: 34000662     	cbz	w2, 0x120 <efuse_write_board_id+0x120>
+      58: 121e0082     	and	w2, w4, #0x4
+      5c: 53037c81     	lsr	w1, w4, #3
+      60: d3431084     	ubfx	x4, x4, #3, #2
+      64: 91040084     	add	x4, x4, #0x100
+      68: 1ac22000     	lsl	w0, w0, w2
+      6c: 38656883     	ldrb	w3, [x4, x5]
+      70: 12001c63     	and	w3, w3, #0xff
+      74: 39013be3     	strb	w3, [sp, #0x4e]
+      78: 6a00007f     	tst	w3, w0
+      7c: 54000160     	b.eq	0xa8 <efuse_write_board_id+0xa8>
+      80: 90000000     	adrp	x0, 0x0 <efuse_write_board_id>
+		0000000000000080:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_board_id.str1.1
+      84: 91000000     	add	x0, x0, #0x0
+		0000000000000084:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_board_id.str1.1
+      88: 52800093     	mov	w19, #0x4               // =4
+      8c: 94000000     	bl	0x8c <efuse_write_board_id+0x8c>
+		000000000000008c:  R_AARCH64_CALL26	tf_log
+      90: 1400001e     	b	0x108 <efuse_write_board_id+0x108>
+      94: 52800384     	mov	w4, #0x1c               // =28
+      98: 52800301     	mov	w1, #0x18               // =24
+      9c: 528000e0     	mov	w0, #0x7                // =7
+      a0: 52800323     	mov	w3, #0x19               // =25
+      a4: 17ffffe5     	b	0x38 <efuse_write_board_id+0x38>
+      a8: 1ac22282     	lsl	w2, w20, w2
+      ac: 0a020000     	and	w0, w0, w2
+      b0: 91013be3     	add	x3, sp, #0x4e
+      b4: 2a1503e2     	mov	w2, w21
+      b8: 39013be0     	strb	w0, [sp, #0x4e]
+      bc: 2a1503e0     	mov	w0, w21
+      c0: 94000000     	bl	0xc0 <efuse_write_board_id+0xc0>
+		00000000000000c0:  R_AARCH64_CALL26	.text.efuse_write_byte
+      c4: 2a0003f3     	mov	w19, w0
+      c8: 340000c0     	cbz	w0, 0xe0 <efuse_write_board_id+0xe0>
+      cc: 2a1603e1     	mov	w1, w22
+      d0: 90000000     	adrp	x0, 0x0 <efuse_write_board_id>
+		00000000000000d0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_board_id.str1.1+0x26
+      d4: 91000000     	add	x0, x0, #0x0
+		00000000000000d4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_board_id.str1.1+0x26
+      d8: 94000000     	bl	0xd8 <efuse_write_board_id+0xd8>
+		00000000000000d8:  R_AARCH64_CALL26	tf_log
+      dc: 1400000b     	b	0x108 <efuse_write_board_id+0x108>
+      e0: 91013fe3     	add	x3, sp, #0x4f
+      e4: 2a1503e2     	mov	w2, w21
+      e8: 2a1703e1     	mov	w1, w23
+      ec: 2a1503e0     	mov	w0, w21
+      f0: 94000000     	bl	0xf0 <efuse_write_board_id+0xf0>
+		00000000000000f0:  R_AARCH64_CALL26	.text.efuse_write_byte
+      f4: 2a0003f3     	mov	w19, w0
+      f8: 34000400     	cbz	w0, 0x178 <efuse_write_board_id+0x178>
+      fc: 90000000     	adrp	x0, 0x0 <efuse_write_board_id>
+		00000000000000fc:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_board_id.str1.1+0x48
+     100: 91000000     	add	x0, x0, #0x0
+		0000000000000100:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_board_id.str1.1+0x48
+     104: 94000000     	bl	0x104 <efuse_write_board_id+0x104>
+		0000000000000104:  R_AARCH64_CALL26	tf_log
+     108: 2a1303e0     	mov	w0, w19
+     10c: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     110: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     114: f9401bf7     	ldr	x23, [sp, #0x30]
+     118: a8c57bfd     	ldp	x29, x30, [sp], #0x50
+     11c: d65f03c0     	ret
+     120: 12000062     	and	w2, w3, #0x1
+     124: 53037c61     	lsr	w1, w3, #3
+     128: d3431063     	ubfx	x3, x3, #3, #2
+     12c: 91040063     	add	x3, x3, #0x100
+     130: 1ac22000     	lsl	w0, w0, w2
+     134: 38656863     	ldrb	w3, [x3, x5]
+     138: 12001c63     	and	w3, w3, #0xff
+     13c: 39013be3     	strb	w3, [sp, #0x4e]
+     140: 6a00007f     	tst	w3, w0
+     144: 54000080     	b.eq	0x154 <efuse_write_board_id+0x154>
+     148: 90000000     	adrp	x0, 0x0 <efuse_write_board_id>
+		0000000000000148:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_board_id.str1.1+0x66
+     14c: 91000000     	add	x0, x0, #0x0
+		000000000000014c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_board_id.str1.1+0x66
+     150: 17ffffce     	b	0x88 <efuse_write_board_id+0x88>
+     154: 1ac22282     	lsl	w2, w20, w2
+     158: 0a020000     	and	w0, w0, w2
+     15c: 91013be3     	add	x3, sp, #0x4e
+     160: 2a1503e2     	mov	w2, w21
+     164: 39013be0     	strb	w0, [sp, #0x4e]
+     168: 2a1503e0     	mov	w0, w21
+     16c: 94000000     	bl	0x16c <efuse_write_board_id+0x16c>
+		000000000000016c:  R_AARCH64_CALL26	.text.efuse_write_byte
+     170: 2a0003f3     	mov	w19, w0
+     174: 35fffac0     	cbnz	w0, 0xcc <efuse_write_board_id+0xcc>
+     178: 2a1403e2     	mov	w2, w20
+     17c: 2a1603e1     	mov	w1, w22
+     180: 90000000     	adrp	x0, 0x0 <efuse_write_board_id>
+		0000000000000180:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_board_id.str1.1+0x86
+     184: 52800013     	mov	w19, #0x0               // =0
+     188: 91000000     	add	x0, x0, #0x0
+		0000000000000188:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_board_id.str1.1+0x86
+     18c: 94000000     	bl	0x18c <efuse_write_board_id+0x18c>
+		000000000000018c:  R_AARCH64_CALL26	printf
+     190: 17ffffde     	b	0x108 <efuse_write_board_id+0x108>
+
+Disassembly of section .text.efuse_write_secure_key:
+
+0000000000000000 <efuse_write_secure_key>:
+       0: a9af7bfd     	stp	x29, x30, [sp, #-0x110]!
+       4: d2801e02     	mov	x2, #0xf0               // =240
+       8: 52800001     	mov	w1, #0x0                // =0
+       c: 910003fd     	mov	x29, sp
+      10: f9000bf3     	str	x19, [sp, #0x10]
+      14: aa0003f3     	mov	x19, x0
+      18: 910083e0     	add	x0, sp, #0x20
+      1c: 94000000     	bl	0x1c <efuse_write_secure_key+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	memset
+      20: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		0000000000000020:  R_AARCH64_ADR_PREL_PG_HI21	.bss.findSecureKey
+      24: b9400000     	ldr	w0, [x0]
+		0000000000000024:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.findSecureKey
+      28: 34000120     	cbz	w0, 0x4c <efuse_write_secure_key+0x4c>
+      2c: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		000000000000002c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_key.str1.1
+      30: 91000000     	add	x0, x0, #0x0
+		0000000000000030:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_key.str1.1
+      34: 52800093     	mov	w19, #0x4               // =4
+      38: 94000000     	bl	0x38 <efuse_write_secure_key+0x38>
+		0000000000000038:  R_AARCH64_CALL26	printf
+      3c: 2a1303e0     	mov	w0, w19
+      40: f9400bf3     	ldr	x19, [sp, #0x10]
+      44: a8d17bfd     	ldp	x29, x30, [sp], #0x110
+      48: d65f03c0     	ret
+      4c: aa1303e1     	mov	x1, x19
+      50: 910083e0     	add	x0, sp, #0x20
+      54: d2801e02     	mov	x2, #0xf0               // =240
+      58: 94000000     	bl	0x58 <efuse_write_secure_key+0x58>
+		0000000000000058:  R_AARCH64_CALL26	memcpy
+      5c: 394083e0     	ldrb	w0, [sp, #0x20]
+      60: 36000080     	tbz	w0, #0x0, 0x70 <efuse_write_secure_key+0x70>
+      64: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		0000000000000064:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_key.str1.1+0x2e
+      68: 91000000     	add	x0, x0, #0x0
+		0000000000000068:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_key.str1.1+0x2e
+      6c: 17fffff2     	b	0x34 <efuse_write_secure_key+0x34>
+      70: 910083e3     	add	x3, sp, #0x20
+      74: 52800042     	mov	w2, #0x2                // =2
+      78: 52800fc1     	mov	w1, #0x7e               // =126
+      7c: 52800020     	mov	w0, #0x1                // =1
+      80: 94000000     	bl	0x80 <efuse_write_secure_key+0x80>
+		0000000000000080:  R_AARCH64_CALL26	.text.efuse_write_secure_data
+      84: 2a0003f3     	mov	w19, w0
+      88: 340000a0     	cbz	w0, 0x9c <efuse_write_secure_key+0x9c>
+      8c: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		000000000000008c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_key.str1.1+0x5b
+      90: 91000000     	add	x0, x0, #0x0
+		0000000000000090:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_key.str1.1+0x5b
+      94: 94000000     	bl	0x94 <efuse_write_secure_key+0x94>
+		0000000000000094:  R_AARCH64_CALL26	tf_log
+      98: 17ffffe9     	b	0x3c <efuse_write_secure_key+0x3c>
+      9c: 9100f3e3     	add	x3, sp, #0x3c
+      a0: 52800802     	mov	w2, #0x40               // =64
+      a4: 52800001     	mov	w1, #0x0                // =0
+      a8: 52800040     	mov	w0, #0x2                // =2
+      ac: 94000000     	bl	0xac <efuse_write_secure_key+0xac>
+		00000000000000ac:  R_AARCH64_CALL26	.text.efuse_write_secure_data
+      b0: 2a0003f3     	mov	w19, w0
+      b4: 34000080     	cbz	w0, 0xc4 <efuse_write_secure_key+0xc4>
+      b8: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		00000000000000b8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_key.str1.1+0x69
+      bc: 91000000     	add	x0, x0, #0x0
+		00000000000000bc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_key.str1.1+0x69
+      c0: 17fffff5     	b	0x94 <efuse_write_secure_key+0x94>
+      c4: 9101f3e3     	add	x3, sp, #0x7c
+      c8: 52800402     	mov	w2, #0x20               // =32
+      cc: 52800801     	mov	w1, #0x40               // =64
+      d0: 52800040     	mov	w0, #0x2                // =2
+      d4: 94000000     	bl	0xd4 <efuse_write_secure_key+0xd4>
+		00000000000000d4:  R_AARCH64_CALL26	.text.efuse_write_secure_data
+      d8: 2a0003f3     	mov	w19, w0
+      dc: 34000080     	cbz	w0, 0xec <efuse_write_secure_key+0xec>
+      e0: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		00000000000000e0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_key.str1.1+0x76
+      e4: 91000000     	add	x0, x0, #0x0
+		00000000000000e4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_key.str1.1+0x76
+      e8: 17ffffeb     	b	0x94 <efuse_write_secure_key+0x94>
+      ec: 910273e3     	add	x3, sp, #0x9c
+      f0: 52800802     	mov	w2, #0x40               // =64
+      f4: 52800c01     	mov	w1, #0x60               // =96
+      f8: 52800040     	mov	w0, #0x2                // =2
+      fc: 94000000     	bl	0xfc <efuse_write_secure_key+0xfc>
+		00000000000000fc:  R_AARCH64_CALL26	.text.efuse_write_secure_data
+     100: 2a0003f3     	mov	w19, w0
+     104: 34000080     	cbz	w0, 0x114 <efuse_write_secure_key+0x114>
+     108: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		0000000000000108:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_key.str1.1+0x81
+     10c: 91000000     	add	x0, x0, #0x0
+		000000000000010c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_key.str1.1+0x81
+     110: 17ffffe1     	b	0x94 <efuse_write_secure_key+0x94>
+     114: 910373e3     	add	x3, sp, #0xdc
+     118: 52800402     	mov	w2, #0x20               // =32
+     11c: 52801401     	mov	w1, #0xa0               // =160
+     120: 52800040     	mov	w0, #0x2                // =2
+     124: 94000000     	bl	0x124 <efuse_write_secure_key+0x124>
+		0000000000000124:  R_AARCH64_CALL26	.text.efuse_write_secure_data
+     128: 2a0003f3     	mov	w19, w0
+     12c: 34000080     	cbz	w0, 0x13c <efuse_write_secure_key+0x13c>
+     130: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		0000000000000130:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_key.str1.1+0x93
+     134: 91000000     	add	x0, x0, #0x0
+		0000000000000134:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_key.str1.1+0x93
+     138: 17ffffd7     	b	0x94 <efuse_write_secure_key+0x94>
+     13c: 394083e0     	ldrb	w0, [sp, #0x20]
+     140: 910083e3     	add	x3, sp, #0x20
+     144: 52800042     	mov	w2, #0x2                // =2
+     148: 52800fc1     	mov	w1, #0x7e               // =126
+     14c: 32000000     	orr	w0, w0, #0x1
+     150: 390083e0     	strb	w0, [sp, #0x20]
+     154: 52800020     	mov	w0, #0x1                // =1
+     158: 94000000     	bl	0x158 <efuse_write_secure_key+0x158>
+		0000000000000158:  R_AARCH64_CALL26	.text.efuse_write_secure_data
+     15c: 2a0003f3     	mov	w19, w0
+     160: 340000a0     	cbz	w0, 0x174 <efuse_write_secure_key+0x174>
+     164: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		0000000000000164:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_key.str1.1+0xa3
+     168: 91000000     	add	x0, x0, #0x0
+		0000000000000168:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_key.str1.1+0xa3
+     16c: 94000000     	bl	0x16c <efuse_write_secure_key+0x16c>
+		000000000000016c:  R_AARCH64_CALL26	printf
+     170: 17ffffb3     	b	0x3c <efuse_write_secure_key+0x3c>
+     174: 90000000     	adrp	x0, 0x0 <efuse_write_secure_key>
+		0000000000000174:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_secure_key.str1.1+0xb3
+     178: 91000000     	add	x0, x0, #0x0
+		0000000000000178:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_secure_key.str1.1+0xb3
+     17c: 17fffffc     	b	0x16c <efuse_write_secure_key+0x16c>
+
+Disassembly of section .text.efuse_check_secure_key:
+
+0000000000000000 <efuse_check_secure_key>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 90000001     	adrp	x1, 0x0 <efuse_check_secure_key>
+		0000000000000004:  R_AARCH64_ADR_PREL_PG_HI21	.bss.findSecureKey
+       8: 910003fd     	mov	x29, sp
+       c: f9000bf3     	str	x19, [sp, #0x10]
+      10: b9400033     	ldr	w19, [x1]
+		0000000000000010:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.findSecureKey
+      14: 340000f3     	cbz	w19, 0x30 <efuse_check_secure_key+0x30>
+      18: 35000080     	cbnz	w0, 0x28 <efuse_check_secure_key+0x28>
+      1c: 90000000     	adrp	x0, 0x0 <efuse_check_secure_key>
+		000000000000001c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_check_secure_key.str1.1
+      20: 91000000     	add	x0, x0, #0x0
+		0000000000000020:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_check_secure_key.str1.1
+      24: 94000000     	bl	0x24 <efuse_check_secure_key+0x24>
+		0000000000000024:  R_AARCH64_CALL26	printf
+      28: 52800033     	mov	w19, #0x1               // =1
+      2c: 14000005     	b	0x40 <efuse_check_secure_key+0x40>
+      30: 35000080     	cbnz	w0, 0x40 <efuse_check_secure_key+0x40>
+      34: 90000000     	adrp	x0, 0x0 <efuse_check_secure_key>
+		0000000000000034:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_check_secure_key.str1.1+0x1f
+      38: 91000000     	add	x0, x0, #0x0
+		0000000000000038:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_check_secure_key.str1.1+0x1f
+      3c: 94000000     	bl	0x3c <efuse_check_secure_key+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	printf
+      40: 2a1303e0     	mov	w0, w19
+      44: f9400bf3     	ldr	x19, [sp, #0x10]
+      48: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      4c: d65f03c0     	ret
+
+Disassembly of section .text.check_empty:
+
+0000000000000000 <check_empty>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 93407c22     	sxtw	x2, w1
+       8: aa0003e1     	mov	x1, x0
+       c: 910003fd     	mov	x29, sp
+      10: 910043e0     	add	x0, sp, #0x10
+      14: a9017fff     	stp	xzr, xzr, [sp, #0x10]
+      18: a9027fff     	stp	xzr, xzr, [sp, #0x20]
+      1c: 94000000     	bl	0x1c <check_empty+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	memcmp
+      20: 7100001f     	cmp	w0, #0x0
+      24: 1a9f17e0     	cset	w0, eq
+      28: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      2c: d65f03c0     	ret
+
+Disassembly of section .text.efuse_write_huk:
+
+0000000000000000 <efuse_write_huk>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: aa0003e1     	mov	x1, x0
+       8: d2800202     	mov	x2, #0x10               // =16
+       c: 910003fd     	mov	x29, sp
+      10: 910083e0     	add	x0, sp, #0x20
+      14: f9000bf3     	str	x19, [sp, #0x10]
+      18: a9027fff     	stp	xzr, xzr, [sp, #0x20]
+      1c: a9037fff     	stp	xzr, xzr, [sp, #0x30]
+      20: 94000000     	bl	0x20 <efuse_write_huk+0x20>
+		0000000000000020:  R_AARCH64_CALL26	memcpy
+      24: 910083e3     	add	x3, sp, #0x20
+      28: 52800202     	mov	w2, #0x10               // =16
+      2c: 52801241     	mov	w1, #0x92               // =146
+      30: 52800020     	mov	w0, #0x1                // =1
+      34: 94000000     	bl	0x34 <efuse_write_huk+0x34>
+		0000000000000034:  R_AARCH64_CALL26	.text.efuse_write_secure_data
+      38: 2a0003f3     	mov	w19, w0
+      3c: 34000100     	cbz	w0, 0x5c <efuse_write_huk+0x5c>
+      40: 90000000     	adrp	x0, 0x0 <efuse_write_huk>
+		0000000000000040:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_huk.str1.1
+      44: 91000000     	add	x0, x0, #0x0
+		0000000000000044:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_huk.str1.1
+      48: 94000000     	bl	0x48 <efuse_write_huk+0x48>
+		0000000000000048:  R_AARCH64_CALL26	tf_log
+      4c: 2a1303e0     	mov	w0, w19
+      50: f9400bf3     	ldr	x19, [sp, #0x10]
+      54: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+      58: d65f03c0     	ret
+      5c: 90000000     	adrp	x0, 0x0 <efuse_write_huk>
+		000000000000005c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_huk.str1.1+0x11
+      60: 91000000     	add	x0, x0, #0x0
+		0000000000000060:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_huk.str1.1+0x11
+      64: 94000000     	bl	0x64 <efuse_write_huk+0x64>
+		0000000000000064:  R_AARCH64_CALL26	printf
+      68: 17fffff9     	b	0x4c <efuse_write_huk+0x4c>
+
+Disassembly of section .text.efuse_read_huk:
+
+0000000000000000 <efuse_read_huk>:
+       0: a9b97bfd     	stp	x29, x30, [sp, #-0x70]!
+       4: d290b242     	mov	x2, #0x8592             // =34194
+       8: d2800000     	mov	x0, #0x0                // =0
+       c: 910003fd     	mov	x29, sp
+      10: a90153f3     	stp	x19, x20, [sp, #0x10]
+      14: 9100c3f3     	add	x19, sp, #0x30
+      18: f2a3f7e2     	movk	x2, #0x1fbf, lsl #16
+      1c: f90013f5     	str	x21, [sp, #0x20]
+      20: a9037fff     	stp	xzr, xzr, [sp, #0x30]
+      24: a9047fff     	stp	xzr, xzr, [sp, #0x40]
+      28: a9057fff     	stp	xzr, xzr, [sp, #0x50]
+      2c: a9067fff     	stp	xzr, xzr, [sp, #0x60]
+      30: 38626801     	ldrb	w1, [x0, x2]
+      34: 38206a61     	strb	w1, [x19, x0]
+      38: 91000400     	add	x0, x0, #0x1
+      3c: f100801f     	cmp	x0, #0x20
+      40: 54ffff81     	b.ne	0x30 <efuse_read_huk+0x30>
+      44: 90000015     	adrp	x21, 0x0 <efuse_read_huk>
+		0000000000000044:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_read_huk.str1.1
+      48: 910002b5     	add	x21, x21, #0x0
+		0000000000000048:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_read_huk.str1.1
+      4c: 52800014     	mov	w20, #0x0               // =0
+      50: 39400e65     	ldrb	w5, [x19, #0x3]
+      54: 2a1403e1     	mov	w1, w20
+      58: 39400a64     	ldrb	w4, [x19, #0x2]
+      5c: aa1503e0     	mov	x0, x21
+      60: 39400663     	ldrb	w3, [x19, #0x1]
+      64: 11001294     	add	w20, w20, #0x4
+      68: 38404662     	ldrb	w2, [x19], #0x4
+      6c: 94000000     	bl	0x6c <efuse_read_huk+0x6c>
+		000000000000006c:  R_AARCH64_CALL26	printf
+      70: 7100829f     	cmp	w20, #0x20
+      74: 54fffee1     	b.ne	0x50 <efuse_read_huk+0x50>
+      78: 52800000     	mov	w0, #0x0                // =0
+      7c: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      80: f94013f5     	ldr	x21, [sp, #0x20]
+      84: a8c77bfd     	ldp	x29, x30, [sp], #0x70
+      88: d65f03c0     	ret
+
+Disassembly of section .text.efuse_check_huk:
+
+0000000000000000 <efuse_check_huk>:
+       0: a9bb7bfd     	stp	x29, x30, [sp, #-0x50]!
+       4: d290b243     	mov	x3, #0x8592             // =34194
+       8: d2800001     	mov	x1, #0x0                // =0
+       c: 910003fd     	mov	x29, sp
+      10: 910043e0     	add	x0, sp, #0x10
+      14: f2a3f7e3     	movk	x3, #0x1fbf, lsl #16
+      18: a9017fff     	stp	xzr, xzr, [sp, #0x10]
+      1c: a9027fff     	stp	xzr, xzr, [sp, #0x20]
+      20: a9037fff     	stp	xzr, xzr, [sp, #0x30]
+      24: a9047fff     	stp	xzr, xzr, [sp, #0x40]
+      28: 38636822     	ldrb	w2, [x1, x3]
+      2c: 38216802     	strb	w2, [x0, x1]
+      30: 91000421     	add	x1, x1, #0x1
+      34: f100803f     	cmp	x1, #0x20
+      38: 54ffff81     	b.ne	0x28 <efuse_check_huk+0x28>
+      3c: 94000000     	bl	0x3c <efuse_check_huk+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	check_empty
+      40: 350000e0     	cbnz	w0, 0x5c <efuse_check_huk+0x5c>
+      44: 90000000     	adrp	x0, 0x0 <efuse_check_huk>
+		0000000000000044:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_check_huk.str1.1
+      48: 91000000     	add	x0, x0, #0x0
+		0000000000000048:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_check_huk.str1.1
+      4c: 94000000     	bl	0x4c <efuse_check_huk+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	printf
+      50: 52800080     	mov	w0, #0x4                // =4
+      54: a8c57bfd     	ldp	x29, x30, [sp], #0x50
+      58: d65f03c0     	ret
+      5c: 90000000     	adrp	x0, 0x0 <efuse_check_huk>
+		000000000000005c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_check_huk.str1.1+0x1d
+      60: 91000000     	add	x0, x0, #0x0
+		0000000000000060:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_check_huk.str1.1+0x1d
+      64: 94000000     	bl	0x64 <efuse_check_huk+0x64>
+		0000000000000064:  R_AARCH64_CALL26	printf
+      68: 52800000     	mov	w0, #0x0                // =0
+      6c: 17fffffa     	b	0x54 <efuse_check_huk+0x54>
+
+Disassembly of section .text.efuse_write_uid:
+
+0000000000000000 <efuse_write_uid>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: aa0003e1     	mov	x1, x0
+       8: d2800082     	mov	x2, #0x4                // =4
+       c: 910003fd     	mov	x29, sp
+      10: 9100a3e0     	add	x0, sp, #0x28
+      14: f9000bf3     	str	x19, [sp, #0x10]
+      18: f90017ff     	str	xzr, [sp, #0x28]
+      1c: 94000000     	bl	0x1c <efuse_write_uid+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	memcpy
+      20: 9100a3e3     	add	x3, sp, #0x28
+      24: 52800082     	mov	w2, #0x4                // =4
+      28: 52801a01     	mov	w1, #0xd0               // =208
+      2c: 52800040     	mov	w0, #0x2                // =2
+      30: 94000000     	bl	0x30 <efuse_write_uid+0x30>
+		0000000000000030:  R_AARCH64_CALL26	.text.efuse_write_secure_data
+      34: 2a0003f3     	mov	w19, w0
+      38: 34000100     	cbz	w0, 0x58 <efuse_write_uid+0x58>
+      3c: 90000000     	adrp	x0, 0x0 <efuse_write_uid>
+		000000000000003c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_uid.str1.1
+      40: 91000000     	add	x0, x0, #0x0
+		0000000000000040:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_uid.str1.1
+      44: 94000000     	bl	0x44 <efuse_write_uid+0x44>
+		0000000000000044:  R_AARCH64_CALL26	tf_log
+      48: 2a1303e0     	mov	w0, w19
+      4c: f9400bf3     	ldr	x19, [sp, #0x10]
+      50: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      54: d65f03c0     	ret
+      58: 90000000     	adrp	x0, 0x0 <efuse_write_uid>
+		0000000000000058:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_uid.str1.1+0x11
+      5c: 91000000     	add	x0, x0, #0x0
+		000000000000005c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_uid.str1.1+0x11
+      60: 94000000     	bl	0x60 <efuse_write_uid+0x60>
+		0000000000000060:  R_AARCH64_CALL26	printf
+      64: 17fffff9     	b	0x48 <efuse_write_uid+0x48>
+
+Disassembly of section .text.efuse_write_customize:
+
+0000000000000000 <efuse_write_customize>:
+       0: a9b67bfd     	stp	x29, x30, [sp, #-0xa0]!
+       4: d2800202     	mov	x2, #0x10               // =16
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: aa0003f4     	mov	x20, x0
+      14: d28dcea0     	mov	x0, #0x6e75             // =28277
+      18: f2ae2d20     	movk	x0, #0x7169, lsl #16
+      1c: 2a0103f3     	mov	w19, w1
+      20: f2ccaea0     	movk	x0, #0x6575, lsl #32
+      24: 52800001     	mov	w1, #0x0                // =0
+      28: f2ed2400     	movk	x0, #0x6920, lsl #48
+      2c: f9001be0     	str	x0, [sp, #0x30]
+      30: 52800c80     	mov	w0, #0x64               // =100
+      34: 790073e0     	strh	w0, [sp, #0x38]
+      38: d28dc640     	mov	x0, #0x6e32             // =28210
+      3c: f90013f5     	str	x21, [sp, #0x20]
+      40: f2a40c80     	movk	x0, #0x2064, lsl #16
+      44: a9067fff     	stp	xzr, xzr, [sp, #0x60]
+      48: f2ccac20     	movk	x0, #0x6561, lsl #32
+      4c: f2e40e60     	movk	x0, #0x2073, lsl #48
+      50: f90023e0     	str	x0, [sp, #0x40]
+      54: 528cad60     	mov	w0, #0x656b             // =25963
+      58: a9077fff     	stp	xzr, xzr, [sp, #0x70]
+      5c: 72a00f20     	movk	w0, #0x79, lsl #16
+      60: b9004be0     	str	w0, [sp, #0x48]
+      64: 910143e0     	add	x0, sp, #0x50
+      68: a9087fff     	stp	xzr, xzr, [sp, #0x80]
+      6c: a9097fff     	stp	xzr, xzr, [sp, #0x90]
+      70: 94000000     	bl	0x70 <efuse_write_customize+0x70>
+		0000000000000070:  R_AARCH64_CALL26	memset
+      74: 910143e0     	add	x0, sp, #0x50
+      78: 35000233     	cbnz	w19, 0xbc <efuse_write_customize+0xbc>
+      7c: 52800095     	mov	w21, #0x4               // =4
+      80: 94000000     	bl	0x80 <efuse_write_customize+0x80>
+		0000000000000080:  R_AARCH64_CALL26	get_unique_id
+      84: 2a1503e1     	mov	w1, w21
+      88: 910143e0     	add	x0, sp, #0x50
+      8c: 94000000     	bl	0x8c <efuse_write_customize+0x8c>
+		000000000000008c:  R_AARCH64_CALL26	check_empty
+      90: 34000b40     	cbz	w0, 0x1f8 <efuse_write_customize+0x1f8>
+      94: 340001b3     	cbz	w19, 0xc8 <efuse_write_customize+0xc8>
+      98: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		0000000000000098:  R_AARCH64_ADR_PREL_PG_HI21	.bss.aes_hasBeenProgrammed
+      9c: b9400000     	ldr	w0, [x0]
+		000000000000009c:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.aes_hasBeenProgrammed
+      a0: 34000860     	cbz	w0, 0x1ac <efuse_write_customize+0x1ac>
+      a4: 910103e1     	add	x1, sp, #0x40
+      a8: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		00000000000000a8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_customize.str1.1+0x38
+      ac: 52800014     	mov	w20, #0x0               // =0
+      b0: 91000000     	add	x0, x0, #0x0
+		00000000000000b0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_customize.str1.1+0x38
+      b4: 94000000     	bl	0xb4 <efuse_write_customize+0xb4>
+		00000000000000b4:  R_AARCH64_CALL26	printf
+      b8: 14000028     	b	0x158 <efuse_write_customize+0x158>
+      bc: 52800215     	mov	w21, #0x10              // =16
+      c0: 94000000     	bl	0xc0 <efuse_write_customize+0xc0>
+		00000000000000c0:  R_AARCH64_CALL26	get_2nd_aes_key
+      c4: 17fffff0     	b	0x84 <efuse_write_customize+0x84>
+      c8: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		00000000000000c8:  R_AARCH64_ADR_PREL_PG_HI21	.bss.uid_hasBeenProgrammed
+      cc: b9400000     	ldr	w0, [x0]
+		00000000000000cc:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.uid_hasBeenProgrammed
+      d0: 350009e0     	cbnz	w0, 0x20c <efuse_write_customize+0x20c>
+      d4: aa1403e0     	mov	x0, x20
+      d8: 94000000     	bl	0xd8 <efuse_write_customize+0xd8>
+		00000000000000d8:  R_AARCH64_CALL26	efuse_write_uid
+      dc: 340000a0     	cbz	w0, 0xf0 <efuse_write_customize+0xf0>
+      e0: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		00000000000000e0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_customize.str1.1+0xd
+      e4: 9100c3e1     	add	x1, sp, #0x30
+      e8: 91000000     	add	x0, x0, #0x0
+		00000000000000e8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_customize.str1.1+0xd
+      ec: 94000000     	bl	0xec <efuse_write_customize+0xec>
+		00000000000000ec:  R_AARCH64_CALL26	printf
+      f0: d2803a03     	mov	x3, #0x1d0              // =464
+      f4: 910183e1     	add	x1, sp, #0x60
+      f8: d2800000     	mov	x0, #0x0                // =0
+      fc: f2a3f543     	movk	x3, #0x1faa, lsl #16
+     100: 38636802     	ldrb	w2, [x0, x3]
+     104: 38206822     	strb	w2, [x1, x0]
+     108: 91000400     	add	x0, x0, #0x1
+     10c: 6b0002bf     	cmp	w21, w0
+     110: 54ffff88     	b.hi	0x100 <efuse_write_customize+0x100>
+     114: 93407ea2     	sxtw	x2, w21
+     118: aa1403e1     	mov	x1, x20
+     11c: 910183e0     	add	x0, sp, #0x60
+     120: 94000000     	bl	0x120 <efuse_write_customize+0x120>
+		0000000000000120:  R_AARCH64_CALL26	memcmp
+     124: 34000660     	cbz	w0, 0x1f0 <efuse_write_customize+0x1f0>
+     128: 7100027f     	cmp	w19, #0x0
+     12c: 52800014     	mov	w20, #0x0               // =0
+     130: 9100c3e0     	add	x0, sp, #0x30
+     134: 910103e1     	add	x1, sp, #0x40
+     138: 9a801021     	csel	x1, x1, x0, ne
+     13c: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		000000000000013c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_customize.str1.1+0x1c
+     140: 91000000     	add	x0, x0, #0x0
+		0000000000000140:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_customize.str1.1+0x1c
+     144: 94000000     	bl	0x144 <efuse_write_customize+0x144>
+		0000000000000144:  R_AARCH64_CALL26	printf
+     148: 910143e0     	add	x0, sp, #0x50
+     14c: d2800202     	mov	x2, #0x10               // =16
+     150: 52800001     	mov	w1, #0x0                // =0
+     154: 94000000     	bl	0x154 <efuse_write_customize+0x154>
+		0000000000000154:  R_AARCH64_CALL26	memset
+     158: 7100027f     	cmp	w19, #0x0
+     15c: 7a401a84     	ccmp	w20, #0x0, #0x4, ne
+     160: 540005a0     	b.eq	0x214 <efuse_write_customize+0x214>
+     164: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		0000000000000164:  R_AARCH64_ADR_PREL_PG_HI21	.bss.aes_hasBeenProgrammed
+     168: 52800021     	mov	w1, #0x1                // =1
+     16c: b9000001     	str	w1, [x0]
+		000000000000016c:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.aes_hasBeenProgrammed
+     170: 910103e1     	add	x1, sp, #0x40
+     174: 7100029f     	cmp	w20, #0x0
+     178: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		0000000000000178:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_customize.str1.1+0x8
+     17c: 90000002     	adrp	x2, 0x0 <efuse_write_customize>
+		000000000000017c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_customize.str1.1
+     180: 91000000     	add	x0, x0, #0x0
+		0000000000000180:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_customize.str1.1+0x8
+     184: 91000042     	add	x2, x2, #0x0
+		0000000000000184:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_customize.str1.1
+     188: 9a801042     	csel	x2, x2, x0, ne
+     18c: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		000000000000018c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_customize.str1.1+0x6a
+     190: 91000000     	add	x0, x0, #0x0
+		0000000000000190:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_customize.str1.1+0x6a
+     194: 94000000     	bl	0x194 <efuse_write_customize+0x194>
+		0000000000000194:  R_AARCH64_CALL26	printf
+     198: 2a1403e0     	mov	w0, w20
+     19c: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     1a0: f94013f5     	ldr	x21, [sp, #0x20]
+     1a4: a8ca7bfd     	ldp	x29, x30, [sp], #0xa0
+     1a8: d65f03c0     	ret
+     1ac: aa1403e0     	mov	x0, x20
+     1b0: 94000000     	bl	0x1b0 <efuse_write_customize+0x1b0>
+		00000000000001b0:  R_AARCH64_CALL26	efuse_write_huk
+     1b4: 340000a0     	cbz	w0, 0x1c8 <efuse_write_customize+0x1c8>
+     1b8: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		00000000000001b8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_write_customize.str1.1+0xd
+     1bc: 910103e1     	add	x1, sp, #0x40
+     1c0: 91000000     	add	x0, x0, #0x0
+		00000000000001c0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_write_customize.str1.1+0xd
+     1c4: 94000000     	bl	0x1c4 <efuse_write_customize+0x1c4>
+		00000000000001c4:  R_AARCH64_CALL26	printf
+     1c8: d290b243     	mov	x3, #0x8592             // =34194
+     1cc: 910183e1     	add	x1, sp, #0x60
+     1d0: d2800000     	mov	x0, #0x0                // =0
+     1d4: f2a3f7e3     	movk	x3, #0x1fbf, lsl #16
+     1d8: 38636802     	ldrb	w2, [x0, x3]
+     1dc: 38206822     	strb	w2, [x1, x0]
+     1e0: 91000400     	add	x0, x0, #0x1
+     1e4: 6b0002bf     	cmp	w21, w0
+     1e8: 54ffff88     	b.hi	0x1d8 <efuse_write_customize+0x1d8>
+     1ec: 17ffffca     	b	0x114 <efuse_write_customize+0x114>
+     1f0: 52800034     	mov	w20, #0x1               // =1
+     1f4: 17ffffd5     	b	0x148 <efuse_write_customize+0x148>
+     1f8: 7100027f     	cmp	w19, #0x0
+     1fc: 910103e1     	add	x1, sp, #0x40
+     200: 9100c3e0     	add	x0, sp, #0x30
+     204: 9a801021     	csel	x1, x1, x0, ne
+     208: 17ffffa8     	b	0xa8 <efuse_write_customize+0xa8>
+     20c: 9100c3e1     	add	x1, sp, #0x30
+     210: 17ffffa6     	b	0xa8 <efuse_write_customize+0xa8>
+     214: 7100027f     	cmp	w19, #0x0
+     218: 7a400a84     	ccmp	w20, #0x0, #0x4, eq
+     21c: 540000c0     	b.eq	0x234 <efuse_write_customize+0x234>
+     220: 90000000     	adrp	x0, 0x0 <efuse_write_customize>
+		0000000000000220:  R_AARCH64_ADR_PREL_PG_HI21	.bss.uid_hasBeenProgrammed
+     224: 52800021     	mov	w1, #0x1                // =1
+     228: b9000001     	str	w1, [x0]
+		0000000000000228:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.uid_hasBeenProgrammed
+     22c: 9100c3e1     	add	x1, sp, #0x30
+     230: 17ffffd1     	b	0x174 <efuse_write_customize+0x174>
+     234: 7100027f     	cmp	w19, #0x0
+     238: 910103e1     	add	x1, sp, #0x40
+     23c: 9100c3e0     	add	x0, sp, #0x30
+     240: 9a801021     	csel	x1, x1, x0, ne
+     244: 17ffffcc     	b	0x174 <efuse_write_customize+0x174>
+
+Disassembly of section .text.efuse_check_remark:
+
+0000000000000000 <efuse_check_remark>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 52800021     	mov	w1, #0x1                // =1
+       8: 52800060     	mov	w0, #0x3                // =3
+       c: 910003fd     	mov	x29, sp
+      10: 91007fe2     	add	x2, sp, #0x1f
+      14: 39007fff     	strb	wzr, [sp, #0x1f]
+      18: 94000000     	bl	0x18 <efuse_check_remark+0x18>
+		0000000000000018:  R_AARCH64_CALL26	ef_read_parse
+      1c: 39407fe0     	ldrb	w0, [sp, #0x1f]
+      20: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      24: 12000000     	and	w0, w0, #0x1
+      28: d65f03c0     	ret
+
+Disassembly of section .text.efuse_enable_multi_boot:
+
+0000000000000000 <efuse_enable_multi_boot>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 910003fd     	mov	x29, sp
+       8: 94000000     	bl	0x8 <efuse_enable_multi_boot+0x8>
+		0000000000000008:  R_AARCH64_CALL26	efuse_check_remark
+       c: 7100001f     	cmp	w0, #0x0
+      10: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      14: 1a9f07e0     	cset	w0, ne
+      18: 11000400     	add	w0, w0, #0x1
+      1c: 14000000     	b	0x1c <efuse_enable_multi_boot+0x1c>
+		000000000000001c:  R_AARCH64_JUMP26	.text.efuse_enable_secure_config
+
+Disassembly of section .text.efuse_enable_hw_bypass:
+
+0000000000000000 <efuse_enable_hw_bypass>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 910003fd     	mov	x29, sp
+       8: 94000000     	bl	0x8 <efuse_enable_hw_bypass+0x8>
+		0000000000000008:  R_AARCH64_CALL26	efuse_check_remark
+       c: 7100001f     	cmp	w0, #0x0
+      10: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      14: 1a9f07e0     	cset	w0, ne
+      18: 11001000     	add	w0, w0, #0x4
+      1c: 14000000     	b	0x1c <efuse_enable_hw_bypass+0x1c>
+		000000000000001c:  R_AARCH64_JUMP26	.text.efuse_enable_secure_config
+
+Disassembly of section .text.efuse_test:
+
+0000000000000000 <efuse_test>:
+       0: 52800000     	mov	w0, #0x0                // =0
+       4: d65f03c0     	ret
+
+Disassembly of section .text.ef_read_byte:
+
+0000000000000000 <ef_read_byte>:
+       0: d2908001     	mov	x1, #0x8400             // =33792
+       4: f2a3f7e1     	movk	x1, #0x1fbf, lsl #16
+       8: b9400022     	ldr	w2, [x1]
+       c: 5297dde1     	mov	w1, #0xbeef             // =48879
+      10: 72bbd5a1     	movk	w1, #0xdead, lsl #16
+      14: 6b01005f     	cmp	w2, w1
+      18: 540000c0     	b.eq	0x30 <ef_read_byte+0x30>
+      1c: d2900001     	mov	x1, #0x8000             // =32768
+      20: f2a3f7e1     	movk	x1, #0x1fbf, lsl #16
+      24: 8b204020     	add	x0, x1, w0, uxtw
+      28: 39540000     	ldrb	w0, [x0, #0x500]
+      2c: d65f03c0     	ret
+      30: 52800000     	mov	w0, #0x0                // =0
+      34: 17fffffe     	b	0x2c <ef_read_byte+0x2c>
+
+Disassembly of section .text.en7523_packageID_init:
+
+0000000000000000 <en7523_packageID_init>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 52800020     	mov	w0, #0x1                // =1
+       8: 910003fd     	mov	x29, sp
+       c: 94000000     	bl	0xc <en7523_packageID_init+0xc>
+		000000000000000c:  R_AARCH64_CALL26	ef_read_byte
+      10: 12001c03     	and	w3, w0, #0xff
+      14: 52800000     	mov	w0, #0x0                // =0
+      18: 94000000     	bl	0x18 <en7523_packageID_init+0x18>
+		0000000000000018:  R_AARCH64_CALL26	ef_read_byte
+      1c: 12001c02     	and	w2, w0, #0xff
+      20: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      24: 2a032041     	orr	w1, w2, w3, lsl #8
+      28: f27d005f     	tst	x2, #0x8
+      2c: d3442020     	ubfx	x0, x1, #4, #5
+      30: d3493421     	ubfx	x1, x1, #9, #5
+      34: 1a801020     	csel	w0, w1, w0, ne
+      38: 14000000     	b	0x38 <en7523_packageID_init+0x38>
+		0000000000000038:  R_AARCH64_JUMP26	SET_PACKAGE_ID
+
+Disassembly of section .text.read_iddq:
+
+0000000000000000 <read_iddq>:
+       0: 52801760     	mov	w0, #0xbb               // =187
+       4: 14000000     	b	0x4 <read_iddq+0x4>
+		0000000000000004:  R_AARCH64_JUMP26	ef_read_byte
+
+Disassembly of section .text.efuse_read_out:
+
+0000000000000000 <efuse_read_out>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: d2800003     	mov	x3, #0x0                // =0
+       8: 910003fd     	mov	x29, sp
+       c: f9000bf3     	str	x19, [sp, #0x10]
+      10: aa0003f3     	mov	x19, x0
+      14: 2a0303e0     	mov	w0, w3
+      18: 94000000     	bl	0x18 <efuse_read_out+0x18>
+		0000000000000018:  R_AARCH64_CALL26	ef_read_byte
+      1c: 38236a60     	strb	w0, [x19, x3]
+      20: 91000463     	add	x3, x3, #0x1
+      24: f104007f     	cmp	x3, #0x100
+      28: 54ffff61     	b.ne	0x14 <efuse_read_out+0x14>
+      2c: d2800022     	mov	x2, #0x1                // =1
+      30: 52800001     	mov	w1, #0x0                // =0
+      34: aa1303e0     	mov	x0, x19
+      38: 94000000     	bl	0x38 <efuse_read_out+0x38>
+		0000000000000038:  R_AARCH64_CALL26	memset
+      3c: 52800020     	mov	w0, #0x1                // =1
+      40: 94000000     	bl	0x40 <efuse_read_out+0x40>
+		0000000000000040:  R_AARCH64_CALL26	ef_read_byte
+      44: d2800022     	mov	x2, #0x1                // =1
+      48: 121a0401     	and	w1, w0, #0xc0
+      4c: 8b020260     	add	x0, x19, x2
+      50: 94000000     	bl	0x50 <efuse_read_out+0x50>
+		0000000000000050:  R_AARCH64_CALL26	memset
+      54: 9101fa60     	add	x0, x19, #0x7e
+      58: d2800682     	mov	x2, #0x34               // =52
+      5c: 52800001     	mov	w1, #0x0                // =0
+      60: 94000000     	bl	0x60 <efuse_read_out+0x60>
+		0000000000000060:  R_AARCH64_CALL26	memset
+      64: 52800000     	mov	w0, #0x0                // =0
+      68: f9400bf3     	ldr	x19, [sp, #0x10]
+      6c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      70: d65f03c0     	ret
+
+Disassembly of section .text.efuse_init:
+
+0000000000000000 <efuse_init>:
+       0: d2908000     	mov	x0, #0x8400             // =33792
+       4: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       8: f2a3f7e0     	movk	x0, #0x1fbf, lsl #16
+       c: 910003fd     	mov	x29, sp
+      10: b9400001     	ldr	w1, [x0]
+      14: 5297dde0     	mov	w0, #0xbeef             // =48879
+      18: a90153f3     	stp	x19, x20, [sp, #0x10]
+      1c: 72bbd5a0     	movk	w0, #0xdead, lsl #16
+      20: 6b00003f     	cmp	w1, w0
+      24: 54000141     	b.ne	0x4c <efuse_init+0x4c>
+      28: 52800013     	mov	w19, #0x0               // =0
+      2c: 94000000     	bl	0x2c <efuse_init+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	dyn_disable_auth
+      30: 90000000     	adrp	x0, 0x0 <efuse_init>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_init.str1.1
+      34: 91000000     	add	x0, x0, #0x0
+		0000000000000034:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_init.str1.1
+      38: 94000000     	bl	0x38 <efuse_init+0x38>
+		0000000000000038:  R_AARCH64_CALL26	printf
+      3c: 2a1303e0     	mov	w0, w19
+      40: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      44: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      48: d65f03c0     	ret
+      4c: 94000000     	bl	0x4c <efuse_init+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	is_asic
+      50: 34fffec0     	cbz	w0, 0x28 <efuse_init+0x28>
+      54: 52800020     	mov	w0, #0x1                // =1
+      58: 94000000     	bl	0x58 <efuse_init+0x58>
+		0000000000000058:  R_AARCH64_CALL26	efuse_reload_page
+      5c: 13001c13     	sxtb	w19, w0
+      60: 35fffef3     	cbnz	w19, 0x3c <efuse_init+0x3c>
+      64: 52800002     	mov	w2, #0x0                // =0
+      68: 52800041     	mov	w1, #0x2                // =2
+      6c: 52800fc0     	mov	w0, #0x7e               // =126
+      70: 94000000     	bl	0x70 <efuse_init+0x70>
+		0000000000000070:  R_AARCH64_CALL26	efuse_setup_page1_secure_data
+      74: 2a0003f3     	mov	w19, w0
+      78: 340000a0     	cbz	w0, 0x8c <efuse_init+0x8c>
+      7c: 90000000     	adrp	x0, 0x0 <efuse_init>
+		000000000000007c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_init.str1.1+0x23
+      80: 91000000     	add	x0, x0, #0x0
+		0000000000000080:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_init.str1.1+0x23
+      84: 94000000     	bl	0x84 <efuse_init+0x84>
+		0000000000000084:  R_AARCH64_CALL26	printf
+      88: 17ffffed     	b	0x3c <efuse_init+0x3c>
+      8c: 52800042     	mov	w2, #0x2                // =2
+      90: 52800101     	mov	w1, #0x8                // =8
+      94: 52801040     	mov	w0, #0x82               // =130
+      98: 94000000     	bl	0x98 <efuse_init+0x98>
+		0000000000000098:  R_AARCH64_CALL26	efuse_setup_page1_secure_data
+      9c: 2a0003f3     	mov	w19, w0
+      a0: 34000080     	cbz	w0, 0xb0 <efuse_init+0xb0>
+      a4: 90000000     	adrp	x0, 0x0 <efuse_init>
+		00000000000000a4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_init.str1.1+0x39
+      a8: 91000000     	add	x0, x0, #0x0
+		00000000000000a8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_init.str1.1+0x39
+      ac: 17fffff6     	b	0x84 <efuse_init+0x84>
+      b0: 52800142     	mov	w2, #0xa                // =10
+      b4: 52800201     	mov	w1, #0x10               // =16
+      b8: 52801240     	mov	w0, #0x92               // =146
+      bc: 94000000     	bl	0xbc <efuse_init+0xbc>
+		00000000000000bc:  R_AARCH64_CALL26	efuse_setup_page1_secure_data
+      c0: 2a0003f3     	mov	w19, w0
+      c4: 34000080     	cbz	w0, 0xd4 <efuse_init+0xd4>
+      c8: 90000000     	adrp	x0, 0x0 <efuse_init>
+		00000000000000c8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_init.str1.1+0x4f
+      cc: 91000000     	add	x0, x0, #0x0
+		00000000000000cc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_init.str1.1+0x4f
+      d0: 17ffffed     	b	0x84 <efuse_init+0x84>
+      d4: 94000000     	bl	0xd4 <efuse_init+0xd4>
+		00000000000000d4:  R_AARCH64_CALL26	get_valid
+      d8: 2a0003f3     	mov	w19, w0
+      dc: 90000000     	adrp	x0, 0x0 <efuse_init>
+		00000000000000dc:  R_AARCH64_ADR_PREL_PG_HI21	uartDisable
+      e0: 90000014     	adrp	x20, 0x0 <efuse_init>
+		00000000000000e0:  R_AARCH64_ADR_PREL_PG_HI21	.bss.findSecureKey
+      e4: b9400000     	ldr	w0, [x0]
+		00000000000000e4:  R_AARCH64_LDST32_ABS_LO12_NC	uartDisable
+      e8: 34000333     	cbz	w19, 0x14c <efuse_init+0x14c>
+      ec: 350000e0     	cbnz	w0, 0x108 <efuse_init+0x108>
+      f0: 90000000     	adrp	x0, 0x0 <efuse_init>
+		00000000000000f0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_init.str1.1+0x65
+      f4: 91000000     	add	x0, x0, #0x0
+		00000000000000f4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_init.str1.1+0x65
+      f8: 94000000     	bl	0xf8 <efuse_init+0xf8>
+		00000000000000f8:  R_AARCH64_CALL26	tf_log
+      fc: 90000000     	adrp	x0, 0x0 <efuse_init>
+		00000000000000fc:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_init.str1.1+0x6d
+     100: 91000000     	add	x0, x0, #0x0
+		0000000000000100:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_init.str1.1+0x6d
+     104: 94000000     	bl	0x104 <efuse_init+0x104>
+		0000000000000104:  R_AARCH64_CALL26	tf_log
+     108: 52800020     	mov	w0, #0x1                // =1
+     10c: b9000280     	str	w0, [x20]
+		000000000000010c:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.findSecureKey
+     110: 52800040     	mov	w0, #0x2                // =2
+     114: 94000000     	bl	0x114 <efuse_init+0x114>
+		0000000000000114:  R_AARCH64_CALL26	efuse_reload_page
+     118: 13001c13     	sxtb	w19, w0
+     11c: 35fff913     	cbnz	w19, 0x3c <efuse_init+0x3c>
+     120: 52800382     	mov	w2, #0x1c               // =28
+     124: 528006a1     	mov	w1, #0x35               // =53
+     128: 52800000     	mov	w0, #0x0                // =0
+     12c: 94000000     	bl	0x12c <efuse_init+0x12c>
+		000000000000012c:  R_AARCH64_CALL26	efuse_setup_page2_secure_data
+     130: 2a0003f4     	mov	w20, w0
+     134: 34fff840     	cbz	w0, 0x3c <efuse_init+0x3c>
+     138: 90000000     	adrp	x0, 0x0 <efuse_init>
+		0000000000000138:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_init.str1.1+0x7c
+     13c: 2a1403f3     	mov	w19, w20
+     140: 91000000     	add	x0, x0, #0x0
+		0000000000000140:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_init.str1.1+0x7c
+     144: 94000000     	bl	0x144 <efuse_init+0x144>
+		0000000000000144:  R_AARCH64_CALL26	printf
+     148: 17ffffbd     	b	0x3c <efuse_init+0x3c>
+     14c: 350000e0     	cbnz	w0, 0x168 <efuse_init+0x168>
+     150: 90000000     	adrp	x0, 0x0 <efuse_init>
+		0000000000000150:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_init.str1.1+0x9c
+     154: 91000000     	add	x0, x0, #0x0
+		0000000000000154:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_init.str1.1+0x9c
+     158: 94000000     	bl	0x158 <efuse_init+0x158>
+		0000000000000158:  R_AARCH64_CALL26	tf_log
+     15c: 90000000     	adrp	x0, 0x0 <efuse_init>
+		000000000000015c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.efuse_init.str1.1+0xa4
+     160: 91000000     	add	x0, x0, #0x0
+		0000000000000160:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.efuse_init.str1.1+0xa4
+     164: 94000000     	bl	0x164 <efuse_init+0x164>
+		0000000000000164:  R_AARCH64_CALL26	tf_log
+     168: 94000000     	bl	0x168 <efuse_init+0x168>
+		0000000000000168:  R_AARCH64_CALL26	dyn_disable_auth
+     16c: b900029f     	str	wzr, [x20]
+		000000000000016c:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.findSecureKey
+     170: 17ffffb3     	b	0x3c <efuse_init+0x3c>

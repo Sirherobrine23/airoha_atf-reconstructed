@@ -1,0 +1,2526 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl22/DIG_NONSHUF_config.o:	file format elf32-littlearm
+
+Disassembly of section .text.DIG_PHY_config:
+
+00000000 <DIG_PHY_config>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: f04f 7378    	mov.w	r3, #0x3e00000
+       6: 4e73         	ldr	r6, [pc, #0x1cc]        @ 0x1d4 <DIG_PHY_config+0x1d4>
+       8: 4604         	mov	r4, r0
+       a: 4973         	ldr	r1, [pc, #0x1cc]        @ 0x1d8 <DIG_PHY_config+0x1d8>
+       c: f44f 02c0    	mov.w	r2, #0x600000
+      10: f896 5093    	ldrb.w	r5, [r6, #0x93]
+      14: f7ff fffe    	bl	0x14 <DIG_PHY_config+0x14> @ imm = #-0x4
+			00000014:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      18: 496f         	ldr	r1, [pc, #0x1bc]        @ 0x1d8 <DIG_PHY_config+0x1d8>
+      1a: 4620         	mov	r0, r4
+      1c: 233f         	movs	r3, #0x3f
+      1e: 223e         	movs	r2, #0x3e
+      20: f7ff fffe    	bl	0x20 <DIG_PHY_config+0x20> @ imm = #-0x4
+			00000020:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      24: 233f         	movs	r3, #0x3f
+      26: 496c         	ldr	r1, [pc, #0x1b0]        @ 0x1d8 <DIG_PHY_config+0x1d8>
+      28: 461a         	mov	r2, r3
+      2a: 4620         	mov	r0, r4
+      2c: f005 0501    	and	r5, r5, #0x1
+      30: f7ff fffe    	bl	0x30 <DIG_PHY_config+0x30> @ imm = #-0x4
+			00000030:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      34: 4968         	ldr	r1, [pc, #0x1a0]        @ 0x1d8 <DIG_PHY_config+0x1d8>
+      36: 4620         	mov	r0, r4
+      38: 233f         	movs	r3, #0x3f
+      3a: 223e         	movs	r2, #0x3e
+      3c: f7ff fffe    	bl	0x3c <DIG_PHY_config+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      40: 4965         	ldr	r1, [pc, #0x194]        @ 0x1d8 <DIG_PHY_config+0x1d8>
+      42: 4620         	mov	r0, r4
+      44: 233f         	movs	r3, #0x3f
+      46: 222f         	movs	r2, #0x2f
+      48: f7ff fffe    	bl	0x48 <DIG_PHY_config+0x48> @ imm = #-0x4
+			00000048:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      4c: 4963         	ldr	r1, [pc, #0x18c]        @ 0x1dc <DIG_PHY_config+0x1dc>
+      4e: 4620         	mov	r0, r4
+      50: f04f 4378    	mov.w	r3, #0xf8000000
+      54: f04f 5260    	mov.w	r2, #0x38000000
+      58: f7ff fffe    	bl	0x58 <DIG_PHY_config+0x58> @ imm = #-0x4
+			00000058:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      5c: f44f 7380    	mov.w	r3, #0x100
+      60: 495f         	ldr	r1, [pc, #0x17c]        @ 0x1e0 <DIG_PHY_config+0x1e0>
+      62: 461a         	mov	r2, r3
+      64: 4620         	mov	r0, r4
+      66: f7ff fffe    	bl	0x66 <DIG_PHY_config+0x66> @ imm = #-0x4
+			00000066:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      6a: f04f 7380    	mov.w	r3, #0x1000000
+      6e: 495d         	ldr	r1, [pc, #0x174]        @ 0x1e4 <DIG_PHY_config+0x1e4>
+      70: 461a         	mov	r2, r3
+      72: 4620         	mov	r0, r4
+      74: f7ff fffe    	bl	0x74 <DIG_PHY_config+0x74> @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      78: 2380         	movs	r3, #0x80
+      7a: 495b         	ldr	r1, [pc, #0x16c]        @ 0x1e8 <DIG_PHY_config+0x1e8>
+      7c: 461a         	mov	r2, r3
+      7e: 4620         	mov	r0, r4
+      80: f7ff fffe    	bl	0x80 <DIG_PHY_config+0x80> @ imm = #-0x4
+			00000080:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      84: 2380         	movs	r3, #0x80
+      86: 4959         	ldr	r1, [pc, #0x164]        @ 0x1ec <DIG_PHY_config+0x1ec>
+      88: 461a         	mov	r2, r3
+      8a: 4620         	mov	r0, r4
+      8c: f7ff fffe    	bl	0x8c <DIG_PHY_config+0x8c> @ imm = #-0x4
+			0000008c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      90: 2380         	movs	r3, #0x80
+      92: 4957         	ldr	r1, [pc, #0x15c]        @ 0x1f0 <DIG_PHY_config+0x1f0>
+      94: 461a         	mov	r2, r3
+      96: 4620         	mov	r0, r4
+      98: f7ff fffe    	bl	0x98 <DIG_PHY_config+0x98> @ imm = #-0x4
+			00000098:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      9c: f896 2081    	ldrb.w	r2, [r6, #0x81]
+      a0: f896 3080    	ldrb.w	r3, [r6, #0x80]
+      a4: 429a         	cmp	r2, r3
+      a6: d066         	beq	0x176 <DIG_PHY_config+0x176> @ imm = #0xcc
+      a8: 2000         	movs	r0, #0x0
+      aa: f7ff fffe    	bl	0xaa <DIG_PHY_config+0xaa> @ imm = #-0x4
+			000000aa:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      ae: 462a         	mov	r2, r5
+      b0: 2301         	movs	r3, #0x1
+      b2: 4950         	ldr	r1, [pc, #0x140]        @ 0x1f4 <DIG_PHY_config+0x1f4>
+      b4: 4620         	mov	r0, r4
+      b6: f7ff fffe    	bl	0xb6 <DIG_PHY_config+0xb6> @ imm = #-0x4
+			000000b6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ba: 4620         	mov	r0, r4
+      bc: 2101         	movs	r1, #0x1
+      be: f7ff fffe    	bl	0xbe <DIG_PHY_config+0xbe> @ imm = #-0x4
+			000000be:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      c2: 494c         	ldr	r1, [pc, #0x130]        @ 0x1f4 <DIG_PHY_config+0x1f4>
+      c4: 462a         	mov	r2, r5
+      c6: 4620         	mov	r0, r4
+      c8: 2301         	movs	r3, #0x1
+      ca: f7ff fffe    	bl	0xca <DIG_PHY_config+0xca> @ imm = #-0x4
+			000000ca:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ce: 4620         	mov	r0, r4
+      d0: 2100         	movs	r1, #0x0
+      d2: f7ff fffe    	bl	0xd2 <DIG_PHY_config+0xd2> @ imm = #-0x4
+			000000d2:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      d6: 2001         	movs	r0, #0x1
+      d8: f7ff fffe    	bl	0xd8 <DIG_PHY_config+0xd8> @ imm = #-0x4
+			000000d8:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      dc: 4e46         	ldr	r6, [pc, #0x118]        @ 0x1f8 <DIG_PHY_config+0x1f8>
+      de: 2001         	movs	r0, #0x1
+      e0: f7ff fffe    	bl	0xe0 <DIG_PHY_config+0xe0> @ imm = #-0x4
+			000000e0:  R_ARM_THM_CALL	udelay
+      e4: 6873         	ldr	r3, [r6, #0x4]
+      e6: 78dd         	ldrb	r5, [r3, #0x3]
+      e8: f64f 7340    	movw	r3, #0xff40
+      ec: 2d00         	cmp	r5, #0x0
+      ee: d149         	bne	0x184 <DIG_PHY_config+0x184> @ imm = #0x92
+      f0: 493d         	ldr	r1, [pc, #0xf4]         @ 0x1e8 <DIG_PHY_config+0x1e8>
+      f2: 4620         	mov	r0, r4
+      f4: f44f 6280    	mov.w	r2, #0x400
+      f8: f7ff fffe    	bl	0xf8 <DIG_PHY_config+0xf8> @ imm = #-0x4
+			000000f8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      fc: 493b         	ldr	r1, [pc, #0xec]         @ 0x1ec <DIG_PHY_config+0x1ec>
+      fe: 4620         	mov	r0, r4
+     100: f64f 7340    	movw	r3, #0xff40
+     104: f44f 6280    	mov.w	r2, #0x400
+     108: f7ff fffe    	bl	0x108 <DIG_PHY_config+0x108> @ imm = #-0x4
+			00000108:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     10c: 4938         	ldr	r1, [pc, #0xe0]         @ 0x1f0 <DIG_PHY_config+0x1f0>
+     10e: 4620         	mov	r0, r4
+     110: f64f 7340    	movw	r3, #0xff40
+     114: f44f 6280    	mov.w	r2, #0x400
+     118: f7ff fffe    	bl	0x118 <DIG_PHY_config+0x118> @ imm = #-0x4
+			00000118:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     11c: 4937         	ldr	r1, [pc, #0xdc]         @ 0x1fc <DIG_PHY_config+0x1fc>
+     11e: 462a         	mov	r2, r5
+     120: 4620         	mov	r0, r4
+     122: 2301         	movs	r3, #0x1
+     124: f7ff fffe    	bl	0x124 <DIG_PHY_config+0x124> @ imm = #-0x4
+			00000124:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     128: 4935         	ldr	r1, [pc, #0xd4]         @ 0x200 <DIG_PHY_config+0x200>
+     12a: 462a         	mov	r2, r5
+     12c: 4620         	mov	r0, r4
+     12e: 2301         	movs	r3, #0x1
+     130: f7ff fffe    	bl	0x130 <DIG_PHY_config+0x130> @ imm = #-0x4
+			00000130:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     134: 462a         	mov	r2, r5
+     136: 2301         	movs	r3, #0x1
+     138: 4932         	ldr	r1, [pc, #0xc8]         @ 0x204 <DIG_PHY_config+0x204>
+     13a: 4620         	mov	r0, r4
+     13c: f7ff fffe    	bl	0x13c <DIG_PHY_config+0x13c> @ imm = #-0x4
+			0000013c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     140: 462a         	mov	r2, r5
+     142: 2340         	movs	r3, #0x40
+     144: 4930         	ldr	r1, [pc, #0xc0]         @ 0x208 <DIG_PHY_config+0x208>
+     146: 4620         	mov	r0, r4
+     148: f7ff fffe    	bl	0x148 <DIG_PHY_config+0x148> @ imm = #-0x4
+			00000148:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     14c: 6873         	ldr	r3, [r6, #0x4]
+     14e: 79db         	ldrb	r3, [r3, #0x7]
+     150: 2b01         	cmp	r3, #0x1
+     152: d107         	bne	0x164 <DIG_PHY_config+0x164> @ imm = #0xe
+     154: 492d         	ldr	r1, [pc, #0xb4]         @ 0x20c <DIG_PHY_config+0x20c>
+     156: 4620         	mov	r0, r4
+     158: f04f 4374    	mov.w	r3, #0xf4000000
+     15c: f04f 5250    	mov.w	r2, #0x34000000
+     160: f7ff fffe    	bl	0x160 <DIG_PHY_config+0x160> @ imm = #-0x4
+			00000160:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     164: 4620         	mov	r0, r4
+     166: 4b2a         	ldr	r3, [pc, #0xa8]         @ 0x210 <DIG_PHY_config+0x210>
+     168: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+     16c: f44f 6235    	mov.w	r2, #0xb50
+     170: 4928         	ldr	r1, [pc, #0xa0]         @ 0x214 <DIG_PHY_config+0x214>
+     172: f7ff bffe    	b.w	0x172 <DIG_PHY_config+0x172> @ imm = #-0x4
+			00000172:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+     176: 491f         	ldr	r1, [pc, #0x7c]         @ 0x1f4 <DIG_PHY_config+0x1f4>
+     178: 462a         	mov	r2, r5
+     17a: 4620         	mov	r0, r4
+     17c: 2301         	movs	r3, #0x1
+     17e: f7ff fffe    	bl	0x17e <DIG_PHY_config+0x17e> @ imm = #-0x4
+			0000017e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     182: e7ab         	b	0xdc <DIG_PHY_config+0xdc> @ imm = #-0xaa
+     184: 4918         	ldr	r1, [pc, #0x60]         @ 0x1e8 <DIG_PHY_config+0x1e8>
+     186: 4620         	mov	r0, r4
+     188: 2240         	movs	r2, #0x40
+     18a: f7ff fffe    	bl	0x18a <DIG_PHY_config+0x18a> @ imm = #-0x4
+			0000018a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     18e: 4917         	ldr	r1, [pc, #0x5c]         @ 0x1ec <DIG_PHY_config+0x1ec>
+     190: 4620         	mov	r0, r4
+     192: f64f 7340    	movw	r3, #0xff40
+     196: 2240         	movs	r2, #0x40
+     198: f7ff fffe    	bl	0x198 <DIG_PHY_config+0x198> @ imm = #-0x4
+			00000198:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     19c: 4914         	ldr	r1, [pc, #0x50]         @ 0x1f0 <DIG_PHY_config+0x1f0>
+     19e: 4620         	mov	r0, r4
+     1a0: f64f 7340    	movw	r3, #0xff40
+     1a4: 2240         	movs	r2, #0x40
+     1a6: f7ff fffe    	bl	0x1a6 <DIG_PHY_config+0x1a6> @ imm = #-0x4
+			000001a6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1aa: 2301         	movs	r3, #0x1
+     1ac: 4913         	ldr	r1, [pc, #0x4c]         @ 0x1fc <DIG_PHY_config+0x1fc>
+     1ae: 461a         	mov	r2, r3
+     1b0: 4620         	mov	r0, r4
+     1b2: f7ff fffe    	bl	0x1b2 <DIG_PHY_config+0x1b2> @ imm = #-0x4
+			000001b2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1b6: 2301         	movs	r3, #0x1
+     1b8: 4911         	ldr	r1, [pc, #0x44]         @ 0x200 <DIG_PHY_config+0x200>
+     1ba: 461a         	mov	r2, r3
+     1bc: 4620         	mov	r0, r4
+     1be: f7ff fffe    	bl	0x1be <DIG_PHY_config+0x1be> @ imm = #-0x4
+			000001be:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1c2: 2301         	movs	r3, #0x1
+     1c4: 490f         	ldr	r1, [pc, #0x3c]         @ 0x204 <DIG_PHY_config+0x204>
+     1c6: 461a         	mov	r2, r3
+     1c8: 4620         	mov	r0, r4
+     1ca: f7ff fffe    	bl	0x1ca <DIG_PHY_config+0x1ca> @ imm = #-0x4
+			000001ca:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1ce: 2340         	movs	r3, #0x40
+     1d0: 461a         	mov	r2, r3
+     1d2: e7b7         	b	0x144 <DIG_PHY_config+0x144> @ imm = #-0x92
+     1d4: 00 00 00 00  	.word	0x00000000
+			000001d4:  R_ARM_ABS32	DUTTopSetGlobal
+     1d8: 74 06 00 01  	.word	0x01000674
+     1dc: b8 07 00 01  	.word	0x010007b8
+     1e0: e0 07 00 01  	.word	0x010007e0
+     1e4: ac 07 80 03  	.word	0x038007ac
+     1e8: 18 05 00 91  	.word	0x91000518
+     1ec: 98 05 00 99  	.word	0x99000598
+     1f0: 18 06 80 a3  	.word	0xa3800618
+     1f4: bc 07 00 01  	.word	0x010007bc
+     1f8: 00 00 00 00  	.word	0x00000000
+			000001f8:  R_ARM_ABS32	DV_p
+     1fc: 1c 05 00 11  	.word	0x1100051c
+     200: 9c 05 00 19  	.word	0x1900059c
+     204: 1c 06 80 23  	.word	0x2380061c
+     208: 98 04 00 89  	.word	0x89000498
+     20c: 90 06 00 01  	.word	0x01000690
+     210: f0 ff 01 00  	.word	0x0001fff0
+     214: ac 06 80 03  	.word	0x038006ac
+
+Disassembly of section .text.GATING_MODE_CFG:
+
+00000000 <GATING_MODE_CFG>:
+       0: 4b0e         	ldr	r3, [pc, #0x38]         @ 0x3c <GATING_MODE_CFG+0x3c>
+       2: 689b         	ldr	r3, [r3, #0x8]
+       4: 791a         	ldrb	r2, [r3, #0x4]
+       6: 2a01         	cmp	r2, #0x1
+       8: d016         	beq	0x38 <GATING_MODE_CFG+0x38> @ imm = #0x2c
+       a: 78db         	ldrb	r3, [r3, #0x3]
+       c: 3b01         	subs	r3, #0x1
+       e: bf18         	it	ne
+      10: 2301         	movne	r3, #0x1
+      12: 7003         	strb	r3, [r0]
+      14: 4b0a         	ldr	r3, [pc, #0x28]         @ 0x40 <GATING_MODE_CFG+0x40>
+      16: 681b         	ldr	r3, [r3]
+      18: 2b02         	cmp	r3, #0x2
+      1a: f04f 0300    	mov.w	r3, #0x0
+      1e: bf18         	it	ne
+      20: 2302         	movne	r3, #0x2
+      22: 7043         	strb	r3, [r0, #0x1]
+      24: 2302         	movs	r3, #0x2
+      26: 7083         	strb	r3, [r0, #0x2]
+      28: 2301         	movs	r3, #0x1
+      2a: 7103         	strb	r3, [r0, #0x4]
+      2c: 70c3         	strb	r3, [r0, #0x3]
+      2e: 4b05         	ldr	r3, [pc, #0x14]         @ 0x44 <GATING_MODE_CFG+0x44>
+      30: f893 30a1    	ldrb.w	r3, [r3, #0xa1]
+      34: 7143         	strb	r3, [r0, #0x5]
+      36: 4770         	bx	lr
+      38: 2300         	movs	r3, #0x0
+      3a: e7ea         	b	0x12 <GATING_MODE_CFG+0x12> @ imm = #-0x2c
+      3c: 00 00 00 00  	.word	0x00000000
+			0000003c:  R_ARM_ABS32	DV_p
+      40: 00 00 00 00  	.word	0x00000000
+			00000040:  R_ARM_ABS32	MEM_TYPE
+      44: 00 00 00 00  	.word	0x00000000
+			00000044:  R_ARM_ABS32	DUTTopSetGlobal
+
+Disassembly of section .text.DPHY_GAT_TRACK_Config:
+
+00000000 <DPHY_GAT_TRACK_Config>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 460d         	mov	r5, r1
+       4: 2301         	movs	r3, #0x1
+       6: 49ca         	ldr	r1, [pc, #0x328]        @ 0x330 <DPHY_GAT_TRACK_Config+0x330>
+       8: 461a         	mov	r2, r3
+       a: 4604         	mov	r4, r0
+       c: f7ff fffe    	bl	0xc <DPHY_GAT_TRACK_Config+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      10: 2304         	movs	r3, #0x4
+      12: 49c7         	ldr	r1, [pc, #0x31c]        @ 0x330 <DPHY_GAT_TRACK_Config+0x330>
+      14: 461a         	mov	r2, r3
+      16: 4620         	mov	r0, r4
+      18: f7ff fffe    	bl	0x18 <DPHY_GAT_TRACK_Config+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      1c: 792b         	ldrb	r3, [r5, #0x4]
+      1e: 2b01         	cmp	r3, #0x1
+      20: d118         	bne	0x54 <DPHY_GAT_TRACK_Config+0x54> @ imm = #0x30
+      22: 2380         	movs	r3, #0x80
+      24: 49c3         	ldr	r1, [pc, #0x30c]        @ 0x334 <DPHY_GAT_TRACK_Config+0x334>
+      26: 461a         	mov	r2, r3
+      28: 4620         	mov	r0, r4
+      2a: f7ff fffe    	bl	0x2a <DPHY_GAT_TRACK_Config+0x2a> @ imm = #-0x4
+			0000002a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      2e: 2380         	movs	r3, #0x80
+      30: 49c1         	ldr	r1, [pc, #0x304]        @ 0x338 <DPHY_GAT_TRACK_Config+0x338>
+      32: 461a         	mov	r2, r3
+      34: 4620         	mov	r0, r4
+      36: f7ff fffe    	bl	0x36 <DPHY_GAT_TRACK_Config+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      3a: 2380         	movs	r3, #0x80
+      3c: 49bf         	ldr	r1, [pc, #0x2fc]        @ 0x33c <DPHY_GAT_TRACK_Config+0x33c>
+      3e: 461a         	mov	r2, r3
+      40: 4620         	mov	r0, r4
+      42: f7ff fffe    	bl	0x42 <DPHY_GAT_TRACK_Config+0x42> @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      46: f44f 3380    	mov.w	r3, #0x10000
+      4a: 49bd         	ldr	r1, [pc, #0x2f4]        @ 0x340 <DPHY_GAT_TRACK_Config+0x340>
+      4c: 461a         	mov	r2, r3
+      4e: 4620         	mov	r0, r4
+      50: f7ff fffe    	bl	0x50 <DPHY_GAT_TRACK_Config+0x50> @ imm = #-0x4
+			00000050:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      54: 786b         	ldrb	r3, [r5, #0x1]
+      56: 2b03         	cmp	r3, #0x3
+      58: d833         	bhi	0xc2 <DPHY_GAT_TRACK_Config+0xc2> @ imm = #0x66
+      5a: e8df f013    	tbh	[pc, r3, lsl #1]
+      5e: 04 00 f6 00  	.word	0x00f60004
+      62: 1e 01 45 01  	.word	0x0145011e
+      66: 49b7         	ldr	r1, [pc, #0x2dc]        @ 0x344 <DPHY_GAT_TRACK_Config+0x344>
+      68: 4620         	mov	r0, r4
+      6a: 2320         	movs	r3, #0x20
+      6c: 2200         	movs	r2, #0x0
+      6e: f7ff fffe    	bl	0x6e <DPHY_GAT_TRACK_Config+0x6e> @ imm = #-0x4
+			0000006e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      72: 49b5         	ldr	r1, [pc, #0x2d4]        @ 0x348 <DPHY_GAT_TRACK_Config+0x348>
+      74: 4620         	mov	r0, r4
+      76: 2320         	movs	r3, #0x20
+      78: 2200         	movs	r2, #0x0
+      7a: f7ff fffe    	bl	0x7a <DPHY_GAT_TRACK_Config+0x7a> @ imm = #-0x4
+			0000007a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      7e: 49b3         	ldr	r1, [pc, #0x2cc]        @ 0x34c <DPHY_GAT_TRACK_Config+0x34c>
+      80: 4620         	mov	r0, r4
+      82: 2320         	movs	r3, #0x20
+      84: 2200         	movs	r2, #0x0
+      86: f7ff fffe    	bl	0x86 <DPHY_GAT_TRACK_Config+0x86> @ imm = #-0x4
+			00000086:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      8a: 49aa         	ldr	r1, [pc, #0x2a8]        @ 0x334 <DPHY_GAT_TRACK_Config+0x334>
+      8c: 4620         	mov	r0, r4
+      8e: f44f 4340    	mov.w	r3, #0xc000
+      92: 2200         	movs	r2, #0x0
+      94: f7ff fffe    	bl	0x94 <DPHY_GAT_TRACK_Config+0x94> @ imm = #-0x4
+			00000094:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      98: 49a7         	ldr	r1, [pc, #0x29c]        @ 0x338 <DPHY_GAT_TRACK_Config+0x338>
+      9a: 4620         	mov	r0, r4
+      9c: f44f 4340    	mov.w	r3, #0xc000
+      a0: 2200         	movs	r2, #0x0
+      a2: f7ff fffe    	bl	0xa2 <DPHY_GAT_TRACK_Config+0xa2> @ imm = #-0x4
+			000000a2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      a6: 49a5         	ldr	r1, [pc, #0x294]        @ 0x33c <DPHY_GAT_TRACK_Config+0x33c>
+      a8: f44f 4340    	mov.w	r3, #0xc000
+      ac: 2200         	movs	r2, #0x0
+      ae: 4620         	mov	r0, r4
+      b0: f7ff fffe    	bl	0xb0 <DPHY_GAT_TRACK_Config+0xb0> @ imm = #-0x4
+			000000b0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      b4: 49a6         	ldr	r1, [pc, #0x298]        @ 0x350 <DPHY_GAT_TRACK_Config+0x350>
+      b6: f44f 4380    	mov.w	r3, #0x4000
+      ba: 2200         	movs	r2, #0x0
+      bc: 4620         	mov	r0, r4
+      be: f7ff fffe    	bl	0xbe <DPHY_GAT_TRACK_Config+0xbe> @ imm = #-0x4
+			000000be:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      c2: 78ae         	ldrb	r6, [r5, #0x2]
+      c4: 2e01         	cmp	r6, #0x1
+      c6: f000 8165    	beq.w	0x394 <DPHY_GAT_TRACK_Config+0x394> @ imm = #0x2ca
+      ca: 2e02         	cmp	r6, #0x2
+      cc: f000 8174    	beq.w	0x3b8 <DPHY_GAT_TRACK_Config+0x3b8> @ imm = #0x2e8
+      d0: 2e00         	cmp	r6, #0x0
+      d2: d13d         	bne	0x150 <DPHY_GAT_TRACK_Config+0x150> @ imm = #0x7a
+      d4: 4b9f         	ldr	r3, [pc, #0x27c]        @ 0x354 <DPHY_GAT_TRACK_Config+0x354>
+      d6: 4620         	mov	r0, r4
+      d8: 4a9f         	ldr	r2, [pc, #0x27c]        @ 0x358 <DPHY_GAT_TRACK_Config+0x358>
+      da: 49a0         	ldr	r1, [pc, #0x280]        @ 0x35c <DPHY_GAT_TRACK_Config+0x35c>
+      dc: f7ff fffe    	bl	0xdc <DPHY_GAT_TRACK_Config+0xdc> @ imm = #-0x4
+			000000dc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      e0: 4b9f         	ldr	r3, [pc, #0x27c]        @ 0x360 <DPHY_GAT_TRACK_Config+0x360>
+      e2: 4aa0         	ldr	r2, [pc, #0x280]        @ 0x364 <DPHY_GAT_TRACK_Config+0x364>
+      e4: 4620         	mov	r0, r4
+      e6: 4992         	ldr	r1, [pc, #0x248]        @ 0x330 <DPHY_GAT_TRACK_Config+0x330>
+      e8: f7ff fffe    	bl	0xe8 <DPHY_GAT_TRACK_Config+0xe8> @ imm = #-0x4
+			000000e8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ec: f240 7331    	movw	r3, #0x731
+      f0: f44f 7204    	mov.w	r2, #0x210
+      f4: 499c         	ldr	r1, [pc, #0x270]        @ 0x368 <DPHY_GAT_TRACK_Config+0x368>
+      f6: 4620         	mov	r0, r4
+      f8: f7ff fffe    	bl	0xf8 <DPHY_GAT_TRACK_Config+0xf8> @ imm = #-0x4
+			000000f8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      fc: f04f 4300    	mov.w	r3, #0x80000000
+     100: 498c         	ldr	r1, [pc, #0x230]        @ 0x334 <DPHY_GAT_TRACK_Config+0x334>
+     102: 461a         	mov	r2, r3
+     104: 4620         	mov	r0, r4
+     106: f7ff fffe    	bl	0x106 <DPHY_GAT_TRACK_Config+0x106> @ imm = #-0x4
+			00000106:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     10a: 498e         	ldr	r1, [pc, #0x238]        @ 0x344 <DPHY_GAT_TRACK_Config+0x344>
+     10c: 4620         	mov	r0, r4
+     10e: f44f 03ee    	mov.w	r3, #0x770000
+     112: 2200         	movs	r2, #0x0
+     114: f7ff fffe    	bl	0x114 <DPHY_GAT_TRACK_Config+0x114> @ imm = #-0x4
+			00000114:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     118: f04f 4300    	mov.w	r3, #0x80000000
+     11c: 4986         	ldr	r1, [pc, #0x218]        @ 0x338 <DPHY_GAT_TRACK_Config+0x338>
+     11e: 461a         	mov	r2, r3
+     120: 4620         	mov	r0, r4
+     122: f7ff fffe    	bl	0x122 <DPHY_GAT_TRACK_Config+0x122> @ imm = #-0x4
+			00000122:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     126: 4988         	ldr	r1, [pc, #0x220]        @ 0x348 <DPHY_GAT_TRACK_Config+0x348>
+     128: 4620         	mov	r0, r4
+     12a: f44f 03ee    	mov.w	r3, #0x770000
+     12e: 2200         	movs	r2, #0x0
+     130: f7ff fffe    	bl	0x130 <DPHY_GAT_TRACK_Config+0x130> @ imm = #-0x4
+			00000130:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     134: f04f 4300    	mov.w	r3, #0x80000000
+     138: 4980         	ldr	r1, [pc, #0x200]        @ 0x33c <DPHY_GAT_TRACK_Config+0x33c>
+     13a: 461a         	mov	r2, r3
+     13c: 4620         	mov	r0, r4
+     13e: f7ff fffe    	bl	0x13e <DPHY_GAT_TRACK_Config+0x13e> @ imm = #-0x4
+			0000013e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     142: f44f 03ee    	mov.w	r3, #0x770000
+     146: 2200         	movs	r2, #0x0
+     148: 4980         	ldr	r1, [pc, #0x200]        @ 0x34c <DPHY_GAT_TRACK_Config+0x34c>
+     14a: 4620         	mov	r0, r4
+     14c: f7ff fffe    	bl	0x14c <DPHY_GAT_TRACK_Config+0x14c> @ imm = #-0x4
+			0000014c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     150: 4e86         	ldr	r6, [pc, #0x218]        @ 0x36c <DPHY_GAT_TRACK_Config+0x36c>
+     152: 4620         	mov	r0, r4
+     154: 4b86         	ldr	r3, [pc, #0x218]        @ 0x370 <DPHY_GAT_TRACK_Config+0x370>
+     156: 4a87         	ldr	r2, [pc, #0x21c]        @ 0x374 <DPHY_GAT_TRACK_Config+0x374>
+     158: 4987         	ldr	r1, [pc, #0x21c]        @ 0x378 <DPHY_GAT_TRACK_Config+0x378>
+     15a: f7ff fffe    	bl	0x15a <DPHY_GAT_TRACK_Config+0x15a> @ imm = #-0x4
+			0000015a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     15e: 4b87         	ldr	r3, [pc, #0x21c]        @ 0x37c <DPHY_GAT_TRACK_Config+0x37c>
+     160: 4a87         	ldr	r2, [pc, #0x21c]        @ 0x380 <DPHY_GAT_TRACK_Config+0x380>
+     162: 4620         	mov	r0, r4
+     164: 497d         	ldr	r1, [pc, #0x1f4]        @ 0x35c <DPHY_GAT_TRACK_Config+0x35c>
+     166: f7ff fffe    	bl	0x166 <DPHY_GAT_TRACK_Config+0x166> @ imm = #-0x4
+			00000166:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     16a: f896 2081    	ldrb.w	r2, [r6, #0x81]
+     16e: f896 3080    	ldrb.w	r3, [r6, #0x80]
+     172: 429a         	cmp	r2, r3
+     174: f000 8172    	beq.w	0x45c <DPHY_GAT_TRACK_Config+0x45c> @ imm = #0x2e4
+     178: 2000         	movs	r0, #0x0
+     17a: f7ff fffe    	bl	0x17a <DPHY_GAT_TRACK_Config+0x17a> @ imm = #-0x4
+			0000017a:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     17e: f04f 7380    	mov.w	r3, #0x1000000
+     182: 4980         	ldr	r1, [pc, #0x200]        @ 0x384 <DPHY_GAT_TRACK_Config+0x384>
+     184: 461a         	mov	r2, r3
+     186: 4620         	mov	r0, r4
+     188: f7ff fffe    	bl	0x188 <DPHY_GAT_TRACK_Config+0x188> @ imm = #-0x4
+			00000188:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     18c: 4620         	mov	r0, r4
+     18e: 2101         	movs	r1, #0x1
+     190: f7ff fffe    	bl	0x190 <DPHY_GAT_TRACK_Config+0x190> @ imm = #-0x4
+			00000190:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     194: f04f 7380    	mov.w	r3, #0x1000000
+     198: 497a         	ldr	r1, [pc, #0x1e8]        @ 0x384 <DPHY_GAT_TRACK_Config+0x384>
+     19a: 461a         	mov	r2, r3
+     19c: 4620         	mov	r0, r4
+     19e: f7ff fffe    	bl	0x19e <DPHY_GAT_TRACK_Config+0x19e> @ imm = #-0x4
+			0000019e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1a2: 4620         	mov	r0, r4
+     1a4: 2100         	movs	r1, #0x0
+     1a6: f7ff fffe    	bl	0x1a6 <DPHY_GAT_TRACK_Config+0x1a6> @ imm = #-0x4
+			000001a6:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     1aa: 2001         	movs	r0, #0x1
+     1ac: f7ff fffe    	bl	0x1ac <DPHY_GAT_TRACK_Config+0x1ac> @ imm = #-0x4
+			000001ac:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     1b0: 4963         	ldr	r1, [pc, #0x18c]        @ 0x340 <DPHY_GAT_TRACK_Config+0x340>
+     1b2: 4620         	mov	r0, r4
+     1b4: f04f 4370    	mov.w	r3, #0xf0000000
+     1b8: f04f 4280    	mov.w	r2, #0x40000000
+     1bc: f7ff fffe    	bl	0x1bc <DPHY_GAT_TRACK_Config+0x1bc> @ imm = #-0x4
+			000001bc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1c0: 2301         	movs	r3, #0x1
+     1c2: 4971         	ldr	r1, [pc, #0x1c4]        @ 0x388 <DPHY_GAT_TRACK_Config+0x388>
+     1c4: 461a         	mov	r2, r3
+     1c6: 4620         	mov	r0, r4
+     1c8: f7ff fffe    	bl	0x1c8 <DPHY_GAT_TRACK_Config+0x1c8> @ imm = #-0x4
+			000001c8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1cc: 2301         	movs	r3, #0x1
+     1ce: 496f         	ldr	r1, [pc, #0x1bc]        @ 0x38c <DPHY_GAT_TRACK_Config+0x38c>
+     1d0: 461a         	mov	r2, r3
+     1d2: 4620         	mov	r0, r4
+     1d4: f7ff fffe    	bl	0x1d4 <DPHY_GAT_TRACK_Config+0x1d4> @ imm = #-0x4
+			000001d4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1d8: f896 3076    	ldrb.w	r3, [r6, #0x76]
+     1dc: b1fb         	cbz	r3, 0x21e <DPHY_GAT_TRACK_Config+0x21e> @ imm = #0x3e
+     1de: f896 5074    	ldrb.w	r5, [r6, #0x74]
+     1e2: f896 2073    	ldrb.w	r2, [r6, #0x73]
+     1e6: 4315         	orrs	r5, r2
+     1e8: d119         	bne	0x21e <DPHY_GAT_TRACK_Config+0x21e> @ imm = #0x32
+     1ea: 4628         	mov	r0, r5
+     1ec: f7ff fffe    	bl	0x1ec <DPHY_GAT_TRACK_Config+0x1ec> @ imm = #-0x4
+			000001ec:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     1f0: 4620         	mov	r0, r4
+     1f2: 2101         	movs	r1, #0x1
+     1f4: f7ff fffe    	bl	0x1f4 <DPHY_GAT_TRACK_Config+0x1f4> @ imm = #-0x4
+			000001f4:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     1f8: 4963         	ldr	r1, [pc, #0x18c]        @ 0x388 <DPHY_GAT_TRACK_Config+0x388>
+     1fa: 462a         	mov	r2, r5
+     1fc: 4620         	mov	r0, r4
+     1fe: 2301         	movs	r3, #0x1
+     200: f7ff fffe    	bl	0x200 <DPHY_GAT_TRACK_Config+0x200> @ imm = #-0x4
+			00000200:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     204: 4961         	ldr	r1, [pc, #0x184]        @ 0x38c <DPHY_GAT_TRACK_Config+0x38c>
+     206: 462a         	mov	r2, r5
+     208: 4620         	mov	r0, r4
+     20a: 2301         	movs	r3, #0x1
+     20c: f7ff fffe    	bl	0x20c <DPHY_GAT_TRACK_Config+0x20c> @ imm = #-0x4
+			0000020c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     210: 4620         	mov	r0, r4
+     212: 4629         	mov	r1, r5
+     214: f7ff fffe    	bl	0x214 <DPHY_GAT_TRACK_Config+0x214> @ imm = #-0x4
+			00000214:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     218: 2001         	movs	r0, #0x1
+     21a: f7ff fffe    	bl	0x21a <DPHY_GAT_TRACK_Config+0x21a> @ imm = #-0x4
+			0000021a:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     21e: 4b5c         	ldr	r3, [pc, #0x170]        @ 0x390 <DPHY_GAT_TRACK_Config+0x390>
+     220: 4620         	mov	r0, r4
+     222: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+     226: 685b         	ldr	r3, [r3, #0x4]
+     228: 78db         	ldrb	r3, [r3, #0x3]
+     22a: 0499         	lsls	r1, r3, #0x12
+     22c: 04da         	lsls	r2, r3, #0x13
+     22e: f402 2200    	and	r2, r2, #0x80000
+     232: 051b         	lsls	r3, r3, #0x14
+     234: f401 2180    	and	r1, r1, #0x40000
+     238: 4311         	orrs	r1, r2
+     23a: f403 1280    	and	r2, r3, #0x100000
+     23e: 430a         	orrs	r2, r1
+     240: f44f 2340    	mov.w	r3, #0xc0000
+     244: 493e         	ldr	r1, [pc, #0xf8]         @ 0x340 <DPHY_GAT_TRACK_Config+0x340>
+     246: f7ff bffe    	b.w	0x246 <DPHY_GAT_TRACK_Config+0x246> @ imm = #-0x4
+			00000246:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+     24a: 2320         	movs	r3, #0x20
+     24c: 493d         	ldr	r1, [pc, #0xf4]         @ 0x344 <DPHY_GAT_TRACK_Config+0x344>
+     24e: 461a         	mov	r2, r3
+     250: 4620         	mov	r0, r4
+     252: f7ff fffe    	bl	0x252 <DPHY_GAT_TRACK_Config+0x252> @ imm = #-0x4
+			00000252:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     256: 2320         	movs	r3, #0x20
+     258: 493b         	ldr	r1, [pc, #0xec]         @ 0x348 <DPHY_GAT_TRACK_Config+0x348>
+     25a: 461a         	mov	r2, r3
+     25c: 4620         	mov	r0, r4
+     25e: f7ff fffe    	bl	0x25e <DPHY_GAT_TRACK_Config+0x25e> @ imm = #-0x4
+			0000025e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     262: 2320         	movs	r3, #0x20
+     264: 4939         	ldr	r1, [pc, #0xe4]         @ 0x34c <DPHY_GAT_TRACK_Config+0x34c>
+     266: 461a         	mov	r2, r3
+     268: 4620         	mov	r0, r4
+     26a: f7ff fffe    	bl	0x26a <DPHY_GAT_TRACK_Config+0x26a> @ imm = #-0x4
+			0000026a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     26e: 4931         	ldr	r1, [pc, #0xc4]         @ 0x334 <DPHY_GAT_TRACK_Config+0x334>
+     270: 4620         	mov	r0, r4
+     272: f44f 4340    	mov.w	r3, #0xc000
+     276: f44f 4280    	mov.w	r2, #0x4000
+     27a: f7ff fffe    	bl	0x27a <DPHY_GAT_TRACK_Config+0x27a> @ imm = #-0x4
+			0000027a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     27e: f44f 4340    	mov.w	r3, #0xc000
+     282: f44f 4280    	mov.w	r2, #0x4000
+     286: 492c         	ldr	r1, [pc, #0xb0]         @ 0x338 <DPHY_GAT_TRACK_Config+0x338>
+     288: 4620         	mov	r0, r4
+     28a: f7ff fffe    	bl	0x28a <DPHY_GAT_TRACK_Config+0x28a> @ imm = #-0x4
+			0000028a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     28e: f44f 4340    	mov.w	r3, #0xc000
+     292: f44f 4280    	mov.w	r2, #0x4000
+     296: 4929         	ldr	r1, [pc, #0xa4]         @ 0x33c <DPHY_GAT_TRACK_Config+0x33c>
+     298: e710         	b	0xbc <DPHY_GAT_TRACK_Config+0xbc> @ imm = #-0x1e0
+     29a: 2320         	movs	r3, #0x20
+     29c: 4929         	ldr	r1, [pc, #0xa4]         @ 0x344 <DPHY_GAT_TRACK_Config+0x344>
+     29e: 461a         	mov	r2, r3
+     2a0: 4620         	mov	r0, r4
+     2a2: f7ff fffe    	bl	0x2a2 <DPHY_GAT_TRACK_Config+0x2a2> @ imm = #-0x4
+			000002a2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2a6: 2320         	movs	r3, #0x20
+     2a8: 4927         	ldr	r1, [pc, #0x9c]         @ 0x348 <DPHY_GAT_TRACK_Config+0x348>
+     2aa: 461a         	mov	r2, r3
+     2ac: 4620         	mov	r0, r4
+     2ae: f7ff fffe    	bl	0x2ae <DPHY_GAT_TRACK_Config+0x2ae> @ imm = #-0x4
+			000002ae:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2b2: 2320         	movs	r3, #0x20
+     2b4: 4925         	ldr	r1, [pc, #0x94]         @ 0x34c <DPHY_GAT_TRACK_Config+0x34c>
+     2b6: 461a         	mov	r2, r3
+     2b8: 4620         	mov	r0, r4
+     2ba: f7ff fffe    	bl	0x2ba <DPHY_GAT_TRACK_Config+0x2ba> @ imm = #-0x4
+			000002ba:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2be: 491d         	ldr	r1, [pc, #0x74]         @ 0x334 <DPHY_GAT_TRACK_Config+0x334>
+     2c0: 4620         	mov	r0, r4
+     2c2: f44f 4340    	mov.w	r3, #0xc000
+     2c6: f44f 4200    	mov.w	r2, #0x8000
+     2ca: f7ff fffe    	bl	0x2ca <DPHY_GAT_TRACK_Config+0x2ca> @ imm = #-0x4
+			000002ca:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2ce: f44f 4340    	mov.w	r3, #0xc000
+     2d2: f44f 4200    	mov.w	r2, #0x8000
+     2d6: 4918         	ldr	r1, [pc, #0x60]         @ 0x338 <DPHY_GAT_TRACK_Config+0x338>
+     2d8: 4620         	mov	r0, r4
+     2da: f7ff fffe    	bl	0x2da <DPHY_GAT_TRACK_Config+0x2da> @ imm = #-0x4
+			000002da:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2de: f44f 4340    	mov.w	r3, #0xc000
+     2e2: f44f 4200    	mov.w	r2, #0x8000
+     2e6: e7d6         	b	0x296 <DPHY_GAT_TRACK_Config+0x296> @ imm = #-0x54
+     2e8: 2320         	movs	r3, #0x20
+     2ea: 4916         	ldr	r1, [pc, #0x58]         @ 0x344 <DPHY_GAT_TRACK_Config+0x344>
+     2ec: 461a         	mov	r2, r3
+     2ee: 4620         	mov	r0, r4
+     2f0: f7ff fffe    	bl	0x2f0 <DPHY_GAT_TRACK_Config+0x2f0> @ imm = #-0x4
+			000002f0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2f4: 2320         	movs	r3, #0x20
+     2f6: 4914         	ldr	r1, [pc, #0x50]         @ 0x348 <DPHY_GAT_TRACK_Config+0x348>
+     2f8: 461a         	mov	r2, r3
+     2fa: 4620         	mov	r0, r4
+     2fc: f7ff fffe    	bl	0x2fc <DPHY_GAT_TRACK_Config+0x2fc> @ imm = #-0x4
+			000002fc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     300: 2320         	movs	r3, #0x20
+     302: 4912         	ldr	r1, [pc, #0x48]         @ 0x34c <DPHY_GAT_TRACK_Config+0x34c>
+     304: 461a         	mov	r2, r3
+     306: 4620         	mov	r0, r4
+     308: f7ff fffe    	bl	0x308 <DPHY_GAT_TRACK_Config+0x308> @ imm = #-0x4
+			00000308:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     30c: 4909         	ldr	r1, [pc, #0x24]         @ 0x334 <DPHY_GAT_TRACK_Config+0x334>
+     30e: 4620         	mov	r0, r4
+     310: f44f 4340    	mov.w	r3, #0xc000
+     314: 2200         	movs	r2, #0x0
+     316: f7ff fffe    	bl	0x316 <DPHY_GAT_TRACK_Config+0x316> @ imm = #-0x4
+			00000316:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     31a: f44f 4340    	mov.w	r3, #0xc000
+     31e: 2200         	movs	r2, #0x0
+     320: 4905         	ldr	r1, [pc, #0x14]         @ 0x338 <DPHY_GAT_TRACK_Config+0x338>
+     322: 4620         	mov	r0, r4
+     324: f7ff fffe    	bl	0x324 <DPHY_GAT_TRACK_Config+0x324> @ imm = #-0x4
+			00000324:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     328: f44f 4340    	mov.w	r3, #0xc000
+     32c: 2200         	movs	r2, #0x0
+     32e: e7b2         	b	0x296 <DPHY_GAT_TRACK_Config+0x296> @ imm = #-0x9c
+     330: 64 06 00 01  	.word	0x01000664
+     334: 0c 05 00 91  	.word	0x9100050c
+     338: 8c 05 00 99  	.word	0x9900058c
+     33c: 0c 06 80 a3  	.word	0xa380060c
+     340: 68 06 00 01  	.word	0x01000668
+     344: 18 05 00 91  	.word	0x91000518
+     348: 98 05 00 99  	.word	0x99000598
+     34c: 18 06 80 a3  	.word	0xa3800618
+     350: 94 10 20 01  	.word	0x01201094
+     354: 11 9f 21 0c  	.word	0x0c219f11
+     358: 01 00 00 0c  	.word	0x0c000001
+     35c: 60 06 00 01  	.word	0x01000660
+     360: 50 01 ff ff  	.word	0xffff0150
+     364: 50 01 01 00  	.word	0x00010150
+     368: b8 07 00 01  	.word	0x010007b8
+     36c: 00 00 00 00  	.word	0x00000000
+			0000036c:  R_ARM_ABS32	DUTTopSetGlobal
+     370: f0 00 00 10  	.word	0x100000f0
+     374: 10 00 00 10  	.word	0x10000010
+     378: 24 06 80 63  	.word	0x63800624
+     37c: 00 00 9a 90  	.word	0x909a0000
+     380: 00 00 12 90  	.word	0x90120000
+     384: bc 07 00 01  	.word	0x010007bc
+     388: b0 07 00 01  	.word	0x010007b0
+     38c: b4 07 00 01  	.word	0x010007b4
+     390: 00 00 00 00  	.word	0x00000000
+			00000390:  R_ARM_ABS32	DV_p
+     394: 4b35         	ldr	r3, [pc, #0xd4]         @ 0x46c <DPHY_GAT_TRACK_Config+0x46c>
+     396: 4620         	mov	r0, r4
+     398: 4935         	ldr	r1, [pc, #0xd4]         @ 0x470 <DPHY_GAT_TRACK_Config+0x470>
+     39a: f44f 1202    	mov.w	r2, #0x208000
+     39e: f7ff fffe    	bl	0x39e <DPHY_GAT_TRACK_Config+0x39e> @ imm = #-0x4
+			0000039e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3a2: 4b34         	ldr	r3, [pc, #0xd0]         @ 0x474 <DPHY_GAT_TRACK_Config+0x474>
+     3a4: f44f 7288    	mov.w	r2, #0x110
+     3a8: 4933         	ldr	r1, [pc, #0xcc]         @ 0x478 <DPHY_GAT_TRACK_Config+0x478>
+     3aa: 4620         	mov	r0, r4
+     3ac: f7ff fffe    	bl	0x3ac <DPHY_GAT_TRACK_Config+0x3ac> @ imm = #-0x4
+			000003ac:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3b0: f240 7331    	movw	r3, #0x731
+     3b4: 2220         	movs	r2, #0x20
+     3b6: e69d         	b	0xf4 <DPHY_GAT_TRACK_Config+0xf4> @ imm = #-0x2c6
+     3b8: 4b2c         	ldr	r3, [pc, #0xb0]         @ 0x46c <DPHY_GAT_TRACK_Config+0x46c>
+     3ba: 4620         	mov	r0, r4
+     3bc: 4a2f         	ldr	r2, [pc, #0xbc]         @ 0x47c <DPHY_GAT_TRACK_Config+0x47c>
+     3be: 492c         	ldr	r1, [pc, #0xb0]         @ 0x470 <DPHY_GAT_TRACK_Config+0x470>
+     3c0: f7ff fffe    	bl	0x3c0 <DPHY_GAT_TRACK_Config+0x3c0> @ imm = #-0x4
+			000003c0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3c4: 4b2b         	ldr	r3, [pc, #0xac]         @ 0x474 <DPHY_GAT_TRACK_Config+0x474>
+     3c6: 4a2e         	ldr	r2, [pc, #0xb8]         @ 0x480 <DPHY_GAT_TRACK_Config+0x480>
+     3c8: 4620         	mov	r0, r4
+     3ca: 492b         	ldr	r1, [pc, #0xac]         @ 0x478 <DPHY_GAT_TRACK_Config+0x478>
+     3cc: f7ff fffe    	bl	0x3cc <DPHY_GAT_TRACK_Config+0x3cc> @ imm = #-0x4
+			000003cc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3d0: 492c         	ldr	r1, [pc, #0xb0]         @ 0x484 <DPHY_GAT_TRACK_Config+0x484>
+     3d2: 4620         	mov	r0, r4
+     3d4: f240 7331    	movw	r3, #0x731
+     3d8: 2221         	movs	r2, #0x21
+     3da: f7ff fffe    	bl	0x3da <DPHY_GAT_TRACK_Config+0x3da> @ imm = #-0x4
+			000003da:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3de: 492a         	ldr	r1, [pc, #0xa8]         @ 0x488 <DPHY_GAT_TRACK_Config+0x488>
+     3e0: 4620         	mov	r0, r4
+     3e2: f04f 4300    	mov.w	r3, #0x80000000
+     3e6: 2200         	movs	r2, #0x0
+     3e8: f7ff fffe    	bl	0x3e8 <DPHY_GAT_TRACK_Config+0x3e8> @ imm = #-0x4
+			000003e8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3ec: 796b         	ldrb	r3, [r5, #0x5]
+     3ee: 4620         	mov	r0, r4
+     3f0: 1c59         	adds	r1, r3, #0x1
+     3f2: 041b         	lsls	r3, r3, #0x10
+     3f4: 0509         	lsls	r1, r1, #0x14
+     3f6: f403 22e0    	and	r2, r3, #0x70000
+     3fa: f401 01e0    	and	r1, r1, #0x700000
+     3fe: f44f 03ee    	mov.w	r3, #0x770000
+     402: 430a         	orrs	r2, r1
+     404: 4921         	ldr	r1, [pc, #0x84]         @ 0x48c <DPHY_GAT_TRACK_Config+0x48c>
+     406: f7ff fffe    	bl	0x406 <DPHY_GAT_TRACK_Config+0x406> @ imm = #-0x4
+			00000406:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     40a: 4921         	ldr	r1, [pc, #0x84]         @ 0x490 <DPHY_GAT_TRACK_Config+0x490>
+     40c: 4620         	mov	r0, r4
+     40e: f04f 4300    	mov.w	r3, #0x80000000
+     412: 2200         	movs	r2, #0x0
+     414: f7ff fffe    	bl	0x414 <DPHY_GAT_TRACK_Config+0x414> @ imm = #-0x4
+			00000414:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     418: 796b         	ldrb	r3, [r5, #0x5]
+     41a: 4620         	mov	r0, r4
+     41c: 1c59         	adds	r1, r3, #0x1
+     41e: 041b         	lsls	r3, r3, #0x10
+     420: 0509         	lsls	r1, r1, #0x14
+     422: f403 22e0    	and	r2, r3, #0x70000
+     426: f401 01e0    	and	r1, r1, #0x700000
+     42a: f44f 03ee    	mov.w	r3, #0x770000
+     42e: 430a         	orrs	r2, r1
+     430: 4918         	ldr	r1, [pc, #0x60]         @ 0x494 <DPHY_GAT_TRACK_Config+0x494>
+     432: f7ff fffe    	bl	0x432 <DPHY_GAT_TRACK_Config+0x432> @ imm = #-0x4
+			00000432:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     436: 4918         	ldr	r1, [pc, #0x60]         @ 0x498 <DPHY_GAT_TRACK_Config+0x498>
+     438: f04f 4300    	mov.w	r3, #0x80000000
+     43c: 2200         	movs	r2, #0x0
+     43e: 4620         	mov	r0, r4
+     440: f7ff fffe    	bl	0x440 <DPHY_GAT_TRACK_Config+0x440> @ imm = #-0x4
+			00000440:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     444: 796b         	ldrb	r3, [r5, #0x5]
+     446: 1c59         	adds	r1, r3, #0x1
+     448: 041b         	lsls	r3, r3, #0x10
+     44a: 0509         	lsls	r1, r1, #0x14
+     44c: f403 22e0    	and	r2, r3, #0x70000
+     450: f401 01e0    	and	r1, r1, #0x700000
+     454: f44f 03ee    	mov.w	r3, #0x770000
+     458: 430a         	orrs	r2, r1
+     45a: e675         	b	0x148 <DPHY_GAT_TRACK_Config+0x148> @ imm = #-0x316
+     45c: f04f 7380    	mov.w	r3, #0x1000000
+     460: 490e         	ldr	r1, [pc, #0x38]         @ 0x49c <DPHY_GAT_TRACK_Config+0x49c>
+     462: 461a         	mov	r2, r3
+     464: 4620         	mov	r0, r4
+     466: f7ff fffe    	bl	0x466 <DPHY_GAT_TRACK_Config+0x466> @ imm = #-0x4
+			00000466:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     46a: e6a1         	b	0x1b0 <DPHY_GAT_TRACK_Config+0x1b0> @ imm = #-0x2be
+     46c: 11 9f 21 0c  	.word	0x0c219f11
+     470: 60 06 00 01  	.word	0x01000660
+     474: 50 01 ff ff  	.word	0xffff0150
+     478: 64 06 00 01  	.word	0x01000664
+     47c: 01 00 00 0c  	.word	0x0c000001
+     480: 50 01 01 00  	.word	0x00010150
+     484: b8 07 00 01  	.word	0x010007b8
+     488: 0c 05 00 91  	.word	0x9100050c
+     48c: 18 05 00 91  	.word	0x91000518
+     490: 8c 05 00 99  	.word	0x9900058c
+     494: 98 05 00 99  	.word	0x99000598
+     498: 0c 06 80 a3  	.word	0xa380060c
+     49c: bc 07 00 01  	.word	0x010007bc
+
+Disassembly of section .text.DIG_CONFIG_NONSHUF_DCM:
+
+00000000 <DIG_CONFIG_NONSHUF_DCM>:
+       0: e92d 4ff0    	push.w	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4681         	mov	r9, r0
+       6: 460c         	mov	r4, r1
+       8: b095         	sub	sp, #0x54
+       a: 2900         	cmp	r1, #0x0
+       c: f040 8231    	bne.w	0x472 <DIG_CONFIG_NONSHUF_DCM+0x472> @ imm = #0x462
+      10: f04f 6380    	mov.w	r3, #0x4000000
+      14: 9310         	str	r3, [sp, #0x40]
+      16: f04f 7300    	mov.w	r3, #0x2000000
+      1a: 9a10         	ldr	r2, [sp, #0x40]
+      1c: 431a         	orrs	r2, r3
+      1e: 2c00         	cmp	r4, #0x0
+      20: f040 822a    	bne.w	0x478 <DIG_CONFIG_NONSHUF_DCM+0x478> @ imm = #0x454
+      24: f44f 6300    	mov.w	r3, #0x800
+      28: f44f 6580    	mov.w	r5, #0x400
+      2c: 930c         	str	r3, [sp, #0x30]
+      2e: f44f 2800    	mov.w	r8, #0x80000
+      32: f44f 5380    	mov.w	r3, #0x1000
+      36: 9304         	str	r3, [sp, #0x10]
+      38: f44f 5300    	mov.w	r3, #0x2000
+      3c: 930b         	str	r3, [sp, #0x2c]
+      3e: f44f 4380    	mov.w	r3, #0x4000
+      42: 930a         	str	r3, [sp, #0x28]
+      44: f44f 4300    	mov.w	r3, #0x8000
+      48: 9309         	str	r3, [sp, #0x24]
+      4a: f44f 3380    	mov.w	r3, #0x10000
+      4e: 9303         	str	r3, [sp, #0xc]
+      50: f44f 3300    	mov.w	r3, #0x20000
+      54: 9302         	str	r3, [sp, #0x8]
+      56: f44f 7300    	mov.w	r3, #0x200
+      5a: 930e         	str	r3, [sp, #0x38]
+      5c: 9b0e         	ldr	r3, [sp, #0x38]
+      5e: 4648         	mov	r0, r9
+      60: 49cf         	ldr	r1, [pc, #0x33c]        @ 0x3a0 <DIG_CONFIG_NONSHUF_DCM+0x3a0>
+      62: 01e6         	lsls	r6, r4, #0x7
+      64: 431a         	orrs	r2, r3
+      66: 9b02         	ldr	r3, [sp, #0x8]
+      68: ea42 0208    	orr.w	r2, r2, r8
+      6c: b2f6         	uxtb	r6, r6
+      6e: 431a         	orrs	r2, r3
+      70: 9b03         	ldr	r3, [sp, #0xc]
+      72: 2700         	movs	r7, #0x0
+      74: 431a         	orrs	r2, r3
+      76: 9b09         	ldr	r3, [sp, #0x24]
+      78: 431a         	orrs	r2, r3
+      7a: 9b0a         	ldr	r3, [sp, #0x28]
+      7c: 431a         	orrs	r2, r3
+      7e: 9b0b         	ldr	r3, [sp, #0x2c]
+      80: 431a         	orrs	r2, r3
+      82: 9b04         	ldr	r3, [sp, #0x10]
+      84: 431a         	orrs	r2, r3
+      86: 9b0c         	ldr	r3, [sp, #0x30]
+      88: 431a         	orrs	r2, r3
+      8a: 4bc6         	ldr	r3, [pc, #0x318]        @ 0x3a4 <DIG_CONFIG_NONSHUF_DCM+0x3a4>
+      8c: 432a         	orrs	r2, r5
+      8e: f442 7280    	orr	r2, r2, #0x100
+      92: f7ff fffe    	bl	0x92 <DIG_CONFIG_NONSHUF_DCM+0x92> @ imm = #-0x4
+			00000092:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      96: 2c00         	cmp	r4, #0x0
+      98: 4ac3         	ldr	r2, [pc, #0x30c]        @ 0x3a8 <DIG_CONFIG_NONSHUF_DCM+0x3a8>
+      9a: f04f 0340    	mov.w	r3, #0x40
+      9e: bf18         	it	ne
+      a0: 2300         	movne	r3, #0x0
+      a2: ea43 0106    	orr.w	r1, r3, r6
+      a6: 430a         	orrs	r2, r1
+      a8: 4648         	mov	r0, r9
+      aa: 49c0         	ldr	r1, [pc, #0x300]        @ 0x3ac <DIG_CONFIG_NONSHUF_DCM+0x3ac>
+      ac: 9307         	str	r3, [sp, #0x1c]
+      ae: 463b         	mov	r3, r7
+      b0: 9700         	str	r7, [sp]
+      b2: f7ff fffe    	bl	0xb2 <DIG_CONFIG_NONSHUF_DCM+0xb2> @ imm = #-0x4
+			000000b2:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      b6: 49be         	ldr	r1, [pc, #0x2f8]        @ 0x3b0 <DIG_CONFIG_NONSHUF_DCM+0x3b0>
+      b8: 463b         	mov	r3, r7
+      ba: 4648         	mov	r0, r9
+      bc: f06f 4200    	mvn	r2, #0x80000000
+      c0: 9700         	str	r7, [sp]
+      c2: f7ff fffe    	bl	0xc2 <DIG_CONFIG_NONSHUF_DCM+0xc2> @ imm = #-0x4
+			000000c2:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      c6: 07a3         	lsls	r3, r4, #0x1e
+      c8: f003 4380    	and	r3, r3, #0x40000000
+      cc: 0421         	lsls	r1, r4, #0x10
+      ce: 9311         	str	r3, [sp, #0x44]
+      d0: 0463         	lsls	r3, r4, #0x11
+      d2: f403 3300    	and	r3, r3, #0x20000
+      d6: f401 3180    	and	r1, r1, #0x10000
+      da: 4319         	orrs	r1, r3
+      dc: 04a3         	lsls	r3, r4, #0x12
+      de: f403 2380    	and	r3, r3, #0x40000
+      e2: 0762         	lsls	r2, r4, #0x1d
+      e4: 4319         	orrs	r1, r3
+      e6: 0723         	lsls	r3, r4, #0x1c
+      e8: f003 5380    	and	r3, r3, #0x10000000
+      ec: f002 5200    	and	r2, r2, #0x20000000
+      f0: 4319         	orrs	r1, r3
+      f2: 9b11         	ldr	r3, [sp, #0x44]
+      f4: 4311         	orrs	r1, r2
+      f6: 0522         	lsls	r2, r4, #0x14
+      f8: 4319         	orrs	r1, r3
+      fa: f402 1280    	and	r2, r2, #0x100000
+      fe: 4311         	orrs	r1, r2
+     100: 0562         	lsls	r2, r4, #0x15
+     102: f402 1200    	and	r2, r2, #0x200000
+     106: 4bab         	ldr	r3, [pc, #0x2ac]        @ 0x3b4 <DIG_CONFIG_NONSHUF_DCM+0x3b4>
+     108: 4311         	orrs	r1, r2
+     10a: 05a2         	lsls	r2, r4, #0x16
+     10c: f402 0280    	and	r2, r2, #0x400000
+     110: 4648         	mov	r0, r9
+     112: 430a         	orrs	r2, r1
+     114: 49a8         	ldr	r1, [pc, #0x2a0]        @ 0x3b8 <DIG_CONFIG_NONSHUF_DCM+0x3b8>
+     116: f7ff fffe    	bl	0x116 <DIG_CONFIG_NONSHUF_DCM+0x116> @ imm = #-0x4
+			00000116:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     11a: 00e2         	lsls	r2, r4, #0x3
+     11c: f002 0a08    	and	r10, r2, #0x8
+     120: 49a6         	ldr	r1, [pc, #0x298]        @ 0x3bc <DIG_CONFIG_NONSHUF_DCM+0x3bc>
+     122: 4652         	mov	r2, r10
+     124: 2308         	movs	r3, #0x8
+     126: 4648         	mov	r0, r9
+     128: f7ff fffe    	bl	0x128 <DIG_CONFIG_NONSHUF_DCM+0x128> @ imm = #-0x4
+			00000128:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     12c: 42bc         	cmp	r4, r7
+     12e: f04f 6348    	mov.w	r3, #0xc800000
+     132: bf08         	it	eq
+     134: 4619         	moveq	r1, r3
+     136: 4ba2         	ldr	r3, [pc, #0x288]        @ 0x3c0 <DIG_CONFIG_NONSHUF_DCM+0x3c0>
+     138: f04f 6290    	mov.w	r2, #0x4800000
+     13c: bf18         	it	ne
+     13e: 4611         	movne	r1, r2
+     140: f893 2077    	ldrb.w	r2, [r3, #0x77]
+     144: 2a00         	cmp	r2, #0x0
+     146: f000 81a2    	beq.w	0x48e <DIG_CONFIG_NONSHUF_DCM+0x48e> @ imm = #0x344
+     14a: 4b9e         	ldr	r3, [pc, #0x278]        @ 0x3c4 <DIG_CONFIG_NONSHUF_DCM+0x3c4>
+     14c: 681b         	ldr	r3, [r3]
+     14e: 2b06         	cmp	r3, #0x6
+     150: d102         	bne	0x158 <DIG_CONFIG_NONSHUF_DCM+0x158> @ imm = #0x4
+     152: 02a7         	lsls	r7, r4, #0xa
+     154: f407 6780    	and	r7, r7, #0x400
+     158: ea41 0207    	orr.w	r2, r1, r7
+     15c: 4648         	mov	r0, r9
+     15e: 499a         	ldr	r1, [pc, #0x268]        @ 0x3c8 <DIG_CONFIG_NONSHUF_DCM+0x3c8>
+     160: f04f 6348    	mov.w	r3, #0xc800000
+     164: f7ff fffe    	bl	0x164 <DIG_CONFIG_NONSHUF_DCM+0x164> @ imm = #-0x4
+			00000164:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     168: 0163         	lsls	r3, r4, #0x5
+     16a: f003 0320    	and	r3, r3, #0x20
+     16e: 9312         	str	r3, [sp, #0x48]
+     170: 00a3         	lsls	r3, r4, #0x2
+     172: 4996         	ldr	r1, [pc, #0x258]        @ 0x3cc <DIG_CONFIG_NONSHUF_DCM+0x3cc>
+     174: f003 0304    	and	r3, r3, #0x4
+     178: 930f         	str	r3, [sp, #0x3c]
+     17a: 0063         	lsls	r3, r4, #0x1
+     17c: 4648         	mov	r0, r9
+     17e: f003 0302    	and	r3, r3, #0x2
+     182: 9313         	str	r3, [sp, #0x4c]
+     184: f004 0301    	and	r3, r4, #0x1
+     188: 9305         	str	r3, [sp, #0x14]
+     18a: 9b13         	ldr	r3, [sp, #0x4c]
+     18c: ea46 0203    	orr.w	r2, r6, r3
+     190: f004 0301    	and	r3, r4, #0x1
+     194: 431a         	orrs	r2, r3
+     196: 01a6         	lsls	r6, r4, #0x6
+     198: 9b12         	ldr	r3, [sp, #0x48]
+     19a: ea42 020a    	orr.w	r2, r2, r10
+     19e: f006 0640    	and	r6, r6, #0x40
+     1a2: 4332         	orrs	r2, r6
+     1a4: 431a         	orrs	r2, r3
+     1a6: 0123         	lsls	r3, r4, #0x4
+     1a8: f003 0310    	and	r3, r3, #0x10
+     1ac: 431a         	orrs	r2, r3
+     1ae: 9b0f         	ldr	r3, [sp, #0x3c]
+     1b0: 431a         	orrs	r2, r3
+     1b2: 2320         	movs	r3, #0x20
+     1b4: f442 7280    	orr	r2, r2, #0x100
+     1b8: f7ff fffe    	bl	0x1b8 <DIG_CONFIG_NONSHUF_DCM+0x1b8> @ imm = #-0x4
+			000001b8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1bc: 4984         	ldr	r1, [pc, #0x210]        @ 0x3d0 <DIG_CONFIG_NONSHUF_DCM+0x3d0>
+     1be: 4652         	mov	r2, r10
+     1c0: 4648         	mov	r0, r9
+     1c2: 2308         	movs	r3, #0x8
+     1c4: f7ff fffe    	bl	0x1c4 <DIG_CONFIG_NONSHUF_DCM+0x1c4> @ imm = #-0x4
+			000001c4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1c8: 0262         	lsls	r2, r4, #0x9
+     1ca: f44f 7300    	mov.w	r3, #0x200
+     1ce: 4981         	ldr	r1, [pc, #0x204]        @ 0x3d4 <DIG_CONFIG_NONSHUF_DCM+0x3d4>
+     1d0: 401a         	ands	r2, r3
+     1d2: 4648         	mov	r0, r9
+     1d4: f7ff fffe    	bl	0x1d4 <DIG_CONFIG_NONSHUF_DCM+0x1d4> @ imm = #-0x4
+			000001d4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1d8: 9a07         	ldr	r2, [sp, #0x1c]
+     1da: 497f         	ldr	r1, [pc, #0x1fc]        @ 0x3d8 <DIG_CONFIG_NONSHUF_DCM+0x3d8>
+     1dc: 4648         	mov	r0, r9
+     1de: 2340         	movs	r3, #0x40
+     1e0: f7ff fffe    	bl	0x1e0 <DIG_CONFIG_NONSHUF_DCM+0x1e0> @ imm = #-0x4
+			000001e0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1e4: 2c00         	cmp	r4, #0x0
+     1e6: f040 8154    	bne.w	0x492 <DIG_CONFIG_NONSHUF_DCM+0x492> @ imm = #0x2a8
+     1ea: 2308         	movs	r3, #0x8
+     1ec: f44f 2280    	mov.w	r2, #0x40000
+     1f0: 9306         	str	r3, [sp, #0x18]
+     1f2: 2604         	movs	r6, #0x4
+     1f4: 2310         	movs	r3, #0x10
+     1f6: 920d         	str	r2, [sp, #0x34]
+     1f8: 9305         	str	r3, [sp, #0x14]
+     1fa: 2202         	movs	r2, #0x2
+     1fc: 2720         	movs	r7, #0x20
+     1fe: 2380         	movs	r3, #0x80
+     200: f44f 7180    	mov.w	r1, #0x100
+     204: 9208         	str	r2, [sp, #0x20]
+     206: fab4 fb84    	clz	r11, r4
+     20a: 9802         	ldr	r0, [sp, #0x8]
+     20c: ea4f 1b5b    	lsr.w	r11, r11, #0x5
+     210: ea48 020b    	orr.w	r2, r8, r11
+     214: 4302         	orrs	r2, r0
+     216: 9803         	ldr	r0, [sp, #0xc]
+     218: 4302         	orrs	r2, r0
+     21a: 9809         	ldr	r0, [sp, #0x24]
+     21c: 4302         	orrs	r2, r0
+     21e: 980a         	ldr	r0, [sp, #0x28]
+     220: 4302         	orrs	r2, r0
+     222: 980b         	ldr	r0, [sp, #0x2c]
+     224: 4302         	orrs	r2, r0
+     226: 9804         	ldr	r0, [sp, #0x10]
+     228: 4302         	orrs	r2, r0
+     22a: 980c         	ldr	r0, [sp, #0x30]
+     22c: 4302         	orrs	r2, r0
+     22e: 980e         	ldr	r0, [sp, #0x38]
+     230: 432a         	orrs	r2, r5
+     232: 4302         	orrs	r2, r0
+     234: 9807         	ldr	r0, [sp, #0x1c]
+     236: 4302         	orrs	r2, r0
+     238: 980d         	ldr	r0, [sp, #0x34]
+     23a: 4302         	orrs	r2, r0
+     23c: 4648         	mov	r0, r9
+     23e: 430a         	orrs	r2, r1
+     240: 9908         	ldr	r1, [sp, #0x20]
+     242: 431a         	orrs	r2, r3
+     244: 9b05         	ldr	r3, [sp, #0x14]
+     246: 433a         	orrs	r2, r7
+     248: 431a         	orrs	r2, r3
+     24a: 9b06         	ldr	r3, [sp, #0x18]
+     24c: 431a         	orrs	r2, r3
+     24e: 4b63         	ldr	r3, [pc, #0x18c]        @ 0x3dc <DIG_CONFIG_NONSHUF_DCM+0x3dc>
+     250: 4332         	orrs	r2, r6
+     252: 430a         	orrs	r2, r1
+     254: 4962         	ldr	r1, [pc, #0x188]        @ 0x3e0 <DIG_CONFIG_NONSHUF_DCM+0x3e0>
+     256: f7ff fffe    	bl	0x256 <DIG_CONFIG_NONSHUF_DCM+0x256> @ imm = #-0x4
+			00000256:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     25a: 4b60         	ldr	r3, [pc, #0x180]        @ 0x3dc <DIG_CONFIG_NONSHUF_DCM+0x3dc>
+     25c: 4961         	ldr	r1, [pc, #0x184]        @ 0x3e4 <DIG_CONFIG_NONSHUF_DCM+0x3e4>
+     25e: 4648         	mov	r0, r9
+     260: 2200         	movs	r2, #0x0
+     262: f7ff fffe    	bl	0x262 <DIG_CONFIG_NONSHUF_DCM+0x262> @ imm = #-0x4
+			00000262:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     266: 465a         	mov	r2, r11
+     268: 4648         	mov	r0, r9
+     26a: 2301         	movs	r3, #0x1
+     26c: 2100         	movs	r1, #0x0
+     26e: f7ff fffe    	bl	0x26e <DIG_CONFIG_NONSHUF_DCM+0x26e> @ imm = #-0x4
+			0000026e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     272: f04f 7380    	mov.w	r3, #0x1000000
+     276: 495c         	ldr	r1, [pc, #0x170]        @ 0x3e8 <DIG_CONFIG_NONSHUF_DCM+0x3e8>
+     278: 461a         	mov	r2, r3
+     27a: 4648         	mov	r0, r9
+     27c: f7ff fffe    	bl	0x27c <DIG_CONFIG_NONSHUF_DCM+0x27c> @ imm = #-0x4
+			0000027c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     280: 9904         	ldr	r1, [sp, #0x10]
+     282: 9a10         	ldr	r2, [sp, #0x40]
+     284: 4648         	mov	r0, r9
+     286: 4b59         	ldr	r3, [pc, #0x164]        @ 0x3ec <DIG_CONFIG_NONSHUF_DCM+0x3ec>
+     288: 430a         	orrs	r2, r1
+     28a: f44f 71b4    	mov.w	r1, #0x168
+     28e: f7ff fffe    	bl	0x28e <DIG_CONFIG_NONSHUF_DCM+0x28e> @ imm = #-0x4
+			0000028e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     292: 9b0f         	ldr	r3, [sp, #0x3c]
+     294: 4648         	mov	r0, r9
+     296: f44f 71c8    	mov.w	r1, #0x190
+     29a: ea4a 0203    	orr.w	r2, r10, r3
+     29e: 230d         	movs	r3, #0xd
+     2a0: f042 0201    	orr	r2, r2, #0x1
+     2a4: f7ff fffe    	bl	0x2a4 <DIG_CONFIG_NONSHUF_DCM+0x2a4> @ imm = #-0x4
+			000002a4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2a8: f004 0301    	and	r3, r4, #0x1
+     2ac: ea43 72c4    	orr.w	r2, r3, r4, lsl #31
+     2b0: 9b11         	ldr	r3, [sp, #0x44]
+     2b2: 2c00         	cmp	r4, #0x0
+     2b4: f44f 1180    	mov.w	r1, #0x100000
+     2b8: ea42 0203    	orr.w	r2, r2, r3
+     2bc: 9b0f         	ldr	r3, [sp, #0x3c]
+     2be: bf18         	it	ne
+     2c0: 2100         	movne	r1, #0x0
+     2c2: 4648         	mov	r0, r9
+     2c4: 431a         	orrs	r2, r3
+     2c6: 9b13         	ldr	r3, [sp, #0x4c]
+     2c8: 431a         	orrs	r2, r3
+     2ca: 9b02         	ldr	r3, [sp, #0x8]
+     2cc: ea42 0208    	orr.w	r2, r2, r8
+     2d0: 431a         	orrs	r2, r3
+     2d2: 9b03         	ldr	r3, [sp, #0xc]
+     2d4: 431a         	orrs	r2, r3
+     2d6: 9b07         	ldr	r3, [sp, #0x1c]
+     2d8: 431a         	orrs	r2, r3
+     2da: 9b0d         	ldr	r3, [sp, #0x34]
+     2dc: 431a         	orrs	r2, r3
+     2de: 9b06         	ldr	r3, [sp, #0x18]
+     2e0: 433a         	orrs	r2, r7
+     2e2: 431a         	orrs	r2, r3
+     2e4: 4b42         	ldr	r3, [pc, #0x108]        @ 0x3f0 <DIG_CONFIG_NONSHUF_DCM+0x3f0>
+     2e6: 430a         	orrs	r2, r1
+     2e8: f44f 71fe    	mov.w	r1, #0x1fc
+     2ec: f7ff fffe    	bl	0x2ec <DIG_CONFIG_NONSHUF_DCM+0x2ec> @ imm = #-0x4
+			000002ec:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2f0: 4632         	mov	r2, r6
+     2f2: 4648         	mov	r0, r9
+     2f4: 2304         	movs	r3, #0x4
+     2f6: f44f 7100    	mov.w	r1, #0x200
+     2fa: f7ff fffe    	bl	0x2fa <DIG_CONFIG_NONSHUF_DCM+0x2fa> @ imm = #-0x4
+			000002fa:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2fe: 4642         	mov	r2, r8
+     300: 4648         	mov	r0, r9
+     302: f44f 2300    	mov.w	r3, #0x80000
+     306: f44f 7102    	mov.w	r1, #0x208
+     30a: f7ff fffe    	bl	0x30a <DIG_CONFIG_NONSHUF_DCM+0x30a> @ imm = #-0x4
+			0000030a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     30e: 9a05         	ldr	r2, [sp, #0x14]
+     310: 4648         	mov	r0, r9
+     312: 2310         	movs	r3, #0x10
+     314: f44f 7107    	mov.w	r1, #0x21c
+     318: f7ff fffe    	bl	0x318 <DIG_CONFIG_NONSHUF_DCM+0x318> @ imm = #-0x4
+			00000318:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     31c: 9b05         	ldr	r3, [sp, #0x14]
+     31e: 9908         	ldr	r1, [sp, #0x20]
+     320: 4648         	mov	r0, r9
+     322: ea47 0203    	orr.w	r2, r7, r3
+     326: 9b06         	ldr	r3, [sp, #0x18]
+     328: 431a         	orrs	r2, r3
+     32a: 233e         	movs	r3, #0x3e
+     32c: 4332         	orrs	r2, r6
+     32e: 430a         	orrs	r2, r1
+     330: f44f 710f    	mov.w	r1, #0x23c
+     334: f7ff fffe    	bl	0x334 <DIG_CONFIG_NONSHUF_DCM+0x334> @ imm = #-0x4
+			00000334:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     338: 2c00         	cmp	r4, #0x0
+     33a: f000 80b3    	beq.w	0x4a4 <DIG_CONFIG_NONSHUF_DCM+0x4a4> @ imm = #0x166
+     33e: 2300         	movs	r3, #0x0
+     340: 461d         	mov	r5, r3
+     342: 431d         	orrs	r5, r3
+     344: 4648         	mov	r0, r9
+     346: 462a         	mov	r2, r5
+     348: f04f 4340    	mov.w	r3, #0xc0000000
+     34c: f44f 7111    	mov.w	r1, #0x244
+     350: f7ff fffe    	bl	0x350 <DIG_CONFIG_NONSHUF_DCM+0x350> @ imm = #-0x4
+			00000350:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     354: 9a08         	ldr	r2, [sp, #0x20]
+     356: 4648         	mov	r0, r9
+     358: 2302         	movs	r3, #0x2
+     35a: f44f 7114    	mov.w	r1, #0x250
+     35e: f7ff fffe    	bl	0x35e <DIG_CONFIG_NONSHUF_DCM+0x35e> @ imm = #-0x4
+			0000035e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     362: 2c00         	cmp	r4, #0x0
+     364: f000 80a3    	beq.w	0x4ae <DIG_CONFIG_NONSHUF_DCM+0x4ae> @ imm = #0x146
+     368: 2c01         	cmp	r4, #0x1
+     36a: f04f 0200    	mov.w	r2, #0x0
+     36e: f040 80a0    	bne.w	0x4b2 <DIG_CONFIG_NONSHUF_DCM+0x4b2> @ imm = #0x140
+     372: 4611         	mov	r1, r2
+     374: 430a         	orrs	r2, r1
+     376: 4b1f         	ldr	r3, [pc, #0x7c]         @ 0x3f4 <DIG_CONFIG_NONSHUF_DCM+0x3f4>
+     378: 4648         	mov	r0, r9
+     37a: f44f 7118    	mov.w	r1, #0x260
+     37e: f7ff fffe    	bl	0x37e <DIG_CONFIG_NONSHUF_DCM+0x37e> @ imm = #-0x4
+			0000037e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     382: 462a         	mov	r2, r5
+     384: 4648         	mov	r0, r9
+     386: f04f 4340    	mov.w	r3, #0xc0000000
+     38a: f44f 7122    	mov.w	r1, #0x288
+     38e: f7ff fffe    	bl	0x38e <DIG_CONFIG_NONSHUF_DCM+0x38e> @ imm = #-0x4
+			0000038e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     392: 2c01         	cmp	r4, #0x1
+     394: f040 8090    	bne.w	0x4b8 <DIG_CONFIG_NONSHUF_DCM+0x4b8> @ imm = #0x120
+     398: 2300         	movs	r3, #0x0
+     39a: 461a         	mov	r2, r3
+     39c: e02c         	b	0x3f8 <DIG_CONFIG_NONSHUF_DCM+0x3f8> @ imm = #0x58
+     39e: bf00         	nop
+     3a0: 6c 06 00 01  	.word	0x0100066c
+     3a4: 00 ff 5f 06  	.word	0x065fff00
+     3a8: 2f 0b 60 00  	.word	0x00600b2f
+     3ac: 74 06 00 01  	.word	0x01000674
+     3b0: 7c 06 00 01  	.word	0x0100067c
+     3b4: 00 00 77 70  	.word	0x70770000
+     3b8: 80 06 00 01  	.word	0x01000680
+     3bc: a4 07 00 01  	.word	0x010007a4
+     3c0: 00 00 00 00  	.word	0x00000000
+			000003c0:  R_ARM_ABS32	DUTTopSetGlobal
+     3c4: 00 00 00 00  	.word	0x00000000
+			000003c4:  R_ARM_ABS32	MEM_TYPE
+     3c8: c4 07 00 01  	.word	0x010007c4
+     3cc: c8 07 00 01  	.word	0x010007c8
+     3d0: e8 07 00 01  	.word	0x010007e8
+     3d4: 40 08 00 01  	.word	0x01000840
+     3d8: 54 08 00 01  	.word	0x01000854
+     3dc: ff ff 0f 00  	.word	0x000fffff
+     3e0: 58 08 00 01  	.word	0x01000858
+     3e4: 5c 08 00 01  	.word	0x0100085c
+     3e8: 10 01 80 03  	.word	0x03800110
+     3ec: 00 10 00 04  	.word	0x04001000
+     3f0: 6f 00 1f c0  	.word	0xc01f006f
+     3f4: ff 7f 00 08  	.word	0x08007fff
+     3f8: 2c01         	cmp	r4, #0x1
+     3fa: ea42 0203    	orr.w	r2, r2, r3
+     3fe: f44f 6370    	mov.w	r3, #0xf00
+     402: 4648         	mov	r0, r9
+     404: bf08         	it	eq
+     406: 2300         	moveq	r3, #0x0
+     408: ea42 0203    	orr.w	r2, r2, r3
+     40c: f04f 0300    	mov.w	r3, #0x0
+     410: bf18         	it	ne
+     412: 23f0         	movne	r3, #0xf0
+     414: ea42 0203    	orr.w	r2, r2, r3
+     418: f04f 0100    	mov.w	r1, #0x0
+     41c: 4b29         	ldr	r3, [pc, #0xa4]         @ 0x4c4 <DIG_CONFIG_NONSHUF_DCM+0x4c4>
+     41e: bf18         	it	ne
+     420: 210f         	movne	r1, #0xf
+     422: 430a         	orrs	r2, r1
+     424: f44f 7150    	mov.w	r1, #0x340
+     428: f7ff fffe    	bl	0x428 <DIG_CONFIG_NONSHUF_DCM+0x428> @ imm = #-0x4
+			00000428:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     42c: 9a12         	ldr	r2, [sp, #0x48]
+     42e: 4648         	mov	r0, r9
+     430: 2320         	movs	r3, #0x20
+     432: f44f 7110    	mov.w	r1, #0x240
+     436: f7ff fffe    	bl	0x436 <DIG_CONFIG_NONSHUF_DCM+0x436> @ imm = #-0x4
+			00000436:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     43a: 4b23         	ldr	r3, [pc, #0x8c]         @ 0x4c8 <DIG_CONFIG_NONSHUF_DCM+0x4c8>
+     43c: 4648         	mov	r0, r9
+     43e: f44f 7144    	mov.w	r1, #0x310
+     442: 7a5b         	ldrb	r3, [r3, #0x9]
+     444: 2b00         	cmp	r3, #0x0
+     446: f44f 5300    	mov.w	r3, #0x2000
+     44a: 461a         	mov	r2, r3
+     44c: bf18         	it	ne
+     44e: 2200         	movne	r2, #0x0
+     450: f7ff fffe    	bl	0x450 <DIG_CONFIG_NONSHUF_DCM+0x450> @ imm = #-0x4
+			00000450:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     454: 2c01         	cmp	r4, #0x1
+     456: f04f 0300    	mov.w	r3, #0x0
+     45a: f04f 0203    	mov.w	r2, #0x3
+     45e: 4648         	mov	r0, r9
+     460: bf18         	it	ne
+     462: 461a         	movne	r2, r3
+     464: 9300         	str	r3, [sp]
+     466: 21fc         	movs	r1, #0xfc
+     468: f7ff fffe    	bl	0x468 <DIG_CONFIG_NONSHUF_DCM+0x468> @ imm = #-0x4
+			00000468:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     46c: b015         	add	sp, #0x54
+     46e: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     472: 2300         	movs	r3, #0x0
+     474: 9310         	str	r3, [sp, #0x40]
+     476: e5d0         	b	0x1a <DIG_CONFIG_NONSHUF_DCM+0x1a> @ imm = #-0x460
+     478: 2500         	movs	r5, #0x0
+     47a: 46a8         	mov	r8, r5
+     47c: 950c         	str	r5, [sp, #0x30]
+     47e: 9504         	str	r5, [sp, #0x10]
+     480: 950b         	str	r5, [sp, #0x2c]
+     482: 950a         	str	r5, [sp, #0x28]
+     484: 9509         	str	r5, [sp, #0x24]
+     486: 9503         	str	r5, [sp, #0xc]
+     488: 9502         	str	r5, [sp, #0x8]
+     48a: 950e         	str	r5, [sp, #0x38]
+     48c: e5e6         	b	0x5c <DIG_CONFIG_NONSHUF_DCM+0x5c> @ imm = #-0x434
+     48e: 4617         	mov	r7, r2
+     490: e662         	b	0x158 <DIG_CONFIG_NONSHUF_DCM+0x158> @ imm = #-0x33c
+     492: 2600         	movs	r6, #0x0
+     494: 4637         	mov	r7, r6
+     496: 4633         	mov	r3, r6
+     498: 4631         	mov	r1, r6
+     49a: 9606         	str	r6, [sp, #0x18]
+     49c: 9605         	str	r6, [sp, #0x14]
+     49e: 960d         	str	r6, [sp, #0x34]
+     4a0: 9608         	str	r6, [sp, #0x20]
+     4a2: e6b0         	b	0x206 <DIG_CONFIG_NONSHUF_DCM+0x206> @ imm = #-0x2a0
+     4a4: f04f 4300    	mov.w	r3, #0x80000000
+     4a8: f04f 4580    	mov.w	r5, #0x40000000
+     4ac: e749         	b	0x342 <DIG_CONFIG_NONSHUF_DCM+0x342> @ imm = #-0x16e
+     4ae: f04f 6200    	mov.w	r2, #0x8000000
+     4b2: f647 71ff    	movw	r1, #0x7fff
+     4b6: e75d         	b	0x374 <DIG_CONFIG_NONSHUF_DCM+0x374> @ imm = #-0x146
+     4b8: f44f 2370    	mov.w	r3, #0xf0000
+     4bc: f44f 4270    	mov.w	r2, #0xf000
+     4c0: e79a         	b	0x3f8 <DIG_CONFIG_NONSHUF_DCM+0x3f8> @ imm = #-0xcc
+     4c2: bf00         	nop
+     4c4: ff ff 0f 80  	.word	0x800fffff
+     4c8: 00 00 00 00  	.word	0x00000000
+			000004c8:  R_ARM_ABS32	DUTTopSetGlobal
+
+Disassembly of section .text.DDRPHY_PICG_Config:
+
+00000000 <DDRPHY_PICG_Config>:
+       0: 4902         	ldr	r1, [pc, #0x8]          @ 0xc <DDRPHY_PICG_Config+0xc>
+       2: 2320         	movs	r3, #0x20
+       4: 223f         	movs	r2, #0x3f
+       6: f7ff bffe    	b.w	0x6 <DDRPHY_PICG_Config+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+       a: bf00         	nop
+       c: c8 07 00 01  	.word	0x010007c8
+
+Disassembly of section .text.DRAMC_COMMON_Config:
+
+00000000 <DRAMC_COMMON_Config>:
+       0: e92d 4ff7    	push.w	{r0, r1, r2, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4604         	mov	r4, r0
+       6: 4de4         	ldr	r5, [pc, #0x390]        @ 0x398 <DRAMC_COMMON_Config+0x398>
+       8: 4ee4         	ldr	r6, [pc, #0x390]        @ 0x39c <DRAMC_COMMON_Config+0x39c>
+       a: f895 30ac    	ldrb.w	r3, [r5, #0xac]
+       e: 0659         	lsls	r1, r3, #0x19
+      10: 06db         	lsls	r3, r3, #0x1b
+      12: f001 7100    	and	r1, r1, #0x2000000
+      16: f003 6200    	and	r2, r3, #0x8000000
+      1a: 430a         	orrs	r2, r1
+      1c: f04f 6320    	mov.w	r3, #0xa000000
+      20: f44f 7107    	mov.w	r1, #0x21c
+      24: f7ff fffe    	bl	0x24 <DRAMC_COMMON_Config+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      28: f895 209f    	ldrb.w	r2, [r5, #0x9f]
+      2c: 6833         	ldr	r3, [r6]
+      2e: 0192         	lsls	r2, r2, #0x6
+      30: 2b02         	cmp	r3, #0x2
+      32: f002 0240    	and	r2, r2, #0x40
+      36: f000 8359    	beq.w	0x6ec <DRAMC_COMMON_Config+0x6ec> @ imm = #0x6b2
+      3a: 2b06         	cmp	r3, #0x6
+      3c: f04f 0300    	mov.w	r3, #0x0
+      40: f000 8357    	beq.w	0x6f2 <DRAMC_COMMON_Config+0x6f2> @ imm = #0x6ae
+      44: 2100         	movs	r1, #0x0
+      46: 430a         	orrs	r2, r1
+      48: 4620         	mov	r0, r4
+      4a: 431a         	orrs	r2, r3
+      4c: 2100         	movs	r1, #0x0
+      4e: 4bd4         	ldr	r3, [pc, #0x350]        @ 0x3a0 <DRAMC_COMMON_Config+0x3a0>
+      50: f442 7280    	orr	r2, r2, #0x100
+      54: f7ff fffe    	bl	0x54 <DRAMC_COMMON_Config+0x54> @ imm = #-0x4
+			00000054:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      58: f895 3081    	ldrb.w	r3, [r5, #0x81]
+      5c: f895 2080    	ldrb.w	r2, [r5, #0x80]
+      60: 429a         	cmp	r2, r3
+      62: f000 8349    	beq.w	0x6f8 <DRAMC_COMMON_Config+0x6f8> @ imm = #0x692
+      66: 2000         	movs	r0, #0x0
+      68: f7ff fffe    	bl	0x68 <DRAMC_COMMON_Config+0x68> @ imm = #-0x4
+			00000068:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      6c: f895 2081    	ldrb.w	r2, [r5, #0x81]
+      70: f44f 6370    	mov.w	r3, #0xf00
+      74: 49cb         	ldr	r1, [pc, #0x32c]        @ 0x3a4 <DRAMC_COMMON_Config+0x3a4>
+      76: 4620         	mov	r0, r4
+      78: 0212         	lsls	r2, r2, #0x8
+      7a: 401a         	ands	r2, r3
+      7c: f7ff fffe    	bl	0x7c <DRAMC_COMMON_Config+0x7c> @ imm = #-0x4
+			0000007c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      80: f895 2081    	ldrb.w	r2, [r5, #0x81]
+      84: f44f 6370    	mov.w	r3, #0xf00
+      88: 49c7         	ldr	r1, [pc, #0x31c]        @ 0x3a8 <DRAMC_COMMON_Config+0x3a8>
+      8a: 4620         	mov	r0, r4
+      8c: 0212         	lsls	r2, r2, #0x8
+      8e: 401a         	ands	r2, r3
+      90: f7ff fffe    	bl	0x90 <DRAMC_COMMON_Config+0x90> @ imm = #-0x4
+			00000090:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      94: 4620         	mov	r0, r4
+      96: 2101         	movs	r1, #0x1
+      98: f7ff fffe    	bl	0x98 <DRAMC_COMMON_Config+0x98> @ imm = #-0x4
+			00000098:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      9c: f895 2080    	ldrb.w	r2, [r5, #0x80]
+      a0: f44f 6370    	mov.w	r3, #0xf00
+      a4: 49bf         	ldr	r1, [pc, #0x2fc]        @ 0x3a4 <DRAMC_COMMON_Config+0x3a4>
+      a6: 4620         	mov	r0, r4
+      a8: 0212         	lsls	r2, r2, #0x8
+      aa: 401a         	ands	r2, r3
+      ac: f7ff fffe    	bl	0xac <DRAMC_COMMON_Config+0xac> @ imm = #-0x4
+			000000ac:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      b0: f895 2080    	ldrb.w	r2, [r5, #0x80]
+      b4: f44f 6370    	mov.w	r3, #0xf00
+      b8: 49bb         	ldr	r1, [pc, #0x2ec]        @ 0x3a8 <DRAMC_COMMON_Config+0x3a8>
+      ba: 4620         	mov	r0, r4
+      bc: 0212         	lsls	r2, r2, #0x8
+      be: 401a         	ands	r2, r3
+      c0: f7ff fffe    	bl	0xc0 <DRAMC_COMMON_Config+0xc0> @ imm = #-0x4
+			000000c0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      c4: 4620         	mov	r0, r4
+      c6: 2100         	movs	r1, #0x0
+      c8: f7ff fffe    	bl	0xc8 <DRAMC_COMMON_Config+0xc8> @ imm = #-0x4
+			000000c8:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      cc: 2001         	movs	r0, #0x1
+      ce: f7ff fffe    	bl	0xce <DRAMC_COMMON_Config+0xce> @ imm = #-0x4
+			000000ce:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      d2: 6837         	ldr	r7, [r6]
+      d4: f027 0704    	bic	r7, r7, #0x4
+      d8: 2f02         	cmp	r7, #0x2
+      da: d138         	bne	0x14e <DRAMC_COMMON_Config+0x14e> @ imm = #0x70
+      dc: 2000         	movs	r0, #0x0
+      de: f7ff fffe    	bl	0xde <DRAMC_COMMON_Config+0xde> @ imm = #-0x4
+			000000de:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      e2: 4620         	mov	r0, r4
+      e4: 2101         	movs	r1, #0x1
+      e6: f7ff fffe    	bl	0xe6 <DRAMC_COMMON_Config+0xe6> @ imm = #-0x4
+			000000e6:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      ea: f895 3077    	ldrb.w	r3, [r5, #0x77]
+      ee: 49af         	ldr	r1, [pc, #0x2bc]        @ 0x3ac <DRAMC_COMMON_Config+0x3ac>
+      f0: 4620         	mov	r0, r4
+      f2: 2b01         	cmp	r3, #0x1
+      f4: f04f 7380    	mov.w	r3, #0x1000000
+      f8: 461a         	mov	r2, r3
+      fa: bf18         	it	ne
+      fc: 2200         	movne	r2, #0x0
+      fe: f7ff fffe    	bl	0xfe <DRAMC_COMMON_Config+0xfe> @ imm = #-0x4
+			000000fe:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     102: 4620         	mov	r0, r4
+     104: 2100         	movs	r1, #0x0
+     106: f7ff fffe    	bl	0x106 <DRAMC_COMMON_Config+0x106> @ imm = #-0x4
+			00000106:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     10a: 2001         	movs	r0, #0x1
+     10c: f7ff fffe    	bl	0x10c <DRAMC_COMMON_Config+0x10c> @ imm = #-0x4
+			0000010c:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     110: f895 3077    	ldrb.w	r3, [r5, #0x77]
+     114: 2b01         	cmp	r3, #0x1
+     116: f000 8302    	beq.w	0x71e <DRAMC_COMMON_Config+0x71e> @ imm = #0x604
+     11a: f895 3076    	ldrb.w	r3, [r5, #0x76]
+     11e: 2220         	movs	r2, #0x20
+     120: 2b01         	cmp	r3, #0x1
+     122: bf18         	it	ne
+     124: 2200         	movne	r2, #0x0
+     126: 2330         	movs	r3, #0x30
+     128: 49a1         	ldr	r1, [pc, #0x284]        @ 0x3b0 <DRAMC_COMMON_Config+0x3b0>
+     12a: 4620         	mov	r0, r4
+     12c: f7ff fffe    	bl	0x12c <DRAMC_COMMON_Config+0x12c> @ imm = #-0x4
+			0000012c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     130: f895 3077    	ldrb.w	r3, [r5, #0x77]
+     134: 2b01         	cmp	r3, #0x1
+     136: d004         	beq	0x142 <DRAMC_COMMON_Config+0x142> @ imm = #0x8
+     138: f895 3076    	ldrb.w	r3, [r5, #0x76]
+     13c: 2b01         	cmp	r3, #0x1
+     13e: bf18         	it	ne
+     140: 2703         	movne	r7, #0x3
+     142: 499b         	ldr	r1, [pc, #0x26c]        @ 0x3b0 <DRAMC_COMMON_Config+0x3b0>
+     144: 463a         	mov	r2, r7
+     146: 4620         	mov	r0, r4
+     148: 2303         	movs	r3, #0x3
+     14a: f7ff fffe    	bl	0x14a <DRAMC_COMMON_Config+0x14a> @ imm = #-0x4
+			0000014a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     14e: 4b99         	ldr	r3, [pc, #0x264]        @ 0x3b4 <DRAMC_COMMON_Config+0x3b4>
+     150: 4620         	mov	r0, r4
+     152: 4a99         	ldr	r2, [pc, #0x264]        @ 0x3b8 <DRAMC_COMMON_Config+0x3b8>
+     154: f44f 7119    	mov.w	r1, #0x264
+     158: f7ff fffe    	bl	0x158 <DRAMC_COMMON_Config+0x158> @ imm = #-0x4
+			00000158:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     15c: 4b97         	ldr	r3, [pc, #0x25c]        @ 0x3bc <DRAMC_COMMON_Config+0x3bc>
+     15e: 4a98         	ldr	r2, [pc, #0x260]        @ 0x3c0 <DRAMC_COMMON_Config+0x3c0>
+     160: 4620         	mov	r0, r4
+     162: f44f 711a    	mov.w	r1, #0x268
+     166: f7ff fffe    	bl	0x166 <DRAMC_COMMON_Config+0x166> @ imm = #-0x4
+			00000166:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     16a: 4b96         	ldr	r3, [pc, #0x258]        @ 0x3c4 <DRAMC_COMMON_Config+0x3c4>
+     16c: 4620         	mov	r0, r4
+     16e: 2200         	movs	r2, #0x0
+     170: f44f 7123    	mov.w	r1, #0x28c
+     174: f7ff fffe    	bl	0x174 <DRAMC_COMMON_Config+0x174> @ imm = #-0x4
+			00000174:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     178: f44f 73c0    	mov.w	r3, #0x180
+     17c: 4620         	mov	r0, r4
+     17e: 2200         	movs	r2, #0x0
+     180: f44f 71b8    	mov.w	r1, #0x170
+     184: f7ff fffe    	bl	0x184 <DRAMC_COMMON_Config+0x184> @ imm = #-0x4
+			00000184:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     188: f895 3077    	ldrb.w	r3, [r5, #0x77]
+     18c: 2b01         	cmp	r3, #0x1
+     18e: f000 82c8    	beq.w	0x722 <DRAMC_COMMON_Config+0x722> @ imm = #0x590
+     192: f895 2076    	ldrb.w	r2, [r5, #0x76]
+     196: 3a01         	subs	r2, #0x1
+     198: bf18         	it	ne
+     19a: 2201         	movne	r2, #0x1
+     19c: 498a         	ldr	r1, [pc, #0x228]        @ 0x3c8 <DRAMC_COMMON_Config+0x3c8>
+     19e: 4620         	mov	r0, r4
+     1a0: 4b8a         	ldr	r3, [pc, #0x228]        @ 0x3cc <DRAMC_COMMON_Config+0x3cc>
+     1a2: ea41 22c2    	orr.w	r2, r1, r2, lsl #11
+     1a6: f44f 7113    	mov.w	r1, #0x24c
+     1aa: f7ff fffe    	bl	0x1aa <DRAMC_COMMON_Config+0x1aa> @ imm = #-0x4
+			000001aa:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1ae: 4a88         	ldr	r2, [pc, #0x220]        @ 0x3d0 <DRAMC_COMMON_Config+0x3d0>
+     1b0: 4b88         	ldr	r3, [pc, #0x220]        @ 0x3d4 <DRAMC_COMMON_Config+0x3d4>
+     1b2: 4620         	mov	r0, r4
+     1b4: f44f 71c8    	mov.w	r1, #0x190
+     1b8: f7ff fffe    	bl	0x1b8 <DRAMC_COMMON_Config+0x1b8> @ imm = #-0x4
+			000001b8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1bc: f895 2076    	ldrb.w	r2, [r5, #0x76]
+     1c0: 2a00         	cmp	r2, #0x0
+     1c2: f000 82b0    	beq.w	0x726 <DRAMC_COMMON_Config+0x726> @ imm = #0x560
+     1c6: f895 3073    	ldrb.w	r3, [r5, #0x73]
+     1ca: 2180         	movs	r1, #0x80
+     1cc: 2b00         	cmp	r3, #0x0
+     1ce: f44f 7380    	mov.w	r3, #0x100
+     1d2: bf18         	it	ne
+     1d4: 2100         	movne	r1, #0x0
+     1d6: bf08         	it	eq
+     1d8: 2300         	moveq	r3, #0x0
+     1da: 4319         	orrs	r1, r3
+     1dc: b132         	cbz	r2, 0x1ec <DRAMC_COMMON_Config+0x1ec> @ imm = #0xc
+     1de: f895 3073    	ldrb.w	r3, [r5, #0x73]
+     1e2: f44f 7200    	mov.w	r2, #0x200
+     1e6: 2b00         	cmp	r3, #0x0
+     1e8: bf08         	it	eq
+     1ea: 2200         	moveq	r2, #0x0
+     1ec: 430a         	orrs	r2, r1
+     1ee: 4620         	mov	r0, r4
+     1f0: f240 33ff    	movw	r3, #0x3ff
+     1f4: f44f 7116    	mov.w	r1, #0x258
+     1f8: f7ff fffe    	bl	0x1f8 <DRAMC_COMMON_Config+0x1f8> @ imm = #-0x4
+			000001f8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1fc: 2301         	movs	r3, #0x1
+     1fe: 4620         	mov	r0, r4
+     200: 461a         	mov	r2, r3
+     202: f44f 714c    	mov.w	r1, #0x330
+     206: f44f 7840    	mov.w	r8, #0x300
+     20a: f7ff fffe    	bl	0x20a <DRAMC_COMMON_Config+0x20a> @ imm = #-0x4
+			0000020a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     20e: f04f 7380    	mov.w	r3, #0x1000000
+     212: 4620         	mov	r0, r4
+     214: 461a         	mov	r2, r3
+     216: f44f 7118    	mov.w	r1, #0x260
+     21a: f44f 5940    	mov.w	r9, #0x3000
+     21e: f7ff fffe    	bl	0x21e <DRAMC_COMMON_Config+0x21e> @ imm = #-0x4
+			0000021e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     222: 4b6d         	ldr	r3, [pc, #0x1b4]        @ 0x3d8 <DRAMC_COMMON_Config+0x3d8>
+     224: 4a6d         	ldr	r2, [pc, #0x1b4]        @ 0x3dc <DRAMC_COMMON_Config+0x3dc>
+     226: 4620         	mov	r0, r4
+     228: f44f 71fe    	mov.w	r1, #0x1fc
+     22c: f44f 4aa0    	mov.w	r10, #0x5000
+     230: f7ff fffe    	bl	0x230 <DRAMC_COMMON_Config+0x230> @ imm = #-0x4
+			00000230:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     234: 4620         	mov	r0, r4
+     236: f44f 53a0    	mov.w	r3, #0x1400
+     23a: 2200         	movs	r2, #0x0
+     23c: f44f 710a    	mov.w	r1, #0x228
+     240: f04f 7b40    	mov.w	r11, #0x3000000
+     244: f7ff fffe    	bl	0x244 <DRAMC_COMMON_Config+0x244> @ imm = #-0x4
+			00000244:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     248: 4b65         	ldr	r3, [pc, #0x194]        @ 0x3e0 <DRAMC_COMMON_Config+0x3e0>
+     24a: 4a66         	ldr	r2, [pc, #0x198]        @ 0x3e4 <DRAMC_COMMON_Config+0x3e4>
+     24c: 4620         	mov	r0, r4
+     24e: f44f 7101    	mov.w	r1, #0x204
+     252: 2700         	movs	r7, #0x0
+     254: f7ff fffe    	bl	0x254 <DRAMC_COMMON_Config+0x254> @ imm = #-0x4
+			00000254:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     258: 4b63         	ldr	r3, [pc, #0x18c]        @ 0x3e8 <DRAMC_COMMON_Config+0x3e8>
+     25a: 4a64         	ldr	r2, [pc, #0x190]        @ 0x3ec <DRAMC_COMMON_Config+0x3ec>
+     25c: 4620         	mov	r0, r4
+     25e: f44f 71b4    	mov.w	r1, #0x168
+     262: f7ff fffe    	bl	0x262 <DRAMC_COMMON_Config+0x262> @ imm = #-0x4
+			00000262:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     266: f895 20a5    	ldrb.w	r2, [r5, #0xa5]
+     26a: 2301         	movs	r3, #0x1
+     26c: 4620         	mov	r0, r4
+     26e: f44f 71be    	mov.w	r1, #0x17c
+     272: 0052         	lsls	r2, r2, #0x1
+     274: f002 0202    	and	r2, r2, #0x2
+     278: f442 72b0    	orr	r2, r2, #0x160
+     27c: 431a         	orrs	r2, r3
+     27e: f7ff fffe    	bl	0x27e <DRAMC_COMMON_Config+0x27e> @ imm = #-0x4
+			0000027e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     282: 4b5b         	ldr	r3, [pc, #0x16c]        @ 0x3f0 <DRAMC_COMMON_Config+0x3f0>
+     284: 4620         	mov	r0, r4
+     286: f44f 429e    	mov.w	r2, #0x4f00
+     28a: f44f 7115    	mov.w	r1, #0x254
+     28e: f7ff fffe    	bl	0x28e <DRAMC_COMMON_Config+0x28e> @ imm = #-0x4
+			0000028e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     292: f44f 6300    	mov.w	r3, #0x800
+     296: 4620         	mov	r0, r4
+     298: 461a         	mov	r2, r3
+     29a: f44f 71bc    	mov.w	r1, #0x178
+     29e: f7ff fffe    	bl	0x29e <DRAMC_COMMON_Config+0x29e> @ imm = #-0x4
+			0000029e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2a2: 4620         	mov	r0, r4
+     2a4: f64f 73ff    	movw	r3, #0xffff
+     2a8: f640 2256    	movw	r2, #0xa56
+     2ac: f44f 71d0    	mov.w	r1, #0x1a0
+     2b0: f7ff fffe    	bl	0x2b0 <DRAMC_COMMON_Config+0x2b0> @ imm = #-0x4
+			000002b0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2b4: f44f 3300    	mov.w	r3, #0x20000
+     2b8: 494e         	ldr	r1, [pc, #0x138]        @ 0x3f4 <DRAMC_COMMON_Config+0x3f4>
+     2ba: 461a         	mov	r2, r3
+     2bc: 4620         	mov	r0, r4
+     2be: f7ff fffe    	bl	0x2be <DRAMC_COMMON_Config+0x2be> @ imm = #-0x4
+			000002be:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2c2: 4620         	mov	r0, r4
+     2c4: 232f         	movs	r3, #0x2f
+     2c6: 220f         	movs	r2, #0xf
+     2c8: f44f 71ba    	mov.w	r1, #0x174
+     2cc: f7ff fffe    	bl	0x2cc <DRAMC_COMMON_Config+0x2cc> @ imm = #-0x4
+			000002cc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2d0: 2304         	movs	r3, #0x4
+     2d2: 4620         	mov	r0, r4
+     2d4: 461a         	mov	r2, r3
+     2d6: f44f 7108    	mov.w	r1, #0x220
+     2da: f7ff fffe    	bl	0x2da <DRAMC_COMMON_Config+0x2da> @ imm = #-0x4
+			000002da:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2de: 4946         	ldr	r1, [pc, #0x118]        @ 0x3f8 <DRAMC_COMMON_Config+0x3f8>
+     2e0: 4620         	mov	r0, r4
+     2e2: f06f 0307    	mvn	r3, #0x7
+     2e6: f44f 2200    	mov.w	r2, #0x80000
+     2ea: f7ff fffe    	bl	0x2ea <DRAMC_COMMON_Config+0x2ea> @ imm = #-0x4
+			000002ea:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2ee: 4620         	mov	r0, r4
+     2f0: f06f 030f    	mvn	r3, #0xf
+     2f4: f44f 7200    	mov.w	r2, #0x200
+     2f8: f44f 7182    	mov.w	r1, #0x104
+     2fc: f7ff fffe    	bl	0x2fc <DRAMC_COMMON_Config+0x2fc> @ imm = #-0x4
+			000002fc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     300: 4b3e         	ldr	r3, [pc, #0xf8]         @ 0x3fc <DRAMC_COMMON_Config+0x3fc>
+     302: 4a3f         	ldr	r2, [pc, #0xfc]         @ 0x400 <DRAMC_COMMON_Config+0x400>
+     304: 4620         	mov	r0, r4
+     306: f44f 7184    	mov.w	r1, #0x108
+     30a: f7ff fffe    	bl	0x30a <DRAMC_COMMON_Config+0x30a> @ imm = #-0x4
+			0000030a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     30e: 4b3d         	ldr	r3, [pc, #0xf4]         @ 0x404 <DRAMC_COMMON_Config+0x404>
+     310: 4a3d         	ldr	r2, [pc, #0xf4]         @ 0x408 <DRAMC_COMMON_Config+0x408>
+     312: 4620         	mov	r0, r4
+     314: f44f 7186    	mov.w	r1, #0x10c
+     318: f7ff fffe    	bl	0x318 <DRAMC_COMMON_Config+0x318> @ imm = #-0x4
+			00000318:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     31c: 4620         	mov	r0, r4
+     31e: f44f 63e0    	mov.w	r3, #0x700
+     322: f44f 7280    	mov.w	r2, #0x100
+     326: f44f 7107    	mov.w	r1, #0x21c
+     32a: f7ff fffe    	bl	0x32a <DRAMC_COMMON_Config+0x32a> @ imm = #-0x4
+			0000032a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     32e: 4b37         	ldr	r3, [pc, #0xdc]         @ 0x40c <DRAMC_COMMON_Config+0x40c>
+     330: 4a37         	ldr	r2, [pc, #0xdc]         @ 0x410 <DRAMC_COMMON_Config+0x410>
+     332: 4620         	mov	r0, r4
+     334: f44f 7114    	mov.w	r1, #0x250
+     338: f7ff fffe    	bl	0x338 <DRAMC_COMMON_Config+0x338> @ imm = #-0x4
+			00000338:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     33c: 2303         	movs	r3, #0x3
+     33e: 4620         	mov	r0, r4
+     340: 461a         	mov	r2, r3
+     342: f44f 7121    	mov.w	r1, #0x284
+     346: f7ff fffe    	bl	0x346 <DRAMC_COMMON_Config+0x346> @ imm = #-0x4
+			00000346:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     34a: 4620         	mov	r0, r4
+     34c: 23ff         	movs	r3, #0xff
+     34e: 221a         	movs	r2, #0x1a
+     350: f44f 7103    	mov.w	r1, #0x20c
+     354: f7ff fffe    	bl	0x354 <DRAMC_COMMON_Config+0x354> @ imm = #-0x4
+			00000354:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     358: 4620         	mov	r0, r4
+     35a: f44f 137c    	mov.w	r3, #0x3f0000
+     35e: f44f 3280    	mov.w	r2, #0x10000
+     362: f44f 7104    	mov.w	r1, #0x210
+     366: f7ff fffe    	bl	0x366 <DRAMC_COMMON_Config+0x366> @ imm = #-0x4
+			00000366:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     36a: 6833         	ldr	r3, [r6]
+     36c: 2230         	movs	r2, #0x30
+     36e: f44f 21a0    	mov.w	r1, #0x50000
+     372: f023 0304    	bic	r3, r3, #0x4
+     376: f04f 5e00    	mov.w	lr, #0x20000000
+     37a: 2b02         	cmp	r3, #0x2
+     37c: f04f 0303    	mov.w	r3, #0x3
+     380: 4620         	mov	r0, r4
+     382: 9700         	str	r7, [sp]
+     384: bf18         	it	ne
+     386: 2302         	movne	r3, #0x2
+     388: bf18         	it	ne
+     38a: 2220         	movne	r2, #0x20
+     38c: ea42 0203    	orr.w	r2, r2, r3
+     390: f44f 6380    	mov.w	r3, #0x400
+     394: e03e         	b	0x414 <DRAMC_COMMON_Config+0x414> @ imm = #0x7c
+     396: bf00         	nop
+     398: 00 00 00 00  	.word	0x00000000
+			00000398:  R_ARM_ABS32	DUTTopSetGlobal
+     39c: 00 00 00 00  	.word	0x00000000
+			0000039c:  R_ARM_ABS32	MEM_TYPE
+     3a0: 48 01 98 01  	.word	0x01980148
+     3a4: bc 07 00 01  	.word	0x010007bc
+     3a8: c0 07 00 01  	.word	0x010007c0
+     3ac: b8 07 00 01  	.word	0x010007b8
+     3b0: b8 05 00 19  	.word	0x190005b8
+     3b4: 0f 71 03 0f  	.word	0x0f03710f
+     3b8: 09 30 01 05  	.word	0x05013009
+     3bc: 21 c0 00 0f  	.word	0x0f00c021
+     3c0: 21 00 00 02  	.word	0x02000021
+     3c4: 00 00 ff ff  	.word	0xffff0000
+     3c8: 10 26 08 04  	.word	0x04082610
+     3cc: 1d 3e 08 04  	.word	0x04083e1d
+     3d0: 41 00 20 00  	.word	0x00200041
+     3d4: 41 03 60 01  	.word	0x01600341
+     3d8: 43 02 00 c0  	.word	0xc0000243
+     3dc: 03 00 00 c0  	.word	0xc0000003
+     3e0: 00 68 d0 99  	.word	0x99d06800
+     3e4: 00 40 50 81  	.word	0x81504000
+     3e8: 80 2e 5f e0  	.word	0xe05f2e80
+     3ec: 80 06 48 00  	.word	0x00480680
+     3f0: 02 4f 0c 00  	.word	0x000c4f02
+     3f4: c8 01 80 03  	.word	0x038001c8
+     3f8: 00 05 40 00  	.word	0x00400500
+     3fc: 80 00 01 10  	.word	0x10010080
+     400: 00 00 01 10  	.word	0x10010000
+     404: 1f 1f 01 70  	.word	0x70011f1f
+     408: 0d 11 01 40  	.word	0x4001110d
+     40c: 00 cf 8a 89  	.word	0x898acf00
+     410: 00 41 08 81  	.word	0x81084100
+     414: bf08         	it	eq
+     416: 4643         	moveq	r3, r8
+     418: ea42 0203    	orr.w	r2, r2, r3
+     41c: bf08         	it	eq
+     41e: 464b         	moveq	r3, r9
+     420: bf18         	it	ne
+     422: 4653         	movne	r3, r10
+     424: ea42 0203    	orr.w	r2, r2, r3
+     428: f44f 3340    	mov.w	r3, #0x30000
+     42c: bf18         	it	ne
+     42e: 460b         	movne	r3, r1
+     430: f44f 1100    	mov.w	r1, #0x200000
+     434: ea42 0203    	orr.w	r2, r2, r3
+     438: f44f 1340    	mov.w	r3, #0x300000
+     43c: bf18         	it	ne
+     43e: 460b         	movne	r3, r1
+     440: f04f 5140    	mov.w	r1, #0x30000000
+     444: ea42 0203    	orr.w	r2, r2, r3
+     448: f04f 7300    	mov.w	r3, #0x2000000
+     44c: bf08         	it	eq
+     44e: 465b         	moveq	r3, r11
+     450: bf18         	it	ne
+     452: 4671         	movne	r1, lr
+     454: 431a         	orrs	r2, r3
+     456: 463b         	mov	r3, r7
+     458: 430a         	orrs	r2, r1
+     45a: f44f 711e    	mov.w	r1, #0x278
+     45e: f7ff fffe    	bl	0x45e <DRAMC_COMMON_Config+0x45e> @ imm = #-0x4
+			0000045e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     462: 6833         	ldr	r3, [r6]
+     464: f04f 5e00    	mov.w	lr, #0x20000000
+     468: 2250         	movs	r2, #0x50
+     46a: f023 0304    	bic	r3, r3, #0x4
+     46e: f44f 6ca0    	mov.w	r12, #0x500
+     472: 2b02         	cmp	r3, #0x2
+     474: f04f 0305    	mov.w	r3, #0x5
+     478: bf08         	it	eq
+     47a: 46c4         	moveq	r12, r8
+     47c: bf18         	it	ne
+     47e: 4650         	movne	r0, r10
+     480: bf08         	it	eq
+     482: 2230         	moveq	r2, #0x30
+     484: bf08         	it	eq
+     486: 2303         	moveq	r3, #0x3
+     488: ea43 0302    	orr.w	r3, r3, r2
+     48c: f04f 7200    	mov.w	r2, #0x2000000
+     490: bf18         	it	ne
+     492: 4611         	movne	r1, r2
+     494: f04f 5240    	mov.w	r2, #0x30000000
+     498: bf18         	it	ne
+     49a: 4672         	movne	r2, lr
+     49c: bf08         	it	eq
+     49e: 4648         	moveq	r0, r9
+     4a0: ea42 0203    	orr.w	r2, r2, r3
+     4a4: bf08         	it	eq
+     4a6: 4659         	moveq	r1, r11
+     4a8: ea42 020c    	orr.w	r2, r2, r12
+     4ac: 463b         	mov	r3, r7
+     4ae: 4302         	orrs	r2, r0
+     4b0: 9700         	str	r7, [sp]
+     4b2: 430a         	orrs	r2, r1
+     4b4: 4620         	mov	r0, r4
+     4b6: f442 124c    	orr	r2, r2, #0x330000
+     4ba: f44f 711f    	mov.w	r1, #0x27c
+     4be: f7ff fffe    	bl	0x4be <DRAMC_COMMON_Config+0x4be> @ imm = #-0x4
+			000004be:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     4c2: f895 2076    	ldrb.w	r2, [r5, #0x76]
+     4c6: f895 3075    	ldrb.w	r3, [r5, #0x75]
+     4ca: 4620         	mov	r0, r4
+     4cc: 49ba         	ldr	r1, [pc, #0x2e8]        @ 0x7b8 <DRAMC_COMMON_Config+0x7b8>
+     4ce: 4313         	orrs	r3, r2
+     4d0: f44f 52c0    	mov.w	r2, #0x1800
+     4d4: bf18         	it	ne
+     4d6: 463a         	movne	r2, r7
+     4d8: 4bb8         	ldr	r3, [pc, #0x2e0]        @ 0x7bc <DRAMC_COMMON_Config+0x7bc>
+     4da: f442 2200    	orr	r2, r2, #0x80000
+     4de: 4fb8         	ldr	r7, [pc, #0x2e0]        @ 0x7c0 <DRAMC_COMMON_Config+0x7c0>
+     4e0: f7ff fffe    	bl	0x4e0 <DRAMC_COMMON_Config+0x4e0> @ imm = #-0x4
+			000004e0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     4e4: 6832         	ldr	r2, [r6]
+     4e6: 4bb7         	ldr	r3, [pc, #0x2dc]        @ 0x7c4 <DRAMC_COMMON_Config+0x7c4>
+     4e8: 4620         	mov	r0, r4
+     4ea: f022 0204    	bic	r2, r2, #0x4
+     4ee: f44f 710e    	mov.w	r1, #0x238
+     4f2: 3a02         	subs	r2, #0x2
+     4f4: bf18         	it	ne
+     4f6: 2201         	movne	r2, #0x1
+     4f8: 0592         	lsls	r2, r2, #0x16
+     4fa: f042 7280    	orr	r2, r2, #0x1000000
+     4fe: f7ff fffe    	bl	0x4fe <DRAMC_COMMON_Config+0x4fe> @ imm = #-0x4
+			000004fe:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     502: 687b         	ldr	r3, [r7, #0x4]
+     504: 795b         	ldrb	r3, [r3, #0x5]
+     506: 2b01         	cmp	r3, #0x1
+     508: d106         	bne	0x518 <DRAMC_COMMON_Config+0x518> @ imm = #0xc
+     50a: 2340         	movs	r3, #0x40
+     50c: 4620         	mov	r0, r4
+     50e: 461a         	mov	r2, r3
+     510: f44f 710e    	mov.w	r1, #0x238
+     514: f7ff fffe    	bl	0x514 <DRAMC_COMMON_Config+0x514> @ imm = #-0x4
+			00000514:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     518: 4bab         	ldr	r3, [pc, #0x2ac]        @ 0x7c8 <DRAMC_COMMON_Config+0x7c8>
+     51a: 4620         	mov	r0, r4
+     51c: 4aab         	ldr	r2, [pc, #0x2ac]        @ 0x7cc <DRAMC_COMMON_Config+0x7cc>
+     51e: f44f 7112    	mov.w	r1, #0x248
+     522: f7ff fffe    	bl	0x522 <DRAMC_COMMON_Config+0x522> @ imm = #-0x4
+			00000522:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     526: f04f 6300    	mov.w	r3, #0x8000000
+     52a: 49a9         	ldr	r1, [pc, #0x2a4]        @ 0x7d0 <DRAMC_COMMON_Config+0x7d0>
+     52c: 461a         	mov	r2, r3
+     52e: 4620         	mov	r0, r4
+     530: f7ff fffe    	bl	0x530 <DRAMC_COMMON_Config+0x530> @ imm = #-0x4
+			00000530:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     534: f895 207f    	ldrb.w	r2, [r5, #0x7f]
+     538: f895 307e    	ldrb.w	r3, [r5, #0x7e]
+     53c: 4293         	cmp	r3, r2
+     53e: f000 80f5    	beq.w	0x72c <DRAMC_COMMON_Config+0x72c> @ imm = #0x1ea
+     542: 2000         	movs	r0, #0x0
+     544: f7ff fffe    	bl	0x544 <DRAMC_COMMON_Config+0x544> @ imm = #-0x4
+			00000544:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     548: f895 30b0    	ldrb.w	r3, [r5, #0xb0]
+     54c: f895 20af    	ldrb.w	r2, [r5, #0xaf]
+     550: ea42 2203    	orr.w	r2, r2, r3, lsl #8
+     554: f895 30b1    	ldrb.w	r3, [r5, #0xb1]
+     558: ea42 4203    	orr.w	r2, r2, r3, lsl #16
+     55c: f895 30b2    	ldrb.w	r3, [r5, #0xb2]
+     560: ea52 6203    	orrs.w	r2, r2, r3, lsl #24
+     564: f040 8119    	bne.w	0x79a <DRAMC_COMMON_Config+0x79a> @ imm = #0x232
+     568: 4611         	mov	r1, r2
+     56a: 430a         	orrs	r2, r1
+     56c: f04f 5340    	mov.w	r3, #0x30000000
+     570: 4998         	ldr	r1, [pc, #0x260]        @ 0x7d4 <DRAMC_COMMON_Config+0x7d4>
+     572: 4620         	mov	r0, r4
+     574: f7ff fffe    	bl	0x574 <DRAMC_COMMON_Config+0x574> @ imm = #-0x4
+			00000574:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     578: 4620         	mov	r0, r4
+     57a: 2101         	movs	r1, #0x1
+     57c: f7ff fffe    	bl	0x57c <DRAMC_COMMON_Config+0x57c> @ imm = #-0x4
+			0000057c:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     580: f895 30b0    	ldrb.w	r3, [r5, #0xb0]
+     584: f895 20af    	ldrb.w	r2, [r5, #0xaf]
+     588: ea42 2203    	orr.w	r2, r2, r3, lsl #8
+     58c: f895 30b1    	ldrb.w	r3, [r5, #0xb1]
+     590: ea42 4203    	orr.w	r2, r2, r3, lsl #16
+     594: f895 30b2    	ldrb.w	r3, [r5, #0xb2]
+     598: ea52 6203    	orrs.w	r2, r2, r3, lsl #24
+     59c: f040 80f5    	bne.w	0x78a <DRAMC_COMMON_Config+0x78a> @ imm = #0x1ea
+     5a0: 4611         	mov	r1, r2
+     5a2: 430a         	orrs	r2, r1
+     5a4: 4620         	mov	r0, r4
+     5a6: 498b         	ldr	r1, [pc, #0x22c]        @ 0x7d4 <DRAMC_COMMON_Config+0x7d4>
+     5a8: f04f 5340    	mov.w	r3, #0x30000000
+     5ac: f7ff fffe    	bl	0x5ac <DRAMC_COMMON_Config+0x5ac> @ imm = #-0x4
+			000005ac:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5b0: 4620         	mov	r0, r4
+     5b2: 2100         	movs	r1, #0x0
+     5b4: f7ff fffe    	bl	0x5b4 <DRAMC_COMMON_Config+0x5b4> @ imm = #-0x4
+			000005b4:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     5b8: 2001         	movs	r0, #0x1
+     5ba: f7ff fffe    	bl	0x5ba <DRAMC_COMMON_Config+0x5ba> @ imm = #-0x4
+			000005ba:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     5be: 4620         	mov	r0, r4
+     5c0: f44f 4300    	mov.w	r3, #0x8000
+     5c4: 2200         	movs	r2, #0x0
+     5c6: f44f 71d8    	mov.w	r1, #0x1b0
+     5ca: f7ff fffe    	bl	0x5ca <DRAMC_COMMON_Config+0x5ca> @ imm = #-0x4
+			000005ca:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5ce: 787a         	ldrb	r2, [r7, #0x1]
+     5d0: 4620         	mov	r0, r4
+     5d2: f04f 4300    	mov.w	r3, #0x80000000
+     5d6: f44f 7124    	mov.w	r1, #0x290
+     5da: 07d2         	lsls	r2, r2, #0x1f
+     5dc: f7ff fffe    	bl	0x5dc <DRAMC_COMMON_Config+0x5dc> @ imm = #-0x4
+			000005dc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5e0: f04f 4300    	mov.w	r3, #0x80000000
+     5e4: 4620         	mov	r0, r4
+     5e6: 461a         	mov	r2, r3
+     5e8: f44f 7196    	mov.w	r1, #0x12c
+     5ec: f7ff fffe    	bl	0x5ec <DRAMC_COMMON_Config+0x5ec> @ imm = #-0x4
+			000005ec:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     5f0: 6833         	ldr	r3, [r6]
+     5f2: 2b02         	cmp	r3, #0x2
+     5f4: f000 80b2    	beq.w	0x75c <DRAMC_COMMON_Config+0x75c> @ imm = #0x164
+     5f8: 2b06         	cmp	r3, #0x6
+     5fa: f44f 62a0    	mov.w	r2, #0x500
+     5fe: f44f 6080    	mov.w	r0, #0x400
+     602: bf08         	it	eq
+     604: 4602         	moveq	r2, r0
+     606: f04f 0180    	mov.w	r1, #0x80
+     60a: bf08         	it	eq
+     60c: 2140         	moveq	r1, #0x40
+     60e: 2b06         	cmp	r3, #0x6
+     610: f023 0304    	bic	r3, r3, #0x4
+     614: ea42 0201    	orr.w	r2, r2, r1
+     618: f44f 40a0    	mov.w	r0, #0x5000
+     61c: f44f 4180    	mov.w	r1, #0x4000
+     620: bf18         	it	ne
+     622: 4601         	movne	r1, r0
+     624: 1e98         	subs	r0, r3, #0x2
+     626: 4243         	rsbs	r3, r0, #0
+     628: 4143         	adcs	r3, r0
+     62a: 4620         	mov	r0, r4
+     62c: ea42 0283    	orr.w	r2, r2, r3, lsl #2
+     630: f64f 73f7    	movw	r3, #0xfff7
+     634: 430a         	orrs	r2, r1
+     636: f44f 7130    	mov.w	r1, #0x2c0
+     63a: f7ff fffe    	bl	0x63a <DRAMC_COMMON_Config+0x63a> @ imm = #-0x4
+			0000063a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     63e: 4620         	mov	r0, r4
+     640: 2303         	movs	r3, #0x3
+     642: 2201         	movs	r2, #0x1
+     644: f44f 710d    	mov.w	r1, #0x234
+     648: f7ff fffe    	bl	0x648 <DRAMC_COMMON_Config+0x648> @ imm = #-0x4
+			00000648:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     64c: 231e         	movs	r3, #0x1e
+     64e: 4620         	mov	r0, r4
+     650: 461a         	mov	r2, r3
+     652: f44f 7110    	mov.w	r1, #0x240
+     656: f7ff fffe    	bl	0x656 <DRAMC_COMMON_Config+0x656> @ imm = #-0x4
+			00000656:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     65a: 2340         	movs	r3, #0x40
+     65c: 4620         	mov	r0, r4
+     65e: 461a         	mov	r2, r3
+     660: f44f 71ba    	mov.w	r1, #0x174
+     664: f7ff fffe    	bl	0x664 <DRAMC_COMMON_Config+0x664> @ imm = #-0x4
+			00000664:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     668: 495b         	ldr	r1, [pc, #0x16c]        @ 0x7d8 <DRAMC_COMMON_Config+0x7d8>
+     66a: 4620         	mov	r0, r4
+     66c: f44f 3370    	mov.w	r3, #0x3c000
+     670: f44f 4280    	mov.w	r2, #0x4000
+     674: f7ff fffe    	bl	0x674 <DRAMC_COMMON_Config+0x674> @ imm = #-0x4
+			00000674:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     678: 4958         	ldr	r1, [pc, #0x160]        @ 0x7dc <DRAMC_COMMON_Config+0x7dc>
+     67a: 4620         	mov	r0, r4
+     67c: f64f 73ff    	movw	r3, #0xffff
+     680: f44f 7210    	mov.w	r2, #0x240
+     684: f7ff fffe    	bl	0x684 <DRAMC_COMMON_Config+0x684> @ imm = #-0x4
+			00000684:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     688: f04f 33ff    	mov.w	r3, #0xffffffff
+     68c: 4954         	ldr	r1, [pc, #0x150]        @ 0x7e0 <DRAMC_COMMON_Config+0x7e0>
+     68e: 461a         	mov	r2, r3
+     690: 4620         	mov	r0, r4
+     692: f7ff fffe    	bl	0x692 <DRAMC_COMMON_Config+0x692> @ imm = #-0x4
+			00000692:  R_ARM_THM_CALL	vIO32WriteMsk
+     696: f04f 33ff    	mov.w	r3, #0xffffffff
+     69a: 4952         	ldr	r1, [pc, #0x148]        @ 0x7e4 <DRAMC_COMMON_Config+0x7e4>
+     69c: 461a         	mov	r2, r3
+     69e: 4620         	mov	r0, r4
+     6a0: f7ff fffe    	bl	0x6a0 <DRAMC_COMMON_Config+0x6a0> @ imm = #-0x4
+			000006a0:  R_ARM_THM_CALL	vIO32WriteMsk
+     6a4: f04f 33ff    	mov.w	r3, #0xffffffff
+     6a8: 494f         	ldr	r1, [pc, #0x13c]        @ 0x7e8 <DRAMC_COMMON_Config+0x7e8>
+     6aa: 461a         	mov	r2, r3
+     6ac: 4620         	mov	r0, r4
+     6ae: f7ff fffe    	bl	0x6ae <DRAMC_COMMON_Config+0x6ae> @ imm = #-0x4
+			000006ae:  R_ARM_THM_CALL	vIO32WriteMsk
+     6b2: f895 2074    	ldrb.w	r2, [r5, #0x74]
+     6b6: f895 3073    	ldrb.w	r3, [r5, #0x73]
+     6ba: 4313         	orrs	r3, r2
+     6bc: d152         	bne	0x764 <DRAMC_COMMON_Config+0x764> @ imm = #0xa4
+     6be: 2000         	movs	r0, #0x0
+     6c0: f7ff fffe    	bl	0x6c0 <DRAMC_COMMON_Config+0x6c0> @ imm = #-0x4
+			000006c0:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     6c4: 4620         	mov	r0, r4
+     6c6: 2101         	movs	r1, #0x1
+     6c8: f7ff fffe    	bl	0x6c8 <DRAMC_COMMON_Config+0x6c8> @ imm = #-0x4
+			000006c8:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     6cc: 4947         	ldr	r1, [pc, #0x11c]        @ 0x7ec <DRAMC_COMMON_Config+0x7ec>
+     6ce: 4620         	mov	r0, r4
+     6d0: 2301         	movs	r3, #0x1
+     6d2: 2200         	movs	r2, #0x0
+     6d4: f7ff fffe    	bl	0x6d4 <DRAMC_COMMON_Config+0x6d4> @ imm = #-0x4
+			000006d4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     6d8: 2001         	movs	r0, #0x1
+     6da: f7ff fffe    	bl	0x6da <DRAMC_COMMON_Config+0x6da> @ imm = #-0x4
+			000006da:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     6de: 4620         	mov	r0, r4
+     6e0: 2100         	movs	r1, #0x0
+     6e2: b003         	add	sp, #0xc
+     6e4: e8bd 4ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+     6e8: f7ff bffe    	b.w	0x6e8 <DRAMC_COMMON_Config+0x6e8> @ imm = #-0x4
+			000006e8:  R_ARM_THM_JUMP24	vSetPHY2ChannelMapping
+     6ec: f44f 0300    	mov.w	r3, #0x800000
+     6f0: e4a8         	b	0x44 <DRAMC_COMMON_Config+0x44> @ imm = #-0x6b0
+     6f2: f04f 7180    	mov.w	r1, #0x1000000
+     6f6: e4a6         	b	0x46 <DRAMC_COMMON_Config+0x46> @ imm = #-0x6b4
+     6f8: 0212         	lsls	r2, r2, #0x8
+     6fa: 4620         	mov	r0, r4
+     6fc: f44f 6370    	mov.w	r3, #0xf00
+     700: 493b         	ldr	r1, [pc, #0xec]         @ 0x7f0 <DRAMC_COMMON_Config+0x7f0>
+     702: 401a         	ands	r2, r3
+     704: f7ff fffe    	bl	0x704 <DRAMC_COMMON_Config+0x704> @ imm = #-0x4
+			00000704:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     708: f895 2081    	ldrb.w	r2, [r5, #0x81]
+     70c: f44f 6370    	mov.w	r3, #0xf00
+     710: 4938         	ldr	r1, [pc, #0xe0]         @ 0x7f4 <DRAMC_COMMON_Config+0x7f4>
+     712: 4620         	mov	r0, r4
+     714: 0212         	lsls	r2, r2, #0x8
+     716: 401a         	ands	r2, r3
+     718: f7ff fffe    	bl	0x718 <DRAMC_COMMON_Config+0x718> @ imm = #-0x4
+			00000718:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     71c: e4d9         	b	0xd2 <DRAMC_COMMON_Config+0xd2> @ imm = #-0x64e
+     71e: 2220         	movs	r2, #0x20
+     720: e501         	b	0x126 <DRAMC_COMMON_Config+0x126> @ imm = #-0x5fe
+     722: 2200         	movs	r2, #0x0
+     724: e53a         	b	0x19c <DRAMC_COMMON_Config+0x19c> @ imm = #-0x58c
+     726: 4613         	mov	r3, r2
+     728: 2180         	movs	r1, #0x80
+     72a: e556         	b	0x1da <DRAMC_COMMON_Config+0x1da> @ imm = #-0x554
+     72c: f895 10b0    	ldrb.w	r1, [r5, #0xb0]
+     730: f895 20af    	ldrb.w	r2, [r5, #0xaf]
+     734: ea42 2201    	orr.w	r2, r2, r1, lsl #8
+     738: f895 10b1    	ldrb.w	r1, [r5, #0xb1]
+     73c: ea42 4201    	orr.w	r2, r2, r1, lsl #16
+     740: f895 10b2    	ldrb.w	r1, [r5, #0xb2]
+     744: ea52 6201    	orrs.w	r2, r2, r1, lsl #24
+     748: d12f         	bne	0x7aa <DRAMC_COMMON_Config+0x7aa> @ imm = #0x5e
+     74a: 4611         	mov	r1, r2
+     74c: 430a         	orrs	r2, r1
+     74e: 4620         	mov	r0, r4
+     750: 4920         	ldr	r1, [pc, #0x80]         @ 0x7d4 <DRAMC_COMMON_Config+0x7d4>
+     752: f04f 5340    	mov.w	r3, #0x30000000
+     756: f7ff fffe    	bl	0x756 <DRAMC_COMMON_Config+0x756> @ imm = #-0x4
+			00000756:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     75a: e730         	b	0x5be <DRAMC_COMMON_Config+0x5be> @ imm = #-0x1a0
+     75c: 2150         	movs	r1, #0x50
+     75e: f44f 62a0    	mov.w	r2, #0x500
+     762: e754         	b	0x60e <DRAMC_COMMON_Config+0x60e> @ imm = #-0x158
+     764: f04f 7380    	mov.w	r3, #0x1000000
+     768: 4620         	mov	r0, r4
+     76a: 461a         	mov	r2, r3
+     76c: f44f 7184    	mov.w	r1, #0x108
+     770: f7ff fffe    	bl	0x770 <DRAMC_COMMON_Config+0x770> @ imm = #-0x4
+			00000770:  R_ARM_THM_CALL	vIO32WriteMsk
+     774: f895 3074    	ldrb.w	r3, [r5, #0x74]
+     778: 2b00         	cmp	r3, #0x0
+     77a: d0a0         	beq	0x6be <DRAMC_COMMON_Config+0x6be> @ imm = #-0xc0
+     77c: f895 3073    	ldrb.w	r3, [r5, #0x73]
+     780: 2b00         	cmp	r3, #0x0
+     782: d09c         	beq	0x6be <DRAMC_COMMON_Config+0x6be> @ imm = #-0xc8
+     784: b003         	add	sp, #0xc
+     786: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     78a: f895 207e    	ldrb.w	r2, [r5, #0x7e]
+     78e: f04f 5100    	mov.w	r1, #0x20000000
+     792: 0712         	lsls	r2, r2, #0x1c
+     794: f002 5280    	and	r2, r2, #0x10000000
+     798: e703         	b	0x5a2 <DRAMC_COMMON_Config+0x5a2> @ imm = #-0x1fa
+     79a: f895 207f    	ldrb.w	r2, [r5, #0x7f]
+     79e: f04f 5100    	mov.w	r1, #0x20000000
+     7a2: 0712         	lsls	r2, r2, #0x1c
+     7a4: f002 5280    	and	r2, r2, #0x10000000
+     7a8: e6df         	b	0x56a <DRAMC_COMMON_Config+0x56a> @ imm = #-0x242
+     7aa: 071a         	lsls	r2, r3, #0x1c
+     7ac: f04f 5100    	mov.w	r1, #0x20000000
+     7b0: f002 5280    	and	r2, r2, #0x10000000
+     7b4: e7ca         	b	0x74c <DRAMC_COMMON_Config+0x74c> @ imm = #-0x6c
+     7b6: bf00         	nop
+     7b8: 50 01 80 03  	.word	0x03800150
+     7bc: 00 f8 7f 00  	.word	0x007ff800
+     7c0: 00 00 00 00  	.word	0x00000000
+			000007c0:  R_ARM_ABS32	DV_p
+     7c4: 00 00 40 41  	.word	0x41400000
+     7c8: 00 1f 80 08  	.word	0x08801f00
+     7cc: 00 14 00 08  	.word	0x08001400
+     7d0: 10 01 80 03  	.word	0x03800110
+     7d4: 90 05 40 00  	.word	0x00400590
+     7d8: 98 08 00 01  	.word	0x01000898
+     7dc: e4 08 00 01  	.word	0x010008e4
+     7e0: fc 07 00 01  	.word	0x010007fc
+     7e4: 08 08 00 01  	.word	0x01000808
+     7e8: 14 08 00 01  	.word	0x01000814
+     7ec: 3c 08 00 01  	.word	0x0100083c
+     7f0: bc 07 00 01  	.word	0x010007bc
+     7f4: c0 07 00 01  	.word	0x010007c0
+
+Disassembly of section .text.IO_Release:
+
+00000000 <IO_Release>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4604         	mov	r4, r0
+       4: 4d35         	ldr	r5, [pc, #0xd4]         @ 0xdc <IO_Release+0xdc>
+       6: f895 2081    	ldrb.w	r2, [r5, #0x81]
+       a: f895 3080    	ldrb.w	r3, [r5, #0x80]
+       e: 429a         	cmp	r2, r3
+      10: d055         	beq	0xbe <IO_Release+0xbe>  @ imm = #0xaa
+      12: 2000         	movs	r0, #0x0
+      14: f7ff fffe    	bl	0x14 <IO_Release+0x14>  @ imm = #-0x4
+			00000014:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      18: 230c         	movs	r3, #0xc
+      1a: 4931         	ldr	r1, [pc, #0xc4]         @ 0xe0 <IO_Release+0xe0>
+      1c: 461a         	mov	r2, r3
+      1e: 4620         	mov	r0, r4
+      20: f7ff fffe    	bl	0x20 <IO_Release+0x20>  @ imm = #-0x4
+			00000020:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      24: 4620         	mov	r0, r4
+      26: 2101         	movs	r1, #0x1
+      28: f7ff fffe    	bl	0x28 <IO_Release+0x28>  @ imm = #-0x4
+			00000028:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      2c: 230c         	movs	r3, #0xc
+      2e: 492c         	ldr	r1, [pc, #0xb0]         @ 0xe0 <IO_Release+0xe0>
+      30: 461a         	mov	r2, r3
+      32: 4620         	mov	r0, r4
+      34: f7ff fffe    	bl	0x34 <IO_Release+0x34>  @ imm = #-0x4
+			00000034:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      38: 4620         	mov	r0, r4
+      3a: 2100         	movs	r1, #0x0
+      3c: f7ff fffe    	bl	0x3c <IO_Release+0x3c>  @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      40: 2001         	movs	r0, #0x1
+      42: f7ff fffe    	bl	0x42 <IO_Release+0x42>  @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      46: 4927         	ldr	r1, [pc, #0x9c]         @ 0xe4 <IO_Release+0xe4>
+      48: 4620         	mov	r0, r4
+      4a: 23ff         	movs	r3, #0xff
+      4c: 2200         	movs	r2, #0x0
+      4e: f7ff fffe    	bl	0x4e <IO_Release+0x4e>  @ imm = #-0x4
+			0000004e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      52: 4925         	ldr	r1, [pc, #0x94]         @ 0xe8 <IO_Release+0xe8>
+      54: 4620         	mov	r0, r4
+      56: 23ff         	movs	r3, #0xff
+      58: 2200         	movs	r2, #0x0
+      5a: f7ff fffe    	bl	0x5a <IO_Release+0x5a>  @ imm = #-0x4
+			0000005a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      5e: 4923         	ldr	r1, [pc, #0x8c]         @ 0xec <IO_Release+0xec>
+      60: 4620         	mov	r0, r4
+      62: 23ff         	movs	r3, #0xff
+      64: 2200         	movs	r2, #0x0
+      66: f7ff fffe    	bl	0x66 <IO_Release+0x66>  @ imm = #-0x4
+			00000066:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      6a: 23ff         	movs	r3, #0xff
+      6c: 2200         	movs	r2, #0x0
+      6e: 4920         	ldr	r1, [pc, #0x80]         @ 0xf0 <IO_Release+0xf0>
+      70: 4620         	mov	r0, r4
+      72: f7ff fffe    	bl	0x72 <IO_Release+0x72>  @ imm = #-0x4
+			00000072:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      76: f895 2081    	ldrb.w	r2, [r5, #0x81]
+      7a: f895 3080    	ldrb.w	r3, [r5, #0x80]
+      7e: 429a         	cmp	r2, r3
+      80: d023         	beq	0xca <IO_Release+0xca>  @ imm = #0x46
+      82: 2000         	movs	r0, #0x0
+      84: f7ff fffe    	bl	0x84 <IO_Release+0x84>  @ imm = #-0x4
+			00000084:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      88: f44f 4380    	mov.w	r3, #0x4000
+      8c: 4620         	mov	r0, r4
+      8e: 461a         	mov	r2, r3
+      90: 4913         	ldr	r1, [pc, #0x4c]         @ 0xe0 <IO_Release+0xe0>
+      92: f7ff fffe    	bl	0x92 <IO_Release+0x92>  @ imm = #-0x4
+			00000092:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      96: 4620         	mov	r0, r4
+      98: 2101         	movs	r1, #0x1
+      9a: f7ff fffe    	bl	0x9a <IO_Release+0x9a>  @ imm = #-0x4
+			0000009a:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      9e: 4620         	mov	r0, r4
+      a0: f44f 4380    	mov.w	r3, #0x4000
+      a4: 490e         	ldr	r1, [pc, #0x38]         @ 0xe0 <IO_Release+0xe0>
+      a6: 461a         	mov	r2, r3
+      a8: f7ff fffe    	bl	0xa8 <IO_Release+0xa8>  @ imm = #-0x4
+			000000a8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ac: 4620         	mov	r0, r4
+      ae: 2100         	movs	r1, #0x0
+      b0: f7ff fffe    	bl	0xb0 <IO_Release+0xb0>  @ imm = #-0x4
+			000000b0:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      b4: 2001         	movs	r0, #0x1
+      b6: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      ba: f7ff bffe    	b.w	0xba <IO_Release+0xba>  @ imm = #-0x4
+			000000ba:  R_ARM_THM_JUMP24	DramcBroadcastOnOff
+      be: 230c         	movs	r3, #0xc
+      c0: 4907         	ldr	r1, [pc, #0x1c]         @ 0xe0 <IO_Release+0xe0>
+      c2: 461a         	mov	r2, r3
+      c4: f7ff fffe    	bl	0xc4 <IO_Release+0xc4>  @ imm = #-0x4
+			000000c4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      c8: e7bd         	b	0x46 <IO_Release+0x46>  @ imm = #-0x86
+      ca: 4620         	mov	r0, r4
+      cc: f44f 4380    	mov.w	r3, #0x4000
+      d0: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      d4: 461a         	mov	r2, r3
+      d6: 4902         	ldr	r1, [pc, #0x8]          @ 0xe0 <IO_Release+0xe0>
+      d8: f7ff bffe    	b.w	0xd8 <IO_Release+0xd8>  @ imm = #-0x4
+			000000d8:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+      dc: 00 00 00 00  	.word	0x00000000
+			000000dc:  R_ARM_ABS32	DUTTopSetGlobal
+      e0: bc 07 00 01  	.word	0x010007bc
+      e4: 90 04 80 8b  	.word	0x8b800490
+      e8: 10 05 80 53  	.word	0x53800510
+      ec: 90 05 80 9b  	.word	0x9b800590
+      f0: 10 06 80 63  	.word	0x63800610
+
+Disassembly of section .text.DVFS_PRE_config:
+
+00000000 <DVFS_PRE_config>:
+       0: e92d 41f0    	push.w	{r4, r5, r6, r7, r8, lr}
+       4: f44f 62e0    	mov.w	r2, #0x700
+       8: 4d9a         	ldr	r5, [pc, #0x268]        @ 0x274 <DVFS_PRE_config+0x274>
+       a: 4604         	mov	r4, r0
+       c: 4b9a         	ldr	r3, [pc, #0x268]        @ 0x278 <DVFS_PRE_config+0x278>
+       e: f44f 7102    	mov.w	r1, #0x208
+      12: 4e9a         	ldr	r6, [pc, #0x268]        @ 0x27c <DVFS_PRE_config+0x27c>
+      14: f7ff fffe    	bl	0x14 <DVFS_PRE_config+0x14> @ imm = #-0x4
+			00000014:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      18: 4b99         	ldr	r3, [pc, #0x264]        @ 0x280 <DVFS_PRE_config+0x280>
+      1a: 499a         	ldr	r1, [pc, #0x268]        @ 0x284 <DVFS_PRE_config+0x284>
+      1c: 4620         	mov	r0, r4
+      1e: 2200         	movs	r2, #0x0
+      20: f44f 7700    	mov.w	r7, #0x200
+      24: f7ff fffe    	bl	0x24 <DVFS_PRE_config+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      28: 4997         	ldr	r1, [pc, #0x25c]        @ 0x288 <DVFS_PRE_config+0x288>
+      2a: 4620         	mov	r0, r4
+      2c: f44f 2380    	mov.w	r3, #0x40000
+      30: 2200         	movs	r2, #0x0
+      32: f7ff fffe    	bl	0x32 <DVFS_PRE_config+0x32> @ imm = #-0x4
+			00000032:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      36: 682a         	ldr	r2, [r5]
+      38: 4894         	ldr	r0, [pc, #0x250]        @ 0x28c <DVFS_PRE_config+0x28c>
+      3a: 4995         	ldr	r1, [pc, #0x254]        @ 0x290 <DVFS_PRE_config+0x290>
+      3c: f022 0204    	bic	r2, r2, #0x4
+      40: 4b94         	ldr	r3, [pc, #0x250]        @ 0x294 <DVFS_PRE_config+0x294>
+      42: 2a02         	cmp	r2, #0x2
+      44: 4602         	mov	r2, r0
+      46: bf18         	it	ne
+      48: 460a         	movne	r2, r1
+      4a: 4993         	ldr	r1, [pc, #0x24c]        @ 0x298 <DVFS_PRE_config+0x298>
+      4c: 4620         	mov	r0, r4
+      4e: f7ff fffe    	bl	0x4e <DVFS_PRE_config+0x4e> @ imm = #-0x4
+			0000004e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      52: f44f 3380    	mov.w	r3, #0x10000
+      56: 4991         	ldr	r1, [pc, #0x244]        @ 0x29c <DVFS_PRE_config+0x29c>
+      58: 461a         	mov	r2, r3
+      5a: 4620         	mov	r0, r4
+      5c: f7ff fffe    	bl	0x5c <DVFS_PRE_config+0x5c> @ imm = #-0x4
+			0000005c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      60: f04f 6300    	mov.w	r3, #0x8000000
+      64: 498e         	ldr	r1, [pc, #0x238]        @ 0x2a0 <DVFS_PRE_config+0x2a0>
+      66: 461a         	mov	r2, r3
+      68: 4620         	mov	r0, r4
+      6a: f7ff fffe    	bl	0x6a <DVFS_PRE_config+0x6a> @ imm = #-0x4
+			0000006a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      6e: 4620         	mov	r0, r4
+      70: f44f 13a0    	mov.w	r3, #0x140000
+      74: f44f 1280    	mov.w	r2, #0x100000
+      78: f44f 7102    	mov.w	r1, #0x208
+      7c: f7ff fffe    	bl	0x7c <DVFS_PRE_config+0x7c> @ imm = #-0x4
+			0000007c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      80: 6829         	ldr	r1, [r5]
+      82: 7cf2         	ldrb	r2, [r6, #0x13]
+      84: f021 0104    	bic	r1, r1, #0x4
+      88: 1e88         	subs	r0, r1, #0x2
+      8a: bf18         	it	ne
+      8c: 2001         	movne	r0, #0x1
+      8e: 2a00         	cmp	r2, #0x0
+      90: bf18         	it	ne
+      92: 46bc         	movne	r12, r7
+      94: ea4f 13c0    	lsl.w	r3, r0, #0x7
+      98: f44f 6780    	mov.w	r7, #0x400
+      9c: f44f 7240    	mov.w	r2, #0x300
+      a0: bf18         	it	ne
+      a2: 2700         	movne	r7, #0x0
+      a4: bf08         	it	eq
+      a6: 4694         	moveq	r12, r2
+      a8: 2902         	cmp	r1, #0x2
+      aa: ea43 1340    	orr.w	r3, r3, r0, lsl #5
+      ae: f04f 6280    	mov.w	r2, #0x4000000
+      b2: f04f 41e0    	mov.w	r1, #0x70000000
+      b6: bf08         	it	eq
+      b8: 2200         	moveq	r2, #0x0
+      ba: ea42 0203    	orr.w	r2, r2, r3
+      be: ea42 3200    	orr.w	r2, r2, r0, lsl #12
+      c2: bf08         	it	eq
+      c4: 2100         	moveq	r1, #0x0
+      c6: ea42 020c    	orr.w	r2, r2, r12
+      ca: 4b76         	ldr	r3, [pc, #0x1d8]        @ 0x2a4 <DVFS_PRE_config+0x2a4>
+      cc: 433a         	orrs	r2, r7
+      ce: 4f76         	ldr	r7, [pc, #0x1d8]        @ 0x2a8 <DVFS_PRE_config+0x2a8>
+      d0: 430a         	orrs	r2, r1
+      d2: 4620         	mov	r0, r4
+      d4: 4975         	ldr	r1, [pc, #0x1d4]        @ 0x2ac <DVFS_PRE_config+0x2ac>
+      d6: f042 0210    	orr	r2, r2, #0x10
+      da: f7ff fffe    	bl	0xda <DVFS_PRE_config+0xda> @ imm = #-0x4
+			000000da:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      de: 4b74         	ldr	r3, [pc, #0x1d0]        @ 0x2b0 <DVFS_PRE_config+0x2b0>
+      e0: 4974         	ldr	r1, [pc, #0x1d0]        @ 0x2b4 <DVFS_PRE_config+0x2b4>
+      e2: 4620         	mov	r0, r4
+      e4: 2207         	movs	r2, #0x7
+      e6: f7ff fffe    	bl	0xe6 <DVFS_PRE_config+0xe6> @ imm = #-0x4
+			000000e6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ea: 4b73         	ldr	r3, [pc, #0x1cc]        @ 0x2b8 <DVFS_PRE_config+0x2b8>
+      ec: 4a73         	ldr	r2, [pc, #0x1cc]        @ 0x2bc <DVFS_PRE_config+0x2bc>
+      ee: 4620         	mov	r0, r4
+      f0: f44f 7104    	mov.w	r1, #0x210
+      f4: f7ff fffe    	bl	0xf4 <DVFS_PRE_config+0xf4> @ imm = #-0x4
+			000000f4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      f8: f897 20ad    	ldrb.w	r2, [r7, #0xad]
+      fc: 7cf3         	ldrb	r3, [r6, #0x13]
+      fe: 4620         	mov	r0, r4
+     100: 496f         	ldr	r1, [pc, #0x1bc]        @ 0x2c0 <DVFS_PRE_config+0x2c0>
+     102: 0092         	lsls	r2, r2, #0x2
+     104: f003 0301    	and	r3, r3, #0x1
+     108: f002 0204    	and	r2, r2, #0x4
+     10c: 431a         	orrs	r2, r3
+     10e: 4b6d         	ldr	r3, [pc, #0x1b4]        @ 0x2c4 <DVFS_PRE_config+0x2c4>
+     110: f042 7200    	orr	r2, r2, #0x2000000
+     114: f442 62ce    	orr	r2, r2, #0x670
+     118: f7ff fffe    	bl	0x118 <DVFS_PRE_config+0x118> @ imm = #-0x4
+			00000118:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     11c: 4b6a         	ldr	r3, [pc, #0x1a8]        @ 0x2c8 <DVFS_PRE_config+0x2c8>
+     11e: 4a6b         	ldr	r2, [pc, #0x1ac]        @ 0x2cc <DVFS_PRE_config+0x2cc>
+     120: 4620         	mov	r0, r4
+     122: 496b         	ldr	r1, [pc, #0x1ac]        @ 0x2d0 <DVFS_PRE_config+0x2d0>
+     124: f7ff fffe    	bl	0x124 <DVFS_PRE_config+0x124> @ imm = #-0x4
+			00000124:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     128: f640 73ff    	movw	r3, #0xfff
+     12c: 495c         	ldr	r1, [pc, #0x170]        @ 0x2a0 <DVFS_PRE_config+0x2a0>
+     12e: 4620         	mov	r0, r4
+     130: f240 3233    	movw	r2, #0x333
+     134: f7ff fffe    	bl	0x134 <DVFS_PRE_config+0x134> @ imm = #-0x4
+			00000134:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     138: 4b66         	ldr	r3, [pc, #0x198]        @ 0x2d4 <DVFS_PRE_config+0x2d4>
+     13a: 685b         	ldr	r3, [r3, #0x4]
+     13c: 785e         	ldrb	r6, [r3, #0x1]
+     13e: b9e6         	cbnz	r6, 0x17a <DVFS_PRE_config+0x17a> @ imm = #0x38
+     140: 4630         	mov	r0, r6
+     142: f7ff fffe    	bl	0x142 <DVFS_PRE_config+0x142> @ imm = #-0x4
+			00000142:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     146: 4620         	mov	r0, r4
+     148: 2101         	movs	r1, #0x1
+     14a: f7ff fffe    	bl	0x14a <DVFS_PRE_config+0x14a> @ imm = #-0x4
+			0000014a:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     14e: 495c         	ldr	r1, [pc, #0x170]        @ 0x2c0 <DVFS_PRE_config+0x2c0>
+     150: 4632         	mov	r2, r6
+     152: 4620         	mov	r0, r4
+     154: f44f 5380    	mov.w	r3, #0x1000
+     158: f7ff fffe    	bl	0x158 <DVFS_PRE_config+0x158> @ imm = #-0x4
+			00000158:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     15c: 495c         	ldr	r1, [pc, #0x170]        @ 0x2d0 <DVFS_PRE_config+0x2d0>
+     15e: 4620         	mov	r0, r4
+     160: f04f 6340    	mov.w	r3, #0xc000000
+     164: f04f 6200    	mov.w	r2, #0x8000000
+     168: f7ff fffe    	bl	0x168 <DVFS_PRE_config+0x168> @ imm = #-0x4
+			00000168:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     16c: 4620         	mov	r0, r4
+     16e: 4631         	mov	r1, r6
+     170: f7ff fffe    	bl	0x170 <DVFS_PRE_config+0x170> @ imm = #-0x4
+			00000170:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     174: 2001         	movs	r0, #0x1
+     176: f7ff fffe    	bl	0x176 <DVFS_PRE_config+0x176> @ imm = #-0x4
+			00000176:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     17a: 2000         	movs	r0, #0x0
+     17c: f7ff fffe    	bl	0x17c <DVFS_PRE_config+0x17c> @ imm = #-0x4
+			0000017c:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     180: 4620         	mov	r0, r4
+     182: 2101         	movs	r1, #0x1
+     184: f7ff fffe    	bl	0x184 <DVFS_PRE_config+0x184> @ imm = #-0x4
+			00000184:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     188: f897 30ad    	ldrb.w	r3, [r7, #0xad]
+     18c: 494c         	ldr	r1, [pc, #0x130]        @ 0x2c0 <DVFS_PRE_config+0x2c0>
+     18e: 4620         	mov	r0, r4
+     190: 2b00         	cmp	r3, #0x0
+     192: f04f 5300    	mov.w	r3, #0x20000000
+     196: 461a         	mov	r2, r3
+     198: bf18         	it	ne
+     19a: 2200         	movne	r2, #0x0
+     19c: f7ff fffe    	bl	0x19c <DVFS_PRE_config+0x19c> @ imm = #-0x4
+			0000019c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1a0: 2100         	movs	r1, #0x0
+     1a2: 4620         	mov	r0, r4
+     1a4: f7ff fffe    	bl	0x1a4 <DVFS_PRE_config+0x1a4> @ imm = #-0x4
+			000001a4:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     1a8: 2001         	movs	r0, #0x1
+     1aa: f7ff fffe    	bl	0x1aa <DVFS_PRE_config+0x1aa> @ imm = #-0x4
+			000001aa:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     1ae: 2000         	movs	r0, #0x0
+     1b0: f7ff fffe    	bl	0x1b0 <DVFS_PRE_config+0x1b0> @ imm = #-0x4
+			000001b0:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     1b4: 4620         	mov	r0, r4
+     1b6: 2101         	movs	r1, #0x1
+     1b8: f7ff fffe    	bl	0x1b8 <DVFS_PRE_config+0x1b8> @ imm = #-0x4
+			000001b8:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     1bc: 4938         	ldr	r1, [pc, #0xe0]         @ 0x2a0 <DVFS_PRE_config+0x2a0>
+     1be: 4620         	mov	r0, r4
+     1c0: 230f         	movs	r3, #0xf
+     1c2: 2206         	movs	r2, #0x6
+     1c4: f7ff fffe    	bl	0x1c4 <DVFS_PRE_config+0x1c4> @ imm = #-0x4
+			000001c4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1c8: 682b         	ldr	r3, [r5]
+     1ca: f04f 4210    	mov.w	r2, #0x90000000
+     1ce: 4937         	ldr	r1, [pc, #0xdc]         @ 0x2ac <DVFS_PRE_config+0x2ac>
+     1d0: f023 0304    	bic	r3, r3, #0x4
+     1d4: 4620         	mov	r0, r4
+     1d6: 2b02         	cmp	r3, #0x2
+     1d8: f04f 4370    	mov.w	r3, #0xf0000000
+     1dc: bf08         	it	eq
+     1de: 2200         	moveq	r2, #0x0
+     1e0: f7ff fffe    	bl	0x1e0 <DVFS_PRE_config+0x1e0> @ imm = #-0x4
+			000001e0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1e4: 2100         	movs	r1, #0x0
+     1e6: 4620         	mov	r0, r4
+     1e8: f7ff fffe    	bl	0x1e8 <DVFS_PRE_config+0x1e8> @ imm = #-0x4
+			000001e8:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+     1ec: 2001         	movs	r0, #0x1
+     1ee: f7ff fffe    	bl	0x1ee <DVFS_PRE_config+0x1ee> @ imm = #-0x4
+			000001ee:  R_ARM_THM_CALL	DramcBroadcastOnOff
+     1f2: 2302         	movs	r3, #0x2
+     1f4: 4938         	ldr	r1, [pc, #0xe0]         @ 0x2d8 <DVFS_PRE_config+0x2d8>
+     1f6: 461a         	mov	r2, r3
+     1f8: 4620         	mov	r0, r4
+     1fa: f7ff fffe    	bl	0x1fa <DVFS_PRE_config+0x1fa> @ imm = #-0x4
+			000001fa:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1fe: 4936         	ldr	r1, [pc, #0xd8]         @ 0x2d8 <DVFS_PRE_config+0x2d8>
+     200: 4620         	mov	r0, r4
+     202: 2304         	movs	r3, #0x4
+     204: 2200         	movs	r2, #0x0
+     206: f7ff fffe    	bl	0x206 <DVFS_PRE_config+0x206> @ imm = #-0x4
+			00000206:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     20a: 682b         	ldr	r3, [r5]
+     20c: f04f 4200    	mov.w	r2, #0x80000000
+     210: f04f 4120    	mov.w	r1, #0xa0000000
+     214: f023 0304    	bic	r3, r3, #0x4
+     218: 4620         	mov	r0, r4
+     21a: 2b02         	cmp	r3, #0x2
+     21c: f04f 437f    	mov.w	r3, #0xff000000
+     220: bf18         	it	ne
+     222: 460a         	movne	r2, r1
+     224: 492c         	ldr	r1, [pc, #0xb0]         @ 0x2d8 <DVFS_PRE_config+0x2d8>
+     226: f7ff fffe    	bl	0x226 <DVFS_PRE_config+0x226> @ imm = #-0x4
+			00000226:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     22a: 7cbb         	ldrb	r3, [r7, #0x12]
+     22c: 2b01         	cmp	r3, #0x1
+     22e: d10c         	bne	0x24a <DVFS_PRE_config+0x24a> @ imm = #0x18
+     230: 2308         	movs	r3, #0x8
+     232: 4929         	ldr	r1, [pc, #0xa4]         @ 0x2d8 <DVFS_PRE_config+0x2d8>
+     234: 461a         	mov	r2, r3
+     236: 4620         	mov	r0, r4
+     238: f7ff fffe    	bl	0x238 <DVFS_PRE_config+0x238> @ imm = #-0x4
+			00000238:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     23c: 4926         	ldr	r1, [pc, #0x98]         @ 0x2d8 <DVFS_PRE_config+0x2d8>
+     23e: 4620         	mov	r0, r4
+     240: f44f 0370    	mov.w	r3, #0xf00000
+     244: 2200         	movs	r2, #0x0
+     246: f7ff fffe    	bl	0x246 <DVFS_PRE_config+0x246> @ imm = #-0x4
+			00000246:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     24a: 7c7a         	ldrb	r2, [r7, #0x11]
+     24c: b132         	cbz	r2, 0x25c <DVFS_PRE_config+0x25c> @ imm = #0xc
+     24e: f897 3094    	ldrb.w	r3, [r7, #0x94]
+     252: b96b         	cbnz	r3, 0x270 <DVFS_PRE_config+0x270> @ imm = #0x1a
+     254: 7afa         	ldrb	r2, [r7, #0xb]
+     256: 1e53         	subs	r3, r2, #0x1
+     258: 425a         	rsbs	r2, r3, #0
+     25a: 415a         	adcs	r2, r3
+     25c: 4620         	mov	r0, r4
+     25e: 0412         	lsls	r2, r2, #0x10
+     260: e8bd 41f0    	pop.w	{r4, r5, r6, r7, r8, lr}
+     264: f44f 3380    	mov.w	r3, #0x10000
+     268: f44f 7102    	mov.w	r1, #0x208
+     26c: f7ff bffe    	b.w	0x26c <DVFS_PRE_config+0x26c> @ imm = #-0x4
+			0000026c:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+     270: 2200         	movs	r2, #0x0
+     272: e7f3         	b	0x25c <DVFS_PRE_config+0x25c> @ imm = #-0x1a
+     274: 00 00 00 00  	.word	0x00000000
+			00000274:  R_ARM_ABS32	MEM_TYPE
+     278: 00 07 40 00  	.word	0x00400700
+     27c: 00 00 00 00  	.word	0x00000000
+			0000027c:  R_ARM_ABS32	DUTShufConfigGlobal
+     280: 01 00 10 00  	.word	0x00100001
+     284: b8 06 00 01  	.word	0x010006b8
+     288: 98 08 00 01  	.word	0x01000898
+     28c: ff ff 08 00  	.word	0x0008ffff
+     290: ff ff 01 00  	.word	0x0001ffff
+     294: ff ff 0f 00  	.word	0x000fffff
+     298: 9c 08 00 01  	.word	0x0100089c
+     29c: 84 06 00 01  	.word	0x01000684
+     2a0: 90 06 00 01  	.word	0x01000690
+     2a4: f0 ff c3 ff  	.word	0xffc3fff0
+     2a8: 00 00 00 00  	.word	0x00000000
+			000002a8:  R_ARM_ABS32	DUTTopSetGlobal
+     2ac: 98 06 00 01  	.word	0x01000698
+     2b0: 07 00 0f 00  	.word	0x000f0007
+     2b4: a0 06 00 01  	.word	0x010006a0
+     2b8: ff 00 3f 00  	.word	0x003f00ff
+     2bc: 0f 00 01 00  	.word	0x0001000f
+     2c0: 94 06 00 01  	.word	0x01000694
+     2c4: 75 1e 00 0f  	.word	0x0f001e75
+     2c8: 0d 0d 00 0d  	.word	0x0d000d0d
+     2cc: 09 09 09 05  	.word	0x05090909
+     2d0: d8 07 00 01  	.word	0x010007d8
+     2d4: 00 00 00 00  	.word	0x00000000
+			000002d4:  R_ARM_ABS32	DV_p
+     2d8: 8c 06 00 01  	.word	0x0100068c
+
+Disassembly of section .text.MP_SETTING_NONSHUF:
+
+00000000 <MP_SETTING_NONSHUF>:
+       0: 4b06         	ldr	r3, [pc, #0x18]         @ 0x1c <MP_SETTING_NONSHUF+0x1c>
+       2: 681b         	ldr	r3, [r3]
+       4: f023 0304    	bic	r3, r3, #0x4
+       8: 2b02         	cmp	r3, #0x2
+       a: d105         	bne	0x18 <MP_SETTING_NONSHUF+0x18> @ imm = #0xa
+       c: 4a04         	ldr	r2, [pc, #0x10]         @ 0x20 <MP_SETTING_NONSHUF+0x20>
+       e: f04f 63a8    	mov.w	r3, #0x5400000
+      12: 4904         	ldr	r1, [pc, #0x10]         @ 0x24 <MP_SETTING_NONSHUF+0x24>
+      14: f7ff bffe    	b.w	0x14 <MP_SETTING_NONSHUF+0x14> @ imm = #-0x4
+			00000014:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+      18: 4770         	bx	lr
+      1a: bf00         	nop
+      1c: 00 00 00 00  	.word	0x00000000
+			0000001c:  R_ARM_ABS32	MEM_TYPE
+      20: 00 20 40 01  	.word	0x01402000
+      24: cc 07 00 01  	.word	0x010007cc
+
+Disassembly of section .text.DIG_STATIC_SETTING:
+
+00000000 <DIG_STATIC_SETTING>:
+       0: b510         	push	{r4, lr}
+       2: 2100         	movs	r1, #0x0
+       4: 4604         	mov	r4, r0
+       6: f7ff fffe    	bl	0x6 <DIG_STATIC_SETTING+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	DIG_CONFIG_NONSHUF_DCM
+       a: 4620         	mov	r0, r4
+       c: f7ff fffe    	bl	0xc <DIG_STATIC_SETTING+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	DIG_PHY_config
+      10: 480e         	ldr	r0, [pc, #0x38]         @ 0x4c <DIG_STATIC_SETTING+0x4c>
+      12: f7ff fffe    	bl	0x12 <DIG_STATIC_SETTING+0x12> @ imm = #-0x4
+			00000012:  R_ARM_THM_CALL	GATING_MODE_CFG
+      16: 4601         	mov	r1, r0
+      18: 4620         	mov	r0, r4
+      1a: f7ff fffe    	bl	0x1a <DIG_STATIC_SETTING+0x1a> @ imm = #-0x4
+			0000001a:  R_ARM_THM_CALL	DPHY_GAT_TRACK_Config
+      1e: 4620         	mov	r0, r4
+      20: f7ff fffe    	bl	0x20 <DIG_STATIC_SETTING+0x20> @ imm = #-0x4
+			00000020:  R_ARM_THM_CALL	DRAMC_COMMON_Config
+      24: 4620         	mov	r0, r4
+      26: 2100         	movs	r1, #0x0
+      28: f7ff fffe    	bl	0x28 <DIG_STATIC_SETTING+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_CALL	DIG_HW_NONSHUF_CFG
+      2c: 4620         	mov	r0, r4
+      2e: f7ff fffe    	bl	0x2e <DIG_STATIC_SETTING+0x2e> @ imm = #-0x4
+			0000002e:  R_ARM_THM_CALL	DVFS_PRE_config
+      32: 4620         	mov	r0, r4
+      34: 2100         	movs	r1, #0x0
+      36: f7ff fffe    	bl	0x36 <DIG_STATIC_SETTING+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	DDRPHY_PICG_Config
+      3a: 4620         	mov	r0, r4
+      3c: f7ff fffe    	bl	0x3c <DIG_STATIC_SETTING+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	IO_Release
+      40: 4620         	mov	r0, r4
+      42: e8bd 4010    	pop.w	{r4, lr}
+      46: f7ff bffe    	b.w	0x46 <DIG_STATIC_SETTING+0x46> @ imm = #-0x4
+			00000046:  R_ARM_THM_JUMP24	MP_SETTING_NONSHUF
+      4a: bf00         	nop
+      4c: 00 00 00 00  	.word	0x00000000
+			0000004c:  R_ARM_ABS32	.bss.Gat_p

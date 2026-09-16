@@ -1,0 +1,47 @@
+
+Relocation section '.rel.text.DDR4_MRS' at offset 0x5bc contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  0000131e R_ARM_THM_JUMP24       00000000   DramcModeRegWriteByRank
+
+Relocation section '.rel.text.DDR4_SWZQ' at offset 0x5c4 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  0000151e R_ARM_THM_JUMP24       00000000   DramcZQCalibration
+
+Relocation section '.rel.text.PC4_dram_init_single_rank' at offset 0x5cc contains 19 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000058  0000170a R_ARM_THM_CALL         00000000   CKE_FIX_ON
+00000066  0000180a R_ARM_THM_CALL         00000000   udelay
+00000076  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+00000088  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+00000098  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000aa  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000b8  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000c4  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000ca  0000180a R_ARM_THM_CALL         00000000   udelay
+000000da  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000e0  0000180a R_ARM_THM_CALL         00000000   udelay
+000000ec  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000f2  0000180a R_ARM_THM_CALL         00000000   udelay
+00000148  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+00000150  0000150a R_ARM_THM_CALL         00000000   DramcZQCalibration
+00000156  0000180a R_ARM_THM_CALL         00000000   udelay
+00000160  0000170a R_ARM_THM_CALL         00000000   CKE_FIX_ON
+000001b0  00001902 R_ARM_ABS32            00000000   pkg_type
+000001b4  00001a02 R_ARM_ABS32            00000000   gMRVal
+
+Relocation section '.rel.text.PC4_DRAM_INIT' at offset 0x664 contains 14 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000018  00001c0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000001e  0000180a R_ARM_THM_CALL         00000000   udelay
+00000028  00001d0a R_ARM_THM_CALL         00000000   CKE_FIX_OFF
+00000036  00001d0a R_ARM_THM_CALL         00000000   CKE_FIX_OFF
+0000003c  0000180a R_ARM_THM_CALL         00000000   udelay
+0000004a  00001c0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000052  0000180a R_ARM_THM_CALL         00000000   udelay
+0000005c  00001d0a R_ARM_THM_CALL         00000000   CKE_FIX_OFF
+0000006a  00001d0a R_ARM_THM_CALL         00000000   CKE_FIX_OFF
+00000074  0000170a R_ARM_THM_CALL         00000000   CKE_FIX_ON
+00000082  0000170a R_ARM_THM_CALL         00000000   CKE_FIX_ON
+0000008e  0000160a R_ARM_THM_CALL         00000001   PC4_dram_init_single_rank
+000000ac  00001e02 R_ARM_ABS32            00000000   DV_p
+000000a0  0000161e R_ARM_THM_JUMP24       00000001   PC4_dram_init_single_rank

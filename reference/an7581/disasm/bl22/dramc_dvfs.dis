@@ -1,0 +1,21 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/dramc_dvfs.o:	file format elf32-littlearm
+
+Disassembly of section .text.vSetDFSTable:
+
+00000000 <vSetDFSTable>:
+       0: f8c0 1090    	str.w	r1, [r0, #0x90]
+       4: 4770         	bx	lr
+
+Disassembly of section .text.vSetDFSFreqSelByTable:
+
+00000000 <vSetDFSFreqSelByTable>:
+       0: f8c0 1090    	str.w	r1, [r0, #0x90]
+       4: 6809         	ldr	r1, [r1]
+       6: f7ff bffe    	b.w	0x6 <vSetDFSFreqSelByTable+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_JUMP24	DDRPhyFreqSel
+
+Disassembly of section .text.DVFSSettings:
+
+00000000 <DVFSSettings>:
+       0: 4770         	bx	lr

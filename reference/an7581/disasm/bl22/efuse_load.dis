@@ -1,0 +1,315 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/efuse_load.o:	file format elf32-littlearm
+
+Disassembly of section .text.ef_read_parse.part.0:
+
+00000000 <ef_read_parse.part.0>:
+       0: e92d 41f0    	push.w	{r4, r5, r6, r7, r8, lr}
+       4: 4617         	mov	r7, r2
+       6: 2400         	movs	r4, #0x0
+       8: 08ca         	lsrs	r2, r1, #0x3
+       a: 074b         	lsls	r3, r1, #0x1d
+       c: 4606         	mov	r6, r0
+       e: 460d         	mov	r5, r1
+      10: bf18         	it	ne
+      12: 3201         	addne	r2, #0x1
+      14: 4638         	mov	r0, r7
+      16: 2100         	movs	r1, #0x0
+      18: f7ff fffe    	bl	0x18 <ef_read_parse.part.0+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	memset
+      1c: 42ac         	cmp	r4, r5
+      1e: d101         	bne	0x24 <ef_read_parse.part.0+0x24> @ imm = #0x2
+      20: e8bd 81f0    	pop.w	{r4, r5, r6, r7, r8, pc}
+      24: eb04 0806    	add.w	r8, r4, r6
+      28: ea4f 00d8    	lsr.w	r0, r8, #0x3
+      2c: f7ff fffe    	bl	0x2c <ef_read_parse.part.0+0x2c> @ imm = #-0x4
+			0000002c:  R_ARM_THM_CALL	ef_read_byte
+      30: f008 0307    	and	r3, r8, #0x7
+      34: 10e2         	asrs	r2, r4, #0x3
+      36: fa40 f303    	asr.w	r3, r0, r3
+      3a: f004 0007    	and	r0, r4, #0x7
+      3e: f003 0301    	and	r3, r3, #0x1
+      42: 3401         	adds	r4, #0x1
+      44: 5cb9         	ldrb	r1, [r7, r2]
+      46: 4083         	lsls	r3, r0
+      48: 430b         	orrs	r3, r1
+      4a: 54bb         	strb	r3, [r7, r2]
+      4c: e7e6         	b	0x1c <ef_read_parse.part.0+0x1c> @ imm = #-0x34
+
+Disassembly of section .text.ef_read_parse:
+
+00000000 <ef_read_parse>:
+       0: 1843         	adds	r3, r0, r1
+       2: f5b3 6fc0    	cmp.w	r3, #0x600
+       6: d801         	bhi	0xc <ef_read_parse+0xc> @ imm = #0x2
+       8: f7ff bffe    	b.w	0x8 <ef_read_parse+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_JUMP24	ef_read_parse.part.0
+       c: 4770         	bx	lr
+
+Disassembly of section .text._efuse2rg:
+
+00000000 <_efuse2rg>:
+       0: b573         	push	{r0, r1, r4, r5, r6, lr}
+       2: 460d         	mov	r5, r1
+       4: 4611         	mov	r1, r2
+       6: f1c2 0220    	rsb.w	r2, r2, #0x20
+       a: f04f 34ff    	mov.w	r4, #0xffffffff
+       e: 461e         	mov	r6, r3
+      10: 2300         	movs	r3, #0x0
+      12: 40d4         	lsrs	r4, r2
+      14: aa01         	add	r2, sp, #0x4
+      16: 9301         	str	r3, [sp, #0x4]
+      18: f7ff fffe    	bl	0x18 <_efuse2rg+0x18>   @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	ef_read_parse
+      1c: 9a01         	ldr	r2, [sp, #0x4]
+      1e: 40b4         	lsls	r4, r6
+      20: 682b         	ldr	r3, [r5]
+      22: 40b2         	lsls	r2, r6
+      24: 405a         	eors	r2, r3
+      26: 4022         	ands	r2, r4
+      28: 405a         	eors	r2, r3
+      2a: 602a         	str	r2, [r5]
+      2c: b002         	add	sp, #0x8
+      2e: bd70         	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.phy_config_efuse_load:
+
+00000000 <phy_config_efuse_load>:
+       0: b537         	push	{r0, r1, r2, r4, r5, lr}
+       2: 2101         	movs	r1, #0x1
+       4: 201c         	movs	r0, #0x1c
+       6: aa01         	add	r2, sp, #0x4
+       8: 2300         	movs	r3, #0x0
+       a: 9301         	str	r3, [sp, #0x4]
+       c: f7ff fffe    	bl	0xc <phy_config_efuse_load+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	ef_read_parse.part.0
+      10: 9b01         	ldr	r3, [sp, #0x4]
+      12: 2b01         	cmp	r3, #0x1
+      14: d141         	bne	0x9a <phy_config_efuse_load+0x9a> @ imm = #0x82
+      16: 4969         	ldr	r1, [pc, #0x1a4]        @ 0x1bc <phy_config_efuse_load+0x1bc>
+      18: 2313         	movs	r3, #0x13
+      1a: 2205         	movs	r2, #0x5
+      1c: 2057         	movs	r0, #0x57
+      1e: f7ff fffe    	bl	0x1e <phy_config_efuse_load+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	_efuse2rg
+      22: 4967         	ldr	r1, [pc, #0x19c]        @ 0x1c0 <phy_config_efuse_load+0x1c0>
+      24: 2313         	movs	r3, #0x13
+      26: 2205         	movs	r2, #0x5
+      28: 2052         	movs	r0, #0x52
+      2a: f7ff fffe    	bl	0x2a <phy_config_efuse_load+0x2a> @ imm = #-0x4
+			0000002a:  R_ARM_THM_CALL	_efuse2rg
+      2e: 4965         	ldr	r1, [pc, #0x194]        @ 0x1c4 <phy_config_efuse_load+0x1c4>
+      30: 2318         	movs	r3, #0x18
+      32: 2205         	movs	r2, #0x5
+      34: 2025         	movs	r0, #0x25
+      36: f7ff fffe    	bl	0x36 <phy_config_efuse_load+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	_efuse2rg
+      3a: 4963         	ldr	r1, [pc, #0x18c]        @ 0x1c8 <phy_config_efuse_load+0x1c8>
+      3c: 2318         	movs	r3, #0x18
+      3e: 2205         	movs	r2, #0x5
+      40: 202a         	movs	r0, #0x2a
+      42: f7ff fffe    	bl	0x42 <phy_config_efuse_load+0x42> @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	_efuse2rg
+      46: 4961         	ldr	r1, [pc, #0x184]        @ 0x1cc <phy_config_efuse_load+0x1cc>
+      48: 230a         	movs	r3, #0xa
+      4a: 2206         	movs	r2, #0x6
+      4c: 202f         	movs	r0, #0x2f
+      4e: f7ff fffe    	bl	0x4e <phy_config_efuse_load+0x4e> @ imm = #-0x4
+			0000004e:  R_ARM_THM_CALL	_efuse2rg
+      52: 495f         	ldr	r1, [pc, #0x17c]        @ 0x1d0 <phy_config_efuse_load+0x1d0>
+      54: 2318         	movs	r3, #0x18
+      56: 2205         	movs	r2, #0x5
+      58: 2039         	movs	r0, #0x39
+      5a: f7ff fffe    	bl	0x5a <phy_config_efuse_load+0x5a> @ imm = #-0x4
+			0000005a:  R_ARM_THM_CALL	_efuse2rg
+      5e: 495d         	ldr	r1, [pc, #0x174]        @ 0x1d4 <phy_config_efuse_load+0x1d4>
+      60: 2318         	movs	r3, #0x18
+      62: 2205         	movs	r2, #0x5
+      64: 203e         	movs	r0, #0x3e
+      66: f7ff fffe    	bl	0x66 <phy_config_efuse_load+0x66> @ imm = #-0x4
+			00000066:  R_ARM_THM_CALL	_efuse2rg
+      6a: 495b         	ldr	r1, [pc, #0x16c]        @ 0x1d8 <phy_config_efuse_load+0x1d8>
+      6c: 230a         	movs	r3, #0xa
+      6e: 2206         	movs	r2, #0x6
+      70: 2043         	movs	r0, #0x43
+      72: f7ff fffe    	bl	0x72 <phy_config_efuse_load+0x72> @ imm = #-0x4
+			00000072:  R_ARM_THM_CALL	_efuse2rg
+      76: 4959         	ldr	r1, [pc, #0x164]        @ 0x1dc <phy_config_efuse_load+0x1dc>
+      78: 2307         	movs	r3, #0x7
+      7a: 2205         	movs	r2, #0x5
+      7c: 2025         	movs	r0, #0x25
+      7e: f7ff fffe    	bl	0x7e <phy_config_efuse_load+0x7e> @ imm = #-0x4
+			0000007e:  R_ARM_THM_CALL	_efuse2rg
+      82: 4957         	ldr	r1, [pc, #0x15c]        @ 0x1e0 <phy_config_efuse_load+0x1e0>
+      84: 2304         	movs	r3, #0x4
+      86: 2205         	movs	r2, #0x5
+      88: 202a         	movs	r0, #0x2a
+      8a: f7ff fffe    	bl	0x8a <phy_config_efuse_load+0x8a> @ imm = #-0x4
+			0000008a:  R_ARM_THM_CALL	_efuse2rg
+      8e: 4955         	ldr	r1, [pc, #0x154]        @ 0x1e4 <phy_config_efuse_load+0x1e4>
+      90: 2308         	movs	r3, #0x8
+      92: 2206         	movs	r2, #0x6
+      94: 202f         	movs	r0, #0x2f
+      96: f7ff fffe    	bl	0x96 <phy_config_efuse_load+0x96> @ imm = #-0x4
+			00000096:  R_ARM_THM_CALL	_efuse2rg
+      9a: aa01         	add	r2, sp, #0x4
+      9c: 2101         	movs	r1, #0x1
+      9e: 2020         	movs	r0, #0x20
+      a0: 2400         	movs	r4, #0x0
+      a2: 9401         	str	r4, [sp, #0x4]
+      a4: f7ff fffe    	bl	0xa4 <phy_config_efuse_load+0xa4> @ imm = #-0x4
+			000000a4:  R_ARM_THM_CALL	ef_read_parse.part.0
+      a8: 9b01         	ldr	r3, [sp, #0x4]
+      aa: 2b01         	cmp	r3, #0x1
+      ac: d129         	bne	0x102 <phy_config_efuse_load+0x102> @ imm = #0x52
+      ae: 494e         	ldr	r1, [pc, #0x138]        @ 0x1e8 <phy_config_efuse_load+0x1e8>
+      b0: 4623         	mov	r3, r4
+      b2: 2210         	movs	r2, #0x10
+      b4: f44f 702a    	mov.w	r0, #0x2a8
+      b8: f7ff fffe    	bl	0xb8 <phy_config_efuse_load+0xb8> @ imm = #-0x4
+			000000b8:  R_ARM_THM_CALL	_efuse2rg
+      bc: 2310         	movs	r3, #0x10
+      be: 494a         	ldr	r1, [pc, #0x128]        @ 0x1e8 <phy_config_efuse_load+0x1e8>
+      c0: 461a         	mov	r2, r3
+      c2: f44f 702e    	mov.w	r0, #0x2b8
+      c6: f7ff fffe    	bl	0xc6 <phy_config_efuse_load+0xc6> @ imm = #-0x4
+			000000c6:  R_ARM_THM_CALL	_efuse2rg
+      ca: 4948         	ldr	r1, [pc, #0x120]        @ 0x1ec <phy_config_efuse_load+0x1ec>
+      cc: 4623         	mov	r3, r4
+      ce: 2210         	movs	r2, #0x10
+      d0: f44f 7036    	mov.w	r0, #0x2d8
+      d4: f7ff fffe    	bl	0xd4 <phy_config_efuse_load+0xd4> @ imm = #-0x4
+			000000d4:  R_ARM_THM_CALL	_efuse2rg
+      d8: 2310         	movs	r3, #0x10
+      da: 4944         	ldr	r1, [pc, #0x110]        @ 0x1ec <phy_config_efuse_load+0x1ec>
+      dc: 461a         	mov	r2, r3
+      de: f44f 703a    	mov.w	r0, #0x2e8
+      e2: f7ff fffe    	bl	0xe2 <phy_config_efuse_load+0xe2> @ imm = #-0x4
+			000000e2:  R_ARM_THM_CALL	_efuse2rg
+      e6: 4942         	ldr	r1, [pc, #0x108]        @ 0x1f0 <phy_config_efuse_load+0x1f0>
+      e8: 4623         	mov	r3, r4
+      ea: 2210         	movs	r2, #0x10
+      ec: f44f 7032    	mov.w	r0, #0x2c8
+      f0: f7ff fffe    	bl	0xf0 <phy_config_efuse_load+0xf0> @ imm = #-0x4
+			000000f0:  R_ARM_THM_CALL	_efuse2rg
+      f4: 2310         	movs	r3, #0x10
+      f6: 493e         	ldr	r1, [pc, #0xf8]         @ 0x1f0 <phy_config_efuse_load+0x1f0>
+      f8: 461a         	mov	r2, r3
+      fa: f44f 703e    	mov.w	r0, #0x2f8
+      fe: f7ff fffe    	bl	0xfe <phy_config_efuse_load+0xfe> @ imm = #-0x4
+			000000fe:  R_ARM_THM_CALL	_efuse2rg
+     102: aa01         	add	r2, sp, #0x4
+     104: 2101         	movs	r1, #0x1
+     106: 201d         	movs	r0, #0x1d
+     108: 2400         	movs	r4, #0x0
+     10a: 9401         	str	r4, [sp, #0x4]
+     10c: f7ff fffe    	bl	0x10c <phy_config_efuse_load+0x10c> @ imm = #-0x4
+			0000010c:  R_ARM_THM_CALL	ef_read_parse.part.0
+     110: 9d01         	ldr	r5, [sp, #0x4]
+     112: 2d01         	cmp	r5, #0x1
+     114: d123         	bne	0x15e <phy_config_efuse_load+0x15e> @ imm = #0x46
+     116: 4937         	ldr	r1, [pc, #0xdc]         @ 0x1f4 <phy_config_efuse_load+0x1f4>
+     118: 462a         	mov	r2, r5
+     11a: 2308         	movs	r3, #0x8
+     11c: 201d         	movs	r0, #0x1d
+     11e: f7ff fffe    	bl	0x11e <phy_config_efuse_load+0x11e> @ imm = #-0x4
+			0000011e:  R_ARM_THM_CALL	_efuse2rg
+     122: 4934         	ldr	r1, [pc, #0xd0]         @ 0x1f4 <phy_config_efuse_load+0x1f4>
+     124: 4623         	mov	r3, r4
+     126: 2202         	movs	r2, #0x2
+     128: 2065         	movs	r0, #0x65
+     12a: f7ff fffe    	bl	0x12a <phy_config_efuse_load+0x12a> @ imm = #-0x4
+			0000012a:  R_ARM_THM_CALL	_efuse2rg
+     12e: 4932         	ldr	r1, [pc, #0xc8]         @ 0x1f8 <phy_config_efuse_load+0x1f8>
+     130: 2308         	movs	r3, #0x8
+     132: 2202         	movs	r2, #0x2
+     134: 2067         	movs	r0, #0x67
+     136: f7ff fffe    	bl	0x136 <phy_config_efuse_load+0x136> @ imm = #-0x4
+			00000136:  R_ARM_THM_CALL	_efuse2rg
+     13a: 4930         	ldr	r1, [pc, #0xc0]         @ 0x1fc <phy_config_efuse_load+0x1fc>
+     13c: 462a         	mov	r2, r5
+     13e: 2308         	movs	r3, #0x8
+     140: 201d         	movs	r0, #0x1d
+     142: f7ff fffe    	bl	0x142 <phy_config_efuse_load+0x142> @ imm = #-0x4
+			00000142:  R_ARM_THM_CALL	_efuse2rg
+     146: 492d         	ldr	r1, [pc, #0xb4]         @ 0x1fc <phy_config_efuse_load+0x1fc>
+     148: 4623         	mov	r3, r4
+     14a: 2202         	movs	r2, #0x2
+     14c: 2069         	movs	r0, #0x69
+     14e: f7ff fffe    	bl	0x14e <phy_config_efuse_load+0x14e> @ imm = #-0x4
+			0000014e:  R_ARM_THM_CALL	_efuse2rg
+     152: 492b         	ldr	r1, [pc, #0xac]         @ 0x200 <phy_config_efuse_load+0x200>
+     154: 2310         	movs	r3, #0x10
+     156: 2202         	movs	r2, #0x2
+     158: 206b         	movs	r0, #0x6b
+     15a: f7ff fffe    	bl	0x15a <phy_config_efuse_load+0x15a> @ imm = #-0x4
+			0000015a:  R_ARM_THM_CALL	_efuse2rg
+     15e: aa01         	add	r2, sp, #0x4
+     160: 2101         	movs	r1, #0x1
+     162: 201e         	movs	r0, #0x1e
+     164: f7ff fffe    	bl	0x164 <phy_config_efuse_load+0x164> @ imm = #-0x4
+			00000164:  R_ARM_THM_CALL	ef_read_parse.part.0
+     168: 9c01         	ldr	r4, [sp, #0x4]
+     16a: 2c01         	cmp	r4, #0x1
+     16c: d123         	bne	0x1b6 <phy_config_efuse_load+0x1b6> @ imm = #0x46
+     16e: 4925         	ldr	r1, [pc, #0x94]         @ 0x204 <phy_config_efuse_load+0x204>
+     170: 4622         	mov	r2, r4
+     172: 2308         	movs	r3, #0x8
+     174: 201e         	movs	r0, #0x1e
+     176: f7ff fffe    	bl	0x176 <phy_config_efuse_load+0x176> @ imm = #-0x4
+			00000176:  R_ARM_THM_CALL	_efuse2rg
+     17a: 4922         	ldr	r1, [pc, #0x88]         @ 0x204 <phy_config_efuse_load+0x204>
+     17c: 2300         	movs	r3, #0x0
+     17e: 2202         	movs	r2, #0x2
+     180: 2076         	movs	r0, #0x76
+     182: f7ff fffe    	bl	0x182 <phy_config_efuse_load+0x182> @ imm = #-0x4
+			00000182:  R_ARM_THM_CALL	_efuse2rg
+     186: 4920         	ldr	r1, [pc, #0x80]         @ 0x208 <phy_config_efuse_load+0x208>
+     188: 2318         	movs	r3, #0x18
+     18a: 2202         	movs	r2, #0x2
+     18c: 2078         	movs	r0, #0x78
+     18e: f7ff fffe    	bl	0x18e <phy_config_efuse_load+0x18e> @ imm = #-0x4
+			0000018e:  R_ARM_THM_CALL	_efuse2rg
+     192: 491e         	ldr	r1, [pc, #0x78]         @ 0x20c <phy_config_efuse_load+0x20c>
+     194: 4622         	mov	r2, r4
+     196: 2308         	movs	r3, #0x8
+     198: 201e         	movs	r0, #0x1e
+     19a: f7ff fffe    	bl	0x19a <phy_config_efuse_load+0x19a> @ imm = #-0x4
+			0000019a:  R_ARM_THM_CALL	_efuse2rg
+     19e: 491b         	ldr	r1, [pc, #0x6c]         @ 0x20c <phy_config_efuse_load+0x20c>
+     1a0: 2300         	movs	r3, #0x0
+     1a2: 2202         	movs	r2, #0x2
+     1a4: 2083         	movs	r0, #0x83
+     1a6: f7ff fffe    	bl	0x1a6 <phy_config_efuse_load+0x1a6> @ imm = #-0x4
+			000001a6:  R_ARM_THM_CALL	_efuse2rg
+     1aa: 4919         	ldr	r1, [pc, #0x64]         @ 0x210 <phy_config_efuse_load+0x210>
+     1ac: 2318         	movs	r3, #0x18
+     1ae: 2202         	movs	r2, #0x2
+     1b0: 2085         	movs	r0, #0x85
+     1b2: f7ff fffe    	bl	0x1b2 <phy_config_efuse_load+0x1b2> @ imm = #-0x4
+			000001b2:  R_ARM_THM_CALL	_efuse2rg
+     1b6: b003         	add	sp, #0xc
+     1b8: bd30         	pop	{r4, r5, pc}
+     1ba: bf00         	nop
+     1bc: 04 03 ac 1f  	.word	0x1fac0304
+     1c0: 04 03 ae 1f  	.word	0x1fae0304
+     1c4: 10 09 ac 1f  	.word	0x1fac0910
+     1c8: 14 09 ac 1f  	.word	0x1fac0914
+     1cc: 00 0b ac 1f  	.word	0x1fac0b00
+     1d0: 10 09 ae 1f  	.word	0x1fae0910
+     1d4: 14 09 ae 1f  	.word	0x1fae0914
+     1d8: 00 0b ae 1f  	.word	0x1fae0b00
+     1dc: 2c a0 a9 1f  	.word	0x1fa9a02c
+     1e0: 44 a0 a9 1f  	.word	0x1fa9a044
+     1e4: 48 a0 a9 1f  	.word	0x1fa9a048
+     1e8: 20 df fb 1e  	.word	0x1efbdf20
+     1ec: 24 df fb 1e  	.word	0x1efbdf24
+     1f0: 28 df fb 1e  	.word	0x1efbdf28
+     1f4: 7c b7 a5 1f  	.word	0x1fa5b77c
+     1f8: 44 a1 a5 1f  	.word	0x1fa5a144
+     1fc: 7c c7 a5 1f  	.word	0x1fa5c77c
+     200: fc a1 a5 1f  	.word	0x1fa5a1fc
+     204: 7c b7 a8 1f  	.word	0x1fa8b77c
+     208: 14 a1 a8 1f  	.word	0x1fa8a114
+     20c: 7c b7 a7 1f  	.word	0x1fa7b77c
+     210: 14 a1 a7 1f  	.word	0x1fa7a114

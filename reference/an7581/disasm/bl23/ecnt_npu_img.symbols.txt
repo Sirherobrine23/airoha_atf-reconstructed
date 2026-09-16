@@ -1,0 +1,13 @@
+
+Symbol table '.symtab' contains 10 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     2: 00000000     0 SECTION LOCAL  DEFAULT    2 .data
+     3: 00000000     0 SECTION LOCAL  DEFAULT    3 .bss
+     4: 00000000     0 NOTYPE  LOCAL  DEFAULT    1 $d
+     5: 00000000     0 SECTION LOCAL  DEFAULT    4 .ARM.attributes
+     6: 00000000     0 NOTYPE  GLOBAL DEFAULT    1 ecnt_npu_img
+     7: 00003ddc     0 NOTYPE  GLOBAL DEFAULT    1 ecnt_npu_img_end
+     8: 00003ddc     0 NOTYPE  GLOBAL DEFAULT    1 ecnt_npu_data
+     9: 00003e0c     0 NOTYPE  GLOBAL DEFAULT    1 ecnt_npu_data_end

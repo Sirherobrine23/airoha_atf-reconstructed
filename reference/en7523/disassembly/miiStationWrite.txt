@@ -1,0 +1,24 @@
+00000000 <miiStationWrite>:
+       0: b530         	push	{r4, r5, lr}
+       2: 4d0d         	ldr	r5, [pc, #0x34]         @ 0x38 <miiStationWrite+0x38>
+       4: f242 7310    	movw	r3, #0x2710
+       8: 682c         	ldr	r4, [r5]
+       a: 2c00         	cmp	r4, #0x0
+       c: 4c0a         	ldr	r4, [pc, #0x28]         @ 0x38 <miiStationWrite+0x38>
+       e: da01         	bge	0x14 <miiStationWrite+0x14> @ imm = #0x2
+      10: 3b01         	subs	r3, #0x1
+      12: d1f9         	bne	0x8 <miiStationWrite+0x8> @ imm = #-0xe
+      14: b293         	uxth	r3, r2
+      16: f043 4200    	orr	r2, r3, #0x80000000
+      1a: f242 7310    	movw	r3, #0x2710
+      1e: f442 22a0    	orr	r2, r2, #0x50000
+      22: ea42 6241    	orr.w	r2, r2, r1, lsl #25
+      26: ea42 5000    	orr.w	r0, r2, r0, lsl #20
+      2a: 6020         	str	r0, [r4]
+      2c: 6822         	ldr	r2, [r4]
+      2e: 2a00         	cmp	r2, #0x0
+      30: da01         	bge	0x36 <miiStationWrite+0x36> @ imm = #0x2
+      32: 3b01         	subs	r3, #0x1
+      34: d1fa         	bne	0x2c <miiStationWrite+0x2c> @ imm = #-0xc
+      36: bd30         	pop	{r4, r5, pc}
+      38: 1c f0 b5 1f  	.word	0x1fb5f01c

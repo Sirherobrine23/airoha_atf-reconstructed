@@ -1,0 +1,27 @@
+
+Symbol table '.symtab' contains 24 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS MD32_initial.c
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 SECTION LOCAL  DEFAULT    2 .data
+     4: 00000000     0 SECTION LOCAL  DEFAULT    3 .bss
+     5: 00000000     0 SECTION LOCAL  DEFAULT    4 .text.MD32_initializaton_ch
+     6: 00000000     0 NOTYPE  LOCAL  DEFAULT    4 $t
+     7: 00000370     0 NOTYPE  LOCAL  DEFAULT    4 $d
+     8: 00000410     0 NOTYPE  LOCAL  DEFAULT    4 $t
+     9: 00000488     0 NOTYPE  LOCAL  DEFAULT    4 $d
+    10: 00000000     0 SECTION LOCAL  DEFAULT    6 .text.MD32_initializaton
+    11: 00000000     0 NOTYPE  LOCAL  DEFAULT    6 $t
+    12: 00000000     0 SECTION LOCAL  DEFAULT    9 .note.GNU-stack
+    13: 00000000     0 SECTION LOCAL  DEFAULT    8 .comment
+    14: 00000000     0 SECTION LOCAL  DEFAULT   10 .ARM.attributes
+    15: 00000001  1180 FUNC    GLOBAL DEFAULT    4 MD32_initializaton_ch
+    16: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND vSetPHY2ChannelMapping
+    17: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND vPhyByteIO32WriteMsk
+    18: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND vPhyByteWriteFldAlign
+    19: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND vIO32WriteMsk
+    20: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND DUTTopSetGlobal
+    21: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND u4Dram_Register_Read
+    22: 00000001    38 FUNC    GLOBAL DEFAULT    6 MD32_initializaton
+    23: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND DramcBroadcastOnOff

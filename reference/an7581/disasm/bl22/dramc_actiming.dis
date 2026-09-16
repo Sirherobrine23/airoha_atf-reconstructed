@@ -1,0 +1,1608 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/dramc_actiming.o:	file format elf32-littlearm
+
+Disassembly of section .text.DdrUpdateACTiming:
+
+00000000 <DdrUpdateACTiming>:
+       0: e92d 4ff0    	push.w	{r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4604         	mov	r4, r0
+       6: 480c         	ldr	r0, [pc, #0x30]         @ 0x38 <DdrUpdateACTiming+0x38>
+       8: b0e3         	sub	sp, #0x18c
+       a: f7ff fffe    	bl	0xa <DdrUpdateACTiming+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	printf
+       e: 4620         	mov	r0, r4
+      10: f7ff fffe    	bl	0x10 <DdrUpdateACTiming+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	is_ddr3_family
+      14: 4605         	mov	r5, r0
+      16: 2800         	cmp	r0, #0x0
+      18: f000 83c5    	beq.w	0x7a6 <DdrUpdateACTiming+0x7a6> @ imm = #0x78a
+      1c: 4d07         	ldr	r5, [pc, #0x1c]         @ 0x3c <DdrUpdateACTiming+0x3c>
+      1e: 2600         	movs	r6, #0x0
+      20: 782b         	ldrb	r3, [r5]
+      22: b2f7         	uxtb	r7, r6
+      24: 2b03         	cmp	r3, #0x3
+      26: d00b         	beq	0x40 <DdrUpdateACTiming+0x40> @ imm = #0x16
+      28: 3601         	adds	r6, #0x1
+      2a: f505 7586    	add.w	r5, r5, #0x10c
+      2e: 2e0a         	cmp	r6, #0xa
+      30: d1f6         	bne	0x20 <DdrUpdateACTiming+0x20> @ imm = #-0x14
+      32: 2701         	movs	r7, #0x1
+      34: e013         	b	0x5e <DdrUpdateACTiming+0x5e> @ imm = #0x26
+      36: bf00         	nop
+      38: 00 00 00 00  	.word	0x00000000
+			00000038:  R_ARM_ABS32	.rodata.DdrUpdateACTiming.str1.1
+      3c: 00 00 00 00  	.word	0x00000000
+			0000003c:  R_ARM_ABS32	ACTimingTbl_DDR3
+      40: 892a         	ldrh	r2, [r5, #0x8]
+      42: f8b4 3056    	ldrh.w	r3, [r4, #0x56]
+      46: 429a         	cmp	r2, r3
+      48: d1ee         	bne	0x28 <DdrUpdateACTiming+0x28> @ imm = #-0x24
+      4a: f895 8007    	ldrb.w	r8, [r5, #0x7]
+      4e: 4620         	mov	r0, r4
+      50: f7ff fffe    	bl	0x50 <DdrUpdateACTiming+0x50> @ imm = #-0x4
+			00000050:  R_ARM_THM_CALL	vGet_Div_Mode
+      54: 4580         	cmp	r8, r0
+      56: d1e7         	bne	0x28 <DdrUpdateACTiming+0x28> @ imm = #-0x32
+      58: 786b         	ldrb	r3, [r5, #0x1]
+      5a: 2b00         	cmp	r3, #0x0
+      5c: d1e4         	bne	0x28 <DdrUpdateACTiming+0x28> @ imm = #-0x38
+      5e: 4620         	mov	r0, r4
+      60: f7ff fffe    	bl	0x60 <DdrUpdateACTiming+0x60> @ imm = #-0x4
+			00000060:  R_ARM_THM_CALL	is_ddr3_family
+      64: 2800         	cmp	r0, #0x0
+      66: f000 83d1    	beq.w	0x80c <DdrUpdateACTiming+0x80c> @ imm = #0x7a2
+      6a: 48b9         	ldr	r0, [pc, #0x2e4]        @ 0x350 <DdrUpdateACTiming+0x350>
+      6c: f44f 7386    	mov.w	r3, #0x10c
+      70: f04f 0900    	mov.w	r9, #0x0
+      74: fb03 0007    	mla	r0, r3, r7, r0
+      78: 89c3         	ldrh	r3, [r0, #0xe]
+      7a: 9302         	str	r3, [sp, #0x8]
+      7c: 8a03         	ldrh	r3, [r0, #0x10]
+      7e: 9303         	str	r3, [sp, #0xc]
+      80: 8ac3         	ldrh	r3, [r0, #0x16]
+      82: 9304         	str	r3, [sp, #0x10]
+      84: 8b03         	ldrh	r3, [r0, #0x18]
+      86: 9305         	str	r3, [sp, #0x14]
+      88: 8b43         	ldrh	r3, [r0, #0x1a]
+      8a: 9306         	str	r3, [sp, #0x18]
+      8c: 8b83         	ldrh	r3, [r0, #0x1c]
+      8e: 9307         	str	r3, [sp, #0x1c]
+      90: 8bc3         	ldrh	r3, [r0, #0x1e]
+      92: 9308         	str	r3, [sp, #0x20]
+      94: 8c03         	ldrh	r3, [r0, #0x20]
+      96: 9309         	str	r3, [sp, #0x24]
+      98: 8c43         	ldrh	r3, [r0, #0x22]
+      9a: 930a         	str	r3, [sp, #0x28]
+      9c: 8cc3         	ldrh	r3, [r0, #0x26]
+      9e: 930b         	str	r3, [sp, #0x2c]
+      a0: 8d03         	ldrh	r3, [r0, #0x28]
+      a2: 930c         	str	r3, [sp, #0x30]
+      a4: 8d43         	ldrh	r3, [r0, #0x2a]
+      a6: 930d         	str	r3, [sp, #0x34]
+      a8: 8d83         	ldrh	r3, [r0, #0x2c]
+      aa: 930e         	str	r3, [sp, #0x38]
+      ac: 8dc3         	ldrh	r3, [r0, #0x2e]
+      ae: 930f         	str	r3, [sp, #0x3c]
+      b0: 8e03         	ldrh	r3, [r0, #0x30]
+      b2: 8a47         	ldrh	r7, [r0, #0x12]
+      b4: 8a86         	ldrh	r6, [r0, #0x14]
+      b6: 9310         	str	r3, [sp, #0x40]
+      b8: 8e43         	ldrh	r3, [r0, #0x32]
+      ba: 023f         	lsls	r7, r7, #0x8
+      bc: 9311         	str	r3, [sp, #0x44]
+      be: f006 063f    	and	r6, r6, #0x3f
+      c2: 8ec3         	ldrh	r3, [r0, #0x36]
+      c4: b2bf         	uxth	r7, r7
+      c6: 9312         	str	r3, [sp, #0x48]
+      c8: 8f03         	ldrh	r3, [r0, #0x38]
+      ca: 9313         	str	r3, [sp, #0x4c]
+      cc: 8f43         	ldrh	r3, [r0, #0x3a]
+      ce: 9314         	str	r3, [sp, #0x50]
+      d0: 8f83         	ldrh	r3, [r0, #0x3c]
+      d2: 9315         	str	r3, [sp, #0x54]
+      d4: 8fc3         	ldrh	r3, [r0, #0x3e]
+      d6: 9316         	str	r3, [sp, #0x58]
+      d8: f8b0 3040    	ldrh.w	r3, [r0, #0x40]
+      dc: 9317         	str	r3, [sp, #0x5c]
+      de: f8b0 3042    	ldrh.w	r3, [r0, #0x42]
+      e2: 9318         	str	r3, [sp, #0x60]
+      e4: f8b0 3044    	ldrh.w	r3, [r0, #0x44]
+      e8: 9319         	str	r3, [sp, #0x64]
+      ea: f8b0 3046    	ldrh.w	r3, [r0, #0x46]
+      ee: 931a         	str	r3, [sp, #0x68]
+      f0: f8b0 3048    	ldrh.w	r3, [r0, #0x48]
+      f4: 931b         	str	r3, [sp, #0x6c]
+      f6: f8b0 304a    	ldrh.w	r3, [r0, #0x4a]
+      fa: 931c         	str	r3, [sp, #0x70]
+      fc: f8b0 304c    	ldrh.w	r3, [r0, #0x4c]
+     100: 931d         	str	r3, [sp, #0x74]
+     102: f8b0 304e    	ldrh.w	r3, [r0, #0x4e]
+     106: 931e         	str	r3, [sp, #0x78]
+     108: f8b0 305e    	ldrh.w	r3, [r0, #0x5e]
+     10c: 931f         	str	r3, [sp, #0x7c]
+     10e: f8b0 3074    	ldrh.w	r3, [r0, #0x74]
+     112: 9320         	str	r3, [sp, #0x80]
+     114: f8b0 3076    	ldrh.w	r3, [r0, #0x76]
+     118: 9321         	str	r3, [sp, #0x84]
+     11a: f8b0 307c    	ldrh.w	r3, [r0, #0x7c]
+     11e: 9322         	str	r3, [sp, #0x88]
+     120: f8b0 307e    	ldrh.w	r3, [r0, #0x7e]
+     124: 935d         	str	r3, [sp, #0x174]
+     126: f8b0 3082    	ldrh.w	r3, [r0, #0x82]
+     12a: 9323         	str	r3, [sp, #0x8c]
+     12c: f8b0 3086    	ldrh.w	r3, [r0, #0x86]
+     130: 9324         	str	r3, [sp, #0x90]
+     132: f8b0 3088    	ldrh.w	r3, [r0, #0x88]
+     136: 9325         	str	r3, [sp, #0x94]
+     138: f8b0 308a    	ldrh.w	r3, [r0, #0x8a]
+     13c: 9326         	str	r3, [sp, #0x98]
+     13e: f8b0 308c    	ldrh.w	r3, [r0, #0x8c]
+     142: 9327         	str	r3, [sp, #0x9c]
+     144: f8b0 3090    	ldrh.w	r3, [r0, #0x90]
+     148: 9328         	str	r3, [sp, #0xa0]
+     14a: f8b0 3092    	ldrh.w	r3, [r0, #0x92]
+     14e: 9329         	str	r3, [sp, #0xa4]
+     150: f8b0 3094    	ldrh.w	r3, [r0, #0x94]
+     154: 932a         	str	r3, [sp, #0xa8]
+     156: f8b0 3096    	ldrh.w	r3, [r0, #0x96]
+     15a: 932b         	str	r3, [sp, #0xac]
+     15c: f8b0 3098    	ldrh.w	r3, [r0, #0x98]
+     160: 932c         	str	r3, [sp, #0xb0]
+     162: f8b0 309a    	ldrh.w	r3, [r0, #0x9a]
+     166: f8b0 2080    	ldrh.w	r2, [r0, #0x80]
+     16a: 932d         	str	r3, [sp, #0xb4]
+     16c: f8b0 30a6    	ldrh.w	r3, [r0, #0xa6]
+     170: f8b0 a0a2    	ldrh.w	r10, [r0, #0xa2]
+     174: 925c         	str	r2, [sp, #0x170]
+     176: 932e         	str	r3, [sp, #0xb8]
+     178: f8b0 30a8    	ldrh.w	r3, [r0, #0xa8]
+     17c: 932f         	str	r3, [sp, #0xbc]
+     17e: f8b0 30aa    	ldrh.w	r3, [r0, #0xaa]
+     182: 9330         	str	r3, [sp, #0xc0]
+     184: f8b0 30ac    	ldrh.w	r3, [r0, #0xac]
+     188: 9331         	str	r3, [sp, #0xc4]
+     18a: f8b0 30ae    	ldrh.w	r3, [r0, #0xae]
+     18e: 9332         	str	r3, [sp, #0xc8]
+     190: f8b0 30b0    	ldrh.w	r3, [r0, #0xb0]
+     194: 9333         	str	r3, [sp, #0xcc]
+     196: f8b0 30b2    	ldrh.w	r3, [r0, #0xb2]
+     19a: 9334         	str	r3, [sp, #0xd0]
+     19c: f8b0 30b4    	ldrh.w	r3, [r0, #0xb4]
+     1a0: 9335         	str	r3, [sp, #0xd4]
+     1a2: f8b0 30b6    	ldrh.w	r3, [r0, #0xb6]
+     1a6: 9336         	str	r3, [sp, #0xd8]
+     1a8: f8b0 30b8    	ldrh.w	r3, [r0, #0xb8]
+     1ac: 9337         	str	r3, [sp, #0xdc]
+     1ae: f8b0 30ba    	ldrh.w	r3, [r0, #0xba]
+     1b2: 9338         	str	r3, [sp, #0xe0]
+     1b4: f8b0 30be    	ldrh.w	r3, [r0, #0xbe]
+     1b8: 9339         	str	r3, [sp, #0xe4]
+     1ba: f8b0 30c0    	ldrh.w	r3, [r0, #0xc0]
+     1be: 933a         	str	r3, [sp, #0xe8]
+     1c0: f8b0 30c2    	ldrh.w	r3, [r0, #0xc2]
+     1c4: 933b         	str	r3, [sp, #0xec]
+     1c6: f8b0 30c4    	ldrh.w	r3, [r0, #0xc4]
+     1ca: 933c         	str	r3, [sp, #0xf0]
+     1cc: f8b0 30c6    	ldrh.w	r3, [r0, #0xc6]
+     1d0: 933d         	str	r3, [sp, #0xf4]
+     1d2: f8b0 30c8    	ldrh.w	r3, [r0, #0xc8]
+     1d6: 933e         	str	r3, [sp, #0xf8]
+     1d8: f8b0 30ca    	ldrh.w	r3, [r0, #0xca]
+     1dc: 933f         	str	r3, [sp, #0xfc]
+     1de: f8b0 30cc    	ldrh.w	r3, [r0, #0xcc]
+     1e2: 9340         	str	r3, [sp, #0x100]
+     1e4: f8b0 30ce    	ldrh.w	r3, [r0, #0xce]
+     1e8: 9341         	str	r3, [sp, #0x104]
+     1ea: f8b0 30d0    	ldrh.w	r3, [r0, #0xd0]
+     1ee: 9342         	str	r3, [sp, #0x108]
+     1f0: f8b0 30d2    	ldrh.w	r3, [r0, #0xd2]
+     1f4: 9343         	str	r3, [sp, #0x10c]
+     1f6: f8b0 30d4    	ldrh.w	r3, [r0, #0xd4]
+     1fa: 9344         	str	r3, [sp, #0x110]
+     1fc: f8b0 30d6    	ldrh.w	r3, [r0, #0xd6]
+     200: 9345         	str	r3, [sp, #0x114]
+     202: f8b0 30d8    	ldrh.w	r3, [r0, #0xd8]
+     206: 9346         	str	r3, [sp, #0x118]
+     208: f8b0 30da    	ldrh.w	r3, [r0, #0xda]
+     20c: 9347         	str	r3, [sp, #0x11c]
+     20e: f8b0 30e0    	ldrh.w	r3, [r0, #0xe0]
+     212: 9348         	str	r3, [sp, #0x120]
+     214: f8b0 30e2    	ldrh.w	r3, [r0, #0xe2]
+     218: 9349         	str	r3, [sp, #0x124]
+     21a: f8b0 30e4    	ldrh.w	r3, [r0, #0xe4]
+     21e: 934a         	str	r3, [sp, #0x128]
+     220: f8b0 30e6    	ldrh.w	r3, [r0, #0xe6]
+     224: 934b         	str	r3, [sp, #0x12c]
+     226: f8b0 30e8    	ldrh.w	r3, [r0, #0xe8]
+     22a: f8b0 10de    	ldrh.w	r1, [r0, #0xde]
+     22e: 934c         	str	r3, [sp, #0x130]
+     230: f8b0 30ea    	ldrh.w	r3, [r0, #0xea]
+     234: f8b0 50dc    	ldrh.w	r5, [r0, #0xdc]
+     238: 915b         	str	r1, [sp, #0x16c]
+     23a: 934d         	str	r3, [sp, #0x134]
+     23c: f8b0 30ec    	ldrh.w	r3, [r0, #0xec]
+     240: 006d         	lsls	r5, r5, #0x1
+     242: 934e         	str	r3, [sp, #0x138]
+     244: f005 0502    	and	r5, r5, #0x2
+     248: f8b0 30ee    	ldrh.w	r3, [r0, #0xee]
+     24c: 934f         	str	r3, [sp, #0x13c]
+     24e: f8b0 30f0    	ldrh.w	r3, [r0, #0xf0]
+     252: 9350         	str	r3, [sp, #0x140]
+     254: f8b0 30f2    	ldrh.w	r3, [r0, #0xf2]
+     258: 9351         	str	r3, [sp, #0x144]
+     25a: f8b0 30f4    	ldrh.w	r3, [r0, #0xf4]
+     25e: 9352         	str	r3, [sp, #0x148]
+     260: f8b0 3100    	ldrh.w	r3, [r0, #0x100]
+     264: 9353         	str	r3, [sp, #0x14c]
+     266: f8b0 3102    	ldrh.w	r3, [r0, #0x102]
+     26a: 9354         	str	r3, [sp, #0x150]
+     26c: f8b0 3104    	ldrh.w	r3, [r0, #0x104]
+     270: 9355         	str	r3, [sp, #0x154]
+     272: f8b0 3106    	ldrh.w	r3, [r0, #0x106]
+     276: 9356         	str	r3, [sp, #0x158]
+     278: f8b0 3108    	ldrh.w	r3, [r0, #0x108]
+     27c: 9357         	str	r3, [sp, #0x15c]
+     27e: f8b0 310a    	ldrh.w	r3, [r0, #0x10a]
+     282: f8b0 80fc    	ldrh.w	r8, [r0, #0xfc]
+     286: f8b0 b0fe    	ldrh.w	r11, [r0, #0xfe]
+     28a: 4620         	mov	r0, r4
+     28c: 9358         	str	r3, [sp, #0x160]
+     28e: f8d4 3098    	ldr.w	r3, [r4, #0x98]
+     292: 9359         	str	r3, [sp, #0x164]
+     294: f7ff fffe    	bl	0x294 <DdrUpdateACTiming+0x294> @ imm = #-0x4
+			00000294:  R_ARM_THM_CALL	vGet_Div_Mode
+     298: 9a5c         	ldr	r2, [sp, #0x170]
+     29a: 2802         	cmp	r0, #0x2
+     29c: f04f 0304    	mov.w	r3, #0x4
+     2a0: 995b         	ldr	r1, [sp, #0x16c]
+     2a2: bf18         	it	ne
+     2a4: 2308         	movne	r3, #0x8
+     2a6: 935a         	str	r3, [sp, #0x168]
+     2a8: 0312         	lsls	r2, r2, #0xc
+     2aa: 9b5d         	ldr	r3, [sp, #0x174]
+     2ac: f001 0101    	and	r1, r1, #0x1
+     2b0: 4620         	mov	r0, r4
+     2b2: b292         	uxth	r2, r2
+     2b4: f8c4 9098    	str.w	r9, [r4, #0x98]
+     2b8: 432a         	orrs	r2, r5
+     2ba: 041b         	lsls	r3, r3, #0x10
+     2bc: 4311         	orrs	r1, r2
+     2be: f403 2370    	and	r3, r3, #0xf0000
+     2c2: ea4f 5208    	lsl.w	r2, r8, #0x14
+     2c6: 4319         	orrs	r1, r3
+     2c8: f402 0270    	and	r2, r2, #0xf00000
+     2cc: 4b21         	ldr	r3, [pc, #0x84]         @ 0x354 <DdrUpdateACTiming+0x354>
+     2ce: 430a         	orrs	r2, r1
+     2d0: 4921         	ldr	r1, [pc, #0x84]         @ 0x358 <DdrUpdateACTiming+0x358>
+     2d2: f7ff fffe    	bl	0x2d2 <DdrUpdateACTiming+0x2d2> @ imm = #-0x4
+			000002d2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2d6: 9b03         	ldr	r3, [sp, #0xc]
+     2d8: ea46 7b0b    	orr.w	r11, r6, r11, lsl #28
+     2dc: 491f         	ldr	r1, [pc, #0x7c]         @ 0x35c <DdrUpdateACTiming+0x35c>
+     2de: ea4b 0b07    	orr.w	r11, r11, r7
+     2e2: 4620         	mov	r0, r4
+     2e4: 041a         	lsls	r2, r3, #0x10
+     2e6: 9b02         	ldr	r3, [sp, #0x8]
+     2e8: f402 22e0    	and	r2, r2, #0x70000
+     2ec: ea4b 0b02    	orr.w	r11, r11, r2
+     2f0: 05da         	lsls	r2, r3, #0x17
+     2f2: 4b1b         	ldr	r3, [pc, #0x6c]         @ 0x360 <DdrUpdateACTiming+0x360>
+     2f4: f002 6278    	and	r2, r2, #0xf800000
+     2f8: ea4b 0202    	orr.w	r2, r11, r2
+     2fc: f7ff fffe    	bl	0x2fc <DdrUpdateACTiming+0x2fc> @ imm = #-0x4
+			000002fc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     300: 9b05         	ldr	r3, [sp, #0x14]
+     302: 4620         	mov	r0, r4
+     304: 0619         	lsls	r1, r3, #0x18
+     306: 9b06         	ldr	r3, [sp, #0x18]
+     308: f001 517c    	and	r1, r1, #0x3f000000
+     30c: 041a         	lsls	r2, r3, #0x10
+     30e: 9b09         	ldr	r3, [sp, #0x24]
+     310: f402 127c    	and	r2, r2, #0x3f0000
+     314: 4311         	orrs	r1, r2
+     316: f003 021f    	and	r2, r3, #0x1f
+     31a: 9b07         	ldr	r3, [sp, #0x1c]
+     31c: 4311         	orrs	r1, r2
+     31e: 029a         	lsls	r2, r3, #0xa
+     320: 9b08         	ldr	r3, [sp, #0x20]
+     322: f402 42f8    	and	r2, r2, #0x7c00
+     326: 4311         	orrs	r1, r2
+     328: 015a         	lsls	r2, r3, #0x5
+     32a: 4b0e         	ldr	r3, [pc, #0x38]         @ 0x364 <DdrUpdateACTiming+0x364>
+     32c: f402 7278    	and	r2, r2, #0x3e0
+     330: 430a         	orrs	r2, r1
+     332: 490d         	ldr	r1, [pc, #0x34]         @ 0x368 <DdrUpdateACTiming+0x368>
+     334: f7ff fffe    	bl	0x334 <DdrUpdateACTiming+0x334> @ imm = #-0x4
+			00000334:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     338: 9b0a         	ldr	r3, [sp, #0x28]
+     33a: 4620         	mov	r0, r4
+     33c: 0619         	lsls	r1, r3, #0x18
+     33e: 9b0b         	ldr	r3, [sp, #0x2c]
+     340: f001 51f8    	and	r1, r1, #0x1f000000
+     344: 041a         	lsls	r2, r3, #0x10
+     346: 9b0e         	ldr	r3, [sp, #0x38]
+     348: f402 127c    	and	r2, r2, #0x3f0000
+     34c: 4311         	orrs	r1, r2
+     34e: e00d         	b	0x36c <DdrUpdateACTiming+0x36c> @ imm = #0x1a
+     350: 00 00 00 00  	.word	0x00000000
+			00000350:  R_ARM_ABS32	ACTimingTbl_DDR3
+     354: 03 f0 ff 03  	.word	0x03fff003
+     358: 78 16 20 00  	.word	0x00201678
+     35c: 44 16 20 00  	.word	0x00201644
+     360: 3f ff 87 ff  	.word	0xff87ff3f
+     364: ff 7f 3f 3f  	.word	0x3f3f7fff
+     368: 48 16 20 00  	.word	0x00201648
+     36c: f003 020f    	and	r2, r3, #0xf
+     370: 9b0c         	ldr	r3, [sp, #0x30]
+     372: 4311         	orrs	r1, r2
+     374: 031a         	lsls	r2, r3, #0xc
+     376: 9b0d         	ldr	r3, [sp, #0x34]
+     378: f402 42e0    	and	r2, r2, #0x7000
+     37c: 4311         	orrs	r1, r2
+     37e: 011a         	lsls	r2, r3, #0x4
+     380: 4bc9         	ldr	r3, [pc, #0x324]        @ 0x6a8 <DdrUpdateACTiming+0x6a8>
+     382: f402 72f8    	and	r2, r2, #0x1f0
+     386: 430a         	orrs	r2, r1
+     388: 49c8         	ldr	r1, [pc, #0x320]        @ 0x6ac <DdrUpdateACTiming+0x6ac>
+     38a: f7ff fffe    	bl	0x38a <DdrUpdateACTiming+0x38a> @ imm = #-0x4
+			0000038a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     38e: 9b10         	ldr	r3, [sp, #0x40]
+     390: 990f         	ldr	r1, [sp, #0x3c]
+     392: 4620         	mov	r0, r4
+     394: f8cd 9000    	str.w	r9, [sp]
+     398: f3c3 0208    	ubfx	r2, r3, #0x0, #0x9
+     39c: 9b04         	ldr	r3, [sp, #0x10]
+     39e: ea42 6283    	orr.w	r2, r2, r3, lsl #26
+     3a2: 9b18         	ldr	r3, [sp, #0x60]
+     3a4: 035b         	lsls	r3, r3, #0xd
+     3a6: f403 33f0    	and	r3, r3, #0x1e000
+     3aa: 431a         	orrs	r2, r3
+     3ac: 4bc0         	ldr	r3, [pc, #0x300]        @ 0x6b0 <DdrUpdateACTiming+0x6b0>
+     3ae: ea03 4341    	and.w	r3, r3, r1, lsl #17
+     3b2: 995a         	ldr	r1, [sp, #0x168]
+     3b4: 431a         	orrs	r2, r3
+     3b6: 464b         	mov	r3, r9
+     3b8: ea42 2241    	orr.w	r2, r2, r1, lsl #9
+     3bc: 49bd         	ldr	r1, [pc, #0x2f4]        @ 0x6b4 <DdrUpdateACTiming+0x6b4>
+     3be: f7ff fffe    	bl	0x3be <DdrUpdateACTiming+0x3be> @ imm = #-0x4
+			000003be:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     3c2: 9b12         	ldr	r3, [sp, #0x48]
+     3c4: 4620         	mov	r0, r4
+     3c6: f3c3 0109    	ubfx	r1, r3, #0x0, #0xa
+     3ca: 9b11         	ldr	r3, [sp, #0x44]
+     3cc: ea41 6103    	orr.w	r1, r1, r3, lsl #24
+     3d0: 9b1a         	ldr	r3, [sp, #0x68]
+     3d2: 029a         	lsls	r2, r3, #0xa
+     3d4: 9b1b         	ldr	r3, [sp, #0x6c]
+     3d6: b292         	uxth	r2, r2
+     3d8: 4311         	orrs	r1, r2
+     3da: 041a         	lsls	r2, r3, #0x10
+     3dc: f402 127c    	and	r2, r2, #0x3f0000
+     3e0: f46f 0340    	mvn	r3, #0xc00000
+     3e4: 430a         	orrs	r2, r1
+     3e6: 49b4         	ldr	r1, [pc, #0x2d0]        @ 0x6b8 <DdrUpdateACTiming+0x6b8>
+     3e8: f7ff fffe    	bl	0x3e8 <DdrUpdateACTiming+0x3e8> @ imm = #-0x4
+			000003e8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     3ec: 9b16         	ldr	r3, [sp, #0x58]
+     3ee: 4620         	mov	r0, r4
+     3f0: f003 017f    	and	r1, r3, #0x7f
+     3f4: 9b13         	ldr	r3, [sp, #0x4c]
+     3f6: ea41 7103    	orr.w	r1, r1, r3, lsl #28
+     3fa: 9b15         	ldr	r3, [sp, #0x54]
+     3fc: 021a         	lsls	r2, r3, #0x8
+     3fe: 9b14         	ldr	r3, [sp, #0x50]
+     400: f402 42fe    	and	r2, r2, #0x7f00
+     404: 4311         	orrs	r1, r2
+     406: 041a         	lsls	r2, r3, #0x10
+     408: 4bac         	ldr	r3, [pc, #0x2b0]        @ 0x6bc <DdrUpdateACTiming+0x6bc>
+     40a: f402 027f    	and	r2, r2, #0xff0000
+     40e: 430a         	orrs	r2, r1
+     410: 49ab         	ldr	r1, [pc, #0x2ac]        @ 0x6c0 <DdrUpdateACTiming+0x6c0>
+     412: f7ff fffe    	bl	0x412 <DdrUpdateACTiming+0x412> @ imm = #-0x4
+			00000412:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     416: 9b1e         	ldr	r3, [sp, #0x78]
+     418: 4620         	mov	r0, r4
+     41a: f003 011f    	and	r1, r3, #0x1f
+     41e: 9b17         	ldr	r3, [sp, #0x5c]
+     420: ea41 6183    	orr.w	r1, r1, r3, lsl #26
+     424: 9b1d         	ldr	r3, [sp, #0x74]
+     426: 021a         	lsls	r2, r3, #0x8
+     428: 9b1c         	ldr	r3, [sp, #0x70]
+     42a: f402 6270    	and	r2, r2, #0xf00
+     42e: 4311         	orrs	r1, r2
+     430: 031a         	lsls	r2, r3, #0xc
+     432: 9b19         	ldr	r3, [sp, #0x64]
+     434: b292         	uxth	r2, r2
+     436: 4311         	orrs	r1, r2
+     438: 051a         	lsls	r2, r3, #0x14
+     43a: f002 727c    	and	r2, r2, #0x3f00000
+     43e: 4ba1         	ldr	r3, [pc, #0x284]        @ 0x6c4 <DdrUpdateACTiming+0x6c4>
+     440: 430a         	orrs	r2, r1
+     442: 49a1         	ldr	r1, [pc, #0x284]        @ 0x6c8 <DdrUpdateACTiming+0x6c8>
+     444: f7ff fffe    	bl	0x444 <DdrUpdateACTiming+0x444> @ imm = #-0x4
+			00000444:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     448: 9b2f         	ldr	r3, [sp, #0xbc]
+     44a: 4620         	mov	r0, r4
+     44c: 0119         	lsls	r1, r3, #0x4
+     44e: 9b2e         	ldr	r3, [sp, #0xb8]
+     450: b2c9         	uxtb	r1, r1
+     452: f003 020f    	and	r2, r3, #0xf
+     456: 430a         	orrs	r2, r1
+     458: 23ff         	movs	r3, #0xff
+     45a: 499c         	ldr	r1, [pc, #0x270]        @ 0x6cc <DdrUpdateACTiming+0x6cc>
+     45c: f7ff fffe    	bl	0x45c <DdrUpdateACTiming+0x45c> @ imm = #-0x4
+			0000045c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     460: 9b29         	ldr	r3, [sp, #0xa4]
+     462: 4620         	mov	r0, r4
+     464: 06d9         	lsls	r1, r3, #0x1b
+     466: 9b2b         	ldr	r3, [sp, #0xac]
+     468: f001 6100    	and	r1, r1, #0x8000000
+     46c: 071a         	lsls	r2, r3, #0x1c
+     46e: f04f 53c0    	mov.w	r3, #0x18000000
+     472: f002 5280    	and	r2, r2, #0x10000000
+     476: 430a         	orrs	r2, r1
+     478: 4994         	ldr	r1, [pc, #0x250]        @ 0x6cc <DdrUpdateACTiming+0x6cc>
+     47a: f7ff fffe    	bl	0x47a <DdrUpdateACTiming+0x47a> @ imm = #-0x4
+			0000047a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     47e: 9b28         	ldr	r3, [sp, #0xa0]
+     480: 4620         	mov	r0, r4
+     482: 0299         	lsls	r1, r3, #0xa
+     484: 9b2a         	ldr	r3, [sp, #0xa8]
+     486: f401 317f    	and	r1, r1, #0x3fc00
+     48a: 049a         	lsls	r2, r3, #0x12
+     48c: 4b90         	ldr	r3, [pc, #0x240]        @ 0x6d0 <DdrUpdateACTiming+0x6d0>
+     48e: f402 027c    	and	r2, r2, #0xfc0000
+     492: 430a         	orrs	r2, r1
+     494: 498f         	ldr	r1, [pc, #0x23c]        @ 0x6d4 <DdrUpdateACTiming+0x6d4>
+     496: f7ff fffe    	bl	0x496 <DdrUpdateACTiming+0x496> @ imm = #-0x4
+			00000496:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     49a: 9b30         	ldr	r3, [sp, #0xc0]
+     49c: 498e         	ldr	r1, [pc, #0x238]        @ 0x6d8 <DdrUpdateACTiming+0x6d8>
+     49e: 4620         	mov	r0, r4
+     4a0: 011a         	lsls	r2, r3, #0x4
+     4a2: 23f0         	movs	r3, #0xf0
+     4a4: 401a         	ands	r2, r3
+     4a6: f7ff fffe    	bl	0x4a6 <DdrUpdateACTiming+0x4a6> @ imm = #-0x4
+			000004a6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     4aa: 9b20         	ldr	r3, [sp, #0x80]
+     4ac: 4620         	mov	r0, r4
+     4ae: 0619         	lsls	r1, r3, #0x18
+     4b0: 9b21         	ldr	r3, [sp, #0x84]
+     4b2: f001 51f8    	and	r1, r1, #0x1f000000
+     4b6: 041a         	lsls	r2, r3, #0x10
+     4b8: 9b22         	ldr	r3, [sp, #0x88]
+     4ba: f402 12f8    	and	r2, r2, #0x1f0000
+     4be: 4311         	orrs	r1, r2
+     4c0: f003 023f    	and	r2, r3, #0x3f
+     4c4: 9b1f         	ldr	r3, [sp, #0x7c]
+     4c6: 4311         	orrs	r1, r2
+     4c8: 021a         	lsls	r2, r3, #0x8
+     4ca: 4b84         	ldr	r3, [pc, #0x210]        @ 0x6dc <DdrUpdateACTiming+0x6dc>
+     4cc: f402 527c    	and	r2, r2, #0x3f00
+     4d0: 430a         	orrs	r2, r1
+     4d2: 4983         	ldr	r1, [pc, #0x20c]        @ 0x6e0 <DdrUpdateACTiming+0x6e0>
+     4d4: f7ff fffe    	bl	0x4d4 <DdrUpdateACTiming+0x4d4> @ imm = #-0x4
+			000004d4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     4d8: 9b51         	ldr	r3, [sp, #0x144]
+     4da: 4620         	mov	r0, r4
+     4dc: 01d9         	lsls	r1, r3, #0x7
+     4de: 9b2d         	ldr	r3, [sp, #0xb4]
+     4e0: b2c9         	uxtb	r1, r1
+     4e2: 021a         	lsls	r2, r3, #0x8
+     4e4: 9b2c         	ldr	r3, [sp, #0xb0]
+     4e6: f402 527c    	and	r2, r2, #0x3f00
+     4ea: 4311         	orrs	r1, r2
+     4ec: f003 023f    	and	r2, r3, #0x3f
+     4f0: 9b52         	ldr	r3, [sp, #0x148]
+     4f2: 4311         	orrs	r1, r2
+     4f4: 03da         	lsls	r2, r3, #0xf
+     4f6: f64b 73bf    	movw	r3, #0xbfbf
+     4fa: b292         	uxth	r2, r2
+     4fc: 430a         	orrs	r2, r1
+     4fe: 4979         	ldr	r1, [pc, #0x1e4]        @ 0x6e4 <DdrUpdateACTiming+0x6e4>
+     500: f7ff fffe    	bl	0x500 <DdrUpdateACTiming+0x500> @ imm = #-0x4
+			00000500:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     504: 9b31         	ldr	r3, [sp, #0xc4]
+     506: 4620         	mov	r0, r4
+     508: 0619         	lsls	r1, r3, #0x18
+     50a: 9b36         	ldr	r3, [sp, #0xd8]
+     50c: f001 51f8    	and	r1, r1, #0x1f000000
+     510: 041a         	lsls	r2, r3, #0x10
+     512: 4b75         	ldr	r3, [pc, #0x1d4]        @ 0x6e8 <DdrUpdateACTiming+0x6e8>
+     514: f402 22e0    	and	r2, r2, #0x70000
+     518: 430a         	orrs	r2, r1
+     51a: 4974         	ldr	r1, [pc, #0x1d0]        @ 0x6ec <DdrUpdateACTiming+0x6ec>
+     51c: f7ff fffe    	bl	0x51c <DdrUpdateACTiming+0x51c> @ imm = #-0x4
+			0000051c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     520: 9b33         	ldr	r3, [sp, #0xcc]
+     522: 4620         	mov	r0, r4
+     524: 0219         	lsls	r1, r3, #0x8
+     526: 9b32         	ldr	r3, [sp, #0xc8]
+     528: f401 51f8    	and	r1, r1, #0x1f00
+     52c: 041a         	lsls	r2, r3, #0x10
+     52e: 9b34         	ldr	r3, [sp, #0xd0]
+     530: f402 127c    	and	r2, r2, #0x3f0000
+     534: 4311         	orrs	r1, r2
+     536: f003 021f    	and	r2, r3, #0x1f
+     53a: 9b35         	ldr	r3, [sp, #0xd4]
+     53c: 4311         	orrs	r1, r2
+     53e: 061a         	lsls	r2, r3, #0x18
+     540: 4b6b         	ldr	r3, [pc, #0x1ac]        @ 0x6f0 <DdrUpdateACTiming+0x6f0>
+     542: f002 527c    	and	r2, r2, #0x3f000000
+     546: 430a         	orrs	r2, r1
+     548: 496a         	ldr	r1, [pc, #0x1a8]        @ 0x6f4 <DdrUpdateACTiming+0x6f4>
+     54a: f7ff fffe    	bl	0x54a <DdrUpdateACTiming+0x54a> @ imm = #-0x4
+			0000054a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     54e: 9b56         	ldr	r3, [sp, #0x158]
+     550: 4620         	mov	r0, r4
+     552: 0219         	lsls	r1, r3, #0x8
+     554: 9b55         	ldr	r3, [sp, #0x154]
+     556: f401 7180    	and	r1, r1, #0x100
+     55a: 01da         	lsls	r2, r3, #0x7
+     55c: 9b57         	ldr	r3, [sp, #0x15c]
+     55e: b2d2         	uxtb	r2, r2
+     560: 4311         	orrs	r1, r2
+     562: f003 0201    	and	r2, r3, #0x1
+     566: 9b54         	ldr	r3, [sp, #0x150]
+     568: 4311         	orrs	r1, r2
+     56a: 025a         	lsls	r2, r3, #0x9
+     56c: 9b58         	ldr	r3, [sp, #0x160]
+     56e: f402 7200    	and	r2, r2, #0x200
+     572: 4311         	orrs	r1, r2
+     574: 031a         	lsls	r2, r3, #0xc
+     576: 9b53         	ldr	r3, [sp, #0x14c]
+     578: f402 5280    	and	r2, r2, #0x1000
+     57c: 4311         	orrs	r1, r2
+     57e: 019a         	lsls	r2, r3, #0x6
+     580: f241 33c1    	movw	r3, #0x13c1
+     584: f002 0240    	and	r2, r2, #0x40
+     588: 430a         	orrs	r2, r1
+     58a: 495b         	ldr	r1, [pc, #0x16c]        @ 0x6f8 <DdrUpdateACTiming+0x6f8>
+     58c: f7ff fffe    	bl	0x58c <DdrUpdateACTiming+0x58c> @ imm = #-0x4
+			0000058c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     590: 9b46         	ldr	r3, [sp, #0x118]
+     592: 4620         	mov	r0, r4
+     594: 0059         	lsls	r1, r3, #0x1
+     596: 9b45         	ldr	r3, [sp, #0x114]
+     598: f001 0102    	and	r1, r1, #0x2
+     59c: 009b         	lsls	r3, r3, #0x2
+     59e: f003 0304    	and	r3, r3, #0x4
+     5a2: 4319         	orrs	r1, r3
+     5a4: 9b47         	ldr	r3, [sp, #0x11c]
+     5a6: f003 0301    	and	r3, r3, #0x1
+     5aa: 4319         	orrs	r1, r3
+     5ac: 9b4b         	ldr	r3, [sp, #0x12c]
+     5ae: 00db         	lsls	r3, r3, #0x3
+     5b0: f003 0308    	and	r3, r3, #0x8
+     5b4: 4319         	orrs	r1, r3
+     5b6: 9b44         	ldr	r3, [sp, #0x110]
+     5b8: 011b         	lsls	r3, r3, #0x4
+     5ba: f003 0310    	and	r3, r3, #0x10
+     5be: 4319         	orrs	r1, r3
+     5c0: 9b43         	ldr	r3, [sp, #0x10c]
+     5c2: 015b         	lsls	r3, r3, #0x5
+     5c4: f003 0320    	and	r3, r3, #0x20
+     5c8: 4319         	orrs	r1, r3
+     5ca: 9b42         	ldr	r3, [sp, #0x108]
+     5cc: 019b         	lsls	r3, r3, #0x6
+     5ce: f003 0340    	and	r3, r3, #0x40
+     5d2: 4319         	orrs	r1, r3
+     5d4: 9b41         	ldr	r3, [sp, #0x104]
+     5d6: 01db         	lsls	r3, r3, #0x7
+     5d8: b2db         	uxtb	r3, r3
+     5da: 4319         	orrs	r1, r3
+     5dc: 9b40         	ldr	r3, [sp, #0x100]
+     5de: 021b         	lsls	r3, r3, #0x8
+     5e0: f403 7380    	and	r3, r3, #0x100
+     5e4: 4319         	orrs	r1, r3
+     5e6: 9b3f         	ldr	r3, [sp, #0xfc]
+     5e8: 025b         	lsls	r3, r3, #0x9
+     5ea: f403 7300    	and	r3, r3, #0x200
+     5ee: 4319         	orrs	r1, r3
+     5f0: 9b3e         	ldr	r3, [sp, #0xf8]
+     5f2: 029b         	lsls	r3, r3, #0xa
+     5f4: f403 6380    	and	r3, r3, #0x400
+     5f8: 4319         	orrs	r1, r3
+     5fa: 9b3d         	ldr	r3, [sp, #0xf4]
+     5fc: 031b         	lsls	r3, r3, #0xc
+     5fe: f403 5380    	and	r3, r3, #0x1000
+     602: 4319         	orrs	r1, r3
+     604: 9b3c         	ldr	r3, [sp, #0xf0]
+     606: 035b         	lsls	r3, r3, #0xd
+     608: f403 5300    	and	r3, r3, #0x2000
+     60c: 4319         	orrs	r1, r3
+     60e: 9b3b         	ldr	r3, [sp, #0xec]
+     610: 03db         	lsls	r3, r3, #0xf
+     612: b29b         	uxth	r3, r3
+     614: 4319         	orrs	r1, r3
+     616: 9b3a         	ldr	r3, [sp, #0xe8]
+     618: 041b         	lsls	r3, r3, #0x10
+     61a: f403 3380    	and	r3, r3, #0x10000
+     61e: 4319         	orrs	r1, r3
+     620: 9b49         	ldr	r3, [sp, #0x124]
+     622: 045b         	lsls	r3, r3, #0x11
+     624: f403 3300    	and	r3, r3, #0x20000
+     628: 4319         	orrs	r1, r3
+     62a: 9b48         	ldr	r3, [sp, #0x120]
+     62c: 049b         	lsls	r3, r3, #0x12
+     62e: f403 2380    	and	r3, r3, #0x40000
+     632: 4319         	orrs	r1, r3
+     634: 9b38         	ldr	r3, [sp, #0xe0]
+     636: 055b         	lsls	r3, r3, #0x15
+     638: f403 1300    	and	r3, r3, #0x200000
+     63c: 4319         	orrs	r1, r3
+     63e: 9b39         	ldr	r3, [sp, #0xe4]
+     640: 059b         	lsls	r3, r3, #0x16
+     642: f403 0380    	and	r3, r3, #0x400000
+     646: 4319         	orrs	r1, r3
+     648: 9b37         	ldr	r3, [sp, #0xdc]
+     64a: 05db         	lsls	r3, r3, #0x17
+     64c: f403 0300    	and	r3, r3, #0x800000
+     650: 4319         	orrs	r1, r3
+     652: 9b50         	ldr	r3, [sp, #0x140]
+     654: 065b         	lsls	r3, r3, #0x19
+     656: f003 7300    	and	r3, r3, #0x2000000
+     65a: 4319         	orrs	r1, r3
+     65c: 9b4f         	ldr	r3, [sp, #0x13c]
+     65e: 069a         	lsls	r2, r3, #0x1a
+     660: 9b4e         	ldr	r3, [sp, #0x138]
+     662: f002 6280    	and	r2, r2, #0x4000000
+     666: 4311         	orrs	r1, r2
+     668: 06da         	lsls	r2, r3, #0x1b
+     66a: 9b4d         	ldr	r3, [sp, #0x134]
+     66c: f002 6200    	and	r2, r2, #0x8000000
+     670: 4311         	orrs	r1, r2
+     672: 071a         	lsls	r2, r3, #0x1c
+     674: 9b4c         	ldr	r3, [sp, #0x130]
+     676: f002 5280    	and	r2, r2, #0x10000000
+     67a: 4311         	orrs	r1, r2
+     67c: 075a         	lsls	r2, r3, #0x1d
+     67e: 9b4a         	ldr	r3, [sp, #0x128]
+     680: f002 5200    	and	r2, r2, #0x20000000
+     684: 4311         	orrs	r1, r2
+     686: 079a         	lsls	r2, r3, #0x1e
+     688: 4b1c         	ldr	r3, [pc, #0x70]         @ 0x6fc <DdrUpdateACTiming+0x6fc>
+     68a: f002 4280    	and	r2, r2, #0x40000000
+     68e: 430a         	orrs	r2, r1
+     690: 491b         	ldr	r1, [pc, #0x6c]         @ 0x700 <DdrUpdateACTiming+0x700>
+     692: f7ff fffe    	bl	0x692 <DdrUpdateACTiming+0x692> @ imm = #-0x4
+			00000692:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     696: 9a23         	ldr	r2, [sp, #0x8c]
+     698: 490e         	ldr	r1, [pc, #0x38]         @ 0x6d4 <DdrUpdateACTiming+0x6d4>
+     69a: 4620         	mov	r0, r4
+     69c: f240 13ff    	movw	r3, #0x1ff
+     6a0: f3c2 0208    	ubfx	r2, r2, #0x0, #0x9
+     6a4: e02e         	b	0x704 <DdrUpdateACTiming+0x704> @ imm = #0x5c
+     6a6: bf00         	nop
+     6a8: ff 71 3f 1f  	.word	0x1f3f71ff
+     6ac: 4c 16 20 00  	.word	0x0020164c
+     6b0: 00 00 fe 03  	.word	0x03fe0000
+     6b4: 50 16 20 00  	.word	0x00201650
+     6b8: 54 16 20 00  	.word	0x00201654
+     6bc: 7f 7f ff f0  	.word	0xf0ff7f7f
+     6c0: 58 16 20 00  	.word	0x00201658
+     6c4: 1f ff f0 ff  	.word	0xfff0ff1f
+     6c8: 5c 16 20 00  	.word	0x0020165c
+     6cc: e8 16 20 00  	.word	0x002016e8
+     6d0: 00 fc ff 00  	.word	0x00fffc00
+     6d4: ec 16 20 00  	.word	0x002016ec
+     6d8: e0 16 20 00  	.word	0x002016e0
+     6dc: 3f 3f 1f 1f  	.word	0x1f1f3f3f
+     6e0: 60 16 20 00  	.word	0x00201660
+     6e4: c0 16 20 00  	.word	0x002016c0
+     6e8: 00 00 07 1f  	.word	0x1f070000
+     6ec: 68 16 20 00  	.word	0x00201668
+     6f0: 1f 1f 3f 3f  	.word	0x3f3f1f1f
+     6f4: 6c 16 20 00  	.word	0x0020166c
+     6f8: 70 16 20 00  	.word	0x00201670
+     6fc: ff b7 e7 7e  	.word	0x7ee7b7ff
+     700: 64 16 20 00  	.word	0x00201664
+     704: f7ff fffe    	bl	0x704 <DdrUpdateACTiming+0x704> @ imm = #-0x4
+			00000704:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     708: 9b24         	ldr	r3, [sp, #0x90]
+     70a: 4620         	mov	r0, r4
+     70c: 0219         	lsls	r1, r3, #0x8
+     70e: 9b26         	ldr	r3, [sp, #0x98]
+     710: f401 517c    	and	r1, r1, #0x3f00
+     714: 039a         	lsls	r2, r3, #0xe
+     716: 9b25         	ldr	r3, [sp, #0x94]
+     718: f402 4280    	and	r2, r2, #0x4000
+     71c: 4311         	orrs	r1, r2
+     71e: 041a         	lsls	r2, r3, #0x10
+     720: 9b27         	ldr	r3, [sp, #0x9c]
+     722: f402 127c    	and	r2, r2, #0x3f0000
+     726: 4311         	orrs	r1, r2
+     728: 03da         	lsls	r2, r3, #0xf
+     72a: 4b2f         	ldr	r3, [pc, #0xbc]         @ 0x7e8 <DdrUpdateACTiming+0x7e8>
+     72c: b292         	uxth	r2, r2
+     72e: 430a         	orrs	r2, r1
+     730: 492e         	ldr	r1, [pc, #0xb8]         @ 0x7ec <DdrUpdateACTiming+0x7ec>
+     732: f7ff fffe    	bl	0x732 <DdrUpdateACTiming+0x732> @ imm = #-0x4
+			00000732:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     736: 492e         	ldr	r1, [pc, #0xb8]         @ 0x7f0 <DdrUpdateACTiming+0x7f0>
+     738: 4620         	mov	r0, r4
+     73a: f44f 437f    	mov.w	r3, #0xff00
+     73e: f44f 42c8    	mov.w	r2, #0x6400
+     742: f7ff fffe    	bl	0x742 <DdrUpdateACTiming+0x742> @ imm = #-0x4
+			00000742:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     746: f04f 5340    	mov.w	r3, #0x30000000
+     74a: 492a         	ldr	r1, [pc, #0xa8]         @ 0x7f4 <DdrUpdateACTiming+0x7f4>
+     74c: 461a         	mov	r2, r3
+     74e: 4620         	mov	r0, r4
+     750: f7ff fffe    	bl	0x750 <DdrUpdateACTiming+0x750> @ imm = #-0x4
+			00000750:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     754: 2330         	movs	r3, #0x30
+     756: 4927         	ldr	r1, [pc, #0x9c]         @ 0x7f4 <DdrUpdateACTiming+0x7f4>
+     758: 461a         	mov	r2, r3
+     75a: 4620         	mov	r0, r4
+     75c: f7ff fffe    	bl	0x75c <DdrUpdateACTiming+0x75c> @ imm = #-0x4
+			0000075c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     760: f04f 7340    	mov.w	r3, #0x3000000
+     764: 4924         	ldr	r1, [pc, #0x90]         @ 0x7f8 <DdrUpdateACTiming+0x7f8>
+     766: 461a         	mov	r2, r3
+     768: 4620         	mov	r0, r4
+     76a: f7ff fffe    	bl	0x76a <DdrUpdateACTiming+0x76a> @ imm = #-0x4
+			0000076a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     76e: f44f 23e0    	mov.w	r3, #0x70000
+     772: 4922         	ldr	r1, [pc, #0x88]         @ 0x7fc <DdrUpdateACTiming+0x7fc>
+     774: 461a         	mov	r2, r3
+     776: 4620         	mov	r0, r4
+     778: f7ff fffe    	bl	0x778 <DdrUpdateACTiming+0x778> @ imm = #-0x4
+			00000778:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     77c: 4920         	ldr	r1, [pc, #0x80]         @ 0x800 <DdrUpdateACTiming+0x800>
+     77e: 464a         	mov	r2, r9
+     780: 4620         	mov	r0, r4
+     782: 2301         	movs	r3, #0x1
+     784: f7ff fffe    	bl	0x784 <DdrUpdateACTiming+0x784> @ imm = #-0x4
+			00000784:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     788: f04f 437f    	mov.w	r3, #0xff000000
+     78c: 491d         	ldr	r1, [pc, #0x74]         @ 0x804 <DdrUpdateACTiming+0x804>
+     78e: ea4f 620a    	lsl.w	r2, r10, #0x18
+     792: 4620         	mov	r0, r4
+     794: f7ff fffe    	bl	0x794 <DdrUpdateACTiming+0x794> @ imm = #-0x4
+			00000794:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     798: f89d 3164    	ldrb.w	r3, [sp, #0x164]
+     79c: f8c4 3098    	str.w	r3, [r4, #0x98]
+     7a0: b063         	add	sp, #0x18c
+     7a2: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     7a6: 4620         	mov	r0, r4
+     7a8: f7ff fffe    	bl	0x7a8 <DdrUpdateACTiming+0x7a8> @ imm = #-0x4
+			000007a8:  R_ARM_THM_CALL	is_ddr4_family
+     7ac: 2800         	cmp	r0, #0x0
+     7ae: f43f ac40    	beq.w	0x32 <DdrUpdateACTiming+0x32> @ imm = #-0x780
+     7b2: 4e15         	ldr	r6, [pc, #0x54]         @ 0x808 <DdrUpdateACTiming+0x808>
+     7b4: 7833         	ldrb	r3, [r6]
+     7b6: b2ef         	uxtb	r7, r5
+     7b8: 2b04         	cmp	r3, #0x4
+     7ba: d005         	beq	0x7c8 <DdrUpdateACTiming+0x7c8> @ imm = #0xa
+     7bc: 3501         	adds	r5, #0x1
+     7be: f506 768a    	add.w	r6, r6, #0x114
+     7c2: 2d1e         	cmp	r5, #0x1e
+     7c4: d1f6         	bne	0x7b4 <DdrUpdateACTiming+0x7b4> @ imm = #-0x14
+     7c6: e434         	b	0x32 <DdrUpdateACTiming+0x32> @ imm = #-0x798
+     7c8: 8932         	ldrh	r2, [r6, #0x8]
+     7ca: f8b4 3056    	ldrh.w	r3, [r4, #0x56]
+     7ce: 429a         	cmp	r2, r3
+     7d0: d1f4         	bne	0x7bc <DdrUpdateACTiming+0x7bc> @ imm = #-0x18
+     7d2: f896 8007    	ldrb.w	r8, [r6, #0x7]
+     7d6: 4620         	mov	r0, r4
+     7d8: f7ff fffe    	bl	0x7d8 <DdrUpdateACTiming+0x7d8> @ imm = #-0x4
+			000007d8:  R_ARM_THM_CALL	vGet_Div_Mode
+     7dc: 4580         	cmp	r8, r0
+     7de: d1ed         	bne	0x7bc <DdrUpdateACTiming+0x7bc> @ imm = #-0x26
+     7e0: 7873         	ldrb	r3, [r6, #0x1]
+     7e2: 2b00         	cmp	r3, #0x0
+     7e4: d1ea         	bne	0x7bc <DdrUpdateACTiming+0x7bc> @ imm = #-0x2c
+     7e6: e43a         	b	0x5e <DdrUpdateACTiming+0x5e> @ imm = #-0x78c
+     7e8: 00 ff 3f 00  	.word	0x003fff00
+     7ec: e8 16 20 00  	.word	0x002016e8
+     7f0: 14 16 20 00  	.word	0x00201614
+     7f4: 08 16 20 00  	.word	0x00201608
+     7f8: 78 16 20 00  	.word	0x00201678
+     7fc: a4 16 20 00  	.word	0x002016a4
+     800: 68 16 20 00  	.word	0x00201668
+     804: 40 16 20 00  	.word	0x00201640
+     808: 00 00 00 00  	.word	0x00000000
+			00000808:  R_ARM_ABS32	ACTimingTbl_DDR4
+     80c: 4620         	mov	r0, r4
+     80e: f7ff fffe    	bl	0x80e <DdrUpdateACTiming+0x80e> @ imm = #-0x4
+			0000080e:  R_ARM_THM_CALL	is_ddr4_family
+     812: 2800         	cmp	r0, #0x0
+     814: d0c4         	beq	0x7a0 <DdrUpdateACTiming+0x7a0> @ imm = #-0x78
+     816: 48a8         	ldr	r0, [pc, #0x2a0]        @ 0xab8 <DdrUpdateACTiming+0xab8>
+     818: f44f 738a    	mov.w	r3, #0x114
+     81c: fb03 0007    	mla	r0, r3, r7, r0
+     820: 89c3         	ldrh	r3, [r0, #0xe]
+     822: 9308         	str	r3, [sp, #0x20]
+     824: 8a03         	ldrh	r3, [r0, #0x10]
+     826: 9309         	str	r3, [sp, #0x24]
+     828: 8a43         	ldrh	r3, [r0, #0x12]
+     82a: 930a         	str	r3, [sp, #0x28]
+     82c: 8a83         	ldrh	r3, [r0, #0x14]
+     82e: 930b         	str	r3, [sp, #0x2c]
+     830: 8b03         	ldrh	r3, [r0, #0x18]
+     832: 930c         	str	r3, [sp, #0x30]
+     834: 8b43         	ldrh	r3, [r0, #0x1a]
+     836: 930d         	str	r3, [sp, #0x34]
+     838: 8c03         	ldrh	r3, [r0, #0x20]
+     83a: 930e         	str	r3, [sp, #0x38]
+     83c: 8c43         	ldrh	r3, [r0, #0x22]
+     83e: 930f         	str	r3, [sp, #0x3c]
+     840: 8c83         	ldrh	r3, [r0, #0x24]
+     842: 9310         	str	r3, [sp, #0x40]
+     844: 8cc3         	ldrh	r3, [r0, #0x26]
+     846: 9302         	str	r3, [sp, #0x8]
+     848: 8d43         	ldrh	r3, [r0, #0x2a]
+     84a: 9306         	str	r3, [sp, #0x18]
+     84c: 8dc3         	ldrh	r3, [r0, #0x2e]
+     84e: 9311         	str	r3, [sp, #0x44]
+     850: 8e43         	ldrh	r3, [r0, #0x32]
+     852: f8b0 8016    	ldrh.w	r8, [r0, #0x16]
+     856: 8b86         	ldrh	r6, [r0, #0x1c]
+     858: 8bc7         	ldrh	r7, [r0, #0x1e]
+     85a: f8b0 e028    	ldrh.w	lr, [r0, #0x28]
+     85e: 8d85         	ldrh	r5, [r0, #0x2c]
+     860: f8b0 9030    	ldrh.w	r9, [r0, #0x30]
+     864: 9312         	str	r3, [sp, #0x48]
+     866: 8e83         	ldrh	r3, [r0, #0x34]
+     868: 9313         	str	r3, [sp, #0x4c]
+     86a: 8ec3         	ldrh	r3, [r0, #0x36]
+     86c: 9314         	str	r3, [sp, #0x50]
+     86e: 8f43         	ldrh	r3, [r0, #0x3a]
+     870: 9315         	str	r3, [sp, #0x54]
+     872: 8f83         	ldrh	r3, [r0, #0x3c]
+     874: 9303         	str	r3, [sp, #0xc]
+     876: 8fc3         	ldrh	r3, [r0, #0x3e]
+     878: 9304         	str	r3, [sp, #0x10]
+     87a: f8b0 3040    	ldrh.w	r3, [r0, #0x40]
+     87e: 9316         	str	r3, [sp, #0x58]
+     880: f8b0 3042    	ldrh.w	r3, [r0, #0x42]
+     884: 9317         	str	r3, [sp, #0x5c]
+     886: f8b0 3044    	ldrh.w	r3, [r0, #0x44]
+     88a: 9318         	str	r3, [sp, #0x60]
+     88c: f8b0 3046    	ldrh.w	r3, [r0, #0x46]
+     890: 9319         	str	r3, [sp, #0x64]
+     892: f8b0 3048    	ldrh.w	r3, [r0, #0x48]
+     896: 931a         	str	r3, [sp, #0x68]
+     898: f8b0 304a    	ldrh.w	r3, [r0, #0x4a]
+     89c: 931b         	str	r3, [sp, #0x6c]
+     89e: f8b0 304c    	ldrh.w	r3, [r0, #0x4c]
+     8a2: 931c         	str	r3, [sp, #0x70]
+     8a4: f8b0 304e    	ldrh.w	r3, [r0, #0x4e]
+     8a8: 931d         	str	r3, [sp, #0x74]
+     8aa: f8b0 3050    	ldrh.w	r3, [r0, #0x50]
+     8ae: 931e         	str	r3, [sp, #0x78]
+     8b0: f8b0 3052    	ldrh.w	r3, [r0, #0x52]
+     8b4: 931f         	str	r3, [sp, #0x7c]
+     8b6: f8b0 3062    	ldrh.w	r3, [r0, #0x62]
+     8ba: 9320         	str	r3, [sp, #0x80]
+     8bc: f8b0 3078    	ldrh.w	r3, [r0, #0x78]
+     8c0: f8b0 2086    	ldrh.w	r2, [r0, #0x86]
+     8c4: 9225         	str	r2, [sp, #0x94]
+     8c6: f8b0 208a    	ldrh.w	r2, [r0, #0x8a]
+     8ca: 9226         	str	r2, [sp, #0x98]
+     8cc: f8b0 208c    	ldrh.w	r2, [r0, #0x8c]
+     8d0: 9227         	str	r2, [sp, #0x9c]
+     8d2: f8b0 208e    	ldrh.w	r2, [r0, #0x8e]
+     8d6: 9228         	str	r2, [sp, #0xa0]
+     8d8: f8b0 2090    	ldrh.w	r2, [r0, #0x90]
+     8dc: 9229         	str	r2, [sp, #0xa4]
+     8de: f8b0 2094    	ldrh.w	r2, [r0, #0x94]
+     8e2: 922a         	str	r2, [sp, #0xa8]
+     8e4: f8b0 2096    	ldrh.w	r2, [r0, #0x96]
+     8e8: 922b         	str	r2, [sp, #0xac]
+     8ea: f8b0 2098    	ldrh.w	r2, [r0, #0x98]
+     8ee: 922c         	str	r2, [sp, #0xb0]
+     8f0: f8b0 209a    	ldrh.w	r2, [r0, #0x9a]
+     8f4: 9321         	str	r3, [sp, #0x84]
+     8f6: 922d         	str	r2, [sp, #0xb4]
+     8f8: f8b0 307a    	ldrh.w	r3, [r0, #0x7a]
+     8fc: f8b0 209c    	ldrh.w	r2, [r0, #0x9c]
+     900: 9322         	str	r3, [sp, #0x88]
+     902: 922e         	str	r2, [sp, #0xb8]
+     904: f8b0 3080    	ldrh.w	r3, [r0, #0x80]
+     908: f8b0 209e    	ldrh.w	r2, [r0, #0x9e]
+     90c: 9323         	str	r3, [sp, #0x8c]
+     90e: 922f         	str	r2, [sp, #0xbc]
+     910: f8b0 3082    	ldrh.w	r3, [r0, #0x82]
+     914: f8b0 20a6    	ldrh.w	r2, [r0, #0xa6]
+     918: 9324         	str	r3, [sp, #0x90]
+     91a: f8b0 3084    	ldrh.w	r3, [r0, #0x84]
+     91e: 9230         	str	r2, [sp, #0xc0]
+     920: f8b0 20aa    	ldrh.w	r2, [r0, #0xaa]
+     924: 9231         	str	r2, [sp, #0xc4]
+     926: f8b0 20ac    	ldrh.w	r2, [r0, #0xac]
+     92a: 9232         	str	r2, [sp, #0xc8]
+     92c: f8b0 20ae    	ldrh.w	r2, [r0, #0xae]
+     930: 9233         	str	r2, [sp, #0xcc]
+     932: f8b0 20b0    	ldrh.w	r2, [r0, #0xb0]
+     936: 9234         	str	r2, [sp, #0xd0]
+     938: f8b0 20b2    	ldrh.w	r2, [r0, #0xb2]
+     93c: 9235         	str	r2, [sp, #0xd4]
+     93e: f8b0 20b4    	ldrh.w	r2, [r0, #0xb4]
+     942: f8b0 10c2    	ldrh.w	r1, [r0, #0xc2]
+     946: 9236         	str	r2, [sp, #0xd8]
+     948: f8b0 20b6    	ldrh.w	r2, [r0, #0xb6]
+     94c: 9237         	str	r2, [sp, #0xdc]
+     94e: 9107         	str	r1, [sp, #0x1c]
+     950: f8b0 20b8    	ldrh.w	r2, [r0, #0xb8]
+     954: f8b0 10c4    	ldrh.w	r1, [r0, #0xc4]
+     958: 9205         	str	r2, [sp, #0x14]
+     95a: 913b         	str	r1, [sp, #0xec]
+     95c: f8b0 20ba    	ldrh.w	r2, [r0, #0xba]
+     960: f8b0 10c6    	ldrh.w	r1, [r0, #0xc6]
+     964: 9238         	str	r2, [sp, #0xe0]
+     966: 913c         	str	r1, [sp, #0xf0]
+     968: f8b0 20bc    	ldrh.w	r2, [r0, #0xbc]
+     96c: f8b0 10c8    	ldrh.w	r1, [r0, #0xc8]
+     970: 9239         	str	r2, [sp, #0xe4]
+     972: 913d         	str	r1, [sp, #0xf4]
+     974: f8b0 20be    	ldrh.w	r2, [r0, #0xbe]
+     978: f8b0 10ca    	ldrh.w	r1, [r0, #0xca]
+     97c: 923a         	str	r2, [sp, #0xe8]
+     97e: f8b0 20c0    	ldrh.w	r2, [r0, #0xc0]
+     982: 913e         	str	r1, [sp, #0xf8]
+     984: f8b0 10cc    	ldrh.w	r1, [r0, #0xcc]
+     988: 913f         	str	r1, [sp, #0xfc]
+     98a: f8b0 10ce    	ldrh.w	r1, [r0, #0xce]
+     98e: 9140         	str	r1, [sp, #0x100]
+     990: f8b0 10d0    	ldrh.w	r1, [r0, #0xd0]
+     994: 9141         	str	r1, [sp, #0x104]
+     996: f8b0 10d2    	ldrh.w	r1, [r0, #0xd2]
+     99a: 9142         	str	r1, [sp, #0x108]
+     99c: f8b0 10d4    	ldrh.w	r1, [r0, #0xd4]
+     9a0: 9143         	str	r1, [sp, #0x10c]
+     9a2: f8b0 10d6    	ldrh.w	r1, [r0, #0xd6]
+     9a6: 9144         	str	r1, [sp, #0x110]
+     9a8: f8b0 10d8    	ldrh.w	r1, [r0, #0xd8]
+     9ac: 9145         	str	r1, [sp, #0x114]
+     9ae: f8b0 10da    	ldrh.w	r1, [r0, #0xda]
+     9b2: 9146         	str	r1, [sp, #0x118]
+     9b4: f8b0 10dc    	ldrh.w	r1, [r0, #0xdc]
+     9b8: 9147         	str	r1, [sp, #0x11c]
+     9ba: f8b0 10de    	ldrh.w	r1, [r0, #0xde]
+     9be: 9148         	str	r1, [sp, #0x120]
+     9c0: f8b0 10e0    	ldrh.w	r1, [r0, #0xe0]
+     9c4: 9149         	str	r1, [sp, #0x124]
+     9c6: f8b0 10e2    	ldrh.w	r1, [r0, #0xe2]
+     9ca: 914a         	str	r1, [sp, #0x128]
+     9cc: f8b0 10e4    	ldrh.w	r1, [r0, #0xe4]
+     9d0: 914b         	str	r1, [sp, #0x12c]
+     9d2: f8b0 10e6    	ldrh.w	r1, [r0, #0xe6]
+     9d6: 914c         	str	r1, [sp, #0x130]
+     9d8: f8b0 10e8    	ldrh.w	r1, [r0, #0xe8]
+     9dc: 914d         	str	r1, [sp, #0x134]
+     9de: f8b0 10ea    	ldrh.w	r1, [r0, #0xea]
+     9e2: 914e         	str	r1, [sp, #0x138]
+     9e4: f8b0 10ec    	ldrh.w	r1, [r0, #0xec]
+     9e8: 914f         	str	r1, [sp, #0x13c]
+     9ea: f8b0 10ee    	ldrh.w	r1, [r0, #0xee]
+     9ee: 9150         	str	r1, [sp, #0x140]
+     9f0: f8b0 10f0    	ldrh.w	r1, [r0, #0xf0]
+     9f4: 9151         	str	r1, [sp, #0x144]
+     9f6: f8b0 10f2    	ldrh.w	r1, [r0, #0xf2]
+     9fa: 9152         	str	r1, [sp, #0x148]
+     9fc: f8b0 10f4    	ldrh.w	r1, [r0, #0xf4]
+     a00: 9153         	str	r1, [sp, #0x14c]
+     a02: f8b0 10f6    	ldrh.w	r1, [r0, #0xf6]
+     a06: 9154         	str	r1, [sp, #0x150]
+     a08: f8b0 10f8    	ldrh.w	r1, [r0, #0xf8]
+     a0c: 9155         	str	r1, [sp, #0x154]
+     a0e: f8b0 10fa    	ldrh.w	r1, [r0, #0xfa]
+     a12: 9156         	str	r1, [sp, #0x158]
+     a14: f8b0 10fc    	ldrh.w	r1, [r0, #0xfc]
+     a18: 9157         	str	r1, [sp, #0x15c]
+     a1a: f8b0 1104    	ldrh.w	r1, [r0, #0x104]
+     a1e: 9158         	str	r1, [sp, #0x160]
+     a20: f8b0 1108    	ldrh.w	r1, [r0, #0x108]
+     a24: 9159         	str	r1, [sp, #0x164]
+     a26: f8b0 110a    	ldrh.w	r1, [r0, #0x10a]
+     a2a: 915a         	str	r1, [sp, #0x168]
+     a2c: f8b0 110c    	ldrh.w	r1, [r0, #0x10c]
+     a30: 915b         	str	r1, [sp, #0x16c]
+     a32: f8b0 110e    	ldrh.w	r1, [r0, #0x10e]
+     a36: 915c         	str	r1, [sp, #0x170]
+     a38: f8b0 1110    	ldrh.w	r1, [r0, #0x110]
+     a3c: 915d         	str	r1, [sp, #0x174]
+     a3e: f8b0 1112    	ldrh.w	r1, [r0, #0x112]
+     a42: f8b0 b106    	ldrh.w	r11, [r0, #0x106]
+     a46: 915e         	str	r1, [sp, #0x178]
+     a48: f8d4 1098    	ldr.w	r1, [r4, #0x98]
+     a4c: 481b         	ldr	r0, [pc, #0x6c]         @ 0xabc <DdrUpdateACTiming+0xabc>
+     a4e: 915f         	str	r1, [sp, #0x17c]
+     a50: f894 1020    	ldrb.w	r1, [r4, #0x20]
+     a54: f890 00a5    	ldrb.w	r0, [r0, #0xa5]
+     a58: b911         	cbnz	r1, 0xa60 <DdrUpdateACTiming+0xa60> @ imm = #0x4
+     a5a: 9207         	str	r2, [sp, #0x1c]
+     a5c: f8cd e018    	str.w	lr, [sp, #0x18]
+     a60: b10f         	cbz	r7, 0xa66 <DdrUpdateACTiming+0xa66> @ imm = #0x2
+     a62: 1a3f         	subs	r7, r7, r0
+     a64: b2bf         	uxth	r7, r7
+     a66: b10e         	cbz	r6, 0xa6c <DdrUpdateACTiming+0xa6c> @ imm = #0x2
+     a68: 1a36         	subs	r6, r6, r0
+     a6a: b2b6         	uxth	r6, r6
+     a6c: f1b9 0f00    	cmp.w	r9, #0x0
+     a70: d003         	beq	0xa7a <DdrUpdateACTiming+0xa7a> @ imm = #0x6
+     a72: eba9 0900    	sub.w	r9, r9, r0
+     a76: fa1f f989    	uxth.w	r9, r9
+     a7a: b10d         	cbz	r5, 0xa80 <DdrUpdateACTiming+0xa80> @ imm = #0x2
+     a7c: 1a2d         	subs	r5, r5, r0
+     a7e: b2ad         	uxth	r5, r5
+     a80: f1b8 0f00    	cmp.w	r8, #0x0
+     a84: d003         	beq	0xa8e <DdrUpdateACTiming+0xa8e> @ imm = #0x6
+     a86: eba8 0800    	sub.w	r8, r8, r0
+     a8a: fa1f f888    	uxth.w	r8, r8
+     a8e: 9a04         	ldr	r2, [sp, #0x10]
+     a90: b112         	cbz	r2, 0xa98 <DdrUpdateACTiming+0xa98> @ imm = #0x4
+     a92: 1a12         	subs	r2, r2, r0
+     a94: b292         	uxth	r2, r2
+     a96: 9204         	str	r2, [sp, #0x10]
+     a98: 9a03         	ldr	r2, [sp, #0xc]
+     a9a: b112         	cbz	r2, 0xaa2 <DdrUpdateACTiming+0xaa2> @ imm = #0x4
+     a9c: 1a12         	subs	r2, r2, r0
+     a9e: b292         	uxth	r2, r2
+     aa0: 9203         	str	r2, [sp, #0xc]
+     aa2: 9a02         	ldr	r2, [sp, #0x8]
+     aa4: b112         	cbz	r2, 0xaac <DdrUpdateACTiming+0xaac> @ imm = #0x4
+     aa6: 1a12         	subs	r2, r2, r0
+     aa8: b292         	uxth	r2, r2
+     aaa: 9202         	str	r2, [sp, #0x8]
+     aac: 9a05         	ldr	r2, [sp, #0x14]
+     aae: b13a         	cbz	r2, 0xac0 <DdrUpdateACTiming+0xac0> @ imm = #0xe
+     ab0: 1a10         	subs	r0, r2, r0
+     ab2: b282         	uxth	r2, r0
+     ab4: 9205         	str	r2, [sp, #0x14]
+     ab6: e003         	b	0xac0 <DdrUpdateACTiming+0xac0> @ imm = #0x6
+     ab8: 00 00 00 00  	.word	0x00000000
+			00000ab8:  R_ARM_ABS32	ACTimingTbl_DDR4
+     abc: 00 00 00 00  	.word	0x00000000
+			00000abc:  R_ARM_ABS32	DUTTopSetGlobal
+     ac0: 4620         	mov	r0, r4
+     ac2: 9361         	str	r3, [sp, #0x184]
+     ac4: f7ff fffe    	bl	0xac4 <DdrUpdateACTiming+0xac4> @ imm = #-0x4
+			00000ac4:  R_ARM_THM_CALL	vGet_Div_Mode
+     ac8: 2802         	cmp	r0, #0x2
+     aca: f04f 0304    	mov.w	r3, #0x4
+     ace: f04f 0a00    	mov.w	r10, #0x0
+     ad2: bf18         	it	ne
+     ad4: 2308         	movne	r3, #0x8
+     ad6: 9360         	str	r3, [sp, #0x180]
+     ad8: 9b4b         	ldr	r3, [sp, #0x12c]
+     ada: 043f         	lsls	r7, r7, #0x10
+     adc: 49c9         	ldr	r1, [pc, #0x324]        @ 0xe04 <DdrUpdateACTiming+0xe04>
+     ade: f407 177c    	and	r7, r7, #0x3f0000
+     ae2: f8c4 a098    	str.w	r10, [r4, #0x98]
+     ae6: f009 090f    	and	r9, r9, #0xf
+     aea: 0058         	lsls	r0, r3, #0x1
+     aec: 9b61         	ldr	r3, [sp, #0x184]
+     aee: f000 0002    	and	r0, r0, #0x2
+     af2: 032d         	lsls	r5, r5, #0xc
+     af4: f405 45e0    	and	r5, r5, #0x7000
+     af8: 031b         	lsls	r3, r3, #0xc
+     afa: b29b         	uxth	r3, r3
+     afc: 4318         	orrs	r0, r3
+     afe: 9b4c         	ldr	r3, [sp, #0x130]
+     b00: f003 0201    	and	r2, r3, #0x1
+     b04: 9b24         	ldr	r3, [sp, #0x90]
+     b06: 4310         	orrs	r0, r2
+     b08: 041a         	lsls	r2, r3, #0x10
+     b0a: 9b58         	ldr	r3, [sp, #0x160]
+     b0c: f402 2270    	and	r2, r2, #0xf0000
+     b10: 4310         	orrs	r0, r2
+     b12: 051a         	lsls	r2, r3, #0x14
+     b14: 4bbc         	ldr	r3, [pc, #0x2f0]        @ 0xe08 <DdrUpdateACTiming+0xe08>
+     b16: f402 0270    	and	r2, r2, #0xf00000
+     b1a: 4302         	orrs	r2, r0
+     b1c: 4620         	mov	r0, r4
+     b1e: f7ff fffe    	bl	0xb1e <DdrUpdateACTiming+0xb1e> @ imm = #-0x4
+			00000b1e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     b22: 9b0c         	ldr	r3, [sp, #0x30]
+     b24: 49b9         	ldr	r1, [pc, #0x2e4]        @ 0xe0c <DdrUpdateACTiming+0xe0c>
+     b26: 4620         	mov	r0, r4
+     b28: f003 023f    	and	r2, r3, #0x3f
+     b2c: 9b09         	ldr	r3, [sp, #0x24]
+     b2e: ea42 7b0b    	orr.w	r11, r2, r11, lsl #28
+     b32: 041a         	lsls	r2, r3, #0x10
+     b34: 9b08         	ldr	r3, [sp, #0x20]
+     b36: f402 22e0    	and	r2, r2, #0x70000
+     b3a: ea4b 0b02    	orr.w	r11, r11, r2
+     b3e: 05da         	lsls	r2, r3, #0x17
+     b40: 4bb3         	ldr	r3, [pc, #0x2cc]        @ 0xe10 <DdrUpdateACTiming+0xe10>
+     b42: f002 6278    	and	r2, r2, #0xf800000
+     b46: ea4b 0b02    	orr.w	r11, r11, r2
+     b4a: ea4f 2208    	lsl.w	r2, r8, #0x8
+     b4e: b292         	uxth	r2, r2
+     b50: ea4b 0202    	orr.w	r2, r11, r2
+     b54: f7ff fffe    	bl	0xb54 <DdrUpdateACTiming+0xb54> @ imm = #-0x4
+			00000b54:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     b58: 9b0e         	ldr	r3, [sp, #0x38]
+     b5a: 49ae         	ldr	r1, [pc, #0x2b8]        @ 0xe14 <DdrUpdateACTiming+0xe14>
+     b5c: 4620         	mov	r0, r4
+     b5e: 029a         	lsls	r2, r3, #0xa
+     b60: 9b0f         	ldr	r3, [sp, #0x3c]
+     b62: f402 42f8    	and	r2, r2, #0x7c00
+     b66: 015b         	lsls	r3, r3, #0x5
+     b68: f403 7378    	and	r3, r3, #0x3e0
+     b6c: 431a         	orrs	r2, r3
+     b6e: 9b10         	ldr	r3, [sp, #0x40]
+     b70: f003 031f    	and	r3, r3, #0x1f
+     b74: 431a         	orrs	r2, r3
+     b76: 4ba8         	ldr	r3, [pc, #0x2a0]        @ 0xe18 <DdrUpdateACTiming+0xe18>
+     b78: 4317         	orrs	r7, r2
+     b7a: 0632         	lsls	r2, r6, #0x18
+     b7c: f002 527c    	and	r2, r2, #0x3f000000
+     b80: 433a         	orrs	r2, r7
+     b82: f7ff fffe    	bl	0xb82 <DdrUpdateACTiming+0xb82> @ imm = #-0x4
+			00000b82:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     b86: 9b06         	ldr	r3, [sp, #0x18]
+     b88: 49a4         	ldr	r1, [pc, #0x290]        @ 0xe1c <DdrUpdateACTiming+0xe1c>
+     b8a: 4620         	mov	r0, r4
+     b8c: 041a         	lsls	r2, r3, #0x10
+     b8e: 9b11         	ldr	r3, [sp, #0x44]
+     b90: f402 127c    	and	r2, r2, #0x3f0000
+     b94: 011b         	lsls	r3, r3, #0x4
+     b96: f403 73f8    	and	r3, r3, #0x1f0
+     b9a: 431a         	orrs	r2, r3
+     b9c: 9b02         	ldr	r3, [sp, #0x8]
+     b9e: ea42 0909    	orr.w	r9, r2, r9
+     ba2: ea49 0505    	orr.w	r5, r9, r5
+     ba6: 061a         	lsls	r2, r3, #0x18
+     ba8: 4b9d         	ldr	r3, [pc, #0x274]        @ 0xe20 <DdrUpdateACTiming+0xe20>
+     baa: f002 52f8    	and	r2, r2, #0x1f000000
+     bae: 432a         	orrs	r2, r5
+     bb0: f7ff fffe    	bl	0xbb0 <DdrUpdateACTiming+0xbb0> @ imm = #-0x4
+			00000bb0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     bb4: 9b13         	ldr	r3, [sp, #0x4c]
+     bb6: 9912         	ldr	r1, [sp, #0x48]
+     bb8: 4620         	mov	r0, r4
+     bba: f8cd a000    	str.w	r10, [sp]
+     bbe: f3c3 0208    	ubfx	r2, r3, #0x0, #0x9
+     bc2: 9b0d         	ldr	r3, [sp, #0x34]
+     bc4: ea42 6283    	orr.w	r2, r2, r3, lsl #26
+     bc8: 9b19         	ldr	r3, [sp, #0x64]
+     bca: 035b         	lsls	r3, r3, #0xd
+     bcc: f403 33f0    	and	r3, r3, #0x1e000
+     bd0: 431a         	orrs	r2, r3
+     bd2: 4b94         	ldr	r3, [pc, #0x250]        @ 0xe24 <DdrUpdateACTiming+0xe24>
+     bd4: ea03 4341    	and.w	r3, r3, r1, lsl #17
+     bd8: 9960         	ldr	r1, [sp, #0x180]
+     bda: 431a         	orrs	r2, r3
+     bdc: 4653         	mov	r3, r10
+     bde: ea42 2241    	orr.w	r2, r2, r1, lsl #9
+     be2: 4991         	ldr	r1, [pc, #0x244]        @ 0xe28 <DdrUpdateACTiming+0xe28>
+     be4: f7ff fffe    	bl	0xbe4 <DdrUpdateACTiming+0xbe4> @ imm = #-0x4
+			00000be4:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     be8: 9b15         	ldr	r3, [sp, #0x54]
+     bea: 4620         	mov	r0, r4
+     bec: f3c3 0109    	ubfx	r1, r3, #0x0, #0xa
+     bf0: 9b14         	ldr	r3, [sp, #0x50]
+     bf2: ea41 6103    	orr.w	r1, r1, r3, lsl #24
+     bf6: 9b1b         	ldr	r3, [sp, #0x6c]
+     bf8: 029a         	lsls	r2, r3, #0xa
+     bfa: 9b1c         	ldr	r3, [sp, #0x70]
+     bfc: b292         	uxth	r2, r2
+     bfe: 4311         	orrs	r1, r2
+     c00: 041a         	lsls	r2, r3, #0x10
+     c02: f402 127c    	and	r2, r2, #0x3f0000
+     c06: f46f 0340    	mvn	r3, #0xc00000
+     c0a: 430a         	orrs	r2, r1
+     c0c: 4987         	ldr	r1, [pc, #0x21c]        @ 0xe2c <DdrUpdateACTiming+0xe2c>
+     c0e: f7ff fffe    	bl	0xc0e <DdrUpdateACTiming+0xc0e> @ imm = #-0x4
+			00000c0e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     c12: 9b16         	ldr	r3, [sp, #0x58]
+     c14: 9903         	ldr	r1, [sp, #0xc]
+     c16: 4620         	mov	r0, r4
+     c18: 021a         	lsls	r2, r3, #0x8
+     c1a: 9b17         	ldr	r3, [sp, #0x5c]
+     c1c: f402 42fe    	and	r2, r2, #0x7f00
+     c20: f003 037f    	and	r3, r3, #0x7f
+     c24: 431a         	orrs	r2, r3
+     c26: 9b04         	ldr	r3, [sp, #0x10]
+     c28: 041b         	lsls	r3, r3, #0x10
+     c2a: f403 037f    	and	r3, r3, #0xff0000
+     c2e: 431a         	orrs	r2, r3
+     c30: 4b7f         	ldr	r3, [pc, #0x1fc]        @ 0xe30 <DdrUpdateACTiming+0xe30>
+     c32: ea42 7201    	orr.w	r2, r2, r1, lsl #28
+     c36: 497f         	ldr	r1, [pc, #0x1fc]        @ 0xe34 <DdrUpdateACTiming+0xe34>
+     c38: f7ff fffe    	bl	0xc38 <DdrUpdateACTiming+0xc38> @ imm = #-0x4
+			00000c38:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     c3c: 9b1f         	ldr	r3, [sp, #0x7c]
+     c3e: 4620         	mov	r0, r4
+     c40: f003 011f    	and	r1, r3, #0x1f
+     c44: 9b18         	ldr	r3, [sp, #0x60]
+     c46: ea41 6183    	orr.w	r1, r1, r3, lsl #26
+     c4a: 9b1e         	ldr	r3, [sp, #0x78]
+     c4c: 021a         	lsls	r2, r3, #0x8
+     c4e: 9b1d         	ldr	r3, [sp, #0x74]
+     c50: f402 6270    	and	r2, r2, #0xf00
+     c54: 4311         	orrs	r1, r2
+     c56: 031a         	lsls	r2, r3, #0xc
+     c58: 9b1a         	ldr	r3, [sp, #0x68]
+     c5a: b292         	uxth	r2, r2
+     c5c: 4311         	orrs	r1, r2
+     c5e: 051a         	lsls	r2, r3, #0x14
+     c60: f002 727c    	and	r2, r2, #0x3f00000
+     c64: 4b74         	ldr	r3, [pc, #0x1d0]        @ 0xe38 <DdrUpdateACTiming+0xe38>
+     c66: 430a         	orrs	r2, r1
+     c68: 4974         	ldr	r1, [pc, #0x1d0]        @ 0xe3c <DdrUpdateACTiming+0xe3c>
+     c6a: f7ff fffe    	bl	0xc6a <DdrUpdateACTiming+0xc6a> @ imm = #-0x4
+			00000c6a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     c6e: 9b32         	ldr	r3, [sp, #0xc8]
+     c70: 4620         	mov	r0, r4
+     c72: 0119         	lsls	r1, r3, #0x4
+     c74: 9b31         	ldr	r3, [sp, #0xc4]
+     c76: b2c9         	uxtb	r1, r1
+     c78: f003 020f    	and	r2, r3, #0xf
+     c7c: 430a         	orrs	r2, r1
+     c7e: 23ff         	movs	r3, #0xff
+     c80: 496f         	ldr	r1, [pc, #0x1bc]        @ 0xe40 <DdrUpdateACTiming+0xe40>
+     c82: f7ff fffe    	bl	0xc82 <DdrUpdateACTiming+0xc82> @ imm = #-0x4
+			00000c82:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     c86: 9b2b         	ldr	r3, [sp, #0xac]
+     c88: 4620         	mov	r0, r4
+     c8a: 06d9         	lsls	r1, r3, #0x1b
+     c8c: 9b2d         	ldr	r3, [sp, #0xb4]
+     c8e: f001 6100    	and	r1, r1, #0x8000000
+     c92: 071a         	lsls	r2, r3, #0x1c
+     c94: f04f 53c0    	mov.w	r3, #0x18000000
+     c98: f002 5280    	and	r2, r2, #0x10000000
+     c9c: 430a         	orrs	r2, r1
+     c9e: 4968         	ldr	r1, [pc, #0x1a0]        @ 0xe40 <DdrUpdateACTiming+0xe40>
+     ca0: f7ff fffe    	bl	0xca0 <DdrUpdateACTiming+0xca0> @ imm = #-0x4
+			00000ca0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     ca4: 9b2a         	ldr	r3, [sp, #0xa8]
+     ca6: 4620         	mov	r0, r4
+     ca8: 0299         	lsls	r1, r3, #0xa
+     caa: 9b2c         	ldr	r3, [sp, #0xb0]
+     cac: f401 317f    	and	r1, r1, #0x3fc00
+     cb0: 049a         	lsls	r2, r3, #0x12
+     cb2: 4b64         	ldr	r3, [pc, #0x190]        @ 0xe44 <DdrUpdateACTiming+0xe44>
+     cb4: f402 027c    	and	r2, r2, #0xfc0000
+     cb8: 430a         	orrs	r2, r1
+     cba: 4963         	ldr	r1, [pc, #0x18c]        @ 0xe48 <DdrUpdateACTiming+0xe48>
+     cbc: f7ff fffe    	bl	0xcbc <DdrUpdateACTiming+0xcbc> @ imm = #-0x4
+			00000cbc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     cc0: 9b0a         	ldr	r3, [sp, #0x28]
+     cc2: 4620         	mov	r0, r4
+     cc4: 0119         	lsls	r1, r3, #0x4
+     cc6: 9b3f         	ldr	r3, [sp, #0xfc]
+     cc8: b2c9         	uxtb	r1, r1
+     cca: 041a         	lsls	r2, r3, #0x10
+     ccc: 9b0b         	ldr	r3, [sp, #0x2c]
+     cce: f402 3280    	and	r2, r2, #0x10000
+     cd2: 4311         	orrs	r1, r2
+     cd4: f003 020f    	and	r2, r3, #0xf
+     cd8: 9b40         	ldr	r3, [sp, #0x100]
+     cda: 4311         	orrs	r1, r2
+     cdc: 03da         	lsls	r2, r3, #0xf
+     cde: 4b5b         	ldr	r3, [pc, #0x16c]        @ 0xe4c <DdrUpdateACTiming+0xe4c>
+     ce0: b292         	uxth	r2, r2
+     ce2: 430a         	orrs	r2, r1
+     ce4: 495a         	ldr	r1, [pc, #0x168]        @ 0xe50 <DdrUpdateACTiming+0xe50>
+     ce6: f7ff fffe    	bl	0xce6 <DdrUpdateACTiming+0xce6> @ imm = #-0x4
+			00000ce6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     cea: 9b33         	ldr	r3, [sp, #0xcc]
+     cec: 4959         	ldr	r1, [pc, #0x164]        @ 0xe54 <DdrUpdateACTiming+0xe54>
+     cee: 4620         	mov	r0, r4
+     cf0: 011a         	lsls	r2, r3, #0x4
+     cf2: 23f0         	movs	r3, #0xf0
+     cf4: 401a         	ands	r2, r3
+     cf6: f7ff fffe    	bl	0xcf6 <DdrUpdateACTiming+0xcf6> @ imm = #-0x4
+			00000cf6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     cfa: 9b21         	ldr	r3, [sp, #0x84]
+     cfc: 4620         	mov	r0, r4
+     cfe: 0619         	lsls	r1, r3, #0x18
+     d00: 9b22         	ldr	r3, [sp, #0x88]
+     d02: f001 51f8    	and	r1, r1, #0x1f000000
+     d06: 041a         	lsls	r2, r3, #0x10
+     d08: 9b23         	ldr	r3, [sp, #0x8c]
+     d0a: f402 12f8    	and	r2, r2, #0x1f0000
+     d0e: 4311         	orrs	r1, r2
+     d10: f003 023f    	and	r2, r3, #0x3f
+     d14: 9b20         	ldr	r3, [sp, #0x80]
+     d16: 4311         	orrs	r1, r2
+     d18: 021a         	lsls	r2, r3, #0x8
+     d1a: 4b4f         	ldr	r3, [pc, #0x13c]        @ 0xe58 <DdrUpdateACTiming+0xe58>
+     d1c: f402 527c    	and	r2, r2, #0x3f00
+     d20: 430a         	orrs	r2, r1
+     d22: 494e         	ldr	r1, [pc, #0x138]        @ 0xe5c <DdrUpdateACTiming+0xe5c>
+     d24: f7ff fffe    	bl	0xd24 <DdrUpdateACTiming+0xd24> @ imm = #-0x4
+			00000d24:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     d28: 9b56         	ldr	r3, [sp, #0x158]
+     d2a: 4620         	mov	r0, r4
+     d2c: 01d9         	lsls	r1, r3, #0x7
+     d2e: 9b2f         	ldr	r3, [sp, #0xbc]
+     d30: b2c9         	uxtb	r1, r1
+     d32: 021a         	lsls	r2, r3, #0x8
+     d34: 9b2e         	ldr	r3, [sp, #0xb8]
+     d36: f402 527c    	and	r2, r2, #0x3f00
+     d3a: 4311         	orrs	r1, r2
+     d3c: f003 023f    	and	r2, r3, #0x3f
+     d40: 9b57         	ldr	r3, [sp, #0x15c]
+     d42: 4311         	orrs	r1, r2
+     d44: 03da         	lsls	r2, r3, #0xf
+     d46: f64b 73bf    	movw	r3, #0xbfbf
+     d4a: b292         	uxth	r2, r2
+     d4c: 430a         	orrs	r2, r1
+     d4e: 4944         	ldr	r1, [pc, #0x110]        @ 0xe60 <DdrUpdateACTiming+0xe60>
+     d50: f7ff fffe    	bl	0xd50 <DdrUpdateACTiming+0xd50> @ imm = #-0x4
+			00000d50:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     d54: 9b34         	ldr	r3, [sp, #0xd0]
+     d56: 4620         	mov	r0, r4
+     d58: 0619         	lsls	r1, r3, #0x18
+     d5a: 9b38         	ldr	r3, [sp, #0xe0]
+     d5c: f001 51f8    	and	r1, r1, #0x1f000000
+     d60: 041a         	lsls	r2, r3, #0x10
+     d62: 4b40         	ldr	r3, [pc, #0x100]        @ 0xe64 <DdrUpdateACTiming+0xe64>
+     d64: f402 22e0    	and	r2, r2, #0x70000
+     d68: 430a         	orrs	r2, r1
+     d6a: 493f         	ldr	r1, [pc, #0xfc]         @ 0xe68 <DdrUpdateACTiming+0xe68>
+     d6c: f7ff fffe    	bl	0xd6c <DdrUpdateACTiming+0xd6c> @ imm = #-0x4
+			00000d6c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     d70: 9b36         	ldr	r3, [sp, #0xd8]
+     d72: 4620         	mov	r0, r4
+     d74: 0219         	lsls	r1, r3, #0x8
+     d76: 9b35         	ldr	r3, [sp, #0xd4]
+     d78: f401 51f8    	and	r1, r1, #0x1f00
+     d7c: 041a         	lsls	r2, r3, #0x10
+     d7e: 9b37         	ldr	r3, [sp, #0xdc]
+     d80: f402 127c    	and	r2, r2, #0x3f0000
+     d84: 4311         	orrs	r1, r2
+     d86: f003 021f    	and	r2, r3, #0x1f
+     d8a: 9b05         	ldr	r3, [sp, #0x14]
+     d8c: 4311         	orrs	r1, r2
+     d8e: 061a         	lsls	r2, r3, #0x18
+     d90: 4b36         	ldr	r3, [pc, #0xd8]         @ 0xe6c <DdrUpdateACTiming+0xe6c>
+     d92: f002 527c    	and	r2, r2, #0x3f000000
+     d96: 430a         	orrs	r2, r1
+     d98: 4935         	ldr	r1, [pc, #0xd4]         @ 0xe70 <DdrUpdateACTiming+0xe70>
+     d9a: f7ff fffe    	bl	0xd9a <DdrUpdateACTiming+0xd9a> @ imm = #-0x4
+			00000d9a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     d9e: 9b5c         	ldr	r3, [sp, #0x170]
+     da0: 4620         	mov	r0, r4
+     da2: 0219         	lsls	r1, r3, #0x8
+     da4: 9b5b         	ldr	r3, [sp, #0x16c]
+     da6: f401 7180    	and	r1, r1, #0x100
+     daa: 01da         	lsls	r2, r3, #0x7
+     dac: 9b5d         	ldr	r3, [sp, #0x174]
+     dae: b2d2         	uxtb	r2, r2
+     db0: 4311         	orrs	r1, r2
+     db2: f003 0201    	and	r2, r3, #0x1
+     db6: 9b5a         	ldr	r3, [sp, #0x168]
+     db8: 4311         	orrs	r1, r2
+     dba: 025a         	lsls	r2, r3, #0x9
+     dbc: 9b5e         	ldr	r3, [sp, #0x178]
+     dbe: f402 7200    	and	r2, r2, #0x200
+     dc2: 4311         	orrs	r1, r2
+     dc4: 031a         	lsls	r2, r3, #0xc
+     dc6: 9b59         	ldr	r3, [sp, #0x164]
+     dc8: f402 5280    	and	r2, r2, #0x1000
+     dcc: 4311         	orrs	r1, r2
+     dce: 019a         	lsls	r2, r3, #0x6
+     dd0: f241 33c1    	movw	r3, #0x13c1
+     dd4: f002 0240    	and	r2, r2, #0x40
+     dd8: 430a         	orrs	r2, r1
+     dda: 4926         	ldr	r1, [pc, #0x98]         @ 0xe74 <DdrUpdateACTiming+0xe74>
+     ddc: f7ff fffe    	bl	0xddc <DdrUpdateACTiming+0xddc> @ imm = #-0x4
+			00000ddc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     de0: 9b49         	ldr	r3, [sp, #0x124]
+     de2: 4620         	mov	r0, r4
+     de4: 0059         	lsls	r1, r3, #0x1
+     de6: 9b48         	ldr	r3, [sp, #0x120]
+     de8: f001 0102    	and	r1, r1, #0x2
+     dec: 009b         	lsls	r3, r3, #0x2
+     dee: f003 0304    	and	r3, r3, #0x4
+     df2: 4319         	orrs	r1, r3
+     df4: 9b4a         	ldr	r3, [sp, #0x128]
+     df6: f003 0301    	and	r3, r3, #0x1
+     dfa: 4319         	orrs	r1, r3
+     dfc: 9b50         	ldr	r3, [sp, #0x140]
+     dfe: 00db         	lsls	r3, r3, #0x3
+     e00: e03a         	b	0xe78 <DdrUpdateACTiming+0xe78> @ imm = #0x74
+     e02: bf00         	nop
+     e04: 78 16 20 00  	.word	0x00201678
+     e08: 03 f0 ff 03  	.word	0x03fff003
+     e0c: 44 16 20 00  	.word	0x00201644
+     e10: 3f ff 87 ff  	.word	0xff87ff3f
+     e14: 48 16 20 00  	.word	0x00201648
+     e18: ff 7f 3f 3f  	.word	0x3f3f7fff
+     e1c: 4c 16 20 00  	.word	0x0020164c
+     e20: ff 71 3f 1f  	.word	0x1f3f71ff
+     e24: 00 00 fe 03  	.word	0x03fe0000
+     e28: 50 16 20 00  	.word	0x00201650
+     e2c: 54 16 20 00  	.word	0x00201654
+     e30: 7f 7f ff f0  	.word	0xf0ff7f7f
+     e34: 58 16 20 00  	.word	0x00201658
+     e38: 1f ff f0 ff  	.word	0xfff0ff1f
+     e3c: 5c 16 20 00  	.word	0x0020165c
+     e40: e8 16 20 00  	.word	0x002016e8
+     e44: 00 fc ff 00  	.word	0x00fffc00
+     e48: ec 16 20 00  	.word	0x002016ec
+     e4c: ff 80 01 00  	.word	0x000180ff
+     e50: f0 16 20 00  	.word	0x002016f0
+     e54: e0 16 20 00  	.word	0x002016e0
+     e58: 3f 3f 1f 1f  	.word	0x1f1f3f3f
+     e5c: 60 16 20 00  	.word	0x00201660
+     e60: c0 16 20 00  	.word	0x002016c0
+     e64: 00 00 07 1f  	.word	0x1f070000
+     e68: 68 16 20 00  	.word	0x00201668
+     e6c: 1f 1f 3f 3f  	.word	0x3f3f1f1f
+     e70: 6c 16 20 00  	.word	0x0020166c
+     e74: 70 16 20 00  	.word	0x00201670
+     e78: f003 0308    	and	r3, r3, #0x8
+     e7c: 4319         	orrs	r1, r3
+     e7e: 9b47         	ldr	r3, [sp, #0x11c]
+     e80: 011b         	lsls	r3, r3, #0x4
+     e82: f003 0310    	and	r3, r3, #0x10
+     e86: 4319         	orrs	r1, r3
+     e88: 9b46         	ldr	r3, [sp, #0x118]
+     e8a: 015b         	lsls	r3, r3, #0x5
+     e8c: f003 0320    	and	r3, r3, #0x20
+     e90: 4319         	orrs	r1, r3
+     e92: 9b45         	ldr	r3, [sp, #0x114]
+     e94: 019b         	lsls	r3, r3, #0x6
+     e96: f003 0340    	and	r3, r3, #0x40
+     e9a: 4319         	orrs	r1, r3
+     e9c: 9b44         	ldr	r3, [sp, #0x110]
+     e9e: 01db         	lsls	r3, r3, #0x7
+     ea0: b2db         	uxtb	r3, r3
+     ea2: 4319         	orrs	r1, r3
+     ea4: 9b43         	ldr	r3, [sp, #0x10c]
+     ea6: 021b         	lsls	r3, r3, #0x8
+     ea8: f403 7380    	and	r3, r3, #0x100
+     eac: 4319         	orrs	r1, r3
+     eae: 9b42         	ldr	r3, [sp, #0x108]
+     eb0: 025b         	lsls	r3, r3, #0x9
+     eb2: f403 7300    	and	r3, r3, #0x200
+     eb6: 4319         	orrs	r1, r3
+     eb8: 9b41         	ldr	r3, [sp, #0x104]
+     eba: 029b         	lsls	r3, r3, #0xa
+     ebc: f403 6380    	and	r3, r3, #0x400
+     ec0: 4319         	orrs	r1, r3
+     ec2: 9b3e         	ldr	r3, [sp, #0xf8]
+     ec4: 031b         	lsls	r3, r3, #0xc
+     ec6: f403 5380    	and	r3, r3, #0x1000
+     eca: 4319         	orrs	r1, r3
+     ecc: 9b3d         	ldr	r3, [sp, #0xf4]
+     ece: 035b         	lsls	r3, r3, #0xd
+     ed0: f403 5300    	and	r3, r3, #0x2000
+     ed4: 4319         	orrs	r1, r3
+     ed6: 9b3c         	ldr	r3, [sp, #0xf0]
+     ed8: 03db         	lsls	r3, r3, #0xf
+     eda: b29b         	uxth	r3, r3
+     edc: 4319         	orrs	r1, r3
+     ede: 9b3b         	ldr	r3, [sp, #0xec]
+     ee0: 041b         	lsls	r3, r3, #0x10
+     ee2: f403 3380    	and	r3, r3, #0x10000
+     ee6: 4319         	orrs	r1, r3
+     ee8: 9b4e         	ldr	r3, [sp, #0x138]
+     eea: 045b         	lsls	r3, r3, #0x11
+     eec: f403 3300    	and	r3, r3, #0x20000
+     ef0: 4319         	orrs	r1, r3
+     ef2: 9b4d         	ldr	r3, [sp, #0x134]
+     ef4: 049b         	lsls	r3, r3, #0x12
+     ef6: f403 2380    	and	r3, r3, #0x40000
+     efa: 4319         	orrs	r1, r3
+     efc: 9b3a         	ldr	r3, [sp, #0xe8]
+     efe: 055b         	lsls	r3, r3, #0x15
+     f00: f403 1300    	and	r3, r3, #0x200000
+     f04: 4319         	orrs	r1, r3
+     f06: 9b39         	ldr	r3, [sp, #0xe4]
+     f08: 05db         	lsls	r3, r3, #0x17
+     f0a: f403 0300    	and	r3, r3, #0x800000
+     f0e: 4319         	orrs	r1, r3
+     f10: 9b55         	ldr	r3, [sp, #0x154]
+     f12: 065b         	lsls	r3, r3, #0x19
+     f14: f003 7300    	and	r3, r3, #0x2000000
+     f18: 4319         	orrs	r1, r3
+     f1a: 9b54         	ldr	r3, [sp, #0x150]
+     f1c: 069b         	lsls	r3, r3, #0x1a
+     f1e: f003 6380    	and	r3, r3, #0x4000000
+     f22: 4319         	orrs	r1, r3
+     f24: 9b53         	ldr	r3, [sp, #0x14c]
+     f26: 06da         	lsls	r2, r3, #0x1b
+     f28: 9b52         	ldr	r3, [sp, #0x148]
+     f2a: f002 6200    	and	r2, r2, #0x8000000
+     f2e: 4311         	orrs	r1, r2
+     f30: 071a         	lsls	r2, r3, #0x1c
+     f32: 9b51         	ldr	r3, [sp, #0x144]
+     f34: f002 5280    	and	r2, r2, #0x10000000
+     f38: 4311         	orrs	r1, r2
+     f3a: 075a         	lsls	r2, r3, #0x1d
+     f3c: 9b4f         	ldr	r3, [sp, #0x13c]
+     f3e: f002 5200    	and	r2, r2, #0x20000000
+     f42: 4311         	orrs	r1, r2
+     f44: 079a         	lsls	r2, r3, #0x1e
+     f46: 9b07         	ldr	r3, [sp, #0x1c]
+     f48: f002 4280    	and	r2, r2, #0x40000000
+     f4c: 4311         	orrs	r1, r2
+     f4e: 059a         	lsls	r2, r3, #0x16
+     f50: 4b2d         	ldr	r3, [pc, #0xb4]         @ 0x1008 <DdrUpdateACTiming+0x1008>
+     f52: f402 0280    	and	r2, r2, #0x400000
+     f56: 430a         	orrs	r2, r1
+     f58: 492c         	ldr	r1, [pc, #0xb0]         @ 0x100c <DdrUpdateACTiming+0x100c>
+     f5a: f7ff fffe    	bl	0xf5a <DdrUpdateACTiming+0xf5a> @ imm = #-0x4
+			00000f5a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     f5e: 9a25         	ldr	r2, [sp, #0x94]
+     f60: 492b         	ldr	r1, [pc, #0xac]         @ 0x1010 <DdrUpdateACTiming+0x1010>
+     f62: 4620         	mov	r0, r4
+     f64: f240 13ff    	movw	r3, #0x1ff
+     f68: f3c2 0208    	ubfx	r2, r2, #0x0, #0x9
+     f6c: f7ff fffe    	bl	0xf6c <DdrUpdateACTiming+0xf6c> @ imm = #-0x4
+			00000f6c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     f70: 9b26         	ldr	r3, [sp, #0x98]
+     f72: 4620         	mov	r0, r4
+     f74: 0219         	lsls	r1, r3, #0x8
+     f76: 9b28         	ldr	r3, [sp, #0xa0]
+     f78: f401 517c    	and	r1, r1, #0x3f00
+     f7c: 039a         	lsls	r2, r3, #0xe
+     f7e: 9b27         	ldr	r3, [sp, #0x9c]
+     f80: f402 4280    	and	r2, r2, #0x4000
+     f84: 4311         	orrs	r1, r2
+     f86: 041a         	lsls	r2, r3, #0x10
+     f88: 9b29         	ldr	r3, [sp, #0xa4]
+     f8a: f402 127c    	and	r2, r2, #0x3f0000
+     f8e: 4311         	orrs	r1, r2
+     f90: 03da         	lsls	r2, r3, #0xf
+     f92: 4b20         	ldr	r3, [pc, #0x80]         @ 0x1014 <DdrUpdateACTiming+0x1014>
+     f94: b292         	uxth	r2, r2
+     f96: 430a         	orrs	r2, r1
+     f98: 491f         	ldr	r1, [pc, #0x7c]         @ 0x1018 <DdrUpdateACTiming+0x1018>
+     f9a: f7ff fffe    	bl	0xf9a <DdrUpdateACTiming+0xf9a> @ imm = #-0x4
+			00000f9a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     f9e: 491f         	ldr	r1, [pc, #0x7c]         @ 0x101c <DdrUpdateACTiming+0x101c>
+     fa0: 4620         	mov	r0, r4
+     fa2: f44f 437f    	mov.w	r3, #0xff00
+     fa6: f44f 42c8    	mov.w	r2, #0x6400
+     faa: f7ff fffe    	bl	0xfaa <DdrUpdateACTiming+0xfaa> @ imm = #-0x4
+			00000faa:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     fae: f04f 5340    	mov.w	r3, #0x30000000
+     fb2: 491b         	ldr	r1, [pc, #0x6c]         @ 0x1020 <DdrUpdateACTiming+0x1020>
+     fb4: 461a         	mov	r2, r3
+     fb6: 4620         	mov	r0, r4
+     fb8: f7ff fffe    	bl	0xfb8 <DdrUpdateACTiming+0xfb8> @ imm = #-0x4
+			00000fb8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     fbc: 2330         	movs	r3, #0x30
+     fbe: 4918         	ldr	r1, [pc, #0x60]         @ 0x1020 <DdrUpdateACTiming+0x1020>
+     fc0: 461a         	mov	r2, r3
+     fc2: 4620         	mov	r0, r4
+     fc4: f7ff fffe    	bl	0xfc4 <DdrUpdateACTiming+0xfc4> @ imm = #-0x4
+			00000fc4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     fc8: f04f 7340    	mov.w	r3, #0x3000000
+     fcc: 4915         	ldr	r1, [pc, #0x54]         @ 0x1024 <DdrUpdateACTiming+0x1024>
+     fce: 461a         	mov	r2, r3
+     fd0: 4620         	mov	r0, r4
+     fd2: f7ff fffe    	bl	0xfd2 <DdrUpdateACTiming+0xfd2> @ imm = #-0x4
+			00000fd2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     fd6: f44f 23e0    	mov.w	r3, #0x70000
+     fda: 4913         	ldr	r1, [pc, #0x4c]         @ 0x1028 <DdrUpdateACTiming+0x1028>
+     fdc: 461a         	mov	r2, r3
+     fde: 4620         	mov	r0, r4
+     fe0: f7ff fffe    	bl	0xfe0 <DdrUpdateACTiming+0xfe0> @ imm = #-0x4
+			00000fe0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     fe4: 4911         	ldr	r1, [pc, #0x44]         @ 0x102c <DdrUpdateACTiming+0x102c>
+     fe6: 4652         	mov	r2, r10
+     fe8: 4620         	mov	r0, r4
+     fea: 2301         	movs	r3, #0x1
+     fec: f7ff fffe    	bl	0xfec <DdrUpdateACTiming+0xfec> @ imm = #-0x4
+			00000fec:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     ff0: 9a30         	ldr	r2, [sp, #0xc0]
+     ff2: f04f 437f    	mov.w	r3, #0xff000000
+     ff6: 490e         	ldr	r1, [pc, #0x38]         @ 0x1030 <DdrUpdateACTiming+0x1030>
+     ff8: 4620         	mov	r0, r4
+     ffa: 0612         	lsls	r2, r2, #0x18
+     ffc: f7ff fffe    	bl	0xffc <DdrUpdateACTiming+0xffc> @ imm = #-0x4
+			00000ffc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+    1000: f89d 317c    	ldrb.w	r3, [sp, #0x17c]
+    1004: f7ff bbca    	b.w	0x79c <DdrUpdateACTiming+0x79c> @ imm = #-0x86c
+    1008: ff b7 e7 7e  	.word	0x7ee7b7ff
+    100c: 64 16 20 00  	.word	0x00201664
+    1010: ec 16 20 00  	.word	0x002016ec
+    1014: 00 ff 3f 00  	.word	0x003fff00
+    1018: e8 16 20 00  	.word	0x002016e8
+    101c: 14 16 20 00  	.word	0x00201614
+    1020: 08 16 20 00  	.word	0x00201608
+    1024: 78 16 20 00  	.word	0x00201678
+    1028: a4 16 20 00  	.word	0x002016a4
+    102c: 68 16 20 00  	.word	0x00201668
+    1030: 40 16 20 00  	.word	0x00201640

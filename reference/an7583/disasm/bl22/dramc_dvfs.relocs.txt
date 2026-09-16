@@ -1,0 +1,4 @@
+
+Relocation section '.rel.text.vSetDFSFreqSelByTable' at offset 0x358 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  00001a1e R_ARM_THM_JUMP24       00000000   DDRPhyFreqSel

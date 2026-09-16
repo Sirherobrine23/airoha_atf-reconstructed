@@ -1,0 +1,45 @@
+
+Relocation section '.rel.text.efuse_read_data_from_efuse' at offset 0x674 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000004c  00001f0a R_ARM_THM_CALL         00000000   tf_log
+0000007c  00000502 R_ARM_ABS32            00000000   .rodata.efuse_read_data_from_efuse.str1.1
+
+Relocation section '.rel.text.ef_read_byte' at offset 0x684 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000001e  00001f0a R_ARM_THM_CALL         00000000   tf_log
+00000028  00001802 R_ARM_ABS32            00000000   .bss.ns_efuse_data
+0000002c  00001a02 R_ARM_ABS32            00000000   .bss.s_efuse_data
+00000030  00000a02 R_ARM_ABS32            00000000   .rodata.ef_read_byte.str1.1
+
+Relocation section '.rel.text.read_iddq' at offset 0x6a4 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  00001802 R_ARM_ABS32            00000000   .bss.ns_efuse_data
+
+Relocation section '.rel.text.en7523_packageID_init' at offset 0x6ac contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000001c  00001802 R_ARM_ABS32            00000000   .bss.ns_efuse_data
+00000012  0000231e R_ARM_THM_JUMP24       00000000   SET_PACKAGE_ID
+
+Relocation section '.rel.text.efuse_init' at offset 0x6bc contains 21 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000e  0000070a R_ARM_THM_CALL         00000001   efuse_read_data_from_efuse
+00000024  0000250a R_ARM_THM_CALL         00000000   memcpy
+0000003a  0000070a R_ARM_THM_CALL         00000001   efuse_read_data_from_efuse
+0000004a  0000070a R_ARM_THM_CALL         00000001   efuse_read_data_from_efuse
+00000060  0000260a R_ARM_THM_CALL         00000000   fill_secure_data
+0000006c  00001f0a R_ARM_THM_CALL         00000000   tf_log
+0000007e  00001f0a R_ARM_THM_CALL         00000000   tf_log
+00000084  00001f0a R_ARM_THM_CALL         00000000   tf_log
+00000096  0000270a R_ARM_THM_CALL         00000000   printf
+000000a6  00001f0a R_ARM_THM_CALL         00000000   tf_log
+000000ac  00001f0a R_ARM_THM_CALL         00000000   tf_log
+000000b8  0000270a R_ARM_THM_CALL         00000000   printf
+000000c0  00001802 R_ARM_ABS32            00000000   .bss.ns_efuse_data
+000000c4  00001402 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000c8  00002802 R_ARM_ABS32            00000000   uartDisable
+000000cc  00001402 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000d0  00001402 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000d4  00001402 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000d8  00001402 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000dc  00001402 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1
+000000e0  00001402 R_ARM_ABS32            00000000   .rodata.efuse_init.str1.1

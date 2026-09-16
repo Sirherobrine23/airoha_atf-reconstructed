@@ -1,0 +1,129 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/en7523/bl22/hal_io.o:	file format elf32-littlearm
+
+Disassembly of section .text.SaveCurrDramCtx:
+
+00000000 <SaveCurrDramCtx>:
+       0: 4b01         	ldr	r3, [pc, #0x4]          @ 0x8 <SaveCurrDramCtx+0x8>
+       2: 6018         	str	r0, [r3]
+       4: 4770         	bx	lr
+       6: bf00         	nop
+       8: 00 00 00 00  	.word	0x00000000
+			00000008:  R_ARM_ABS32	.bss.pgCurrDramCtx
+
+Disassembly of section .text.u4RegBaseAddrTraslate:
+
+00000000 <u4RegBaseAddrTraslate>:
+       0: f5a0 3300    	sub.w	r3, r0, #0x20000
+       4: f5b3 2f80    	cmp.w	r3, #0x40000
+       8: d206         	bhs	0x18 <u4RegBaseAddrTraslate+0x18> @ imm = #0xc
+       a: 0c1b         	lsrs	r3, r3, #0x10
+       c: 4a03         	ldr	r2, [pc, #0xc]          @ 0x1c <u4RegBaseAddrTraslate+0x1c>
+       e: f3c0 000c    	ubfx	r0, r0, #0x0, #0xd
+      12: f852 3023    	ldr.w	r3, [r2, r3, lsl #2]
+      16: 4418         	add	r0, r3
+      18: 4770         	bx	lr
+      1a: bf00         	nop
+      1c: 00 00 00 00  	.word	0x00000000
+			0000001c:  R_ARM_ABS32	.rodata.arRegBaseAddrList
+
+Disassembly of section .text.u4Dram_Register_Read:
+
+00000000 <u4Dram_Register_Read>:
+       0: b508         	push	{r3, lr}
+       2: f7ff fffe    	bl	0x2 <u4Dram_Register_Read+0x2> @ imm = #-0x4
+			00000002:  R_ARM_THM_CALL	u4RegBaseAddrTraslate
+       6: 6800         	ldr	r0, [r0]
+       8: bd08         	pop	{r3, pc}
+
+Disassembly of section .text.ucDram_Register_Write:
+
+00000000 <ucDram_Register_Write>:
+       0: b510         	push	{r4, lr}
+       2: 460c         	mov	r4, r1
+       4: f7ff fffe    	bl	0x4 <ucDram_Register_Write+0x4> @ imm = #-0x4
+			00000004:  R_ARM_THM_CALL	u4RegBaseAddrTraslate
+       8: 6004         	str	r4, [r0]
+       a: 2000         	movs	r0, #0x0
+       c: bd10         	pop	{r4, pc}
+
+Disassembly of section .text.vIO32Write4BMsk:
+
+00000000 <vIO32Write4BMsk>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4614         	mov	r4, r2
+       4: ea01 0502    	and.w	r5, r1, r2
+       8: 4606         	mov	r6, r0
+       a: f7ff fffe    	bl	0xa <vIO32Write4BMsk+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	u4Dram_Register_Read
+       e: ea20 0104    	bic.w	r1, r0, r4
+      12: 4630         	mov	r0, r6
+      14: 4329         	orrs	r1, r5
+      16: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      1a: f7ff bffe    	b.w	0x1a <vIO32Write4BMsk+0x1a> @ imm = #-0x4
+			0000001a:  R_ARM_THM_JUMP24	ucDram_Register_Write
+
+Disassembly of section .text.vIO32Write4B_All:
+
+00000000 <vIO32Write4B_All>:
+       0: f400 2370    	and	r3, r0, #0xf0000
+       4: f5b3 2f80    	cmp.w	r3, #0x40000
+       8: b570         	push	{r4, r5, r6, lr}
+       a: 4604         	mov	r4, r0
+       c: 460d         	mov	r5, r1
+       e: d304         	blo	0x1a <vIO32Write4B_All+0x1a> @ imm = #0x8
+      10: b284         	uxth	r4, r0
+      12: 2602         	movs	r6, #0x2
+      14: f504 2480    	add.w	r4, r4, #0x40000
+      18: e000         	b	0x1c <vIO32Write4B_All+0x1c> @ imm = #0x0
+      1a: 2601         	movs	r6, #0x1
+      1c: 4620         	mov	r0, r4
+      1e: 4629         	mov	r1, r5
+      20: f7ff fffe    	bl	0x20 <vIO32Write4B_All+0x20> @ imm = #-0x4
+			00000020:  R_ARM_THM_CALL	ucDram_Register_Write
+      24: 2e02         	cmp	r6, #0x2
+      26: d106         	bne	0x36 <vIO32Write4B_All+0x36> @ imm = #0xc
+      28: f504 3080    	add.w	r0, r4, #0x10000
+      2c: 4629         	mov	r1, r5
+      2e: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      32: f7ff bffe    	b.w	0x32 <vIO32Write4B_All+0x32> @ imm = #-0x4
+			00000032:  R_ARM_THM_JUMP24	ucDram_Register_Write
+      36: bd70         	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.vIO32Write4BMsk_All:
+
+00000000 <vIO32Write4BMsk_All>:
+       0: b5f8         	push	{r3, r4, r5, r6, r7, lr}
+       2: f400 2370    	and	r3, r0, #0xf0000
+       6: 4604         	mov	r4, r0
+       8: f5b3 2f80    	cmp.w	r3, #0x40000
+       c: 460e         	mov	r6, r1
+       e: 4615         	mov	r5, r2
+      10: d304         	blo	0x1c <vIO32Write4BMsk_All+0x1c> @ imm = #0x8
+      12: b284         	uxth	r4, r0
+      14: 2702         	movs	r7, #0x2
+      16: f504 2480    	add.w	r4, r4, #0x40000
+      1a: e000         	b	0x1e <vIO32Write4BMsk_All+0x1e> @ imm = #0x0
+      1c: 2701         	movs	r7, #0x1
+      1e: 4620         	mov	r0, r4
+      20: 43ed         	mvns	r5, r5
+      22: f7ff fffe    	bl	0x22 <vIO32Write4BMsk_All+0x22> @ imm = #-0x4
+			00000022:  R_ARM_THM_CALL	u4Dram_Register_Read
+      26: ea00 0105    	and.w	r1, r0, r5
+      2a: 4331         	orrs	r1, r6
+      2c: 4620         	mov	r0, r4
+      2e: f7ff fffe    	bl	0x2e <vIO32Write4BMsk_All+0x2e> @ imm = #-0x4
+			0000002e:  R_ARM_THM_CALL	ucDram_Register_Write
+      32: 2f02         	cmp	r7, #0x2
+      34: d10c         	bne	0x50 <vIO32Write4BMsk_All+0x50> @ imm = #0x18
+      36: f504 3480    	add.w	r4, r4, #0x10000
+      3a: 4620         	mov	r0, r4
+      3c: f7ff fffe    	bl	0x3c <vIO32Write4BMsk_All+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	u4Dram_Register_Read
+      40: ea00 0105    	and.w	r1, r0, r5
+      44: 4331         	orrs	r1, r6
+      46: 4620         	mov	r0, r4
+      48: e8bd 40f8    	pop.w	{r3, r4, r5, r6, r7, lr}
+      4c: f7ff bffe    	b.w	0x4c <vIO32Write4BMsk_All+0x4c> @ imm = #-0x4
+			0000004c:  R_ARM_THM_JUMP24	ucDram_Register_Write
+      50: bdf8         	pop	{r3, r4, r5, r6, r7, pc}

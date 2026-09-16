@@ -1,0 +1,238 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl31/TX_RX_auto_gen_library.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.get_max_val_form_2dim:
+
+0000000000000000 <get_max_val_form_2dim>:
+       0: aa0003e2     	mov	x2, x0
+       4: 29408003     	ldp	w3, w0, [x0, #0x4]
+       8: b8408441     	ldr	w1, [x2], #0x8
+       c: 6b03003f     	cmp	w1, w3
+      10: 1a832021     	csel	w1, w1, w3, hs
+      14: b9400442     	ldr	w2, [x2, #0x4]
+      18: 6b02001f     	cmp	w0, w2
+      1c: 1a822000     	csel	w0, w0, w2, hs
+      20: 6b01001f     	cmp	w0, w1
+      24: 1a812000     	csel	w0, w0, w1, hs
+      28: d65f03c0     	ret
+
+Disassembly of section .text.get_min_val_form_2dim:
+
+0000000000000000 <get_min_val_form_2dim>:
+       0: aa0003e2     	mov	x2, x0
+       4: 29408003     	ldp	w3, w0, [x0, #0x4]
+       8: b8408441     	ldr	w1, [x2], #0x8
+       c: 6b03003f     	cmp	w1, w3
+      10: 1a839021     	csel	w1, w1, w3, ls
+      14: b9400442     	ldr	w2, [x2, #0x4]
+      18: 6b02001f     	cmp	w0, w2
+      1c: 1a829000     	csel	w0, w0, w2, ls
+      20: 6b01001f     	cmp	w0, w1
+      24: 1a819000     	csel	w0, w0, w1, ls
+      28: d65f03c0     	ret
+
+Disassembly of section .text.get_dq_ca_p2s_latency:
+
+0000000000000000 <get_dq_ca_p2s_latency>:
+       0: 12001c00     	and	w0, w0, #0xff
+       4: 12001c21     	and	w1, w1, #0xff
+       8: 12001c42     	and	w2, w2, #0xff
+       c: 1b000020     	madd	w0, w1, w0, w0
+      10: 12001c00     	and	w0, w0, #0xff
+      14: 1b000040     	madd	w0, w2, w0, w0
+      18: 12001c02     	and	w2, w0, #0xff
+      1c: 7100205f     	cmp	w2, #0x8
+      20: 54000360     	b.eq	0x8c <get_dq_ca_p2s_latency+0x8c>
+      24: 54000228     	b.hi	0x68 <get_dq_ca_p2s_latency+0x68>
+      28: 7100085f     	cmp	w2, #0x2
+      2c: 540003c0     	b.eq	0xa4 <get_dq_ca_p2s_latency+0xa4>
+      30: 7100105f     	cmp	w2, #0x4
+      34: 52800060     	mov	w0, #0x3                // =3
+      38: 1a9f0000     	csel	w0, w0, wzr, eq
+      3c: 90000001     	adrp	x1, 0x0 <get_dq_ca_p2s_latency>
+		000000000000003c:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+      40: b9400021     	ldr	w1, [x1]
+		0000000000000040:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+      44: 121d7821     	and	w1, w1, #0xfffffffb
+      48: 7100083f     	cmp	w1, #0x2
+      4c: 540000c1     	b.ne	0x64 <get_dq_ca_p2s_latency+0x64>
+      50: 7100105f     	cmp	w2, #0x4
+      54: 54000300     	b.eq	0xb4 <get_dq_ca_p2s_latency+0xb4>
+      58: 7100205f     	cmp	w2, #0x8
+      5c: 528000e1     	mov	w1, #0x7                // =7
+      60: 1a811000     	csel	w0, w0, w1, ne
+      64: d65f03c0     	ret
+      68: 7100405f     	cmp	w2, #0x10
+      6c: 54000201     	b.ne	0xac <get_dq_ca_p2s_latency+0xac>
+      70: 90000000     	adrp	x0, 0x0 <get_dq_ca_p2s_latency>
+		0000000000000070:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal+0x7d
+      74: 52800121     	mov	w1, #0x9                // =9
+      78: 39400000     	ldrb	w0, [x0]
+		0000000000000078:  R_AARCH64_LDST8_ABS_LO12_NC	DUTTopSetGlobal+0x7d
+      7c: 7100041f     	cmp	w0, #0x1
+      80: 52800160     	mov	w0, #0xb                // =11
+      84: 1a810000     	csel	w0, w0, w1, eq
+      88: 17ffffed     	b	0x3c <get_dq_ca_p2s_latency+0x3c>
+      8c: 90000000     	adrp	x0, 0x0 <get_dq_ca_p2s_latency>
+		000000000000008c:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal+0x7d
+      90: 39400000     	ldrb	w0, [x0]
+		0000000000000090:  R_AARCH64_LDST8_ABS_LO12_NC	DUTTopSetGlobal+0x7d
+      94: 7100041f     	cmp	w0, #0x1
+      98: 1a9f17e0     	cset	w0, eq
+      9c: 11001400     	add	w0, w0, #0x5
+      a0: 17ffffe7     	b	0x3c <get_dq_ca_p2s_latency+0x3c>
+      a4: 52800020     	mov	w0, #0x1                // =1
+      a8: 17ffffe5     	b	0x3c <get_dq_ca_p2s_latency+0x3c>
+      ac: 52800000     	mov	w0, #0x0                // =0
+      b0: 17ffffe3     	b	0x3c <get_dq_ca_p2s_latency+0x3c>
+      b4: 528000a0     	mov	w0, #0x5                // =5
+      b8: 17ffffeb     	b	0x64 <get_dq_ca_p2s_latency+0x64>
+
+Disassembly of section .text.get_dqsien_p2s_latency:
+
+0000000000000000 <get_dqsien_p2s_latency>:
+       0: 12001c02     	and	w2, w0, #0xff
+       4: 12001c21     	and	w1, w1, #0xff
+       8: 7100205f     	cmp	w2, #0x8
+       c: 54000320     	b.eq	0x70 <get_dqsien_p2s_latency+0x70>
+      10: 54000268     	b.hi	0x5c <get_dqsien_p2s_latency+0x5c>
+      14: 7100085f     	cmp	w2, #0x2
+      18: 540003c0     	b.eq	0x90 <get_dqsien_p2s_latency+0x90>
+      1c: 531f1820     	ubfiz	w0, w1, #1, #7
+      20: 7100105f     	cmp	w2, #0x4
+      24: 11001000     	add	w0, w0, #0x4
+      28: 12001c00     	and	w0, w0, #0xff
+      2c: 1a9f0000     	csel	w0, w0, wzr, eq
+      30: 90000001     	adrp	x1, 0x0 <get_dqsien_p2s_latency>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+      34: b9400021     	ldr	w1, [x1]
+		0000000000000034:  R_AARCH64_LDST32_ABS_LO12_NC	MEM_TYPE
+      38: 121d7821     	and	w1, w1, #0xfffffffb
+      3c: 7100083f     	cmp	w1, #0x2
+      40: 540000c1     	b.ne	0x58 <get_dqsien_p2s_latency+0x58>
+      44: 7100105f     	cmp	w2, #0x4
+      48: 54000280     	b.eq	0x98 <get_dqsien_p2s_latency+0x98>
+      4c: 7100205f     	cmp	w2, #0x8
+      50: 528000e1     	mov	w1, #0x7                // =7
+      54: 1a811000     	csel	w0, w0, w1, ne
+      58: d65f03c0     	ret
+      5c: 531d1020     	ubfiz	w0, w1, #3, #5
+      60: 7100405f     	cmp	w2, #0x10
+      64: 11004800     	add	w0, w0, #0x12
+      68: 12001c00     	and	w0, w0, #0xff
+      6c: 17fffff0     	b	0x2c <get_dqsien_p2s_latency+0x2c>
+      70: 90000000     	adrp	x0, 0x0 <get_dqsien_p2s_latency>
+		0000000000000070:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal+0x7d
+      74: 39400000     	ldrb	w0, [x0]
+		0000000000000074:  R_AARCH64_LDST8_ABS_LO12_NC	DUTTopSetGlobal+0x7d
+      78: 7100041f     	cmp	w0, #0x1
+      7c: 1a9f07e0     	cset	w0, ne
+      80: 11001c00     	add	w0, w0, #0x7
+      84: 0b010801     	add	w1, w0, w1, lsl #2
+      88: 12001c20     	and	w0, w1, #0xff
+      8c: 17ffffe9     	b	0x30 <get_dqsien_p2s_latency+0x30>
+      90: 11000821     	add	w1, w1, #0x2
+      94: 17fffffd     	b	0x88 <get_dqsien_p2s_latency+0x88>
+      98: 528000a0     	mov	w0, #0x5                // =5
+      9c: 17ffffef     	b	0x58 <get_dqsien_p2s_latency+0x58>
+
+Disassembly of section .text.get_oe_p2s_latency:
+
+0000000000000000 <get_oe_p2s_latency>:
+       0: 12001c00     	and	w0, w0, #0xff
+       4: 12001c21     	and	w1, w1, #0xff
+       8: 11000421     	add	w1, w1, #0x1
+       c: 7100201f     	cmp	w0, #0x8
+      10: 54000160     	b.eq	0x3c <get_oe_p2s_latency+0x3c>
+      14: 540000e8     	b.hi	0x30 <get_oe_p2s_latency+0x30>
+      18: 7100081f     	cmp	w0, #0x2
+      1c: 54000140     	b.eq	0x44 <get_oe_p2s_latency+0x44>
+      20: 531f1821     	ubfiz	w1, w1, #1, #7
+      24: 7100101f     	cmp	w0, #0x4
+      28: 1a9f0020     	csel	w0, w1, wzr, eq
+      2c: d65f03c0     	ret
+      30: 531d1021     	ubfiz	w1, w1, #3, #5
+      34: 7100401f     	cmp	w0, #0x10
+      38: 17fffffc     	b	0x28 <get_oe_p2s_latency+0x28>
+      3c: 531e1420     	ubfiz	w0, w1, #2, #6
+      40: 17fffffb     	b	0x2c <get_oe_p2s_latency+0x2c>
+      44: 12001c20     	and	w0, w1, #0xff
+      48: 17fffff9     	b	0x2c <get_oe_p2s_latency+0x2c>
+
+Disassembly of section .text.A_div_B_RU:
+
+0000000000000000 <A_div_B_RU>:
+       0: 2a0003e2     	mov	w2, w0
+       4: 1ac10800     	udiv	w0, w0, w1
+       8: 1b017c01     	mul	w1, w0, w1
+       c: 6b02003f     	cmp	w1, w2
+      10: 54000060     	b.eq	0x1c <A_div_B_RU+0x1c>
+      14: 6b01005f     	cmp	w2, w1
+      18: 1a800400     	cinc	w0, w0, ne
+      1c: d65f03c0     	ret
+
+Disassembly of section .text.Get_RL_by_MR_PC4:
+
+0000000000000000 <Get_RL_by_MR_PC4>:
+       0: 12001c21     	and	w1, w1, #0xff
+       4: 12001c42     	and	w2, w2, #0xff
+       8: 71005c3f     	cmp	w1, #0x17
+       c: 540000e8     	b.hi	0x28 <Get_RL_by_MR_PC4+0x28>
+      10: 92401c21     	and	x1, x1, #0xff
+      14: 90000003     	adrp	x3, 0x0 <Get_RL_by_MR_PC4>
+		0000000000000014:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.CSWTCH.15
+      18: 91000063     	add	x3, x3, #0x0
+		0000000000000018:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.CSWTCH.15
+      1c: 38616860     	ldrb	w0, [x3, x1]
+      20: 0b000040     	add	w0, w2, w0
+      24: d65f03c0     	ret
+      28: 52800000     	mov	w0, #0x0                // =0
+      2c: 17fffffd     	b	0x20 <Get_RL_by_MR_PC4+0x20>
+
+Disassembly of section .text.Get_WL_by_MR_PC4:
+
+0000000000000000 <Get_WL_by_MR_PC4>:
+       0: 12001c21     	and	w1, w1, #0xff
+       4: 12001c42     	and	w2, w2, #0xff
+       8: 71001c3f     	cmp	w1, #0x7
+       c: 540000e8     	b.hi	0x28 <Get_WL_by_MR_PC4+0x28>
+      10: 92401c21     	and	x1, x1, #0xff
+      14: 90000003     	adrp	x3, 0x0 <Get_WL_by_MR_PC4>
+		0000000000000014:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.CSWTCH.17
+      18: 91000063     	add	x3, x3, #0x0
+		0000000000000018:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.CSWTCH.17
+      1c: 38616860     	ldrb	w0, [x3, x1]
+      20: 0b000040     	add	w0, w2, w0
+      24: d65f03c0     	ret
+      28: 52800000     	mov	w0, #0x0                // =0
+      2c: 17fffffd     	b	0x20 <Get_WL_by_MR_PC4+0x20>
+
+Disassembly of section .text.Get_RL_by_MR_PC3:
+
+0000000000000000 <Get_RL_by_MR_PC3>:
+       0: 12001c21     	and	w1, w1, #0xff
+       4: 12001c42     	and	w2, w2, #0xff
+       8: 51000421     	sub	w1, w1, #0x1
+       c: 12001c21     	and	w1, w1, #0xff
+      10: 7100343f     	cmp	w1, #0xd
+      14: 540000e8     	b.hi	0x30 <Get_RL_by_MR_PC3+0x30>
+      18: 92401c21     	and	x1, x1, #0xff
+      1c: 90000003     	adrp	x3, 0x0 <Get_RL_by_MR_PC3>
+		000000000000001c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.CSWTCH.19
+      20: 91000063     	add	x3, x3, #0x0
+		0000000000000020:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.CSWTCH.19
+      24: 38616860     	ldrb	w0, [x3, x1]
+      28: 0b000040     	add	w0, w2, w0
+      2c: d65f03c0     	ret
+      30: 52800000     	mov	w0, #0x0                // =0
+      34: 17fffffd     	b	0x28 <Get_RL_by_MR_PC3+0x28>
+
+Disassembly of section .text.Get_WL_by_MR_PC3:
+
+0000000000000000 <Get_WL_by_MR_PC3>:
+       0: 12001c42     	and	w2, w2, #0xff
+       4: 11001440     	add	w0, w2, #0x5
+       8: 7100205f     	cmp	w2, #0x8
+       c: 1a9f3000     	csel	w0, w0, wzr, lo
+      10: 0b230000     	add	w0, w0, w3, uxtb
+      14: d65f03c0     	ret

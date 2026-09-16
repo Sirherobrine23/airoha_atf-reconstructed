@@ -1,0 +1,432 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/dramc_pi_main.o:	file format elf32-littlearm
+
+Disassembly of section .text.vSetVcoreByFreq:
+
+00000000 <vSetVcoreByFreq>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.Test_Broadcast_Feature:
+
+00000000 <Test_Broadcast_Feature>:
+       0: e92d 41ff    	push.w	{r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}
+       4: 4604         	mov	r4, r0
+       6: 6c43         	ldr	r3, [r0, #0x44]
+       8: 2b10         	cmp	r3, #0x10
+       a: d051         	beq	0xb0 <Test_Broadcast_Feature+0xb0> @ imm = #0xa2
+       c: 4b2a         	ldr	r3, [pc, #0xa8]         @ 0xb8 <Test_Broadcast_Feature+0xb8>
+       e: af02         	add	r7, sp, #0x8
+      10: 2601         	movs	r6, #0x1
+      12: 2500         	movs	r5, #0x0
+      14: e893 0003    	ldm.w	r3, {r0, r1}
+      18: e887 0003    	stm.w	r7, {r0, r1}
+      1c: f7ff fffe    	bl	0x1c <Test_Broadcast_Feature+0x1c> @ imm = #-0x4
+			0000001c:  R_ARM_THM_CALL	GetDramcBroadcast
+      20: 4680         	mov	r8, r0
+      22: 2000         	movs	r0, #0x0
+      24: f7ff fffe    	bl	0x24 <Test_Broadcast_Feature+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      28: 4639         	mov	r1, r7
+      2a: 4620         	mov	r0, r4
+      2c: 2301         	movs	r3, #0x1
+      2e: 2202         	movs	r2, #0x2
+      30: f7ff fffe    	bl	0x30 <Test_Broadcast_Feature+0x30> @ imm = #-0x4
+			00000030:  R_ARM_THM_CALL	DramcBackupRegisters
+      34: 2300         	movs	r3, #0x0
+      36: 9902         	ldr	r1, [sp, #0x8]
+      38: 461a         	mov	r2, r3
+      3a: 4620         	mov	r0, r4
+      3c: 9600         	str	r6, [sp]
+      3e: f7ff fffe    	bl	0x3e <Test_Broadcast_Feature+0x3e> @ imm = #-0x4
+			0000003e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      42: 2300         	movs	r3, #0x0
+      44: 9903         	ldr	r1, [sp, #0xc]
+      46: 461a         	mov	r2, r3
+      48: 4620         	mov	r0, r4
+      4a: 9600         	str	r6, [sp]
+      4c: f7ff fffe    	bl	0x4c <Test_Broadcast_Feature+0x4c> @ imm = #-0x4
+			0000004c:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      50: 4630         	mov	r0, r6
+      52: f7ff fffe    	bl	0x52 <Test_Broadcast_Feature+0x52> @ imm = #-0x4
+			00000052:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      56: 4a19         	ldr	r2, [pc, #0x64]         @ 0xbc <Test_Broadcast_Feature+0xbc>
+      58: 9902         	ldr	r1, [sp, #0x8]
+      5a: 462b         	mov	r3, r5
+      5c: 4620         	mov	r0, r4
+      5e: 9500         	str	r5, [sp]
+      60: f7ff fffe    	bl	0x60 <Test_Broadcast_Feature+0x60> @ imm = #-0x4
+			00000060:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      64: 462b         	mov	r3, r5
+      66: 4a15         	ldr	r2, [pc, #0x54]         @ 0xbc <Test_Broadcast_Feature+0xbc>
+      68: 4620         	mov	r0, r4
+      6a: 9903         	ldr	r1, [sp, #0xc]
+      6c: 9500         	str	r5, [sp]
+      6e: f7ff fffe    	bl	0x6e <Test_Broadcast_Feature+0x6e> @ imm = #-0x4
+			0000006e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      72: 4628         	mov	r0, r5
+      74: f7ff fffe    	bl	0x74 <Test_Broadcast_Feature+0x74> @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      78: 4632         	mov	r2, r6
+      7a: 4629         	mov	r1, r5
+      7c: 4620         	mov	r0, r4
+      7e: f7ff fffe    	bl	0x7e <Test_Broadcast_Feature+0x7e> @ imm = #-0x4
+			0000007e:  R_ARM_THM_CALL	__meta_backup_and_set
+      82: 9902         	ldr	r1, [sp, #0x8]
+      84: 462a         	mov	r2, r5
+      86: 4620         	mov	r0, r4
+      88: f7ff fffe    	bl	0x88 <Test_Broadcast_Feature+0x88> @ imm = #-0x4
+			00000088:  R_ARM_THM_CALL	vPhyByteReadFldAlign
+      8c: 462a         	mov	r2, r5
+      8e: 9903         	ldr	r1, [sp, #0xc]
+      90: 4620         	mov	r0, r4
+      92: f7ff fffe    	bl	0x92 <Test_Broadcast_Feature+0x92> @ imm = #-0x4
+			00000092:  R_ARM_THM_CALL	vPhyByteReadFldAlign
+      96: 4629         	mov	r1, r5
+      98: 4620         	mov	r0, r4
+      9a: f7ff fffe    	bl	0x9a <Test_Broadcast_Feature+0x9a> @ imm = #-0x4
+			0000009a:  R_ARM_THM_CALL	__meta_restore
+      9e: 4620         	mov	r0, r4
+      a0: 4633         	mov	r3, r6
+      a2: 4639         	mov	r1, r7
+      a4: 2202         	movs	r2, #0x2
+      a6: f7ff fffe    	bl	0xa6 <Test_Broadcast_Feature+0xa6> @ imm = #-0x4
+			000000a6:  R_ARM_THM_CALL	DramcRestoreRegisters
+      aa: 4640         	mov	r0, r8
+      ac: f7ff fffe    	bl	0xac <Test_Broadcast_Feature+0xac> @ imm = #-0x4
+			000000ac:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      b0: b004         	add	sp, #0x10
+      b2: e8bd 81f0    	pop.w	{r4, r5, r6, r7, r8, pc}
+      b6: bf00         	nop
+      b8: 00 00 00 00  	.word	0x00000000
+			000000b8:  R_ARM_ABS32	.rodata
+      bc: ff 00 5a a5  	.word	0xa55a00ff
+
+Disassembly of section .text.mem_test_address_calculation:
+
+00000000 <mem_test_address_calculation>:
+       0: 6e03         	ldr	r3, [r0, #0x60]
+       2: 440b         	add	r3, r1
+       4: 6013         	str	r3, [r2]
+       6: 4770         	bx	lr
+
+Disassembly of section .text.DramRankNumberDetection:
+
+00000000 <DramRankNumberDetection>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4604         	mov	r4, r0
+       4: f7ff fffe    	bl	0x4 <DramRankNumberDetection+0x4> @ imm = #-0x4
+			00000004:  R_ARM_THM_CALL	u1GetRank
+       8: 2100         	movs	r1, #0x0
+       a: 4605         	mov	r5, r0
+       c: 4620         	mov	r0, r4
+       e: f7ff fffe    	bl	0xe <DramRankNumberDetection+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      12: 4620         	mov	r0, r4
+      14: 2101         	movs	r1, #0x1
+      16: f7ff fffe    	bl	0x16 <DramRankNumberDetection+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	vSetRank
+      1a: 2200         	movs	r2, #0x0
+      1c: 4620         	mov	r0, r4
+      1e: 4611         	mov	r1, r2
+      20: f7ff fffe    	bl	0x20 <DramRankNumberDetection+0x20> @ imm = #-0x4
+			00000020:  R_ARM_THM_CALL	DramcWriteLeveling
+      24: 4602         	mov	r2, r0
+      26: b960         	cbnz	r0, 0x42 <DramRankNumberDetection+0x42> @ imm = #0x18
+      28: 2302         	movs	r3, #0x2
+      2a: 60a3         	str	r3, [r4, #0x8]
+      2c: 2301         	movs	r3, #0x1
+      2e: 4620         	mov	r0, r4
+      30: 210c         	movs	r1, #0xc
+      32: f7ff fffe    	bl	0x32 <DramRankNumberDetection+0x32> @ imm = #-0x4
+			00000032:  R_ARM_THM_CALL	vIO32WriteMsk
+      36: 4629         	mov	r1, r5
+      38: 4620         	mov	r0, r4
+      3a: e8bd 4038    	pop.w	{r3, r4, r5, lr}
+      3e: f7ff bffe    	b.w	0x3e <DramRankNumberDetection+0x3e> @ imm = #-0x4
+			0000003e:  R_ARM_THM_JUMP24	vSetRank
+      42: 2301         	movs	r3, #0x1
+      44: 461a         	mov	r2, r3
+      46: 60a3         	str	r3, [r4, #0x8]
+      48: e7f1         	b	0x2e <DramRankNumberDetection+0x2e> @ imm = #-0x1e
+
+Disassembly of section .text.vDramCalibrationAllChannel:
+
+00000000 <vDramCalibrationAllChannel>:
+       0: b510         	push	{r4, lr}
+       2: 2100         	movs	r1, #0x0
+       4: 4604         	mov	r4, r0
+       6: f7ff fffe    	bl	0x6 <vDramCalibrationAllChannel+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	vAutoRefreshSwitch
+       a: 2200         	movs	r2, #0x0
+       c: 4620         	mov	r0, r4
+       e: 4611         	mov	r1, r2
+      10: f7ff fffe    	bl	0x10 <vDramCalibrationAllChannel+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	DramcWriteLeveling
+      14: 4620         	mov	r0, r4
+      16: f7ff fffe    	bl	0x16 <vDramCalibrationAllChannel+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	is_ddr4_family
+      1a: b148         	cbz	r0, 0x30 <vDramCalibrationAllChannel+0x30> @ imm = #0x12
+      1c: 4b21         	ldr	r3, [pc, #0x84]         @ 0xa4 <vDramCalibrationAllChannel+0xa4>
+      1e: 681b         	ldr	r3, [r3]
+      20: 2b01         	cmp	r3, #0x1
+      22: d105         	bne	0x30 <vDramCalibrationAllChannel+0x30> @ imm = #0xa
+      24: 2308         	movs	r3, #0x8
+      26: 4920         	ldr	r1, [pc, #0x80]         @ 0xa8 <vDramCalibrationAllChannel+0xa8>
+      28: 461a         	mov	r2, r3
+      2a: 4620         	mov	r0, r4
+      2c: f7ff fffe    	bl	0x2c <vDramCalibrationAllChannel+0x2c> @ imm = #-0x4
+			0000002c:  R_ARM_THM_CALL	vIO32WriteMsk
+      30: 2200         	movs	r2, #0x0
+      32: 4620         	mov	r0, r4
+      34: 4611         	mov	r1, r2
+      36: f7ff fffe    	bl	0x36 <vDramCalibrationAllChannel+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	dramc_rx_dqs_gating_cal
+      3a: 2300         	movs	r3, #0x0
+      3c: 4620         	mov	r0, r4
+      3e: 461a         	mov	r2, r3
+      40: 4619         	mov	r1, r3
+      42: f7ff fffe    	bl	0x42 <vDramCalibrationAllChannel+0x42> @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	DramcRxWindowPerbitCal
+      46: 2300         	movs	r3, #0x0
+      48: 2102         	movs	r1, #0x2
+      4a: 461a         	mov	r2, r3
+      4c: 4620         	mov	r0, r4
+      4e: f7ff fffe    	bl	0x4e <vDramCalibrationAllChannel+0x4e> @ imm = #-0x4
+			0000004e:  R_ARM_THM_CALL	DramcTxWindowPerbitCal
+      52: 4620         	mov	r0, r4
+      54: f7ff fffe    	bl	0x54 <vDramCalibrationAllChannel+0x54> @ imm = #-0x4
+			00000054:  R_ARM_THM_CALL	Get_Vref_Calibration_OnOff
+      58: 4602         	mov	r2, r0
+      5a: 2801         	cmp	r0, #0x1
+      5c: d104         	bne	0x68 <vDramCalibrationAllChannel+0x68> @ imm = #0x8
+      5e: 2300         	movs	r3, #0x0
+      60: 4620         	mov	r0, r4
+      62: 4619         	mov	r1, r3
+      64: f7ff fffe    	bl	0x64 <vDramCalibrationAllChannel+0x64> @ imm = #-0x4
+			00000064:  R_ARM_THM_CALL	DramcTxWindowPerbitCal
+      68: 2300         	movs	r3, #0x0
+      6a: 4620         	mov	r0, r4
+      6c: 461a         	mov	r2, r3
+      6e: 4619         	mov	r1, r3
+      70: f7ff fffe    	bl	0x70 <vDramCalibrationAllChannel+0x70> @ imm = #-0x4
+			00000070:  R_ARM_THM_CALL	DramcTxWindowPerbitCal
+      74: 2300         	movs	r3, #0x0
+      76: 2101         	movs	r1, #0x1
+      78: 461a         	mov	r2, r3
+      7a: 4620         	mov	r0, r4
+      7c: f7ff fffe    	bl	0x7c <vDramCalibrationAllChannel+0x7c> @ imm = #-0x4
+			0000007c:  R_ARM_THM_CALL	DramcTxWindowPerbitCal
+      80: 4620         	mov	r0, r4
+      82: f7ff fffe    	bl	0x82 <vDramCalibrationAllChannel+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_CALL	DramcRxdatlatCal
+      86: 2300         	movs	r3, #0x0
+      88: 4620         	mov	r0, r4
+      8a: 461a         	mov	r2, r3
+      8c: 2101         	movs	r1, #0x1
+      8e: f7ff fffe    	bl	0x8e <vDramCalibrationAllChannel+0x8e> @ imm = #-0x4
+			0000008e:  R_ARM_THM_CALL	DramcRxWindowPerbitCal
+      92: 4620         	mov	r0, r4
+      94: f7ff fffe    	bl	0x94 <vDramCalibrationAllChannel+0x94> @ imm = #-0x4
+			00000094:  R_ARM_THM_CALL	vPrintCalibrationResult
+      98: 4620         	mov	r0, r4
+      9a: e8bd 4010    	pop.w	{r4, lr}
+      9e: f7ff bffe    	b.w	0x9e <vDramCalibrationAllChannel+0x9e> @ imm = #-0x4
+			0000009e:  R_ARM_THM_JUMP24	DramcModifiedRefreshMode
+      a2: bf00         	nop
+      a4: 00 00 00 00  	.word	0x00000000
+			000000a4:  R_ARM_ABS32	pkg_type
+      a8: 84 16 20 00  	.word	0x00201684
+
+Disassembly of section .text.Init_Dram_Ctx_By_Type:
+
+00000000 <Init_Dram_Ctx_By_Type>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4604         	mov	r4, r0
+       4: 4b1c         	ldr	r3, [pc, #0x70]         @ 0x78 <Init_Dram_Ctx_By_Type+0x78>
+       6: 6181         	str	r1, [r0, #0x18]
+       8: f8d3 5240    	ldr.w	r5, [r3, #0x240]
+       c: f7ff fffe    	bl	0xc <Init_Dram_Ctx_By_Type+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	is_ddr3_family
+      10: b160         	cbz	r0, 0x2c <Init_Dram_Ctx_By_Type+0x2c> @ imm = #0x18
+      12: 4b1a         	ldr	r3, [pc, #0x68]         @ 0x7c <Init_Dram_Ctx_By_Type+0x7c>
+      14: 2202         	movs	r2, #0x2
+      16: 601a         	str	r2, [r3]
+      18: 4b19         	ldr	r3, [pc, #0x64]         @ 0x80 <Init_Dram_Ctx_By_Type+0x80>
+      1a: 681b         	ldr	r3, [r3]
+      1c: b913         	cbnz	r3, 0x24 <Init_Dram_Ctx_By_Type+0x24> @ imm = #0x4
+      1e: 4819         	ldr	r0, [pc, #0x64]         @ 0x84 <Init_Dram_Ctx_By_Type+0x84>
+      20: f7ff fffe    	bl	0x20 <Init_Dram_Ctx_By_Type+0x20> @ imm = #-0x4
+			00000020:  R_ARM_THM_CALL	printf
+      24: 4b18         	ldr	r3, [pc, #0x60]         @ 0x88 <Init_Dram_Ctx_By_Type+0x88>
+      26: 4a19         	ldr	r2, [pc, #0x64]         @ 0x8c <Init_Dram_Ctx_By_Type+0x8c>
+      28: 601a         	str	r2, [r3]
+      2a: bd38         	pop	{r3, r4, r5, pc}
+      2c: 4620         	mov	r0, r4
+      2e: f7ff fffe    	bl	0x2e <Init_Dram_Ctx_By_Type+0x2e> @ imm = #-0x4
+			0000002e:  R_ARM_THM_CALL	is_ddr4_family
+      32: 2800         	cmp	r0, #0x0
+      34: d0f9         	beq	0x2a <Init_Dram_Ctx_By_Type+0x2a> @ imm = #-0xe
+      36: 4b11         	ldr	r3, [pc, #0x44]         @ 0x7c <Init_Dram_Ctx_By_Type+0x7c>
+      38: 2206         	movs	r2, #0x6
+      3a: 4c13         	ldr	r4, [pc, #0x4c]         @ 0x88 <Init_Dram_Ctx_By_Type+0x88>
+      3c: 601a         	str	r2, [r3]
+      3e: 4a14         	ldr	r2, [pc, #0x50]         @ 0x90 <Init_Dram_Ctx_By_Type+0x90>
+      40: 4b0f         	ldr	r3, [pc, #0x3c]         @ 0x80 <Init_Dram_Ctx_By_Type+0x80>
+      42: 6812         	ldr	r2, [r2]
+      44: 681b         	ldr	r3, [r3]
+      46: 2a01         	cmp	r2, #0x1
+      48: d111         	bne	0x6e <Init_Dram_Ctx_By_Type+0x6e> @ imm = #0x22
+      4a: 4a12         	ldr	r2, [pc, #0x48]         @ 0x94 <Init_Dram_Ctx_By_Type+0x94>
+      4c: 6812         	ldr	r2, [r2]
+      4e: 2a01         	cmp	r2, #0x1
+      50: d10d         	bne	0x6e <Init_Dram_Ctx_By_Type+0x6e> @ imm = #0x1a
+      52: b97b         	cbnz	r3, 0x74 <Init_Dram_Ctx_By_Type+0x74> @ imm = #0x1e
+      54: 4b10         	ldr	r3, [pc, #0x40]         @ 0x98 <Init_Dram_Ctx_By_Type+0x98>
+      56: 6023         	str	r3, [r4]
+      58: 07a8         	lsls	r0, r5, #0x1e
+      5a: d5e6         	bpl	0x2a <Init_Dram_Ctx_By_Type+0x2a> @ imm = #-0x34
+      5c: 480f         	ldr	r0, [pc, #0x3c]         @ 0x9c <Init_Dram_Ctx_By_Type+0x9c>
+      5e: f7ff fffe    	bl	0x5e <Init_Dram_Ctx_By_Type+0x5e> @ imm = #-0x4
+			0000005e:  R_ARM_THM_CALL	printf
+      62: 6823         	ldr	r3, [r4]
+      64: 2206         	movs	r2, #0x6
+      66: 601a         	str	r2, [r3]
+      68: 2201         	movs	r2, #0x1
+      6a: 605a         	str	r2, [r3, #0x4]
+      6c: e7dd         	b	0x2a <Init_Dram_Ctx_By_Type+0x2a> @ imm = #-0x46
+      6e: b90b         	cbnz	r3, 0x74 <Init_Dram_Ctx_By_Type+0x74> @ imm = #0x2
+      70: 4b0b         	ldr	r3, [pc, #0x2c]         @ 0xa0 <Init_Dram_Ctx_By_Type+0xa0>
+      72: e7f0         	b	0x56 <Init_Dram_Ctx_By_Type+0x56> @ imm = #-0x20
+      74: 4b0b         	ldr	r3, [pc, #0x2c]         @ 0xa4 <Init_Dram_Ctx_By_Type+0xa4>
+      76: e7ee         	b	0x56 <Init_Dram_Ctx_By_Type+0x56> @ imm = #-0x24
+      78: 00 00 b0 1f  	.word	0x1fb00000
+      7c: 00 00 00 00  	.word	0x00000000
+			0000007c:  R_ARM_ABS32	.bss.MEM_TYPE
+      80: 00 00 00 00  	.word	0x00000000
+			00000080:  R_ARM_ABS32	gpio_32
+      84: 00 00 00 00  	.word	0x00000000
+			00000084:  R_ARM_ABS32	.rodata.Init_Dram_Ctx_By_Type.str1.1
+      88: 00 00 00 00  	.word	0x00000000
+			00000088:  R_ARM_ABS32	.bss.gFreqTbl
+      8c: 00 00 00 00  	.word	0x00000000
+			0000008c:  R_ARM_ABS32	.data.gFreqTbl_PC3
+      90: 00 00 00 00  	.word	0x00000000
+			00000090:  R_ARM_ABS32	pkg_type
+      94: 00 00 00 00  	.word	0x00000000
+			00000094:  R_ARM_ABS32	gpio_31
+      98: 18 00 00 00  	.word	0x00000018
+			00000098:  R_ARM_ABS32	.data.gFreqTbl_PC4
+      9c: 1d 00 00 00  	.word	0x0000001d
+			0000009c:  R_ARM_ABS32	.rodata.Init_Dram_Ctx_By_Type.str1.1
+      a0: 00 00 00 00  	.word	0x00000000
+			000000a0:  R_ARM_ABS32	.data.gFreqTbl_PC4
+      a4: 30 00 00 00  	.word	0x00000030
+			000000a4:  R_ARM_ABS32	.data.gFreqTbl_PC4
+
+Disassembly of section .text.dump_dramc_ctx:
+
+00000000 <dump_dramc_ctx>:
+       0: 6983         	ldr	r3, [r0, #0x18]
+       2: b510         	push	{r4, lr}
+       4: 4604         	mov	r4, r0
+       6: f8b0 1054    	ldrh.w	r1, [r0, #0x54]
+       a: 2b03         	cmp	r3, #0x3
+       c: d105         	bne	0x1a <dump_dramc_ctx+0x1a> @ imm = #0xa
+       e: 480b         	ldr	r0, [pc, #0x2c]         @ 0x3c <dump_dramc_ctx+0x3c>
+      10: 0049         	lsls	r1, r1, #0x1
+      12: e8bd 4010    	pop.w	{r4, lr}
+      16: f7ff bffe    	b.w	0x16 <dump_dramc_ctx+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_JUMP24	printf
+      1a: f240 432a    	movw	r3, #0x42a
+      1e: 4299         	cmp	r1, r3
+      20: d009         	beq	0x36 <dump_dramc_ctx+0x36> @ imm = #0x12
+      22: 0049         	lsls	r1, r1, #0x1
+      24: 4806         	ldr	r0, [pc, #0x18]         @ 0x40 <dump_dramc_ctx+0x40>
+      26: f7ff fffe    	bl	0x26 <dump_dramc_ctx+0x26> @ imm = #-0x4
+			00000026:  R_ARM_THM_CALL	printf
+      2a: 4620         	mov	r0, r4
+      2c: f7ff fffe    	bl	0x2c <dump_dramc_ctx+0x2c> @ imm = #-0x4
+			0000002c:  R_ARM_THM_CALL	vGet_Div_Mode
+      30: 4601         	mov	r1, r0
+      32: 4804         	ldr	r0, [pc, #0x10]         @ 0x44 <dump_dramc_ctx+0x44>
+      34: e7ed         	b	0x12 <dump_dramc_ctx+0x12> @ imm = #-0x26
+      36: f640 0155    	movw	r1, #0x855
+      3a: e7f3         	b	0x24 <dump_dramc_ctx+0x24> @ imm = #-0x1a
+      3c: 00 00 00 00  	.word	0x00000000
+			0000003c:  R_ARM_ABS32	.rodata.dump_dramc_ctx.str1.1
+      40: 24 00 00 00  	.word	0x00000024
+			00000040:  R_ARM_ABS32	.rodata.dump_dramc_ctx.str1.1
+      44: 48 00 00 00  	.word	0x00000048
+			00000044:  R_ARM_ABS32	.rodata.dump_dramc_ctx.str1.1
+
+Disassembly of section .text.Init_DRAM:
+
+00000000 <Init_DRAM>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4601         	mov	r1, r0
+       4: 4c1d         	ldr	r4, [pc, #0x74]         @ 0x7c <Init_DRAM+0x7c>
+       6: 4d1e         	ldr	r5, [pc, #0x78]         @ 0x80 <Init_DRAM+0x80>
+       8: 6820         	ldr	r0, [r4]
+       a: f7ff fffe    	bl	0xa <Init_DRAM+0xa>     @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	Init_Dram_Ctx_By_Type
+       e: 2001         	movs	r0, #0x1
+      10: 6824         	ldr	r4, [r4]
+      12: f7ff fffe    	bl	0x12 <Init_DRAM+0x12>   @ imm = #-0x4
+			00000012:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      16: 782e         	ldrb	r6, [r5]
+      18: b986         	cbnz	r6, 0x3c <Init_DRAM+0x3c> @ imm = #0x20
+      1a: 4b1a         	ldr	r3, [pc, #0x68]         @ 0x84 <Init_DRAM+0x84>
+      1c: 4620         	mov	r0, r4
+      1e: 6819         	ldr	r1, [r3]
+      20: f7ff fffe    	bl	0x20 <Init_DRAM+0x20>   @ imm = #-0x4
+			00000020:  R_ARM_THM_CALL	vSetDFSFreqSelByTable
+      24: 4620         	mov	r0, r4
+      26: f7ff fffe    	bl	0x26 <Init_DRAM+0x26>   @ imm = #-0x4
+			00000026:  R_ARM_THM_CALL	MPLLInit
+      2a: 4631         	mov	r1, r6
+      2c: 4620         	mov	r0, r4
+      2e: f7ff fffe    	bl	0x2e <Init_DRAM+0x2e>   @ imm = #-0x4
+			0000002e:  R_ARM_THM_CALL	DramcDUTTopSet
+      32: 4620         	mov	r0, r4
+      34: f7ff fffe    	bl	0x34 <Init_DRAM+0x34>   @ imm = #-0x4
+			00000034:  R_ARM_THM_CALL	MD32_initializaton
+      38: 2301         	movs	r3, #0x1
+      3a: 702b         	strb	r3, [r5]
+      3c: 2200         	movs	r2, #0x0
+      3e: 4620         	mov	r0, r4
+      40: 4611         	mov	r1, r2
+      42: f7ff fffe    	bl	0x42 <Init_DRAM+0x42>   @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	DramcDUTShuSet
+      46: 2100         	movs	r1, #0x0
+      48: 4620         	mov	r0, r4
+      4a: f7ff fffe    	bl	0x4a <Init_DRAM+0x4a>   @ imm = #-0x4
+			0000004a:  R_ARM_THM_CALL	DramcHWFuncSet
+      4e: 4620         	mov	r0, r4
+      50: f7ff fffe    	bl	0x50 <Init_DRAM+0x50>   @ imm = #-0x4
+			00000050:  R_ARM_THM_CALL	dump_dramc_ctx
+      54: 4620         	mov	r0, r4
+      56: f7ff fffe    	bl	0x56 <Init_DRAM+0x56>   @ imm = #-0x4
+			00000056:  R_ARM_THM_CALL	DFSInitForCalibration
+      5a: 4620         	mov	r0, r4
+      5c: f7ff fffe    	bl	0x5c <Init_DRAM+0x5c>   @ imm = #-0x4
+			0000005c:  R_ARM_THM_CALL	DramcDRVinitSetting
+      60: 4620         	mov	r0, r4
+      62: f7ff fffe    	bl	0x62 <Init_DRAM+0x62>   @ imm = #-0x4
+			00000062:  R_ARM_THM_CALL	DramcImpedanceByEfuse
+      66: 4620         	mov	r0, r4
+      68: f7ff fffe    	bl	0x68 <Init_DRAM+0x68>   @ imm = #-0x4
+			00000068:  R_ARM_THM_CALL	vDramCalibrationAllChannel
+      6c: 4620         	mov	r0, r4
+      6e: f7ff fffe    	bl	0x6e <Init_DRAM+0x6e>   @ imm = #-0x4
+			0000006e:  R_ARM_THM_CALL	vAfterCalibration
+      72: 4620         	mov	r0, r4
+      74: f7ff fffe    	bl	0x74 <Init_DRAM+0x74>   @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	DramcRunTimeConfig
+      78: 2000         	movs	r0, #0x0
+      7a: bd70         	pop	{r4, r5, r6, pc}
+      7c: 00 00 00 00  	.word	0x00000000
+			0000007c:  R_ARM_ABS32	.data.psCurrDramCtx
+      80: 00 00 00 00  	.word	0x00000000
+			00000080:  R_ARM_ABS32	.bss.gfirst_init_flag
+      84: 00 00 00 00  	.word	0x00000000
+			00000084:  R_ARM_ABS32	.bss.gFreqTbl

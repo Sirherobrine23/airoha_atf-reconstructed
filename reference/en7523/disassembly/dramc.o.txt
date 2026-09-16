@@ -1,0 +1,122 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/en7523/bl22/dramc.o:	file format elf32-littlearm
+
+Disassembly of section .text._calculate_dram_size:
+
+00000000 <_calculate_dram_size>:
+       0: e92d 47f0    	push.w	{r4, r5, r6, r7, r8, r9, r10, lr}
+       4: f8df 9098    	ldr.w	r9, [pc, #0x98]         @ 0xa0 <_calculate_dram_size+0xa0>
+       8: 2705         	movs	r7, #0x5
+       a: f8df 8080    	ldr.w	r8, [pc, #0x80]         @ 0x8c <_calculate_dram_size+0x8c>
+       e: f04f 7400    	mov.w	r4, #0x2000000
+      12: 46ca         	mov	r10, r9
+      14: 481b         	ldr	r0, [pc, #0x6c]         @ 0x84 <_calculate_dram_size+0x84>
+      16: f7ff fffe    	bl	0x16 <_calculate_dram_size+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	printf
+      1a: 3f01         	subs	r7, #0x1
+      1c: d024         	beq	0x68 <_calculate_dram_size+0x68> @ imm = #0x48
+      1e: 4e1a         	ldr	r6, [pc, #0x68]         @ 0x88 <_calculate_dram_size+0x88>
+      20: f104 4500    	add.w	r5, r4, #0x80000000
+      24: f505 2500    	add.w	r5, r5, #0x80000
+      28: 2002         	movs	r0, #0x2
+      2a: f8c6 9000    	str.w	r9, [r6]
+      2e: f7ff fffe    	bl	0x2e <_calculate_dram_size+0x2e> @ imm = #-0x4
+			0000002e:  R_ARM_THM_CALL	udelay
+      32: f8c5 8000    	str.w	r8, [r5]
+      36: 2002         	movs	r0, #0x2
+      38: f7ff fffe    	bl	0x38 <_calculate_dram_size+0x38> @ imm = #-0x4
+			00000038:  R_ARM_THM_CALL	udelay
+      3c: 682b         	ldr	r3, [r5]
+      3e: 4913         	ldr	r1, [pc, #0x4c]         @ 0x8c <_calculate_dram_size+0x8c>
+      40: 6832         	ldr	r2, [r6]
+      42: 428b         	cmp	r3, r1
+      44: d004         	beq	0x50 <_calculate_dram_size+0x50> @ imm = #0x8
+      46: f8c5 8000    	str.w	r8, [r5]
+      4a: 682b         	ldr	r3, [r5]
+      4c: 6832         	ldr	r2, [r6]
+      4e: e7f8         	b	0x42 <_calculate_dram_size+0x42> @ imm = #-0x10
+      50: 4552         	cmp	r2, r10
+      52: d101         	bne	0x58 <_calculate_dram_size+0x58> @ imm = #0x2
+      54: 0064         	lsls	r4, r4, #0x1
+      56: e7e0         	b	0x1a <_calculate_dram_size+0x1a> @ imm = #-0x40
+      58: 429a         	cmp	r2, r3
+      5a: d005         	beq	0x68 <_calculate_dram_size+0x68> @ imm = #0xa
+      5c: 480c         	ldr	r0, [pc, #0x30]         @ 0x90 <_calculate_dram_size+0x90>
+      5e: f7ff fffe    	bl	0x5e <_calculate_dram_size+0x5e> @ imm = #-0x4
+			0000005e:  R_ARM_THM_CALL	printf
+      62: 2000         	movs	r0, #0x0
+      64: e8bd 87f0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, pc}
+      68: 480a         	ldr	r0, [pc, #0x28]         @ 0x94 <_calculate_dram_size+0x94>
+      6a: f7ff fffe    	bl	0x6a <_calculate_dram_size+0x6a> @ imm = #-0x4
+			0000006a:  R_ARM_THM_CALL	printf
+      6e: 0d21         	lsrs	r1, r4, #0x14
+      70: 4809         	ldr	r0, [pc, #0x24]         @ 0x98 <_calculate_dram_size+0x98>
+      72: f7ff fffe    	bl	0x72 <_calculate_dram_size+0x72> @ imm = #-0x4
+			00000072:  R_ARM_THM_CALL	printf
+      76: 4809         	ldr	r0, [pc, #0x24]         @ 0x9c <_calculate_dram_size+0x9c>
+      78: f7ff fffe    	bl	0x78 <_calculate_dram_size+0x78> @ imm = #-0x4
+			00000078:  R_ARM_THM_CALL	printf
+      7c: 4620         	mov	r0, r4
+      7e: e8bd 87f0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, pc}
+      82: bf00         	nop
+      84: 00 00 00 00  	.word	0x00000000
+			00000084:  R_ARM_ABS32	.rodata.str1.1
+      88: 00 00 08 80  	.word	0x80080000
+      8c: 21 43 65 87  	.word	0x87654321
+      90: 12 00 00 00  	.word	0x00000012
+			00000090:  R_ARM_ABS32	.rodata.str1.1
+      94: 24 00 00 00  	.word	0x00000024
+			00000094:  R_ARM_ABS32	.rodata.str1.1
+      98: 2f 00 00 00  	.word	0x0000002f
+			00000098:  R_ARM_ABS32	.rodata.str1.1
+      9c: 32 00 00 00  	.word	0x00000032
+			0000009c:  R_ARM_ABS32	.rodata.str1.1
+      a0: 78 56 34 12  	.word	0x12345678
+
+Disassembly of section .text.dramc_main:
+
+00000000 <dramc_main>:
+       0: b508         	push	{r3, lr}
+       2: 4812         	ldr	r0, [pc, #0x48]         @ 0x4c <dramc_main+0x4c>
+       4: f7ff fffe    	bl	0x4 <dramc_main+0x4>    @ imm = #-0x4
+			00000004:  R_ARM_THM_CALL	printf
+       8: 4b11         	ldr	r3, [pc, #0x44]         @ 0x50 <dramc_main+0x50>
+       a: 2201         	movs	r2, #0x1
+       c: 335c         	adds	r3, #0x5c
+       e: f843 2c5c    	str	r2, [r3, #-92]
+      12: 2200         	movs	r2, #0x0
+      14: f843 2c5c    	str	r2, [r3, #-92]
+      18: 681b         	ldr	r3, [r3]
+      1a: 07db         	lsls	r3, r3, #0x1f
+      1c: d511         	bpl	0x42 <dramc_main+0x42>  @ imm = #0x22
+      1e: 4a0d         	ldr	r2, [pc, #0x34]         @ 0x54 <dramc_main+0x54>
+      20: 490d         	ldr	r1, [pc, #0x34]         @ 0x58 <dramc_main+0x58>
+      22: 6813         	ldr	r3, [r2]
+      24: f3c3 43c0    	ubfx	r3, r3, #0x13, #0x1
+      28: 600b         	str	r3, [r1]
+      2a: 6813         	ldr	r3, [r2]
+      2c: 4a0b         	ldr	r2, [pc, #0x2c]         @ 0x5c <dramc_main+0x5c>
+      2e: f3c3 3381    	ubfx	r3, r3, #0xe, #0x2
+      32: 6013         	str	r3, [r2]
+      34: f7ff fffe    	bl	0x34 <dramc_main+0x34>  @ imm = #-0x4
+			00000034:  R_ARM_THM_CALL	DPI_SW_main_PCDDR3
+      38: 4a09         	ldr	r2, [pc, #0x24]         @ 0x60 <dramc_main+0x60>
+      3a: 6813         	ldr	r3, [r2]
+      3c: f043 0305    	orr	r3, r3, #0x5
+      40: 6013         	str	r3, [r2]
+      42: f7ff fffe    	bl	0x42 <dramc_main+0x42>  @ imm = #-0x4
+			00000042:  R_ARM_THM_CALL	_calculate_dram_size
+      46: 4b07         	ldr	r3, [pc, #0x1c]         @ 0x64 <dramc_main+0x64>
+      48: 6018         	str	r0, [r3]
+      4a: bd08         	pop	{r3, pc}
+      4c: 37 00 00 00  	.word	0x00000037
+			0000004c:  R_ARM_ABS32	.rodata.str1.1
+      50: 40 00 b0 1f  	.word	0x1fb00040
+      54: 54 02 a2 1f  	.word	0x1fa20254
+      58: 00 00 00 00  	.word	0x00000000
+			00000058:  R_ARM_ABS32	.data.xtal_sel
+      5c: 00 00 00 00  	.word	0x00000000
+			0000005c:  R_ARM_ABS32	.bss.pkg_type
+      60: 74 00 b0 1f  	.word	0x1fb00074
+      64: 00 00 00 00  	.word	0x00000000
+			00000064:  R_ARM_ABS32	.bss.dram_size

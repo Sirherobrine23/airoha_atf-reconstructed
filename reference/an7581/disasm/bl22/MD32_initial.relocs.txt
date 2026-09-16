@@ -1,0 +1,17 @@
+
+Relocation section '.rel.text.MD32_initializaton_ch' at offset 0x4b0 contains 9 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  00000e0a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+0000011c  00000f0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000012c  00000f0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000014e  0000100a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000015c  0000100a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000170  0000110a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000182  00000f0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001dc  00001202 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000168  00000e1e R_ARM_THM_JUMP24       00000000   vSetPHY2ChannelMapping
+
+Relocation section '.rel.text.MD32_initializaton' at offset 0x4f8 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  0000140a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+0000001a  00000d0a R_ARM_THM_CALL         00000001   MD32_initializaton_ch

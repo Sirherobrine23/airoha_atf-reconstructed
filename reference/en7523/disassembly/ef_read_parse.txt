@@ -1,0 +1,7 @@
+00000000 <ef_read_parse>:
+       0: 1843         	adds	r3, r0, r1
+       2: f5b3 6fc0    	cmp.w	r3, #0x600
+       6: d801         	bhi	0xc <ef_read_parse+0xc> @ imm = #0x2
+       8: f7ff bffe    	b.w	0x8 <ef_read_parse+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_JUMP24	ef_read_parse.part.0
+       c: 4770         	bx	lr

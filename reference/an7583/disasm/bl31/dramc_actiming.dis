@@ -1,0 +1,1582 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl31/dramc_actiming.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.u1GetACTimingIdx:
+
+0000000000000000 <u1GetACTimingIdx>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a9025bf5     	stp	x21, x22, [sp, #0x20]
+       c: aa0003f5     	mov	x21, x0
+      10: 90000000     	adrp	x0, 0x0 <u1GetACTimingIdx>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	uartDisable
+      14: a90153f3     	stp	x19, x20, [sp, #0x10]
+      18: b9400000     	ldr	w0, [x0]
+		0000000000000018:  R_AARCH64_LDST32_ABS_LO12_NC	uartDisable
+      1c: 35000080     	cbnz	w0, 0x2c <u1GetACTimingIdx+0x2c>
+      20: 90000000     	adrp	x0, 0x0 <u1GetACTimingIdx>
+		0000000000000020:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.u1GetACTimingIdx.str1.1
+      24: 91000000     	add	x0, x0, #0x0
+		0000000000000024:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.u1GetACTimingIdx.str1.1
+      28: 94000000     	bl	0x28 <u1GetACTimingIdx+0x28>
+		0000000000000028:  R_AARCH64_CALL26	printf
+      2c: aa1503e0     	mov	x0, x21
+      30: 94000000     	bl	0x30 <u1GetACTimingIdx+0x30>
+		0000000000000030:  R_AARCH64_CALL26	is_ddr3_family
+      34: 72001c13     	ands	w19, w0, #0xff
+      38: 540003c0     	b.eq	0xb0 <u1GetACTimingIdx+0xb0>
+      3c: 90000014     	adrp	x20, 0x0 <u1GetACTimingIdx>
+		000000000000003c:  R_AARCH64_ADR_PREL_PG_HI21	ACTimingTbl_DDR3
+      40: 91000294     	add	x20, x20, #0x0
+		0000000000000040:  R_AARCH64_ADD_ABS_LO12_NC	ACTimingTbl_DDR3
+      44: 52800013     	mov	w19, #0x0               // =0
+      48: 39400280     	ldrb	w0, [x20]
+      4c: 71000c1f     	cmp	w0, #0x3
+      50: 54000100     	b.eq	0x70 <u1GetACTimingIdx+0x70>
+      54: 11000673     	add	w19, w19, #0x1
+      58: 91043294     	add	x20, x20, #0x10c
+      5c: 12001e73     	and	w19, w19, #0xff
+      60: 71002a7f     	cmp	w19, #0xa
+      64: 54ffff21     	b.ne	0x48 <u1GetACTimingIdx+0x48>
+      68: 52801ff3     	mov	w19, #0xff              // =255
+      6c: 1400000c     	b	0x9c <u1GetACTimingIdx+0x9c>
+      70: 79401281     	ldrh	w1, [x20, #0x8]
+      74: 7940aea0     	ldrh	w0, [x21, #0x56]
+      78: 6b00003f     	cmp	w1, w0
+      7c: 54fffec1     	b.ne	0x54 <u1GetACTimingIdx+0x54>
+      80: 39401e96     	ldrb	w22, [x20, #0x7]
+      84: aa1503e0     	mov	x0, x21
+      88: 94000000     	bl	0x88 <u1GetACTimingIdx+0x88>
+		0000000000000088:  R_AARCH64_CALL26	vGet_Div_Mode
+      8c: 6b0002df     	cmp	w22, w0
+      90: 54fffe21     	b.ne	0x54 <u1GetACTimingIdx+0x54>
+      94: 39400680     	ldrb	w0, [x20, #0x1]
+      98: 35fffde0     	cbnz	w0, 0x54 <u1GetACTimingIdx+0x54>
+      9c: 2a1303e0     	mov	w0, w19
+      a0: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      a4: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      a8: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      ac: d65f03c0     	ret
+      b0: aa1503e0     	mov	x0, x21
+      b4: 94000000     	bl	0xb4 <u1GetACTimingIdx+0xb4>
+		00000000000000b4:  R_AARCH64_CALL26	is_ddr4_family
+      b8: 72001c1f     	tst	w0, #0xff
+      bc: 54fffd60     	b.eq	0x68 <u1GetACTimingIdx+0x68>
+      c0: 90000014     	adrp	x20, 0x0 <u1GetACTimingIdx>
+		00000000000000c0:  R_AARCH64_ADR_PREL_PG_HI21	ACTimingTbl_DDR4
+      c4: 91000294     	add	x20, x20, #0x0
+		00000000000000c4:  R_AARCH64_ADD_ABS_LO12_NC	ACTimingTbl_DDR4
+      c8: 39400280     	ldrb	w0, [x20]
+      cc: 7100101f     	cmp	w0, #0x4
+      d0: 540000e0     	b.eq	0xec <u1GetACTimingIdx+0xec>
+      d4: 11000673     	add	w19, w19, #0x1
+      d8: 91045294     	add	x20, x20, #0x114
+      dc: 12001e73     	and	w19, w19, #0xff
+      e0: 71007a7f     	cmp	w19, #0x1e
+      e4: 54ffff21     	b.ne	0xc8 <u1GetACTimingIdx+0xc8>
+      e8: 17ffffe0     	b	0x68 <u1GetACTimingIdx+0x68>
+      ec: 79401281     	ldrh	w1, [x20, #0x8]
+      f0: 7940aea0     	ldrh	w0, [x21, #0x56]
+      f4: 6b00003f     	cmp	w1, w0
+      f8: 54fffee1     	b.ne	0xd4 <u1GetACTimingIdx+0xd4>
+      fc: 39401e96     	ldrb	w22, [x20, #0x7]
+     100: aa1503e0     	mov	x0, x21
+     104: 94000000     	bl	0x104 <u1GetACTimingIdx+0x104>
+		0000000000000104:  R_AARCH64_CALL26	vGet_Div_Mode
+     108: 6b0002df     	cmp	w22, w0
+     10c: 54fffe41     	b.ne	0xd4 <u1GetACTimingIdx+0xd4>
+     110: 39400680     	ldrb	w0, [x20, #0x1]
+     114: 35fffe00     	cbnz	w0, 0xd4 <u1GetACTimingIdx+0xd4>
+     118: 17ffffe1     	b	0x9c <u1GetACTimingIdx+0x9c>
+
+Disassembly of section .text.Set_ACTbl_ddr3_CL_CWL:
+
+0000000000000000 <Set_ACTbl_ddr3_CL_CWL>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 90000001     	adrp	x1, 0x0 <Set_ACTbl_ddr3_CL_CWL>
+		0000000000000004:  R_AARCH64_ADR_PREL_PG_HI21	DV_p+0x18
+       8: 910003fd     	mov	x29, sp
+       c: f9000bf3     	str	x19, [sp, #0x10]
+      10: f9400033     	ldr	x19, [x1]
+		0000000000000010:  R_AARCH64_LDST64_ABS_LO12_NC	DV_p+0x18
+      14: 94000000     	bl	0x14 <Set_ACTbl_ddr3_CL_CWL+0x14>
+		0000000000000014:  R_AARCH64_CALL26	.text.u1GetACTimingIdx
+      18: 12001c00     	and	w0, w0, #0xff
+      1c: 7103fc1f     	cmp	w0, #0xff
+      20: 540003a0     	b.eq	0x94 <Set_ACTbl_ddr3_CL_CWL+0x94>
+      24: 7100281f     	cmp	w0, #0xa
+      28: 1a9f3000     	csel	w0, w0, wzr, lo
+      2c: 92401c00     	and	x0, x0, #0xff
+      30: 90000001     	adrp	x1, 0x0 <Set_ACTbl_ddr3_CL_CWL>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	ACTimingTbl_DDR3
+      34: 91000021     	add	x1, x1, #0x0
+		0000000000000034:  R_AARCH64_ADD_ABS_LO12_NC	ACTimingTbl_DDR3
+      38: d2802182     	mov	x2, #0x10c              // =268
+      3c: 9b020400     	madd	x0, x0, x2, x1
+      40: 39402c01     	ldrb	w1, [x0, #0xb]
+      44: 39402800     	ldrb	w0, [x0, #0xa]
+      48: 51001400     	sub	w0, w0, #0x5
+      4c: 12001c00     	and	w0, w0, #0xff
+      50: 71002c1f     	cmp	w0, #0xb
+      54: 54000248     	b.hi	0x9c <Set_ACTbl_ddr3_CL_CWL+0x9c>
+      58: 92401c00     	and	x0, x0, #0xff
+      5c: 90000002     	adrp	x2, 0x0 <Set_ACTbl_ddr3_CL_CWL>
+		000000000000005c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.CSWTCH.885
+      60: 91000042     	add	x2, x2, #0x0
+		0000000000000060:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.CSWTCH.885
+      64: 38606840     	ldrb	w0, [x2, x0]
+      68: 39000e60     	strb	w0, [x19, #0x3]
+      6c: 51001820     	sub	w0, w1, #0x6
+      70: 12001c00     	and	w0, w0, #0xff
+      74: 51001421     	sub	w1, w1, #0x5
+      78: 71001c1f     	cmp	w0, #0x7
+      7c: 12001c21     	and	w1, w1, #0xff
+      80: 1a9f3021     	csel	w1, w1, wzr, lo
+      84: 39000261     	strb	w1, [x19]
+      88: f9400bf3     	ldr	x19, [sp, #0x10]
+      8c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      90: d65f03c0     	ret
+      94: 52800020     	mov	w0, #0x1                // =1
+      98: 17ffffe5     	b	0x2c <Set_ACTbl_ddr3_CL_CWL+0x2c>
+      9c: 52800000     	mov	w0, #0x0                // =0
+      a0: 17fffff2     	b	0x68 <Set_ACTbl_ddr3_CL_CWL+0x68>
+
+Disassembly of section .text.Set_ACTbl_ddr4_CL_CWL:
+
+0000000000000000 <Set_ACTbl_ddr4_CL_CWL>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 90000001     	adrp	x1, 0x0 <Set_ACTbl_ddr4_CL_CWL>
+		0000000000000004:  R_AARCH64_ADR_PREL_PG_HI21	DV_p+0x20
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: aa0003f4     	mov	x20, x0
+      14: f9400033     	ldr	x19, [x1]
+		0000000000000014:  R_AARCH64_LDST64_ABS_LO12_NC	DV_p+0x20
+      18: 94000000     	bl	0x18 <Set_ACTbl_ddr4_CL_CWL+0x18>
+		0000000000000018:  R_AARCH64_CALL26	.text.u1GetACTimingIdx
+      1c: 12001c01     	and	w1, w0, #0xff
+      20: 7103fc3f     	cmp	w1, #0xff
+      24: 54000141     	b.ne	0x4c <Set_ACTbl_ddr4_CL_CWL+0x4c>
+      28: 90000000     	adrp	x0, 0x0 <Set_ACTbl_ddr4_CL_CWL>
+		0000000000000028:  R_AARCH64_ADR_PREL_PG_HI21	uartDisable
+      2c: b9400000     	ldr	w0, [x0]
+		000000000000002c:  R_AARCH64_LDST32_ABS_LO12_NC	uartDisable
+      30: 350000c0     	cbnz	w0, 0x48 <Set_ACTbl_ddr4_CL_CWL+0x48>
+      34: 7940ae82     	ldrh	w2, [x20, #0x56]
+      38: 90000000     	adrp	x0, 0x0 <Set_ACTbl_ddr4_CL_CWL>
+		0000000000000038:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.Set_ACTbl_ddr4_CL_CWL.str1.1
+      3c: 52800021     	mov	w1, #0x1                // =1
+      40: 91000000     	add	x0, x0, #0x0
+		0000000000000040:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.Set_ACTbl_ddr4_CL_CWL.str1.1
+      44: 94000000     	bl	0x44 <Set_ACTbl_ddr4_CL_CWL+0x44>
+		0000000000000044:  R_AARCH64_CALL26	printf
+      48: 52800021     	mov	w1, #0x1                // =1
+      4c: 92401c21     	and	x1, x1, #0xff
+      50: 90000000     	adrp	x0, 0x0 <Set_ACTbl_ddr4_CL_CWL>
+		0000000000000050:  R_AARCH64_ADR_PREL_PG_HI21	ACTimingTbl_DDR4
+      54: 91000000     	add	x0, x0, #0x0
+		0000000000000054:  R_AARCH64_ADD_ABS_LO12_NC	ACTimingTbl_DDR4
+      58: d2802282     	mov	x2, #0x114              // =276
+      5c: 9b020021     	madd	x1, x1, x2, x0
+      60: 39402c20     	ldrb	w0, [x1, #0xb]
+      64: 39402821     	ldrb	w1, [x1, #0xa]
+      68: 51002821     	sub	w1, w1, #0xa
+      6c: 12001c21     	and	w1, w1, #0xff
+      70: 7100583f     	cmp	w1, #0x16
+      74: 54000248     	b.hi	0xbc <Set_ACTbl_ddr4_CL_CWL+0xbc>
+      78: 92401c21     	and	x1, x1, #0xff
+      7c: 90000002     	adrp	x2, 0x0 <Set_ACTbl_ddr4_CL_CWL>
+		000000000000007c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.CSWTCH.889
+      80: 91000042     	add	x2, x2, #0x0
+		0000000000000080:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.CSWTCH.889
+      84: 38616841     	ldrb	w1, [x2, x1]
+      88: 51002800     	sub	w0, w0, #0xa
+      8c: 39000e61     	strb	w1, [x19, #0x3]
+      90: 12001c00     	and	w0, w0, #0xff
+      94: 7100281f     	cmp	w0, #0xa
+      98: 54000168     	b.hi	0xc4 <Set_ACTbl_ddr4_CL_CWL+0xc4>
+      9c: 92401c00     	and	x0, x0, #0xff
+      a0: 90000001     	adrp	x1, 0x0 <Set_ACTbl_ddr4_CL_CWL>
+		00000000000000a0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.CSWTCH.890
+      a4: 91000021     	add	x1, x1, #0x0
+		00000000000000a4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.CSWTCH.890
+      a8: 38606820     	ldrb	w0, [x1, x0]
+      ac: 39000260     	strb	w0, [x19]
+      b0: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      b4: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      b8: d65f03c0     	ret
+      bc: 52800001     	mov	w1, #0x0                // =0
+      c0: 17fffff2     	b	0x88 <Set_ACTbl_ddr4_CL_CWL+0x88>
+      c4: 52800000     	mov	w0, #0x0                // =0
+      c8: 17fffff9     	b	0xac <Set_ACTbl_ddr4_CL_CWL+0xac>
+
+Disassembly of section .text.DdrUpdateACTiming:
+
+0000000000000000 <DdrUpdateACTiming>:
+       0: a9a27bfd     	stp	x29, x30, [sp, #-0x1e0]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      14: a90363f7     	stp	x23, x24, [sp, #0x30]
+      18: a9046bf9     	stp	x25, x26, [sp, #0x40]
+      1c: a90573fb     	stp	x27, x28, [sp, #0x50]
+      20: 94000000     	bl	0x20 <DdrUpdateACTiming+0x20>
+		0000000000000020:  R_AARCH64_CALL26	.text.u1GetACTimingIdx
+      24: 12001c14     	and	w20, w0, #0xff
+      28: 7103fe9f     	cmp	w20, #0xff
+      2c: 54000141     	b.ne	0x54 <DdrUpdateACTiming+0x54>
+      30: 90000000     	adrp	x0, 0x0 <DdrUpdateACTiming>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	uartDisable
+      34: b9400000     	ldr	w0, [x0]
+		0000000000000034:  R_AARCH64_LDST32_ABS_LO12_NC	uartDisable
+      38: 350000c0     	cbnz	w0, 0x50 <DdrUpdateACTiming+0x50>
+      3c: 7940ae62     	ldrh	w2, [x19, #0x56]
+      40: 90000000     	adrp	x0, 0x0 <DdrUpdateACTiming>
+		0000000000000040:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.Set_ACTbl_ddr4_CL_CWL.str1.1
+      44: 52800021     	mov	w1, #0x1                // =1
+      48: 91000000     	add	x0, x0, #0x0
+		0000000000000048:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.Set_ACTbl_ddr4_CL_CWL.str1.1
+      4c: 94000000     	bl	0x4c <DdrUpdateACTiming+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	printf
+      50: 52800034     	mov	w20, #0x1               // =1
+      54: aa1303e0     	mov	x0, x19
+      58: 94000000     	bl	0x58 <DdrUpdateACTiming+0x58>
+		0000000000000058:  R_AARCH64_CALL26	is_ddr3_family
+      5c: 72001c1f     	tst	w0, #0xff
+      60: 54004c00     	b.eq	0x9e0 <DdrUpdateACTiming+0x9e0>
+      64: 92401e80     	and	x0, x20, #0xff
+      68: 90000001     	adrp	x1, 0x0 <DdrUpdateACTiming>
+		0000000000000068:  R_AARCH64_ADR_PREL_PG_HI21	ACTimingTbl_DDR3
+      6c: 91000021     	add	x1, x1, #0x0
+		000000000000006c:  R_AARCH64_ADD_ABS_LO12_NC	ACTimingTbl_DDR3
+      70: d2802182     	mov	x2, #0x10c              // =268
+      74: 9106e3f0     	add	x16, sp, #0x1b8
+      78: 910723f1     	add	x17, sp, #0x1c8
+      7c: 9106a3ee     	add	x14, sp, #0x1a8
+      80: 5280009c     	mov	w28, #0x4               // =4
+      84: 9b020400     	madd	x0, x0, x2, x1
+      88: 79402c04     	ldrh	w4, [x0, #0x16]
+      8c: 79405c06     	ldrh	w6, [x0, #0x2e]
+      90: 79406005     	ldrh	w5, [x0, #0x30]
+      94: 79404c09     	ldrh	w9, [x0, #0x26]
+      98: 79405408     	ldrh	w8, [x0, #0x2a]
+      9c: 79405807     	ldrh	w7, [x0, #0x2c]
+      a0: 7940340c     	ldrh	w12, [x0, #0x1a]
+      a4: 79403c0b     	ldrh	w11, [x0, #0x1e]
+      a8: 7940400a     	ldrh	w10, [x0, #0x20]
+      ac: 79401c0d     	ldrh	w13, [x0, #0xe]
+      b0: 79402012     	ldrh	w18, [x0, #0x10]
+      b4: 7940280f     	ldrh	w15, [x0, #0x14]
+      b8: 79406401     	ldrh	w1, [x0, #0x32]
+      bc: 293f2a09     	stp	w9, w10, [x16, #-0x8]
+      c0: 293f3e24     	stp	w4, w15, [x17, #-0x8]
+      c4: 293f19c5     	stp	w5, w6, [x14, #-0x8]
+      c8: 2900320b     	stp	w11, w12, [x16]
+      cc: 29003632     	stp	w18, w13, [x17]
+      d0: 290021c7     	stp	w7, w8, [x14]
+      d4: b9006fe1     	str	w1, [sp, #0x6c]
+      d8: 79406c01     	ldrh	w1, [x0, #0x36]
+      dc: 79402417     	ldrh	w23, [x0, #0x12]
+      e0: 79403016     	ldrh	w22, [x0, #0x18]
+      e4: 7940381a     	ldrh	w26, [x0, #0x1c]
+      e8: 79404415     	ldrh	w21, [x0, #0x22]
+      ec: 53181ef7     	ubfiz	w23, w23, #8, #8
+      f0: 79405019     	ldrh	w25, [x0, #0x28]
+      f4: 530816d6     	ubfiz	w22, w22, #24, #6
+      f8: b90073e1     	str	w1, [sp, #0x70]
+      fc: 5316135a     	ubfiz	w26, w26, #10, #5
+     100: 79407001     	ldrh	w1, [x0, #0x38]
+     104: 530812b5     	ubfiz	w21, w21, #24, #5
+     108: b90077e1     	str	w1, [sp, #0x74]
+     10c: 53140b39     	ubfiz	w25, w25, #12, #3
+     110: 79407401     	ldrh	w1, [x0, #0x3a]
+     114: b9007be1     	str	w1, [sp, #0x78]
+     118: 79407801     	ldrh	w1, [x0, #0x3c]
+     11c: b9007fe1     	str	w1, [sp, #0x7c]
+     120: 79407c01     	ldrh	w1, [x0, #0x3e]
+     124: b90083e1     	str	w1, [sp, #0x80]
+     128: 79408001     	ldrh	w1, [x0, #0x40]
+     12c: b90087e1     	str	w1, [sp, #0x84]
+     130: 79408801     	ldrh	w1, [x0, #0x44]
+     134: b9008be1     	str	w1, [sp, #0x88]
+     138: 79408c01     	ldrh	w1, [x0, #0x46]
+     13c: b9008fe1     	str	w1, [sp, #0x8c]
+     140: 79409001     	ldrh	w1, [x0, #0x48]
+     144: b90093e1     	str	w1, [sp, #0x90]
+     148: 79409401     	ldrh	w1, [x0, #0x4a]
+     14c: b90097e1     	str	w1, [sp, #0x94]
+     150: 79409801     	ldrh	w1, [x0, #0x4c]
+     154: b9009be1     	str	w1, [sp, #0x98]
+     158: 79409c01     	ldrh	w1, [x0, #0x4e]
+     15c: b9009fe1     	str	w1, [sp, #0x9c]
+     160: 7940bc01     	ldrh	w1, [x0, #0x5e]
+     164: b900a3e1     	str	w1, [sp, #0xa0]
+     168: 7940e801     	ldrh	w1, [x0, #0x74]
+     16c: b900a7e1     	str	w1, [sp, #0xa4]
+     170: 7940ec01     	ldrh	w1, [x0, #0x76]
+     174: b900abe1     	str	w1, [sp, #0xa8]
+     178: 7940f801     	ldrh	w1, [x0, #0x7c]
+     17c: 79408414     	ldrh	w20, [x0, #0x42]
+     180: 7940fc1b     	ldrh	w27, [x0, #0x7e]
+     184: b900afe1     	str	w1, [sp, #0xac]
+     188: 79410002     	ldrh	w2, [x0, #0x80]
+     18c: 79410401     	ldrh	w1, [x0, #0x82]
+     190: 53100f7b     	ubfiz	w27, w27, #16, #4
+     194: b900b3e1     	str	w1, [sp, #0xb0]
+     198: 79410c01     	ldrh	w1, [x0, #0x86]
+     19c: b900b7e1     	str	w1, [sp, #0xb4]
+     1a0: 79411001     	ldrh	w1, [x0, #0x88]
+     1a4: b900bbe1     	str	w1, [sp, #0xb8]
+     1a8: 79411401     	ldrh	w1, [x0, #0x8a]
+     1ac: b900bfe1     	str	w1, [sp, #0xbc]
+     1b0: 79411801     	ldrh	w1, [x0, #0x8c]
+     1b4: b900c3e1     	str	w1, [sp, #0xc0]
+     1b8: 79412001     	ldrh	w1, [x0, #0x90]
+     1bc: b900c7e1     	str	w1, [sp, #0xc4]
+     1c0: 79412401     	ldrh	w1, [x0, #0x92]
+     1c4: b900cbe1     	str	w1, [sp, #0xc8]
+     1c8: 79412801     	ldrh	w1, [x0, #0x94]
+     1cc: b900cfe1     	str	w1, [sp, #0xcc]
+     1d0: 79412c01     	ldrh	w1, [x0, #0x96]
+     1d4: b900d3e1     	str	w1, [sp, #0xd0]
+     1d8: 79413001     	ldrh	w1, [x0, #0x98]
+     1dc: b900d7e1     	str	w1, [sp, #0xd4]
+     1e0: 79413401     	ldrh	w1, [x0, #0x9a]
+     1e4: b900dbe1     	str	w1, [sp, #0xd8]
+     1e8: 79414401     	ldrh	w1, [x0, #0xa2]
+     1ec: b900dfe1     	str	w1, [sp, #0xdc]
+     1f0: 79414c01     	ldrh	w1, [x0, #0xa6]
+     1f4: b900e3e1     	str	w1, [sp, #0xe0]
+     1f8: 79415001     	ldrh	w1, [x0, #0xa8]
+     1fc: b900e7e1     	str	w1, [sp, #0xe4]
+     200: 79415401     	ldrh	w1, [x0, #0xaa]
+     204: b900ebe1     	str	w1, [sp, #0xe8]
+     208: b9019fe2     	str	w2, [sp, #0x19c]
+     20c: 79415801     	ldrh	w1, [x0, #0xac]
+     210: b900efe1     	str	w1, [sp, #0xec]
+     214: 79415c01     	ldrh	w1, [x0, #0xae]
+     218: b900f3e1     	str	w1, [sp, #0xf0]
+     21c: 79416001     	ldrh	w1, [x0, #0xb0]
+     220: b900f7e1     	str	w1, [sp, #0xf4]
+     224: 79416401     	ldrh	w1, [x0, #0xb2]
+     228: b900fbe1     	str	w1, [sp, #0xf8]
+     22c: 79416801     	ldrh	w1, [x0, #0xb4]
+     230: b900ffe1     	str	w1, [sp, #0xfc]
+     234: 79416c01     	ldrh	w1, [x0, #0xb6]
+     238: b90103e1     	str	w1, [sp, #0x100]
+     23c: 79417001     	ldrh	w1, [x0, #0xb8]
+     240: b90107e1     	str	w1, [sp, #0x104]
+     244: 79417401     	ldrh	w1, [x0, #0xba]
+     248: b9010be1     	str	w1, [sp, #0x108]
+     24c: 79417c01     	ldrh	w1, [x0, #0xbe]
+     250: b9010fe1     	str	w1, [sp, #0x10c]
+     254: 79418001     	ldrh	w1, [x0, #0xc0]
+     258: b90113e1     	str	w1, [sp, #0x110]
+     25c: 79418401     	ldrh	w1, [x0, #0xc2]
+     260: b90117e1     	str	w1, [sp, #0x114]
+     264: 79418801     	ldrh	w1, [x0, #0xc4]
+     268: b9011be1     	str	w1, [sp, #0x118]
+     26c: 79418c01     	ldrh	w1, [x0, #0xc6]
+     270: b9011fe1     	str	w1, [sp, #0x11c]
+     274: 79419001     	ldrh	w1, [x0, #0xc8]
+     278: b90123e1     	str	w1, [sp, #0x120]
+     27c: 79419401     	ldrh	w1, [x0, #0xca]
+     280: b90127e1     	str	w1, [sp, #0x124]
+     284: 79419801     	ldrh	w1, [x0, #0xcc]
+     288: b9012be1     	str	w1, [sp, #0x128]
+     28c: 79419c01     	ldrh	w1, [x0, #0xce]
+     290: b9012fe1     	str	w1, [sp, #0x12c]
+     294: 7941a001     	ldrh	w1, [x0, #0xd0]
+     298: b90133e1     	str	w1, [sp, #0x130]
+     29c: 7941a401     	ldrh	w1, [x0, #0xd2]
+     2a0: b90137e1     	str	w1, [sp, #0x134]
+     2a4: 7941a801     	ldrh	w1, [x0, #0xd4]
+     2a8: b9013be1     	str	w1, [sp, #0x138]
+     2ac: 7941ac01     	ldrh	w1, [x0, #0xd6]
+     2b0: b9013fe1     	str	w1, [sp, #0x13c]
+     2b4: 7941b001     	ldrh	w1, [x0, #0xd8]
+     2b8: b90143e1     	str	w1, [sp, #0x140]
+     2bc: 7941b401     	ldrh	w1, [x0, #0xda]
+     2c0: b90147e1     	str	w1, [sp, #0x144]
+     2c4: 7941bc01     	ldrh	w1, [x0, #0xde]
+     2c8: b9019be1     	str	w1, [sp, #0x198]
+     2cc: 7941c001     	ldrh	w1, [x0, #0xe0]
+     2d0: b9014be1     	str	w1, [sp, #0x148]
+     2d4: 7941c401     	ldrh	w1, [x0, #0xe2]
+     2d8: b9014fe1     	str	w1, [sp, #0x14c]
+     2dc: 7941c801     	ldrh	w1, [x0, #0xe4]
+     2e0: b90153e1     	str	w1, [sp, #0x150]
+     2e4: 7941cc01     	ldrh	w1, [x0, #0xe6]
+     2e8: b90157e1     	str	w1, [sp, #0x154]
+     2ec: 7941d001     	ldrh	w1, [x0, #0xe8]
+     2f0: b9015be1     	str	w1, [sp, #0x158]
+     2f4: 7941d401     	ldrh	w1, [x0, #0xea]
+     2f8: b9015fe1     	str	w1, [sp, #0x15c]
+     2fc: 7941d801     	ldrh	w1, [x0, #0xec]
+     300: b90163e1     	str	w1, [sp, #0x160]
+     304: 7941dc01     	ldrh	w1, [x0, #0xee]
+     308: 7941b818     	ldrh	w24, [x0, #0xdc]
+     30c: b90167e1     	str	w1, [sp, #0x164]
+     310: 7941e001     	ldrh	w1, [x0, #0xf0]
+     314: b9016be1     	str	w1, [sp, #0x168]
+     318: 531f0318     	ubfiz	w24, w24, #1, #1
+     31c: 7941e401     	ldrh	w1, [x0, #0xf2]
+     320: b9016fe1     	str	w1, [sp, #0x16c]
+     324: 7941e801     	ldrh	w1, [x0, #0xf4]
+     328: b90173e1     	str	w1, [sp, #0x170]
+     32c: 79420001     	ldrh	w1, [x0, #0x100]
+     330: b90177e1     	str	w1, [sp, #0x174]
+     334: 79420401     	ldrh	w1, [x0, #0x102]
+     338: b9017be1     	str	w1, [sp, #0x178]
+     33c: 79420801     	ldrh	w1, [x0, #0x104]
+     340: b9017fe1     	str	w1, [sp, #0x17c]
+     344: 79420c01     	ldrh	w1, [x0, #0x106]
+     348: 7941fc0e     	ldrh	w14, [x0, #0xfe]
+     34c: 7941f803     	ldrh	w3, [x0, #0xfc]
+     350: b90183e1     	str	w1, [sp, #0x180]
+     354: 79421001     	ldrh	w1, [x0, #0x108]
+     358: 79421400     	ldrh	w0, [x0, #0x10a]
+     35c: b9018be0     	str	w0, [sp, #0x188]
+     360: b9409e60     	ldr	w0, [x19, #0x9c]
+     364: b90187e1     	str	w1, [sp, #0x184]
+     368: b9018fe0     	str	w0, [sp, #0x18c]
+     36c: aa1303e0     	mov	x0, x19
+     370: b90193ee     	str	w14, [sp, #0x190]
+     374: b90197e3     	str	w3, [sp, #0x194]
+     378: 94000000     	bl	0x378 <DdrUpdateACTiming+0x378>
+		0000000000000378:  R_AARCH64_CALL26	vGet_Div_Mode
+     37c: b94197e3     	ldr	w3, [sp, #0x194]
+     380: 7100081f     	cmp	w0, #0x2
+     384: b9419fe2     	ldr	w2, [sp, #0x19c]
+     388: 52800100     	mov	w0, #0x8                // =8
+     38c: b9419be1     	ldr	w1, [sp, #0x198]
+     390: 1a80039c     	csel	w28, w28, w0, eq
+     394: 530c0c63     	ubfiz	w3, w3, #20, #4
+     398: b9009e7f     	str	wzr, [x19, #0x9c]
+     39c: 53140c42     	ubfiz	w2, w2, #12, #4
+     3a0: 2a030363     	orr	w3, w27, w3
+     3a4: 2a020318     	orr	w24, w24, w2
+     3a8: 12000022     	and	w2, w1, #0x1
+     3ac: 2a030318     	orr	w24, w24, w3
+     3b0: 5282cf01     	mov	w1, #0x1678             // =5752
+     3b4: 529e0063     	mov	w3, #0xf003             // =61443
+     3b8: aa1303e0     	mov	x0, x19
+     3bc: 2a020302     	orr	w2, w24, w2
+     3c0: 72a07fe3     	movk	w3, #0x3ff, lsl #16
+     3c4: 72a00401     	movk	w1, #0x20, lsl #16
+     3c8: 94000000     	bl	0x3c8 <DdrUpdateACTiming+0x3c8>
+		00000000000003c8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     3cc: b941cbf2     	ldr	w18, [sp, #0x1c8]
+     3d0: 529fe7e3     	mov	w3, #0xff3f             // =65343
+     3d4: b94193ee     	ldr	w14, [sp, #0x190]
+     3d8: 5282c881     	mov	w1, #0x1644             // =5700
+     3dc: b941c7ef     	ldr	w15, [sp, #0x1c4]
+     3e0: aa1303e0     	mov	x0, x19
+     3e4: 53100a52     	ubfiz	w18, w18, #16, #3
+     3e8: b941cfed     	ldr	w13, [sp, #0x1cc]
+     3ec: 120015ef     	and	w15, w15, #0x3f
+     3f0: 2a1202f2     	orr	w18, w23, w18
+     3f4: 2a0e71ee     	orr	w14, w15, w14, lsl #28
+     3f8: 72bff0e3     	movk	w3, #0xff87, lsl #16
+     3fc: 2a0e024e     	orr	w14, w18, w14
+     400: 530911a2     	ubfiz	w2, w13, #23, #5
+     404: 2a0201c2     	orr	w2, w14, w2
+     408: 72a00401     	movk	w1, #0x20, lsl #16
+     40c: 94000000     	bl	0x40c <DdrUpdateACTiming+0x40c>
+		000000000000040c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     410: b941bbeb     	ldr	w11, [sp, #0x1b8]
+     414: 528fffe3     	mov	w3, #0x7fff             // =32767
+     418: b941bfec     	ldr	w12, [sp, #0x1bc]
+     41c: 5282c901     	mov	w1, #0x1648             // =5704
+     420: b941b7ea     	ldr	w10, [sp, #0x1b4]
+     424: aa1303e0     	mov	x0, x19
+     428: 531b116b     	ubfiz	w11, w11, #5, #5
+     42c: 72a7e7e3     	movk	w3, #0x3f3f, lsl #16
+     430: 5310158c     	ubfiz	w12, w12, #16, #6
+     434: 2a0b034b     	orr	w11, w26, w11
+     438: 2a0c02d6     	orr	w22, w22, w12
+     43c: 12001142     	and	w2, w10, #0x1f
+     440: 2a0b02cb     	orr	w11, w22, w11
+     444: 72a00401     	movk	w1, #0x20, lsl #16
+     448: 2a020162     	orr	w2, w11, w2
+     44c: 94000000     	bl	0x44c <DdrUpdateACTiming+0x44c>
+		000000000000044c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     450: b941afe8     	ldr	w8, [sp, #0x1ac]
+     454: 528e3fe3     	mov	w3, #0x71ff             // =29183
+     458: b941b3e9     	ldr	w9, [sp, #0x1b0]
+     45c: 5282c981     	mov	w1, #0x164c             // =5708
+     460: b941abe7     	ldr	w7, [sp, #0x1a8]
+     464: aa1303e0     	mov	x0, x19
+     468: 531c1108     	ubfiz	w8, w8, #4, #5
+     46c: 72a3e7e3     	movk	w3, #0x1f3f, lsl #16
+     470: 53101529     	ubfiz	w9, w9, #16, #6
+     474: 2a080328     	orr	w8, w25, w8
+     478: 2a0902b5     	orr	w21, w21, w9
+     47c: 12000ce2     	and	w2, w7, #0xf
+     480: 2a0802a8     	orr	w8, w21, w8
+     484: 72a00401     	movk	w1, #0x20, lsl #16
+     488: 2a020102     	orr	w2, w8, w2
+     48c: 94000000     	bl	0x48c <DdrUpdateACTiming+0x48c>
+		000000000000048c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     490: b941a7e6     	ldr	w6, [sp, #0x1a4]
+     494: 53130e82     	ubfiz	w2, w20, #13, #4
+     498: b941a3e5     	ldr	w5, [sp, #0x1a0]
+     49c: 5282ca01     	mov	w1, #0x1650             // =5712
+     4a0: b941c3e4     	ldr	w4, [sp, #0x1c0]
+     4a4: aa1303e0     	mov	x0, x19
+     4a8: 530f20c6     	ubfiz	w6, w6, #17, #9
+     4ac: 120020a5     	and	w5, w5, #0x1ff
+     4b0: 2a060042     	orr	w2, w2, w6
+     4b4: 52800003     	mov	w3, #0x0                // =0
+     4b8: 2a0468a4     	orr	w4, w5, w4, lsl #26
+     4bc: 72a00401     	movk	w1, #0x20, lsl #16
+     4c0: 2a040042     	orr	w2, w2, w4
+     4c4: 52800004     	mov	w4, #0x0                // =0
+     4c8: 2a1c2442     	orr	w2, w2, w28, lsl #9
+     4cc: 94000000     	bl	0x4cc <DdrUpdateACTiming+0x4cc>
+		00000000000004cc:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     4d0: 295187e0     	ldp	w0, w1, [sp, #0x8c]
+     4d4: 12a01803     	mov	w3, #-0xc00001          // =-12582913
+     4d8: 53101422     	ubfiz	w2, w1, #16, #6
+     4dc: b94073e1     	ldr	w1, [sp, #0x70]
+     4e0: 53161400     	ubfiz	w0, w0, #10, #6
+     4e4: 2a020000     	orr	w0, w0, w2
+     4e8: 12002422     	and	w2, w1, #0x3ff
+     4ec: b9406fe1     	ldr	w1, [sp, #0x6c]
+     4f0: 2a016042     	orr	w2, w2, w1, lsl #24
+     4f4: 5282ca81     	mov	w1, #0x1654             // =5716
+     4f8: 2a020002     	orr	w2, w0, w2
+     4fc: 72a00401     	movk	w1, #0x20, lsl #16
+     500: aa1303e0     	mov	x0, x19
+     504: 94000000     	bl	0x504 <DdrUpdateACTiming+0x504>
+		0000000000000504:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     508: 294f03e1     	ldp	w1, w0, [sp, #0x78]
+     50c: 528fefe3     	mov	w3, #0x7f7f             // =32639
+     510: 72be1fe3     	movk	w3, #0xf0ff, lsl #16
+     514: 53101c22     	ubfiz	w2, w1, #16, #8
+     518: b94083e1     	ldr	w1, [sp, #0x80]
+     51c: 53181800     	ubfiz	w0, w0, #8, #7
+     520: 2a020000     	orr	w0, w0, w2
+     524: 12001822     	and	w2, w1, #0x7f
+     528: b94077e1     	ldr	w1, [sp, #0x74]
+     52c: 2a017042     	orr	w2, w2, w1, lsl #28
+     530: 5282cb01     	mov	w1, #0x1658             // =5720
+     534: 2a020002     	orr	w2, w0, w2
+     538: 72a00401     	movk	w1, #0x20, lsl #16
+     53c: aa1303e0     	mov	x0, x19
+     540: 94000000     	bl	0x540 <DdrUpdateACTiming+0x540>
+		0000000000000540:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     544: 295283e1     	ldp	w1, w0, [sp, #0x94]
+     548: 529fe3e3     	mov	w3, #0xff1f             // =65311
+     54c: 72bffe03     	movk	w3, #0xfff0, lsl #16
+     550: 53140c22     	ubfiz	w2, w1, #12, #4
+     554: b9409fe1     	ldr	w1, [sp, #0x9c]
+     558: 53180c00     	ubfiz	w0, w0, #8, #4
+     55c: 2a020000     	orr	w0, w0, w2
+     560: 12001022     	and	w2, w1, #0x1f
+     564: b94087e1     	ldr	w1, [sp, #0x84]
+     568: 2a016842     	orr	w2, w2, w1, lsl #26
+     56c: b9408be1     	ldr	w1, [sp, #0x88]
+     570: 2a020000     	orr	w0, w0, w2
+     574: 530c1422     	ubfiz	w2, w1, #20, #6
+     578: 5282cb81     	mov	w1, #0x165c             // =5724
+     57c: 2a020002     	orr	w2, w0, w2
+     580: 72a00401     	movk	w1, #0x20, lsl #16
+     584: aa1303e0     	mov	x0, x19
+     588: 94000000     	bl	0x588 <DdrUpdateACTiming+0x588>
+		0000000000000588:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     58c: b940e7e0     	ldr	w0, [sp, #0xe4]
+     590: 5282dd01     	mov	w1, #0x16e8             // =5864
+     594: 52801fe3     	mov	w3, #0xff               // =255
+     598: 72a07401     	movk	w1, #0x3a0, lsl #16
+     59c: 531c0c02     	ubfiz	w2, w0, #4, #4
+     5a0: b940e3e0     	ldr	w0, [sp, #0xe0]
+     5a4: 12000c00     	and	w0, w0, #0xf
+     5a8: 2a000042     	orr	w2, w2, w0
+     5ac: aa1303e0     	mov	x0, x19
+     5b0: 94000000     	bl	0x5b0 <DdrUpdateACTiming+0x5b0>
+		00000000000005b0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     5b4: b940cbe0     	ldr	w0, [sp, #0xc8]
+     5b8: 5282dd01     	mov	w1, #0x16e8             // =5864
+     5bc: 52a30003     	mov	w3, #0x18000000         // =402653184
+     5c0: 72a07401     	movk	w1, #0x3a0, lsl #16
+     5c4: 53050002     	ubfiz	w2, w0, #27, #1
+     5c8: b940d3e0     	ldr	w0, [sp, #0xd0]
+     5cc: 53040000     	ubfiz	w0, w0, #28, #1
+     5d0: 2a000042     	orr	w2, w2, w0
+     5d4: aa1303e0     	mov	x0, x19
+     5d8: 94000000     	bl	0x5d8 <DdrUpdateACTiming+0x5d8>
+		00000000000005d8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     5dc: b940c7e0     	ldr	w0, [sp, #0xc4]
+     5e0: 5282dd81     	mov	w1, #0x16ec             // =5868
+     5e4: 321637e3     	mov	w3, #0xfffc00           // =16776192
+     5e8: 72a00401     	movk	w1, #0x20, lsl #16
+     5ec: 53161c02     	ubfiz	w2, w0, #10, #8
+     5f0: b940cfe0     	ldr	w0, [sp, #0xcc]
+     5f4: 530e1400     	ubfiz	w0, w0, #18, #6
+     5f8: 2a000042     	orr	w2, w2, w0
+     5fc: aa1303e0     	mov	x0, x19
+     600: 94000000     	bl	0x600 <DdrUpdateACTiming+0x600>
+		0000000000000600:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     604: b940ebe0     	ldr	w0, [sp, #0xe8]
+     608: 5282dc01     	mov	w1, #0x16e0             // =5856
+     60c: 52801e03     	mov	w3, #0xf0               // =240
+     610: 72a00401     	movk	w1, #0x20, lsl #16
+     614: 531c0c02     	ubfiz	w2, w0, #4, #4
+     618: aa1303e0     	mov	x0, x19
+     61c: 94000000     	bl	0x61c <DdrUpdateACTiming+0x61c>
+		000000000000061c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     620: b940a7e0     	ldr	w0, [sp, #0xa4]
+     624: 5287e7e3     	mov	w3, #0x3f3f             // =16191
+     628: 72a3e3e3     	movk	w3, #0x1f1f, lsl #16
+     62c: 53081001     	ubfiz	w1, w0, #24, #5
+     630: b940abe0     	ldr	w0, [sp, #0xa8]
+     634: 53101002     	ubfiz	w2, w0, #16, #5
+     638: b940a3e0     	ldr	w0, [sp, #0xa0]
+     63c: 2a020021     	orr	w1, w1, w2
+     640: b940afe2     	ldr	w2, [sp, #0xac]
+     644: 53181400     	ubfiz	w0, w0, #8, #6
+     648: 12001442     	and	w2, w2, #0x3f
+     64c: 2a020002     	orr	w2, w0, w2
+     650: aa1303e0     	mov	x0, x19
+     654: 2a020022     	orr	w2, w1, w2
+     658: 5282cc01     	mov	w1, #0x1660             // =5728
+     65c: 72a00401     	movk	w1, #0x20, lsl #16
+     660: 94000000     	bl	0x660 <DdrUpdateACTiming+0x660>
+		0000000000000660:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     664: b9416fe0     	ldr	w0, [sp, #0x16c]
+     668: 5297f7e3     	mov	w3, #0xbfbf             // =49087
+     66c: 53190001     	ubfiz	w1, w0, #7, #1
+     670: b940dbe0     	ldr	w0, [sp, #0xd8]
+     674: 53181402     	ubfiz	w2, w0, #8, #6
+     678: b94173e0     	ldr	w0, [sp, #0x170]
+     67c: 2a020021     	orr	w1, w1, w2
+     680: b940d7e2     	ldr	w2, [sp, #0xd4]
+     684: 53110000     	ubfiz	w0, w0, #15, #1
+     688: 12001442     	and	w2, w2, #0x3f
+     68c: 2a020002     	orr	w2, w0, w2
+     690: aa1303e0     	mov	x0, x19
+     694: 2a020022     	orr	w2, w1, w2
+     698: 5282d801     	mov	w1, #0x16c0             // =5824
+     69c: 72a00401     	movk	w1, #0x20, lsl #16
+     6a0: 94000000     	bl	0x6a0 <DdrUpdateACTiming+0x6a0>
+		00000000000006a0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     6a4: b940efe0     	ldr	w0, [sp, #0xec]
+     6a8: 5282cd01     	mov	w1, #0x1668             // =5736
+     6ac: 52a3e0e3     	mov	w3, #0x1f070000         // =520552448
+     6b0: 72a07401     	movk	w1, #0x3a0, lsl #16
+     6b4: 53081002     	ubfiz	w2, w0, #24, #5
+     6b8: b94103e0     	ldr	w0, [sp, #0x100]
+     6bc: 53100800     	ubfiz	w0, w0, #16, #3
+     6c0: 2a000042     	orr	w2, w2, w0
+     6c4: aa1303e0     	mov	x0, x19
+     6c8: 94000000     	bl	0x6c8 <DdrUpdateACTiming+0x6c8>
+		00000000000006c8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     6cc: b940f7e0     	ldr	w0, [sp, #0xf4]
+     6d0: 5283e3e3     	mov	w3, #0x1f1f             // =7967
+     6d4: 72a7e7e3     	movk	w3, #0x3f3f, lsl #16
+     6d8: 53181001     	ubfiz	w1, w0, #8, #5
+     6dc: b940f3e0     	ldr	w0, [sp, #0xf0]
+     6e0: 53101402     	ubfiz	w2, w0, #16, #6
+     6e4: 2a020021     	orr	w1, w1, w2
+     6e8: 295f03e2     	ldp	w2, w0, [sp, #0xf8]
+     6ec: 12001042     	and	w2, w2, #0x1f
+     6f0: 53081400     	ubfiz	w0, w0, #24, #6
+     6f4: 2a020002     	orr	w2, w0, w2
+     6f8: aa1303e0     	mov	x0, x19
+     6fc: 2a020022     	orr	w2, w1, w2
+     700: 5282cd81     	mov	w1, #0x166c             // =5740
+     704: 72a00401     	movk	w1, #0x20, lsl #16
+     708: 94000000     	bl	0x708 <DdrUpdateACTiming+0x708>
+		0000000000000708:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     70c: b9417fe1     	ldr	w1, [sp, #0x17c]
+     710: 52827823     	mov	w3, #0x13c1             // =5057
+     714: b94183e0     	ldr	w0, [sp, #0x180]
+     718: 53190022     	ubfiz	w2, w1, #7, #1
+     71c: b9417be1     	ldr	w1, [sp, #0x178]
+     720: 53180000     	ubfiz	w0, w0, #8, #1
+     724: 2a020000     	orr	w0, w0, w2
+     728: 53170022     	ubfiz	w2, w1, #9, #1
+     72c: b9418be1     	ldr	w1, [sp, #0x188]
+     730: 53140021     	ubfiz	w1, w1, #12, #1
+     734: 2a010042     	orr	w2, w2, w1
+     738: b94177e1     	ldr	w1, [sp, #0x174]
+     73c: 2a020000     	orr	w0, w0, w2
+     740: 531a0022     	ubfiz	w2, w1, #6, #1
+     744: b94187e1     	ldr	w1, [sp, #0x184]
+     748: 12000021     	and	w1, w1, #0x1
+     74c: 2a010042     	orr	w2, w2, w1
+     750: 5282ce01     	mov	w1, #0x1670             // =5744
+     754: 2a020002     	orr	w2, w0, w2
+     758: 72a00401     	movk	w1, #0x20, lsl #16
+     75c: aa1303e0     	mov	x0, x19
+     760: 94000000     	bl	0x760 <DdrUpdateACTiming+0x760>
+		0000000000000760:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     764: b9413fe1     	ldr	w1, [sp, #0x13c]
+     768: 5296ffe3     	mov	w3, #0xb7ff             // =47103
+     76c: b94143e0     	ldr	w0, [sp, #0x140]
+     770: 72afdce3     	movk	w3, #0x7ee7, lsl #16
+     774: b9413be2     	ldr	w2, [sp, #0x138]
+     778: 531e0021     	ubfiz	w1, w1, #2, #1
+     77c: 531f0000     	ubfiz	w0, w0, #1, #1
+     780: 2a010000     	orr	w0, w0, w1
+     784: b94157e1     	ldr	w1, [sp, #0x154]
+     788: 531c0042     	ubfiz	w2, w2, #4, #1
+     78c: 531d0021     	ubfiz	w1, w1, #3, #1
+     790: 2a020021     	orr	w1, w1, w2
+     794: b94133e2     	ldr	w2, [sp, #0x130]
+     798: 2a010000     	orr	w0, w0, w1
+     79c: b94137e1     	ldr	w1, [sp, #0x134]
+     7a0: 531a0042     	ubfiz	w2, w2, #6, #1
+     7a4: 531b0021     	ubfiz	w1, w1, #5, #1
+     7a8: 2a020021     	orr	w1, w1, w2
+     7ac: b9412be2     	ldr	w2, [sp, #0x128]
+     7b0: 2a010000     	orr	w0, w0, w1
+     7b4: b9412fe1     	ldr	w1, [sp, #0x12c]
+     7b8: 53180042     	ubfiz	w2, w2, #8, #1
+     7bc: 53190021     	ubfiz	w1, w1, #7, #1
+     7c0: 2a020021     	orr	w1, w1, w2
+     7c4: b94123e2     	ldr	w2, [sp, #0x120]
+     7c8: 2a010000     	orr	w0, w0, w1
+     7cc: b94127e1     	ldr	w1, [sp, #0x124]
+     7d0: 53160042     	ubfiz	w2, w2, #10, #1
+     7d4: 53170021     	ubfiz	w1, w1, #9, #1
+     7d8: 2a020021     	orr	w1, w1, w2
+     7dc: b9411be2     	ldr	w2, [sp, #0x118]
+     7e0: 2a010000     	orr	w0, w0, w1
+     7e4: b9411fe1     	ldr	w1, [sp, #0x11c]
+     7e8: 53130042     	ubfiz	w2, w2, #13, #1
+     7ec: 53140021     	ubfiz	w1, w1, #12, #1
+     7f0: 2a020021     	orr	w1, w1, w2
+     7f4: b94113e2     	ldr	w2, [sp, #0x110]
+     7f8: 2a010000     	orr	w0, w0, w1
+     7fc: b94117e1     	ldr	w1, [sp, #0x114]
+     800: 53100042     	ubfiz	w2, w2, #16, #1
+     804: 53110021     	ubfiz	w1, w1, #15, #1
+     808: 2a020021     	orr	w1, w1, w2
+     80c: b9414be2     	ldr	w2, [sp, #0x148]
+     810: 2a010000     	orr	w0, w0, w1
+     814: b9414fe1     	ldr	w1, [sp, #0x14c]
+     818: 530e0042     	ubfiz	w2, w2, #18, #1
+     81c: 530f0021     	ubfiz	w1, w1, #17, #1
+     820: 2a020021     	orr	w1, w1, w2
+     824: 2a010000     	orr	w0, w0, w1
+     828: b9410be1     	ldr	w1, [sp, #0x108]
+     82c: 530b0022     	ubfiz	w2, w1, #21, #1
+     830: b9410fe1     	ldr	w1, [sp, #0x10c]
+     834: 530a0021     	ubfiz	w1, w1, #22, #1
+     838: 2a010042     	orr	w2, w2, w1
+     83c: b94107e1     	ldr	w1, [sp, #0x104]
+     840: 2a020000     	orr	w0, w0, w2
+     844: 53090022     	ubfiz	w2, w1, #23, #1
+     848: b9416be1     	ldr	w1, [sp, #0x168]
+     84c: 53070021     	ubfiz	w1, w1, #25, #1
+     850: 2a010042     	orr	w2, w2, w1
+     854: b94167e1     	ldr	w1, [sp, #0x164]
+     858: 2a020000     	orr	w0, w0, w2
+     85c: 53060022     	ubfiz	w2, w1, #26, #1
+     860: b94163e1     	ldr	w1, [sp, #0x160]
+     864: 53050021     	ubfiz	w1, w1, #27, #1
+     868: 2a010042     	orr	w2, w2, w1
+     86c: b9415fe1     	ldr	w1, [sp, #0x15c]
+     870: 2a020000     	orr	w0, w0, w2
+     874: 53040022     	ubfiz	w2, w1, #28, #1
+     878: b9415be1     	ldr	w1, [sp, #0x158]
+     87c: 53030021     	ubfiz	w1, w1, #29, #1
+     880: 2a010042     	orr	w2, w2, w1
+     884: b94153e1     	ldr	w1, [sp, #0x150]
+     888: 2a020000     	orr	w0, w0, w2
+     88c: 53020022     	ubfiz	w2, w1, #30, #1
+     890: b94147e1     	ldr	w1, [sp, #0x144]
+     894: 12000021     	and	w1, w1, #0x1
+     898: 2a010042     	orr	w2, w2, w1
+     89c: 5282cc81     	mov	w1, #0x1664             // =5732
+     8a0: 2a020002     	orr	w2, w0, w2
+     8a4: 72a00401     	movk	w1, #0x20, lsl #16
+     8a8: aa1303e0     	mov	x0, x19
+     8ac: 94000000     	bl	0x8ac <DdrUpdateACTiming+0x8ac>
+		00000000000008ac:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     8b0: b940b3e0     	ldr	w0, [sp, #0xb0]
+     8b4: 5282dd81     	mov	w1, #0x16ec             // =5868
+     8b8: 52803fe3     	mov	w3, #0x1ff              // =511
+     8bc: 72a00401     	movk	w1, #0x20, lsl #16
+     8c0: 0a030002     	and	w2, w0, w3
+     8c4: aa1303e0     	mov	x0, x19
+     8c8: 94000000     	bl	0x8c8 <DdrUpdateACTiming+0x8c8>
+		00000000000008c8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     8cc: b940b7e0     	ldr	w0, [sp, #0xb4]
+     8d0: 321837e3     	mov	w3, #0x3fff00           // =4194048
+     8d4: 53181401     	ubfiz	w1, w0, #8, #6
+     8d8: b940bfe0     	ldr	w0, [sp, #0xbc]
+     8dc: 53120002     	ubfiz	w2, w0, #14, #1
+     8e0: b940bbe0     	ldr	w0, [sp, #0xb8]
+     8e4: 2a020021     	orr	w1, w1, w2
+     8e8: b940c3e2     	ldr	w2, [sp, #0xc0]
+     8ec: 53101400     	ubfiz	w0, w0, #16, #6
+     8f0: 53110042     	ubfiz	w2, w2, #15, #1
+     8f4: 2a020002     	orr	w2, w0, w2
+     8f8: aa1303e0     	mov	x0, x19
+     8fc: 2a020022     	orr	w2, w1, w2
+     900: 5282dd01     	mov	w1, #0x16e8             // =5864
+     904: 72a07401     	movk	w1, #0x3a0, lsl #16
+     908: 94000000     	bl	0x908 <DdrUpdateACTiming+0x908>
+		0000000000000908:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     90c: 5282c281     	mov	w1, #0x1614             // =5652
+     910: aa1303e0     	mov	x0, x19
+     914: 529fe003     	mov	w3, #0xff00             // =65280
+     918: 528c8002     	mov	w2, #0x6400             // =25600
+     91c: 72a00401     	movk	w1, #0x20, lsl #16
+     920: 94000000     	bl	0x920 <DdrUpdateACTiming+0x920>
+		0000000000000920:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     924: 5282c101     	mov	w1, #0x1608             // =5640
+     928: 52a60003     	mov	w3, #0x30000000         // =805306368
+     92c: aa1303e0     	mov	x0, x19
+     930: 2a0303e2     	mov	w2, w3
+     934: 72a00401     	movk	w1, #0x20, lsl #16
+     938: 94000000     	bl	0x938 <DdrUpdateACTiming+0x938>
+		0000000000000938:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     93c: 5282c101     	mov	w1, #0x1608             // =5640
+     940: 52800603     	mov	w3, #0x30               // =48
+     944: aa1303e0     	mov	x0, x19
+     948: 2a0303e2     	mov	w2, w3
+     94c: 72a00401     	movk	w1, #0x20, lsl #16
+     950: 94000000     	bl	0x950 <DdrUpdateACTiming+0x950>
+		0000000000000950:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     954: 5282cf01     	mov	w1, #0x1678             // =5752
+     958: 52a06003     	mov	w3, #0x3000000          // =50331648
+     95c: aa1303e0     	mov	x0, x19
+     960: 2a0303e2     	mov	w2, w3
+     964: 72a00401     	movk	w1, #0x20, lsl #16
+     968: 94000000     	bl	0x968 <DdrUpdateACTiming+0x968>
+		0000000000000968:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     96c: 5282d481     	mov	w1, #0x16a4             // =5796
+     970: 52a000e3     	mov	w3, #0x70000            // =458752
+     974: aa1303e0     	mov	x0, x19
+     978: 2a0303e2     	mov	w2, w3
+     97c: 72a00401     	movk	w1, #0x20, lsl #16
+     980: 94000000     	bl	0x980 <DdrUpdateACTiming+0x980>
+		0000000000000980:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     984: 5282cd01     	mov	w1, #0x1668             // =5736
+     988: aa1303e0     	mov	x0, x19
+     98c: 52800023     	mov	w3, #0x1                // =1
+     990: 52800002     	mov	w2, #0x0                // =0
+     994: 72a07401     	movk	w1, #0x3a0, lsl #16
+     998: 94000000     	bl	0x998 <DdrUpdateACTiming+0x998>
+		0000000000000998:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     99c: b940dfe0     	ldr	w0, [sp, #0xdc]
+     9a0: 5282c801     	mov	w1, #0x1640             // =5696
+     9a4: 52bfe003     	mov	w3, #-0x1000000         // =-16777216
+     9a8: 72a07401     	movk	w1, #0x3a0, lsl #16
+     9ac: 53081c02     	lsl	w2, w0, #24
+     9b0: aa1303e0     	mov	x0, x19
+     9b4: 94000000     	bl	0x9b4 <DdrUpdateACTiming+0x9b4>
+		00000000000009b4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     9b8: b9418fe0     	ldr	w0, [sp, #0x18c]
+     9bc: 12001c00     	and	w0, w0, #0xff
+     9c0: b9009e60     	str	w0, [x19, #0x9c]
+     9c4: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     9c8: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     9cc: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     9d0: a9446bf9     	ldp	x25, x26, [sp, #0x40]
+     9d4: a94573fb     	ldp	x27, x28, [sp, #0x50]
+     9d8: a8de7bfd     	ldp	x29, x30, [sp], #0x1e0
+     9dc: d65f03c0     	ret
+     9e0: aa1303e0     	mov	x0, x19
+     9e4: 94000000     	bl	0x9e4 <DdrUpdateACTiming+0x9e4>
+		00000000000009e4:  R_AARCH64_CALL26	is_ddr4_family
+     9e8: 72001c1f     	tst	w0, #0xff
+     9ec: 54fffec0     	b.eq	0x9c4 <DdrUpdateACTiming+0x9c4>
+     9f0: 92401e80     	and	x0, x20, #0xff
+     9f4: 90000001     	adrp	x1, 0x0 <DdrUpdateACTiming>
+		00000000000009f4:  R_AARCH64_ADR_PREL_PG_HI21	ACTimingTbl_DDR4
+     9f8: 91000021     	add	x1, x1, #0x0
+		00000000000009f8:  R_AARCH64_ADD_ABS_LO12_NC	ACTimingTbl_DDR4
+     9fc: d2802282     	mov	x2, #0x114              // =276
+     a00: 9b020400     	madd	x0, x0, x2, x1
+     a04: 79402401     	ldrh	w1, [x0, #0x12]
+     a08: b9006fe1     	str	w1, [sp, #0x6c]
+     a0c: 79402801     	ldrh	w1, [x0, #0x14]
+     a10: b90073e1     	str	w1, [sp, #0x70]
+     a14: 79403401     	ldrh	w1, [x0, #0x1a]
+     a18: b90077e1     	str	w1, [sp, #0x74]
+     a1c: 79406401     	ldrh	w1, [x0, #0x32]
+     a20: b9007be1     	str	w1, [sp, #0x78]
+     a24: 79406801     	ldrh	w1, [x0, #0x34]
+     a28: b9007fe1     	str	w1, [sp, #0x7c]
+     a2c: 79406c01     	ldrh	w1, [x0, #0x36]
+     a30: b90083e1     	str	w1, [sp, #0x80]
+     a34: 79407401     	ldrh	w1, [x0, #0x3a]
+     a38: b90087e1     	str	w1, [sp, #0x84]
+     a3c: 79408001     	ldrh	w1, [x0, #0x40]
+     a40: 79405008     	ldrh	w8, [x0, #0x28]
+     a44: 79405416     	ldrh	w22, [x0, #0x2a]
+     a48: 79401c0e     	ldrh	w14, [x0, #0xe]
+     a4c: 79402007     	ldrh	w7, [x0, #0x10]
+     a50: 79402c04     	ldrh	w4, [x0, #0x16]
+     a54: 7940300d     	ldrh	w13, [x0, #0x18]
+     a58: 7940381c     	ldrh	w28, [x0, #0x1c]
+     a5c: 79403c15     	ldrh	w21, [x0, #0x1e]
+     a60: 79404006     	ldrh	w6, [x0, #0x20]
+     a64: 7940440b     	ldrh	w11, [x0, #0x22]
+     a68: 7940480a     	ldrh	w10, [x0, #0x24]
+     a6c: 79404c1a     	ldrh	w26, [x0, #0x26]
+     a70: 79405814     	ldrh	w20, [x0, #0x2c]
+     a74: 79405c09     	ldrh	w9, [x0, #0x2e]
+     a78: 7940601b     	ldrh	w27, [x0, #0x30]
+     a7c: 79407818     	ldrh	w24, [x0, #0x3c]
+     a80: 79407c19     	ldrh	w25, [x0, #0x3e]
+     a84: b9008be1     	str	w1, [sp, #0x88]
+     a88: 79408401     	ldrh	w1, [x0, #0x42]
+     a8c: b9008fe1     	str	w1, [sp, #0x8c]
+     a90: 79408801     	ldrh	w1, [x0, #0x44]
+     a94: b90093e1     	str	w1, [sp, #0x90]
+     a98: 79408c01     	ldrh	w1, [x0, #0x46]
+     a9c: b90097e1     	str	w1, [sp, #0x94]
+     aa0: 79409001     	ldrh	w1, [x0, #0x48]
+     aa4: b9009be1     	str	w1, [sp, #0x98]
+     aa8: 79409401     	ldrh	w1, [x0, #0x4a]
+     aac: b9009fe1     	str	w1, [sp, #0x9c]
+     ab0: 79409801     	ldrh	w1, [x0, #0x4c]
+     ab4: b900a3e1     	str	w1, [sp, #0xa0]
+     ab8: 79409c01     	ldrh	w1, [x0, #0x4e]
+     abc: b900a7e1     	str	w1, [sp, #0xa4]
+     ac0: 7940a001     	ldrh	w1, [x0, #0x50]
+     ac4: b900abe1     	str	w1, [sp, #0xa8]
+     ac8: 7940a401     	ldrh	w1, [x0, #0x52]
+     acc: b900afe1     	str	w1, [sp, #0xac]
+     ad0: 7940c401     	ldrh	w1, [x0, #0x62]
+     ad4: b900b3e1     	str	w1, [sp, #0xb0]
+     ad8: 7940f001     	ldrh	w1, [x0, #0x78]
+     adc: b900b7e1     	str	w1, [sp, #0xb4]
+     ae0: 7940f401     	ldrh	w1, [x0, #0x7a]
+     ae4: b900bbe1     	str	w1, [sp, #0xb8]
+     ae8: 79410001     	ldrh	w1, [x0, #0x80]
+     aec: b900bfe1     	str	w1, [sp, #0xbc]
+     af0: 79410801     	ldrh	w1, [x0, #0x84]
+     af4: b900c3e1     	str	w1, [sp, #0xc0]
+     af8: 79410c01     	ldrh	w1, [x0, #0x86]
+     afc: b900c7e1     	str	w1, [sp, #0xc4]
+     b00: 79411401     	ldrh	w1, [x0, #0x8a]
+     b04: 79410403     	ldrh	w3, [x0, #0x82]
+     b08: b900cbe1     	str	w1, [sp, #0xc8]
+     b0c: 79411801     	ldrh	w1, [x0, #0x8c]
+     b10: b900cfe1     	str	w1, [sp, #0xcc]
+     b14: 79411c01     	ldrh	w1, [x0, #0x8e]
+     b18: b900d3e1     	str	w1, [sp, #0xd0]
+     b1c: 79412001     	ldrh	w1, [x0, #0x90]
+     b20: b900d7e1     	str	w1, [sp, #0xd4]
+     b24: 79412801     	ldrh	w1, [x0, #0x94]
+     b28: b900dbe1     	str	w1, [sp, #0xd8]
+     b2c: 79412c01     	ldrh	w1, [x0, #0x96]
+     b30: b900dfe1     	str	w1, [sp, #0xdc]
+     b34: 79413001     	ldrh	w1, [x0, #0x98]
+     b38: b900e3e1     	str	w1, [sp, #0xe0]
+     b3c: 79413401     	ldrh	w1, [x0, #0x9a]
+     b40: b900e7e1     	str	w1, [sp, #0xe4]
+     b44: 79413801     	ldrh	w1, [x0, #0x9c]
+     b48: b900ebe1     	str	w1, [sp, #0xe8]
+     b4c: 79413c01     	ldrh	w1, [x0, #0x9e]
+     b50: b900efe1     	str	w1, [sp, #0xec]
+     b54: 79414c01     	ldrh	w1, [x0, #0xa6]
+     b58: b900f3e1     	str	w1, [sp, #0xf0]
+     b5c: 79415401     	ldrh	w1, [x0, #0xaa]
+     b60: b900f7e1     	str	w1, [sp, #0xf4]
+     b64: 79415801     	ldrh	w1, [x0, #0xac]
+     b68: b900fbe1     	str	w1, [sp, #0xf8]
+     b6c: 79415c01     	ldrh	w1, [x0, #0xae]
+     b70: b900ffe1     	str	w1, [sp, #0xfc]
+     b74: 79416001     	ldrh	w1, [x0, #0xb0]
+     b78: b90103e1     	str	w1, [sp, #0x100]
+     b7c: 79416401     	ldrh	w1, [x0, #0xb2]
+     b80: b90107e1     	str	w1, [sp, #0x104]
+     b84: 79416801     	ldrh	w1, [x0, #0xb4]
+     b88: b9010be1     	str	w1, [sp, #0x108]
+     b8c: 79416c01     	ldrh	w1, [x0, #0xb6]
+     b90: b9010fe1     	str	w1, [sp, #0x10c]
+     b94: 79417401     	ldrh	w1, [x0, #0xba]
+     b98: b90113e1     	str	w1, [sp, #0x110]
+     b9c: 79417801     	ldrh	w1, [x0, #0xbc]
+     ba0: b90117e1     	str	w1, [sp, #0x114]
+     ba4: 79417c01     	ldrh	w1, [x0, #0xbe]
+     ba8: b9011be1     	str	w1, [sp, #0x118]
+     bac: 79418801     	ldrh	w1, [x0, #0xc4]
+     bb0: b9011fe1     	str	w1, [sp, #0x11c]
+     bb4: 79418c01     	ldrh	w1, [x0, #0xc6]
+     bb8: b90123e1     	str	w1, [sp, #0x120]
+     bbc: 79419001     	ldrh	w1, [x0, #0xc8]
+     bc0: b90127e1     	str	w1, [sp, #0x124]
+     bc4: 79419401     	ldrh	w1, [x0, #0xca]
+     bc8: b9012be1     	str	w1, [sp, #0x128]
+     bcc: 79419801     	ldrh	w1, [x0, #0xcc]
+     bd0: b9012fe1     	str	w1, [sp, #0x12c]
+     bd4: 79419c01     	ldrh	w1, [x0, #0xce]
+     bd8: b90133e1     	str	w1, [sp, #0x130]
+     bdc: 7941a001     	ldrh	w1, [x0, #0xd0]
+     be0: b90137e1     	str	w1, [sp, #0x134]
+     be4: 7941a401     	ldrh	w1, [x0, #0xd2]
+     be8: b9013be1     	str	w1, [sp, #0x138]
+     bec: 7941a801     	ldrh	w1, [x0, #0xd4]
+     bf0: b9013fe1     	str	w1, [sp, #0x13c]
+     bf4: 7941ac01     	ldrh	w1, [x0, #0xd6]
+     bf8: b90143e1     	str	w1, [sp, #0x140]
+     bfc: 7941b001     	ldrh	w1, [x0, #0xd8]
+     c00: 79418010     	ldrh	w16, [x0, #0xc0]
+     c04: 79418405     	ldrh	w5, [x0, #0xc2]
+     c08: 79417017     	ldrh	w23, [x0, #0xb8]
+     c0c: b90147e1     	str	w1, [sp, #0x144]
+     c10: 7941d002     	ldrh	w2, [x0, #0xe8]
+     c14: b9015fe2     	str	w2, [sp, #0x15c]
+     c18: 7941d402     	ldrh	w2, [x0, #0xea]
+     c1c: b90163e2     	str	w2, [sp, #0x160]
+     c20: 7941d802     	ldrh	w2, [x0, #0xec]
+     c24: b90167e2     	str	w2, [sp, #0x164]
+     c28: 7941dc02     	ldrh	w2, [x0, #0xee]
+     c2c: b9016be2     	str	w2, [sp, #0x168]
+     c30: 7941e002     	ldrh	w2, [x0, #0xf0]
+     c34: 7941b401     	ldrh	w1, [x0, #0xda]
+     c38: b9016fe2     	str	w2, [sp, #0x16c]
+     c3c: 7941e402     	ldrh	w2, [x0, #0xf2]
+     c40: b9014be1     	str	w1, [sp, #0x148]
+     c44: 7941b801     	ldrh	w1, [x0, #0xdc]
+     c48: b90173e2     	str	w2, [sp, #0x170]
+     c4c: 7941e802     	ldrh	w2, [x0, #0xf4]
+     c50: b9014fe1     	str	w1, [sp, #0x14c]
+     c54: 7941bc01     	ldrh	w1, [x0, #0xde]
+     c58: b90177e2     	str	w2, [sp, #0x174]
+     c5c: 7941ec02     	ldrh	w2, [x0, #0xf6]
+     c60: b90153e1     	str	w1, [sp, #0x150]
+     c64: 7941c001     	ldrh	w1, [x0, #0xe0]
+     c68: b9017be2     	str	w2, [sp, #0x178]
+     c6c: 7941f002     	ldrh	w2, [x0, #0xf8]
+     c70: b90157e1     	str	w1, [sp, #0x154]
+     c74: 7941c401     	ldrh	w1, [x0, #0xe2]
+     c78: b9017fe2     	str	w2, [sp, #0x17c]
+     c7c: 7941f402     	ldrh	w2, [x0, #0xfa]
+     c80: 7941cc0f     	ldrh	w15, [x0, #0xe6]
+     c84: b9015be1     	str	w1, [sp, #0x158]
+     c88: 7941c801     	ldrh	w1, [x0, #0xe4]
+     c8c: b90183e2     	str	w2, [sp, #0x180]
+     c90: 7941f802     	ldrh	w2, [x0, #0xfc]
+     c94: b90187e2     	str	w2, [sp, #0x184]
+     c98: 79421002     	ldrh	w2, [x0, #0x108]
+     c9c: b9018be2     	str	w2, [sp, #0x188]
+     ca0: 79421402     	ldrh	w2, [x0, #0x10a]
+     ca4: b9018fe2     	str	w2, [sp, #0x18c]
+     ca8: 79421802     	ldrh	w2, [x0, #0x10c]
+     cac: b90193e2     	str	w2, [sp, #0x190]
+     cb0: 79421c02     	ldrh	w2, [x0, #0x10e]
+     cb4: b90197e2     	str	w2, [sp, #0x194]
+     cb8: 79422002     	ldrh	w2, [x0, #0x110]
+     cbc: 79420812     	ldrh	w18, [x0, #0x104]
+     cc0: 79420c0c     	ldrh	w12, [x0, #0x106]
+     cc4: 79422400     	ldrh	w0, [x0, #0x112]
+     cc8: b9019be2     	str	w2, [sp, #0x198]
+     ccc: b9409e62     	ldr	w2, [x19, #0x9c]
+     cd0: b901a3e2     	str	w2, [sp, #0x1a0]
+     cd4: 39408262     	ldrb	w2, [x19, #0x20]
+     cd8: b9019fe0     	str	w0, [sp, #0x19c]
+     cdc: 90000000     	adrp	x0, 0x0 <DdrUpdateACTiming>
+		0000000000000cdc:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal+0xa9
+     ce0: 7100005f     	cmp	w2, #0x0
+     ce4: 39400000     	ldrb	w0, [x0]
+		0000000000000ce4:  R_AARCH64_LDST8_ABS_LO12_NC	DUTTopSetGlobal+0xa9
+     ce8: 1a9010a5     	csel	w5, w5, w16, ne
+     cec: 1a8812d6     	csel	w22, w22, w8, ne
+     cf0: 34000075     	cbz	w21, 0xcfc <DdrUpdateACTiming+0xcfc>
+     cf4: 4b0002b5     	sub	w21, w21, w0
+     cf8: 12003eb5     	and	w21, w21, #0xffff
+     cfc: 3400007c     	cbz	w28, 0xd08 <DdrUpdateACTiming+0xd08>
+     d00: 4b00039c     	sub	w28, w28, w0
+     d04: 12003f9c     	and	w28, w28, #0xffff
+     d08: 3400007b     	cbz	w27, 0xd14 <DdrUpdateACTiming+0xd14>
+     d0c: 4b00037b     	sub	w27, w27, w0
+     d10: 12003f7b     	and	w27, w27, #0xffff
+     d14: 34000074     	cbz	w20, 0xd20 <DdrUpdateACTiming+0xd20>
+     d18: 4b000294     	sub	w20, w20, w0
+     d1c: 12003e94     	and	w20, w20, #0xffff
+     d20: 34000064     	cbz	w4, 0xd2c <DdrUpdateACTiming+0xd2c>
+     d24: 4b000084     	sub	w4, w4, w0
+     d28: 12003c84     	and	w4, w4, #0xffff
+     d2c: 34000079     	cbz	w25, 0xd38 <DdrUpdateACTiming+0xd38>
+     d30: 4b000339     	sub	w25, w25, w0
+     d34: 12003f39     	and	w25, w25, #0xffff
+     d38: 34000078     	cbz	w24, 0xd44 <DdrUpdateACTiming+0xd44>
+     d3c: 4b000318     	sub	w24, w24, w0
+     d40: 12003f18     	and	w24, w24, #0xffff
+     d44: 3400007a     	cbz	w26, 0xd50 <DdrUpdateACTiming+0xd50>
+     d48: 4b00035a     	sub	w26, w26, w0
+     d4c: 12003f5a     	and	w26, w26, #0xffff
+     d50: 34000077     	cbz	w23, 0xd5c <DdrUpdateACTiming+0xd5c>
+     d54: 4b0002f7     	sub	w23, w23, w0
+     d58: 12003ef7     	and	w23, w23, #0xffff
+     d5c: 9106c3e2     	add	x2, sp, #0x1b0
+     d60: aa1303e0     	mov	x0, x19
+     d64: b901dbf2     	str	w18, [sp, #0x1d8]
+     d68: 531016b5     	ubfiz	w21, w21, #16, #6
+     d6c: b901dfec     	str	w12, [sp, #0x1dc]
+     d70: 531016d6     	ubfiz	w22, w22, #16, #6
+     d74: 29003444     	stp	w4, w13, [x2]
+     d78: 910703e4     	add	x4, sp, #0x1c0
+     d7c: 293f1c4e     	stp	w14, w7, [x2, #-0x8]
+     d80: 53140a94     	ubfiz	w20, w20, #12, #3
+     d84: 12000f7b     	and	w27, w27, #0xf
+     d88: 53101f39     	ubfiz	w25, w25, #16, #8
+     d8c: 293f2c86     	stp	w6, w11, [x4, #-0x8]
+     d90: 910743e6     	add	x6, sp, #0x1d0
+     d94: 2900248a     	stp	w10, w9, [x4]
+     d98: 2a1b0294     	orr	w20, w20, w27
+     d9c: 2a187338     	orr	w24, w25, w24, lsl #28
+     da0: 530816f7     	ubfiz	w23, w23, #24, #6
+     da4: 293f14c3     	stp	w3, w5, [x6, #-0x8]
+     da8: 29003cc1     	stp	w1, w15, [x6]
+     dac: 94000000     	bl	0xdac <DdrUpdateACTiming+0xdac>
+		0000000000000dac:  R_AARCH64_CALL26	vGet_Div_Mode
+     db0: 7100081f     	cmp	w0, #0x2
+     db4: 52800100     	mov	w0, #0x8                // =8
+     db8: b941cbe3     	ldr	w3, [sp, #0x1c8]
+     dbc: 52800088     	mov	w8, #0x4                // =4
+     dc0: b941d3e1     	ldr	w1, [sp, #0x1d0]
+     dc4: 1a800108     	csel	w8, w8, w0, eq
+     dc8: b941dbf2     	ldr	w18, [sp, #0x1d8]
+     dcc: b940c3e0     	ldr	w0, [sp, #0xc0]
+     dd0: 53100c63     	ubfiz	w3, w3, #16, #4
+     dd4: b941d7ef     	ldr	w15, [sp, #0x1d4]
+     dd8: 531f0021     	ubfiz	w1, w1, #1, #1
+     ddc: 530c0e52     	ubfiz	w18, w18, #20, #4
+     de0: b9009e7f     	str	wzr, [x19, #0x9c]
+     de4: 53140c02     	ubfiz	w2, w0, #12, #4
+     de8: 2a120063     	orr	w3, w3, w18
+     dec: 2a020021     	orr	w1, w1, w2
+     df0: 120001e2     	and	w2, w15, #0x1
+     df4: 2a030021     	orr	w1, w1, w3
+     df8: 529e0063     	mov	w3, #0xf003             // =61443
+     dfc: 2a020022     	orr	w2, w1, w2
+     e00: 5282cf01     	mov	w1, #0x1678             // =5752
+     e04: aa1303e0     	mov	x0, x19
+     e08: 72a07fe3     	movk	w3, #0x3ff, lsl #16
+     e0c: 72a00401     	movk	w1, #0x20, lsl #16
+     e10: b901a7e8     	str	w8, [sp, #0x1a4]
+     e14: 94000000     	bl	0xe14 <DdrUpdateACTiming+0xe14>
+		0000000000000e14:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     e18: 9106c3e8     	add	x8, sp, #0x1b0
+     e1c: b941dfec     	ldr	w12, [sp, #0x1dc]
+     e20: 529fe7e3     	mov	w3, #0xff3f             // =65343
+     e24: 5282c881     	mov	w1, #0x1644             // =5700
+     e28: aa1303e0     	mov	x0, x19
+     e2c: 72bff0e3     	movk	w3, #0xff87, lsl #16
+     e30: 297f1d0e     	ldp	w14, w7, [x8, #-0x8]
+     e34: 72a00401     	movk	w1, #0x20, lsl #16
+     e38: 29403504     	ldp	w4, w13, [x8]
+     e3c: 530911ce     	ubfiz	w14, w14, #23, #5
+     e40: 531008e7     	ubfiz	w7, w7, #16, #3
+     e44: 120015ad     	and	w13, w13, #0x3f
+     e48: 2a0e00e7     	orr	w7, w7, w14
+     e4c: 2a0c71ac     	orr	w12, w13, w12, lsl #28
+     e50: 53181c82     	ubfiz	w2, w4, #8, #8
+     e54: 2a0c00ec     	orr	w12, w7, w12
+     e58: 2a020182     	orr	w2, w12, w2
+     e5c: 94000000     	bl	0xe5c <DdrUpdateACTiming+0xe5c>
+		0000000000000e5c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     e60: b941bbe6     	ldr	w6, [sp, #0x1b8]
+     e64: 53081782     	ubfiz	w2, w28, #24, #6
+     e68: b941bfeb     	ldr	w11, [sp, #0x1bc]
+     e6c: 528fffe3     	mov	w3, #0x7fff             // =32767
+     e70: b941c3ea     	ldr	w10, [sp, #0x1c0]
+     e74: 5282c901     	mov	w1, #0x1648             // =5704
+     e78: 531610c6     	ubfiz	w6, w6, #10, #5
+     e7c: aa1303e0     	mov	x0, x19
+     e80: 531b116b     	ubfiz	w11, w11, #5, #5
+     e84: 1200114a     	and	w10, w10, #0x1f
+     e88: 2a0b00c6     	orr	w6, w6, w11
+     e8c: 2a0a02aa     	orr	w10, w21, w10
+     e90: 2a0a00ca     	orr	w10, w6, w10
+     e94: 72a7e7e3     	movk	w3, #0x3f3f, lsl #16
+     e98: 2a020142     	orr	w2, w10, w2
+     e9c: 72a00401     	movk	w1, #0x20, lsl #16
+     ea0: 94000000     	bl	0xea0 <DdrUpdateACTiming+0xea0>
+		0000000000000ea0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     ea4: b941c7e9     	ldr	w9, [sp, #0x1c4]
+     ea8: 53081342     	ubfiz	w2, w26, #24, #5
+     eac: 528e3fe3     	mov	w3, #0x71ff             // =29183
+     eb0: 5282c981     	mov	w1, #0x164c             // =5708
+     eb4: aa1303e0     	mov	x0, x19
+     eb8: 72a3e7e3     	movk	w3, #0x1f3f, lsl #16
+     ebc: 531c1129     	ubfiz	w9, w9, #4, #5
+     ec0: 72a00401     	movk	w1, #0x20, lsl #16
+     ec4: 2a0902c9     	orr	w9, w22, w9
+     ec8: 2a140129     	orr	w9, w9, w20
+     ecc: 2a020122     	orr	w2, w9, w2
+     ed0: 94000000     	bl	0xed0 <DdrUpdateACTiming+0xed0>
+		0000000000000ed0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     ed4: b94097e0     	ldr	w0, [sp, #0x94]
+     ed8: 52800004     	mov	w4, #0x0                // =0
+     edc: b94077e1     	ldr	w1, [sp, #0x74]
+     ee0: 52800003     	mov	w3, #0x0                // =0
+     ee4: b941a7e8     	ldr	w8, [sp, #0x1a4]
+     ee8: 53130c02     	ubfiz	w2, w0, #13, #4
+     eec: b9407be0     	ldr	w0, [sp, #0x78]
+     ef0: 530f2000     	ubfiz	w0, w0, #17, #9
+     ef4: 2a000042     	orr	w2, w2, w0
+     ef8: b9407fe0     	ldr	w0, [sp, #0x7c]
+     efc: 12002000     	and	w0, w0, #0x1ff
+     f00: 2a016800     	orr	w0, w0, w1, lsl #26
+     f04: 5282ca01     	mov	w1, #0x1650             // =5712
+     f08: 2a000042     	orr	w2, w2, w0
+     f0c: 72a00401     	movk	w1, #0x20, lsl #16
+     f10: 2a082442     	orr	w2, w2, w8, lsl #9
+     f14: aa1303e0     	mov	x0, x19
+     f18: 94000000     	bl	0xf18 <DdrUpdateACTiming+0xf18>
+		0000000000000f18:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     f1c: 295387e0     	ldp	w0, w1, [sp, #0x9c]
+     f20: 12a01803     	mov	w3, #-0xc00001          // =-12582913
+     f24: 53101422     	ubfiz	w2, w1, #16, #6
+     f28: b94087e1     	ldr	w1, [sp, #0x84]
+     f2c: 53161400     	ubfiz	w0, w0, #10, #6
+     f30: 2a020000     	orr	w0, w0, w2
+     f34: 12002422     	and	w2, w1, #0x3ff
+     f38: b94083e1     	ldr	w1, [sp, #0x80]
+     f3c: 2a016042     	orr	w2, w2, w1, lsl #24
+     f40: 5282ca81     	mov	w1, #0x1654             // =5716
+     f44: 2a020002     	orr	w2, w0, w2
+     f48: 72a00401     	movk	w1, #0x20, lsl #16
+     f4c: aa1303e0     	mov	x0, x19
+     f50: 94000000     	bl	0xf50 <DdrUpdateACTiming+0xf50>
+		0000000000000f50:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     f54: b9408be0     	ldr	w0, [sp, #0x88]
+     f58: 528fefe3     	mov	w3, #0x7f7f             // =32639
+     f5c: 5282cb01     	mov	w1, #0x1658             // =5720
+     f60: 72be1fe3     	movk	w3, #0xf0ff, lsl #16
+     f64: 72a00401     	movk	w1, #0x20, lsl #16
+     f68: 53181802     	ubfiz	w2, w0, #8, #7
+     f6c: b9408fe0     	ldr	w0, [sp, #0x8c]
+     f70: 12001800     	and	w0, w0, #0x7f
+     f74: 2a000042     	orr	w2, w2, w0
+     f78: aa1303e0     	mov	x0, x19
+     f7c: 2a180042     	orr	w2, w2, w24
+     f80: 94000000     	bl	0xf80 <DdrUpdateACTiming+0xf80>
+		0000000000000f80:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     f84: 295483e1     	ldp	w1, w0, [sp, #0xa4]
+     f88: 529fe3e3     	mov	w3, #0xff1f             // =65311
+     f8c: 72bffe03     	movk	w3, #0xfff0, lsl #16
+     f90: 53140c22     	ubfiz	w2, w1, #12, #4
+     f94: b940afe1     	ldr	w1, [sp, #0xac]
+     f98: 53180c00     	ubfiz	w0, w0, #8, #4
+     f9c: 2a020000     	orr	w0, w0, w2
+     fa0: 12001022     	and	w2, w1, #0x1f
+     fa4: b94093e1     	ldr	w1, [sp, #0x90]
+     fa8: 2a016842     	orr	w2, w2, w1, lsl #26
+     fac: b9409be1     	ldr	w1, [sp, #0x98]
+     fb0: 2a020000     	orr	w0, w0, w2
+     fb4: 530c1422     	ubfiz	w2, w1, #20, #6
+     fb8: 5282cb81     	mov	w1, #0x165c             // =5724
+     fbc: 2a020002     	orr	w2, w0, w2
+     fc0: 72a00401     	movk	w1, #0x20, lsl #16
+     fc4: aa1303e0     	mov	x0, x19
+     fc8: 94000000     	bl	0xfc8 <DdrUpdateACTiming+0xfc8>
+		0000000000000fc8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     fcc: b940fbe0     	ldr	w0, [sp, #0xf8]
+     fd0: 5282dd01     	mov	w1, #0x16e8             // =5864
+     fd4: 52801fe3     	mov	w3, #0xff               // =255
+     fd8: 72a07401     	movk	w1, #0x3a0, lsl #16
+     fdc: 531c0c02     	ubfiz	w2, w0, #4, #4
+     fe0: b940f7e0     	ldr	w0, [sp, #0xf4]
+     fe4: 12000c00     	and	w0, w0, #0xf
+     fe8: 2a000042     	orr	w2, w2, w0
+     fec: aa1303e0     	mov	x0, x19
+     ff0: 94000000     	bl	0xff0 <DdrUpdateACTiming+0xff0>
+		0000000000000ff0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     ff4: b940dfe0     	ldr	w0, [sp, #0xdc]
+     ff8: 5282dd01     	mov	w1, #0x16e8             // =5864
+     ffc: 52a30003     	mov	w3, #0x18000000         // =402653184
+    1000: 72a07401     	movk	w1, #0x3a0, lsl #16
+    1004: 53050002     	ubfiz	w2, w0, #27, #1
+    1008: b940e7e0     	ldr	w0, [sp, #0xe4]
+    100c: 53040000     	ubfiz	w0, w0, #28, #1
+    1010: 2a000042     	orr	w2, w2, w0
+    1014: aa1303e0     	mov	x0, x19
+    1018: 94000000     	bl	0x1018 <DdrUpdateACTiming+0x1018>
+		0000000000001018:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    101c: b940dbe0     	ldr	w0, [sp, #0xd8]
+    1020: 5282dd81     	mov	w1, #0x16ec             // =5868
+    1024: 321637e3     	mov	w3, #0xfffc00           // =16776192
+    1028: 72a00401     	movk	w1, #0x20, lsl #16
+    102c: 53161c02     	ubfiz	w2, w0, #10, #8
+    1030: b940e3e0     	ldr	w0, [sp, #0xe0]
+    1034: 530e1400     	ubfiz	w0, w0, #18, #6
+    1038: 2a000042     	orr	w2, w2, w0
+    103c: aa1303e0     	mov	x0, x19
+    1040: 94000000     	bl	0x1040 <DdrUpdateACTiming+0x1040>
+		0000000000001040:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    1044: b9406fe0     	ldr	w0, [sp, #0x6c]
+    1048: 52901fe3     	mov	w3, #0x80ff             // =33023
+    104c: 72a00023     	movk	w3, #0x1, lsl #16
+    1050: 531c0c01     	ubfiz	w1, w0, #4, #4
+    1054: b9412fe0     	ldr	w0, [sp, #0x12c]
+    1058: 53100002     	ubfiz	w2, w0, #16, #1
+    105c: b94133e0     	ldr	w0, [sp, #0x130]
+    1060: 2a020021     	orr	w1, w1, w2
+    1064: b94073e2     	ldr	w2, [sp, #0x70]
+    1068: 53110000     	ubfiz	w0, w0, #15, #1
+    106c: 12000c42     	and	w2, w2, #0xf
+    1070: 2a020002     	orr	w2, w0, w2
+    1074: aa1303e0     	mov	x0, x19
+    1078: 2a020022     	orr	w2, w1, w2
+    107c: 5282de01     	mov	w1, #0x16f0             // =5872
+    1080: 72a00401     	movk	w1, #0x20, lsl #16
+    1084: 94000000     	bl	0x1084 <DdrUpdateACTiming+0x1084>
+		0000000000001084:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    1088: b940ffe0     	ldr	w0, [sp, #0xfc]
+    108c: 5282dc01     	mov	w1, #0x16e0             // =5856
+    1090: 52801e03     	mov	w3, #0xf0               // =240
+    1094: 72a00401     	movk	w1, #0x20, lsl #16
+    1098: 531c0c02     	ubfiz	w2, w0, #4, #4
+    109c: aa1303e0     	mov	x0, x19
+    10a0: 94000000     	bl	0x10a0 <DdrUpdateACTiming+0x10a0>
+		00000000000010a0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    10a4: b940b7e0     	ldr	w0, [sp, #0xb4]
+    10a8: 5287e7e3     	mov	w3, #0x3f3f             // =16191
+    10ac: 72a3e3e3     	movk	w3, #0x1f1f, lsl #16
+    10b0: 53081001     	ubfiz	w1, w0, #24, #5
+    10b4: b940bbe0     	ldr	w0, [sp, #0xb8]
+    10b8: 53101002     	ubfiz	w2, w0, #16, #5
+    10bc: b940b3e0     	ldr	w0, [sp, #0xb0]
+    10c0: 2a020021     	orr	w1, w1, w2
+    10c4: b940bfe2     	ldr	w2, [sp, #0xbc]
+    10c8: 53181400     	ubfiz	w0, w0, #8, #6
+    10cc: 12001442     	and	w2, w2, #0x3f
+    10d0: 2a020002     	orr	w2, w0, w2
+    10d4: aa1303e0     	mov	x0, x19
+    10d8: 2a020022     	orr	w2, w1, w2
+    10dc: 5282cc01     	mov	w1, #0x1660             // =5728
+    10e0: 72a00401     	movk	w1, #0x20, lsl #16
+    10e4: 94000000     	bl	0x10e4 <DdrUpdateACTiming+0x10e4>
+		00000000000010e4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    10e8: b94183e0     	ldr	w0, [sp, #0x180]
+    10ec: 5297f7e3     	mov	w3, #0xbfbf             // =49087
+    10f0: 53190001     	ubfiz	w1, w0, #7, #1
+    10f4: b940efe0     	ldr	w0, [sp, #0xec]
+    10f8: 53181402     	ubfiz	w2, w0, #8, #6
+    10fc: b94187e0     	ldr	w0, [sp, #0x184]
+    1100: 2a020021     	orr	w1, w1, w2
+    1104: b940ebe2     	ldr	w2, [sp, #0xe8]
+    1108: 53110000     	ubfiz	w0, w0, #15, #1
+    110c: 12001442     	and	w2, w2, #0x3f
+    1110: 2a020002     	orr	w2, w0, w2
+    1114: aa1303e0     	mov	x0, x19
+    1118: 2a020022     	orr	w2, w1, w2
+    111c: 5282d801     	mov	w1, #0x16c0             // =5824
+    1120: 72a00401     	movk	w1, #0x20, lsl #16
+    1124: 94000000     	bl	0x1124 <DdrUpdateACTiming+0x1124>
+		0000000000001124:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    1128: b94103e0     	ldr	w0, [sp, #0x100]
+    112c: 5282cd01     	mov	w1, #0x1668             // =5736
+    1130: 52a3e0e3     	mov	w3, #0x1f070000         // =520552448
+    1134: 72a07401     	movk	w1, #0x3a0, lsl #16
+    1138: 53081002     	ubfiz	w2, w0, #24, #5
+    113c: b94113e0     	ldr	w0, [sp, #0x110]
+    1140: 53100800     	ubfiz	w0, w0, #16, #3
+    1144: 2a000042     	orr	w2, w2, w0
+    1148: aa1303e0     	mov	x0, x19
+    114c: 94000000     	bl	0x114c <DdrUpdateACTiming+0x114c>
+		000000000000114c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    1150: b9410be0     	ldr	w0, [sp, #0x108]
+    1154: 5283e3e3     	mov	w3, #0x1f1f             // =7967
+    1158: 5282cd81     	mov	w1, #0x166c             // =5740
+    115c: 72a7e7e3     	movk	w3, #0x3f3f, lsl #16
+    1160: 72a00401     	movk	w1, #0x20, lsl #16
+    1164: 53181002     	ubfiz	w2, w0, #8, #5
+    1168: b94107e0     	ldr	w0, [sp, #0x104]
+    116c: 53101400     	ubfiz	w0, w0, #16, #6
+    1170: 2a000042     	orr	w2, w2, w0
+    1174: b9410fe0     	ldr	w0, [sp, #0x10c]
+    1178: 12001000     	and	w0, w0, #0x1f
+    117c: 2a0002f7     	orr	w23, w23, w0
+    1180: aa1303e0     	mov	x0, x19
+    1184: 2a170042     	orr	w2, w2, w23
+    1188: 94000000     	bl	0x1188 <DdrUpdateACTiming+0x1188>
+		0000000000001188:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    118c: b94193e1     	ldr	w1, [sp, #0x190]
+    1190: 52827823     	mov	w3, #0x13c1             // =5057
+    1194: b94197e0     	ldr	w0, [sp, #0x194]
+    1198: 53190022     	ubfiz	w2, w1, #7, #1
+    119c: b9418fe1     	ldr	w1, [sp, #0x18c]
+    11a0: 53180000     	ubfiz	w0, w0, #8, #1
+    11a4: 2a020000     	orr	w0, w0, w2
+    11a8: 53170022     	ubfiz	w2, w1, #9, #1
+    11ac: b9419fe1     	ldr	w1, [sp, #0x19c]
+    11b0: 53140021     	ubfiz	w1, w1, #12, #1
+    11b4: 2a010042     	orr	w2, w2, w1
+    11b8: b9418be1     	ldr	w1, [sp, #0x188]
+    11bc: 2a020000     	orr	w0, w0, w2
+    11c0: 531a0022     	ubfiz	w2, w1, #6, #1
+    11c4: b9419be1     	ldr	w1, [sp, #0x198]
+    11c8: 12000021     	and	w1, w1, #0x1
+    11cc: 2a010042     	orr	w2, w2, w1
+    11d0: 5282ce01     	mov	w1, #0x1670             // =5744
+    11d4: 2a020002     	orr	w2, w0, w2
+    11d8: 72a00401     	movk	w1, #0x20, lsl #16
+    11dc: aa1303e0     	mov	x0, x19
+    11e0: 94000000     	bl	0x11e0 <DdrUpdateACTiming+0x11e0>
+		00000000000011e0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    11e4: b9414fe1     	ldr	w1, [sp, #0x14c]
+    11e8: 5296ffe3     	mov	w3, #0xb7ff             // =47103
+    11ec: b9416be0     	ldr	w0, [sp, #0x168]
+    11f0: 72afdce3     	movk	w3, #0x7ee7, lsl #16
+    11f4: b94153e2     	ldr	w2, [sp, #0x150]
+    11f8: 531c0021     	ubfiz	w1, w1, #4, #1
+    11fc: b941cfe5     	ldr	w5, [sp, #0x1cc]
+    1200: 531d0000     	ubfiz	w0, w0, #3, #1
+    1204: 2a010000     	orr	w0, w0, w1
+    1208: b94157e1     	ldr	w1, [sp, #0x154]
+    120c: 531e0042     	ubfiz	w2, w2, #2, #1
+    1210: 530a00a5     	ubfiz	w5, w5, #22, #1
+    1214: 531f0021     	ubfiz	w1, w1, #1, #1
+    1218: 2a020021     	orr	w1, w1, w2
+    121c: b94147e2     	ldr	w2, [sp, #0x144]
+    1220: 2a010000     	orr	w0, w0, w1
+    1224: b9414be1     	ldr	w1, [sp, #0x148]
+    1228: 531a0042     	ubfiz	w2, w2, #6, #1
+    122c: 531b0021     	ubfiz	w1, w1, #5, #1
+    1230: 2a020021     	orr	w1, w1, w2
+    1234: b9413fe2     	ldr	w2, [sp, #0x13c]
+    1238: 2a010000     	orr	w0, w0, w1
+    123c: b94143e1     	ldr	w1, [sp, #0x140]
+    1240: 53180042     	ubfiz	w2, w2, #8, #1
+    1244: 53190021     	ubfiz	w1, w1, #7, #1
+    1248: 2a020021     	orr	w1, w1, w2
+    124c: b94137e2     	ldr	w2, [sp, #0x134]
+    1250: 2a010000     	orr	w0, w0, w1
+    1254: b9413be1     	ldr	w1, [sp, #0x138]
+    1258: 53160042     	ubfiz	w2, w2, #10, #1
+    125c: 53170021     	ubfiz	w1, w1, #9, #1
+    1260: 2a020021     	orr	w1, w1, w2
+    1264: b94127e2     	ldr	w2, [sp, #0x124]
+    1268: 2a010000     	orr	w0, w0, w1
+    126c: b9412be1     	ldr	w1, [sp, #0x128]
+    1270: 53130042     	ubfiz	w2, w2, #13, #1
+    1274: 53140021     	ubfiz	w1, w1, #12, #1
+    1278: 2a020021     	orr	w1, w1, w2
+    127c: b9411fe2     	ldr	w2, [sp, #0x11c]
+    1280: 2a010000     	orr	w0, w0, w1
+    1284: b94123e1     	ldr	w1, [sp, #0x120]
+    1288: 53100042     	ubfiz	w2, w2, #16, #1
+    128c: 53110021     	ubfiz	w1, w1, #15, #1
+    1290: 2a020021     	orr	w1, w1, w2
+    1294: b9415fe2     	ldr	w2, [sp, #0x15c]
+    1298: 2a010000     	orr	w0, w0, w1
+    129c: b94163e1     	ldr	w1, [sp, #0x160]
+    12a0: 530e0042     	ubfiz	w2, w2, #18, #1
+    12a4: 530f0021     	ubfiz	w1, w1, #17, #1
+    12a8: 2a020021     	orr	w1, w1, w2
+    12ac: 2a010000     	orr	w0, w0, w1
+    12b0: b9411be1     	ldr	w1, [sp, #0x118]
+    12b4: 530b0022     	ubfiz	w2, w1, #21, #1
+    12b8: b94117e1     	ldr	w1, [sp, #0x114]
+    12bc: 53090021     	ubfiz	w1, w1, #23, #1
+    12c0: 2a010042     	orr	w2, w2, w1
+    12c4: b9417fe1     	ldr	w1, [sp, #0x17c]
+    12c8: 2a020000     	orr	w0, w0, w2
+    12cc: 53070022     	ubfiz	w2, w1, #25, #1
+    12d0: b9417be1     	ldr	w1, [sp, #0x178]
+    12d4: 53060021     	ubfiz	w1, w1, #26, #1
+    12d8: 2a010042     	orr	w2, w2, w1
+    12dc: b94177e1     	ldr	w1, [sp, #0x174]
+    12e0: 2a020000     	orr	w0, w0, w2
+    12e4: 53050022     	ubfiz	w2, w1, #27, #1
+    12e8: b94173e1     	ldr	w1, [sp, #0x170]
+    12ec: 53040021     	ubfiz	w1, w1, #28, #1
+    12f0: 2a010042     	orr	w2, w2, w1
+    12f4: b9416fe1     	ldr	w1, [sp, #0x16c]
+    12f8: 2a020000     	orr	w0, w0, w2
+    12fc: 53030022     	ubfiz	w2, w1, #29, #1
+    1300: b94167e1     	ldr	w1, [sp, #0x164]
+    1304: 53020021     	ubfiz	w1, w1, #30, #1
+    1308: 2a010042     	orr	w2, w2, w1
+    130c: b9415be1     	ldr	w1, [sp, #0x158]
+    1310: 2a020000     	orr	w0, w0, w2
+    1314: 12000022     	and	w2, w1, #0x1
+    1318: 5282cc81     	mov	w1, #0x1664             // =5732
+    131c: 2a0200a2     	orr	w2, w5, w2
+    1320: 72a00401     	movk	w1, #0x20, lsl #16
+    1324: 2a020002     	orr	w2, w0, w2
+    1328: aa1303e0     	mov	x0, x19
+    132c: 94000000     	bl	0x132c <DdrUpdateACTiming+0x132c>
+		000000000000132c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    1330: b940c7e0     	ldr	w0, [sp, #0xc4]
+    1334: 5282dd81     	mov	w1, #0x16ec             // =5868
+    1338: 52803fe3     	mov	w3, #0x1ff              // =511
+    133c: 72a00401     	movk	w1, #0x20, lsl #16
+    1340: 0a030002     	and	w2, w0, w3
+    1344: aa1303e0     	mov	x0, x19
+    1348: 94000000     	bl	0x1348 <DdrUpdateACTiming+0x1348>
+		0000000000001348:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    134c: b940cfe0     	ldr	w0, [sp, #0xcc]
+    1350: 321837e3     	mov	w3, #0x3fff00           // =4194048
+    1354: 53101401     	ubfiz	w1, w0, #16, #6
+    1358: b940d7e0     	ldr	w0, [sp, #0xd4]
+    135c: 53110002     	ubfiz	w2, w0, #15, #1
+    1360: b940cbe0     	ldr	w0, [sp, #0xc8]
+    1364: 2a020021     	orr	w1, w1, w2
+    1368: b940d3e2     	ldr	w2, [sp, #0xd0]
+    136c: 53181400     	ubfiz	w0, w0, #8, #6
+    1370: 53120042     	ubfiz	w2, w2, #14, #1
+    1374: 2a020002     	orr	w2, w0, w2
+    1378: aa1303e0     	mov	x0, x19
+    137c: 2a020022     	orr	w2, w1, w2
+    1380: 5282dd01     	mov	w1, #0x16e8             // =5864
+    1384: 72a07401     	movk	w1, #0x3a0, lsl #16
+    1388: 94000000     	bl	0x1388 <DdrUpdateACTiming+0x1388>
+		0000000000001388:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    138c: 5282c281     	mov	w1, #0x1614             // =5652
+    1390: aa1303e0     	mov	x0, x19
+    1394: 529fe003     	mov	w3, #0xff00             // =65280
+    1398: 528c8002     	mov	w2, #0x6400             // =25600
+    139c: 72a00401     	movk	w1, #0x20, lsl #16
+    13a0: 94000000     	bl	0x13a0 <DdrUpdateACTiming+0x13a0>
+		00000000000013a0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    13a4: 5282c101     	mov	w1, #0x1608             // =5640
+    13a8: 52a60003     	mov	w3, #0x30000000         // =805306368
+    13ac: aa1303e0     	mov	x0, x19
+    13b0: 2a0303e2     	mov	w2, w3
+    13b4: 72a00401     	movk	w1, #0x20, lsl #16
+    13b8: 94000000     	bl	0x13b8 <DdrUpdateACTiming+0x13b8>
+		00000000000013b8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    13bc: 5282c101     	mov	w1, #0x1608             // =5640
+    13c0: 52800603     	mov	w3, #0x30               // =48
+    13c4: aa1303e0     	mov	x0, x19
+    13c8: 2a0303e2     	mov	w2, w3
+    13cc: 72a00401     	movk	w1, #0x20, lsl #16
+    13d0: 94000000     	bl	0x13d0 <DdrUpdateACTiming+0x13d0>
+		00000000000013d0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    13d4: 5282cf01     	mov	w1, #0x1678             // =5752
+    13d8: 52a06003     	mov	w3, #0x3000000          // =50331648
+    13dc: aa1303e0     	mov	x0, x19
+    13e0: 2a0303e2     	mov	w2, w3
+    13e4: 72a00401     	movk	w1, #0x20, lsl #16
+    13e8: 94000000     	bl	0x13e8 <DdrUpdateACTiming+0x13e8>
+		00000000000013e8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    13ec: 5282d481     	mov	w1, #0x16a4             // =5796
+    13f0: 52a000e3     	mov	w3, #0x70000            // =458752
+    13f4: aa1303e0     	mov	x0, x19
+    13f8: 2a0303e2     	mov	w2, w3
+    13fc: 72a00401     	movk	w1, #0x20, lsl #16
+    1400: 94000000     	bl	0x1400 <DdrUpdateACTiming+0x1400>
+		0000000000001400:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    1404: 5282cd01     	mov	w1, #0x1668             // =5736
+    1408: aa1303e0     	mov	x0, x19
+    140c: 52800023     	mov	w3, #0x1                // =1
+    1410: 52800002     	mov	w2, #0x0                // =0
+    1414: 72a07401     	movk	w1, #0x3a0, lsl #16
+    1418: 94000000     	bl	0x1418 <DdrUpdateACTiming+0x1418>
+		0000000000001418:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    141c: b940f3e0     	ldr	w0, [sp, #0xf0]
+    1420: 5282c801     	mov	w1, #0x1640             // =5696
+    1424: 52bfe003     	mov	w3, #-0x1000000         // =-16777216
+    1428: 72a07401     	movk	w1, #0x3a0, lsl #16
+    142c: 53081c02     	lsl	w2, w0, #24
+    1430: aa1303e0     	mov	x0, x19
+    1434: 94000000     	bl	0x1434 <DdrUpdateACTiming+0x1434>
+		0000000000001434:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+    1438: b941a3e0     	ldr	w0, [sp, #0x1a0]
+    143c: 17fffd60     	b	0x9bc <DdrUpdateACTiming+0x9bc>

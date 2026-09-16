@@ -1,0 +1,238 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl31/DDR3_dram_init.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.DDR3_MRS:
+
+0000000000000000 <DDR3_MRS>:
+       0: 12001c64     	and	w4, w3, #0xff
+       4: 2a0203e3     	mov	w3, w2
+       8: 2a0103e2     	mov	w2, w1
+       c: 2a0403e1     	mov	w1, w4
+      10: 14000000     	b	0x10 <DDR3_MRS+0x10>
+		0000000000000010:  R_AARCH64_JUMP26	DramcModeRegWriteByRank
+
+Disassembly of section .text.DDR3_SWZQ:
+
+0000000000000000 <DDR3_SWZQ>:
+       0: 14000000     	b	0x0 <DDR3_SWZQ>
+		0000000000000000:  R_AARCH64_JUMP26	DramcZQCalibration
+
+Disassembly of section .text.PC3_dram_init_single_rank:
+
+0000000000000000 <PC3_dram_init_single_rank>:
+       0: a9bb7bfd     	stp	x29, x30, [sp, #-0x50]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      10: aa0003f6     	mov	x22, x0
+      14: 92401c55     	and	x21, x2, #0xff
+      18: a90363f7     	stp	x23, x24, [sp, #0x30]
+      1c: 52800038     	mov	w24, #0x1               // =1
+      20: f90023f9     	str	x25, [sp, #0x40]
+      24: 39400c22     	ldrb	w2, [x1, #0x3]
+      28: 39401825     	ldrb	w5, [x1, #0x6]
+      2c: 39401426     	ldrb	w6, [x1, #0x5]
+      30: 39401c24     	ldrb	w4, [x1, #0x7]
+      34: 13017c53     	asr	w19, w2, #1
+      38: 39401023     	ldrb	w3, [x1, #0x4]
+      3c: 531e0042     	ubfiz	w2, w2, #2, #1
+      40: 39400420     	ldrb	w0, [x1, #0x1]
+      44: 531c0a73     	ubfiz	w19, w19, #4, #3
+      48: 39400039     	ldrb	w25, [x1]
+      4c: 39400837     	ldrb	w23, [x1, #0x2]
+      50: 39434ac1     	ldrb	w1, [x22, #0xd2]
+      54: 531d0b39     	ubfiz	w25, w25, #3, #3
+      58: 6b18003f     	cmp	w1, w24
+      5c: 1a981000     	csel	w0, w0, w24, ne
+      60: 7100043f     	cmp	w1, #0x1
+      64: 120004c1     	and	w1, w6, #0x3
+      68: 1a9f12f7     	csel	w23, w23, wzr, ne
+      6c: 2a010273     	orr	w19, w19, w1
+      70: 53170881     	ubfiz	w1, w4, #9, #3
+      74: 531d00a4     	ubfiz	w4, w5, #3, #1
+      78: 13027c14     	asr	w20, w0, #2
+      7c: 2a040021     	orr	w1, w1, w4
+      80: 531706f7     	ubfiz	w23, w23, #9, #2
+      84: 2a010273     	orr	w19, w19, w1
+      88: 52822001     	mov	w1, #0x1100             // =4352
+      8c: 2a010042     	orr	w2, w2, w1
+      90: 13017c01     	asr	w1, w0, #1
+      94: 53170294     	ubfiz	w20, w20, #9, #1
+      98: 531e0000     	ubfiz	w0, w0, #2, #1
+      9c: 531a0021     	ubfiz	w1, w1, #6, #1
+      a0: 2a1902f7     	orr	w23, w23, w25
+      a4: 2a010294     	orr	w20, w20, w1
+      a8: 531d0461     	ubfiz	w1, w3, #3, #2
+      ac: 2a000020     	orr	w0, w1, w0
+      b0: 2a020273     	orr	w19, w19, w2
+      b4: 2a000294     	orr	w20, w20, w0
+      b8: 321a02f7     	orr	w23, w23, #0x40
+      bc: 2a1803e0     	mov	w0, w24
+      c0: 94000000     	bl	0xc0 <PC3_dram_init_single_rank+0xc0>
+		00000000000000c0:  R_AARCH64_CALL26	udelay
+      c4: 2a1503e1     	mov	w1, w21
+      c8: 2a1703e3     	mov	w3, w23
+      cc: aa1603e0     	mov	x0, x22
+      d0: 52800042     	mov	w2, #0x2                // =2
+      d4: 94000000     	bl	0xd4 <PC3_dram_init_single_rank+0xd4>
+		00000000000000d4:  R_AARCH64_CALL26	DramcModeRegWriteByRank
+      d8: 12003e94     	and	w20, w20, #0xffff
+      dc: 2a1503e1     	mov	w1, w21
+      e0: aa1603e0     	mov	x0, x22
+      e4: 52800003     	mov	w3, #0x0                // =0
+      e8: 52800062     	mov	w2, #0x3                // =3
+      ec: 94000000     	bl	0xec <PC3_dram_init_single_rank+0xec>
+		00000000000000ec:  R_AARCH64_CALL26	DramcModeRegWriteByRank
+      f0: 12003e73     	and	w19, w19, #0xffff
+      f4: 2a1503e1     	mov	w1, w21
+      f8: 2a1403e3     	mov	w3, w20
+      fc: 2a1803e2     	mov	w2, w24
+     100: aa1603e0     	mov	x0, x22
+     104: 94000000     	bl	0x104 <PC3_dram_init_single_rank+0x104>
+		0000000000000104:  R_AARCH64_CALL26	DramcModeRegWriteByRank
+     108: 52800002     	mov	w2, #0x0                // =0
+     10c: 2a1303e3     	mov	w3, w19
+     110: 2a1503e1     	mov	w1, w21
+     114: aa1603e0     	mov	x0, x22
+     118: 94000000     	bl	0x118 <PC3_dram_init_single_rank+0x118>
+		0000000000000118:  R_AARCH64_CALL26	DramcModeRegWriteByRank
+     11c: 2a1503e1     	mov	w1, w21
+     120: aa1603e0     	mov	x0, x22
+     124: 94000000     	bl	0x124 <PC3_dram_init_single_rank+0x124>
+		0000000000000124:  R_AARCH64_CALL26	DramcZQCalibration
+     128: 2a1803e0     	mov	w0, w24
+     12c: 94000000     	bl	0x12c <PC3_dram_init_single_rank+0x12c>
+		000000000000012c:  R_AARCH64_CALL26	udelay
+     130: d28001c2     	mov	x2, #0xe                // =14
+     134: b94002c4     	ldr	w4, [x22]
+     138: 90000001     	adrp	x1, 0x0 <PC3_dram_init_single_rank>
+		0000000000000138:  R_AARCH64_ADR_PREL_PG_HI21	gMRVal
+     13c: 91000021     	add	x1, x1, #0x0
+		000000000000013c:  R_AARCH64_ADD_ABS_LO12_NC	gMRVal
+     140: 9b027eb5     	mul	x21, x21, x2
+     144: 52800000     	mov	w0, #0x0                // =0
+     148: d2800385     	mov	x5, #0x1c               // =28
+     14c: 6b04001f     	cmp	w0, w4
+     150: 540000e3     	b.lo	0x16c <PC3_dram_init_single_rank+0x16c>
+     154: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     158: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     15c: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     160: f94023f9     	ldr	x25, [sp, #0x40]
+     164: a8c57bfd     	ldp	x29, x30, [sp], #0x50
+     168: d65f03c0     	ret
+     16c: 93407c02     	sxtw	x2, w0
+     170: 11000400     	add	w0, w0, #0x1
+     174: 12001c00     	and	w0, w0, #0xff
+     178: 9b055442     	madd	x2, x2, x5, x21
+     17c: 8b020023     	add	x3, x1, x2
+     180: 78226833     	strh	w19, [x1, x2]
+     184: 79000474     	strh	w20, [x3, #0x2]
+     188: 79000877     	strh	w23, [x3, #0x4]
+     18c: 79000c7f     	strh	wzr, [x3, #0x6]
+     190: 17ffffef     	b	0x14c <PC3_dram_init_single_rank+0x14c>
+
+Disassembly of section .text.PC3_DRAM_INIT:
+
+0000000000000000 <PC3_DRAM_INIT>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 5280f781     	mov	w1, #0x7bc              // =1980
+       8: 52880003     	mov	w3, #0x4000             // =16384
+       c: 910003fd     	mov	x29, sp
+      10: a90153f3     	stp	x19, x20, [sp, #0x10]
+      14: 52800002     	mov	w2, #0x0                // =0
+      18: b9400814     	ldr	w20, [x0, #0x8]
+      1c: 72a02001     	movk	w1, #0x100, lsl #16
+      20: aa0003f3     	mov	x19, x0
+      24: 7100069f     	cmp	w20, #0x1
+      28: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      2c: 1a9f07f6     	cset	w22, ne
+      30: 110006d6     	add	w22, w22, #0x1
+      34: 94000000     	bl	0x34 <PC3_DRAM_INIT+0x34>
+		0000000000000034:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      38: 52800020     	mov	w0, #0x1                // =1
+      3c: 94000000     	bl	0x3c <PC3_DRAM_INIT+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	udelay
+      40: aa1303e0     	mov	x0, x19
+      44: 52800002     	mov	w2, #0x0                // =0
+      48: 52800021     	mov	w1, #0x1                // =1
+      4c: 94000000     	bl	0x4c <PC3_DRAM_INIT+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	CKE_FIX_OFF
+      50: 7100069f     	cmp	w20, #0x1
+      54: 540000a0     	b.eq	0x68 <PC3_DRAM_INIT+0x68>
+      58: 52800022     	mov	w2, #0x1                // =1
+      5c: aa1303e0     	mov	x0, x19
+      60: 2a0203e1     	mov	w1, w2
+      64: 94000000     	bl	0x64 <PC3_DRAM_INIT+0x64>
+		0000000000000064:  R_AARCH64_CALL26	CKE_FIX_OFF
+      68: 90000015     	adrp	x21, 0x0 <PC3_DRAM_INIT>
+		0000000000000068:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+      6c: 910002b5     	add	x21, x21, #0x0
+		000000000000006c:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+      70: 3941fea0     	ldrb	w0, [x21, #0x7f]
+      74: 34000600     	cbz	w0, 0x134 <PC3_DRAM_INIT+0x134>
+      78: 52800040     	mov	w0, #0x2                // =2
+      7c: 94000000     	bl	0x7c <PC3_DRAM_INIT+0x7c>
+		000000000000007c:  R_AARCH64_CALL26	udelay
+      80: 5280f781     	mov	w1, #0x7bc              // =1980
+      84: aa1303e0     	mov	x0, x19
+      88: 52880003     	mov	w3, #0x4000             // =16384
+      8c: 72a02001     	movk	w1, #0x100, lsl #16
+      90: 2a0303e2     	mov	w2, w3
+      94: 94000000     	bl	0x94 <PC3_DRAM_INIT+0x94>
+		0000000000000094:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      98: 3941fea0     	ldrb	w0, [x21, #0x7f]
+      9c: 34000500     	cbz	w0, 0x13c <PC3_DRAM_INIT+0x13c>
+      a0: 528000a0     	mov	w0, #0x5                // =5
+      a4: 94000000     	bl	0xa4 <PC3_DRAM_INIT+0xa4>
+		00000000000000a4:  R_AARCH64_CALL26	udelay
+      a8: aa1303e0     	mov	x0, x19
+      ac: 52800002     	mov	w2, #0x0                // =0
+      b0: 52800001     	mov	w1, #0x0                // =0
+      b4: 94000000     	bl	0xb4 <PC3_DRAM_INIT+0xb4>
+		00000000000000b4:  R_AARCH64_CALL26	CKE_FIX_OFF
+      b8: 7100069f     	cmp	w20, #0x1
+      bc: 540000a0     	b.eq	0xd0 <PC3_DRAM_INIT+0xd0>
+      c0: aa1303e0     	mov	x0, x19
+      c4: 52800022     	mov	w2, #0x1                // =1
+      c8: 52800001     	mov	w1, #0x0                // =0
+      cc: 94000000     	bl	0xcc <PC3_DRAM_INIT+0xcc>
+		00000000000000cc:  R_AARCH64_CALL26	CKE_FIX_OFF
+      d0: aa1303e0     	mov	x0, x19
+      d4: 52800002     	mov	w2, #0x0                // =0
+      d8: 52800021     	mov	w1, #0x1                // =1
+      dc: 94000000     	bl	0xdc <PC3_DRAM_INIT+0xdc>
+		00000000000000dc:  R_AARCH64_CALL26	CKE_FIX_ON
+      e0: 7100069f     	cmp	w20, #0x1
+      e4: 540000a0     	b.eq	0xf8 <PC3_DRAM_INIT+0xf8>
+      e8: 52800022     	mov	w2, #0x1                // =1
+      ec: aa1303e0     	mov	x0, x19
+      f0: 2a0203e1     	mov	w1, w2
+      f4: 94000000     	bl	0xf4 <PC3_DRAM_INIT+0xf4>
+		00000000000000f4:  R_AARCH64_CALL26	CKE_FIX_ON
+      f8: 90000014     	adrp	x20, 0x0 <PC3_DRAM_INIT>
+		00000000000000f8:  R_AARCH64_ADR_PREL_PG_HI21	DV_p
+      fc: 91000294     	add	x20, x20, #0x0
+		00000000000000fc:  R_AARCH64_ADD_ABS_LO12_NC	DV_p
+     100: aa1303e0     	mov	x0, x19
+     104: 52800002     	mov	w2, #0x0                // =0
+     108: f9400e81     	ldr	x1, [x20, #0x18]
+     10c: 94000000     	bl	0x10c <PC3_DRAM_INIT+0x10c>
+		000000000000010c:  R_AARCH64_CALL26	PC3_dram_init_single_rank
+     110: 71000adf     	cmp	w22, #0x2
+     114: 54000181     	b.ne	0x144 <PC3_DRAM_INIT+0x144>
+     118: aa1303e0     	mov	x0, x19
+     11c: 52800022     	mov	w2, #0x1                // =1
+     120: f9400e81     	ldr	x1, [x20, #0x18]
+     124: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     128: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     12c: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     130: 14000000     	b	0x130 <PC3_DRAM_INIT+0x130>
+		0000000000000130:  R_AARCH64_JUMP26	PC3_dram_init_single_rank
+     134: 52801900     	mov	w0, #0xc8               // =200
+     138: 17ffffd1     	b	0x7c <PC3_DRAM_INIT+0x7c>
+     13c: 52803e80     	mov	w0, #0x1f4              // =500
+     140: 17ffffd9     	b	0xa4 <PC3_DRAM_INIT+0xa4>
+     144: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     148: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     14c: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     150: d65f03c0     	ret

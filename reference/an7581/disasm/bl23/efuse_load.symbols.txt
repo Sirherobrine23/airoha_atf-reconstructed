@@ -1,0 +1,26 @@
+
+Symbol table '.symtab' contains 23 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FILE    LOCAL  DEFAULT  ABS efuse_load.c
+     2: 00000000     0 SECTION LOCAL  DEFAULT    1 .text
+     3: 00000000     0 SECTION LOCAL  DEFAULT    2 .data
+     4: 00000000     0 SECTION LOCAL  DEFAULT    3 .bss
+     5: 00000000     0 SECTION LOCAL  DEFAULT    4 .text.ef_read_parse.part.0
+     6: 00000001    78 FUNC    LOCAL  DEFAULT    4 ef_read_parse.part.0
+     7: 00000000     0 NOTYPE  LOCAL  DEFAULT    4 $t
+     8: 00000000     0 SECTION LOCAL  DEFAULT    6 .text.ef_read_parse
+     9: 00000000     0 NOTYPE  LOCAL  DEFAULT    6 $t
+    10: 00000000     0 SECTION LOCAL  DEFAULT    8 .text._efuse2rg
+    11: 00000000     0 NOTYPE  LOCAL  DEFAULT    8 $t
+    12: 00000001    48 FUNC    LOCAL  DEFAULT    8 _efuse2rg
+    13: 00000000     0 SECTION LOCAL  DEFAULT   10 .text.phy_config_efuse_load
+    14: 00000000     0 NOTYPE  LOCAL  DEFAULT   10 $t
+    15: 000001bc     0 NOTYPE  LOCAL  DEFAULT   10 $d
+    16: 00000000     0 SECTION LOCAL  DEFAULT   13 .note.GNU-stack
+    17: 00000000     0 SECTION LOCAL  DEFAULT   12 .comment
+    18: 00000000     0 SECTION LOCAL  DEFAULT   14 .ARM.attributes
+    19: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND memset
+    20: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND ef_read_byte
+    21: 00000001    14 FUNC    GLOBAL DEFAULT    6 ef_read_parse
+    22: 00000001   532 FUNC    GLOBAL DEFAULT   10 phy_config_efuse_load

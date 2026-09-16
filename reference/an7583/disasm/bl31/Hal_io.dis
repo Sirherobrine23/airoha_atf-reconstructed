@@ -1,0 +1,682 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl31/Hal_io.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.__meta_set:
+
+0000000000000000 <__meta_set>:
+       0: 2a0103e3     	mov	w3, w1
+       4: 90000004     	adrp	x4, 0x0 <__meta_set>
+		0000000000000004:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager
+       8: 12001c41     	and	w1, w2, #0xff
+       c: 91000082     	add	x2, x4, #0x0
+		000000000000000c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dramc_io_manager
+      10: 8b234044     	add	x4, x2, w3, uxtw
+      14: 3940f084     	ldrb	w4, [x4, #0x3c]
+      18: 8b040844     	add	x4, x2, x4, lsl #2
+      1c: 8b234084     	add	x4, x4, w3, uxtw
+      20: 39005081     	strb	w1, [x4, #0x14]
+      24: 35000043     	cbnz	w3, 0x2c <__meta_set+0x2c>
+      28: 14000000     	b	0x28 <__meta_set+0x28>
+		0000000000000028:  R_AARCH64_JUMP26	vSetPHY2ChannelMapping
+      2c: 7100047f     	cmp	w3, #0x1
+      30: 54000041     	b.ne	0x38 <__meta_set+0x38>
+      34: 14000000     	b	0x34 <__meta_set+0x34>
+		0000000000000034:  R_AARCH64_JUMP26	vSetRank
+      38: 7100087f     	cmp	w3, #0x2
+      3c: 54000041     	b.ne	0x44 <__meta_set+0x44>
+      40: b9009c01     	str	w1, [x0, #0x9c]
+      44: d65f03c0     	ret
+
+Disassembly of section .text.__meta_restore:
+
+0000000000000000 <__meta_restore>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: 90000014     	adrp	x20, 0x0 <__meta_restore>
+		000000000000000c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager
+      10: 91000294     	add	x20, x20, #0x0
+		0000000000000010:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dramc_io_manager
+      14: 8b214293     	add	x19, x20, w1, uxtw
+      18: f90013f5     	str	x21, [sp, #0x20]
+      1c: 2a0103f5     	mov	w21, w1
+      20: 3940f262     	ldrb	w2, [x19, #0x3c]
+      24: 8b020a82     	add	x2, x20, x2, lsl #2
+      28: 38756842     	ldrb	w2, [x2, x21]
+      2c: 94000000     	bl	0x2c <__meta_restore+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	__meta_set
+      30: 3940f260     	ldrb	w0, [x19, #0x3c]
+      34: 3940f261     	ldrb	w1, [x19, #0x3c]
+      38: 8b000a80     	add	x0, x20, x0, lsl #2
+      3c: 8b150000     	add	x0, x0, x21
+      40: 3940a002     	ldrb	w2, [x0, #0x28]
+      44: 51000442     	sub	w2, w2, #0x1
+      48: 3900a002     	strb	w2, [x0, #0x28]
+      4c: 34000061     	cbz	w1, 0x58 <__meta_restore+0x58>
+      50: 51000421     	sub	w1, w1, #0x1
+      54: 3900f261     	strb	w1, [x19, #0x3c]
+      58: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      5c: f94013f5     	ldr	x21, [sp, #0x20]
+      60: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      64: d65f03c0     	ret
+
+Disassembly of section .text.__meta_backup:
+
+0000000000000000 <__meta_backup>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: 90000013     	adrp	x19, 0x0 <__meta_backup>
+		000000000000000c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager
+      10: 91000273     	add	x19, x19, #0x0
+		0000000000000010:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dramc_io_manager
+      14: 8b214264     	add	x4, x19, w1, uxtw
+      18: f90013f5     	str	x21, [sp, #0x20]
+      1c: 2a0103f4     	mov	w20, w1
+      20: 3940f082     	ldrb	w2, [x4, #0x3c]
+      24: 3940f083     	ldrb	w3, [x4, #0x3c]
+      28: 8b020a62     	add	x2, x19, x2, lsl #2
+      2c: 8b214042     	add	x2, x2, w1, uxtw
+      30: 3940a042     	ldrb	w2, [x2, #0x28]
+      34: 7100045f     	cmp	w2, #0x1
+      38: 540000a1     	b.ne	0x4c <__meta_backup+0x4c>
+      3c: 7100107f     	cmp	w3, #0x4
+      40: 54000068     	b.hi	0x4c <__meta_backup+0x4c>
+      44: 11000463     	add	w3, w3, #0x1
+      48: 3900f083     	strb	w3, [x4, #0x3c]
+      4c: 35000241     	cbnz	w1, 0x94 <__meta_backup+0x94>
+      50: 3940f275     	ldrb	w21, [x19, #0x3c]
+      54: 94000000     	bl	0x54 <__meta_backup+0x54>
+		0000000000000054:  R_AARCH64_CALL26	vGetPHY2ChannelMapping
+      58: 8b35ca75     	add	x21, x19, w21, sxtw #2
+      5c: 390052a0     	strb	w0, [x21, #0x14]
+      60: 8b140260     	add	x0, x19, x20
+      64: 3940f000     	ldrb	w0, [x0, #0x3c]
+      68: 8b000a73     	add	x19, x19, x0, lsl #2
+      6c: 8b140260     	add	x0, x19, x20
+      70: 39405001     	ldrb	w1, [x0, #0x14]
+      74: 38346a61     	strb	w1, [x19, x20]
+      78: 3940a001     	ldrb	w1, [x0, #0x28]
+      7c: 11000421     	add	w1, w1, #0x1
+      80: 3900a001     	strb	w1, [x0, #0x28]
+      84: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      88: f94013f5     	ldr	x21, [sp, #0x20]
+      8c: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      90: d65f03c0     	ret
+      94: 7100043f     	cmp	w1, #0x1
+      98: 540000c1     	b.ne	0xb0 <__meta_backup+0xb0>
+      9c: 3940f675     	ldrb	w21, [x19, #0x3d]
+      a0: 94000000     	bl	0xa0 <__meta_backup+0xa0>
+		00000000000000a0:  R_AARCH64_CALL26	u1GetRank
+      a4: 8b35ca75     	add	x21, x19, w21, sxtw #2
+      a8: 390056a0     	strb	w0, [x21, #0x15]
+      ac: 17ffffed     	b	0x60 <__meta_backup+0x60>
+      b0: 7100083f     	cmp	w1, #0x2
+      b4: 54fffd61     	b.ne	0x60 <__meta_backup+0x60>
+      b8: 3940fa61     	ldrb	w1, [x19, #0x3e]
+      bc: b9409c00     	ldr	w0, [x0, #0x9c]
+      c0: 8b010a61     	add	x1, x19, x1, lsl #2
+      c4: 39005820     	strb	w0, [x1, #0x16]
+      c8: 17ffffe6     	b	0x60 <__meta_backup+0x60>
+
+Disassembly of section .text.__meta_backup_and_set:
+
+0000000000000000 <__meta_backup_and_set>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 2a0103f4     	mov	w20, w1
+      14: f90013f5     	str	x21, [sp, #0x20]
+      18: 12001c55     	and	w21, w2, #0xff
+      1c: 94000000     	bl	0x1c <__meta_backup_and_set+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	__meta_backup
+      20: 2a1503e2     	mov	w2, w21
+      24: 2a1403e1     	mov	w1, w20
+      28: aa1303e0     	mov	x0, x19
+      2c: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      30: f94013f5     	ldr	x21, [sp, #0x20]
+      34: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      38: 14000000     	b	0x38 <__meta_backup_and_set+0x38>
+		0000000000000038:  R_AARCH64_JUMP26	__meta_set
+
+Disassembly of section .text.__meta_advance:
+
+0000000000000000 <__meta_advance>:
+       0: 90000002     	adrp	x2, 0x0 <__meta_advance>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager
+       4: 91000042     	add	x2, x2, #0x0
+		0000000000000004:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dramc_io_manager
+       8: 8b214043     	add	x3, x2, w1, uxtw
+       c: 3940f063     	ldrb	w3, [x3, #0x3c]
+      10: 8b030843     	add	x3, x2, x3, lsl #2
+      14: 8b214063     	add	x3, x3, w1, uxtw
+      18: 39405062     	ldrb	w2, [x3, #0x14]
+      1c: 11000442     	add	w2, w2, #0x1
+      20: 12001c42     	and	w2, w2, #0xff
+      24: 39005062     	strb	w2, [x3, #0x14]
+      28: 14000000     	b	0x28 <__meta_advance+0x28>
+		0000000000000028:  R_AARCH64_JUMP26	__meta_set
+
+Disassembly of section .text.__meta_process_complete:
+
+0000000000000000 <__meta_process_complete>:
+       0: 35000181     	cbnz	w1, 0x30 <__meta_process_complete+0x30>
+       4: 39400003     	ldrb	w3, [x0]
+       8: 90000000     	adrp	x0, 0x0 <__meta_process_complete>
+		0000000000000008:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager
+       c: 91000000     	add	x0, x0, #0x0
+		000000000000000c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dramc_io_manager
+      10: 8b214002     	add	x2, x0, w1, uxtw
+      14: 3940f042     	ldrb	w2, [x2, #0x3c]
+      18: 8b020800     	add	x0, x0, x2, lsl #2
+      1c: 8b214001     	add	x1, x0, w1, uxtw
+      20: 39405020     	ldrb	w0, [x1, #0x14]
+      24: 6b03001f     	cmp	w0, w3
+      28: 1a9f37e0     	cset	w0, hs
+      2c: d65f03c0     	ret
+      30: 39402003     	ldrb	w3, [x0, #0x8]
+      34: 17fffff5     	b	0x8 <__meta_process_complete+0x8>
+
+Disassembly of section .text.__meta_loop_complete_for_next:
+
+0000000000000000 <__meta_loop_complete_for_next>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: aa0003e4     	mov	x4, x0
+       8: 2a0103e5     	mov	w5, w1
+       c: 12001c46     	and	w6, w2, #0xff
+      10: 910003fd     	mov	x29, sp
+      14: f9000bf3     	str	x19, [sp, #0x10]
+      18: 94000000     	bl	0x18 <__meta_loop_complete_for_next+0x18>
+		0000000000000018:  R_AARCH64_CALL26	__meta_process_complete
+      1c: 2a0003f3     	mov	w19, w0
+      20: 72001c1f     	tst	w0, #0xff
+      24: 540000a0     	b.eq	0x38 <__meta_loop_complete_for_next+0x38>
+      28: 2a0603e2     	mov	w2, w6
+      2c: 2a0503e1     	mov	w1, w5
+      30: aa0403e0     	mov	x0, x4
+      34: 94000000     	bl	0x34 <__meta_loop_complete_for_next+0x34>
+		0000000000000034:  R_AARCH64_CALL26	__meta_set
+      38: 2a1303e0     	mov	w0, w19
+      3c: f9400bf3     	ldr	x19, [sp, #0x10]
+      40: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      44: d65f03c0     	ret
+
+Disassembly of section .text.__meta_get:
+
+0000000000000000 <__meta_get>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: 90000013     	adrp	x19, 0x0 <__meta_get>
+		000000000000000c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager
+      10: 2a0103f4     	mov	w20, w1
+      14: f90013f5     	str	x21, [sp, #0x20]
+      18: 91000273     	add	x19, x19, #0x0
+		0000000000000018:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dramc_io_manager
+      1c: 350001c1     	cbnz	w1, 0x54 <__meta_get+0x54>
+      20: 3940f275     	ldrb	w21, [x19, #0x3c]
+      24: 94000000     	bl	0x24 <__meta_get+0x24>
+		0000000000000024:  R_AARCH64_CALL26	vGetPHY2ChannelMapping
+      28: 8b35ca75     	add	x21, x19, w21, sxtw #2
+      2c: 390052a0     	strb	w0, [x21, #0x14]
+      30: 8b344260     	add	x0, x19, w20, uxtw
+      34: f94013f5     	ldr	x21, [sp, #0x20]
+      38: 3940f001     	ldrb	w1, [x0, #0x3c]
+      3c: 8b010a73     	add	x19, x19, x1, lsl #2
+      40: 8b344274     	add	x20, x19, w20, uxtw
+      44: 39405280     	ldrb	w0, [x20, #0x14]
+      48: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      4c: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      50: d65f03c0     	ret
+      54: 7100043f     	cmp	w1, #0x1
+      58: 540000c1     	b.ne	0x70 <__meta_get+0x70>
+      5c: 3940f675     	ldrb	w21, [x19, #0x3d]
+      60: 94000000     	bl	0x60 <__meta_get+0x60>
+		0000000000000060:  R_AARCH64_CALL26	u1GetRank
+      64: 8b35ca75     	add	x21, x19, w21, sxtw #2
+      68: 390056a0     	strb	w0, [x21, #0x15]
+      6c: 17fffff1     	b	0x30 <__meta_get+0x30>
+      70: 7100083f     	cmp	w1, #0x2
+      74: 54fffde1     	b.ne	0x30 <__meta_get+0x30>
+      78: 3940fa61     	ldrb	w1, [x19, #0x3e]
+      7c: b9409c00     	ldr	w0, [x0, #0x9c]
+      80: 8b010a61     	add	x1, x19, x1, lsl #2
+      84: 39005820     	strb	w0, [x1, #0x16]
+      88: 17ffffea     	b	0x30 <__meta_get+0x30>
+
+Disassembly of section .text.channel_msk_set:
+
+0000000000000000 <channel_msk_set>:
+       0: 90000000     	adrp	x0, 0x0 <channel_msk_set>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager+0x40
+       4: b9000001     	str	w1, [x0]
+		0000000000000004:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.dramc_io_manager+0x40
+       8: d65f03c0     	ret
+
+Disassembly of section .text.channel_msk_backup:
+
+0000000000000000 <channel_msk_backup>:
+       0: 90000000     	adrp	x0, 0x0 <channel_msk_backup>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager
+       4: 91000000     	add	x0, x0, #0x0
+		0000000000000004:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dramc_io_manager
+       8: b9404001     	ldr	w1, [x0, #0x40]
+       c: 39011001     	strb	w1, [x0, #0x44]
+      10: 39411401     	ldrb	w1, [x0, #0x45]
+      14: 11000421     	add	w1, w1, #0x1
+      18: 39011401     	strb	w1, [x0, #0x45]
+      1c: d65f03c0     	ret
+
+Disassembly of section .text.channel_msk_restore:
+
+0000000000000000 <channel_msk_restore>:
+       0: 90000000     	adrp	x0, 0x0 <channel_msk_restore>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager
+       4: 91000000     	add	x0, x0, #0x0
+		0000000000000004:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dramc_io_manager
+       8: 39411001     	ldrb	w1, [x0, #0x44]
+       c: b9004001     	str	w1, [x0, #0x40]
+      10: 39411401     	ldrb	w1, [x0, #0x45]
+      14: 51000421     	sub	w1, w1, #0x1
+      18: 39011401     	strb	w1, [x0, #0x45]
+      1c: d65f03c0     	ret
+
+Disassembly of section .text.channel_msk_backup_and_set:
+
+0000000000000000 <channel_msk_backup_and_set>:
+       0: 2a0103e2     	mov	w2, w1
+       4: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       8: 910003fd     	mov	x29, sp
+       c: 94000000     	bl	0xc <channel_msk_backup_and_set+0xc>
+		000000000000000c:  R_AARCH64_CALL26	channel_msk_backup
+      10: 90000000     	adrp	x0, 0x0 <channel_msk_backup_and_set>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager+0x40
+      14: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      18: b9000002     	str	w2, [x0]
+		0000000000000018:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.dramc_io_manager+0x40
+      1c: d65f03c0     	ret
+
+Disassembly of section .text.channel_msk_op_enable:
+
+0000000000000000 <channel_msk_op_enable>:
+       0: 90000000     	adrp	x0, 0x0 <channel_msk_op_enable>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager+0x46
+       4: 52800021     	mov	w1, #0x1                // =1
+       8: 39000001     	strb	w1, [x0]
+		0000000000000008:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.dramc_io_manager+0x46
+       c: d65f03c0     	ret
+
+Disassembly of section .text.channel_msk_op_disable:
+
+0000000000000000 <channel_msk_op_disable>:
+       0: 90000000     	adrp	x0, 0x0 <channel_msk_op_disable>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager+0x46
+       4: 3900001f     	strb	wzr, [x0]
+		0000000000000004:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.dramc_io_manager+0x46
+       8: d65f03c0     	ret
+
+Disassembly of section .text.NeedSwapARToBR:
+
+0000000000000000 <NeedSwapARToBR>:
+       0: 52800000     	mov	w0, #0x0                // =0
+       4: d65f03c0     	ret
+
+Disassembly of section .text.u1PhyByteSwapOnOff:
+
+0000000000000000 <u1PhyByteSwapOnOff>:
+       0: 90000001     	adrp	x1, 0x0 <u1PhyByteSwapOnOff>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dramc_io_manager+0x47
+       4: 39000020     	strb	w0, [x1]
+		0000000000000004:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.dramc_io_manager+0x47
+       8: 52800000     	mov	w0, #0x0                // =0
+       c: d65f03c0     	ret
+
+Disassembly of section .text.u4PhyAoByteSwap:
+
+0000000000000000 <u4PhyAoByteSwap>:
+       0: 52800000     	mov	w0, #0x0                // =0
+       4: d65f03c0     	ret
+
+Disassembly of section .text.u4RegBaseAddrTranslate:
+
+0000000000000000 <u4RegBaseAddrTranslate>:
+       0: d3576844     	ubfx	x4, x2, #23, #4
+       4: b9400c05     	ldr	w5, [x0, #0xc]
+       8: b9409c06     	ldr	w6, [x0, #0x9c]
+       c: 12004c43     	and	w3, w2, #0xfffff
+      10: d37ef480     	lsl	x0, x4, #2
+      14: 7100149f     	cmp	w4, #0x5
+      18: 8b214001     	add	x1, x0, w1, uxtw
+      1c: 90000000     	adrp	x0, 0x0 <u4RegBaseAddrTranslate>
+		000000000000001c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.REG_BASE_ADDR_LIST
+      20: 91000000     	add	x0, x0, #0x0
+		0000000000000020:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.REG_BASE_ADDR_LIST
+      24: b8617800     	ldr	w0, [x0, x1, lsl #2]
+      28: 54000108     	b.hi	0x48 <u4RegBaseAddrTranslate+0x48>
+      2c: 90000001     	adrp	x1, 0x0 <u4RegBaseAddrTranslate>
+		000000000000002c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.u4RegBaseAddrTranslate
+      30: 91000021     	add	x1, x1, #0x0
+		0000000000000030:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.u4RegBaseAddrTranslate
+      34: 38644821     	ldrb	w1, [x1, w4, uxtw]
+      38: 10000067     	adr	x7, 0x44 <u4RegBaseAddrTranslate+0x44>
+      3c: 8b2188e1     	add	x1, x7, w1, sxtb #2
+      40: d61f0020     	br	x1
+      44: 528c0000     	mov	w0, #0x6000             // =24576
+      48: 0b000063     	add	w3, w3, w0
+      4c: 52a20000     	mov	w0, #0x10000000         // =268435456
+      50: 0b000060     	add	w0, w3, w0
+      54: d65f03c0     	ret
+      58: 710000df     	cmp	w6, #0x0
+      5c: d3555441     	ubfx	x1, x2, #21, #1
+      60: 1a9f1027     	csel	w7, w1, wzr, ne
+      64: 34000087     	cbz	w7, 0x74 <u4RegBaseAddrTranslate+0x74>
+      68: 35000144     	cbnz	w4, 0x90 <u4RegBaseAddrTranslate+0x90>
+      6c: 5280e007     	mov	w7, #0x700              // =1792
+      70: 1b0700c0     	madd	w0, w6, w7, w0
+      74: 710004bf     	cmp	w5, #0x1
+      78: d3565842     	ubfx	x2, x2, #22, #1
+      7c: 1a9f0045     	csel	w5, w2, wzr, eq
+      80: 34fffe45     	cbz	w5, 0x48 <u4RegBaseAddrTranslate+0x48>
+      84: 350000e4     	cbnz	w4, 0xa0 <u4RegBaseAddrTranslate+0xa0>
+      88: 11080063     	add	w3, w3, #0x200
+      8c: 17ffffef     	b	0x48 <u4RegBaseAddrTranslate+0x48>
+      90: 7100089f     	cmp	w4, #0x2
+      94: 54ffff01     	b.ne	0x74 <u4RegBaseAddrTranslate+0x74>
+      98: 52812007     	mov	w7, #0x900              // =2304
+      9c: 17fffff5     	b	0x70 <u4RegBaseAddrTranslate+0x70>
+      a0: 7100089f     	cmp	w4, #0x2
+      a4: 54fffd21     	b.ne	0x48 <u4RegBaseAddrTranslate+0x48>
+      a8: 34fffd02     	cbz	w2, 0x48 <u4RegBaseAddrTranslate+0x48>
+      ac: 110a0062     	add	w2, w3, #0x280
+      b0: 7100003f     	cmp	w1, #0x0
+      b4: 11080063     	add	w3, w3, #0x200
+      b8: 1a820063     	csel	w3, w3, w2, eq
+      bc: 17ffffe3     	b	0x48 <u4RegBaseAddrTranslate+0x48>
+      c0: 710004bf     	cmp	w5, #0x1
+      c4: 54fffc21     	b.ne	0x48 <u4RegBaseAddrTranslate+0x48>
+      c8: 51180061     	sub	w1, w3, #0x600
+      cc: 7103fc3f     	cmp	w1, #0xff
+      d0: 54000068     	b.hi	0xdc <u4RegBaseAddrTranslate+0xdc>
+      d4: 11040063     	add	w3, w3, #0x100
+      d8: 17ffffdc     	b	0x48 <u4RegBaseAddrTranslate+0x48>
+      dc: 51260061     	sub	w1, w3, #0x980
+      e0: 7108003f     	cmp	w1, #0x200
+      e4: 54fffb28     	b.hi	0x48 <u4RegBaseAddrTranslate+0x48>
+      e8: 17ffffe8     	b	0x88 <u4RegBaseAddrTranslate+0x88>
+      ec: 710004bf     	cmp	w5, #0x1
+      f0: 54fffac1     	b.ne	0x48 <u4RegBaseAddrTranslate+0x48>
+      f4: 51180061     	sub	w1, w3, #0x600
+      f8: 7100bc3f     	cmp	w1, #0x2f
+      fc: 54000068     	b.hi	0x108 <u4RegBaseAddrTranslate+0x108>
+     100: 1100c063     	add	w3, w3, #0x30
+     104: 17ffffd1     	b	0x48 <u4RegBaseAddrTranslate+0x48>
+     108: 51198061     	sub	w1, w3, #0x660
+     10c: 7100bc3f     	cmp	w1, #0x2f
+     110: 54ffff89     	b.ls	0x100 <u4RegBaseAddrTranslate+0x100>
+     114: 511b0061     	sub	w1, w3, #0x6c0
+     118: 7100bc3f     	cmp	w1, #0x2f
+     11c: 54ffff29     	b.ls	0x100 <u4RegBaseAddrTranslate+0x100>
+     120: 51108061     	sub	w1, w3, #0x420
+     124: 71004c3f     	cmp	w1, #0x13
+     128: 54fff908     	b.hi	0x48 <u4RegBaseAddrTranslate+0x48>
+     12c: 11005063     	add	w3, w3, #0x14
+     130: 17ffffc6     	b	0x48 <u4RegBaseAddrTranslate+0x48>
+
+Disassembly of section .text.DramcVirt2Phys:
+
+0000000000000000 <DramcVirt2Phys>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 2a0103f4     	mov	w20, w1
+      14: 52800001     	mov	w1, #0x0                // =0
+      18: 94000000     	bl	0x18 <DramcVirt2Phys+0x18>
+		0000000000000018:  R_AARCH64_CALL26	__meta_get
+      1c: 2a1403e2     	mov	w2, w20
+      20: 12001c01     	and	w1, w0, #0xff
+      24: aa1303e0     	mov	x0, x19
+      28: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      2c: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      30: 14000000     	b	0x30 <DramcVirt2Phys+0x30>
+		0000000000000030:  R_AARCH64_JUMP26	u4RegBaseAddrTranslate
+
+Disassembly of section .text.u4Dram_Register_Read:
+
+0000000000000000 <u4Dram_Register_Read>:
+       0: 2a0103e2     	mov	w2, w1
+       4: d3576841     	ubfx	x1, x2, #23, #4
+       8: 71001c3f     	cmp	w1, #0x7
+       c: 54000140     	b.eq	0x34 <u4Dram_Register_Read+0x34>
+      10: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+      14: 910003fd     	mov	x29, sp
+      18: b9400401     	ldr	w1, [x0, #0x4]
+      1c: 94000000     	bl	0x1c <u4Dram_Register_Read+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	u4RegBaseAddrTranslate
+      20: d5033f9f     	dsb	sy
+      24: 2a0003e0     	mov	w0, w0
+      28: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      2c: f9400000     	ldr	x0, [x0]
+      30: d65f03c0     	ret
+      34: 52800000     	mov	w0, #0x0                // =0
+      38: d65f03c0     	ret
+
+Disassembly of section .text.vDram_Register_Write:
+
+0000000000000000 <vDram_Register_Write>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 2a0203e8     	mov	w8, w2
+       8: 2a0103e2     	mov	w2, w1
+       c: 910003fd     	mov	x29, sp
+      10: b9400401     	ldr	w1, [x0, #0x4]
+      14: 94000000     	bl	0x14 <vDram_Register_Write+0x14>
+		0000000000000014:  R_AARCH64_CALL26	u4RegBaseAddrTranslate
+      18: 2a0003e0     	mov	w0, w0
+      1c: f9000008     	str	x8, [x0]
+      20: d5033f9f     	dsb	sy
+      24: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      28: d65f03c0     	ret
+
+Disassembly of section .text.vIO32WriteMsk:
+
+0000000000000000 <vIO32WriteMsk>:
+       0: 2a0203e8     	mov	w8, w2
+       4: d3576822     	ubfx	x2, x1, #23, #4
+       8: 71001c5f     	cmp	w2, #0x7
+       c: 54000220     	b.eq	0x50 <vIO32WriteMsk+0x50>
+      10: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+      14: 2a0103e2     	mov	w2, w1
+      18: 2a0303e9     	mov	w9, w3
+      1c: 910003fd     	mov	x29, sp
+      20: b9400401     	ldr	w1, [x0, #0x4]
+      24: 94000000     	bl	0x24 <vIO32WriteMsk+0x24>
+		0000000000000024:  R_AARCH64_CALL26	u4RegBaseAddrTranslate
+      28: d5033f9f     	dsb	sy
+      2c: 2a0003e0     	mov	w0, w0
+      30: f9400003     	ldr	x3, [x0]
+      34: 4a030108     	eor	w8, w8, w3
+      38: 0a090108     	and	w8, w8, w9
+      3c: 4a030108     	eor	w8, w8, w3
+      40: f9000008     	str	x8, [x0]
+      44: d5033f9f     	dsb	sy
+      48: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      4c: d65f03c0     	ret
+      50: d65f03c0     	ret
+
+Disassembly of section .text.vIO32WriteMsk_All:
+
+0000000000000000 <vIO32WriteMsk_All>:
+       0: 2a0103ea     	mov	w10, w1
+       4: aa0003e9     	mov	x9, x0
+       8: d3576940     	ubfx	x0, x10, #23, #4
+       c: 71001c1f     	cmp	w0, #0x7
+      10: 54000100     	b.eq	0x30 <vIO32WriteMsk_All+0x30>
+      14: 3940012d     	ldrb	w13, [x9]
+      18: 52800008     	mov	w8, #0x0                // =0
+      1c: 2a0203eb     	mov	w11, w2
+      20: 2a0303ec     	mov	w12, w3
+      24: 6b2801bf     	cmp	w13, w8, uxtb
+      28: 54000068     	b.hi	0x34 <vIO32WriteMsk_All+0x34>
+      2c: d65f03c0     	ret
+      30: d65f03c0     	ret
+      34: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+      38: 910003fd     	mov	x29, sp
+      3c: 2a0a03e2     	mov	w2, w10
+      40: 2a0803e1     	mov	w1, w8
+      44: aa0903e0     	mov	x0, x9
+      48: 94000000     	bl	0x48 <vIO32WriteMsk_All+0x48>
+		0000000000000048:  R_AARCH64_CALL26	u4RegBaseAddrTranslate
+      4c: d5033f9f     	dsb	sy
+      50: 2a0003e4     	mov	w4, w0
+      54: f9400080     	ldr	x0, [x4]
+      58: 4a000165     	eor	w5, w11, w0
+      5c: 0a0c00a5     	and	w5, w5, w12
+      60: 4a0000a5     	eor	w5, w5, w0
+      64: f9000085     	str	x5, [x4]
+      68: d5033f9f     	dsb	sy
+      6c: 11000508     	add	w8, w8, #0x1
+      70: 6b2801bf     	cmp	w13, w8, uxtb
+      74: 54fffe48     	b.hi	0x3c <vIO32WriteMsk_All+0x3c>
+      78: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      7c: d65f03c0     	ret
+
+Disassembly of section .text.vPhyByteIO32WriteMsk:
+
+0000000000000000 <vPhyByteIO32WriteMsk>:
+       0: 14000000     	b	0x0 <vPhyByteIO32WriteMsk>
+		0000000000000000:  R_AARCH64_JUMP26	vIO32WriteMsk
+
+Disassembly of section .text.vPhyByteIO32WriteMsk_All:
+
+0000000000000000 <vPhyByteIO32WriteMsk_All>:
+       0: 2a0103ea     	mov	w10, w1
+       4: aa0003e9     	mov	x9, x0
+       8: d3576940     	ubfx	x0, x10, #23, #4
+       c: 71001c1f     	cmp	w0, #0x7
+      10: 54000100     	b.eq	0x30 <vPhyByteIO32WriteMsk_All+0x30>
+      14: 3940012d     	ldrb	w13, [x9]
+      18: 52800008     	mov	w8, #0x0                // =0
+      1c: 2a0203eb     	mov	w11, w2
+      20: 2a0303ec     	mov	w12, w3
+      24: 6b2801bf     	cmp	w13, w8, uxtb
+      28: 54000068     	b.hi	0x34 <vPhyByteIO32WriteMsk_All+0x34>
+      2c: d65f03c0     	ret
+      30: d65f03c0     	ret
+      34: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+      38: 910003fd     	mov	x29, sp
+      3c: 2a0a03e2     	mov	w2, w10
+      40: 2a0803e1     	mov	w1, w8
+      44: aa0903e0     	mov	x0, x9
+      48: 94000000     	bl	0x48 <vPhyByteIO32WriteMsk_All+0x48>
+		0000000000000048:  R_AARCH64_CALL26	u4RegBaseAddrTranslate
+      4c: d5033f9f     	dsb	sy
+      50: 2a0003e4     	mov	w4, w0
+      54: f9400080     	ldr	x0, [x4]
+      58: 4a000165     	eor	w5, w11, w0
+      5c: 0a0c00a5     	and	w5, w5, w12
+      60: 4a0000a5     	eor	w5, w5, w0
+      64: f9000085     	str	x5, [x4]
+      68: d5033f9f     	dsb	sy
+      6c: 11000508     	add	w8, w8, #0x1
+      70: 6b2801bf     	cmp	w13, w8, uxtb
+      74: 54fffe48     	b.hi	0x3c <vPhyByteIO32WriteMsk_All+0x3c>
+      78: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      7c: d65f03c0     	ret
+
+Disassembly of section .text.vPhyByteReadFldAlign:
+
+0000000000000000 <vPhyByteReadFldAlign>:
+       0: 2a0203e8     	mov	w8, w2
+       4: d3576822     	ubfx	x2, x1, #23, #4
+       8: 71001c5f     	cmp	w2, #0x7
+       c: 54000340     	b.eq	0x74 <vPhyByteReadFldAlign+0x74>
+      10: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+      14: 2a0103e2     	mov	w2, w1
+      18: 910003fd     	mov	x29, sp
+      1c: b9400401     	ldr	w1, [x0, #0x4]
+      20: 94000000     	bl	0x20 <vPhyByteReadFldAlign+0x20>
+		0000000000000020:  R_AARCH64_CALL26	u4RegBaseAddrTranslate
+      24: 2a0003e0     	mov	w0, w0
+      28: 350000a8     	cbnz	w8, 0x3c <vPhyByteReadFldAlign+0x3c>
+      2c: d5033f9f     	dsb	sy
+      30: f9400000     	ldr	x0, [x0]
+      34: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      38: d65f03c0     	ret
+      3c: d5033f9f     	dsb	sy
+      40: d3483d01     	ubfx	x1, x8, #8, #8
+      44: 53187d03     	lsr	w3, w8, #24
+      48: f9400002     	ldr	x2, [x0]
+      4c: 52800400     	mov	w0, #0x20               // =32
+      50: 4b010001     	sub	w1, w0, w1
+      54: 12800000     	mov	w0, #-0x1               // =-1
+      58: 7103fc7f     	cmp	w3, #0xff
+      5c: 1ac12400     	lsr	w0, w0, w1
+      60: 1ac82000     	lsl	w0, w0, w8
+      64: 1a9f1000     	csel	w0, w0, wzr, ne
+      68: 0a020000     	and	w0, w0, w2
+      6c: 1ac82400     	lsr	w0, w0, w8
+      70: 17fffff1     	b	0x34 <vPhyByteReadFldAlign+0x34>
+      74: 52800000     	mov	w0, #0x0                // =0
+      78: d65f03c0     	ret
+
+Disassembly of section .text.vPhyByteWriteFldAlign:
+
+0000000000000000 <vPhyByteWriteFldAlign>:
+       0: 2a0103ed     	mov	w13, w1
+       4: aa0003eb     	mov	x11, x0
+       8: d35769a0     	ubfx	x0, x13, #23, #4
+       c: 71001c1f     	cmp	w0, #0x7
+      10: 54000380     	b.eq	0x80 <vPhyByteWriteFldAlign+0x80>
+      14: 2a0203ea     	mov	w10, w2
+      18: 7100049f     	cmp	w4, #0x1
+      1c: 54000261     	b.ne	0x68 <vPhyByteWriteFldAlign+0x68>
+      20: 3940016c     	ldrb	w12, [x11]
+      24: 52800009     	mov	w9, #0x0                // =0
+      28: 34000283     	cbz	w3, 0x78 <vPhyByteWriteFldAlign+0x78>
+      2c: d3483c60     	ubfx	x0, x3, #8, #8
+      30: 52800404     	mov	w4, #0x20               // =32
+      34: 4b000080     	sub	w0, w4, w0
+      38: 53187c61     	lsr	w1, w3, #24
+      3c: 12800004     	mov	w4, #-0x1               // =-1
+      40: 7103fc3f     	cmp	w1, #0xff
+      44: 1ac02484     	lsr	w4, w4, w0
+      48: 1ac3214a     	lsl	w10, w10, w3
+      4c: 1ac32083     	lsl	w3, w4, w3
+      50: 1a9f1063     	csel	w3, w3, wzr, ne
+      54: 0a0a006a     	and	w10, w3, w10
+      58: 2a2303e8     	mvn	w8, w3
+      5c: 6b29019f     	cmp	w12, w9, uxtb
+      60: 54000128     	b.hi	0x84 <vPhyByteWriteFldAlign+0x84>
+      64: d65f03c0     	ret
+      68: 39401169     	ldrb	w9, [x11, #0x4]
+      6c: 1100052c     	add	w12, w9, #0x1
+      70: 12001d8c     	and	w12, w12, #0xff
+      74: 17ffffed     	b	0x28 <vPhyByteWriteFldAlign+0x28>
+      78: 12800003     	mov	w3, #-0x1               // =-1
+      7c: 17fffff7     	b	0x58 <vPhyByteWriteFldAlign+0x58>
+      80: d65f03c0     	ret
+      84: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+      88: 910003fd     	mov	x29, sp
+      8c: 2a0d03e2     	mov	w2, w13
+      90: 2a0903e1     	mov	w1, w9
+      94: aa0b03e0     	mov	x0, x11
+      98: 94000000     	bl	0x98 <vPhyByteWriteFldAlign+0x98>
+		0000000000000098:  R_AARCH64_CALL26	u4RegBaseAddrTranslate
+      9c: d5033f9f     	dsb	sy
+      a0: 2a0003e2     	mov	w2, w0
+      a4: f9400040     	ldr	x0, [x2]
+      a8: 0a000100     	and	w0, w8, w0
+      ac: 2a0a0000     	orr	w0, w0, w10
+      b0: f9000040     	str	x0, [x2]
+      b4: d5033f9f     	dsb	sy
+      b8: 11000529     	add	w9, w9, #0x1
+      bc: 6b29019f     	cmp	w12, w9, uxtb
+      c0: 54fffe68     	b.hi	0x8c <vPhyByteWriteFldAlign+0x8c>
+      c4: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      c8: d65f03c0     	ret
+
+Disassembly of section .text.vPhyByteWriteFldMulti2:
+
+0000000000000000 <vPhyByteWriteFldMulti2>:
+       0: d65f03c0     	ret

@@ -1,0 +1,2278 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl31/dramc_selfrefresh_api.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.READ_RG_FLD:
+
+0000000000000000 <READ_RG_FLD>:
+       0: f240081f     	tst	x0, #0x7
+       4: 54000080     	b.eq	0x14 <READ_RG_FLD+0x14>
+       8: 531d0803     	ubfiz	w3, w0, #3, #3
+       c: 121d7000     	and	w0, w0, #0xfffffff8
+      10: 0b030042     	add	w2, w2, w3
+      14: 2a0003e0     	mov	w0, w0
+      18: f9400003     	ldr	x3, [x0]
+      1c: 52800800     	mov	w0, #0x40               // =64
+      20: 4b010000     	sub	w0, w0, w1
+      24: 92800001     	mov	x1, #-0x1               // =-1
+      28: 9ac02421     	lsr	x1, x1, x0
+      2c: 9ac22021     	lsl	x1, x1, x2
+      30: 8a030021     	and	x1, x1, x3
+      34: 9ac22420     	lsr	x0, x1, x2
+      38: d65f03c0     	ret
+
+Disassembly of section .text.WRITE_RG_FLD:
+
+0000000000000000 <WRITE_RG_FLD>:
+       0: f240081f     	tst	x0, #0x7
+       4: 54000080     	b.eq	0x14 <WRITE_RG_FLD+0x14>
+       8: 531d0804     	ubfiz	w4, w0, #3, #3
+       c: 121d7000     	and	w0, w0, #0xfffffff8
+      10: 0b040042     	add	w2, w2, w4
+      14: 2a0003e0     	mov	w0, w0
+      18: 52800804     	mov	w4, #0x40               // =64
+      1c: 4b010084     	sub	w4, w4, w1
+      20: 92800001     	mov	x1, #-0x1               // =-1
+      24: f9400005     	ldr	x5, [x0]
+      28: 9ac42421     	lsr	x1, x1, x4
+      2c: 9ac22021     	lsl	x1, x1, x2
+      30: 8a2100a1     	bic	x1, x5, x1
+      34: 9ac22062     	lsl	x2, x3, x2
+      38: aa010042     	orr	x2, x2, x1
+      3c: f9000002     	str	x2, [x0]
+      40: d65f03c0     	ret
+
+Disassembly of section .text.MPLLRGByFreq:
+
+0000000000000000 <MPLLRGByFreq>:
+       0: 52801907     	mov	w7, #0xc8               // =200
+       4: 12001c46     	and	w6, w2, #0xff
+       8: 12003c21     	and	w1, w1, #0xffff
+       c: 4b2200e2     	sub	w2, w7, w2, uxtb
+      10: 72001c1f     	tst	w0, #0xff
+      14: 52800080     	mov	w0, #0x4                // =4
+      18: 1b017c41     	mul	w1, w2, w1
+      1c: 528000c2     	mov	w2, #0x6                // =6
+      20: 1a820000     	csel	w0, w0, w2, eq
+      24: 52a32002     	mov	w2, #0x19000000         // =419430400
+      28: 1ac70c21     	sdiv	w1, w1, w7
+      2c: 1b027c00     	mul	w0, w0, w2
+      30: 12003c21     	and	w1, w1, #0xffff
+      34: 1ac10802     	udiv	w2, w0, w1
+      38: 1b010448     	madd	w8, w2, w1, w1
+      3c: 1b018041     	msub	w1, w2, w1, w0
+      40: 4b000108     	sub	w8, w8, w0
+      44: 52807d00     	mov	w0, #0x3e8              // =1000
+      48: 6b01011f     	cmp	w8, w1
+      4c: 528003c1     	mov	w1, #0x1e               // =30
+      50: 1a828442     	cinc	w2, w2, ls
+      54: 52a06c08     	mov	w8, #0x3600000          // =56623104
+      58: b9000062     	str	w2, [x3]
+      5c: 1b017c41     	mul	w1, w2, w1
+      60: 1ac00821     	udiv	w1, w1, w0
+      64: 1ac10900     	udiv	w0, w8, w1
+      68: 1b010403     	madd	w3, w0, w1, w1
+      6c: 1b01a001     	msub	w1, w0, w1, w8
+      70: 4b080063     	sub	w3, w3, w8
+      74: 6b01007f     	cmp	w3, w1
+      78: 1b027cc1     	mul	w1, w6, w2
+      7c: 1a808400     	cinc	w0, w0, ls
+      80: b9000080     	str	w0, [x4]
+      84: 1ac70821     	udiv	w1, w1, w7
+      88: 1ac00822     	udiv	w2, w1, w0
+      8c: 1b000043     	madd	w3, w2, w0, w0
+      90: 1b008440     	msub	w0, w2, w0, w1
+      94: 4b010063     	sub	w3, w3, w1
+      98: 6b00007f     	cmp	w3, w0
+      9c: 1a828442     	cinc	w2, w2, ls
+      a0: b90000a2     	str	w2, [x5]
+      a4: d65f03c0     	ret
+
+Disassembly of section .text.SwitchSynthPLLSSC:
+
+0000000000000000 <SwitchSynthPLLSSC>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: 72001c7f     	tst	w3, #0xff
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: 12001c33     	and	w19, w1, #0xff
+      14: 12001c54     	and	w20, w2, #0xff
+      18: f90013f5     	str	x21, [sp, #0x20]
+      1c: 12001c15     	and	w21, w0, #0xff
+      20: 540008e1     	b.ne	0x13c <SwitchSynthPLLSSC+0x13c>
+      24: 90000000     	adrp	x0, 0x0 <SwitchSynthPLLSSC>
+		0000000000000024:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.SwitchSynthPLLSSC.str1.1
+      28: 91000000     	add	x0, x0, #0x0
+		0000000000000028:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.SwitchSynthPLLSSC.str1.1
+      2c: 94000000     	bl	0x2c <SwitchSynthPLLSSC+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	printf
+      30: 710006bf     	cmp	w21, #0x1
+      34: 540006c1     	b.ne	0x10c <SwitchSynthPLLSSC+0x10c>
+      38: 7100069f     	cmp	w20, #0x1
+      3c: 54000581     	b.ne	0xec <SwitchSynthPLLSSC+0xec>
+      40: d281cd83     	mov	x3, #0xe6c              // =3692
+      44: f2a00483     	movk	x3, #0x24, lsl #16
+      48: 52980080     	mov	w0, #0xc004             // =49156
+      4c: 52800002     	mov	w2, #0x0                // =0
+      50: 52800301     	mov	w1, #0x18               // =24
+      54: 72a3f940     	movk	w0, #0x1fca, lsl #16
+      58: 94000000     	bl	0x58 <SwitchSynthPLLSSC+0x58>
+		0000000000000058:  R_AARCH64_CALL26	WRITE_RG_FLD
+      5c: 52980100     	mov	w0, #0xc008             // =49160
+      60: d2800003     	mov	x3, #0x0                // =0
+      64: 52800002     	mov	w2, #0x0                // =0
+      68: 528001c1     	mov	w1, #0xe                // =14
+      6c: 72a3f940     	movk	w0, #0x1fca, lsl #16
+      70: 94000000     	bl	0x70 <SwitchSynthPLLSSC+0x70>
+		0000000000000070:  R_AARCH64_CALL26	WRITE_RG_FLD
+      74: 52980180     	mov	w0, #0xc00c             // =49164
+      78: d2800003     	mov	x3, #0x0                // =0
+      7c: 52800002     	mov	w2, #0x0                // =0
+      80: 52800141     	mov	w1, #0xa                // =10
+      84: 72a3f940     	movk	w0, #0x1fca, lsl #16
+      88: 94000000     	bl	0x88 <SwitchSynthPLLSSC+0x88>
+		0000000000000088:  R_AARCH64_CALL26	WRITE_RG_FLD
+      8c: 52980280     	mov	w0, #0xc014             // =49172
+      90: d2800003     	mov	x3, #0x0                // =0
+      94: 52800002     	mov	w2, #0x0                // =0
+      98: 52800021     	mov	w1, #0x1                // =1
+      9c: 72a3f940     	movk	w0, #0x1fca, lsl #16
+      a0: 94000000     	bl	0xa0 <SwitchSynthPLLSSC+0xa0>
+		00000000000000a0:  R_AARCH64_CALL26	WRITE_RG_FLD
+      a4: d2800003     	mov	x3, #0x0                // =0
+      a8: 52800002     	mov	w2, #0x0                // =0
+      ac: 52800021     	mov	w1, #0x1                // =1
+      b0: 52980380     	mov	w0, #0xc01c             // =49180
+      b4: 72a3f940     	movk	w0, #0x1fca, lsl #16
+      b8: 94000000     	bl	0xb8 <SwitchSynthPLLSSC+0xb8>
+		00000000000000b8:  R_AARCH64_CALL26	WRITE_RG_FLD
+      bc: d2800023     	mov	x3, #0x1                // =1
+      c0: 2a0303e1     	mov	w1, w3
+      c4: 52800002     	mov	w2, #0x0                // =0
+      c8: 52980000     	mov	w0, #0xc000             // =49152
+      cc: 72a3f940     	movk	w0, #0x1fca, lsl #16
+      d0: 94000000     	bl	0xd0 <SwitchSynthPLLSSC+0xd0>
+		00000000000000d0:  R_AARCH64_CALL26	WRITE_RG_FLD
+      d4: 52807d00     	mov	w0, #0x3e8              // =1000
+      d8: 94000000     	bl	0xd8 <SwitchSynthPLLSSC+0xd8>
+		00000000000000d8:  R_AARCH64_CALL26	udelay
+      dc: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      e0: f94013f5     	ldr	x21, [sp, #0x20]
+      e4: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+      e8: d65f03c0     	ret
+      ec: 7100067f     	cmp	w19, #0x1
+      f0: 54000081     	b.ne	0x100 <SwitchSynthPLLSSC+0x100>
+      f4: d280f623     	mov	x3, #0x7b1              // =1969
+      f8: f2a00303     	movk	x3, #0x18, lsl #16
+      fc: 17ffffd3     	b	0x48 <SwitchSynthPLLSSC+0x48>
+     100: d29a85c3     	mov	x3, #0xd42e             // =54318
+     104: f2a00383     	movk	x3, #0x1c, lsl #16
+     108: 17ffffd0     	b	0x48 <SwitchSynthPLLSSC+0x48>
+     10c: 7100069f     	cmp	w20, #0x1
+     110: 54000081     	b.ne	0x120 <SwitchSynthPLLSSC+0x120>
+     114: d2814823     	mov	x3, #0xa41              // =2625
+     118: f2a00403     	movk	x3, #0x20, lsl #16
+     11c: 17ffffcb     	b	0x48 <SwitchSynthPLLSSC+0x48>
+     120: 7100067f     	cmp	w19, #0x1
+     124: 54000061     	b.ne	0x130 <SwitchSynthPLLSSC+0x130>
+     128: d28133a3     	mov	x3, #0x99d              // =2461
+     12c: 17fffff3     	b	0xf8 <SwitchSynthPLLSSC+0xf8>
+     130: d28ef843     	mov	x3, #0x77c2             // =30658
+     134: f2a00363     	movk	x3, #0x1b, lsl #16
+     138: 17ffffc4     	b	0x48 <SwitchSynthPLLSSC+0x48>
+     13c: 90000000     	adrp	x0, 0x0 <SwitchSynthPLLSSC>
+		000000000000013c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.SwitchSynthPLLSSC.str1.1+0x25
+     140: 91000000     	add	x0, x0, #0x0
+		0000000000000140:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.SwitchSynthPLLSSC.str1.1+0x25
+     144: 94000000     	bl	0x144 <SwitchSynthPLLSSC+0x144>
+		0000000000000144:  R_AARCH64_CALL26	printf
+     148: 710006bf     	cmp	w21, #0x1
+     14c: 54000581     	b.ne	0x1fc <SwitchSynthPLLSSC+0x1fc>
+     150: 7100069f     	cmp	w20, #0x1
+     154: 54000600     	b.eq	0x214 <SwitchSynthPLLSSC+0x214>
+     158: 7100067f     	cmp	w19, #0x1
+     15c: 5280c801     	mov	w1, #0x640              // =1600
+     160: 5280a6a0     	mov	w0, #0x535              // =1333
+     164: 1a800021     	csel	w1, w1, w0, eq
+     168: d2828200     	mov	x0, #0x1410             // =5136
+     16c: 9100f3e5     	add	x5, sp, #0x3c
+     170: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     174: 9100e3e4     	add	x4, sp, #0x38
+     178: 9100d3e3     	add	x3, sp, #0x34
+     17c: f9400002     	ldr	x2, [x0]
+     180: 2a1503e0     	mov	w0, w21
+     184: d3504c42     	ubfx	x2, x2, #16, #4
+     188: 94000000     	bl	0x188 <SwitchSynthPLLSSC+0x188>
+		0000000000000188:  R_AARCH64_CALL26	MPLLRGByFreq
+     18c: b94037e3     	ldr	w3, [sp, #0x34]
+     190: 52980080     	mov	w0, #0xc004             // =49156
+     194: 52800002     	mov	w2, #0x0                // =0
+     198: 52800301     	mov	w1, #0x18               // =24
+     19c: 72a3f940     	movk	w0, #0x1fca, lsl #16
+     1a0: 94000000     	bl	0x1a0 <SwitchSynthPLLSSC+0x1a0>
+		00000000000001a0:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1a4: b9403be3     	ldr	w3, [sp, #0x38]
+     1a8: 52980100     	mov	w0, #0xc008             // =49160
+     1ac: 52800002     	mov	w2, #0x0                // =0
+     1b0: 528001c1     	mov	w1, #0xe                // =14
+     1b4: 72a3f940     	movk	w0, #0x1fca, lsl #16
+     1b8: 94000000     	bl	0x1b8 <SwitchSynthPLLSSC+0x1b8>
+		00000000000001b8:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1bc: b9403fe3     	ldr	w3, [sp, #0x3c]
+     1c0: 52980180     	mov	w0, #0xc00c             // =49164
+     1c4: 52800002     	mov	w2, #0x0                // =0
+     1c8: 52800141     	mov	w1, #0xa                // =10
+     1cc: 72a3f940     	movk	w0, #0x1fca, lsl #16
+     1d0: 94000000     	bl	0x1d0 <SwitchSynthPLLSSC+0x1d0>
+		00000000000001d0:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1d4: 52980280     	mov	w0, #0xc014             // =49172
+     1d8: d2800023     	mov	x3, #0x1                // =1
+     1dc: 52800002     	mov	w2, #0x0                // =0
+     1e0: 2a0303e1     	mov	w1, w3
+     1e4: 72a3f940     	movk	w0, #0x1fca, lsl #16
+     1e8: 94000000     	bl	0x1e8 <SwitchSynthPLLSSC+0x1e8>
+		00000000000001e8:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1ec: d2800023     	mov	x3, #0x1                // =1
+     1f0: 52800002     	mov	w2, #0x0                // =0
+     1f4: 2a0303e1     	mov	w1, w3
+     1f8: 17ffffae     	b	0xb0 <SwitchSynthPLLSSC+0xb0>
+     1fc: 7100069f     	cmp	w20, #0x1
+     200: 540000e0     	b.eq	0x21c <SwitchSynthPLLSSC+0x21c>
+     204: 7100067f     	cmp	w19, #0x1
+     208: 52808541     	mov	w1, #0x42a              // =1066
+     20c: 528074a0     	mov	w0, #0x3a5              // =933
+     210: 17ffffd5     	b	0x164 <SwitchSynthPLLSSC+0x164>
+     214: 52808541     	mov	w1, #0x42a              // =1066
+     218: 17ffffd4     	b	0x168 <SwitchSynthPLLSSC+0x168>
+     21c: 52806401     	mov	w1, #0x320              // =800
+     220: 17ffffd2     	b	0x168 <SwitchSynthPLLSSC+0x168>
+
+Disassembly of section .text.StepSynthPLL:
+
+0000000000000000 <StepSynthPLL>:
+       0: a9b27bfd     	stp	x29, x30, [sp, #-0xe0]!
+       4: 910003fd     	mov	x29, sp
+       8: a9025bf5     	stp	x21, x22, [sp, #0x20]
+       c: 9101e3f5     	add	x21, sp, #0x78
+      10: 90000016     	adrp	x22, 0x0 <StepSynthPLL>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	.rodata
+      14: 910002d6     	add	x22, x22, #0x0
+		0000000000000014:  R_AARCH64_ADD_ABS_LO12_NC	.rodata
+      18: a90153f3     	stp	x19, x20, [sp, #0x10]
+      1c: 2a0203f3     	mov	w19, w2
+      20: 910103f4     	add	x20, sp, #0x40
+      24: d2800c82     	mov	x2, #0x64               // =100
+      28: a90363f7     	stp	x23, x24, [sp, #0x30]
+      2c: 12001c18     	and	w24, w0, #0xff
+      30: 12001c37     	and	w23, w1, #0xff
+      34: aa1503e0     	mov	x0, x21
+      38: aa1603e1     	mov	x1, x22
+      3c: 94000000     	bl	0x3c <StepSynthPLL+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	memcpy
+      40: 910192c1     	add	x1, x22, #0x64
+      44: aa1403e0     	mov	x0, x20
+      48: d2800682     	mov	x2, #0x34               // =52
+      4c: 94000000     	bl	0x4c <StepSynthPLL+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	memcpy
+      50: d2800e00     	mov	x0, #0x70               // =112
+      54: f2a3f600     	movk	x0, #0x1fb0, lsl #16
+      58: f9400000     	ldr	x0, [x0]
+      5c: b6301c80     	tbz	x0, #0x26, 0x3ec <StepSynthPLL+0x3ec>
+      60: 52980300     	mov	w0, #0xc018             // =49176
+      64: d2800023     	mov	x3, #0x1                // =1
+      68: 52800002     	mov	w2, #0x0                // =0
+      6c: 2a0303e1     	mov	w1, w3
+      70: 72a3f940     	movk	w0, #0x1fca, lsl #16
+      74: 94000000     	bl	0x74 <StepSynthPLL+0x74>
+		0000000000000074:  R_AARCH64_CALL26	WRITE_RG_FLD
+      78: 52980300     	mov	w0, #0xc018             // =49176
+      7c: d2800003     	mov	x3, #0x0                // =0
+      80: 52800002     	mov	w2, #0x0                // =0
+      84: 52800021     	mov	w1, #0x1                // =1
+      88: 72a3f940     	movk	w0, #0x1fca, lsl #16
+      8c: 94000000     	bl	0x8c <StepSynthPLL+0x8c>
+		000000000000008c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      90: 7100071f     	cmp	w24, #0x1
+      94: 54000de1     	b.ne	0x250 <StepSynthPLL+0x250>
+      98: 710006ff     	cmp	w23, #0x1
+      9c: 54000761     	b.ne	0x188 <StepSynthPLL+0x188>
+      a0: 7100067f     	cmp	w19, #0x1
+      a4: 54000421     	b.ne	0x128 <StepSynthPLL+0x128>
+      a8: 52980096     	mov	w22, #0xc004            // =49156
+      ac: 52980014     	mov	w20, #0xc000            // =49152
+      b0: d2800313     	mov	x19, #0x18              // =24
+      b4: 72a3f956     	movk	w22, #0x1fca, lsl #16
+      b8: 72a3f954     	movk	w20, #0x1fca, lsl #16
+      bc: 90000000     	adrp	x0, 0x0 <StepSynthPLL>
+		00000000000000bc:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.StepSynthPLL.str1.1
+      c0: 91000000     	add	x0, x0, #0x0
+		00000000000000c0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.StepSynthPLL.str1.1
+      c4: 94000000     	bl	0xc4 <StepSynthPLL+0xc4>
+		00000000000000c4:  R_AARCH64_CALL26	printf
+      c8: b8737aa3     	ldr	w3, [x21, x19, lsl #2]
+      cc: 2a1603e0     	mov	w0, w22
+      d0: 52800002     	mov	w2, #0x0                // =0
+      d4: 52800301     	mov	w1, #0x18               // =24
+      d8: d1000673     	sub	x19, x19, #0x1
+      dc: 94000000     	bl	0xdc <StepSynthPLL+0xdc>
+		00000000000000dc:  R_AARCH64_CALL26	WRITE_RG_FLD
+      e0: d2800023     	mov	x3, #0x1                // =1
+      e4: 2a0303e1     	mov	w1, w3
+      e8: 52800002     	mov	w2, #0x0                // =0
+      ec: 2a1403e0     	mov	w0, w20
+      f0: 94000000     	bl	0xf0 <StepSynthPLL+0xf0>
+		00000000000000f0:  R_AARCH64_CALL26	WRITE_RG_FLD
+      f4: 52807d00     	mov	w0, #0x3e8              // =1000
+      f8: 94000000     	bl	0xf8 <StepSynthPLL+0xf8>
+		00000000000000f8:  R_AARCH64_CALL26	udelay
+      fc: b100067f     	cmn	x19, #0x1
+     100: 54fffe41     	b.ne	0xc8 <StepSynthPLL+0xc8>
+     104: 90000000     	adrp	x0, 0x0 <StepSynthPLL>
+		0000000000000104:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.StepSynthPLL.str1.1+0x98
+     108: 91000000     	add	x0, x0, #0x0
+		0000000000000108:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.StepSynthPLL.str1.1+0x98
+     10c: 94000000     	bl	0x10c <StepSynthPLL+0x10c>
+		000000000000010c:  R_AARCH64_CALL26	printf
+     110: 52800080     	mov	w0, #0x4                // =4
+     114: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     118: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     11c: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     120: a8ce7bfd     	ldp	x29, x30, [sp], #0xe0
+     124: d65f03c0     	ret
+     128: 52980096     	mov	w22, #0xc004            // =49156
+     12c: 52980014     	mov	w20, #0xc000            // =49152
+     130: d2800013     	mov	x19, #0x0               // =0
+     134: 72a3f956     	movk	w22, #0x1fca, lsl #16
+     138: 72a3f954     	movk	w20, #0x1fca, lsl #16
+     13c: 90000000     	adrp	x0, 0x0 <StepSynthPLL>
+		000000000000013c:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.StepSynthPLL.str1.1+0x15
+     140: 91000000     	add	x0, x0, #0x0
+		0000000000000140:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.StepSynthPLL.str1.1+0x15
+     144: 94000000     	bl	0x144 <StepSynthPLL+0x144>
+		0000000000000144:  R_AARCH64_CALL26	printf
+     148: b8737aa3     	ldr	w3, [x21, x19, lsl #2]
+     14c: 2a1603e0     	mov	w0, w22
+     150: 52800002     	mov	w2, #0x0                // =0
+     154: 52800301     	mov	w1, #0x18               // =24
+     158: 91000673     	add	x19, x19, #0x1
+     15c: 94000000     	bl	0x15c <StepSynthPLL+0x15c>
+		000000000000015c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     160: d2800023     	mov	x3, #0x1                // =1
+     164: 2a0303e1     	mov	w1, w3
+     168: 52800002     	mov	w2, #0x0                // =0
+     16c: 2a1403e0     	mov	w0, w20
+     170: 94000000     	bl	0x170 <StepSynthPLL+0x170>
+		0000000000000170:  R_AARCH64_CALL26	WRITE_RG_FLD
+     174: 52807d00     	mov	w0, #0x3e8              // =1000
+     178: 94000000     	bl	0x178 <StepSynthPLL+0x178>
+		0000000000000178:  R_AARCH64_CALL26	udelay
+     17c: f100667f     	cmp	x19, #0x19
+     180: 54fffe41     	b.ne	0x148 <StepSynthPLL+0x148>
+     184: 17ffffe0     	b	0x104 <StepSynthPLL+0x104>
+     188: 7100067f     	cmp	w19, #0x1
+     18c: 54000321     	b.ne	0x1f0 <StepSynthPLL+0x1f0>
+     190: 52980096     	mov	w22, #0xc004            // =49156
+     194: 52980014     	mov	w20, #0xc000            // =49152
+     198: d2800193     	mov	x19, #0xc               // =12
+     19c: 72a3f956     	movk	w22, #0x1fca, lsl #16
+     1a0: 72a3f954     	movk	w20, #0x1fca, lsl #16
+     1a4: 90000000     	adrp	x0, 0x0 <StepSynthPLL>
+		00000000000001a4:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.StepSynthPLL.str1.1+0x26
+     1a8: 91000000     	add	x0, x0, #0x0
+		00000000000001a8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.StepSynthPLL.str1.1+0x26
+     1ac: 94000000     	bl	0x1ac <StepSynthPLL+0x1ac>
+		00000000000001ac:  R_AARCH64_CALL26	printf
+     1b0: b8737aa3     	ldr	w3, [x21, x19, lsl #2]
+     1b4: 2a1603e0     	mov	w0, w22
+     1b8: 52800002     	mov	w2, #0x0                // =0
+     1bc: 52800301     	mov	w1, #0x18               // =24
+     1c0: d1000673     	sub	x19, x19, #0x1
+     1c4: 94000000     	bl	0x1c4 <StepSynthPLL+0x1c4>
+		00000000000001c4:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1c8: d2800023     	mov	x3, #0x1                // =1
+     1cc: 2a0303e1     	mov	w1, w3
+     1d0: 52800002     	mov	w2, #0x0                // =0
+     1d4: 2a1403e0     	mov	w0, w20
+     1d8: 94000000     	bl	0x1d8 <StepSynthPLL+0x1d8>
+		00000000000001d8:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1dc: 52807d00     	mov	w0, #0x3e8              // =1000
+     1e0: 94000000     	bl	0x1e0 <StepSynthPLL+0x1e0>
+		00000000000001e0:  R_AARCH64_CALL26	udelay
+     1e4: b100067f     	cmn	x19, #0x1
+     1e8: 54fffe41     	b.ne	0x1b0 <StepSynthPLL+0x1b0>
+     1ec: 17ffffc6     	b	0x104 <StepSynthPLL+0x104>
+     1f0: 52980096     	mov	w22, #0xc004            // =49156
+     1f4: 52980014     	mov	w20, #0xc000            // =49152
+     1f8: d2800013     	mov	x19, #0x0               // =0
+     1fc: 72a3f956     	movk	w22, #0x1fca, lsl #16
+     200: 72a3f954     	movk	w20, #0x1fca, lsl #16
+     204: 90000000     	adrp	x0, 0x0 <StepSynthPLL>
+		0000000000000204:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.StepSynthPLL.str1.1+0x3b
+     208: 91000000     	add	x0, x0, #0x0
+		0000000000000208:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.StepSynthPLL.str1.1+0x3b
+     20c: 94000000     	bl	0x20c <StepSynthPLL+0x20c>
+		000000000000020c:  R_AARCH64_CALL26	printf
+     210: b8737aa3     	ldr	w3, [x21, x19, lsl #2]
+     214: 2a1603e0     	mov	w0, w22
+     218: 52800002     	mov	w2, #0x0                // =0
+     21c: 52800301     	mov	w1, #0x18               // =24
+     220: 91000673     	add	x19, x19, #0x1
+     224: 94000000     	bl	0x224 <StepSynthPLL+0x224>
+		0000000000000224:  R_AARCH64_CALL26	WRITE_RG_FLD
+     228: d2800023     	mov	x3, #0x1                // =1
+     22c: 2a0303e1     	mov	w1, w3
+     230: 52800002     	mov	w2, #0x0                // =0
+     234: 2a1403e0     	mov	w0, w20
+     238: 94000000     	bl	0x238 <StepSynthPLL+0x238>
+		0000000000000238:  R_AARCH64_CALL26	WRITE_RG_FLD
+     23c: 52807d00     	mov	w0, #0x3e8              // =1000
+     240: 94000000     	bl	0x240 <StepSynthPLL+0x240>
+		0000000000000240:  R_AARCH64_CALL26	udelay
+     244: f100367f     	cmp	x19, #0xd
+     248: 54fffe41     	b.ne	0x210 <StepSynthPLL+0x210>
+     24c: 17ffffae     	b	0x104 <StepSynthPLL+0x104>
+     250: 35fff5b8     	cbnz	w24, 0x104 <StepSynthPLL+0x104>
+     254: 710006ff     	cmp	w23, #0x1
+     258: 54000661     	b.ne	0x324 <StepSynthPLL+0x324>
+     25c: 7100067f     	cmp	w19, #0x1
+     260: 54000321     	b.ne	0x2c4 <StepSynthPLL+0x2c4>
+     264: 52980096     	mov	w22, #0xc004            // =49156
+     268: 52980015     	mov	w21, #0xc000            // =49152
+     26c: d2800193     	mov	x19, #0xc               // =12
+     270: 72a3f956     	movk	w22, #0x1fca, lsl #16
+     274: 72a3f955     	movk	w21, #0x1fca, lsl #16
+     278: 90000000     	adrp	x0, 0x0 <StepSynthPLL>
+		0000000000000278:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.StepSynthPLL.str1.1+0x4c
+     27c: 91000000     	add	x0, x0, #0x0
+		000000000000027c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.StepSynthPLL.str1.1+0x4c
+     280: 94000000     	bl	0x280 <StepSynthPLL+0x280>
+		0000000000000280:  R_AARCH64_CALL26	printf
+     284: b8737a83     	ldr	w3, [x20, x19, lsl #2]
+     288: 2a1603e0     	mov	w0, w22
+     28c: 52800002     	mov	w2, #0x0                // =0
+     290: 52800301     	mov	w1, #0x18               // =24
+     294: d1000673     	sub	x19, x19, #0x1
+     298: 94000000     	bl	0x298 <StepSynthPLL+0x298>
+		0000000000000298:  R_AARCH64_CALL26	WRITE_RG_FLD
+     29c: d2800023     	mov	x3, #0x1                // =1
+     2a0: 2a0303e1     	mov	w1, w3
+     2a4: 52800002     	mov	w2, #0x0                // =0
+     2a8: 2a1503e0     	mov	w0, w21
+     2ac: 94000000     	bl	0x2ac <StepSynthPLL+0x2ac>
+		00000000000002ac:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2b0: 52807d00     	mov	w0, #0x3e8              // =1000
+     2b4: 94000000     	bl	0x2b4 <StepSynthPLL+0x2b4>
+		00000000000002b4:  R_AARCH64_CALL26	udelay
+     2b8: b100067f     	cmn	x19, #0x1
+     2bc: 54fffe41     	b.ne	0x284 <StepSynthPLL+0x284>
+     2c0: 17ffff91     	b	0x104 <StepSynthPLL+0x104>
+     2c4: 52980096     	mov	w22, #0xc004            // =49156
+     2c8: 52980015     	mov	w21, #0xc000            // =49152
+     2cc: d2800013     	mov	x19, #0x0               // =0
+     2d0: 72a3f956     	movk	w22, #0x1fca, lsl #16
+     2d4: 72a3f955     	movk	w21, #0x1fca, lsl #16
+     2d8: 90000000     	adrp	x0, 0x0 <StepSynthPLL>
+		00000000000002d8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.StepSynthPLL.str1.1+0x61
+     2dc: 91000000     	add	x0, x0, #0x0
+		00000000000002dc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.StepSynthPLL.str1.1+0x61
+     2e0: 94000000     	bl	0x2e0 <StepSynthPLL+0x2e0>
+		00000000000002e0:  R_AARCH64_CALL26	printf
+     2e4: b8737a83     	ldr	w3, [x20, x19, lsl #2]
+     2e8: 2a1603e0     	mov	w0, w22
+     2ec: 52800002     	mov	w2, #0x0                // =0
+     2f0: 52800301     	mov	w1, #0x18               // =24
+     2f4: 91000673     	add	x19, x19, #0x1
+     2f8: 94000000     	bl	0x2f8 <StepSynthPLL+0x2f8>
+		00000000000002f8:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2fc: d2800023     	mov	x3, #0x1                // =1
+     300: 2a0303e1     	mov	w1, w3
+     304: 52800002     	mov	w2, #0x0                // =0
+     308: 2a1503e0     	mov	w0, w21
+     30c: 94000000     	bl	0x30c <StepSynthPLL+0x30c>
+		000000000000030c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     310: 52807d00     	mov	w0, #0x3e8              // =1000
+     314: 94000000     	bl	0x314 <StepSynthPLL+0x314>
+		0000000000000314:  R_AARCH64_CALL26	udelay
+     318: f100367f     	cmp	x19, #0xd
+     31c: 54fffe41     	b.ne	0x2e4 <StepSynthPLL+0x2e4>
+     320: 17ffff79     	b	0x104 <StepSynthPLL+0x104>
+     324: 7100067f     	cmp	w19, #0x1
+     328: 54000321     	b.ne	0x38c <StepSynthPLL+0x38c>
+     32c: 52980096     	mov	w22, #0xc004            // =49156
+     330: 52980015     	mov	w21, #0xc000            // =49152
+     334: d28000d3     	mov	x19, #0x6               // =6
+     338: 72a3f956     	movk	w22, #0x1fca, lsl #16
+     33c: 72a3f955     	movk	w21, #0x1fca, lsl #16
+     340: 90000000     	adrp	x0, 0x0 <StepSynthPLL>
+		0000000000000340:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.StepSynthPLL.str1.1+0x72
+     344: 91000000     	add	x0, x0, #0x0
+		0000000000000344:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.StepSynthPLL.str1.1+0x72
+     348: 94000000     	bl	0x348 <StepSynthPLL+0x348>
+		0000000000000348:  R_AARCH64_CALL26	printf
+     34c: b8737a83     	ldr	w3, [x20, x19, lsl #2]
+     350: 2a1603e0     	mov	w0, w22
+     354: 52800002     	mov	w2, #0x0                // =0
+     358: 52800301     	mov	w1, #0x18               // =24
+     35c: d1000673     	sub	x19, x19, #0x1
+     360: 94000000     	bl	0x360 <StepSynthPLL+0x360>
+		0000000000000360:  R_AARCH64_CALL26	WRITE_RG_FLD
+     364: d2800023     	mov	x3, #0x1                // =1
+     368: 2a0303e1     	mov	w1, w3
+     36c: 52800002     	mov	w2, #0x0                // =0
+     370: 2a1503e0     	mov	w0, w21
+     374: 94000000     	bl	0x374 <StepSynthPLL+0x374>
+		0000000000000374:  R_AARCH64_CALL26	WRITE_RG_FLD
+     378: 52807d00     	mov	w0, #0x3e8              // =1000
+     37c: 94000000     	bl	0x37c <StepSynthPLL+0x37c>
+		000000000000037c:  R_AARCH64_CALL26	udelay
+     380: b100067f     	cmn	x19, #0x1
+     384: 54fffe41     	b.ne	0x34c <StepSynthPLL+0x34c>
+     388: 17ffff5f     	b	0x104 <StepSynthPLL+0x104>
+     38c: 52980096     	mov	w22, #0xc004            // =49156
+     390: 52980015     	mov	w21, #0xc000            // =49152
+     394: d2800013     	mov	x19, #0x0               // =0
+     398: 72a3f956     	movk	w22, #0x1fca, lsl #16
+     39c: 72a3f955     	movk	w21, #0x1fca, lsl #16
+     3a0: 90000000     	adrp	x0, 0x0 <StepSynthPLL>
+		00000000000003a0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.StepSynthPLL.str1.1+0x87
+     3a4: 91000000     	add	x0, x0, #0x0
+		00000000000003a4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.StepSynthPLL.str1.1+0x87
+     3a8: 94000000     	bl	0x3a8 <StepSynthPLL+0x3a8>
+		00000000000003a8:  R_AARCH64_CALL26	printf
+     3ac: b8737a83     	ldr	w3, [x20, x19, lsl #2]
+     3b0: 2a1603e0     	mov	w0, w22
+     3b4: 52800002     	mov	w2, #0x0                // =0
+     3b8: 52800301     	mov	w1, #0x18               // =24
+     3bc: 91000673     	add	x19, x19, #0x1
+     3c0: 94000000     	bl	0x3c0 <StepSynthPLL+0x3c0>
+		00000000000003c0:  R_AARCH64_CALL26	WRITE_RG_FLD
+     3c4: d2800023     	mov	x3, #0x1                // =1
+     3c8: 2a0303e1     	mov	w1, w3
+     3cc: 52800002     	mov	w2, #0x0                // =0
+     3d0: 2a1503e0     	mov	w0, w21
+     3d4: 94000000     	bl	0x3d4 <StepSynthPLL+0x3d4>
+		00000000000003d4:  R_AARCH64_CALL26	WRITE_RG_FLD
+     3d8: 52807d00     	mov	w0, #0x3e8              // =1000
+     3dc: 94000000     	bl	0x3dc <StepSynthPLL+0x3dc>
+		00000000000003dc:  R_AARCH64_CALL26	udelay
+     3e0: f1001e7f     	cmp	x19, #0x7
+     3e4: 54fffe41     	b.ne	0x3ac <StepSynthPLL+0x3ac>
+     3e8: 17ffff47     	b	0x104 <StepSynthPLL+0x104>
+     3ec: 52800060     	mov	w0, #0x3                // =3
+     3f0: 17ffff49     	b	0x114 <StepSynthPLL+0x114>
+
+Disassembly of section .text.DramPhyResetSelfRefresh:
+
+0000000000000000 <DramPhyResetSelfRefresh>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: d2800023     	mov	x3, #0x1                // =1
+       8: 52800002     	mov	w2, #0x0                // =0
+       c: 910003fd     	mov	x29, sp
+      10: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      14: 52804815     	mov	w21, #0x240             // =576
+      18: 2a0303e1     	mov	w1, w3
+      1c: 72a3f915     	movk	w21, #0x1fc8, lsl #16
+      20: 5294f796     	mov	w22, #0xa7bc            // =42940
+      24: 2a1503e0     	mov	w0, w21
+      28: a90153f3     	stp	x19, x20, [sp, #0x10]
+      2c: 94000000     	bl	0x2c <DramPhyResetSelfRefresh+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      30: d2800023     	mov	x3, #0x1                // =1
+      34: 72a3f916     	movk	w22, #0x1fc8, lsl #16
+      38: 2a0303e2     	mov	w2, w3
+      3c: 2a0303e1     	mov	w1, w3
+      40: 2a1603e0     	mov	w0, w22
+      44: 5294a313     	mov	w19, #0xa518            // =42264
+      48: 94000000     	bl	0x48 <DramPhyResetSelfRefresh+0x48>
+		0000000000000048:  R_AARCH64_CALL26	WRITE_RG_FLD
+      4c: 72a3f913     	movk	w19, #0x1fc8, lsl #16
+      50: d2800003     	mov	x3, #0x0                // =0
+      54: 2a1303e0     	mov	w0, w19
+      58: 52800082     	mov	w2, #0x4                // =4
+      5c: 52800021     	mov	w1, #0x1                // =1
+      60: 94000000     	bl	0x60 <DramPhyResetSelfRefresh+0x60>
+		0000000000000060:  R_AARCH64_CALL26	WRITE_RG_FLD
+      64: 5294b314     	mov	w20, #0xa598            // =42392
+      68: 2a1303e0     	mov	w0, w19
+      6c: d2800003     	mov	x3, #0x0                // =0
+      70: 52800002     	mov	w2, #0x0                // =0
+      74: 52800021     	mov	w1, #0x1                // =1
+      78: 94000000     	bl	0x78 <DramPhyResetSelfRefresh+0x78>
+		0000000000000078:  R_AARCH64_CALL26	WRITE_RG_FLD
+      7c: 72a3f914     	movk	w20, #0x1fc8, lsl #16
+      80: d2800003     	mov	x3, #0x0                // =0
+      84: 2a1403e0     	mov	w0, w20
+      88: 52800082     	mov	w2, #0x4                // =4
+      8c: 52800021     	mov	w1, #0x1                // =1
+      90: 94000000     	bl	0x90 <DramPhyResetSelfRefresh+0x90>
+		0000000000000090:  R_AARCH64_CALL26	WRITE_RG_FLD
+      94: d2800003     	mov	x3, #0x0                // =0
+      98: 52800002     	mov	w2, #0x0                // =0
+      9c: 52800021     	mov	w1, #0x1                // =1
+      a0: 2a1403e0     	mov	w0, w20
+      a4: 94000000     	bl	0xa4 <DramPhyResetSelfRefresh+0xa4>
+		00000000000000a4:  R_AARCH64_CALL26	WRITE_RG_FLD
+      a8: 52800020     	mov	w0, #0x1                // =1
+      ac: 94000000     	bl	0xac <DramPhyResetSelfRefresh+0xac>
+		00000000000000ac:  R_AARCH64_CALL26	udelay
+      b0: 2a1403e0     	mov	w0, w20
+      b4: d2800023     	mov	x3, #0x1                // =1
+      b8: 52800082     	mov	w2, #0x4                // =4
+      bc: 2a0303e1     	mov	w1, w3
+      c0: 94000000     	bl	0xc0 <DramPhyResetSelfRefresh+0xc0>
+		00000000000000c0:  R_AARCH64_CALL26	WRITE_RG_FLD
+      c4: 2a1403e0     	mov	w0, w20
+      c8: d2800023     	mov	x3, #0x1                // =1
+      cc: 52800002     	mov	w2, #0x0                // =0
+      d0: 2a0303e1     	mov	w1, w3
+      d4: 94000000     	bl	0xd4 <DramPhyResetSelfRefresh+0xd4>
+		00000000000000d4:  R_AARCH64_CALL26	WRITE_RG_FLD
+      d8: 2a1303e0     	mov	w0, w19
+      dc: d2800023     	mov	x3, #0x1                // =1
+      e0: 52800082     	mov	w2, #0x4                // =4
+      e4: 2a0303e1     	mov	w1, w3
+      e8: 94000000     	bl	0xe8 <DramPhyResetSelfRefresh+0xe8>
+		00000000000000e8:  R_AARCH64_CALL26	WRITE_RG_FLD
+      ec: 2a1303e0     	mov	w0, w19
+      f0: d2800023     	mov	x3, #0x1                // =1
+      f4: 52800002     	mov	w2, #0x0                // =0
+      f8: 2a0303e1     	mov	w1, w3
+      fc: 94000000     	bl	0xfc <DramPhyResetSelfRefresh+0xfc>
+		00000000000000fc:  R_AARCH64_CALL26	WRITE_RG_FLD
+     100: 2a1603e0     	mov	w0, w22
+     104: 52800022     	mov	w2, #0x1                // =1
+     108: d2800003     	mov	x3, #0x0                // =0
+     10c: 2a0203e1     	mov	w1, w2
+     110: 94000000     	bl	0x110 <DramPhyResetSelfRefresh+0x110>
+		0000000000000110:  R_AARCH64_CALL26	WRITE_RG_FLD
+     114: 2a1503e0     	mov	w0, w21
+     118: d2800003     	mov	x3, #0x0                // =0
+     11c: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     120: 52800002     	mov	w2, #0x0                // =0
+     124: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     128: 52800021     	mov	w1, #0x1                // =1
+     12c: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     130: 14000000     	b	0x130 <DramPhyResetSelfRefresh+0x130>
+		0000000000000130:  R_AARCH64_JUMP26	WRITE_RG_FLD
+
+Disassembly of section .text.SetMR6_SREF:
+
+0000000000000000 <SetMR6_SREF>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 12003c06     	and	w6, w0, #0xffff
+       8: 52802600     	mov	w0, #0x130              // =304
+       c: 910003fd     	mov	x29, sp
+      10: d2800003     	mov	x3, #0x0                // =0
+      14: 52800002     	mov	w2, #0x0                // =0
+      18: 52800141     	mov	w1, #0xa                // =10
+      1c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      20: a90153f3     	stp	x19, x20, [sp, #0x10]
+      24: 52800c94     	mov	w20, #0x64              // =100
+      28: f90013f5     	str	x21, [sp, #0x20]
+      2c: 94000000     	bl	0x2c <SetMR6_SREF+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      30: 52802600     	mov	w0, #0x130              // =304
+      34: d2800003     	mov	x3, #0x0                // =0
+      38: 52800142     	mov	w2, #0xa                // =10
+      3c: 52800041     	mov	w1, #0x2                // =2
+      40: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      44: 94000000     	bl	0x44 <SetMR6_SREF+0x44>
+		0000000000000044:  R_AARCH64_CALL26	WRITE_RG_FLD
+      48: 52808c00     	mov	w0, #0x460              // =1120
+      4c: d2800003     	mov	x3, #0x0                // =0
+      50: 52800282     	mov	w2, #0x14               // =20
+      54: 52800061     	mov	w1, #0x3                // =3
+      58: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      5c: 94000000     	bl	0x5c <SetMR6_SREF+0x5c>
+		000000000000005c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      60: 52802600     	mov	w0, #0x130              // =304
+      64: 92401cc3     	and	x3, x6, #0xff
+      68: 52800282     	mov	w2, #0x14               // =20
+      6c: 52800101     	mov	w1, #0x8                // =8
+      70: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      74: 94000000     	bl	0x74 <SetMR6_SREF+0x74>
+		0000000000000074:  R_AARCH64_CALL26	WRITE_RG_FLD
+      78: 52809d80     	mov	w0, #0x4ec              // =1260
+      7c: d34834c3     	ubfx	x3, x6, #8, #6
+      80: 52800302     	mov	w2, #0x18               // =24
+      84: 528000c1     	mov	w1, #0x6                // =6
+      88: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      8c: 94000000     	bl	0x8c <SetMR6_SREF+0x8c>
+		000000000000008c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      90: 52809d80     	mov	w0, #0x4ec              // =1260
+      94: d28000c3     	mov	x3, #0x6                // =6
+      98: 52800002     	mov	w2, #0x0                // =0
+      9c: 52800081     	mov	w1, #0x4                // =4
+      a0: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      a4: 94000000     	bl	0xa4 <SetMR6_SREF+0xa4>
+		00000000000000a4:  R_AARCH64_CALL26	WRITE_RG_FLD
+      a8: 52802e80     	mov	w0, #0x174              // =372
+      ac: d2800023     	mov	x3, #0x1                // =1
+      b0: 528000e2     	mov	w2, #0x7                // =7
+      b4: 2a0303e1     	mov	w1, w3
+      b8: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      bc: 94000000     	bl	0xbc <SetMR6_SREF+0xbc>
+		00000000000000bc:  R_AARCH64_CALL26	WRITE_RG_FLD
+      c0: 52805a80     	mov	w0, #0x2d4              // =724
+      c4: d2800603     	mov	x3, #0x30               // =48
+      c8: 52800002     	mov	w2, #0x0                // =0
+      cc: 52800401     	mov	w1, #0x20               // =32
+      d0: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      d4: 94000000     	bl	0xd4 <SetMR6_SREF+0xd4>
+		00000000000000d4:  R_AARCH64_CALL26	WRITE_RG_FLD
+      d8: 52802480     	mov	w0, #0x124              // =292
+      dc: d2880a15     	mov	x21, #0x4050            // =16464
+      e0: d2800083     	mov	x3, #0x4                // =4
+      e4: 52800342     	mov	w2, #0x1a               // =26
+      e8: 528000c1     	mov	w1, #0x6                // =6
+      ec: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      f0: f2a3f915     	movk	x21, #0x1fc8, lsl #16
+      f4: 94000000     	bl	0xf4 <SetMR6_SREF+0xf4>
+		00000000000000f4:  R_AARCH64_CALL26	WRITE_RG_FLD
+      f8: 52802480     	mov	w0, #0x124              // =292
+      fc: d2800023     	mov	x3, #0x1                // =1
+     100: 52800322     	mov	w2, #0x19               // =25
+     104: 2a0303e1     	mov	w1, w3
+     108: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     10c: 94000000     	bl	0x10c <SetMR6_SREF+0x10c>
+		000000000000010c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     110: f94002b3     	ldr	x19, [x21]
+     114: 52800020     	mov	w0, #0x1                // =1
+     118: 51000694     	sub	w20, w20, #0x1
+     11c: 94000000     	bl	0x11c <SetMR6_SREF+0x11c>
+		000000000000011c:  R_AARCH64_CALL26	udelay
+     120: 92400273     	and	x19, x19, #0x1
+     124: 7100029f     	cmp	w20, #0x0
+     128: 52000260     	eor	w0, w19, #0x1
+     12c: 1a9f1000     	csel	w0, w0, wzr, ne
+     130: 35ffff00     	cbnz	w0, 0x110 <SetMR6_SREF+0x110>
+     134: 350000b4     	cbnz	w20, 0x148 <SetMR6_SREF+0x148>
+     138: 90000000     	adrp	x0, 0x0 <SetMR6_SREF>
+		0000000000000138:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.SetMR6_SREF.str1.1
+     13c: 2a1303e1     	mov	w1, w19
+     140: 91000000     	add	x0, x0, #0x0
+		0000000000000140:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.SetMR6_SREF.str1.1
+     144: 94000000     	bl	0x144 <SetMR6_SREF+0x144>
+		0000000000000144:  R_AARCH64_CALL26	printf
+     148: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     14c: 52802480     	mov	w0, #0x124              // =292
+     150: f94013f5     	ldr	x21, [sp, #0x20]
+     154: d2800003     	mov	x3, #0x0                // =0
+     158: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     15c: 52800322     	mov	w2, #0x19               // =25
+     160: 52800021     	mov	w1, #0x1                // =1
+     164: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     168: 14000000     	b	0x168 <SetMR6_SREF+0x168>
+		0000000000000168:  R_AARCH64_JUMP26	WRITE_RG_FLD
+
+Disassembly of section .text.SetTXVref_SREF.part.0:
+
+0000000000000000 <SetTXVref_SREF.part.0>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 72001c1f     	tst	w0, #0xff
+       8: 531a1c21     	ubfiz	w1, w1, #6, #8
+       c: 910003fd     	mov	x29, sp
+      10: 52818000     	mov	w0, #0xc00              // =3072
+      14: a90153f3     	stp	x19, x20, [sp, #0x10]
+      18: 52820013     	mov	w19, #0x1000            // =4096
+      1c: 1a930000     	csel	w0, w0, w19, eq
+      20: 12001c54     	and	w20, w2, #0xff
+      24: 2a010000     	orr	w0, w0, w1
+      28: 32190013     	orr	w19, w0, #0x80
+      2c: 2a1303e0     	mov	w0, w19
+      30: 2a140273     	orr	w19, w19, w20
+      34: 94000000     	bl	0x34 <SetTXVref_SREF.part.0+0x34>
+		0000000000000034:  R_AARCH64_CALL26	SetMR6_SREF
+      38: 2a1303e0     	mov	w0, w19
+      3c: 94000000     	bl	0x3c <SetTXVref_SREF.part.0+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	SetMR6_SREF
+      40: 12187a60     	and	w0, w19, #0xffffff7f
+      44: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      48: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      4c: 14000000     	b	0x4c <SetTXVref_SREF.part.0+0x4c>
+		000000000000004c:  R_AARCH64_JUMP26	SetMR6_SREF
+
+Disassembly of section .text.SetTXVref_SREF:
+
+0000000000000000 <SetTXVref_SREF>:
+       0: 12001c04     	and	w4, w0, #0xff
+       4: 12001c20     	and	w0, w1, #0xff
+       8: 7100049f     	cmp	w4, #0x1
+       c: 12001c41     	and	w1, w2, #0xff
+      10: 12001c62     	and	w2, w3, #0xff
+      14: 54000041     	b.ne	0x1c <SetTXVref_SREF+0x1c>
+      18: 14000000     	b	0x18 <SetTXVref_SREF+0x18>
+		0000000000000018:  R_AARCH64_JUMP26	.text.SetTXVref_SREF.part.0
+      1c: d65f03c0     	ret
+
+Disassembly of section .text.HW_AUTO_SREF_IDLE_TIME:
+
+0000000000000000 <HW_AUTO_SREF_IDLE_TIME>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 2a0003e3     	mov	w3, w0
+       8: 52800880     	mov	w0, #0x44               // =68
+       c: 910003fd     	mov	x29, sp
+      10: 52800002     	mov	w2, #0x0                // =0
+      14: 52800301     	mov	w1, #0x18               // =24
+      18: 72a3f600     	movk	w0, #0x1fb0, lsl #16
+      1c: 94000000     	bl	0x1c <HW_AUTO_SREF_IDLE_TIME+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      20: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      24: 2a0303e1     	mov	w1, w3
+      28: 90000000     	adrp	x0, 0x0 <HW_AUTO_SREF_IDLE_TIME>
+		0000000000000028:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.HW_AUTO_SREF_IDLE_TIME.str1.1
+      2c: 91000000     	add	x0, x0, #0x0
+		000000000000002c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.HW_AUTO_SREF_IDLE_TIME.str1.1
+      30: 14000000     	b	0x30 <HW_AUTO_SREF_IDLE_TIME+0x30>
+		0000000000000030:  R_AARCH64_JUMP26	printf
+
+Disassembly of section .text.HW_AUTO_SREF_SETTING:
+
+0000000000000000 <HW_AUTO_SREF_SETTING>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 5294d780     	mov	w0, #0xa6bc             // =42684
+       8: d2800003     	mov	x3, #0x0                // =0
+       c: 910003fd     	mov	x29, sp
+      10: 52800322     	mov	w2, #0x19               // =25
+      14: 52800021     	mov	w1, #0x1                // =1
+      18: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      1c: 94000000     	bl	0x1c <HW_AUTO_SREF_SETTING+0x1c>
+		000000000000001c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      20: 52948c06     	mov	w6, #0xa460             // =42080
+      24: d2800023     	mov	x3, #0x1                // =1
+      28: 72a3f906     	movk	w6, #0x1fc8, lsl #16
+      2c: 2a0303e1     	mov	w1, w3
+      30: 2a0603e0     	mov	w0, w6
+      34: 52800002     	mov	w2, #0x0                // =0
+      38: 94000000     	bl	0x38 <HW_AUTO_SREF_SETTING+0x38>
+		0000000000000038:  R_AARCH64_CALL26	WRITE_RG_FLD
+      3c: 2a0603e0     	mov	w0, w6
+      40: d2800023     	mov	x3, #0x1                // =1
+      44: 52800082     	mov	w2, #0x4                // =4
+      48: 2a0303e1     	mov	w1, w3
+      4c: 94000000     	bl	0x4c <HW_AUTO_SREF_SETTING+0x4c>
+		000000000000004c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      50: 52949686     	mov	w6, #0xa4b4             // =42164
+      54: d2800023     	mov	x3, #0x1                // =1
+      58: 72a3f906     	movk	w6, #0x1fc8, lsl #16
+      5c: 2a0303e1     	mov	w1, w3
+      60: 2a0603e0     	mov	w0, w6
+      64: 52800242     	mov	w2, #0x12               // =18
+      68: 94000000     	bl	0x68 <HW_AUTO_SREF_SETTING+0x68>
+		0000000000000068:  R_AARCH64_CALL26	WRITE_RG_FLD
+      6c: 2a0603e0     	mov	w0, w6
+      70: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      74: d2800023     	mov	x3, #0x1                // =1
+      78: 52800262     	mov	w2, #0x13               // =19
+      7c: 2a0303e1     	mov	w1, w3
+      80: 14000000     	b	0x80 <HW_AUTO_SREF_SETTING+0x80>
+		0000000000000080:  R_AARCH64_JUMP26	WRITE_RG_FLD
+
+Disassembly of section .text.HW_AUTO_SREF_TIMES:
+
+0000000000000000 <HW_AUTO_SREF_TIMES>:
+       0: d2800800     	mov	x0, #0x40               // =64
+       4: f2a3f600     	movk	x0, #0x1fb0, lsl #16
+       8: f9400000     	ldr	x0, [x0]
+       c: d378fc00     	lsr	x0, x0, #56
+      10: d65f03c0     	ret
+
+Disassembly of section .text.HW_AUTO_SREF_ONOFF:
+
+0000000000000000 <HW_AUTO_SREF_ONOFF>:
+       0: 92401c03     	and	x3, x0, #0xff
+       4: 52800e80     	mov	w0, #0x74               // =116
+       8: 52800082     	mov	w2, #0x4                // =4
+       c: 52800021     	mov	w1, #0x1                // =1
+      10: 72a3f600     	movk	w0, #0x1fb0, lsl #16
+      14: 14000000     	b	0x14 <HW_AUTO_SREF_ONOFF+0x14>
+		0000000000000014:  R_AARCH64_JUMP26	WRITE_RG_FLD
+
+Disassembly of section .text.DVFS_MEM_CK_MUX:
+
+0000000000000000 <DVFS_MEM_CK_MUX>:
+       0: a9be7bfd     	stp	x29, x30, [sp, #-0x20]!
+       4: 910003fd     	mov	x29, sp
+       8: f9000bf3     	str	x19, [sp, #0x10]
+       c: 12001c13     	and	w19, w0, #0xff
+      10: 90000000     	adrp	x0, 0x0 <DVFS_MEM_CK_MUX>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.DVFS_MEM_CK_MUX.str1.1
+      14: 91000000     	add	x0, x0, #0x0
+		0000000000000014:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.DVFS_MEM_CK_MUX.str1.1
+      18: 94000000     	bl	0x18 <DVFS_MEM_CK_MUX+0x18>
+		0000000000000018:  R_AARCH64_CALL26	printf
+      1c: 5294d406     	mov	w6, #0xa6a0             // =42656
+      20: 92401e63     	and	x3, x19, #0xff
+      24: 72a3f906     	movk	w6, #0x1fc8, lsl #16
+      28: 52800002     	mov	w2, #0x0                // =0
+      2c: 2a0603e0     	mov	w0, w6
+      30: 52800021     	mov	w1, #0x1                // =1
+      34: 94000000     	bl	0x34 <DVFS_MEM_CK_MUX+0x34>
+		0000000000000034:  R_AARCH64_CALL26	WRITE_RG_FLD
+      38: 2a0603e0     	mov	w0, w6
+      3c: 52800022     	mov	w2, #0x1                // =1
+      40: 2a0203e1     	mov	w1, w2
+      44: 94000000     	bl	0x44 <DVFS_MEM_CK_MUX+0x44>
+		0000000000000044:  R_AARCH64_CALL26	WRITE_RG_FLD
+      48: 2a0603e0     	mov	w0, w6
+      4c: f9400bf3     	ldr	x19, [sp, #0x10]
+      50: 52800042     	mov	w2, #0x2                // =2
+      54: a8c27bfd     	ldp	x29, x30, [sp], #0x20
+      58: 52800021     	mov	w1, #0x1                // =1
+      5c: 14000000     	b	0x5c <DVFS_MEM_CK_MUX+0x5c>
+		000000000000005c:  R_AARCH64_JUMP26	WRITE_RG_FLD
+
+Disassembly of section .text.BACKUP_DRAM_K_RESULT_RK0:
+
+0000000000000000 <BACKUP_DRAM_K_RESULT_RK0>:
+       0: d2800180     	mov	x0, #0xc                // =12
+       4: 90000002     	adrp	x2, 0x0 <BACKUP_DRAM_K_RESULT_RK0>
+		0000000000000004:  R_AARCH64_ADR_PREL_PG_HI21	.bss.phase8_result_rg_rk0
+       8: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+       c: 91000043     	add	x3, x2, #0x0
+		000000000000000c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.phase8_result_rg_rk0
+      10: b9400001     	ldr	w1, [x0]
+      14: b9400400     	ldr	w0, [x0, #0x4]
+      18: d295e100     	mov	x0, #0xaf08             // =44808
+      1c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      20: f9400000     	ldr	x0, [x0]
+      24: d3659c00     	ubfx	x0, x0, #37, #3
+      28: 39000040     	strb	w0, [x2]
+		0000000000000028:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.phase8_result_rg_rk0
+      2c: d295de00     	mov	x0, #0xaef0             // =44784
+      30: 90000002     	adrp	x2, 0x0 <BACKUP_DRAM_K_RESULT_RK0>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	.bss.DCC_K_result_rg_rk0
+      34: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      38: f9400000     	ldr	x0, [x0]
+      3c: d368b400     	ubfx	x0, x0, #40, #6
+      40: 39000460     	strb	w0, [x3, #0x1]
+      44: d2952e00     	mov	x0, #0xa970             // =43376
+      48: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      4c: f9400003     	ldr	x3, [x0]
+      50: b9000043     	str	w3, [x2]
+		0000000000000050:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.DCC_K_result_rg_rk0
+      54: 91000040     	add	x0, x2, #0x0
+		0000000000000054:  R_AARCH64_ADD_ABS_LO12_NC	.bss.DCC_K_result_rg_rk0
+      58: d2953d02     	mov	x2, #0xa9e8             // =43496
+      5c: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      60: f9400042     	ldr	x2, [x2]
+      64: b9000402     	str	w2, [x0, #0x4]
+      68: d2954d02     	mov	x2, #0xaa68             // =43624
+      6c: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      70: f9400042     	ldr	x2, [x2]
+      74: b9000802     	str	w2, [x0, #0x8]
+      78: d2954580     	mov	x0, #0xaa2c             // =43564
+      7c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      80: b9400003     	ldr	w3, [x0]
+      84: b9400400     	ldr	w0, [x0, #0x4]
+      88: 90000000     	adrp	x0, 0x0 <BACKUP_DRAM_K_RESULT_RK0>
+		0000000000000088:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dqs_gating_K_result_rg_rk0
+      8c: 91000002     	add	x2, x0, #0x0
+		000000000000008c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dqs_gating_K_result_rg_rk0
+      90: b9000003     	str	w3, [x0]
+		0000000000000090:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.dqs_gating_K_result_rg_rk0
+      94: d2955580     	mov	x0, #0xaaac             // =43692
+      98: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      9c: b9400003     	ldr	w3, [x0]
+      a0: b9400400     	ldr	w0, [x0, #0x4]
+      a4: b9000443     	str	w3, [x2, #0x4]
+      a8: 90000002     	adrp	x2, 0x0 <BACKUP_DRAM_K_RESULT_RK0>
+		00000000000000a8:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Tx_win_K_result_rg_rk0
+      ac: d2824000     	mov	x0, #0x1200             // =4608
+      b0: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      b4: f9400003     	ldr	x3, [x0]
+      b8: b9000043     	str	w3, [x2]
+		00000000000000b8:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Tx_win_K_result_rg_rk0
+      bc: 91000040     	add	x0, x2, #0x0
+		00000000000000bc:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Tx_win_K_result_rg_rk0
+      c0: d2824082     	mov	x2, #0x1204             // =4612
+      c4: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      c8: b9400043     	ldr	w3, [x2]
+      cc: b9400442     	ldr	w2, [x2, #0x4]
+      d0: d2824102     	mov	x2, #0x1208             // =4616
+      d4: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      d8: f9400042     	ldr	x2, [x2]
+      dc: 29008803     	stp	w3, w2, [x0, #0x4]
+      e0: d2824182     	mov	x2, #0x120c             // =4620
+      e4: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      e8: b9400043     	ldr	w3, [x2]
+      ec: b9400442     	ldr	w2, [x2, #0x4]
+      f0: d2954402     	mov	x2, #0xaa20             // =43552
+      f4: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      f8: f9400042     	ldr	x2, [x2]
+      fc: 29018803     	stp	w3, w2, [x0, #0xc]
+     100: d2955402     	mov	x2, #0xaaa0             // =43680
+     104: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     108: f9400042     	ldr	x2, [x2]
+     10c: b9001402     	str	w2, [x0, #0x14]
+     110: d2953c02     	mov	x2, #0xa9e0             // =43488
+     114: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     118: f9400042     	ldr	x2, [x2]
+     11c: b9001802     	str	w2, [x0, #0x18]
+     120: d2953c82     	mov	x2, #0xa9e4             // =43492
+     124: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     128: b9400043     	ldr	w3, [x2]
+     12c: b9400442     	ldr	w2, [x2, #0x4]
+     130: d2954c02     	mov	x2, #0xaa60             // =43616
+     134: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     138: f9400042     	ldr	x2, [x2]
+     13c: 29038803     	stp	w3, w2, [x0, #0x1c]
+     140: d2954c82     	mov	x2, #0xaa64             // =43620
+     144: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     148: b9400043     	ldr	w3, [x2]
+     14c: b9400442     	ldr	w2, [x2, #0x4]
+     150: b9002403     	str	w3, [x0, #0x24]
+     154: d2953d82     	mov	x2, #0xa9ec             // =43500
+     158: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     15c: b9400043     	ldr	w3, [x2]
+     160: b9400442     	ldr	w2, [x2, #0x4]
+     164: b9002803     	str	w3, [x0, #0x28]
+     168: d2954d82     	mov	x2, #0xaa6c             // =43628
+     16c: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     170: b9400043     	ldr	w3, [x2]
+     174: b9400442     	ldr	w2, [x2, #0x4]
+     178: b9002c03     	str	w3, [x0, #0x2c]
+     17c: d3505420     	ubfx	x0, x1, #16, #6
+     180: 90000001     	adrp	x1, 0x0 <BACKUP_DRAM_K_RESULT_RK0>
+		0000000000000180:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Tx_vref_K_result_rg_rk0
+     184: 39000020     	strb	w0, [x1]
+		0000000000000184:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.Tx_vref_K_result_rg_rk0
+     188: d2961700     	mov	x0, #0xb0b8             // =45240
+     18c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     190: f9400002     	ldr	x2, [x0]
+     194: 90000000     	adrp	x0, 0x0 <BACKUP_DRAM_K_RESULT_RK0>
+		0000000000000194:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Rx_datlat_K_result_rg_rk0
+     198: 91000001     	add	x1, x0, #0x0
+		0000000000000198:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Rx_datlat_K_result_rg_rk0
+     19c: b9000002     	str	w2, [x0]
+		000000000000019c:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Rx_datlat_K_result_rg_rk0
+     1a0: d282d180     	mov	x0, #0x168c             // =5772
+     1a4: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     1a8: b9400002     	ldr	w2, [x0]
+     1ac: b9400400     	ldr	w0, [x0, #0x4]
+     1b0: b9000422     	str	w2, [x1, #0x4]
+     1b4: 90000001     	adrp	x1, 0x0 <BACKUP_DRAM_K_RESULT_RK0>
+		00000000000001b4:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Rx_win_K_result_rg_rk0
+     1b8: d2953f00     	mov	x0, #0xa9f8             // =43512
+     1bc: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     1c0: f9400002     	ldr	x2, [x0]
+     1c4: b9000022     	str	w2, [x1]
+		00000000000001c4:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Rx_win_K_result_rg_rk0
+     1c8: 91000020     	add	x0, x1, #0x0
+		00000000000001c8:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Rx_win_K_result_rg_rk0
+     1cc: d2953f81     	mov	x1, #0xa9fc             // =43516
+     1d0: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     1d4: b9400022     	ldr	w2, [x1]
+     1d8: b9400421     	ldr	w1, [x1, #0x4]
+     1dc: d2954001     	mov	x1, #0xaa00             // =43520
+     1e0: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     1e4: f9400021     	ldr	x1, [x1]
+     1e8: 29008402     	stp	w2, w1, [x0, #0x4]
+     1ec: d2954081     	mov	x1, #0xaa04             // =43524
+     1f0: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     1f4: b9400022     	ldr	w2, [x1]
+     1f8: b9400421     	ldr	w1, [x1, #0x4]
+     1fc: b9000c02     	str	w2, [x0, #0xc]
+     200: d2954f01     	mov	x1, #0xaa78             // =43640
+     204: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     208: f9400021     	ldr	x1, [x1]
+     20c: b9001001     	str	w1, [x0, #0x10]
+     210: d2954f81     	mov	x1, #0xaa7c             // =43644
+     214: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     218: b9400022     	ldr	w2, [x1]
+     21c: b9400421     	ldr	w1, [x1, #0x4]
+     220: d2955001     	mov	x1, #0xaa80             // =43648
+     224: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     228: f9400021     	ldr	x1, [x1]
+     22c: 29028402     	stp	w2, w1, [x0, #0x14]
+     230: d2955081     	mov	x1, #0xaa84             // =43652
+     234: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     238: b9400022     	ldr	w2, [x1]
+     23c: b9400421     	ldr	w1, [x1, #0x4]
+     240: b9001c02     	str	w2, [x0, #0x1c]
+     244: d295dd81     	mov	x1, #0xaeec             // =44780
+     248: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     24c: b9400022     	ldr	w2, [x1]
+     250: b9400421     	ldr	w1, [x1, #0x4]
+     254: b9002002     	str	w2, [x0, #0x20]
+     258: d295ed81     	mov	x1, #0xaf6c             // =44908
+     25c: f2a3f901     	movk	x1, #0x1fc8, lsl #16
+     260: b9400022     	ldr	w2, [x1]
+     264: b9400421     	ldr	w1, [x1, #0x4]
+     268: b9002402     	str	w2, [x0, #0x24]
+     26c: d65f03c0     	ret
+
+Disassembly of section .text.BACKUP_DRAM_K_RESULT_RK1:
+
+0000000000000000 <BACKUP_DRAM_K_RESULT_RK1>:
+       0: d2800180     	mov	x0, #0xc                // =12
+       4: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+       8: b9400001     	ldr	w1, [x0]
+       c: b9400400     	ldr	w0, [x0, #0x4]
+      10: 90000000     	adrp	x0, 0x0 <BACKUP_DRAM_K_RESULT_RK1>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	.bss.phase8_result_rg_rk1
+      14: 91000002     	add	x2, x0, #0x0
+		0000000000000014:  R_AARCH64_ADD_ABS_LO12_NC	.bss.phase8_result_rg_rk1
+      18: d3431423     	ubfx	x3, x1, #3, #3
+      1c: 39000003     	strb	w3, [x0]
+		000000000000001c:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.phase8_result_rg_rk1
+      20: 12000820     	and	w0, w1, #0x7
+      24: 39000440     	strb	w0, [x2, #0x1]
+      28: d2957e00     	mov	x0, #0xabf0             // =44016
+      2c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      30: 90000002     	adrp	x2, 0x0 <BACKUP_DRAM_K_RESULT_RK1>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	.bss.DCC_K_result_rg_rk1
+      34: f9400003     	ldr	x3, [x0]
+      38: b9000043     	str	w3, [x2]
+		0000000000000038:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.DCC_K_result_rg_rk1
+      3c: 91000040     	add	x0, x2, #0x0
+		000000000000003c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.DCC_K_result_rg_rk1
+      40: d2958d02     	mov	x2, #0xac68             // =44136
+      44: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      48: f9400042     	ldr	x2, [x2]
+      4c: b9000402     	str	w2, [x0, #0x4]
+      50: d2959d02     	mov	x2, #0xace8             // =44264
+      54: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      58: f9400042     	ldr	x2, [x2]
+      5c: b9000802     	str	w2, [x0, #0x8]
+      60: d2959580     	mov	x0, #0xacac             // =44204
+      64: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      68: b9400003     	ldr	w3, [x0]
+      6c: b9400400     	ldr	w0, [x0, #0x4]
+      70: 90000000     	adrp	x0, 0x0 <BACKUP_DRAM_K_RESULT_RK1>
+		0000000000000070:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dqs_gating_K_result_rg_rk1
+      74: 91000002     	add	x2, x0, #0x0
+		0000000000000074:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dqs_gating_K_result_rg_rk1
+      78: b9000003     	str	w3, [x0]
+		0000000000000078:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.dqs_gating_K_result_rg_rk1
+      7c: d295a580     	mov	x0, #0xad2c             // =44332
+      80: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      84: b9400003     	ldr	w3, [x0]
+      88: b9400400     	ldr	w0, [x0, #0x4]
+      8c: b9000443     	str	w3, [x2, #0x4]
+      90: 90000002     	adrp	x2, 0x0 <BACKUP_DRAM_K_RESULT_RK1>
+		0000000000000090:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Tx_win_K_result_rg_rk1
+      94: d2828000     	mov	x0, #0x1400             // =5120
+      98: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      9c: f9400003     	ldr	x3, [x0]
+      a0: b9000043     	str	w3, [x2]
+		00000000000000a0:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Tx_win_K_result_rg_rk1
+      a4: 91000040     	add	x0, x2, #0x0
+		00000000000000a4:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Tx_win_K_result_rg_rk1
+      a8: d2828082     	mov	x2, #0x1404             // =5124
+      ac: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      b0: b9400043     	ldr	w3, [x2]
+      b4: b9400442     	ldr	w2, [x2, #0x4]
+      b8: d2828102     	mov	x2, #0x1408             // =5128
+      bc: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      c0: f9400042     	ldr	x2, [x2]
+      c4: 29008803     	stp	w3, w2, [x0, #0x4]
+      c8: d2828182     	mov	x2, #0x140c             // =5132
+      cc: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      d0: b9400043     	ldr	w3, [x2]
+      d4: b9400442     	ldr	w2, [x2, #0x4]
+      d8: d2959402     	mov	x2, #0xaca0             // =44192
+      dc: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      e0: f9400042     	ldr	x2, [x2]
+      e4: 29018803     	stp	w3, w2, [x0, #0xc]
+      e8: d295a402     	mov	x2, #0xad20             // =44320
+      ec: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+      f0: f9400042     	ldr	x2, [x2]
+      f4: b9001402     	str	w2, [x0, #0x14]
+      f8: d2958c02     	mov	x2, #0xac60             // =44128
+      fc: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     100: f9400042     	ldr	x2, [x2]
+     104: b9001802     	str	w2, [x0, #0x18]
+     108: d2958c82     	mov	x2, #0xac64             // =44132
+     10c: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     110: b9400043     	ldr	w3, [x2]
+     114: b9400442     	ldr	w2, [x2, #0x4]
+     118: d2959c02     	mov	x2, #0xace0             // =44256
+     11c: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     120: f9400042     	ldr	x2, [x2]
+     124: 29038803     	stp	w3, w2, [x0, #0x1c]
+     128: d2959c82     	mov	x2, #0xace4             // =44260
+     12c: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     130: b9400043     	ldr	w3, [x2]
+     134: b9400442     	ldr	w2, [x2, #0x4]
+     138: b9002403     	str	w3, [x0, #0x24]
+     13c: d2958d82     	mov	x2, #0xac6c             // =44140
+     140: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     144: b9400043     	ldr	w3, [x2]
+     148: b9400442     	ldr	w2, [x2, #0x4]
+     14c: b9002803     	str	w3, [x0, #0x28]
+     150: d2959d82     	mov	x2, #0xacec             // =44268
+     154: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     158: b9400043     	ldr	w3, [x2]
+     15c: b9400442     	ldr	w2, [x2, #0x4]
+     160: b9002c03     	str	w3, [x0, #0x2c]
+     164: 90000000     	adrp	x0, 0x0 <BACKUP_DRAM_K_RESULT_RK1>
+		0000000000000164:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Tx_vref_K_result_rg_rk1
+     168: d3566c22     	ubfx	x2, x1, #22, #6
+     16c: 39000002     	strb	w2, [x0]
+		000000000000016c:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.Tx_vref_K_result_rg_rk1
+     170: d294a200     	mov	x0, #0xa510             // =42256
+     174: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     178: f9400003     	ldr	x3, [x0]
+     17c: 90000000     	adrp	x0, 0x0 <BACKUP_DRAM_K_RESULT_RK1>
+		000000000000017c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Rx_datlat_K_result_rg_rk1
+     180: 91000002     	add	x2, x0, #0x0
+		0000000000000180:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Rx_datlat_K_result_rg_rk1
+     184: b9000003     	str	w3, [x0]
+		0000000000000184:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Rx_datlat_K_result_rg_rk1
+     188: d2949200     	mov	x0, #0xa490             // =42128
+     18c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     190: f9400000     	ldr	x0, [x0]
+     194: b9000440     	str	w0, [x2, #0x4]
+     198: d2958f00     	mov	x0, #0xac78             // =44152
+     19c: 90000002     	adrp	x2, 0x0 <BACKUP_DRAM_K_RESULT_RK1>
+		000000000000019c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Rx_win_K_result_rg_rk1
+     1a0: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     1a4: f9400003     	ldr	x3, [x0]
+     1a8: b9000043     	str	w3, [x2]
+		00000000000001a8:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Rx_win_K_result_rg_rk1
+     1ac: 91000040     	add	x0, x2, #0x0
+		00000000000001ac:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Rx_win_K_result_rg_rk1
+     1b0: d2958f82     	mov	x2, #0xac7c             // =44156
+     1b4: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     1b8: b9400043     	ldr	w3, [x2]
+     1bc: b9400442     	ldr	w2, [x2, #0x4]
+     1c0: d2959002     	mov	x2, #0xac80             // =44160
+     1c4: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     1c8: f9400042     	ldr	x2, [x2]
+     1cc: 29008803     	stp	w3, w2, [x0, #0x4]
+     1d0: d2959082     	mov	x2, #0xac84             // =44164
+     1d4: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     1d8: b9400043     	ldr	w3, [x2]
+     1dc: b9400442     	ldr	w2, [x2, #0x4]
+     1e0: d2959f02     	mov	x2, #0xacf8             // =44280
+     1e4: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     1e8: f9400042     	ldr	x2, [x2]
+     1ec: 29018803     	stp	w3, w2, [x0, #0xc]
+     1f0: d2959f82     	mov	x2, #0xacfc             // =44284
+     1f4: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     1f8: b9400043     	ldr	w3, [x2]
+     1fc: b9400442     	ldr	w2, [x2, #0x4]
+     200: d295a002     	mov	x2, #0xad00             // =44288
+     204: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     208: f9400042     	ldr	x2, [x2]
+     20c: 29028803     	stp	w3, w2, [x0, #0x14]
+     210: d295a082     	mov	x2, #0xad04             // =44292
+     214: f2a3f902     	movk	x2, #0x1fc8, lsl #16
+     218: b9400043     	ldr	w3, [x2]
+     21c: b9400442     	ldr	w2, [x2, #0x4]
+     220: d3462822     	ubfx	x2, x1, #6, #5
+     224: d34b3c21     	ubfx	x1, x1, #11, #5
+     228: 29038803     	stp	w3, w2, [x0, #0x1c]
+     22c: b9002401     	str	w1, [x0, #0x24]
+     230: d65f03c0     	ret
+
+Disassembly of section .text.APPLY_DRAM_K_RESULT_RK1_TO_RK0:
+
+0000000000000000 <APPLY_DRAM_K_RESULT_RK1_TO_RK0>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 90000006     	adrp	x6, 0x0 <APPLY_DRAM_K_RESULT_RK1_TO_RK0>
+		0000000000000004:  R_AARCH64_ADR_PREL_PG_HI21	.bss.phase8_result_rg_rk1
+       8: 910000c7     	add	x7, x6, #0x0
+		0000000000000008:  R_AARCH64_ADD_ABS_LO12_NC	.bss.phase8_result_rg_rk1
+       c: 910003fd     	mov	x29, sp
+      10: 394000c3     	ldrb	w3, [x6]
+		0000000000000010:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.phase8_result_rg_rk1
+      14: 5295e180     	mov	w0, #0xaf0c             // =44812
+      18: 528000a2     	mov	w2, #0x5                // =5
+      1c: 52800061     	mov	w1, #0x3                // =3
+      20: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      24: 94000000     	bl	0x24 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x24>
+		0000000000000024:  R_AARCH64_CALL26	WRITE_RG_FLD
+      28: 394000c3     	ldrb	w3, [x6]
+		0000000000000028:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.phase8_result_rg_rk1
+      2c: 5295f180     	mov	w0, #0xaf8c             // =44940
+      30: 528000a2     	mov	w2, #0x5                // =5
+      34: 52800061     	mov	w1, #0x3                // =3
+      38: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      3c: 94000000     	bl	0x3c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      40: 394000c3     	ldrb	w3, [x6]
+		0000000000000040:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.phase8_result_rg_rk1
+      44: 5295d180     	mov	w0, #0xae8c             // =44684
+      48: 528000a2     	mov	w2, #0x5                // =5
+      4c: 52800061     	mov	w1, #0x3                // =3
+      50: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      54: 94000000     	bl	0x54 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x54>
+		0000000000000054:  R_AARCH64_CALL26	WRITE_RG_FLD
+      58: 394004e3     	ldrb	w3, [x7, #0x1]
+      5c: 5295de80     	mov	w0, #0xaef4             // =44788
+      60: 52800102     	mov	w2, #0x8                // =8
+      64: 528000c1     	mov	w1, #0x6                // =6
+      68: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      6c: 94000000     	bl	0x6c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x6c>
+		000000000000006c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      70: 394004e3     	ldrb	w3, [x7, #0x1]
+      74: 5295ee80     	mov	w0, #0xaf74             // =44916
+      78: 52800102     	mov	w2, #0x8                // =8
+      7c: 528000c1     	mov	w1, #0x6                // =6
+      80: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      84: 94000000     	bl	0x84 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x84>
+		0000000000000084:  R_AARCH64_CALL26	WRITE_RG_FLD
+      88: 394004e3     	ldrb	w3, [x7, #0x1]
+      8c: 5295ce80     	mov	w0, #0xae74             // =44660
+      90: 52800102     	mov	w2, #0x8                // =8
+      94: 528000c1     	mov	w1, #0x6                // =6
+      98: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      9c: 94000000     	bl	0x9c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x9c>
+		000000000000009c:  R_AARCH64_CALL26	WRITE_RG_FLD
+      a0: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK1_TO_RK0>
+		00000000000000a0:  R_AARCH64_ADR_PREL_PG_HI21	.bss.DCC_K_result_rg_rk1
+      a4: 91000006     	add	x6, x0, #0x0
+		00000000000000a4:  R_AARCH64_ADD_ABS_LO12_NC	.bss.DCC_K_result_rg_rk1
+      a8: 52800002     	mov	w2, #0x0                // =0
+      ac: 52800401     	mov	w1, #0x20               // =32
+      b0: b9400003     	ldr	w3, [x0]
+		00000000000000b0:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.DCC_K_result_rg_rk1
+      b4: 52952e00     	mov	w0, #0xa970             // =43376
+      b8: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      bc: 94000000     	bl	0xbc <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0xbc>
+		00000000000000bc:  R_AARCH64_CALL26	WRITE_RG_FLD
+      c0: b94004c3     	ldr	w3, [x6, #0x4]
+      c4: 52953d00     	mov	w0, #0xa9e8             // =43496
+      c8: 52800002     	mov	w2, #0x0                // =0
+      cc: 52800401     	mov	w1, #0x20               // =32
+      d0: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      d4: 94000000     	bl	0xd4 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0xd4>
+		00000000000000d4:  R_AARCH64_CALL26	WRITE_RG_FLD
+      d8: b94008c3     	ldr	w3, [x6, #0x8]
+      dc: 52954d00     	mov	w0, #0xaa68             // =43624
+      e0: 52800002     	mov	w2, #0x0                // =0
+      e4: 52800401     	mov	w1, #0x20               // =32
+      e8: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      ec: 94000000     	bl	0xec <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0xec>
+		00000000000000ec:  R_AARCH64_CALL26	WRITE_RG_FLD
+      f0: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK1_TO_RK0>
+		00000000000000f0:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dqs_gating_K_result_rg_rk1
+      f4: 91000006     	add	x6, x0, #0x0
+		00000000000000f4:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dqs_gating_K_result_rg_rk1
+      f8: 52800002     	mov	w2, #0x0                // =0
+      fc: 52800401     	mov	w1, #0x20               // =32
+     100: b9400003     	ldr	w3, [x0]
+		0000000000000100:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.dqs_gating_K_result_rg_rk1
+     104: 52954580     	mov	w0, #0xaa2c             // =43564
+     108: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     10c: 94000000     	bl	0x10c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x10c>
+		000000000000010c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     110: b94004c3     	ldr	w3, [x6, #0x4]
+     114: 52955580     	mov	w0, #0xaaac             // =43692
+     118: 52800002     	mov	w2, #0x0                // =0
+     11c: 52800401     	mov	w1, #0x20               // =32
+     120: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     124: 94000000     	bl	0x124 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x124>
+		0000000000000124:  R_AARCH64_CALL26	WRITE_RG_FLD
+     128: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK1_TO_RK0>
+		0000000000000128:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Tx_win_K_result_rg_rk1
+     12c: 91000006     	add	x6, x0, #0x0
+		000000000000012c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Tx_win_K_result_rg_rk1
+     130: 52800002     	mov	w2, #0x0                // =0
+     134: 52800401     	mov	w1, #0x20               // =32
+     138: b9400003     	ldr	w3, [x0]
+		0000000000000138:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Tx_win_K_result_rg_rk1
+     13c: 52824000     	mov	w0, #0x1200             // =4608
+     140: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     144: 94000000     	bl	0x144 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x144>
+		0000000000000144:  R_AARCH64_CALL26	WRITE_RG_FLD
+     148: b94004c3     	ldr	w3, [x6, #0x4]
+     14c: 52824080     	mov	w0, #0x1204             // =4612
+     150: 52800002     	mov	w2, #0x0                // =0
+     154: 52800401     	mov	w1, #0x20               // =32
+     158: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     15c: 94000000     	bl	0x15c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x15c>
+		000000000000015c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     160: b94008c3     	ldr	w3, [x6, #0x8]
+     164: 52824100     	mov	w0, #0x1208             // =4616
+     168: 52800002     	mov	w2, #0x0                // =0
+     16c: 52800401     	mov	w1, #0x20               // =32
+     170: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     174: 94000000     	bl	0x174 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x174>
+		0000000000000174:  R_AARCH64_CALL26	WRITE_RG_FLD
+     178: b9400cc3     	ldr	w3, [x6, #0xc]
+     17c: 52824180     	mov	w0, #0x120c             // =4620
+     180: 52800002     	mov	w2, #0x0                // =0
+     184: 52800401     	mov	w1, #0x20               // =32
+     188: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     18c: 94000000     	bl	0x18c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x18c>
+		000000000000018c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     190: b94010c3     	ldr	w3, [x6, #0x10]
+     194: 52954400     	mov	w0, #0xaa20             // =43552
+     198: 52800002     	mov	w2, #0x0                // =0
+     19c: 52800401     	mov	w1, #0x20               // =32
+     1a0: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     1a4: 94000000     	bl	0x1a4 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1a4>
+		00000000000001a4:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1a8: b94014c3     	ldr	w3, [x6, #0x14]
+     1ac: 52955400     	mov	w0, #0xaaa0             // =43680
+     1b0: 52800002     	mov	w2, #0x0                // =0
+     1b4: 52800401     	mov	w1, #0x20               // =32
+     1b8: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     1bc: 94000000     	bl	0x1bc <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1bc>
+		00000000000001bc:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1c0: b94018c3     	ldr	w3, [x6, #0x18]
+     1c4: 52953c00     	mov	w0, #0xa9e0             // =43488
+     1c8: 52800002     	mov	w2, #0x0                // =0
+     1cc: 52800401     	mov	w1, #0x20               // =32
+     1d0: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     1d4: 94000000     	bl	0x1d4 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1d4>
+		00000000000001d4:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1d8: b9401cc3     	ldr	w3, [x6, #0x1c]
+     1dc: 52953c80     	mov	w0, #0xa9e4             // =43492
+     1e0: 52800002     	mov	w2, #0x0                // =0
+     1e4: 52800401     	mov	w1, #0x20               // =32
+     1e8: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     1ec: 94000000     	bl	0x1ec <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x1ec>
+		00000000000001ec:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1f0: b94020c3     	ldr	w3, [x6, #0x20]
+     1f4: 52954c00     	mov	w0, #0xaa60             // =43616
+     1f8: 52800002     	mov	w2, #0x0                // =0
+     1fc: 52800401     	mov	w1, #0x20               // =32
+     200: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     204: 94000000     	bl	0x204 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x204>
+		0000000000000204:  R_AARCH64_CALL26	WRITE_RG_FLD
+     208: b94024c3     	ldr	w3, [x6, #0x24]
+     20c: 52954c80     	mov	w0, #0xaa64             // =43620
+     210: 52800002     	mov	w2, #0x0                // =0
+     214: 52800401     	mov	w1, #0x20               // =32
+     218: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     21c: 94000000     	bl	0x21c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x21c>
+		000000000000021c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     220: b94028c3     	ldr	w3, [x6, #0x28]
+     224: 52953d80     	mov	w0, #0xa9ec             // =43500
+     228: 52800002     	mov	w2, #0x0                // =0
+     22c: 52800401     	mov	w1, #0x20               // =32
+     230: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     234: 94000000     	bl	0x234 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x234>
+		0000000000000234:  R_AARCH64_CALL26	WRITE_RG_FLD
+     238: b9402cc3     	ldr	w3, [x6, #0x2c]
+     23c: 52954d80     	mov	w0, #0xaa6c             // =43628
+     240: 52800002     	mov	w2, #0x0                // =0
+     244: 52800401     	mov	w1, #0x20               // =32
+     248: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     24c: 94000000     	bl	0x24c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x24c>
+		000000000000024c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     250: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK1_TO_RK0>
+		0000000000000250:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Rx_datlat_K_result_rg_rk1
+     254: 91000006     	add	x6, x0, #0x0
+		0000000000000254:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Rx_datlat_K_result_rg_rk1
+     258: 52800002     	mov	w2, #0x0                // =0
+     25c: 52800401     	mov	w1, #0x20               // =32
+     260: b9400003     	ldr	w3, [x0]
+		0000000000000260:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Rx_datlat_K_result_rg_rk1
+     264: 52961700     	mov	w0, #0xb0b8             // =45240
+     268: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     26c: 94000000     	bl	0x26c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x26c>
+		000000000000026c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     270: b94004c3     	ldr	w3, [x6, #0x4]
+     274: 5282d180     	mov	w0, #0x168c             // =5772
+     278: 52800002     	mov	w2, #0x0                // =0
+     27c: 52800401     	mov	w1, #0x20               // =32
+     280: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     284: 94000000     	bl	0x284 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x284>
+		0000000000000284:  R_AARCH64_CALL26	WRITE_RG_FLD
+     288: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK1_TO_RK0>
+		0000000000000288:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Rx_win_K_result_rg_rk1
+     28c: 91000006     	add	x6, x0, #0x0
+		000000000000028c:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Rx_win_K_result_rg_rk1
+     290: 52800002     	mov	w2, #0x0                // =0
+     294: 52800401     	mov	w1, #0x20               // =32
+     298: b9400003     	ldr	w3, [x0]
+		0000000000000298:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Rx_win_K_result_rg_rk1
+     29c: 52953f00     	mov	w0, #0xa9f8             // =43512
+     2a0: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     2a4: 94000000     	bl	0x2a4 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x2a4>
+		00000000000002a4:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2a8: b94004c3     	ldr	w3, [x6, #0x4]
+     2ac: 52953f80     	mov	w0, #0xa9fc             // =43516
+     2b0: 52800002     	mov	w2, #0x0                // =0
+     2b4: 52800401     	mov	w1, #0x20               // =32
+     2b8: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     2bc: 94000000     	bl	0x2bc <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x2bc>
+		00000000000002bc:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2c0: b94008c3     	ldr	w3, [x6, #0x8]
+     2c4: 52954000     	mov	w0, #0xaa00             // =43520
+     2c8: 52800002     	mov	w2, #0x0                // =0
+     2cc: 52800401     	mov	w1, #0x20               // =32
+     2d0: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     2d4: 94000000     	bl	0x2d4 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x2d4>
+		00000000000002d4:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2d8: b9400cc3     	ldr	w3, [x6, #0xc]
+     2dc: 52954080     	mov	w0, #0xaa04             // =43524
+     2e0: 52800002     	mov	w2, #0x0                // =0
+     2e4: 52800401     	mov	w1, #0x20               // =32
+     2e8: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     2ec: 94000000     	bl	0x2ec <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x2ec>
+		00000000000002ec:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2f0: b94010c3     	ldr	w3, [x6, #0x10]
+     2f4: 52954f00     	mov	w0, #0xaa78             // =43640
+     2f8: 52800002     	mov	w2, #0x0                // =0
+     2fc: 52800401     	mov	w1, #0x20               // =32
+     300: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     304: 94000000     	bl	0x304 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x304>
+		0000000000000304:  R_AARCH64_CALL26	WRITE_RG_FLD
+     308: b94014c3     	ldr	w3, [x6, #0x14]
+     30c: 52954f80     	mov	w0, #0xaa7c             // =43644
+     310: 52800002     	mov	w2, #0x0                // =0
+     314: 52800401     	mov	w1, #0x20               // =32
+     318: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     31c: 94000000     	bl	0x31c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x31c>
+		000000000000031c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     320: b94018c3     	ldr	w3, [x6, #0x18]
+     324: 52955000     	mov	w0, #0xaa80             // =43648
+     328: 52800002     	mov	w2, #0x0                // =0
+     32c: 52800401     	mov	w1, #0x20               // =32
+     330: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     334: 94000000     	bl	0x334 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x334>
+		0000000000000334:  R_AARCH64_CALL26	WRITE_RG_FLD
+     338: b9401cc3     	ldr	w3, [x6, #0x1c]
+     33c: 52955080     	mov	w0, #0xaa84             // =43652
+     340: 52800002     	mov	w2, #0x0                // =0
+     344: 52800401     	mov	w1, #0x20               // =32
+     348: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     34c: 94000000     	bl	0x34c <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x34c>
+		000000000000034c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     350: b94020c3     	ldr	w3, [x6, #0x20]
+     354: 5295dd80     	mov	w0, #0xaeec             // =44780
+     358: 52800002     	mov	w2, #0x0                // =0
+     35c: 52800401     	mov	w1, #0x20               // =32
+     360: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     364: 94000000     	bl	0x364 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x364>
+		0000000000000364:  R_AARCH64_CALL26	WRITE_RG_FLD
+     368: b94024c3     	ldr	w3, [x6, #0x24]
+     36c: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+     370: 5295ed80     	mov	w0, #0xaf6c             // =44908
+     374: 52800002     	mov	w2, #0x0                // =0
+     378: 52800401     	mov	w1, #0x20               // =32
+     37c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     380: 14000000     	b	0x380 <APPLY_DRAM_K_RESULT_RK1_TO_RK0+0x380>
+		0000000000000380:  R_AARCH64_JUMP26	WRITE_RG_FLD
+
+Disassembly of section .text.APPLY_DRAM_K_RESULT_RK0_TO_RK1:
+
+0000000000000000 <APPLY_DRAM_K_RESULT_RK0_TO_RK1>:
+       0: d2800187     	mov	x7, #0xc                // =12
+       4: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       8: f2a3f907     	movk	x7, #0x1fc8, lsl #16
+       c: 910003fd     	mov	x29, sp
+      10: b94000e0     	ldr	w0, [x7]
+      14: b94004e1     	ldr	w1, [x7, #0x4]
+      18: 121a6400     	and	w0, w0, #0xffffffc0
+      1c: 90000001     	adrp	x1, 0x0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1>
+		000000000000001c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.phase8_result_rg_rk0
+      20: 91000022     	add	x2, x1, #0x0
+		0000000000000020:  R_AARCH64_ADD_ABS_LO12_NC	.bss.phase8_result_rg_rk0
+      24: 39400023     	ldrb	w3, [x1]
+		0000000000000024:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.phase8_result_rg_rk0
+      28: 39400441     	ldrb	w1, [x2, #0x1]
+      2c: 52800002     	mov	w2, #0x0                // =0
+      30: 2a030c23     	orr	w3, w1, w3, lsl #3
+      34: 52800401     	mov	w1, #0x20               // =32
+      38: 2a000063     	orr	w3, w3, w0
+      3c: 2a0703e0     	mov	w0, w7
+      40: 94000000     	bl	0x40 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x40>
+		0000000000000040:  R_AARCH64_CALL26	WRITE_RG_FLD
+      44: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1>
+		0000000000000044:  R_AARCH64_ADR_PREL_PG_HI21	.bss.DCC_K_result_rg_rk0
+      48: 91000006     	add	x6, x0, #0x0
+		0000000000000048:  R_AARCH64_ADD_ABS_LO12_NC	.bss.DCC_K_result_rg_rk0
+      4c: 52800002     	mov	w2, #0x0                // =0
+      50: 52800401     	mov	w1, #0x20               // =32
+      54: b9400003     	ldr	w3, [x0]
+		0000000000000054:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.DCC_K_result_rg_rk0
+      58: 52957e00     	mov	w0, #0xabf0             // =44016
+      5c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      60: 94000000     	bl	0x60 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x60>
+		0000000000000060:  R_AARCH64_CALL26	WRITE_RG_FLD
+      64: b94004c3     	ldr	w3, [x6, #0x4]
+      68: 52958d00     	mov	w0, #0xac68             // =44136
+      6c: 52800002     	mov	w2, #0x0                // =0
+      70: 52800401     	mov	w1, #0x20               // =32
+      74: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      78: 94000000     	bl	0x78 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x78>
+		0000000000000078:  R_AARCH64_CALL26	WRITE_RG_FLD
+      7c: b94008c3     	ldr	w3, [x6, #0x8]
+      80: 52959d00     	mov	w0, #0xace8             // =44264
+      84: 52800002     	mov	w2, #0x0                // =0
+      88: 52800401     	mov	w1, #0x20               // =32
+      8c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      90: 94000000     	bl	0x90 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x90>
+		0000000000000090:  R_AARCH64_CALL26	WRITE_RG_FLD
+      94: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1>
+		0000000000000094:  R_AARCH64_ADR_PREL_PG_HI21	.bss.dqs_gating_K_result_rg_rk0
+      98: 91000006     	add	x6, x0, #0x0
+		0000000000000098:  R_AARCH64_ADD_ABS_LO12_NC	.bss.dqs_gating_K_result_rg_rk0
+      9c: 52800002     	mov	w2, #0x0                // =0
+      a0: 52800401     	mov	w1, #0x20               // =32
+      a4: b9400003     	ldr	w3, [x0]
+		00000000000000a4:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.dqs_gating_K_result_rg_rk0
+      a8: 52959580     	mov	w0, #0xacac             // =44204
+      ac: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      b0: 94000000     	bl	0xb0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0xb0>
+		00000000000000b0:  R_AARCH64_CALL26	WRITE_RG_FLD
+      b4: b94004c3     	ldr	w3, [x6, #0x4]
+      b8: 5295a580     	mov	w0, #0xad2c             // =44332
+      bc: 52800002     	mov	w2, #0x0                // =0
+      c0: 52800401     	mov	w1, #0x20               // =32
+      c4: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      c8: 94000000     	bl	0xc8 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0xc8>
+		00000000000000c8:  R_AARCH64_CALL26	WRITE_RG_FLD
+      cc: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1>
+		00000000000000cc:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Tx_win_K_result_rg_rk0
+      d0: 91000006     	add	x6, x0, #0x0
+		00000000000000d0:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Tx_win_K_result_rg_rk0
+      d4: 52800002     	mov	w2, #0x0                // =0
+      d8: 52800401     	mov	w1, #0x20               // =32
+      dc: b9400003     	ldr	w3, [x0]
+		00000000000000dc:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Tx_win_K_result_rg_rk0
+      e0: 52828000     	mov	w0, #0x1400             // =5120
+      e4: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      e8: 94000000     	bl	0xe8 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0xe8>
+		00000000000000e8:  R_AARCH64_CALL26	WRITE_RG_FLD
+      ec: b94004c3     	ldr	w3, [x6, #0x4]
+      f0: 52828080     	mov	w0, #0x1404             // =5124
+      f4: 52800002     	mov	w2, #0x0                // =0
+      f8: 52800401     	mov	w1, #0x20               // =32
+      fc: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     100: 94000000     	bl	0x100 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x100>
+		0000000000000100:  R_AARCH64_CALL26	WRITE_RG_FLD
+     104: b94008c3     	ldr	w3, [x6, #0x8]
+     108: 52828100     	mov	w0, #0x1408             // =5128
+     10c: 52800002     	mov	w2, #0x0                // =0
+     110: 52800401     	mov	w1, #0x20               // =32
+     114: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     118: 94000000     	bl	0x118 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x118>
+		0000000000000118:  R_AARCH64_CALL26	WRITE_RG_FLD
+     11c: b9400cc3     	ldr	w3, [x6, #0xc]
+     120: 52828180     	mov	w0, #0x140c             // =5132
+     124: 52800002     	mov	w2, #0x0                // =0
+     128: 52800401     	mov	w1, #0x20               // =32
+     12c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     130: 94000000     	bl	0x130 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x130>
+		0000000000000130:  R_AARCH64_CALL26	WRITE_RG_FLD
+     134: b94010c3     	ldr	w3, [x6, #0x10]
+     138: 52959400     	mov	w0, #0xaca0             // =44192
+     13c: 52800002     	mov	w2, #0x0                // =0
+     140: 52800401     	mov	w1, #0x20               // =32
+     144: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     148: 94000000     	bl	0x148 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x148>
+		0000000000000148:  R_AARCH64_CALL26	WRITE_RG_FLD
+     14c: b94014c3     	ldr	w3, [x6, #0x14]
+     150: 5295a400     	mov	w0, #0xad20             // =44320
+     154: 52800002     	mov	w2, #0x0                // =0
+     158: 52800401     	mov	w1, #0x20               // =32
+     15c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     160: 94000000     	bl	0x160 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x160>
+		0000000000000160:  R_AARCH64_CALL26	WRITE_RG_FLD
+     164: b94018c3     	ldr	w3, [x6, #0x18]
+     168: 52958c00     	mov	w0, #0xac60             // =44128
+     16c: 52800002     	mov	w2, #0x0                // =0
+     170: 52800401     	mov	w1, #0x20               // =32
+     174: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     178: 94000000     	bl	0x178 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x178>
+		0000000000000178:  R_AARCH64_CALL26	WRITE_RG_FLD
+     17c: b9401cc3     	ldr	w3, [x6, #0x1c]
+     180: 52958c80     	mov	w0, #0xac64             // =44132
+     184: 52800002     	mov	w2, #0x0                // =0
+     188: 52800401     	mov	w1, #0x20               // =32
+     18c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     190: 94000000     	bl	0x190 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x190>
+		0000000000000190:  R_AARCH64_CALL26	WRITE_RG_FLD
+     194: b94020c3     	ldr	w3, [x6, #0x20]
+     198: 52959c00     	mov	w0, #0xace0             // =44256
+     19c: 52800002     	mov	w2, #0x0                // =0
+     1a0: 52800401     	mov	w1, #0x20               // =32
+     1a4: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     1a8: 94000000     	bl	0x1a8 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x1a8>
+		00000000000001a8:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1ac: b94024c3     	ldr	w3, [x6, #0x24]
+     1b0: 52959c80     	mov	w0, #0xace4             // =44260
+     1b4: 52800002     	mov	w2, #0x0                // =0
+     1b8: 52800401     	mov	w1, #0x20               // =32
+     1bc: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     1c0: 94000000     	bl	0x1c0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x1c0>
+		00000000000001c0:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1c4: b94028c3     	ldr	w3, [x6, #0x28]
+     1c8: 52958d80     	mov	w0, #0xac6c             // =44140
+     1cc: 52800002     	mov	w2, #0x0                // =0
+     1d0: 52800401     	mov	w1, #0x20               // =32
+     1d4: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     1d8: 94000000     	bl	0x1d8 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x1d8>
+		00000000000001d8:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1dc: b9402cc3     	ldr	w3, [x6, #0x2c]
+     1e0: 52959d80     	mov	w0, #0xacec             // =44268
+     1e4: 52800002     	mov	w2, #0x0                // =0
+     1e8: 52800401     	mov	w1, #0x20               // =32
+     1ec: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     1f0: 94000000     	bl	0x1f0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x1f0>
+		00000000000001f0:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1f4: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1>
+		00000000000001f4:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Rx_datlat_K_result_rg_rk0
+     1f8: 91000006     	add	x6, x0, #0x0
+		00000000000001f8:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Rx_datlat_K_result_rg_rk0
+     1fc: 52800002     	mov	w2, #0x0                // =0
+     200: 52800401     	mov	w1, #0x20               // =32
+     204: b9400003     	ldr	w3, [x0]
+		0000000000000204:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Rx_datlat_K_result_rg_rk0
+     208: 5294a200     	mov	w0, #0xa510             // =42256
+     20c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     210: 94000000     	bl	0x210 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x210>
+		0000000000000210:  R_AARCH64_CALL26	WRITE_RG_FLD
+     214: b94004c3     	ldr	w3, [x6, #0x4]
+     218: 52949200     	mov	w0, #0xa490             // =42128
+     21c: 52800002     	mov	w2, #0x0                // =0
+     220: 52800401     	mov	w1, #0x20               // =32
+     224: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     228: 94000000     	bl	0x228 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x228>
+		0000000000000228:  R_AARCH64_CALL26	WRITE_RG_FLD
+     22c: 90000000     	adrp	x0, 0x0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1>
+		000000000000022c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Rx_win_K_result_rg_rk0
+     230: 91000006     	add	x6, x0, #0x0
+		0000000000000230:  R_AARCH64_ADD_ABS_LO12_NC	.bss.Rx_win_K_result_rg_rk0
+     234: 52800002     	mov	w2, #0x0                // =0
+     238: 52800401     	mov	w1, #0x20               // =32
+     23c: b9400003     	ldr	w3, [x0]
+		000000000000023c:  R_AARCH64_LDST32_ABS_LO12_NC	.bss.Rx_win_K_result_rg_rk0
+     240: 52958f00     	mov	w0, #0xac78             // =44152
+     244: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     248: 94000000     	bl	0x248 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x248>
+		0000000000000248:  R_AARCH64_CALL26	WRITE_RG_FLD
+     24c: b94004c3     	ldr	w3, [x6, #0x4]
+     250: 52958f80     	mov	w0, #0xac7c             // =44156
+     254: 52800002     	mov	w2, #0x0                // =0
+     258: 52800401     	mov	w1, #0x20               // =32
+     25c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     260: 94000000     	bl	0x260 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x260>
+		0000000000000260:  R_AARCH64_CALL26	WRITE_RG_FLD
+     264: b94008c3     	ldr	w3, [x6, #0x8]
+     268: 52959000     	mov	w0, #0xac80             // =44160
+     26c: 52800002     	mov	w2, #0x0                // =0
+     270: 52800401     	mov	w1, #0x20               // =32
+     274: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     278: 94000000     	bl	0x278 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x278>
+		0000000000000278:  R_AARCH64_CALL26	WRITE_RG_FLD
+     27c: b9400cc3     	ldr	w3, [x6, #0xc]
+     280: 52959080     	mov	w0, #0xac84             // =44164
+     284: 52800002     	mov	w2, #0x0                // =0
+     288: 52800401     	mov	w1, #0x20               // =32
+     28c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     290: 94000000     	bl	0x290 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x290>
+		0000000000000290:  R_AARCH64_CALL26	WRITE_RG_FLD
+     294: b94010c3     	ldr	w3, [x6, #0x10]
+     298: 52959f00     	mov	w0, #0xacf8             // =44280
+     29c: 52800002     	mov	w2, #0x0                // =0
+     2a0: 52800401     	mov	w1, #0x20               // =32
+     2a4: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     2a8: 94000000     	bl	0x2a8 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x2a8>
+		00000000000002a8:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2ac: b94014c3     	ldr	w3, [x6, #0x14]
+     2b0: 52959f80     	mov	w0, #0xacfc             // =44284
+     2b4: 52800002     	mov	w2, #0x0                // =0
+     2b8: 52800401     	mov	w1, #0x20               // =32
+     2bc: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     2c0: 94000000     	bl	0x2c0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x2c0>
+		00000000000002c0:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2c4: b94018c3     	ldr	w3, [x6, #0x18]
+     2c8: 5295a000     	mov	w0, #0xad00             // =44288
+     2cc: 52800002     	mov	w2, #0x0                // =0
+     2d0: 52800401     	mov	w1, #0x20               // =32
+     2d4: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     2d8: 94000000     	bl	0x2d8 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x2d8>
+		00000000000002d8:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2dc: b9401cc3     	ldr	w3, [x6, #0x1c]
+     2e0: 5295a080     	mov	w0, #0xad04             // =44292
+     2e4: 52800002     	mov	w2, #0x0                // =0
+     2e8: 52800401     	mov	w1, #0x20               // =32
+     2ec: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     2f0: 94000000     	bl	0x2f0 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x2f0>
+		00000000000002f0:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2f4: b94020c3     	ldr	w3, [x6, #0x20]
+     2f8: 52962d80     	mov	w0, #0xb16c             // =45420
+     2fc: 52800002     	mov	w2, #0x0                // =0
+     300: 52800401     	mov	w1, #0x20               // =32
+     304: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     308: 94000000     	bl	0x308 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x308>
+		0000000000000308:  R_AARCH64_CALL26	WRITE_RG_FLD
+     30c: b94024c3     	ldr	w3, [x6, #0x24]
+     310: 52963d80     	mov	w0, #0xb1ec             // =45548
+     314: 52800002     	mov	w2, #0x0                // =0
+     318: 52800401     	mov	w1, #0x20               // =32
+     31c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     320: 94000000     	bl	0x320 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x320>
+		0000000000000320:  R_AARCH64_CALL26	WRITE_RG_FLD
+     324: b94000e0     	ldr	w0, [x7]
+     328: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+     32c: 12105400     	and	w0, w0, #0xffff003f
+     330: b94004e1     	ldr	w1, [x7, #0x4]
+     334: 52800002     	mov	w2, #0x0                // =0
+     338: b94020c1     	ldr	w1, [x6, #0x20]
+     33c: b94024c3     	ldr	w3, [x6, #0x24]
+     340: 2a031423     	orr	w3, w1, w3, lsl #5
+     344: 52800401     	mov	w1, #0x20               // =32
+     348: 2a031803     	orr	w3, w0, w3, lsl #6
+     34c: 2a0703e0     	mov	w0, w7
+     350: 14000000     	b	0x350 <APPLY_DRAM_K_RESULT_RK0_TO_RK1+0x350>
+		0000000000000350:  R_AARCH64_JUMP26	WRITE_RG_FLD
+
+Disassembly of section .text.APPLY_DRAM_K_RESULT:
+
+0000000000000000 <APPLY_DRAM_K_RESULT>:
+       0: a9bf7bfd     	stp	x29, x30, [sp, #-0x10]!
+       4: 910003fd     	mov	x29, sp
+       8: 94000000     	bl	0x8 <APPLY_DRAM_K_RESULT+0x8>
+		0000000000000008:  R_AARCH64_CALL26	BACKUP_DRAM_K_RESULT_RK0
+       c: 94000000     	bl	0xc <APPLY_DRAM_K_RESULT+0xc>
+		000000000000000c:  R_AARCH64_CALL26	BACKUP_DRAM_K_RESULT_RK1
+      10: 94000000     	bl	0x10 <APPLY_DRAM_K_RESULT+0x10>
+		0000000000000010:  R_AARCH64_CALL26	APPLY_DRAM_K_RESULT_RK0_TO_RK1
+      14: a8c17bfd     	ldp	x29, x30, [sp], #0x10
+      18: 14000000     	b	0x18 <APPLY_DRAM_K_RESULT+0x18>
+		0000000000000018:  R_AARCH64_JUMP26	APPLY_DRAM_K_RESULT_RK1_TO_RK0
+
+Disassembly of section .text.Enter_SelfRefresh_api:
+
+0000000000000000 <Enter_SelfRefresh_api>:
+       0: a9bb7bfd     	stp	x29, x30, [sp, #-0x50]!
+       4: d2800003     	mov	x3, #0x0                // =0
+       8: 52800042     	mov	w2, #0x2                // =2
+       c: 910003fd     	mov	x29, sp
+      10: a90153f3     	stp	x19, x20, [sp, #0x10]
+      14: 2a0003f3     	mov	w19, w0
+      18: 52800e80     	mov	w0, #0x74               // =116
+      1c: 52800021     	mov	w1, #0x1                // =1
+      20: 72a3f600     	movk	w0, #0x1fb0, lsl #16
+      24: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      28: a90363f7     	stp	x23, x24, [sp, #0x30]
+      2c: f90023f9     	str	x25, [sp, #0x40]
+      30: 94000000     	bl	0x30 <Enter_SelfRefresh_api+0x30>
+		0000000000000030:  R_AARCH64_CALL26	WRITE_RG_FLD
+      34: 2a1303e1     	mov	w1, w19
+      38: 90000000     	adrp	x0, 0x0 <Enter_SelfRefresh_api>
+		0000000000000038:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.Enter_SelfRefresh_api.str1.1
+      3c: 91000000     	add	x0, x0, #0x0
+		000000000000003c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.Enter_SelfRefresh_api.str1.1
+      40: 94000000     	bl	0x40 <Enter_SelfRefresh_api+0x40>
+		0000000000000040:  R_AARCH64_CALL26	printf
+      44: d2801180     	mov	x0, #0x8c               // =140
+      48: f2a3f600     	movk	x0, #0x1fb0, lsl #16
+      4c: b9400015     	ldr	w21, [x0]
+      50: 2a1503e1     	mov	w1, w21
+      54: b9400415     	ldr	w21, [x0, #0x4]
+      58: b9400014     	ldr	w20, [x0]
+      5c: aa158035     	orr	x21, x1, x21, lsl #32
+      60: 2a1403e1     	mov	w1, w20
+      64: b9400414     	ldr	w20, [x0, #0x4]
+      68: d2828200     	mov	x0, #0x1410             // =5136
+      6c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      70: aa148034     	orr	x20, x1, x20, lsl #32
+      74: d2980201     	mov	x1, #0xc010             // =49168
+      78: f2a3f941     	movk	x1, #0x1fca, lsl #16
+      7c: f9400017     	ldr	x23, [x0]
+      80: f9400039     	ldr	x25, [x1]
+      84: d35452f7     	ubfx	x23, x23, #20, #1
+      88: 6b17027f     	cmp	w19, w23
+      8c: 54000341     	b.ne	0xf4 <Enter_SelfRefresh_api+0xf4>
+      90: 7100067f     	cmp	w19, #0x1
+      94: d2800023     	mov	x3, #0x1                // =1
+      98: 52800042     	mov	w2, #0x2                // =2
+      9c: 540001e1     	b.ne	0xd8 <Enter_SelfRefresh_api+0xd8>
+      a0: 52800e80     	mov	w0, #0x74               // =116
+      a4: 2a1303e1     	mov	w1, w19
+      a8: 72a3f600     	movk	w0, #0x1fb0, lsl #16
+      ac: 94000000     	bl	0xac <Enter_SelfRefresh_api+0xac>
+		00000000000000ac:  R_AARCH64_CALL26	WRITE_RG_FLD
+      b0: 90000000     	adrp	x0, 0x0 <Enter_SelfRefresh_api>
+		00000000000000b0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.Enter_SelfRefresh_api.str1.1+0x22
+      b4: 91000000     	add	x0, x0, #0x0
+		00000000000000b4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.Enter_SelfRefresh_api.str1.1+0x22
+      b8: 94000000     	bl	0xb8 <Enter_SelfRefresh_api+0xb8>
+		00000000000000b8:  R_AARCH64_CALL26	printf
+      bc: 52800040     	mov	w0, #0x2                // =2
+      c0: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      c4: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      c8: a94363f7     	ldp	x23, x24, [sp, #0x30]
+      cc: f94023f9     	ldr	x25, [sp, #0x40]
+      d0: a8c57bfd     	ldp	x29, x30, [sp], #0x50
+      d4: d65f03c0     	ret
+      d8: 52800e80     	mov	w0, #0x74               // =116
+      dc: 2a0303e1     	mov	w1, w3
+      e0: 72a3f600     	movk	w0, #0x1fb0, lsl #16
+      e4: 94000000     	bl	0xe4 <Enter_SelfRefresh_api+0xe4>
+		00000000000000e4:  R_AARCH64_CALL26	WRITE_RG_FLD
+      e8: 90000000     	adrp	x0, 0x0 <Enter_SelfRefresh_api>
+		00000000000000e8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.Enter_SelfRefresh_api.str1.1+0x5a
+      ec: 91000000     	add	x0, x0, #0x0
+		00000000000000ec:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.Enter_SelfRefresh_api.str1.1+0x5a
+      f0: 17fffff2     	b	0xb8 <Enter_SelfRefresh_api+0xb8>
+      f4: 2a1303e3     	mov	w3, w19
+      f8: 52800282     	mov	w2, #0x14               // =20
+      fc: 52800021     	mov	w1, #0x1                // =1
+     100: 94000000     	bl	0x100 <Enter_SelfRefresh_api+0x100>
+		0000000000000100:  R_AARCH64_CALL26	WRITE_RG_FLD
+     104: 52800020     	mov	w0, #0x1                // =1
+     108: d2800818     	mov	x24, #0x40              // =64
+     10c: 94000000     	bl	0x10c <Enter_SelfRefresh_api+0x10c>
+		000000000000010c:  R_AARCH64_CALL26	HW_AUTO_SREF_IDLE_TIME
+     110: f2a3f618     	movk	x24, #0x1fb0, lsl #16
+     114: 94000000     	bl	0x114 <Enter_SelfRefresh_api+0x114>
+		0000000000000114:  R_AARCH64_CALL26	HW_AUTO_SREF_SETTING
+     118: 52800000     	mov	w0, #0x0                // =0
+     11c: 94000000     	bl	0x11c <Enter_SelfRefresh_api+0x11c>
+		000000000000011c:  R_AARCH64_CALL26	DVFS_MEM_CK_MUX
+     120: 52807d00     	mov	w0, #0x3e8              // =1000
+     124: 94000000     	bl	0x124 <Enter_SelfRefresh_api+0x124>
+		0000000000000124:  R_AARCH64_CALL26	udelay
+     128: d2800003     	mov	x3, #0x0                // =0
+     12c: 52800062     	mov	w2, #0x3                // =3
+     130: 52800021     	mov	w1, #0x1                // =1
+     134: 5282d080     	mov	w0, #0x1684             // =5764
+     138: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     13c: 94000000     	bl	0x13c <Enter_SelfRefresh_api+0x13c>
+		000000000000013c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     140: 52800020     	mov	w0, #0x1                // =1
+     144: f9400316     	ldr	x22, [x24]
+     148: 94000000     	bl	0x148 <Enter_SelfRefresh_api+0x148>
+		0000000000000148:  R_AARCH64_CALL26	HW_AUTO_SREF_ONOFF
+     14c: 52807d00     	mov	w0, #0x3e8              // =1000
+     150: 94000000     	bl	0x150 <Enter_SelfRefresh_api+0x150>
+		0000000000000150:  R_AARCH64_CALL26	udelay
+     154: f9400318     	ldr	x24, [x24]
+     158: d378fed6     	lsr	x22, x22, #56
+     15c: f103fedf     	cmp	x22, #0xff
+     160: 540003e0     	b.eq	0x1dc <Enter_SelfRefresh_api+0x1dc>
+     164: d378ff18     	lsr	x24, x24, #56
+     168: 51000700     	sub	w0, w24, #0x1
+     16c: 6b16001f     	cmp	w0, w22
+     170: 54000360     	b.eq	0x1dc <Enter_SelfRefresh_api+0x1dc>
+     174: 90000000     	adrp	x0, 0x0 <Enter_SelfRefresh_api>
+		0000000000000174:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.Enter_SelfRefresh_api.str1.1+0x95
+     178: 91000000     	add	x0, x0, #0x0
+		0000000000000178:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.Enter_SelfRefresh_api.str1.1+0x95
+     17c: 94000000     	bl	0x17c <Enter_SelfRefresh_api+0x17c>
+		000000000000017c:  R_AARCH64_CALL26	printf
+     180: 90000000     	adrp	x0, 0x0 <Enter_SelfRefresh_api>
+		0000000000000180:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.Enter_SelfRefresh_api.str1.1+0xb5
+     184: 2a1803e2     	mov	w2, w24
+     188: 2a1603e1     	mov	w1, w22
+     18c: 91000000     	add	x0, x0, #0x0
+		000000000000018c:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.Enter_SelfRefresh_api.str1.1+0xb5
+     190: 94000000     	bl	0x190 <Enter_SelfRefresh_api+0x190>
+		0000000000000190:  R_AARCH64_CALL26	printf
+     194: 52800000     	mov	w0, #0x0                // =0
+     198: 94000000     	bl	0x198 <Enter_SelfRefresh_api+0x198>
+		0000000000000198:  R_AARCH64_CALL26	HW_AUTO_SREF_ONOFF
+     19c: 5282d080     	mov	w0, #0x1684             // =5764
+     1a0: d2800023     	mov	x3, #0x1                // =1
+     1a4: 52800062     	mov	w2, #0x3                // =3
+     1a8: 2a0303e1     	mov	w1, w3
+     1ac: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     1b0: 94000000     	bl	0x1b0 <Enter_SelfRefresh_api+0x1b0>
+		00000000000001b0:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1b4: d2800023     	mov	x3, #0x1                // =1
+     1b8: 2a0303e1     	mov	w1, w3
+     1bc: 52800042     	mov	w2, #0x2                // =2
+     1c0: 52800e80     	mov	w0, #0x74               // =116
+     1c4: 72a3f600     	movk	w0, #0x1fb0, lsl #16
+     1c8: 94000000     	bl	0x1c8 <Enter_SelfRefresh_api+0x1c8>
+		00000000000001c8:  R_AARCH64_CALL26	WRITE_RG_FLD
+     1cc: 52800020     	mov	w0, #0x1                // =1
+     1d0: 94000000     	bl	0x1d0 <Enter_SelfRefresh_api+0x1d0>
+		00000000000001d0:  R_AARCH64_CALL26	DVFS_MEM_CK_MUX
+     1d4: 52800020     	mov	w0, #0x1                // =1
+     1d8: 17ffffba     	b	0xc0 <Enter_SelfRefresh_api+0xc0>
+     1dc: 530516b5     	ubfx	w21, w21, #5, #1
+     1e0: 53061a94     	ubfx	w20, w20, #6, #1
+     1e4: d3608338     	ubfx	x24, x25, #32, #1
+     1e8: b60000d9     	tbz	x25, #0x20, 0x200 <Enter_SelfRefresh_api+0x200>
+     1ec: 2a1703e2     	mov	w2, w23
+     1f0: 2a1403e1     	mov	w1, w20
+     1f4: 2a1503e0     	mov	w0, w21
+     1f8: 52800003     	mov	w3, #0x0                // =0
+     1fc: 94000000     	bl	0x1fc <Enter_SelfRefresh_api+0x1fc>
+		00000000000001fc:  R_AARCH64_CALL26	SwitchSynthPLLSSC
+     200: 2a1303e2     	mov	w2, w19
+     204: 2a1403e1     	mov	w1, w20
+     208: 2a1503e0     	mov	w0, w21
+     20c: 94000000     	bl	0x20c <Enter_SelfRefresh_api+0x20c>
+		000000000000020c:  R_AARCH64_CALL26	StepSynthPLL
+     210: 12001c16     	and	w22, w0, #0xff
+     214: b40000d8     	cbz	x24, 0x22c <Enter_SelfRefresh_api+0x22c>
+     218: 2a1303e2     	mov	w2, w19
+     21c: 2a1403e1     	mov	w1, w20
+     220: 2a1503e0     	mov	w0, w21
+     224: 52800023     	mov	w3, #0x1                // =1
+     228: 94000000     	bl	0x228 <Enter_SelfRefresh_api+0x228>
+		0000000000000228:  R_AARCH64_CALL26	SwitchSynthPLLSSC
+     22c: 710012df     	cmp	w22, #0x4
+     230: 540000a0     	b.eq	0x244 <Enter_SelfRefresh_api+0x244>
+     234: 90000000     	adrp	x0, 0x0 <Enter_SelfRefresh_api>
+		0000000000000234:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.Enter_SelfRefresh_api.str1.1+0xce
+     238: 91000000     	add	x0, x0, #0x0
+		0000000000000238:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.Enter_SelfRefresh_api.str1.1+0xce
+     23c: 94000000     	bl	0x23c <Enter_SelfRefresh_api+0x23c>
+		000000000000023c:  R_AARCH64_CALL26	printf
+     240: 17ffffd5     	b	0x194 <Enter_SelfRefresh_api+0x194>
+     244: 94000000     	bl	0x244 <Enter_SelfRefresh_api+0x244>
+		0000000000000244:  R_AARCH64_CALL26	APPLY_DRAM_K_RESULT
+     248: 52800000     	mov	w0, #0x0                // =0
+     24c: 94000000     	bl	0x24c <Enter_SelfRefresh_api+0x24c>
+		000000000000024c:  R_AARCH64_CALL26	HW_AUTO_SREF_ONOFF
+     250: 52800040     	mov	w0, #0x2                // =2
+     254: 94000000     	bl	0x254 <Enter_SelfRefresh_api+0x254>
+		0000000000000254:  R_AARCH64_CALL26	udelay
+     258: 5282d080     	mov	w0, #0x1684             // =5764
+     25c: d2800023     	mov	x3, #0x1                // =1
+     260: 52800062     	mov	w2, #0x3                // =3
+     264: 2a0303e1     	mov	w1, w3
+     268: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+     26c: 94000000     	bl	0x26c <Enter_SelfRefresh_api+0x26c>
+		000000000000026c:  R_AARCH64_CALL26	WRITE_RG_FLD
+     270: 34000115     	cbz	w21, 0x290 <Enter_SelfRefresh_api+0x290>
+     274: 7100067f     	cmp	w19, #0x1
+     278: 54000261     	b.ne	0x2c4 <Enter_SelfRefresh_api+0x2c4>
+     27c: 90000000     	adrp	x0, 0x0 <Enter_SelfRefresh_api>
+		000000000000027c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Tx_vref_K_result_rg_rk1
+     280: 39400002     	ldrb	w2, [x0]
+		0000000000000280:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.Tx_vref_K_result_rg_rk1
+     284: 2a1403e0     	mov	w0, w20
+     288: 52800001     	mov	w1, #0x0                // =0
+     28c: 94000000     	bl	0x28c <Enter_SelfRefresh_api+0x28c>
+		000000000000028c:  R_AARCH64_CALL26	.text.SetTXVref_SREF.part.0
+     290: 52800020     	mov	w0, #0x1                // =1
+     294: 94000000     	bl	0x294 <Enter_SelfRefresh_api+0x294>
+		0000000000000294:  R_AARCH64_CALL26	DVFS_MEM_CK_MUX
+     298: d2800023     	mov	x3, #0x1                // =1
+     29c: 2a0303e1     	mov	w1, w3
+     2a0: 52800042     	mov	w2, #0x2                // =2
+     2a4: 52800e80     	mov	w0, #0x74               // =116
+     2a8: 72a3f600     	movk	w0, #0x1fb0, lsl #16
+     2ac: 94000000     	bl	0x2ac <Enter_SelfRefresh_api+0x2ac>
+		00000000000002ac:  R_AARCH64_CALL26	WRITE_RG_FLD
+     2b0: 90000000     	adrp	x0, 0x0 <Enter_SelfRefresh_api>
+		00000000000002b0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.Enter_SelfRefresh_api.str1.1+0xf0
+     2b4: 91000000     	add	x0, x0, #0x0
+		00000000000002b4:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.Enter_SelfRefresh_api.str1.1+0xf0
+     2b8: 94000000     	bl	0x2b8 <Enter_SelfRefresh_api+0x2b8>
+		00000000000002b8:  R_AARCH64_CALL26	printf
+     2bc: 52800000     	mov	w0, #0x0                // =0
+     2c0: 17ffff80     	b	0xc0 <Enter_SelfRefresh_api+0xc0>
+     2c4: 90000000     	adrp	x0, 0x0 <Enter_SelfRefresh_api>
+		00000000000002c4:  R_AARCH64_ADR_PREL_PG_HI21	.bss.Tx_vref_K_result_rg_rk0
+     2c8: 39400002     	ldrb	w2, [x0]
+		00000000000002c8:  R_AARCH64_LDST8_ABS_LO12_NC	.bss.Tx_vref_K_result_rg_rk0
+     2cc: 17ffffee     	b	0x284 <Enter_SelfRefresh_api+0x284>
+
+Disassembly of section .text.TX_DQ_delay_shift:
+
+0000000000000000 <TX_DQ_delay_shift>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 2a0103e2     	mov	w2, w1
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: 12001c14     	and	w20, w0, #0xff
+      14: 2a0103f3     	mov	w19, w1
+      18: 90000000     	adrp	x0, 0x0 <TX_DQ_delay_shift>
+		0000000000000018:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.TX_DQ_delay_shift.str1.1
+      1c: 2a1403e1     	mov	w1, w20
+      20: 91000000     	add	x0, x0, #0x0
+		0000000000000020:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.TX_DQ_delay_shift.str1.1
+      24: f90013f5     	str	x21, [sp, #0x20]
+      28: 94000000     	bl	0x28 <TX_DQ_delay_shift+0x28>
+		0000000000000028:  R_AARCH64_CALL26	printf
+      2c: 71000e9f     	cmp	w20, #0x3
+      30: 540002a8     	b.hi	0x84 <TX_DQ_delay_shift+0x84>
+      34: 531d7282     	lsl	w2, w20, #3
+      38: d2953c00     	mov	x0, #0xa9e0             // =43488
+      3c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      40: 93407e84     	sxtw	x4, w20
+      44: 90000001     	adrp	x1, 0x0 <TX_DQ_delay_shift>
+		0000000000000044:  R_AARCH64_ADR_PREL_PG_HI21	.bss.TX_dly_ADD
+      48: 91000021     	add	x1, x1, #0x0
+		0000000000000048:  R_AARCH64_ADD_ABS_LO12_NC	.bss.TX_dly_ADD
+      4c: f9400015     	ldr	x21, [x0]
+      50: d2801fe3     	mov	x3, #0xff               // =255
+      54: 9ac22063     	lsl	x3, x3, x2
+      58: 8a150063     	and	x3, x3, x21
+      5c: b8647835     	ldr	w21, [x1, x4, lsl #2]
+      60: 4b150275     	sub	w21, w19, w21
+      64: 9ac22463     	lsr	x3, x3, x2
+      68: 0b0302b5     	add	w21, w21, w3
+      6c: 7103febf     	cmp	w21, #0xff
+      70: 54000888     	b.hi	0x180 <TX_DQ_delay_shift+0x180>
+      74: 93407ea3     	sxtw	x3, w21
+      78: b8247833     	str	w19, [x1, x4, lsl #2]
+      7c: 52800101     	mov	w1, #0x8                // =8
+      80: 1400001b     	b	0xec <TX_DQ_delay_shift+0xec>
+      84: 51001282     	sub	w2, w20, #0x4
+      88: 12001c40     	and	w0, w2, #0xff
+      8c: 71000c1f     	cmp	w0, #0x3
+      90: 54000368     	b.hi	0xfc <TX_DQ_delay_shift+0xfc>
+      94: d2953c00     	mov	x0, #0xa9e0             // =43488
+      98: 531d7042     	lsl	w2, w2, #3
+      9c: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+      a0: 11008055     	add	w21, w2, #0x20
+      a4: d2801fe3     	mov	x3, #0xff               // =255
+      a8: 93407e81     	sxtw	x1, w20
+      ac: f9400000     	ldr	x0, [x0]
+      b0: 9ad52063     	lsl	x3, x3, x21
+      b4: 8a000063     	and	x3, x3, x0
+      b8: 90000000     	adrp	x0, 0x0 <TX_DQ_delay_shift>
+		00000000000000b8:  R_AARCH64_ADR_PREL_PG_HI21	.bss.TX_dly_ADD
+      bc: 91000000     	add	x0, x0, #0x0
+		00000000000000bc:  R_AARCH64_ADD_ABS_LO12_NC	.bss.TX_dly_ADD
+      c0: 9ad52463     	lsr	x3, x3, x21
+      c4: b8617815     	ldr	w21, [x0, x1, lsl #2]
+      c8: 4b150275     	sub	w21, w19, w21
+      cc: 0b0302b5     	add	w21, w21, w3
+      d0: 7103febf     	cmp	w21, #0xff
+      d4: 54000568     	b.hi	0x180 <TX_DQ_delay_shift+0x180>
+      d8: 93407ea3     	sxtw	x3, w21
+      dc: b8217813     	str	w19, [x0, x1, lsl #2]
+      e0: 52800101     	mov	w1, #0x8                // =8
+      e4: 52953c80     	mov	w0, #0xa9e4             // =43492
+      e8: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      ec: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      f0: f94013f5     	ldr	x21, [sp, #0x20]
+      f4: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      f8: 14000000     	b	0xf8 <TX_DQ_delay_shift+0xf8>
+		00000000000000f8:  R_AARCH64_JUMP26	WRITE_RG_FLD
+      fc: 51002282     	sub	w2, w20, #0x8
+     100: 12001c40     	and	w0, w2, #0xff
+     104: 71000c1f     	cmp	w0, #0x3
+     108: 54000088     	b.hi	0x118 <TX_DQ_delay_shift+0x118>
+     10c: 531d7042     	lsl	w2, w2, #3
+     110: d2954c00     	mov	x0, #0xaa60             // =43616
+     114: 17ffffca     	b	0x3c <TX_DQ_delay_shift+0x3c>
+     118: 51003282     	sub	w2, w20, #0xc
+     11c: 12001c40     	and	w0, w2, #0xff
+     120: 71000c1f     	cmp	w0, #0x3
+     124: 54000448     	b.hi	0x1ac <TX_DQ_delay_shift+0x1ac>
+     128: d2954c00     	mov	x0, #0xaa60             // =43616
+     12c: 531d7042     	lsl	w2, w2, #3
+     130: f2a3f900     	movk	x0, #0x1fc8, lsl #16
+     134: 11008055     	add	w21, w2, #0x20
+     138: d2801fe3     	mov	x3, #0xff               // =255
+     13c: 93407e81     	sxtw	x1, w20
+     140: f9400000     	ldr	x0, [x0]
+     144: 9ad52063     	lsl	x3, x3, x21
+     148: 8a000063     	and	x3, x3, x0
+     14c: 90000000     	adrp	x0, 0x0 <TX_DQ_delay_shift>
+		000000000000014c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.TX_dly_ADD
+     150: 91000000     	add	x0, x0, #0x0
+		0000000000000150:  R_AARCH64_ADD_ABS_LO12_NC	.bss.TX_dly_ADD
+     154: 9ad52463     	lsr	x3, x3, x21
+     158: b8617815     	ldr	w21, [x0, x1, lsl #2]
+     15c: 4b150275     	sub	w21, w19, w21
+     160: 0b0302b5     	add	w21, w21, w3
+     164: 7103febf     	cmp	w21, #0xff
+     168: 540000c8     	b.hi	0x180 <TX_DQ_delay_shift+0x180>
+     16c: 93407ea3     	sxtw	x3, w21
+     170: b8217813     	str	w19, [x0, x1, lsl #2]
+     174: 52800101     	mov	w1, #0x8                // =8
+     178: 52954c80     	mov	w0, #0xaa64             // =43620
+     17c: 17ffffdb     	b	0xe8 <TX_DQ_delay_shift+0xe8>
+     180: 90000000     	adrp	x0, 0x0 <TX_DQ_delay_shift>
+		0000000000000180:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.TX_DQ_delay_shift.str1.1+0x1b
+     184: 91000000     	add	x0, x0, #0x0
+		0000000000000184:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.TX_DQ_delay_shift.str1.1+0x1b
+     188: 94000000     	bl	0x188 <TX_DQ_delay_shift+0x188>
+		0000000000000188:  R_AARCH64_CALL26	printf
+     18c: 4b1302a2     	sub	w2, w21, w19
+     190: 2a1403e1     	mov	w1, w20
+     194: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     198: 90000000     	adrp	x0, 0x0 <TX_DQ_delay_shift>
+		0000000000000198:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.TX_DQ_delay_shift.str1.1+0x3e
+     19c: f94013f5     	ldr	x21, [sp, #0x20]
+     1a0: 91000000     	add	x0, x0, #0x0
+		00000000000001a0:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.TX_DQ_delay_shift.str1.1+0x3e
+     1a4: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     1a8: 14000000     	b	0x1a8 <TX_DQ_delay_shift+0x1a8>
+		00000000000001a8:  R_AARCH64_JUMP26	printf
+     1ac: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     1b0: f94013f5     	ldr	x21, [sp, #0x20]
+     1b4: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     1b8: d65f03c0     	ret
+
+Disassembly of section .text.RX_DQ_delay_shift:
+
+0000000000000000 <RX_DQ_delay_shift>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 2a0103e2     	mov	w2, w1
+       8: 910003fd     	mov	x29, sp
+       c: a90153f3     	stp	x19, x20, [sp, #0x10]
+      10: 12001c13     	and	w19, w0, #0xff
+      14: 90000000     	adrp	x0, 0x0 <RX_DQ_delay_shift>
+		0000000000000014:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.RX_DQ_delay_shift.str1.1
+      18: 91000000     	add	x0, x0, #0x0
+		0000000000000018:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.RX_DQ_delay_shift.str1.1
+      1c: f90013f5     	str	x21, [sp, #0x20]
+      20: 2a0103f5     	mov	w21, w1
+      24: 2a1303e1     	mov	w1, w19
+      28: 94000000     	bl	0x28 <RX_DQ_delay_shift+0x28>
+		0000000000000028:  R_AARCH64_CALL26	printf
+      2c: 71001e7f     	cmp	w19, #0x7
+      30: 54000388     	b.hi	0xa0 <RX_DQ_delay_shift+0xa0>
+      34: 53017e64     	lsr	w4, w19, #1
+      38: 52953f00     	mov	w0, #0xa9f8             // =43512
+      3c: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      40: 0b040804     	add	w4, w0, w4, lsl #2
+      44: 531c0265     	ubfiz	w5, w19, #4, #1
+      48: 52800101     	mov	w1, #0x8                // =8
+      4c: 2a0503e2     	mov	w2, w5
+      50: 2a0403e0     	mov	w0, w4
+      54: 94000000     	bl	0x54 <RX_DQ_delay_shift+0x54>
+		0000000000000054:  R_AARCH64_CALL26	READ_RG_FLD
+      58: 93407e66     	sxtw	x6, w19
+      5c: 90000001     	adrp	x1, 0x0 <RX_DQ_delay_shift>
+		000000000000005c:  R_AARCH64_ADR_PREL_PG_HI21	.bss.RX_dly_ADD
+      60: 91000021     	add	x1, x1, #0x0
+		0000000000000060:  R_AARCH64_ADD_ABS_LO12_NC	.bss.RX_dly_ADD
+      64: b8667834     	ldr	w20, [x1, x6, lsl #2]
+      68: 4b1402b4     	sub	w20, w21, w20
+      6c: 0b000294     	add	w20, w20, w0
+      70: 7103fe9f     	cmp	w20, #0xff
+      74: 540002a8     	b.hi	0xc8 <RX_DQ_delay_shift+0xc8>
+      78: 2a142294     	orr	w20, w20, w20, lsl #8
+      7c: b8267835     	str	w21, [x1, x6, lsl #2]
+      80: f94013f5     	ldr	x21, [sp, #0x20]
+      84: 93407e83     	sxtw	x3, w20
+      88: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      8c: 2a0503e2     	mov	w2, w5
+      90: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      94: 2a0403e0     	mov	w0, w4
+      98: 52800201     	mov	w1, #0x10               // =16
+      9c: 14000000     	b	0x9c <RX_DQ_delay_shift+0x9c>
+		000000000000009c:  R_AARCH64_JUMP26	WRITE_RG_FLD
+      a0: 51002260     	sub	w0, w19, #0x8
+      a4: 12001c00     	and	w0, w0, #0xff
+      a8: 71001c1f     	cmp	w0, #0x7
+      ac: 54000248     	b.hi	0xf4 <RX_DQ_delay_shift+0xf4>
+      b0: 13017e64     	asr	w4, w19, #1
+      b4: 52954f00     	mov	w0, #0xaa78             // =43640
+      b8: 72a3f900     	movk	w0, #0x1fc8, lsl #16
+      bc: 531e0484     	ubfiz	w4, w4, #2, #2
+      c0: 0b000084     	add	w4, w4, w0
+      c4: 17ffffe0     	b	0x44 <RX_DQ_delay_shift+0x44>
+      c8: 90000000     	adrp	x0, 0x0 <RX_DQ_delay_shift>
+		00000000000000c8:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.TX_DQ_delay_shift.str1.1+0x1b
+      cc: 91000000     	add	x0, x0, #0x0
+		00000000000000cc:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.TX_DQ_delay_shift.str1.1+0x1b
+      d0: 94000000     	bl	0xd0 <RX_DQ_delay_shift+0xd0>
+		00000000000000d0:  R_AARCH64_CALL26	printf
+      d4: 4b150282     	sub	w2, w20, w21
+      d8: 2a1303e1     	mov	w1, w19
+      dc: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      e0: 90000000     	adrp	x0, 0x0 <RX_DQ_delay_shift>
+		00000000000000e0:  R_AARCH64_ADR_PREL_PG_HI21	.rodata.TX_DQ_delay_shift.str1.1+0x3e
+      e4: f94013f5     	ldr	x21, [sp, #0x20]
+      e8: 91000000     	add	x0, x0, #0x0
+		00000000000000e8:  R_AARCH64_ADD_ABS_LO12_NC	.rodata.TX_DQ_delay_shift.str1.1+0x3e
+      ec: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      f0: 14000000     	b	0xf0 <RX_DQ_delay_shift+0xf0>
+		00000000000000f0:  R_AARCH64_JUMP26	printf
+      f4: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      f8: f94013f5     	ldr	x21, [sp, #0x20]
+      fc: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+     100: d65f03c0     	ret

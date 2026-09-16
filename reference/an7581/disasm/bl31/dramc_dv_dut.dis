@@ -1,0 +1,310 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl31/dramc_dv_dut.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.DramcDUTTopSet:
+
+0000000000000000 <DramcDUTTopSet>:
+       0: a9bc7bfd     	stp	x29, x30, [sp, #-0x40]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f4     	mov	x20, x0
+      10: b9401800     	ldr	w0, [x0, #0x18]
+      14: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      18: 71000c1f     	cmp	w0, #0x3
+      1c: f9001bf7     	str	x23, [sp, #0x30]
+      20: 54001701     	b.ne	0x300 <DramcDUTTopSet+0x300>
+      24: 52800200     	mov	w0, #0x10               // =16
+      28: b9004680     	str	w0, [x20, #0x44]
+      2c: 90000001     	adrp	x1, 0x0 <DramcDUTTopSet>
+		000000000000002c:  R_AARCH64_ADR_PREL_PG_HI21	MEM_TYPE
+      30: 90000017     	adrp	x23, 0x0 <DramcDUTTopSet>
+		0000000000000030:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+      34: 91000020     	add	x0, x1, #0x0
+		0000000000000034:  R_AARCH64_ADD_ABS_LO12_NC	MEM_TYPE
+      38: 910002f3     	add	x19, x23, #0x0
+		0000000000000038:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+      3c: 39400021     	ldrb	w1, [x1]
+		000000000000003c:  R_AARCH64_LDST8_ABS_LO12_NC	MEM_TYPE
+      40: 52800056     	mov	w22, #0x2               // =2
+      44: 52800095     	mov	w21, #0x4               // =4
+      48: 3902c67f     	strb	wzr, [x19, #0xb1]
+      4c: 3902ca7f     	strb	wzr, [x19, #0xb2]
+      50: 3902de61     	strb	w1, [x19, #0xb7]
+      54: 39400401     	ldrb	w1, [x0, #0x1]
+      58: 3902e261     	strb	w1, [x19, #0xb8]
+      5c: 39400801     	ldrb	w1, [x0, #0x2]
+      60: 39400c00     	ldrb	w0, [x0, #0x3]
+      64: 3902ea60     	strb	w0, [x19, #0xba]
+      68: b9400a80     	ldr	w0, [x20, #0x8]
+      6c: 3900227f     	strb	wzr, [x19, #0x8]
+      70: 7100041f     	cmp	w0, #0x1
+      74: 39028a7f     	strb	wzr, [x19, #0xa2]
+      78: 1a9f17e0     	cset	w0, eq
+      7c: 39028e7f     	strb	wzr, [x19, #0xa3]
+      80: 3902927f     	strb	wzr, [x19, #0xa4]
+      84: 3902967f     	strb	wzr, [x19, #0xa5]
+      88: 3902a27f     	strb	wzr, [x19, #0xa8]
+      8c: 3902a67f     	strb	wzr, [x19, #0xa9]
+      90: 3902ae7f     	strb	wzr, [x19, #0xab]
+      94: 3902b27f     	strb	wzr, [x19, #0xac]
+      98: 3902b67f     	strb	wzr, [x19, #0xad]
+      9c: 3902be7f     	strb	wzr, [x19, #0xaf]
+      a0: 3902c260     	strb	w0, [x19, #0xb0]
+      a4: 52800020     	mov	w0, #0x1                // =1
+      a8: 39028660     	strb	w0, [x19, #0xa1]
+      ac: 39029a60     	strb	w0, [x19, #0xa6]
+      b0: 39029e60     	strb	w0, [x19, #0xa7]
+      b4: 3902aa60     	strb	w0, [x19, #0xaa]
+      b8: 3902ba60     	strb	w0, [x19, #0xae]
+      bc: 3902ce7f     	strb	wzr, [x19, #0xb3]
+      c0: 3902d27f     	strb	wzr, [x19, #0xb4]
+      c4: 3902d67f     	strb	wzr, [x19, #0xb5]
+      c8: 3902da7f     	strb	wzr, [x19, #0xb6]
+      cc: 3902e661     	strb	w1, [x19, #0xb9]
+      d0: 52800101     	mov	w1, #0x8                // =8
+      d4: 3902827f     	strb	wzr, [x19, #0xa0]
+      d8: 39022e60     	strb	w0, [x19, #0x8b]
+      dc: 39023a60     	strb	w0, [x19, #0x8e]
+      e0: 39024e60     	strb	w0, [x19, #0x93]
+      e4: 39027660     	strb	w0, [x19, #0x9d]
+      e8: 39027a60     	strb	w0, [x19, #0x9e]
+      ec: 39027e60     	strb	w0, [x19, #0x9f]
+      f0: 52800060     	mov	w0, #0x3                // =3
+      f4: 39021a60     	strb	w0, [x19, #0x86]
+      f8: aa1403e0     	mov	x0, x20
+      fc: 39021e7f     	strb	wzr, [x19, #0x87]
+     100: 3902227f     	strb	wzr, [x19, #0x88]
+     104: 3902267f     	strb	wzr, [x19, #0x89]
+     108: 39022a7f     	strb	wzr, [x19, #0x8a]
+     10c: 3902327f     	strb	wzr, [x19, #0x8c]
+     110: 3902367f     	strb	wzr, [x19, #0x8d]
+     114: 39023e7f     	strb	wzr, [x19, #0x8f]
+     118: 3902427f     	strb	wzr, [x19, #0x90]
+     11c: 3902467f     	strb	wzr, [x19, #0x91]
+     120: 39024a7f     	strb	wzr, [x19, #0x92]
+     124: 3902527f     	strb	wzr, [x19, #0x94]
+     128: 3902567f     	strb	wzr, [x19, #0x95]
+     12c: 39025a7f     	strb	wzr, [x19, #0x96]
+     130: 39025e7f     	strb	wzr, [x19, #0x97]
+     134: 3902627f     	strb	wzr, [x19, #0x98]
+     138: 39026661     	strb	w1, [x19, #0x99]
+     13c: 39026a7f     	strb	wzr, [x19, #0x9a]
+     140: 39026e75     	strb	w21, [x19, #0x9b]
+     144: 39027276     	strb	w22, [x19, #0x9c]
+     148: 94000000     	bl	0x148 <DramcDUTTopSet+0x148>
+		0000000000000148:  R_AARCH64_CALL26	is_ddr4_family
+     14c: 72001c1f     	tst	w0, #0xff
+     150: 540000e0     	b.eq	0x16c <DramcDUTTopSet+0x16c>
+     154: 90000000     	adrp	x0, 0x0 <DramcDUTTopSet>
+		0000000000000154:  R_AARCH64_ADR_PREL_PG_HI21	pkg_type
+     158: b9400000     	ldr	w0, [x0]
+		0000000000000158:  R_AARCH64_LDST32_ABS_LO12_NC	pkg_type
+     15c: 7100041f     	cmp	w0, #0x1
+     160: 54000e41     	b.ne	0x328 <DramcDUTTopSet+0x328>
+     164: 39021276     	strb	w22, [x19, #0x84]
+     168: 39021676     	strb	w22, [x19, #0x85]
+     16c: aa1403e0     	mov	x0, x20
+     170: 94000000     	bl	0x170 <DramcDUTTopSet+0x170>
+		0000000000000170:  R_AARCH64_CALL26	is_ddr3_family
+     174: 72001c1f     	tst	w0, #0xff
+     178: 540000e0     	b.eq	0x194 <DramcDUTTopSet+0x194>
+     17c: 90000000     	adrp	x0, 0x0 <DramcDUTTopSet>
+		000000000000017c:  R_AARCH64_ADR_PREL_PG_HI21	pkg_type
+     180: b9400000     	ldr	w0, [x0]
+		0000000000000180:  R_AARCH64_LDST32_ABS_LO12_NC	pkg_type
+     184: 7100041f     	cmp	w0, #0x1
+     188: 54000d61     	b.ne	0x334 <DramcDUTTopSet+0x334>
+     18c: 39021260     	strb	w0, [x19, #0x84]
+     190: 39021660     	strb	w0, [x19, #0x85]
+     194: 52800020     	mov	w0, #0x1                // =1
+     198: 3901e27f     	strb	wzr, [x19, #0x78]
+     19c: 3901e67f     	strb	wzr, [x19, #0x79]
+     1a0: 3901ea60     	strb	w0, [x19, #0x7a]
+     1a4: aa1403e0     	mov	x0, x20
+     1a8: 3901ee7f     	strb	wzr, [x19, #0x7b]
+     1ac: 3901f27f     	strb	wzr, [x19, #0x7c]
+     1b0: 3901f67f     	strb	wzr, [x19, #0x7d]
+     1b4: 3901fa7f     	strb	wzr, [x19, #0x7e]
+     1b8: 3901fe7f     	strb	wzr, [x19, #0x7f]
+     1bc: 3902027f     	strb	wzr, [x19, #0x80]
+     1c0: 3902067f     	strb	wzr, [x19, #0x81]
+     1c4: 39020a7f     	strb	wzr, [x19, #0x82]
+     1c8: 39020e7f     	strb	wzr, [x19, #0x83]
+     1cc: 94000000     	bl	0x1cc <DramcDUTTopSet+0x1cc>
+		00000000000001cc:  R_AARCH64_CALL26	is_ddr4_family
+     1d0: 72001c00     	ands	w0, w0, #0xff
+     1d4: 54000080     	b.eq	0x1e4 <DramcDUTTopSet+0x1e4>
+     1d8: b9404680     	ldr	w0, [x20, #0x44]
+     1dc: 7100801f     	cmp	w0, #0x20
+     1e0: 1a9f17e0     	cset	w0, eq
+     1e4: 39015e7f     	strb	wzr, [x19, #0x57]
+     1e8: 52800aa1     	mov	w1, #0x55               // =85
+     1ec: 3901627f     	strb	wzr, [x19, #0x58]
+     1f0: 3901667f     	strb	wzr, [x19, #0x59]
+     1f4: 39016a7f     	strb	wzr, [x19, #0x5a]
+     1f8: 39016e7f     	strb	wzr, [x19, #0x5b]
+     1fc: 3901727f     	strb	wzr, [x19, #0x5c]
+     200: 3901767f     	strb	wzr, [x19, #0x5d]
+     204: 39017a7f     	strb	wzr, [x19, #0x5e]
+     208: 39017e7f     	strb	wzr, [x19, #0x5f]
+     20c: 3901827f     	strb	wzr, [x19, #0x60]
+     210: 3901867f     	strb	wzr, [x19, #0x61]
+     214: 39018a7f     	strb	wzr, [x19, #0x62]
+     218: 39018e7f     	strb	wzr, [x19, #0x63]
+     21c: 3901927f     	strb	wzr, [x19, #0x64]
+     220: 3901967f     	strb	wzr, [x19, #0x65]
+     224: 39019a7f     	strb	wzr, [x19, #0x66]
+     228: 39019e7f     	strb	wzr, [x19, #0x67]
+     22c: 3901a27f     	strb	wzr, [x19, #0x68]
+     230: 3901a67f     	strb	wzr, [x19, #0x69]
+     234: 3901ae7f     	strb	wzr, [x19, #0x6b]
+     238: 3901b27f     	strb	wzr, [x19, #0x6c]
+     23c: 3901b67f     	strb	wzr, [x19, #0x6d]
+     240: 3901ba7f     	strb	wzr, [x19, #0x6e]
+     244: 3901be7f     	strb	wzr, [x19, #0x6f]
+     248: 3901c27f     	strb	wzr, [x19, #0x70]
+     24c: 3901c67f     	strb	wzr, [x19, #0x71]
+     250: 3901ca7f     	strb	wzr, [x19, #0x72]
+     254: 3901ce7f     	strb	wzr, [x19, #0x73]
+     258: 3901d27f     	strb	wzr, [x19, #0x74]
+     25c: 3901d67f     	strb	wzr, [x19, #0x75]
+     260: 3901da7f     	strb	wzr, [x19, #0x76]
+     264: 3901de60     	strb	w0, [x19, #0x77]
+     268: 52800020     	mov	w0, #0x1                // =1
+     26c: 3901aa7f     	strb	wzr, [x19, #0x6a]
+     270: 39002a60     	strb	w0, [x19, #0xa]
+     274: 39005260     	strb	w0, [x19, #0x14]
+     278: 39005660     	strb	w0, [x19, #0x15]
+     27c: d3483e80     	ubfx	x0, x20, #8, #8
+     280: 39000660     	strb	w0, [x19, #0x1]
+     284: d3505e80     	ubfx	x0, x20, #16, #8
+     288: 39000a60     	strb	w0, [x19, #0x2]
+     28c: 53187e80     	lsr	w0, w20, #24
+     290: 39000e60     	strb	w0, [x19, #0x3]
+     294: d3609e80     	ubfx	x0, x20, #32, #8
+     298: 390002f4     	strb	w20, [x23]
+		0000000000000298:  R_AARCH64_LDST8_ABS_LO12_NC	DUTTopSetGlobal
+     29c: 39001260     	strb	w0, [x19, #0x4]
+     2a0: d368be80     	ubfx	x0, x20, #40, #8
+     2a4: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     2a8: 39001660     	strb	w0, [x19, #0x5]
+     2ac: f9401bf7     	ldr	x23, [sp, #0x30]
+     2b0: b900be9f     	str	wzr, [x20, #0xbc]
+     2b4: d370de80     	ubfx	x0, x20, #48, #8
+     2b8: d378fe94     	lsr	x20, x20, #56
+     2bc: 39001a60     	strb	w0, [x19, #0x6]
+     2c0: 39001e74     	strb	w20, [x19, #0x7]
+     2c4: 3900267f     	strb	wzr, [x19, #0x9]
+     2c8: 39002e7f     	strb	wzr, [x19, #0xb]
+     2cc: 3900327f     	strb	wzr, [x19, #0xc]
+     2d0: 3900367f     	strb	wzr, [x19, #0xd]
+     2d4: 39003a7f     	strb	wzr, [x19, #0xe]
+     2d8: 39003e7f     	strb	wzr, [x19, #0xf]
+     2dc: 39004261     	strb	w1, [x19, #0x10]
+     2e0: 52800101     	mov	w1, #0x8                // =8
+     2e4: 39004661     	strb	w1, [x19, #0x11]
+     2e8: 39004a7f     	strb	wzr, [x19, #0x12]
+     2ec: 39004e7f     	strb	wzr, [x19, #0x13]
+     2f0: 39005a7f     	strb	wzr, [x19, #0x16]
+     2f4: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     2f8: a8c47bfd     	ldp	x29, x30, [sp], #0x40
+     2fc: d65f03c0     	ret
+     300: 90000000     	adrp	x0, 0x0 <DramcDUTTopSet>
+		0000000000000300:  R_AARCH64_ADR_PREL_PG_HI21	pkg_type
+     304: b9400000     	ldr	w0, [x0]
+		0000000000000304:  R_AARCH64_LDST32_ABS_LO12_NC	pkg_type
+     308: 34ffe8e0     	cbz	w0, 0x24 <DramcDUTTopSet+0x24>
+     30c: 7100041f     	cmp	w0, #0x1
+     310: 54ffe8e1     	b.ne	0x2c <DramcDUTTopSet+0x2c>
+     314: 90000000     	adrp	x0, 0x0 <DramcDUTTopSet>
+		0000000000000314:  R_AARCH64_ADR_PREL_PG_HI21	gpio_31
+     318: b9400000     	ldr	w0, [x0]
+		0000000000000318:  R_AARCH64_LDST32_ABS_LO12_NC	gpio_31
+     31c: 34ffe840     	cbz	w0, 0x24 <DramcDUTTopSet+0x24>
+     320: 52800400     	mov	w0, #0x20               // =32
+     324: 17ffff41     	b	0x28 <DramcDUTTopSet+0x28>
+     328: 39021275     	strb	w21, [x19, #0x84]
+     32c: 39021675     	strb	w21, [x19, #0x85]
+     330: 17ffff8f     	b	0x16c <DramcDUTTopSet+0x16c>
+     334: 52800060     	mov	w0, #0x3                // =3
+     338: 17ffff95     	b	0x18c <DramcDUTTopSet+0x18c>
+
+Disassembly of section .text.DramcDUTShuSet:
+
+0000000000000000 <DramcDUTShuSet>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: 52800034     	mov	w20, #0x1               // =1
+      10: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      14: 90000016     	adrp	x22, 0x0 <DramcDUTShuSet>
+		0000000000000014:  R_AARCH64_ADR_PREL_PG_HI21	DUTShufConfigGlobal
+      18: 910002d3     	add	x19, x22, #0x0
+		0000000000000018:  R_AARCH64_ADD_ABS_LO12_NC	DUTShufConfigGlobal
+      1c: aa0003f5     	mov	x21, x0
+      20: 94000000     	bl	0x20 <DramcDUTShuSet+0x20>
+		0000000000000020:  R_AARCH64_CALL26	GetDataRateByFreq
+      24: d3483c01     	ubfx	x1, x0, #8, #8
+      28: 39008e61     	strb	w1, [x19, #0x23]
+      2c: d3505c01     	ubfx	x1, x0, #16, #8
+      30: 39008a60     	strb	w0, [x19, #0x22]
+      34: 53187c00     	lsr	w0, w0, #24
+      38: 39007674     	strb	w20, [x19, #0x1d]
+      3c: 39007a74     	strb	w20, [x19, #0x1e]
+      40: 39007e7f     	strb	wzr, [x19, #0x1f]
+      44: 39008274     	strb	w20, [x19, #0x20]
+      48: 39009261     	strb	w1, [x19, #0x24]
+      4c: 39009660     	strb	w0, [x19, #0x25]
+      50: aa1503e0     	mov	x0, x21
+      54: 94000000     	bl	0x54 <DramcDUTShuSet+0x54>
+		0000000000000054:  R_AARCH64_CALL26	vGet_Div_Mode
+      58: 7100041f     	cmp	w0, #0x1
+      5c: 52800081     	mov	w1, #0x4                // =4
+      60: 52800100     	mov	w0, #0x8                // =8
+      64: 1a810000     	csel	w0, w0, w1, eq
+      68: 390002df     	strb	wzr, [x22]
+		0000000000000068:  R_AARCH64_LDST8_ABS_LO12_NC	DUTShufConfigGlobal
+      6c: 39008660     	strb	w0, [x19, #0x21]
+      70: 528007e0     	mov	w0, #0x3f               // =63
+      74: 3900067f     	strb	wzr, [x19, #0x1]
+      78: 39000a7f     	strb	wzr, [x19, #0x2]
+      7c: 39000e7f     	strb	wzr, [x19, #0x3]
+      80: 3900127f     	strb	wzr, [x19, #0x4]
+      84: 3900167f     	strb	wzr, [x19, #0x5]
+      88: 39001a7f     	strb	wzr, [x19, #0x6]
+      8c: 39001e7f     	strb	wzr, [x19, #0x7]
+      90: 3900227f     	strb	wzr, [x19, #0x8]
+      94: 39002e7f     	strb	wzr, [x19, #0xb]
+      98: 3900327f     	strb	wzr, [x19, #0xc]
+      9c: 39003a7f     	strb	wzr, [x19, #0xe]
+      a0: 39003e60     	strb	w0, [x19, #0xf]
+      a4: 528001e0     	mov	w0, #0xf                // =15
+      a8: 39003660     	strb	w0, [x19, #0xd]
+      ac: 3900427f     	strb	wzr, [x19, #0x10]
+      b0: 39004a61     	strb	w1, [x19, #0x12]
+      b4: 39004e74     	strb	w20, [x19, #0x13]
+      b8: 39005a7f     	strb	wzr, [x19, #0x16]
+      bc: 39005e7f     	strb	wzr, [x19, #0x17]
+      c0: 3900627f     	strb	wzr, [x19, #0x18]
+      c4: 3900667f     	strb	wzr, [x19, #0x19]
+      c8: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      cc: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+      d0: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      d4: d65f03c0     	ret
+
+Disassembly of section .text.DramcHWFuncSet:
+
+0000000000000000 <DramcHWFuncSet>:
+       0: 90000001     	adrp	x1, 0x0 <DramcHWFuncSet>
+		0000000000000000:  R_AARCH64_ADR_PREL_PG_HI21	HWFUNCEnableGlobal
+       4: 91000020     	add	x0, x1, #0x0
+		0000000000000004:  R_AARCH64_ADD_ABS_LO12_NC	HWFUNCEnableGlobal
+       8: 3900003f     	strb	wzr, [x1]
+		0000000000000008:  R_AARCH64_LDST8_ABS_LO12_NC	HWFUNCEnableGlobal
+       c: 3900041f     	strb	wzr, [x0, #0x1]
+      10: 3900081f     	strb	wzr, [x0, #0x2]
+      14: 39000c1f     	strb	wzr, [x0, #0x3]
+      18: 3900101f     	strb	wzr, [x0, #0x4]
+      1c: 3900141f     	strb	wzr, [x0, #0x5]
+      20: 3900181f     	strb	wzr, [x0, #0x6]
+      24: d65f03c0     	ret

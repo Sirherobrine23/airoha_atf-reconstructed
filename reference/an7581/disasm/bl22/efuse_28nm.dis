@@ -1,0 +1,228 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/efuse_28nm.o:	file format elf32-littlearm
+
+Disassembly of section .text.efuse_read_data_from_efuse:
+
+00000000 <efuse_read_data_from_efuse>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4604         	mov	r4, r0
+       4: 4b1a         	ldr	r3, [pc, #0x68]         @ 0x70 <efuse_read_data_from_efuse+0x70>
+       6: f8d3 009c    	ldr.w	r0, [r3, #0x9c]
+       a: f010 0001    	ands	r0, r0, #0x1
+       e: d020         	beq	0x52 <efuse_read_data_from_efuse+0x52> @ imm = #0x40
+      10: 2c3f         	cmp	r4, #0x3f
+      12: d91f         	bls	0x54 <efuse_read_data_from_efuse+0x54> @ imm = #0x3e
+      14: 3c40         	subs	r4, #0x40
+      16: f5a3 23c0    	sub.w	r3, r3, #0x60000
+      1a: 4816         	ldr	r0, [pc, #0x58]         @ 0x74 <efuse_read_data_from_efuse+0x74>
+      1c: 6358         	str	r0, [r3, #0x34]
+      1e: 4816         	ldr	r0, [pc, #0x58]         @ 0x78 <efuse_read_data_from_efuse+0x78>
+      20: f8c3 008c    	str.w	r0, [r3, #0x8c]
+      24: 2001         	movs	r0, #0x1
+      26: 605c         	str	r4, [r3, #0x4]
+      28: 6018         	str	r0, [r3]
+      2a: 2000         	movs	r0, #0x0
+      2c: 6358         	str	r0, [r3, #0x34]
+      2e: f8c3 008c    	str.w	r0, [r3, #0x8c]
+      32: f04f 5080    	mov.w	r0, #0x10000000
+      36: 689d         	ldr	r5, [r3, #0x8]
+      38: f103 0408    	add.w	r4, r3, #0x8
+      3c: 2d01         	cmp	r5, #0x1
+      3e: d001         	beq	0x44 <efuse_read_data_from_efuse+0x44> @ imm = #0x2
+      40: 3801         	subs	r0, #0x1
+      42: d1f8         	bne	0x36 <efuse_read_data_from_efuse+0x36> @ imm = #-0x10
+      44: 6820         	ldr	r0, [r4]
+      46: 2801         	cmp	r0, #0x1
+      48: d006         	beq	0x58 <efuse_read_data_from_efuse+0x58> @ imm = #0xc
+      4a: 480c         	ldr	r0, [pc, #0x30]         @ 0x7c <efuse_read_data_from_efuse+0x7c>
+      4c: f7ff fffe    	bl	0x4c <efuse_read_data_from_efuse+0x4c> @ imm = #-0x4
+			0000004c:  R_ARM_THM_CALL	tf_log
+      50: 2004         	movs	r0, #0x4
+      52: bd38         	pop	{r3, r4, r5, pc}
+      54: 4b0a         	ldr	r3, [pc, #0x28]         @ 0x80 <efuse_read_data_from_efuse+0x80>
+      56: e7e0         	b	0x1a <efuse_read_data_from_efuse+0x1a> @ imm = #-0x40
+      58: b12a         	cbz	r2, 0x66 <efuse_read_data_from_efuse+0x66> @ imm = #0xa
+      5a: 695a         	ldr	r2, [r3, #0x14]
+      5c: 2000         	movs	r0, #0x0
+      5e: 680b         	ldr	r3, [r1]
+      60: 4313         	orrs	r3, r2
+      62: 600b         	str	r3, [r1]
+      64: e7f5         	b	0x52 <efuse_read_data_from_efuse+0x52> @ imm = #-0x16
+      66: 695b         	ldr	r3, [r3, #0x14]
+      68: 4610         	mov	r0, r2
+      6a: 600b         	str	r3, [r1]
+      6c: e7f1         	b	0x52 <efuse_read_data_from_efuse+0x52> @ imm = #-0x1e
+      6e: bf00         	nop
+      70: 00 00 b0 1f  	.word	0x1fb00000
+      74: bc 02 75 de  	.word	0xde7502bc
+      78: f1 9b d3 78  	.word	0x78d39bf1
+      7c: 00 00 00 00  	.word	0x00000000
+			0000007c:  R_ARM_ABS32	.rodata.efuse_read_data_from_efuse.str1.1
+      80: 00 82 bf 1f  	.word	0x1fbf8200
+
+Disassembly of section .text.ef_read_byte:
+
+00000000 <ef_read_byte>:
+       0: 28bf         	cmp	r0, #0xbf
+       2: b508         	push	{r3, lr}
+       4: d802         	bhi	0xc <ef_read_byte+0xc>  @ imm = #0x4
+       6: 4b08         	ldr	r3, [pc, #0x20]         @ 0x28 <ef_read_byte+0x28>
+       8: 5c18         	ldrb	r0, [r3, r0]
+       a: bd08         	pop	{r3, pc}
+       c: f5b0 7f00    	cmp.w	r0, #0x200
+      10: d204         	bhs	0x1c <ef_read_byte+0x1c> @ imm = #0x8
+      12: 4b06         	ldr	r3, [pc, #0x18]         @ 0x2c <ef_read_byte+0x2c>
+      14: 4418         	add	r0, r3
+      16: f810 0cc0    	ldrb	r0, [r0, #-192]
+      1a: e7f6         	b	0xa <ef_read_byte+0xa>  @ imm = #-0x14
+      1c: 4804         	ldr	r0, [pc, #0x10]         @ 0x30 <ef_read_byte+0x30>
+      1e: f7ff fffe    	bl	0x1e <ef_read_byte+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	tf_log
+      22: 2001         	movs	r0, #0x1
+      24: e7f1         	b	0xa <ef_read_byte+0xa>  @ imm = #-0x1e
+      26: bf00         	nop
+      28: 00 00 00 00  	.word	0x00000000
+			00000028:  R_ARM_ABS32	.bss.ns_efuse_data
+      2c: 00 00 00 00  	.word	0x00000000
+			0000002c:  R_ARM_ABS32	.bss.s_efuse_data
+      30: 00 00 00 00  	.word	0x00000000
+			00000030:  R_ARM_ABS32	.rodata.ef_read_byte.str1.1
+
+Disassembly of section .text.read_iddq:
+
+00000000 <read_iddq>:
+       0: 4b01         	ldr	r3, [pc, #0x4]          @ 0x8 <read_iddq+0x8>
+       2: f893 00bb    	ldrb.w	r0, [r3, #0xbb]
+       6: 4770         	bx	lr
+       8: 00 00 00 00  	.word	0x00000000
+			00000008:  R_ARM_ABS32	.bss.ns_efuse_data
+
+Disassembly of section .text.en7523_packageID_init:
+
+00000000 <en7523_packageID_init>:
+       0: 4a06         	ldr	r2, [pc, #0x18]         @ 0x1c <en7523_packageID_init+0x1c>
+       2: 7813         	ldrb	r3, [r2]
+       4: 7850         	ldrb	r0, [r2, #0x1]
+       6: ea43 2000    	orr.w	r0, r3, r0, lsl #8
+       a: 071b         	lsls	r3, r3, #0x1c
+       c: d403         	bmi	0x16 <en7523_packageID_init+0x16> @ imm = #0x6
+       e: f3c0 1004    	ubfx	r0, r0, #0x4, #0x5
+      12: f7ff bffe    	b.w	0x12 <en7523_packageID_init+0x12> @ imm = #-0x4
+			00000012:  R_ARM_THM_JUMP24	SET_PACKAGE_ID
+      16: f3c0 2044    	ubfx	r0, r0, #0x9, #0x5
+      1a: e7fa         	b	0x12 <en7523_packageID_init+0x12> @ imm = #-0xc
+      1c: 00 00 00 00  	.word	0x00000000
+			0000001c:  R_ARM_ABS32	.bss.ns_efuse_data
+
+Disassembly of section .text.efuse_init:
+
+00000000 <efuse_init>:
+       0: b5f7         	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+       2: 2400         	movs	r4, #0x0
+       4: 4d2e         	ldr	r5, [pc, #0xb8]         @ 0xc0 <efuse_init+0xc0>
+       6: 9401         	str	r4, [sp, #0x4]
+       8: a901         	add	r1, sp, #0x4
+       a: 4620         	mov	r0, r4
+       c: 2200         	movs	r2, #0x0
+       e: f7ff fffe    	bl	0xe <efuse_init+0xe>    @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	efuse_read_data_from_efuse
+      12: b110         	cbz	r0, 0x1a <efuse_init+0x1a> @ imm = #0x4
+      14: 2001         	movs	r0, #0x1
+      16: b003         	add	sp, #0xc
+      18: bdf0         	pop	{r4, r5, r6, r7, pc}
+      1a: 4628         	mov	r0, r5
+      1c: 2204         	movs	r2, #0x4
+      1e: 3401         	adds	r4, #0x1
+      20: eb0d 0102    	add.w	r1, sp, r2
+      24: f7ff fffe    	bl	0x24 <efuse_init+0x24>  @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	memcpy
+      28: 3504         	adds	r5, #0x4
+      2a: 2c30         	cmp	r4, #0x30
+      2c: d1ec         	bne	0x8 <efuse_init+0x8>    @ imm = #-0x28
+      2e: 4e25         	ldr	r6, [pc, #0x94]         @ 0xc4 <efuse_init+0xc4>
+      30: 4d25         	ldr	r5, [pc, #0x94]         @ 0xc8 <efuse_init+0xc8>
+      32: 4f26         	ldr	r7, [pc, #0x98]         @ 0xcc <efuse_init+0xcc>
+      34: a901         	add	r1, sp, #0x4
+      36: 4620         	mov	r0, r4
+      38: 2200         	movs	r2, #0x0
+      3a: f7ff fffe    	bl	0x3a <efuse_init+0x3a>  @ imm = #-0x4
+			0000003a:  R_ARM_THM_CALL	efuse_read_data_from_efuse
+      3e: 2800         	cmp	r0, #0x0
+      40: d1e8         	bne	0x14 <efuse_init+0x14>  @ imm = #-0x30
+      42: a901         	add	r1, sp, #0x4
+      44: f104 0028    	add.w	r0, r4, #0x28
+      48: 2201         	movs	r2, #0x1
+      4a: f7ff fffe    	bl	0x4a <efuse_init+0x4a>  @ imm = #-0x4
+			0000004a:  R_ARM_THM_CALL	efuse_read_data_from_efuse
+      4e: 2800         	cmp	r0, #0x0
+      50: d1e0         	bne	0x14 <efuse_init+0x14>  @ imm = #-0x40
+      52: 00a1         	lsls	r1, r4, #0x2
+      54: 2204         	movs	r2, #0x4
+      56: 3140         	adds	r1, #0x40
+      58: eb0d 0002    	add.w	r0, sp, r2
+      5c: f001 01fc    	and	r1, r1, #0xfc
+      60: f7ff fffe    	bl	0x60 <efuse_init+0x60>  @ imm = #-0x4
+			00000060:  R_ARM_THM_CALL	fill_secure_data
+      64: 2c30         	cmp	r4, #0x30
+      66: d10f         	bne	0x88 <efuse_init+0x88>  @ imm = #0x1e
+      68: 9901         	ldr	r1, [sp, #0x4]
+      6a: 4630         	mov	r0, r6
+      6c: f7ff fffe    	bl	0x6c <efuse_init+0x6c>  @ imm = #-0x4
+			0000006c:  R_ARM_THM_CALL	tf_log
+      70: 9b01         	ldr	r3, [sp, #0x4]
+      72: f013 0f01    	tst.w	r3, #0x1
+      76: 682b         	ldr	r3, [r5]
+      78: d011         	beq	0x9e <efuse_init+0x9e>  @ imm = #0x22
+      7a: b92b         	cbnz	r3, 0x88 <efuse_init+0x88> @ imm = #0xa
+      7c: 4638         	mov	r0, r7
+      7e: f7ff fffe    	bl	0x7e <efuse_init+0x7e>  @ imm = #-0x4
+			0000007e:  R_ARM_THM_CALL	tf_log
+      82: 4813         	ldr	r0, [pc, #0x4c]         @ 0xd0 <efuse_init+0xd0>
+      84: f7ff fffe    	bl	0x84 <efuse_init+0x84>  @ imm = #-0x4
+			00000084:  R_ARM_THM_CALL	tf_log
+      88: 3401         	adds	r4, #0x1
+      8a: 2c58         	cmp	r4, #0x58
+      8c: d1d2         	bne	0x34 <efuse_init+0x34>  @ imm = #-0x5c
+      8e: 4b0e         	ldr	r3, [pc, #0x38]         @ 0xc8 <efuse_init+0xc8>
+      90: 681c         	ldr	r4, [r3]
+      92: b92c         	cbnz	r4, 0xa0 <efuse_init+0xa0> @ imm = #0xa
+      94: 480f         	ldr	r0, [pc, #0x3c]         @ 0xd4 <efuse_init+0xd4>
+      96: f7ff fffe    	bl	0x96 <efuse_init+0x96>  @ imm = #-0x4
+			00000096:  R_ARM_THM_CALL	printf
+      9a: 4620         	mov	r0, r4
+      9c: e7bb         	b	0x16 <efuse_init+0x16>  @ imm = #-0x8a
+      9e: b10b         	cbz	r3, 0xa4 <efuse_init+0xa4> @ imm = #0x2
+      a0: 2000         	movs	r0, #0x0
+      a2: e7b8         	b	0x16 <efuse_init+0x16>  @ imm = #-0x90
+      a4: 480c         	ldr	r0, [pc, #0x30]         @ 0xd8 <efuse_init+0xd8>
+      a6: f7ff fffe    	bl	0xa6 <efuse_init+0xa6>  @ imm = #-0x4
+			000000a6:  R_ARM_THM_CALL	tf_log
+      aa: 480c         	ldr	r0, [pc, #0x30]         @ 0xdc <efuse_init+0xdc>
+      ac: f7ff fffe    	bl	0xac <efuse_init+0xac>  @ imm = #-0x4
+			000000ac:  R_ARM_THM_CALL	tf_log
+      b0: 682c         	ldr	r4, [r5]
+      b2: 2c00         	cmp	r4, #0x0
+      b4: d1f4         	bne	0xa0 <efuse_init+0xa0>  @ imm = #-0x18
+      b6: 480a         	ldr	r0, [pc, #0x28]         @ 0xe0 <efuse_init+0xe0>
+      b8: f7ff fffe    	bl	0xb8 <efuse_init+0xb8>  @ imm = #-0x4
+			000000b8:  R_ARM_THM_CALL	printf
+      bc: e7f0         	b	0xa0 <efuse_init+0xa0>  @ imm = #-0x20
+      be: bf00         	nop
+      c0: 00 00 00 00  	.word	0x00000000
+			000000c0:  R_ARM_ABS32	.bss.ns_efuse_data
+      c4: 00 00 00 00  	.word	0x00000000
+			000000c4:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      c8: 00 00 00 00  	.word	0x00000000
+			000000c8:  R_ARM_ABS32	uartDisable
+      cc: 14 00 00 00  	.word	0x00000014
+			000000cc:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      d0: 1c 00 00 00  	.word	0x0000001c
+			000000d0:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      d4: 5f 00 00 00  	.word	0x0000005f
+			000000d4:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      d8: 2b 00 00 00  	.word	0x0000002b
+			000000d8:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      dc: 33 00 00 00  	.word	0x00000033
+			000000dc:  R_ARM_ABS32	.rodata.efuse_init.str1.1
+      e0: 44 00 00 00  	.word	0x00000044
+			000000e0:  R_ARM_ABS32	.rodata.efuse_init.str1.1

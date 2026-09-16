@@ -1,0 +1,984 @@
+
+Relocation section '.rel.text.SetRxDqDelay' at offset 0x7a54 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000030  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000042  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+
+Relocation section '.rel.text.DramcJmeterCalib.constprop.0' at offset 0x7a64 contains 13 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000034  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000042  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000054  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000068  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000078  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000088  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000094  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000a0  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000ac  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000b2  00010b0a R_ARM_THM_CALL         00000000   udelay
+000000be  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000c6  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000000d4  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+
+Relocation section '.rel.text.vInitGlobalVariablesByCondition' at offset 0x7acc contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  0000de02 R_ARM_ABS32            00000000   .bss.gMRVal
+00000006  0001101e R_ARM_THM_JUMP24       00000000   memset
+
+Relocation section '.rel.text.vBeforeCalibration' at offset 0x7adc contains 28 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0001120a R_ARM_THM_CALL         00000000   DramcHWGatingOnOff
+00000018  0001130a R_ARM_THM_CALL         00000000   CKEFixOnOff
+0000001e  0001140a R_ARM_THM_CALL         00000000   SetCKE2RankIndependent
+0000002c  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000032  0001160a R_ARM_THM_CALL         00000000   is_ddr4_family
+0000003e  0001170a R_ARM_THM_CALL         00000000   is_ddr3_family
+00000086  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000000aa  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000000c4  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000d0  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000de  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000ec  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000fc  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000108  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+00000114  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+00000122  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000132  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000140  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000014e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000015c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000016e  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000017c  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000018c  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000001a0  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+000001ae  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000001d0  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000228  00011b02 R_ARM_ABS32            00000000   u1MaType
+000001c0  0001151e R_ARM_THM_JUMP24       00000000   vIO32WriteMsk_All
+
+Relocation section '.rel.text.vAfterCalibration' at offset 0x7bbc contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000a  0001130a R_ARM_THM_CALL         00000000   CKEFixOnOff
+0000001a  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000002c  0001151e R_ARM_THM_JUMP24       00000000   vIO32WriteMsk_All
+
+Relocation section '.rel.text.O1PathOnOff' at offset 0x7bd4 contains 16 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000014  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000022  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000002e  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000003a  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000046  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000052  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000006a  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000076  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000084  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000090  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000aa  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000000b6  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000000c4  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000d2  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000e4  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000f0  00010b1e R_ARM_THM_JUMP24       00000000   udelay
+
+Relocation section '.rel.text.u1IsPhaseMode' at offset 0x7c54 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000004  00011f0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+0000000e  00011f0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+
+Relocation section '.rel.text.DramcZQCalibration' at offset 0x7c64 contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000e  0001100a R_ARM_THM_CALL         00000000   memset
+0000001c  0001210a R_ARM_THM_CALL         00000000   DramcTriggerRTSWCMD
+00000026  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+
+Relocation section '.rel.text.u1MCK2UI_DivShift' at offset 0x7c7c contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000002  0001230a R_ARM_THM_CALL         00000000   vGet_Div_Mode
+
+Relocation section '.rel.text._LoopAryToDelay' at offset 0x7c84 contains 9 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000005e  0001220a R_ARM_THM_CALL         00000001   u1MCK2UI_DivShift
+00000072  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000000b0  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000118  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000146  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000168  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000178  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000192  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000001a8  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+
+Relocation section '.rel.text.PCDDR_ShiftDQSUI' at offset 0x7ccc contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000038  0000280a R_ARM_THM_CALL         00000001   _LoopAryToDelay
+00000040  0000c002 R_ARM_ABS32            00000000   .rodata
+
+Relocation section '.rel.text.PCDDR_ShiftDQS_OENUI' at offset 0x7cdc contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000003a  0000280a R_ARM_THM_CALL         00000001   _LoopAryToDelay
+00000044  0000c002 R_ARM_ABS32            00000000   .rodata
+
+Relocation section '.rel.text.ShiftDQUI' at offset 0x7cec contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000004c  0000280a R_ARM_THM_CALL         00000001   _LoopAryToDelay
+00000054  0000c002 R_ARM_ABS32            00000000   .rodata
+
+Relocation section '.rel.text.ShiftDQUI_AllRK' at offset 0x7cfc contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  0001271e R_ARM_THM_JUMP24       00000001   ShiftDQUI
+
+Relocation section '.rel.text.ShiftDQ_OENUI' at offset 0x7d04 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000004e  0000280a R_ARM_THM_CALL         00000001   _LoopAryToDelay
+00000058  0000c002 R_ARM_ABS32            00000000   .rodata
+
+Relocation section '.rel.text.ShiftDQ_OENUI_AllRK' at offset 0x7d14 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  0001291e R_ARM_THM_JUMP24       00000001   ShiftDQ_OENUI
+
+Relocation section '.rel.text.ShiftDQSWCK_UI' at offset 0x7d1c contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0001250a R_ARM_THM_CALL         00000001   PCDDR_ShiftDQSUI
+00000016  0001261e R_ARM_THM_JUMP24       00000001   PCDDR_ShiftDQS_OENUI
+
+Relocation section '.rel.text.vSetDramMRWriteLevelingOnOff' at offset 0x7d2c contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000028  0001170a R_ARM_THM_CALL         00000000   is_ddr3_family
+00000052  00012d0a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+00000072  00012d0a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000a0  0001160a R_ARM_THM_CALL         00000000   is_ddr4_family
+000000c8  00012d0a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000e8  00012d0a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+00000104  0000de02 R_ARM_ABS32            00000000   .bss.gMRVal
+00000094  00012d1e R_ARM_THM_JUMP24       00000000   DramcModeRegWriteByRank
+
+Relocation section '.rel.text.DramcWriteLeveling' at offset 0x7d6c contains 50 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  00012f0a R_ARM_THM_CALL         00000000   vPrintCalibrationBasicInfo
+0000001e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000002e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000056  0001300a R_ARM_THM_CALL         00000000   DramcBackupRegisters
+00000062  0001310a R_ARM_THM_CALL         00000000   DramcBackupMixedRG
+0000006c  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000086  0001270a R_ARM_THM_CALL         00000001   ShiftDQUI
+00000092  0001290a R_ARM_THM_CALL         00000001   ShiftDQ_OENUI
+0000009e  00012b0a R_ARM_THM_CALL         00000001   ShiftDQSWCK_UI
+000000ac  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000ba  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000c0  00011f0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+000000ce  00011f0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+000000ee  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000fa  0001130a R_ARM_THM_CALL         00000000   CKEFixOnOff
+00000102  00011d0a R_ARM_THM_CALL         00000001   O1PathOnOff
+00000110  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000118  00012c0a R_ARM_THM_CALL         00000001   vSetDramMRWriteLevelingOnOff
+0000011e  00010b0a R_ARM_THM_CALL         00000000   udelay
+00000130  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000013e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000158  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000015e  00010b0a R_ARM_THM_CALL         00000000   udelay
+000001ae  00012b0a R_ARM_THM_CALL         00000001   ShiftDQSWCK_UI
+000001bc  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000001cc  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000001da  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000001e8  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000001ee  00010b0a R_ARM_THM_CALL         00000000   udelay
+000001f6  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000244  00012b0a R_ARM_THM_CALL         00000001   ShiftDQSWCK_UI
+0000025a  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000266  00012c0a R_ARM_THM_CALL         00000001   vSetDramMRWriteLevelingOnOff
+00000278  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000280  00011d0a R_ARM_THM_CALL         00000001   O1PathOnOff
+0000028e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000029c  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000002a8  0001320a R_ARM_THM_CALL         00000000   DramcRestoreRegisters
+000002b4  0001330a R_ARM_THM_CALL         00000000   DramcRestoreMixedRG
+000002ea  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000304  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000314  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000324  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000035a  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000368  0000c002 R_ARM_ABS32            00000000   .rodata
+00000378  0000fb02 R_ARM_ABS32            00000000   .bss.wrlevel_dqs_final_delay
+0000043e  00012b0a R_ARM_THM_CALL         00000001   ShiftDQSWCK_UI
+00000498  0001270a R_ARM_THM_CALL         00000001   ShiftDQUI
+000004a2  0001290a R_ARM_THM_CALL         00000001   ShiftDQ_OENUI
+000004b4  0000fb02 R_ARM_ABS32            00000000   .bss.wrlevel_dqs_final_delay
+
+Relocation section '.rel.text.vResetDelayChainBeforeCalibration' at offset 0x7efc contains 12 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000e  0001350a R_ARM_THM_CALL         00000000   u1GetRank
+00000036  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000044  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000052  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000060  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000006e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000007c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000008a  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000098  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000a6  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000b4  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000002e  00011a1e R_ARM_THM_JUMP24       00000000   vSetRank
+
+Relocation section '.rel.text.DramPhyReset' at offset 0x7f5c contains 11 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000012  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000020  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000030  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+0000003c  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+00000048  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+0000004e  00010b0a R_ARM_THM_CALL         00000000   udelay
+0000005a  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+00000066  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+00000072  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+0000007e  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000090  0001151e R_ARM_THM_JUMP24       00000000   vIO32WriteMsk_All
+
+Relocation section '.rel.text.get_gating_start_pos' at offset 0x7fb4 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000012  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+
+Relocation section '.rel.text.dramc_rx_dqs_gating_cal' at offset 0x7fc4 contains 53 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  00012f0a R_ARM_THM_CALL         00000000   vPrintCalibrationBasicInfo
+00000012  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000032  0001300a R_ARM_THM_CALL         00000000   DramcBackupRegisters
+0000003c  0001100a R_ARM_THM_CALL         00000000   memset
+00000046  0001100a R_ARM_THM_CALL         00000000   memset
+00000050  0001100a R_ARM_THM_CALL         00000000   memset
+00000054  0001390a R_ARM_THM_CALL         00000000   GetDramcBroadcast
+0000005c  00013a0a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+00000068  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000076  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000007c  00010b0a R_ARM_THM_CALL         00000000   udelay
+0000008a  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000090  00010b0a R_ARM_THM_CALL         00000000   udelay
+0000009e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000a4  0001350a R_ARM_THM_CALL         00000000   u1GetRank
+000000b0  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000c2  00013b0a R_ARM_THM_CALL         00000000   DramcEngine2Init
+000000c8  00013a0a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+000000dc  0001370a R_ARM_THM_CALL         00000001   get_gating_start_pos
+0000010c  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000132  00013c0a R_ARM_THM_CALL         00000000   DramcEngine2End
+0000014c  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000166  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000017a  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000186  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000194  0001320a R_ARM_THM_CALL         00000000   DramcRestoreRegisters
+0000019a  0001360a R_ARM_THM_CALL         00000001   DramPhyReset
+000001c2  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001dc  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001e2  0001360a R_ARM_THM_CALL         00000001   DramPhyReset
+000001f0  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000001f6  00010b0a R_ARM_THM_CALL         00000000   udelay
+00000204  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000020e  00013d0a R_ARM_THM_CALL         00000000   DramcEngine2Run
+0000021c  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+0000022c  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000240  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000254  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+0000029c  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000002ac  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000002c0  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000002d0  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000002ee  0001160a R_ARM_THM_CALL         00000000   is_ddr4_family
+00000300  0001160a R_ARM_THM_CALL         00000000   is_ddr4_family
+0000033c  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+0000034c  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+0000035c  0000c002 R_ARM_ABS32            00000000   .rodata
+0000036c  00013e02 R_ARM_ABS32            00000000   dqs_gating_K_result_rg_rk1
+000005e2  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+000005f2  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000600  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000608  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000614  0000ea02 R_ARM_ABS32            00000000   .bss.r_filter_count.4
+
+Relocation section '.rel.text.DramcRxWinRDDQCInit' at offset 0x816c contains 14 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000018  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000024  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000034  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000003e  0001100a R_ARM_THM_CALL         00000000   memset
+0000004e  0001210a R_ARM_THM_CALL         00000000   DramcTriggerRTSWCMD
+0000006c  0001170a R_ARM_THM_CALL         00000000   is_ddr3_family
+0000007e  00012d0a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+0000008e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000009e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000ac  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000000ba  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000000c8  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000000e0  0000de02 R_ARM_ABS32            00000000   .bss.gMRVal
+
+Relocation section '.rel.text.DramcRxWinRDDQCRun' at offset 0x81dc contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  0001100a R_ARM_THM_CALL         00000000   memset
+00000022  0001210a R_ARM_THM_CALL         00000000   DramcTriggerRTSWCMD
+
+Relocation section '.rel.text.DramcRxWinRDDQCEnd' at offset 0x81ec contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000001e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000003c  00012d0a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+00000044  0000de02 R_ARM_ABS32            00000000   .bss.gMRVal
+
+Relocation section '.rel.text.DramcRxWindowPerbitCal' at offset 0x820c contains 72 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000044  0001430a R_ARM_THM_CALL         00000000   GetEyeScanEnable
+0000004e  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+0000005a  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+0000006a  0001440a R_ARM_THM_CALL         00000000   vAutoRefreshSwitch
+00000070  0001350a R_ARM_THM_CALL         00000000   u1GetRank
+00000080  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000094  00013b0a R_ARM_THM_CALL         00000000   DramcEngine2Init
+000000ca  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+000000d0  00013f0a R_ARM_THM_CALL         00000001   DramcRxWinRDDQCInit
+000000d6  00012f0a R_ARM_THM_CALL         00000000   vPrintCalibrationBasicInfo
+00000106  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000114  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000180  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000018e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000001c4  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000001d4  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000001e2  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000001f0  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+000001fc  0000060a R_ARM_THM_CALL         00000001   SetRxDqDelay
+00000226  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+00000234  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+0000023a  0001360a R_ARM_THM_CALL         00000001   DramPhyReset
+0000024c  00013d0a R_ARM_THM_CALL         00000000   DramcEngine2Run
+000002e8  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000002f4  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000033c  00010102 R_ARM_ABS32            00000000   .data.s2RxDelayPreCal
+0000035e  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+0000036e  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+00000374  0001360a R_ARM_THM_CALL         00000001   DramPhyReset
+00000380  0000060a R_ARM_THM_CALL         00000001   SetRxDqDelay
+0000038c  0001400a R_ARM_THM_CALL         00000001   DramcRxWinRDDQCRun
+00000442  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000524  00013c0a R_ARM_THM_CALL         00000000   DramcEngine2End
+0000052c  0001440a R_ARM_THM_CALL         00000000   vAutoRefreshSwitch
+000005b4  0001410a R_ARM_THM_CALL         00000001   DramcRxWinRDDQCEnd
+000005be  0001170a R_ARM_THM_CALL         00000000   is_ddr3_family
+000005f6  0001450a R_ARM_THM_CALL         00000000   memcpy
+00000670  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000680  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000690  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+0000069c  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000766  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000780  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000798  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000007ae  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000007f2  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000830  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000084c  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000858  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000864  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000870  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+0000087c  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000888  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000894  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000008a0  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000008a8  0001360a R_ARM_THM_CALL         00000001   DramPhyReset
+000008b0  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+000008b6  00012f0a R_ARM_THM_CALL         00000000   vPrintCalibrationBasicInfo
+000008ce  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+000008dc  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000008ea  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000008f8  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000906  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000914  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000922  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000930  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000093e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000946  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000960  00014602 R_ARM_ABS32            00000000   Rx_win_K_result_rg_rk1
+00000964  0000d802 R_ARM_ABS32            00000000   .bss.gFinalRXVrefDQ
+00000968  0000da02 R_ARM_ABS32            00000000   .bss.gFinalRXVrefDQForSpeedUp
+00000978  00010502 R_ARM_ABS32            00000000   .rodata.DLY_RG_Mapping
+
+Relocation section '.rel.text.dle_factor_handler' at offset 0x844c contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000030  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+0000006e  0001180a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk_All
+00000078  0001361e R_ARM_THM_JUMP24       00000001   DramPhyReset
+
+Relocation section '.rel.text.DramcRxdatlatCal' at offset 0x846c contains 16 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000a  00012f0a R_ARM_THM_CALL         00000000   vPrintCalibrationBasicInfo
+00000014  0001440a R_ARM_THM_CALL         00000000   vAutoRefreshSwitch
+0000001e  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+0000002c  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000036  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+0000004c  00013b0a R_ARM_THM_CALL         00000000   DramcEngine2Init
+00000058  0001470a R_ARM_THM_CALL         00000001   dle_factor_handler
+00000064  00013d0a R_ARM_THM_CALL         00000000   DramcEngine2Run
+00000098  00013c0a R_ARM_THM_CALL         00000000   DramcEngine2End
+000000aa  0001470a R_ARM_THM_CALL         00000001   dle_factor_handler
+000000b4  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+000000be  0001440a R_ARM_THM_CALL         00000000   vAutoRefreshSwitch
+000000ce  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000000da  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+0000010c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000118  00014902 R_ARM_ABS32            00000000   Rx_datlat_K_result_rg_rk1
+
+Relocation section '.rel.text.TxWinTransferDelayToUIPI' at offset 0x84ec contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  00011f0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+00000016  00011e0a R_ARM_THM_CALL         00000001   u1IsPhaseMode
+00000022  0001220a R_ARM_THM_CALL         00000001   u1MCK2UI_DivShift
+00000030  00011e0a R_ARM_THM_CALL         00000001   u1IsPhaseMode
+
+Relocation section '.rel.text.TxWinTransferDelayToUIPIByHighSpeed' at offset 0x850c contains 9 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000e  0001220a R_ARM_THM_CALL         00000001   u1MCK2UI_DivShift
+00000020  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000030  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000058  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000068  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000088  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000098  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000000c0  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000000d0  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+
+Relocation section '.rel.text.DramcTXSetVref' at offset 0x8554 contains 5 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000024  0001160a R_ARM_THM_CALL         00000000   is_ddr4_family
+00000042  00012d0a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+00000054  00012d0a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+00000060  00012d0a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+0000007c  0000de02 R_ARM_ABS32            00000000   .bss.gMRVal
+
+Relocation section '.rel.text.TXUpdateDelayReg_DQ_DQM' at offset 0x857c contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000001e  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000003a  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000004c  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000005e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000007a  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000096  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000a8  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000be  00010a1e R_ARM_THM_JUMP24       00000000   vIO32WriteMsk
+
+Relocation section '.rel.text.TXSetDelayReg_DQ' at offset 0x85bc contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000030  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000005e  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000006e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000082  00010a1e R_ARM_THM_JUMP24       00000000   vIO32WriteMsk
+
+Relocation section '.rel.text.TXSetDelayReg_DQM' at offset 0x85dc contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000030  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000005e  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000006e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000082  00010a1e R_ARM_THM_JUMP24       00000000   vIO32WriteMsk
+
+Relocation section '.rel.text.DramcTxWindowPerbitCal' at offset 0x85fc contains 83 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000016  0001100a R_ARM_THM_CALL         00000000   memset
+00000020  0001100a R_ARM_THM_CALL         00000000   memset
+0000002a  0001100a R_ARM_THM_CALL         00000000   memset
+00000038  0001100a R_ARM_THM_CALL         00000000   memset
+00000044  00012f0a R_ARM_THM_CALL         00000000   vPrintCalibrationBasicInfo
+0000004a  0001350a R_ARM_THM_CALL         00000000   u1GetRank
+00000054  0001440a R_ARM_THM_CALL         00000000   vAutoRefreshSwitch
+0000005a  0001170a R_ARM_THM_CALL         00000000   is_ddr3_family
+0000007e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000008c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000009a  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000a8  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000b4  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000c0  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+000000ce  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000000da  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000000e2  0001220a R_ARM_THM_CALL         00000001   u1MCK2UI_DivShift
+000000ea  00011f0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+0000013a  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000140  00011f0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+0000014a  00011f0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+00000170  00013b0a R_ARM_THM_CALL         00000000   DramcEngine2Init
+00000186  00014c0a R_ARM_THM_CALL         00000001   DramcTXSetVref
+000001a4  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000001b4  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000238  00014a0a R_ARM_THM_CALL         00000001   TxWinTransferDelayToUIPI
+0000027a  00014e0a R_ARM_THM_CALL         00000001   TXSetDelayReg_DQ
+0000028c  00014f0a R_ARM_THM_CALL         00000001   TXSetDelayReg_DQM
+00000298  00013d0a R_ARM_THM_CALL         00000000   DramcEngine2Run
+000002e0  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+0000037c  0000fb02 R_ARM_ABS32            00000000   .bss.wrlevel_dqs_final_delay
+0000048e  00013c0a R_ARM_THM_CALL         00000000   DramcEngine2End
+000004fc  0001450a R_ARM_THM_CALL         00000000   memcpy
+00000562  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000572  00014e0a R_ARM_THM_CALL         00000001   TXSetDelayReg_DQ
+0000057c  00014f0a R_ARM_THM_CALL         00000001   TXSetDelayReg_DQM
+000005c8  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000005fe  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000634  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000066a  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000680  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+0000068c  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000698  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000006a4  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000006b0  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000006bc  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000006c8  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000006d4  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000006e0  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000006ec  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000006f8  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000704  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+0000070e  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000716  0001440a R_ARM_THM_CALL         00000000   vAutoRefreshSwitch
+0000072e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000073e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000007d0  0001160a R_ARM_THM_CALL         00000000   is_ddr4_family
+000007dc  00014c0a R_ARM_THM_CALL         00000001   DramcTXSetVref
+00000830  00010502 R_ARM_ABS32            00000000   .rodata.DLY_RG_Mapping
+00000844  00015102 R_ARM_ABS32            00000000   Tx_win_K_result_rg_rk1
+00000868  00015202 R_ARM_ABS32            00000000   Tx_vref_K_result_rg_rk1
+0000086c  00015302 R_ARM_ABS32            00000000   Tx_vref_K_result_rg_rk0
+00000910  00014a0a R_ARM_THM_CALL         00000001   TxWinTransferDelayToUIPI
+0000093e  00014a0a R_ARM_THM_CALL         00000001   TxWinTransferDelayToUIPI
+00000982  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000990  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000099e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000009ac  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000009ba  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000009c8  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000009d6  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000009e4  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000009f2  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000a00  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000a0e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000a1c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000a2a  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000a32  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000a42  00014b0a R_ARM_THM_CALL         00000001   TxWinTransferDelayToUIPIByHighSpeed
+00000a52  00014b0a R_ARM_THM_CALL         00000001   TxWinTransferDelayToUIPIByHighSpeed
+00000a5a  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000a60  00014d0a R_ARM_THM_CALL         00000001   TXUpdateDelayReg_DQ_DQM
+00000a68  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+
+Relocation section '.rel.text.CmdOEOnOff' at offset 0x8894 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000020  0001181e R_ARM_THM_JUMP24       00000000   vPhyByteIO32WriteMsk_All
+00000026  0001191e R_ARM_THM_JUMP24       00000000   vPhyByteIO32WriteMsk
+
+Relocation section '.rel.text.DramcJmeterInit' at offset 0x88a4 contains 43 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000001a  0001540a R_ARM_THM_CALL         00000001   CmdOEOnOff
+00000026  0001130a R_ARM_THM_CALL         00000000   CKEFixOnOff
+00000038  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000048  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000056  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000064  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000072  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000080  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000008e  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000009c  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000aa  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000b8  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000c6  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000d4  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000e0  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000f0  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000100  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000010c  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000011a  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000128  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000136  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000144  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000150  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000015c  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000016a  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000178  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000186  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000194  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000001a2  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000001b0  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000001be  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000001cc  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000001da  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000001e8  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000001f6  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000204  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000212  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000220  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000022e  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000023a  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000246  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000258  00010a1e R_ARM_THM_JUMP24       00000000   vIO32WriteMsk
+
+Relocation section '.rel.text.DramcMiockJmeter' at offset 0x89fc contains 18 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  0001450a R_ARM_THM_CALL         00000000   memcpy
+00000016  0001350a R_ARM_THM_CALL         00000000   u1GetRank
+00000024  0001300a R_ARM_THM_CALL         00000000   DramcBackupRegisters
+0000002e  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+0000003a  00012f0a R_ARM_THM_CALL         00000000   vPrintCalibrationBasicInfo
+00000048  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000056  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000005e  0000860a R_ARM_THM_CALL         00000001   DramcJmeterInit
+00000066  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000074  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000007c  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000086  0001100a R_ARM_THM_CALL         00000000   memset
+000000a0  00000b0a R_ARM_THM_CALL         00000001   DramcJmeterCalib.constprop.0
+000000c0  0001320a R_ARM_THM_CALL         00000000   DramcRestoreRegisters
+000000d0  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000f4  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+000000fa  0001560a R_ARM_THM_CALL         00000000   DDRPhyGetRealFreq
+00000128  0000c002 R_ARM_ABS32            00000000   .rodata
+
+Relocation section '.rel.text.RxLdoOutputSelByJmeter' at offset 0x8a8c contains 10 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000001a  0001550a R_ARM_THM_CALL         00000001   DramcMiockJmeter
+0000002c  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000036  0001550a R_ARM_THM_CALL         00000001   DramcMiockJmeter
+00000064  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000007e  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000090  00015902 R_ARM_ABS32            00000000   uartDisable
+00000094  00008b02 R_ARM_ABS32            00000000   .rodata.RxLdoOutputSelByJmeter.str1.1
+00000098  00008b02 R_ARM_ABS32            00000000   .rodata.RxLdoOutputSelByJmeter.str1.1
+00000072  0001581e R_ARM_THM_JUMP24       00000000   printf
+
+Relocation section '.rel.text.GetVcoreDelayCellTime' at offset 0x8adc contains 6 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000012  0001550a R_ARM_THM_CALL         00000001   DramcMiockJmeter
+0000001a  0001170a R_ARM_THM_CALL         00000000   is_ddr3_family
+00000024  0001570a R_ARM_THM_CALL         00000001   RxLdoOutputSelByJmeter
+00000032  0001580a R_ARM_THM_CALL         00000000   printf
+00000040  00015902 R_ARM_ABS32            00000000   uartDisable
+00000044  00008f02 R_ARM_ABS32            00000000   .rodata.GetVcoreDelayCellTime.str1.1
+
+Relocation section '.rel.text.Dramc8PhaseCal' at offset 0x8b0c contains 32 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0001390a R_ARM_THM_CALL         00000000   GetDramcBroadcast
+0000001c  0001450a R_ARM_THM_CALL         00000000   memcpy
+00000022  00012f0a R_ARM_THM_CALL         00000000   vPrintCalibrationBasicInfo
+00000028  0001350a R_ARM_THM_CALL         00000000   u1GetRank
+00000032  00013a0a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+00000040  0001300a R_ARM_THM_CALL         00000000   DramcBackupRegisters
+0000004e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000056  0000860a R_ARM_THM_CALL         00000001   DramcJmeterInit
+00000060  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000000bc  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+000000d6  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000e6  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000f2  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000010a  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000011a  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000012c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000136  0001100a R_ARM_THM_CALL         00000000   memset
+00000150  00000b0a R_ARM_THM_CALL         00000001   DramcJmeterCalib.constprop.0
+00000174  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000182  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000190  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000220  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000022c  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+00000238  0001150a R_ARM_THM_CALL         00000000   vIO32WriteMsk_All
+0000024e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000025e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000026e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000290  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000029c  0001320a R_ARM_THM_CALL         00000000   DramcRestoreRegisters
+000002a2  00013a0a R_ARM_THM_CALL         00000000   DramcBroadcastOnOff
+00000328  0000c002 R_ARM_ABS32            00000000   .rodata
+00000358  00015d02 R_ARM_ABS32            00000000   phase8_result_rg_rk1
+
+Relocation section '.rel.text.Dramc_efuse_read_parse' at offset 0x8c0c contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000018  0001100a R_ARM_THM_CALL         00000000   memset
+0000002c  00015f0a R_ARM_THM_CALL         00000000   ef_read_byte
+
+Relocation section '.rel.text.DramcImpedanceDrvSetRG' at offset 0x8c1c contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000020  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+0000011c  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000114  0001151e R_ARM_THM_JUMP24       00000000   vIO32WriteMsk_All
+00000168  0001091e R_ARM_THM_JUMP24       00000000   vPhyByteWriteFldAlign
+
+Relocation section '.rel.text.DramcImpedanceSetValue' at offset 0x8c3c contains 34 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000001a  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+0000002c  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+0000003e  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000050  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000062  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000074  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+0000008c  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+0000009e  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+000000b0  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+000000c2  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+000000d4  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+000000f4  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000106  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000118  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+0000012a  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+0000013c  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+0000014e  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000160  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000172  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000184  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000196  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+000001b8  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+000001ca  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+000001dc  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+000001ee  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000200  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000212  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000224  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000236  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+00000248  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+0000025a  0001600a R_ARM_THM_CALL         00000001   DramcImpedanceDrvSetRG
+000002a4  00015902 R_ARM_ABS32            00000000   uartDisable
+000002a8  00009f02 R_ARM_ABS32            00000000   .rodata.DramcImpedanceSetValue.str1.1
+0000027c  0001581e R_ARM_THM_JUMP24       00000000   printf
+
+Relocation section '.rel.text.DramcImpedanceEfuseValue' at offset 0x8d4c contains 5 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000016  0001630a R_ARM_THM_CALL         00000000   __meta_backup_and_set
+00000022  0001610a R_ARM_THM_CALL         00000001   DramcImpedanceSetValue
+0000002a  0001640a R_ARM_THM_CALL         00000000   __meta_advance
+00000032  0001650a R_ARM_THM_CALL         00000000   __meta_process_complete
+00000042  0001661e R_ARM_THM_JUMP24       00000000   __meta_restore
+
+Relocation section '.rel.text.DramcImpedanceByEfuse' at offset 0x8d74 contains 18 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000e  0001160a R_ARM_THM_CALL         00000000   is_ddr4_family
+00000020  00015e0a R_ARM_THM_CALL         00000001   Dramc_efuse_read_parse
+0000002e  00015e0a R_ARM_THM_CALL         00000001   Dramc_efuse_read_parse
+00000050  0001580a R_ARM_THM_CALL         00000000   printf
+00000058  0001580a R_ARM_THM_CALL         00000000   printf
+00000064  0001620a R_ARM_THM_CALL         00000001   DramcImpedanceEfuseValue
+0000006e  0001620a R_ARM_THM_CALL         00000001   DramcImpedanceEfuseValue
+00000080  0001580a R_ARM_THM_CALL         00000000   printf
+00000088  0001580a R_ARM_THM_CALL         00000000   printf
+00000094  0001620a R_ARM_THM_CALL         00000001   DramcImpedanceEfuseValue
+0000009e  0001620a R_ARM_THM_CALL         00000001   DramcImpedanceEfuseValue
+000000aa  0001170a R_ARM_THM_CALL         00000000   is_ddr3_family
+000000bc  00015e0a R_ARM_THM_CALL         00000001   Dramc_efuse_read_parse
+000000cc  00015902 R_ARM_ABS32            00000000   uartDisable
+000000d0  0000a502 R_ARM_ABS32            00000000   .rodata.DramcImpedanceByEfuse.str1.1
+000000d4  0000a502 R_ARM_ABS32            00000000   .rodata.DramcImpedanceByEfuse.str1.1
+000000d8  0000a502 R_ARM_ABS32            00000000   .rodata.DramcImpedanceByEfuse.str1.1
+000000dc  0000a502 R_ARM_ABS32            00000000   .rodata.DramcImpedanceByEfuse.str1.1
+
+Relocation section '.rel.text.DramcClockDutySetClkDelayCell' at offset 0x8e04 contains 5 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000024  00000f0a R_ARM_THM_CALL         00000001   DramcDutyDelayRGSettingConvert.constprop.0.isra.0
+0000003c  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000048  0000ca02 R_ARM_ABS32            00000000   .bss.MCLK_Duty_Flag
+0000004c  0000f802 R_ARM_ABS32            00000000   .bss.ucDelay_P.3
+00000050  0000f502 R_ARM_ABS32            00000000   .bss.ucDelay_N.2
+
+Relocation section '.rel.text.DQSDutyScan_SetDqsDelayCell' at offset 0x8e2c contains 7 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000003c  00000f0a R_ARM_THM_CALL         00000001   DramcDutyDelayRGSettingConvert.constprop.0.isra.0
+0000006c  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000082  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000ae  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000b8  0000ca02 R_ARM_ABS32            00000000   .bss.MCLK_Duty_Flag
+000000bc  0000ed02 R_ARM_ABS32            00000000   .bss.u1Delay_N.0
+000000c0  0000f002 R_ARM_ABS32            00000000   .bss.u1Delay_P.1
+
+Relocation section '.rel.text.DutyScan_Offset_Convert' at offset 0x8e64 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000a  0001450a R_ARM_THM_CALL         00000000   memcpy
+00000028  0000c002 R_ARM_ABS32            00000000   .rodata
+
+Relocation section '.rel.text.DutyScan_Offset_Calibration' at offset 0x8e74 contains 40 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000012  0001450a R_ARM_THM_CALL         00000000   memcpy
+00000018  00012f0a R_ARM_THM_CALL         00000000   vPrintCalibrationBasicInfo
+0000002a  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000038  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000048  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000058  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000068  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000074  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000082  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000090  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000a0  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000ac  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000ba  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000c8  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000d6  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000dc  00010b0a R_ARM_THM_CALL         00000000   udelay
+000000ea  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000f8  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000106  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000010c  00010b0a R_ARM_THM_CALL         00000000   udelay
+0000011c  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000012c  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000013c  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000014a  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000158  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000166  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000017e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000018e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000019e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000001a4  00010b0a R_ARM_THM_CALL         00000000   udelay
+000001ac  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000001b6  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000001c4  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000208  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000216  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000224  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000023e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000258  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000272  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000027c  0000c002 R_ARM_ABS32            00000000   .rodata
+
+Relocation section '.rel.text.DutyScan_Calibration_Flow' at offset 0x8fb4 contains 68 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000038  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000046  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000050  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000060  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000070  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000080  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000008c  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000009c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000aa  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000b8  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000000c0  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000120  00000f0a R_ARM_THM_CALL         00000001   DramcDutyDelayRGSettingConvert.constprop.0.isra.0
+0000013e  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000246  0001690a R_ARM_THM_CALL         00000001   DQSDutyScan_SetDqsDelayCell
+0000024c  0001360a R_ARM_THM_CALL         00000001   DramPhyReset
+00000260  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000026e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000027c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000028e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000002ac  0000ca02 R_ARM_ABS32            00000000   .bss.MCLK_Duty_Flag
+000002c8  0000c602 R_ARM_ABS32            00000000   .bss.DQS_duty_delay_for_fullK_P
+000002cc  0000e602 R_ARM_ABS32            00000000   .bss.gcFinal_K_Duty_DQS_delay_cell_P
+000002d0  0000d202 R_ARM_ABS32            00000000   .bss.clk_pi_dqs_delay_cell_P
+000002f8  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000302  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000312  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000320  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000330  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000033e  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000034c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000035a  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000368  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000376  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000380  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000390  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000039e  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000003ae  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000003ba  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000003ca  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000003d8  0001190a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000003e6  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000003f8  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000456  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000474  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000484  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000492  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000004c8  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000004ce  00010b0a R_ARM_THM_CALL         00000000   udelay
+000004d6  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000005a0  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000005b0  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000005c8  0000ca02 R_ARM_ABS32            00000000   .bss.MCLK_Duty_Flag
+00000614  0000c202 R_ARM_ABS32            00000000   .bss.DQS_Duty_BY_CLK_PI_CODE_Flag
+0000062c  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000063c  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000672  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000680  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000686  00010b0a R_ARM_THM_CALL         00000000   udelay
+0000068e  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+000006b2  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000006c0  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+000006c6  00010b0a R_ARM_THM_CALL         00000000   udelay
+000006ce  00010c0a R_ARM_THM_CALL         00000000   u4Dram_Register_Read
+00000774  0001680a R_ARM_THM_CALL         00000001   DramcClockDutySetClkDelayCell
+0000078a  0001680a R_ARM_THM_CALL         00000001   DramcClockDutySetClkDelayCell
+000007a8  0000c402 R_ARM_ABS32            00000000   .bss.DQS_duty_delay_for_fullK_N
+000007ac  0000e402 R_ARM_ABS32            00000000   .bss.gcFinal_K_Duty_DQS_delay_cell_N
+000007b0  0000d002 R_ARM_ABS32            00000000   .bss.clk_pi_dqs_delay_cell_N
+
+Relocation section '.rel.text.DramcNewDutyCalibration' at offset 0x91d4 contains 56 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  0001450a R_ARM_THM_CALL         00000000   memcpy
+0000001a  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000020  0001350a R_ARM_THM_CALL         00000000   u1GetRank
+0000002a  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000036  00016e0a R_ARM_THM_CALL         00000000   EnableDramcPhyDCM
+00000048  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000058  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000066  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000074  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000082  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000008e  0001300a R_ARM_THM_CALL         00000000   DramcBackupRegisters
+00000094  00016b0a R_ARM_THM_CALL         00000001   DutyScan_Offset_Calibration
+0000009e  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000000ae  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000b8  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000000c8  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000d2  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000000e2  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000000f0  00016c0a R_ARM_THM_CALL         00000001   DutyScan_Calibration_Flow
+00000100  00016c0a R_ARM_THM_CALL         00000001   DutyScan_Calibration_Flow
+00000114  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000124  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000012e  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+0000013e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000148  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+00000158  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000164  0001320a R_ARM_THM_CALL         00000000   DramcRestoreRegisters
+00000170  00010d0a R_ARM_THM_CALL         00000001   vSetCalibrationResult
+00000188  0001690a R_ARM_THM_CALL         00000001   DQSDutyScan_SetDqsDelayCell
+00000198  0001680a R_ARM_THM_CALL         00000001   DramcClockDutySetClkDelayCell
+000001ac  0001690a R_ARM_THM_CALL         00000001   DQSDutyScan_SetDqsDelayCell
+000001bc  0001680a R_ARM_THM_CALL         00000001   DramcClockDutySetClkDelayCell
+000001d2  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000001de  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000001ea  0001240a R_ARM_THM_CALL         00000000   vPhyByteReadFldAlign
+000001fa  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+0000020a  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000218  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000226  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000234  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000023a  0001160a R_ARM_THM_CALL         00000000   is_ddr4_family
+0000024c  00010a0a R_ARM_THM_CALL         00000000   vIO32WriteMsk
+00000254  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000262  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+00000270  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000027e  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000028c  0001090a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000294  00011a0a R_ARM_THM_CALL         00000000   vSetRank
+0000029c  0000c002 R_ARM_ABS32            00000000   .rodata
+000002a0  0000c202 R_ARM_ABS32            00000000   .bss.DQS_Duty_BY_CLK_PI_CODE_Flag
+000002a4  0000ca02 R_ARM_ABS32            00000000   .bss.MCLK_Duty_Flag
+000002c4  0000e402 R_ARM_ABS32            00000000   .bss.gcFinal_K_Duty_DQS_delay_cell_N
+000002c8  00016f02 R_ARM_ABS32            00000000   DCC_K_result_rg_rk1
+000002cc  0000d002 R_ARM_ABS32            00000000   .bss.clk_pi_dqs_delay_cell_N
+000002d0  0000e602 R_ARM_ABS32            00000000   .bss.gcFinal_K_Duty_DQS_delay_cell_P
+000002d4  0000d202 R_ARM_ABS32            00000000   .bss.clk_pi_dqs_delay_cell_P
+
+Relocation section '.rel.data.szCalibStatusName' at offset 0x9394 contains 14 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000004  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000008  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+0000000c  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000010  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000014  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000018  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+0000001c  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000020  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000024  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000028  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+0000002c  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000030  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1
+00000034  0000bf02 R_ARM_ABS32            00000000   .rodata.str1.1

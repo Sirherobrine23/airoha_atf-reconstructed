@@ -1,0 +1,44 @@
+
+Relocation section '.rel.text.PC4_WR_INIT_MRfiled_config' at offset 0xdc0 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  00002f0a R_ARM_THM_CALL         00000001   Roundup_Operation
+
+Relocation section '.rel.text.PC4_DRAM_config' at offset 0xdc8 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000320a R_ARM_THM_CALL         00000001   PC4_DRAM_INIT_CWL_MRfield_config
+00000016  0000330a R_ARM_THM_CALL         00000001   PC4_DRAM_INIT_CL_MRfield_config
+00000024  0000310a R_ARM_THM_CALL         00000001   PC4_WR_INIT_TCCDL_config
+0000002c  0000300a R_ARM_THM_CALL         00000001   PC4_WR_INIT_MRfiled_config
+
+Relocation section '.rel.text.PC3_DRAM_config' at offset 0xde8 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000350a R_ARM_THM_CALL         00000001   PC3_DRAM_INIT_CWL_MRfield_config
+00000016  0000360a R_ARM_THM_CALL         00000001   PC3_DRAM_INIT_CL_MRfield_config
+
+Relocation section '.rel.text.ANA_TOP_FUNCTION_CFG' at offset 0xdf8 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000034  00003902 R_ARM_ABS32            00000000   DUTTopSetGlobal
+
+Relocation section '.rel.text.ANA_CLK_DIV_config' at offset 0xe00 contains 6 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000003e  00003b0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+0000004c  00003b0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+0000005a  00003b0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+00000064  00003b0a R_ARM_THM_CALL         00000000   vGet_DDR_Loop_Mode
+0000028c  00003902 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000290  00003c02 R_ARM_ABS32            00000000   MEM_TYPE
+
+Relocation section '.rel.text.DRAMC_SUBSYS_PRE_CONFIG' at offset 0xe30 contains 12 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+000000cc  0000370a R_ARM_THM_CALL         00000001   PC3_DRAM_config
+000000d8  0000380a R_ARM_THM_CALL         00000001   ANA_TOP_FUNCTION_CFG
+00000178  0000340a R_ARM_THM_CALL         00000001   PC4_DRAM_config
+00000180  00003902 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000184  00002202 R_ARM_ABS32            00000000   .bss.DFS_TOP
+00000188  00002002 R_ARM_ABS32            00000000   .bss.ANA_option
+0000018c  00002602 R_ARM_ABS32            00000000   .bss.PC3_INIT
+00000190  00002802 R_ARM_ABS32            00000000   .bss.PC4_INIT
+00000194  00002a02 R_ARM_ABS32            00000000   .bss.ana_top_p
+00000198  00003c02 R_ARM_ABS32            00000000   MEM_TYPE
+0000019c  00003e02 R_ARM_ABS32            00000000   DUTShufConfigGlobal
+000000e4  00003a1e R_ARM_THM_JUMP24       00000001   ANA_CLK_DIV_config

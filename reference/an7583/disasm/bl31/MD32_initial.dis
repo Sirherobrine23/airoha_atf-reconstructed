@@ -1,0 +1,534 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl31/MD32_initial.o:	file format elf64-littleaarch64
+
+Disassembly of section .text.MD32_initializaton_ch:
+
+0000000000000000 <MD32_initializaton_ch>:
+       0: a9bb7bfd     	stp	x29, x30, [sp, #-0x50]!
+       4: 910003fd     	mov	x29, sp
+       8: a90153f3     	stp	x19, x20, [sp, #0x10]
+       c: aa0003f3     	mov	x19, x0
+      10: 90000014     	adrp	x20, 0x0 <MD32_initializaton_ch>
+		0000000000000010:  R_AARCH64_ADR_PREL_PG_HI21	DUTTopSetGlobal
+      14: a9025bf5     	stp	x21, x22, [sp, #0x20]
+      18: 91000294     	add	x20, x20, #0x0
+		0000000000000018:  R_AARCH64_ADD_ABS_LO12_NC	DUTTopSetGlobal
+      1c: 52a02015     	mov	w21, #0x1000000         // =16777216
+      20: a90363f7     	stp	x23, x24, [sp, #0x30]
+      24: 52800616     	mov	w22, #0x30              // =48
+      28: 52800217     	mov	w23, #0x10              // =16
+      2c: f90023f9     	str	x25, [sp, #0x40]
+      30: 94000000     	bl	0x30 <MD32_initializaton_ch+0x30>
+		0000000000000030:  R_AARCH64_CALL26	vSetPHY2ChannelMapping
+      34: 52800023     	mov	w3, #0x1                // =1
+      38: aa1303e0     	mov	x0, x19
+      3c: 2a0303e2     	mov	w2, w3
+      40: 52a04081     	mov	w1, #0x2040000          // =33816576
+      44: 94000000     	bl	0x44 <MD32_initializaton_ch+0x44>
+		0000000000000044:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      48: 52800199     	mov	w25, #0xc               // =12
+      4c: 52860081     	mov	w1, #0x3004             // =12292
+      50: 52802003     	mov	w3, #0x100              // =256
+      54: aa1303e0     	mov	x0, x19
+      58: 2a0303e2     	mov	w2, w3
+      5c: 72a04081     	movk	w1, #0x204, lsl #16
+      60: 94000000     	bl	0x60 <MD32_initializaton_ch+0x60>
+		0000000000000060:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      64: 52860081     	mov	w1, #0x3004             // =12292
+      68: aa1303e0     	mov	x0, x19
+      6c: 52800603     	mov	w3, #0x30               // =48
+      70: 52800002     	mov	w2, #0x0                // =0
+      74: 72a04081     	movk	w1, #0x204, lsl #16
+      78: 94000000     	bl	0x78 <MD32_initializaton_ch+0x78>
+		0000000000000078:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      7c: 528e0001     	mov	w1, #0x7000             // =28672
+      80: aa1303e0     	mov	x0, x19
+      84: 52800023     	mov	w3, #0x1                // =1
+      88: 52800002     	mov	w2, #0x0                // =0
+      8c: 72a04081     	movk	w1, #0x204, lsl #16
+      90: 94000000     	bl	0x90 <MD32_initializaton_ch+0x90>
+		0000000000000090:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      94: 528e0001     	mov	w1, #0x7000             // =28672
+      98: 52800023     	mov	w3, #0x1                // =1
+      9c: aa1303e0     	mov	x0, x19
+      a0: 2a0303e2     	mov	w2, w3
+      a4: 72a04081     	movk	w1, #0x204, lsl #16
+      a8: 94000000     	bl	0xa8 <MD32_initializaton_ch+0xa8>
+		00000000000000a8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      ac: 528e0001     	mov	w1, #0x7000             // =28672
+      b0: 52810003     	mov	w3, #0x800              // =2048
+      b4: aa1303e0     	mov	x0, x19
+      b8: 2a0303e2     	mov	w2, w3
+      bc: 72a04081     	movk	w1, #0x204, lsl #16
+      c0: 94000000     	bl	0xc0 <MD32_initializaton_ch+0xc0>
+		00000000000000c0:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      c4: 528e0001     	mov	w1, #0x7000             // =28672
+      c8: aa1303e0     	mov	x0, x19
+      cc: 52800403     	mov	w3, #0x20               // =32
+      d0: 52800002     	mov	w2, #0x0                // =0
+      d4: 72a04081     	movk	w1, #0x204, lsl #16
+      d8: 94000000     	bl	0xd8 <MD32_initializaton_ch+0xd8>
+		00000000000000d8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+      dc: 3942c680     	ldrb	w0, [x20, #0xb1]
+      e0: 528e0781     	mov	w1, #0x703c             // =28732
+      e4: 52a06003     	mov	w3, #0x3000000          // =50331648
+      e8: 72a04081     	movk	w1, #0x204, lsl #16
+      ec: 7100041f     	cmp	w0, #0x1
+      f0: aa1303e0     	mov	x0, x19
+      f4: 1a8302a2     	csel	w2, w21, w3, eq
+      f8: 52802018     	mov	w24, #0x100             // =256
+      fc: 94000000     	bl	0xfc <MD32_initializaton_ch+0xfc>
+		00000000000000fc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     100: 52818003     	mov	w3, #0xc00              // =3072
+     104: 52818002     	mov	w2, #0xc00              // =3072
+     108: 528e0401     	mov	w1, #0x7020             // =28704
+     10c: aa1303e0     	mov	x0, x19
+     110: 72ae0003     	movk	w3, #0x7000, lsl #16
+     114: 72a60002     	movk	w2, #0x3000, lsl #16
+     118: 72a04081     	movk	w1, #0x204, lsl #16
+     11c: 94000000     	bl	0x11c <MD32_initializaton_ch+0x11c>
+		000000000000011c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     120: 528e0081     	mov	w1, #0x7004             // =28676
+     124: aa1303e0     	mov	x0, x19
+     128: 52800063     	mov	w3, #0x3                // =3
+     12c: 52800002     	mov	w2, #0x0                // =0
+     130: 72a04081     	movk	w1, #0x204, lsl #16
+     134: 94000000     	bl	0x134 <MD32_initializaton_ch+0x134>
+		0000000000000134:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     138: 528e0081     	mov	w1, #0x7004             // =28676
+     13c: aa1303e0     	mov	x0, x19
+     140: 52980003     	mov	w3, #0xc000             // =49152
+     144: 52800002     	mov	w2, #0x0                // =0
+     148: 72a04081     	movk	w1, #0x204, lsl #16
+     14c: 94000000     	bl	0x14c <MD32_initializaton_ch+0x14c>
+		000000000000014c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     150: 528e0081     	mov	w1, #0x7004             // =28676
+     154: aa1303e0     	mov	x0, x19
+     158: 52860003     	mov	w3, #0x3000             // =12288
+     15c: 52800002     	mov	w2, #0x0                // =0
+     160: 72a04081     	movk	w1, #0x204, lsl #16
+     164: 94000000     	bl	0x164 <MD32_initializaton_ch+0x164>
+		0000000000000164:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     168: 528e0101     	mov	w1, #0x7008             // =28680
+     16c: aa1303e0     	mov	x0, x19
+     170: 52a00183     	mov	w3, #0xc0000            // =786432
+     174: 52800002     	mov	w2, #0x0                // =0
+     178: 72a04081     	movk	w1, #0x204, lsl #16
+     17c: 94000000     	bl	0x17c <MD32_initializaton_ch+0x17c>
+		000000000000017c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     180: 528e0181     	mov	w1, #0x700c             // =28684
+     184: aa1303e0     	mov	x0, x19
+     188: 52800603     	mov	w3, #0x30               // =48
+     18c: 52800002     	mov	w2, #0x0                // =0
+     190: 72a04081     	movk	w1, #0x204, lsl #16
+     194: 94000000     	bl	0x194 <MD32_initializaton_ch+0x194>
+		0000000000000194:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     198: 528e0781     	mov	w1, #0x703c             // =28732
+     19c: aa1303e0     	mov	x0, x19
+     1a0: 52860003     	mov	w3, #0x3000             // =12288
+     1a4: 52800002     	mov	w2, #0x0                // =0
+     1a8: 72a04081     	movk	w1, #0x204, lsl #16
+     1ac: 94000000     	bl	0x1ac <MD32_initializaton_ch+0x1ac>
+		00000000000001ac:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1b0: 528e0781     	mov	w1, #0x703c             // =28732
+     1b4: aa1303e0     	mov	x0, x19
+     1b8: 52a01803     	mov	w3, #0xc00000           // =12582912
+     1bc: 52800002     	mov	w2, #0x0                // =0
+     1c0: 72a04081     	movk	w1, #0x204, lsl #16
+     1c4: 94000000     	bl	0x1c4 <MD32_initializaton_ch+0x1c4>
+		00000000000001c4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1c8: 528e0781     	mov	w1, #0x703c             // =28732
+     1cc: aa1303e0     	mov	x0, x19
+     1d0: 52818003     	mov	w3, #0xc00              // =3072
+     1d4: 52800002     	mov	w2, #0x0                // =0
+     1d8: 72a04081     	movk	w1, #0x204, lsl #16
+     1dc: 94000000     	bl	0x1dc <MD32_initializaton_ch+0x1dc>
+		00000000000001dc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1e0: 528e0181     	mov	w1, #0x700c             // =28684
+     1e4: aa1303e0     	mov	x0, x19
+     1e8: 52800803     	mov	w3, #0x40               // =64
+     1ec: 52800002     	mov	w2, #0x0                // =0
+     1f0: 72a04081     	movk	w1, #0x204, lsl #16
+     1f4: 94000000     	bl	0x1f4 <MD32_initializaton_ch+0x1f4>
+		00000000000001f4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     1f8: 528e0701     	mov	w1, #0x7038             // =28728
+     1fc: 2a1503e3     	mov	w3, w21
+     200: aa1303e0     	mov	x0, x19
+     204: 52800002     	mov	w2, #0x0                // =0
+     208: 72a04081     	movk	w1, #0x204, lsl #16
+     20c: 94000000     	bl	0x20c <MD32_initializaton_ch+0x20c>
+		000000000000020c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     210: 528e0401     	mov	w1, #0x7020             // =28704
+     214: aa1303e0     	mov	x0, x19
+     218: 52a20003     	mov	w3, #0x10000000         // =268435456
+     21c: 52800002     	mov	w2, #0x0                // =0
+     220: 72a04081     	movk	w1, #0x204, lsl #16
+     224: 94000000     	bl	0x224 <MD32_initializaton_ch+0x224>
+		0000000000000224:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     228: 528e0181     	mov	w1, #0x700c             // =28684
+     22c: aa1303e0     	mov	x0, x19
+     230: 52a80003     	mov	w3, #0x40000000         // =1073741824
+     234: 52800002     	mov	w2, #0x0                // =0
+     238: 72a04081     	movk	w1, #0x204, lsl #16
+     23c: 94000000     	bl	0x23c <MD32_initializaton_ch+0x23c>
+		000000000000023c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     240: 3942c681     	ldrb	w1, [x20, #0xb1]
+     244: 52800095     	mov	w21, #0x4               // =4
+     248: 52800803     	mov	w3, #0x40               // =64
+     24c: 7100043f     	cmp	w1, #0x1
+     250: 52a00801     	mov	w1, #0x400000           // =4194304
+     254: 1a9902a0     	csel	w0, w21, w25, eq
+     258: 1a9602e2     	csel	w2, w23, w22, eq
+     25c: 2a000042     	orr	w2, w2, w0
+     260: 52801800     	mov	w0, #0xc0               // =192
+     264: 1a831003     	csel	w3, w0, w3, ne
+     268: 52806000     	mov	w0, #0x300              // =768
+     26c: 1a981000     	csel	w0, w0, w24, ne
+     270: 2a030000     	orr	w0, w0, w3
+     274: 52808003     	mov	w3, #0x400              // =1024
+     278: 2a020000     	orr	w0, w0, w2
+     27c: 52818002     	mov	w2, #0xc00              // =3072
+     280: 1a831043     	csel	w3, w2, w3, ne
+     284: 52a01802     	mov	w2, #0xc00000           // =12582912
+     288: 1a811042     	csel	w2, w2, w1, ne
+     28c: 528e0081     	mov	w1, #0x7004             // =28676
+     290: 2a030042     	orr	w2, w2, w3
+     294: 5281ff83     	mov	w3, #0xffc              // =4092
+     298: 2a000042     	orr	w2, w2, w0
+     29c: 72a01803     	movk	w3, #0xc0, lsl #16
+     2a0: aa1303e0     	mov	x0, x19
+     2a4: 72a04081     	movk	w1, #0x204, lsl #16
+     2a8: 94000000     	bl	0x2a8 <MD32_initializaton_ch+0x2a8>
+		00000000000002a8:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2ac: 3942c680     	ldrb	w0, [x20, #0xb1]
+     2b0: 52800062     	mov	w2, #0x3                // =3
+     2b4: 528e0701     	mov	w1, #0x7038             // =28728
+     2b8: 528007e3     	mov	w3, #0x3f               // =63
+     2bc: 7100041f     	cmp	w0, #0x1
+     2c0: 72a04081     	movk	w1, #0x204, lsl #16
+     2c4: 1a9f1442     	csinc	w2, w2, wzr, ne
+     2c8: 1a9902b5     	csel	w21, w21, w25, eq
+     2cc: 2a0202b5     	orr	w21, w21, w2
+     2d0: 1a9602e2     	csel	w2, w23, w22, eq
+     2d4: 2a0202a2     	orr	w2, w21, w2
+     2d8: aa1303e0     	mov	x0, x19
+     2dc: 94000000     	bl	0x2dc <MD32_initializaton_ch+0x2dc>
+		00000000000002dc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2e0: 528e0001     	mov	w1, #0x7000             // =28672
+     2e4: 52800103     	mov	w3, #0x8                // =8
+     2e8: aa1303e0     	mov	x0, x19
+     2ec: 2a0303e2     	mov	w2, w3
+     2f0: 72a04081     	movk	w1, #0x204, lsl #16
+     2f4: 94000000     	bl	0x2f4 <MD32_initializaton_ch+0x2f4>
+		00000000000002f4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     2f8: 528e0001     	mov	w1, #0x7000             // =28672
+     2fc: aa1303e0     	mov	x0, x19
+     300: 52800103     	mov	w3, #0x8                // =8
+     304: 52800002     	mov	w2, #0x0                // =0
+     308: 72a04081     	movk	w1, #0x204, lsl #16
+     30c: 94000000     	bl	0x30c <MD32_initializaton_ch+0x30c>
+		000000000000030c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     310: 528107c3     	mov	w3, #0x83e              // =2110
+     314: 528e0201     	mov	w1, #0x7010             // =28688
+     318: 72a00203     	movk	w3, #0x10, lsl #16
+     31c: aa1303e0     	mov	x0, x19
+     320: 2a0303e2     	mov	w2, w3
+     324: 72a04081     	movk	w1, #0x204, lsl #16
+     328: 94000000     	bl	0x328 <MD32_initializaton_ch+0x328>
+		0000000000000328:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     32c: 528e0281     	mov	w1, #0x7014             // =28692
+     330: 52800e03     	mov	w3, #0x70               // =112
+     334: aa1303e0     	mov	x0, x19
+     338: 2a0303e2     	mov	w2, w3
+     33c: 72a04081     	movk	w1, #0x204, lsl #16
+     340: 94000000     	bl	0x340 <MD32_initializaton_ch+0x340>
+		0000000000000340:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     344: 528e5b01     	mov	w1, #0x72d8             // =29400
+     348: 528e0783     	mov	w3, #0x703c             // =28732
+     34c: aa1303e0     	mov	x0, x19
+     350: 2a0303e2     	mov	w2, w3
+     354: 72a04081     	movk	w1, #0x204, lsl #16
+     358: 94000000     	bl	0x358 <MD32_initializaton_ch+0x358>
+		0000000000000358:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     35c: 528e0c81     	mov	w1, #0x7064             // =28772
+     360: aa1303e0     	mov	x0, x19
+     364: 5283ffe3     	mov	w3, #0x1fff             // =8191
+     368: 52816922     	mov	w2, #0xb49              // =2889
+     36c: 72a04081     	movk	w1, #0x204, lsl #16
+     370: 94000000     	bl	0x370 <MD32_initializaton_ch+0x370>
+		0000000000000370:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     374: 5284c382     	mov	w2, #0x261c             // =9756
+     378: 528e0a81     	mov	w1, #0x7054             // =28756
+     37c: aa1303e0     	mov	x0, x19
+     380: 52800004     	mov	w4, #0x0                // =0
+     384: 52800003     	mov	w3, #0x0                // =0
+     388: 72a18202     	movk	w2, #0xc10, lsl #16
+     38c: 72a04081     	movk	w1, #0x204, lsl #16
+     390: 94000000     	bl	0x390 <MD32_initializaton_ch+0x390>
+		0000000000000390:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     394: 528e4422     	mov	w2, #0x7221             // =29217
+     398: 528e0901     	mov	w1, #0x7048             // =28744
+     39c: aa1303e0     	mov	x0, x19
+     3a0: 52800004     	mov	w4, #0x0                // =0
+     3a4: 52800003     	mov	w3, #0x0                // =0
+     3a8: 72a68142     	movk	w2, #0x340a, lsl #16
+     3ac: 72a04081     	movk	w1, #0x204, lsl #16
+     3b0: 94000000     	bl	0x3b0 <MD32_initializaton_ch+0x3b0>
+		00000000000003b0:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     3b4: 52818142     	mov	w2, #0xc0a              // =3082
+     3b8: 528e0981     	mov	w1, #0x704c             // =28748
+     3bc: aa1303e0     	mov	x0, x19
+     3c0: 52800004     	mov	w4, #0x0                // =0
+     3c4: 52800003     	mov	w3, #0x0                // =0
+     3c8: 72a040a2     	movk	w2, #0x205, lsl #16
+     3cc: 72a04081     	movk	w1, #0x204, lsl #16
+     3d0: 94000000     	bl	0x3d0 <MD32_initializaton_ch+0x3d0>
+		00000000000003d0:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     3d4: 528bc942     	mov	w2, #0x5e4a             // =24138
+     3d8: 528e0a01     	mov	w1, #0x7050             // =28752
+     3dc: aa1303e0     	mov	x0, x19
+     3e0: 52800004     	mov	w4, #0x0                // =0
+     3e4: 52800003     	mov	w3, #0x0                // =0
+     3e8: 72a16402     	movk	w2, #0xb20, lsl #16
+     3ec: 72a04081     	movk	w1, #0x204, lsl #16
+     3f0: 94000000     	bl	0x3f0 <MD32_initializaton_ch+0x3f0>
+		00000000000003f0:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     3f4: 528bc942     	mov	w2, #0x5e4a             // =24138
+     3f8: 528e0a01     	mov	w1, #0x7050             // =28752
+     3fc: 52800004     	mov	w4, #0x0                // =0
+     400: aa1303e0     	mov	x0, x19
+     404: 52800003     	mov	w3, #0x0                // =0
+     408: 72a1e402     	movk	w2, #0xf20, lsl #16
+     40c: 72a04081     	movk	w1, #0x204, lsl #16
+     410: 94000000     	bl	0x410 <MD32_initializaton_ch+0x410>
+		0000000000000410:  R_AARCH64_CALL26	vPhyByteWriteFldAlign
+     414: 528041e2     	mov	w2, #0x20f              // =527
+     418: 528e0b01     	mov	w1, #0x7058             // =28760
+     41c: aa1303e0     	mov	x0, x19
+     420: 129f8003     	mov	w3, #-0xfc01            // =-64513
+     424: 72acd962     	movk	w2, #0x66cb, lsl #16
+     428: 72a04081     	movk	w1, #0x204, lsl #16
+     42c: 94000000     	bl	0x42c <MD32_initializaton_ch+0x42c>
+		000000000000042c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     430: 529e7fe3     	mov	w3, #0xf3ff             // =62463
+     434: 52962782     	mov	w2, #0xb13c             // =45372
+     438: 528e0b81     	mov	w1, #0x705c             // =28764
+     43c: aa1303e0     	mov	x0, x19
+     440: 72a007e3     	movk	w3, #0x3f, lsl #16
+     444: 72a000c2     	movk	w2, #0x6, lsl #16
+     448: 72a04081     	movk	w1, #0x204, lsl #16
+     44c: 94000000     	bl	0x44c <MD32_initializaton_ch+0x44c>
+		000000000000044c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     450: 528e0001     	mov	w1, #0x7000             // =28672
+     454: aa1303e0     	mov	x0, x19
+     458: 52bfe003     	mov	w3, #-0x1000000         // =-16777216
+     45c: 52a88002     	mov	w2, #0x44000000         // =1140850688
+     460: 72a04081     	movk	w1, #0x204, lsl #16
+     464: 94000000     	bl	0x464 <MD32_initializaton_ch+0x464>
+		0000000000000464:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     468: 528e0001     	mov	w1, #0x7000             // =28672
+     46c: 52804003     	mov	w3, #0x200              // =512
+     470: aa1303e0     	mov	x0, x19
+     474: 2a0303e2     	mov	w2, w3
+     478: 72a04081     	movk	w1, #0x204, lsl #16
+     47c: 94000000     	bl	0x47c <MD32_initializaton_ch+0x47c>
+		000000000000047c:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     480: 528e0001     	mov	w1, #0x7000             // =28672
+     484: 2a1803e3     	mov	w3, w24
+     488: 2a1803e2     	mov	w2, w24
+     48c: aa1303e0     	mov	x0, x19
+     490: 72a04081     	movk	w1, #0x204, lsl #16
+     494: 94000000     	bl	0x494 <MD32_initializaton_ch+0x494>
+		0000000000000494:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     498: 52840401     	mov	w1, #0x2020             // =8224
+     49c: aa1303e0     	mov	x0, x19
+     4a0: 12800003     	mov	w3, #-0x1               // =-1
+     4a4: 52a00062     	mov	w2, #0x30000            // =196608
+     4a8: 72a04081     	movk	w1, #0x204, lsl #16
+     4ac: 94000000     	bl	0x4ac <MD32_initializaton_ch+0x4ac>
+		00000000000004ac:  R_AARCH64_CALL26	vIO32WriteMsk
+     4b0: 52840601     	mov	w1, #0x2030             // =8240
+     4b4: aa1303e0     	mov	x0, x19
+     4b8: 12800003     	mov	w3, #-0x1               // =-1
+     4bc: 52a00062     	mov	w2, #0x30000            // =196608
+     4c0: 72a04081     	movk	w1, #0x204, lsl #16
+     4c4: 94000000     	bl	0x4c4 <MD32_initializaton_ch+0x4c4>
+		00000000000004c4:  R_AARCH64_CALL26	vIO32WriteMsk
+     4c8: 52840c01     	mov	w1, #0x2060             // =8288
+     4cc: aa1303e0     	mov	x0, x19
+     4d0: 12800003     	mov	w3, #-0x1               // =-1
+     4d4: 52a00022     	mov	w2, #0x10000            // =65536
+     4d8: 72a04081     	movk	w1, #0x204, lsl #16
+     4dc: 94000000     	bl	0x4dc <MD32_initializaton_ch+0x4dc>
+		00000000000004dc:  R_AARCH64_CALL26	vIO32WriteMsk
+     4e0: 52840e01     	mov	w1, #0x2070             // =8304
+     4e4: aa1303e0     	mov	x0, x19
+     4e8: 12800003     	mov	w3, #-0x1               // =-1
+     4ec: 52a00042     	mov	w2, #0x20000            // =131072
+     4f0: 72a04081     	movk	w1, #0x204, lsl #16
+     4f4: 94000000     	bl	0x4f4 <MD32_initializaton_ch+0x4f4>
+		00000000000004f4:  R_AARCH64_CALL26	vIO32WriteMsk
+     4f8: 3942c680     	ldrb	w0, [x20, #0xb1]
+     4fc: 7100041f     	cmp	w0, #0x1
+     500: 540000e1     	b.ne	0x51c <MD32_initializaton_ch+0x51c>
+     504: 528e0001     	mov	w1, #0x7000             // =28672
+     508: 2a1703e3     	mov	w3, w23
+     50c: 2a1703e2     	mov	w2, w23
+     510: aa1303e0     	mov	x0, x19
+     514: 72a04081     	movk	w1, #0x204, lsl #16
+     518: 94000000     	bl	0x518 <MD32_initializaton_ch+0x518>
+		0000000000000518:  R_AARCH64_CALL26	vIO32WriteMsk
+     51c: 52860001     	mov	w1, #0x3000             // =12288
+     520: aa1303e0     	mov	x0, x19
+     524: 52820003     	mov	w3, #0x1000             // =4096
+     528: 52800002     	mov	w2, #0x0                // =0
+     52c: 72a04081     	movk	w1, #0x204, lsl #16
+     530: 94000000     	bl	0x530 <MD32_initializaton_ch+0x530>
+		0000000000000530:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     534: 52860101     	mov	w1, #0x3008             // =12296
+     538: aa1303e0     	mov	x0, x19
+     53c: 72a04081     	movk	w1, #0x204, lsl #16
+     540: 5281ffe3     	mov	w3, #0xfff              // =4095
+     544: 52800202     	mov	w2, #0x10               // =16
+     548: 94000000     	bl	0x548 <MD32_initializaton_ch+0x548>
+		0000000000000548:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     54c: 3941ea80     	ldrb	w0, [x20, #0x7a]
+     550: 3941e681     	ldrb	w1, [x20, #0x79]
+     554: 2a010000     	orr	w0, w0, w1
+     558: 72001c1f     	tst	w0, #0xff
+     55c: 540000e0     	b.eq	0x578 <MD32_initializaton_ch+0x578>
+     560: 528e0701     	mov	w1, #0x7038             // =28728
+     564: 52a18003     	mov	w3, #0xc000000          // =201326592
+     568: aa1303e0     	mov	x0, x19
+     56c: 2a0303e2     	mov	w2, w3
+     570: 72a04081     	movk	w1, #0x204, lsl #16
+     574: 94000000     	bl	0x574 <MD32_initializaton_ch+0x574>
+		0000000000000574:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     578: 39424680     	ldrb	w0, [x20, #0x91]
+     57c: 7100041f     	cmp	w0, #0x1
+     580: 540000e1     	b.ne	0x59c <MD32_initializaton_ch+0x59c>
+     584: 528e0001     	mov	w1, #0x7000             // =28672
+     588: 52800083     	mov	w3, #0x4                // =4
+     58c: aa1303e0     	mov	x0, x19
+     590: 2a0303e2     	mov	w2, w3
+     594: 72a04081     	movk	w1, #0x204, lsl #16
+     598: 94000000     	bl	0x598 <MD32_initializaton_ch+0x598>
+		0000000000000598:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     59c: 39402e80     	ldrb	w0, [x20, #0xb]
+     5a0: 7100041f     	cmp	w0, #0x1
+     5a4: 54000721     	b.ne	0x688 <MD32_initializaton_ch+0x688>
+     5a8: 52803501     	mov	w1, #0x1a8              // =424
+     5ac: 52800043     	mov	w3, #0x2                // =2
+     5b0: aa1303e0     	mov	x0, x19
+     5b4: 2a0303e2     	mov	w2, w3
+     5b8: 72a04081     	movk	w1, #0x204, lsl #16
+     5bc: 94000000     	bl	0x5bc <MD32_initializaton_ch+0x5bc>
+		00000000000005bc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     5c0: 52803501     	mov	w1, #0x1a8              // =424
+     5c4: 52800083     	mov	w3, #0x4                // =4
+     5c8: aa1303e0     	mov	x0, x19
+     5cc: 2a0303e2     	mov	w2, w3
+     5d0: 72a04081     	movk	w1, #0x204, lsl #16
+     5d4: 94000000     	bl	0x5d4 <MD32_initializaton_ch+0x5d4>
+		00000000000005d4:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     5d8: 52810981     	mov	w1, #0x84c              // =2124
+     5dc: aa1303e0     	mov	x0, x19
+     5e0: 52bfffe3     	mov	w3, #-0x10000           // =-65536
+     5e4: 52a0c002     	mov	w2, #0x6000000          // =100663296
+     5e8: 72a02001     	movk	w1, #0x100, lsl #16
+     5ec: 94000000     	bl	0x5ec <MD32_initializaton_ch+0x5ec>
+		00000000000005ec:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     5f0: 52a00803     	mov	w3, #0x400000           // =4194304
+     5f4: aa1303e0     	mov	x0, x19
+     5f8: 2a0303e2     	mov	w2, w3
+     5fc: 52802d01     	mov	w1, #0x168              // =360
+     600: 94000000     	bl	0x600 <MD32_initializaton_ch+0x600>
+		0000000000000600:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     604: 52840481     	mov	w1, #0x2024             // =8228
+     608: aa1303e0     	mov	x0, x19
+     60c: 12800003     	mov	w3, #-0x1               // =-1
+     610: 52800042     	mov	w2, #0x2                // =2
+     614: 72a04081     	movk	w1, #0x204, lsl #16
+     618: 94000000     	bl	0x618 <MD32_initializaton_ch+0x618>
+		0000000000000618:  R_AARCH64_CALL26	vIO32WriteMsk
+     61c: 52840681     	mov	w1, #0x2034             // =8244
+     620: aa1303e0     	mov	x0, x19
+     624: 12800003     	mov	w3, #-0x1               // =-1
+     628: 52800042     	mov	w2, #0x2                // =2
+     62c: 72a04081     	movk	w1, #0x204, lsl #16
+     630: 94000000     	bl	0x630 <MD32_initializaton_ch+0x630>
+		0000000000000630:  R_AARCH64_CALL26	vIO32WriteMsk
+     634: 52841481     	mov	w1, #0x20a4             // =8356
+     638: aa1303e0     	mov	x0, x19
+     63c: 12800003     	mov	w3, #-0x1               // =-1
+     640: 52800042     	mov	w2, #0x2                // =2
+     644: 72a04081     	movk	w1, #0x204, lsl #16
+     648: 94000000     	bl	0x648 <MD32_initializaton_ch+0x648>
+		0000000000000648:  R_AARCH64_CALL26	vIO32WriteMsk
+     64c: 3942c680     	ldrb	w0, [x20, #0xb1]
+     650: 7100041f     	cmp	w0, #0x1
+     654: 540002a1     	b.ne	0x6a8 <MD32_initializaton_ch+0x6a8>
+     658: 52811481     	mov	w1, #0x8a4              // =2212
+     65c: aa1303e0     	mov	x0, x19
+     660: 321417e3     	mov	w3, #0x3f000            // =258048
+     664: 52800002     	mov	w2, #0x0                // =0
+     668: 72a02001     	movk	w1, #0x100, lsl #16
+     66c: 94000000     	bl	0x66c <MD32_initializaton_ch+0x66c>
+		000000000000066c:  R_AARCH64_CALL26	vIO32WriteMsk
+     670: 52811481     	mov	w1, #0x8a4              // =2212
+     674: aa1303e0     	mov	x0, x19
+     678: 52a01f83     	mov	w3, #0xfc0000           // =16515072
+     67c: 52800002     	mov	w2, #0x0                // =0
+     680: 72a02001     	movk	w1, #0x100, lsl #16
+     684: 94000000     	bl	0x684 <MD32_initializaton_ch+0x684>
+		0000000000000684:  R_AARCH64_CALL26	vIO32WriteMsk
+     688: aa1303e0     	mov	x0, x19
+     68c: 52800001     	mov	w1, #0x0                // =0
+     690: a94153f3     	ldp	x19, x20, [sp, #0x10]
+     694: a9425bf5     	ldp	x21, x22, [sp, #0x20]
+     698: a94363f7     	ldp	x23, x24, [sp, #0x30]
+     69c: f94023f9     	ldr	x25, [sp, #0x40]
+     6a0: a8c57bfd     	ldp	x29, x30, [sp], #0x50
+     6a4: 14000000     	b	0x6a4 <MD32_initializaton_ch+0x6a4>
+		00000000000006a4:  R_AARCH64_JUMP26	vSetPHY2ChannelMapping
+     6a8: aa1303e0     	mov	x0, x19
+     6ac: 52800001     	mov	w1, #0x0                // =0
+     6b0: 94000000     	bl	0x6b0 <MD32_initializaton_ch+0x6b0>
+		00000000000006b0:  R_AARCH64_CALL26	u4Dram_Register_Read
+     6b4: 36c7fea0     	tbz	w0, #0x18, 0x688 <MD32_initializaton_ch+0x688>
+     6b8: 52810a01     	mov	w1, #0x850              // =2128
+     6bc: aa1303e0     	mov	x0, x19
+     6c0: 529fffe3     	mov	w3, #0xffff             // =65535
+     6c4: 52800082     	mov	w2, #0x4                // =4
+     6c8: 72a02001     	movk	w1, #0x100, lsl #16
+     6cc: 94000000     	bl	0x6cc <MD32_initializaton_ch+0x6cc>
+		00000000000006cc:  R_AARCH64_CALL26	vPhyByteIO32WriteMsk
+     6d0: 17ffffee     	b	0x688 <MD32_initializaton_ch+0x688>
+
+Disassembly of section .text.MD32_initializaton:
+
+0000000000000000 <MD32_initializaton>:
+       0: a9bd7bfd     	stp	x29, x30, [sp, #-0x30]!
+       4: 910003fd     	mov	x29, sp
+       8: f90013f5     	str	x21, [sp, #0x20]
+       c: aa0003f5     	mov	x21, x0
+      10: 52800000     	mov	w0, #0x0                // =0
+      14: a90153f3     	stp	x19, x20, [sp, #0x10]
+      18: 52800014     	mov	w20, #0x0               // =0
+      1c: b94002a1     	ldr	w1, [x21]
+      20: 72001c3f     	tst	w1, #0xff
+      24: 1a9f1421     	csinc	w1, w1, wzr, ne
+      28: 12001c33     	and	w19, w1, #0xff
+      2c: 94000000     	bl	0x2c <MD32_initializaton+0x2c>
+		000000000000002c:  R_AARCH64_CALL26	DramcBroadcastOnOff
+      30: 2a1403e1     	mov	w1, w20
+      34: 11000694     	add	w20, w20, #0x1
+      38: aa1503e0     	mov	x0, x21
+      3c: 94000000     	bl	0x3c <MD32_initializaton+0x3c>
+		000000000000003c:  R_AARCH64_CALL26	MD32_initializaton_ch
+      40: 6b34027f     	cmp	w19, w20, uxtb
+      44: 54ffff68     	b.hi	0x30 <MD32_initializaton+0x30>
+      48: a94153f3     	ldp	x19, x20, [sp, #0x10]
+      4c: f94013f5     	ldr	x21, [sp, #0x20]
+      50: a8c37bfd     	ldp	x29, x30, [sp], #0x30
+      54: d65f03c0     	ret

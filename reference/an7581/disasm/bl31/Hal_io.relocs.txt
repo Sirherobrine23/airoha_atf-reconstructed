@@ -1,0 +1,159 @@
+
+Relocation section '.rela.text.__meta_set' at offset 0x18f0 contains 4 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000004  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 0
+000000000000000c  0000003f00000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000028  0000004b0000011a R_AARCH64_JUMP26       0000000000000000 vSetPHY2ChannelMapping + 0
+0000000000000034  0000004c0000011a R_AARCH64_JUMP26       0000000000000000 vSetRank + 0
+
+Relocation section '.rela.text.__meta_restore' at offset 0x1950 contains 3 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+000000000000000c  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000010  0000003f00000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 0
+000000000000002c  0000004a0000011b R_AARCH64_CALL26       0000000000000000 __meta_set + 0
+
+Relocation section '.rela.text.__meta_backup' at offset 0x1998 contains 4 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+000000000000000c  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000010  0000003f00000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000054  0000004f0000011b R_AARCH64_CALL26       0000000000000000 vGetPHY2ChannelMapping + 0
+00000000000000a0  000000500000011b R_AARCH64_CALL26       0000000000000000 u1GetRank + 0
+
+Relocation section '.rela.text.__meta_backup_and_set' at offset 0x19f8 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+000000000000001c  0000004e0000011b R_AARCH64_CALL26       0000000000000000 __meta_backup + 0
+0000000000000038  0000004a0000011a R_AARCH64_JUMP26       0000000000000000 __meta_set + 0
+
+Relocation section '.rela.text.__meta_advance' at offset 0x1a28 contains 3 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000000  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000004  0000003f00000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000028  0000004a0000011a R_AARCH64_JUMP26       0000000000000000 __meta_set + 0
+
+Relocation section '.rela.text.__meta_process_complete' at offset 0x1a70 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000008  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 0
+000000000000000c  0000003f00000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 0
+
+Relocation section '.rela.text.__meta_loop_complete_for_next' at offset 0x1aa0 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000018  000000530000011b R_AARCH64_CALL26       0000000000000000 __meta_process_complete + 0
+0000000000000034  0000004a0000011b R_AARCH64_CALL26       0000000000000000 __meta_set + 0
+
+Relocation section '.rela.text.__meta_get' at offset 0x1ad0 contains 4 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+000000000000000c  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000018  0000003f00000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000024  0000004f0000011b R_AARCH64_CALL26       0000000000000000 vGetPHY2ChannelMapping + 0
+0000000000000060  000000500000011b R_AARCH64_CALL26       0000000000000000 u1GetRank + 0
+
+Relocation section '.rela.text.channel_msk_set' at offset 0x1b30 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000000  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 40
+0000000000000004  0000003f0000011d R_AARCH64_LDST32_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 40
+
+Relocation section '.rela.text.channel_msk_backup' at offset 0x1b60 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000000  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000004  0000003f00000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 0
+
+Relocation section '.rela.text.channel_msk_restore' at offset 0x1b90 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000000  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 0
+0000000000000004  0000003f00000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 0
+
+Relocation section '.rela.text.channel_msk_backup_and_set' at offset 0x1bc0 contains 3 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+000000000000000c  000000570000011b R_AARCH64_CALL26       0000000000000000 channel_msk_backup + 0
+0000000000000010  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 40
+0000000000000018  0000003f0000011d R_AARCH64_LDST32_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 40
+
+Relocation section '.rela.text.channel_msk_op_enable' at offset 0x1c08 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000000  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 46
+0000000000000008  0000003f00000116 R_AARCH64_LDST8_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 46
+
+Relocation section '.rela.text.channel_msk_op_disable' at offset 0x1c38 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000000  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 46
+0000000000000004  0000003f00000116 R_AARCH64_LDST8_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 46
+
+Relocation section '.rela.text.u1PhyByteSwapOnOff' at offset 0x1c68 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000000  0000003f00000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .bss.dramc_io_manager + 47
+0000000000000004  0000003f00000116 R_AARCH64_LDST8_ABS_LO12_NC 0000000000000000 .bss.dramc_io_manager + 47
+
+Relocation section '.rela.text.u4RegBaseAddrTranslate' at offset 0x1c98 contains 4 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+000000000000001c  0000004400000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .rodata.REG_BASE_ADDR_LIST + 0
+0000000000000020  0000004400000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .rodata.REG_BASE_ADDR_LIST + 0
+000000000000002c  0000002900000113 R_AARCH64_ADR_PREL_PG_HI21 0000000000000000 .rodata.u4RegBaseAddrTranslate + 0
+0000000000000030  0000002900000115 R_AARCH64_ADD_ABS_LO12_NC 0000000000000000 .rodata.u4RegBaseAddrTranslate + 0
+
+Relocation section '.rela.text.DramcVirt2Phys' at offset 0x1cf8 contains 2 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000018  000000550000011b R_AARCH64_CALL26       0000000000000000 __meta_get + 0
+0000000000000030  0000005f0000011a R_AARCH64_JUMP26       0000000000000000 u4RegBaseAddrTranslate + 0
+
+Relocation section '.rela.text.u4Dram_Register_Read' at offset 0x1d28 contains 1 entry:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000010  0000005f0000011b R_AARCH64_CALL26       0000000000000000 u4RegBaseAddrTranslate + 0
+
+Relocation section '.rela.text.vDram_Register_Write' at offset 0x1d40 contains 1 entry:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000014  0000005f0000011b R_AARCH64_CALL26       0000000000000000 u4RegBaseAddrTranslate + 0
+
+Relocation section '.rela.text.vIO32WriteMsk' at offset 0x1d58 contains 1 entry:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000018  0000005f0000011b R_AARCH64_CALL26       0000000000000000 u4RegBaseAddrTranslate + 0
+
+Relocation section '.rela.text.vIO32WriteMsk_All' at offset 0x1d70 contains 1 entry:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000058  0000005f0000011b R_AARCH64_CALL26       0000000000000000 u4RegBaseAddrTranslate + 0
+
+Relocation section '.rela.text.vPhyByteIO32WriteMsk' at offset 0x1d88 contains 1 entry:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000000  000000630000011a R_AARCH64_JUMP26       0000000000000000 vIO32WriteMsk + 0
+
+Relocation section '.rela.text.vPhyByteIO32WriteMsk_All' at offset 0x1da0 contains 1 entry:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000000  000000640000011a R_AARCH64_JUMP26       0000000000000000 vIO32WriteMsk_All + 0
+
+Relocation section '.rela.text.vPhyByteReadFldAlign' at offset 0x1db8 contains 1 entry:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+0000000000000014  0000005f0000011b R_AARCH64_CALL26       0000000000000000 u4RegBaseAddrTranslate + 0
+
+Relocation section '.rela.text.vPhyByteWriteFldAlign' at offset 0x1dd0 contains 1 entry:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+00000000000000a0  0000005f0000011b R_AARCH64_CALL26       0000000000000000 u4RegBaseAddrTranslate + 0
+
+Relocation section '.rela.eh_frame' at offset 0x1de8 contains 28 entries:
+    Offset             Info             Type               Symbol's Value  Symbol's Name + Addend
+000000000000001c  0000000500000105 R_AARCH64_PREL32       0000000000000000 .text.__meta_set + 0
+0000000000000030  0000000700000105 R_AARCH64_PREL32       0000000000000000 .text.__meta_restore + 0
+0000000000000058  0000000900000105 R_AARCH64_PREL32       0000000000000000 .text.__meta_backup + 0
+0000000000000084  0000000b00000105 R_AARCH64_PREL32       0000000000000000 .text.__meta_backup_and_set + 0
+00000000000000ac  0000000d00000105 R_AARCH64_PREL32       0000000000000000 .text.__meta_advance + 0
+00000000000000c0  0000000f00000105 R_AARCH64_PREL32       0000000000000000 .text.__meta_process_complete + 0
+00000000000000d4  0000001100000105 R_AARCH64_PREL32       0000000000000000 .text.__meta_loop_complete_for_next + 0
+00000000000000f8  0000001300000105 R_AARCH64_PREL32       0000000000000000 .text.__meta_get + 0
+0000000000000124  0000001500000105 R_AARCH64_PREL32       0000000000000000 .text.channel_msk_set + 0
+0000000000000138  0000001700000105 R_AARCH64_PREL32       0000000000000000 .text.channel_msk_backup + 0
+000000000000014c  0000001900000105 R_AARCH64_PREL32       0000000000000000 .text.channel_msk_restore + 0
+0000000000000160  0000001b00000105 R_AARCH64_PREL32       0000000000000000 .text.channel_msk_backup_and_set + 0
+0000000000000180  0000001d00000105 R_AARCH64_PREL32       0000000000000000 .text.channel_msk_op_enable + 0
+0000000000000194  0000001f00000105 R_AARCH64_PREL32       0000000000000000 .text.channel_msk_op_disable + 0
+00000000000001a8  0000002100000105 R_AARCH64_PREL32       0000000000000000 .text.NeedSwapARToBR + 0
+00000000000001bc  0000002300000105 R_AARCH64_PREL32       0000000000000000 .text.u1PhyByteSwapOnOff + 0
+00000000000001d0  0000002500000105 R_AARCH64_PREL32       0000000000000000 .text.u4PhyAoByteSwap + 0
+00000000000001e4  0000002700000105 R_AARCH64_PREL32       0000000000000000 .text.u4RegBaseAddrTranslate + 0
+00000000000001f8  0000002b00000105 R_AARCH64_PREL32       0000000000000000 .text.DramcVirt2Phys + 0
+000000000000021c  0000002d00000105 R_AARCH64_PREL32       0000000000000000 .text.u4Dram_Register_Read + 0
+000000000000023c  0000002f00000105 R_AARCH64_PREL32       0000000000000000 .text.vDram_Register_Write + 0
+000000000000025c  0000003100000105 R_AARCH64_PREL32       0000000000000000 .text.vIO32WriteMsk + 0
+000000000000027c  0000003300000105 R_AARCH64_PREL32       0000000000000000 .text.vIO32WriteMsk_All + 0
+000000000000029c  0000003500000105 R_AARCH64_PREL32       0000000000000000 .text.vPhyByteIO32WriteMsk + 0
+00000000000002b0  0000003700000105 R_AARCH64_PREL32       0000000000000000 .text.vPhyByteIO32WriteMsk_All + 0
+00000000000002c4  0000003900000105 R_AARCH64_PREL32       0000000000000000 .text.vPhyByteReadFldAlign + 0
+00000000000002e4  0000003b00000105 R_AARCH64_PREL32       0000000000000000 .text.vPhyByteWriteFldAlign + 0
+0000000000000304  0000003d00000105 R_AARCH64_PREL32       0000000000000000 .text.vPhyByteWriteFldMulti2 + 0

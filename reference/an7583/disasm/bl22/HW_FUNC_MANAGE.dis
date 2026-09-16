@@ -1,0 +1,733 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl22/HW_FUNC_MANAGE.o:	file format elf32-littlearm
+
+Disassembly of section .text.print_HW_ZQCAL_config:
+
+00000000 <print_HW_ZQCAL_config>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.DRAMC_HW_FUNC_ZQCAL_config:
+
+00000000 <DRAMC_HW_FUNC_ZQCAL_config>:
+       0: 4b0a         	ldr	r3, [pc, #0x28]         @ 0x2c <DRAMC_HW_FUNC_ZQCAL_config+0x2c>
+       2: f893 30ad    	ldrb.w	r3, [r3, #0xad]
+       6: fab3 f383    	clz	r3, r3
+       a: 095b         	lsrs	r3, r3, #0x5
+       c: 7083         	strb	r3, [r0, #0x2]
+       e: 4b08         	ldr	r3, [pc, #0x20]         @ 0x30 <DRAMC_HW_FUNC_ZQCAL_config+0x30>
+      10: 681b         	ldr	r3, [r3]
+      12: f023 0304    	bic	r3, r3, #0x4
+      16: 2b02         	cmp	r3, #0x2
+      18: d101         	bne	0x1e <DRAMC_HW_FUNC_ZQCAL_config+0x1e> @ imm = #0x2
+      1a: 2300         	movs	r3, #0x0
+      1c: 7083         	strb	r3, [r0, #0x2]
+      1e: f240 13ff    	movw	r3, #0x1ff
+      22: 6043         	str	r3, [r0, #0x4]
+      24: f641 3301    	movw	r3, #0x1b01
+      28: 8003         	strh	r3, [r0]
+      2a: 4770         	bx	lr
+      2c: 00 00 00 00  	.word	0x00000000
+			0000002c:  R_ARM_ABS32	DUTTopSetGlobal
+      30: 00 00 00 00  	.word	0x00000000
+			00000030:  R_ARM_ABS32	MEM_TYPE
+
+Disassembly of section .text.DIG_HW_NONSHUF_ZQCAL_CFG:
+
+00000000 <DIG_HW_NONSHUF_ZQCAL_CFG>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4606         	mov	r6, r0
+       4: 460d         	mov	r5, r1
+       6: f7ff fffe    	bl	0x6 <DIG_HW_NONSHUF_ZQCAL_CFG+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+       a: 4b15         	ldr	r3, [pc, #0x54]         @ 0x60 <DIG_HW_NONSHUF_ZQCAL_CFG+0x60>
+       c: 681b         	ldr	r3, [r3]
+       e: f023 0304    	bic	r3, r3, #0x4
+      12: 2b02         	cmp	r3, #0x2
+      14: 4b13         	ldr	r3, [pc, #0x4c]         @ 0x64 <DIG_HW_NONSHUF_ZQCAL_CFG+0x64>
+      16: d113         	bne	0x40 <DIG_HW_NONSHUF_ZQCAL_CFG+0x40> @ imm = #0x26
+      18: 789a         	ldrb	r2, [r3, #0x2]
+      1a: 7819         	ldrb	r1, [r3]
+      1c: f04f 4360    	mov.w	r3, #0xe0000000
+      20: 0792         	lsls	r2, r2, #0x1e
+      22: f002 4280    	and	r2, r2, #0x40000000
+      26: ea42 72c1    	orr.w	r2, r2, r1, lsl #31
+      2a: 4630         	mov	r0, r6
+      2c: f44f 71d0    	mov.w	r1, #0x1a0
+      30: f7ff fffe    	bl	0x30 <DIG_HW_NONSHUF_ZQCAL_CFG+0x30> @ imm = #-0x4
+			00000030:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      34: 4630         	mov	r0, r6
+      36: 2100         	movs	r1, #0x0
+      38: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      3c: f7ff bffe    	b.w	0x3c <DIG_HW_NONSHUF_ZQCAL_CFG+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_JUMP24	vSetPHY2ChannelMapping
+      40: 789c         	ldrb	r4, [r3, #0x2]
+      42: 781a         	ldrb	r2, [r3]
+      44: f04f 4360    	mov.w	r3, #0xe0000000
+      48: 07a4         	lsls	r4, r4, #0x1e
+      4a: f004 4480    	and	r4, r4, #0x40000000
+      4e: ea44 74c2    	orr.w	r4, r4, r2, lsl #31
+      52: fab5 f285    	clz	r2, r5
+      56: 0952         	lsrs	r2, r2, #0x5
+      58: ea44 7242    	orr.w	r2, r4, r2, lsl #29
+      5c: e7e5         	b	0x2a <DIG_HW_NONSHUF_ZQCAL_CFG+0x2a> @ imm = #-0x36
+      5e: bf00         	nop
+      60: 00 00 00 00  	.word	0x00000000
+			00000060:  R_ARM_ABS32	MEM_TYPE
+      64: 00 00 00 00  	.word	0x00000000
+			00000064:  R_ARM_ABS32	.bss.HW_ZQCAL_CTRL
+
+Disassembly of section .text.DIG_HW_SHUF_ZQCAL_CFG:
+
+00000000 <DIG_HW_SHUF_ZQCAL_CFG>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4604         	mov	r4, r0
+       4: 4615         	mov	r5, r2
+       6: f7ff fffe    	bl	0x6 <DIG_HW_SHUF_ZQCAL_CFG+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+       a: 4b0b         	ldr	r3, [pc, #0x2c]         @ 0x38 <DIG_HW_SHUF_ZQCAL_CFG+0x38>
+       c: 3d00         	subs	r5, #0x0
+       e: 4620         	mov	r0, r4
+      10: bf18         	it	ne
+      12: 2501         	movne	r5, #0x1
+      14: f8c4 5098    	str.w	r5, [r4, #0x98]
+      18: 7859         	ldrb	r1, [r3, #0x1]
+      1a: 889a         	ldrh	r2, [r3, #0x4]
+      1c: 4b07         	ldr	r3, [pc, #0x1c]         @ 0x3c <DIG_HW_SHUF_ZQCAL_CFG+0x3c>
+      1e: ea42 62c1    	orr.w	r2, r2, r1, lsl #27
+      22: 4907         	ldr	r1, [pc, #0x1c]         @ 0x40 <DIG_HW_SHUF_ZQCAL_CFG+0x40>
+      24: f7ff fffe    	bl	0x24 <DIG_HW_SHUF_ZQCAL_CFG+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      28: 4620         	mov	r0, r4
+      2a: 2100         	movs	r1, #0x0
+      2c: f7ff fffe    	bl	0x2c <DIG_HW_SHUF_ZQCAL_CFG+0x2c> @ imm = #-0x4
+			0000002c:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      30: 2300         	movs	r3, #0x0
+      32: f8c4 3098    	str.w	r3, [r4, #0x98]
+      36: bd38         	pop	{r3, r4, r5, pc}
+      38: 00 00 00 00  	.word	0x00000000
+			00000038:  R_ARM_ABS32	.bss.HW_ZQCAL_CTRL
+      3c: ff ff 00 f8  	.word	0xf800ffff
+      40: 9c 16 20 00  	.word	0x0020169c
+
+Disassembly of section .text.DIG_HW_NONSHUF_ZQCAL_SWITCH:
+
+00000000 <DIG_HW_NONSHUF_ZQCAL_SWITCH>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4615         	mov	r5, r2
+       4: 4604         	mov	r4, r0
+       6: f7ff fffe    	bl	0x6 <DIG_HW_NONSHUF_ZQCAL_SWITCH+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+       a: 4620         	mov	r0, r4
+       c: 07ea         	lsls	r2, r5, #0x1f
+       e: f04f 4340    	mov.w	r3, #0xc0000000
+      12: f44f 71d2    	mov.w	r1, #0x1a4
+      16: f7ff fffe    	bl	0x16 <DIG_HW_NONSHUF_ZQCAL_SWITCH+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      1a: 4620         	mov	r0, r4
+      1c: 2100         	movs	r1, #0x0
+      1e: e8bd 4038    	pop.w	{r3, r4, r5, lr}
+      22: f7ff bffe    	b.w	0x22 <DIG_HW_NONSHUF_ZQCAL_SWITCH+0x22> @ imm = #-0x4
+			00000022:  R_ARM_THM_JUMP24	vSetPHY2ChannelMapping
+
+Disassembly of section .text.DIG_HW_SHUF_ZQCAL_SWITCH:
+
+00000000 <DIG_HW_SHUF_ZQCAL_SWITCH>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.print_HW_IMPCAL_config:
+
+00000000 <print_HW_IMPCAL_config>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.DRAMC_HW_FUNC_IMPCAL_config:
+
+00000000 <DRAMC_HW_FUNC_IMPCAL_config>:
+       0: 4b1d         	ldr	r3, [pc, #0x74]         @ 0x78 <DRAMC_HW_FUNC_IMPCAL_config+0x78>
+       2: f640 2269    	movw	r2, #0xa69
+       6: eb03 0381    	add.w	r3, r3, r1, lsl #2
+       a: 6959         	ldr	r1, [r3, #0x14]
+       c: 680b         	ldr	r3, [r1]
+       e: 4293         	cmp	r3, r2
+      10: f04f 0201    	mov.w	r2, #0x1
+      14: bf98         	it	ls
+      16: 2200         	movls	r2, #0x0
+      18: 7002         	strb	r2, [r0]
+      1a: f102 021e    	add.w	r2, r2, #0x1e
+      1e: 70c2         	strb	r2, [r0, #0x3]
+      20: f04f 0210    	mov.w	r2, #0x10
+      24: bf98         	it	ls
+      26: 2203         	movls	r2, #0x3
+      28: 7102         	strb	r2, [r0, #0x4]
+      2a: f04f 0202    	mov.w	r2, #0x2
+      2e: 7142         	strb	r2, [r0, #0x5]
+      30: f04f 0201    	mov.w	r2, #0x1
+      34: 7182         	strb	r2, [r0, #0x6]
+      36: f04f 0208    	mov.w	r2, #0x8
+      3a: 72c2         	strb	r2, [r0, #0xb]
+      3c: f04f 0204    	mov.w	r2, #0x4
+      40: 7302         	strb	r2, [r0, #0xc]
+      42: f04f 023f    	mov.w	r2, #0x3f
+      46: 71c2         	strb	r2, [r0, #0x7]
+      48: f04f 0230    	mov.w	r2, #0x30
+      4c: 7202         	strb	r2, [r0, #0x8]
+      4e: f04f 0221    	mov.w	r2, #0x21
+      52: 7242         	strb	r2, [r0, #0x9]
+      54: 79ca         	ldrb	r2, [r1, #0x7]
+      56: eb02 0282    	add.w	r2, r2, r2, lsl #2
+      5a: ea4f 1242    	lsl.w	r2, r2, #0x5
+      5e: fbb3 f3f2    	udiv	r3, r3, r2
+      62: f103 0301    	add.w	r3, r3, #0x1
+      66: 73c3         	strb	r3, [r0, #0xf]
+      68: f04f 031b    	mov.w	r3, #0x1b
+      6c: bf98         	it	ls
+      6e: 230f         	movls	r3, #0xf
+      70: 7283         	strb	r3, [r0, #0xa]
+      72: 2303         	movs	r3, #0x3
+      74: 7343         	strb	r3, [r0, #0xd]
+      76: 4770         	bx	lr
+      78: 00 00 00 00  	.word	0x00000000
+			00000078:  R_ARM_ABS32	DV_p
+
+Disassembly of section .text.DIG_HW_SHUF_IMPCAL_CFG:
+
+00000000 <DIG_HW_SHUF_IMPCAL_CFG>:
+       0: e92d 4ff8    	push.w	{r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4605         	mov	r5, r0
+       6: 4614         	mov	r4, r2
+       8: f7ff fffe    	bl	0x8 <DIG_HW_SHUF_IMPCAL_CFG+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+       c: 3c00         	subs	r4, #0x0
+       e: 49c4         	ldr	r1, [pc, #0x310]        @ 0x320 <DIG_HW_SHUF_IMPCAL_CFG+0x320>
+      10: 4628         	mov	r0, r5
+      12: bf18         	it	ne
+      14: 2401         	movne	r4, #0x1
+      16: f8c5 4098    	str.w	r4, [r5, #0x98]
+      1a: 4cc2         	ldr	r4, [pc, #0x308]        @ 0x324 <DIG_HW_SHUF_IMPCAL_CFG+0x324>
+      1c: f04f 4300    	mov.w	r3, #0x80000000
+      20: 7862         	ldrb	r2, [r4, #0x1]
+      22: 07d2         	lsls	r2, r2, #0x1f
+      24: f7ff fffe    	bl	0x24 <DIG_HW_SHUF_IMPCAL_CFG+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      28: 78e1         	ldrb	r1, [r4, #0x3]
+      2a: 7923         	ldrb	r3, [r4, #0x4]
+      2c: 014a         	lsls	r2, r1, #0x5
+      2e: 03c8         	lsls	r0, r1, #0xf
+      30: f400 2078    	and	r0, r0, #0xf8000
+      34: f402 7278    	and	r2, r2, #0x3e0
+      38: 4302         	orrs	r2, r0
+      3a: f003 001f    	and	r0, r3, #0x1f
+      3e: 4302         	orrs	r2, r0
+      40: 0298         	lsls	r0, r3, #0xa
+      42: f400 40f8    	and	r0, r0, #0x7c00
+      46: 0649         	lsls	r1, r1, #0x19
+      48: 4302         	orrs	r2, r0
+      4a: f001 5178    	and	r1, r1, #0x3e000000
+      4e: 051b         	lsls	r3, r3, #0x14
+      50: 430a         	orrs	r2, r1
+      52: f003 73f8    	and	r3, r3, #0x1f00000
+      56: f04f 4180    	mov.w	r1, #0x40000000
+      5a: 431a         	orrs	r2, r3
+      5c: 7823         	ldrb	r3, [r4]
+      5e: 4628         	mov	r0, r5
+      60: 2b00         	cmp	r3, #0x0
+      62: f04f 4300    	mov.w	r3, #0x80000000
+      66: bf18         	it	ne
+      68: 2300         	movne	r3, #0x0
+      6a: ea42 0203    	orr.w	r2, r2, r3
+      6e: bf18         	it	ne
+      70: 2100         	movne	r1, #0x0
+      72: f06f 4340    	mvn	r3, #0xc0000000
+      76: 430a         	orrs	r2, r1
+      78: 49ab         	ldr	r1, [pc, #0x2ac]        @ 0x328 <DIG_HW_SHUF_IMPCAL_CFG+0x328>
+      7a: f7ff fffe    	bl	0x7a <DIG_HW_SHUF_IMPCAL_CFG+0x7a> @ imm = #-0x4
+			0000007a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      7e: 78e1         	ldrb	r1, [r4, #0x3]
+      80: 7923         	ldrb	r3, [r4, #0x4]
+      82: 014a         	lsls	r2, r1, #0x5
+      84: 03c8         	lsls	r0, r1, #0xf
+      86: f400 2078    	and	r0, r0, #0xf8000
+      8a: f402 7278    	and	r2, r2, #0x3e0
+      8e: 4302         	orrs	r2, r0
+      90: f003 001f    	and	r0, r3, #0x1f
+      94: 4302         	orrs	r2, r0
+      96: 0298         	lsls	r0, r3, #0xa
+      98: f400 40f8    	and	r0, r0, #0x7c00
+      9c: 0649         	lsls	r1, r1, #0x19
+      9e: 4302         	orrs	r2, r0
+      a0: f001 5178    	and	r1, r1, #0x3e000000
+      a4: 051b         	lsls	r3, r3, #0x14
+      a6: 430a         	orrs	r2, r1
+      a8: f003 73f8    	and	r3, r3, #0x1f00000
+      ac: f04f 4100    	mov.w	r1, #0x80000000
+      b0: 431a         	orrs	r2, r3
+      b2: 7823         	ldrb	r3, [r4]
+      b4: 4628         	mov	r0, r5
+      b6: 2b00         	cmp	r3, #0x0
+      b8: f06f 4340    	mvn	r3, #0xc0000000
+      bc: bf18         	it	ne
+      be: 2100         	movne	r1, #0x0
+      c0: 430a         	orrs	r2, r1
+      c2: 499a         	ldr	r1, [pc, #0x268]        @ 0x32c <DIG_HW_SHUF_IMPCAL_CFG+0x32c>
+      c4: f7ff fffe    	bl	0xc4 <DIG_HW_SHUF_IMPCAL_CFG+0xc4> @ imm = #-0x4
+			000000c4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      c8: 79a0         	ldrb	r0, [r4, #0x6]
+      ca: 7963         	ldrb	r3, [r4, #0x5]
+      cc: 0141         	lsls	r1, r0, #0x5
+      ce: 03c2         	lsls	r2, r0, #0xf
+      d0: f402 2278    	and	r2, r2, #0xf8000
+      d4: f401 7178    	and	r1, r1, #0x3e0
+      d8: 4311         	orrs	r1, r2
+      da: f003 021f    	and	r2, r3, #0x1f
+      de: 4311         	orrs	r1, r2
+      e0: 029a         	lsls	r2, r3, #0xa
+      e2: f402 42f8    	and	r2, r2, #0x7c00
+      e6: 0640         	lsls	r0, r0, #0x19
+      e8: 4311         	orrs	r1, r2
+      ea: f000 5078    	and	r0, r0, #0x3e000000
+      ee: 051a         	lsls	r2, r3, #0x14
+      f0: 4301         	orrs	r1, r0
+      f2: f002 72f8    	and	r2, r2, #0x1f00000
+      f6: 4628         	mov	r0, r5
+      f8: 430a         	orrs	r2, r1
+      fa: f06f 4340    	mvn	r3, #0xc0000000
+      fe: 498c         	ldr	r1, [pc, #0x230]        @ 0x330 <DIG_HW_SHUF_IMPCAL_CFG+0x330>
+     100: f7ff fffe    	bl	0x100 <DIG_HW_SHUF_IMPCAL_CFG+0x100> @ imm = #-0x4
+			00000100:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     104: 79a0         	ldrb	r0, [r4, #0x6]
+     106: 7963         	ldrb	r3, [r4, #0x5]
+     108: 0141         	lsls	r1, r0, #0x5
+     10a: 03c2         	lsls	r2, r0, #0xf
+     10c: f402 2278    	and	r2, r2, #0xf8000
+     110: f401 7178    	and	r1, r1, #0x3e0
+     114: 4311         	orrs	r1, r2
+     116: f003 021f    	and	r2, r3, #0x1f
+     11a: 4311         	orrs	r1, r2
+     11c: 029a         	lsls	r2, r3, #0xa
+     11e: f402 42f8    	and	r2, r2, #0x7c00
+     122: 0640         	lsls	r0, r0, #0x19
+     124: 4311         	orrs	r1, r2
+     126: f000 5078    	and	r0, r0, #0x3e000000
+     12a: 051a         	lsls	r2, r3, #0x14
+     12c: 4301         	orrs	r1, r0
+     12e: f002 72f8    	and	r2, r2, #0x1f00000
+     132: 4628         	mov	r0, r5
+     134: 430a         	orrs	r2, r1
+     136: f06f 4340    	mvn	r3, #0xc0000000
+     13a: 497e         	ldr	r1, [pc, #0x1f8]        @ 0x334 <DIG_HW_SHUF_IMPCAL_CFG+0x334>
+     13c: f7ff fffe    	bl	0x13c <DIG_HW_SHUF_IMPCAL_CFG+0x13c> @ imm = #-0x4
+			0000013c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     140: 7ba2         	ldrb	r2, [r4, #0xe]
+     142: 233f         	movs	r3, #0x3f
+     144: 497c         	ldr	r1, [pc, #0x1f0]        @ 0x338 <DIG_HW_SHUF_IMPCAL_CFG+0x338>
+     146: 401a         	ands	r2, r3
+     148: 4628         	mov	r0, r5
+     14a: f7ff fffe    	bl	0x14a <DIG_HW_SHUF_IMPCAL_CFG+0x14a> @ imm = #-0x4
+			0000014a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     14e: 78e3         	ldrb	r3, [r4, #0x3]
+     150: 7922         	ldrb	r2, [r4, #0x4]
+     152: 0219         	lsls	r1, r3, #0x8
+     154: 0410         	lsls	r0, r2, #0x10
+     156: f401 51f8    	and	r1, r1, #0x1f00
+     15a: f400 10f8    	and	r0, r0, #0x1f0000
+     15e: f002 021f    	and	r2, r2, #0x1f
+     162: 4301         	orrs	r1, r0
+     164: 4628         	mov	r0, r5
+     166: 4311         	orrs	r1, r2
+     168: 061a         	lsls	r2, r3, #0x18
+     16a: f002 52f8    	and	r2, r2, #0x1f000000
+     16e: f04f 331f    	mov.w	r3, #0x1f1f1f1f
+     172: 430a         	orrs	r2, r1
+     174: 4971         	ldr	r1, [pc, #0x1c4]        @ 0x33c <DIG_HW_SHUF_IMPCAL_CFG+0x33c>
+     176: f7ff fffe    	bl	0x176 <DIG_HW_SHUF_IMPCAL_CFG+0x176> @ imm = #-0x4
+			00000176:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     17a: 78e1         	ldrb	r1, [r4, #0x3]
+     17c: 7922         	ldrb	r2, [r4, #0x4]
+     17e: 4628         	mov	r0, r5
+     180: f641 731f    	movw	r3, #0x1f1f
+     184: 0209         	lsls	r1, r1, #0x8
+     186: f002 021f    	and	r2, r2, #0x1f
+     18a: f401 51f8    	and	r1, r1, #0x1f00
+     18e: 430a         	orrs	r2, r1
+     190: 496b         	ldr	r1, [pc, #0x1ac]        @ 0x340 <DIG_HW_SHUF_IMPCAL_CFG+0x340>
+     192: f7ff fffe    	bl	0x192 <DIG_HW_SHUF_IMPCAL_CFG+0x192> @ imm = #-0x4
+			00000192:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     196: 7ae2         	ldrb	r2, [r4, #0xb]
+     198: 7be1         	ldrb	r1, [r4, #0xf]
+     19a: 4628         	mov	r0, r5
+     19c: 4b69         	ldr	r3, [pc, #0x1a4]        @ 0x344 <DIG_HW_SHUF_IMPCAL_CFG+0x344>
+     19e: f001 0107    	and	r1, r1, #0x7
+     1a2: ea41 7102    	orr.w	r1, r1, r2, lsl #28
+     1a6: 7b62         	ldrb	r2, [r4, #0xd]
+     1a8: ea41 5102    	orr.w	r1, r1, r2, lsl #20
+     1ac: 7b22         	ldrb	r2, [r4, #0xc]
+     1ae: 0452         	lsls	r2, r2, #0x11
+     1b0: f402 2260    	and	r2, r2, #0xe0000
+     1b4: 430a         	orrs	r2, r1
+     1b6: 4964         	ldr	r1, [pc, #0x190]        @ 0x348 <DIG_HW_SHUF_IMPCAL_CFG+0x348>
+     1b8: f7ff fffe    	bl	0x1b8 <DIG_HW_SHUF_IMPCAL_CFG+0x1b8> @ imm = #-0x4
+			000001b8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1bc: 79e1         	ldrb	r1, [r4, #0x7]
+     1be: 7a22         	ldrb	r2, [r4, #0x8]
+     1c0: 4628         	mov	r0, r5
+     1c2: 4b62         	ldr	r3, [pc, #0x188]        @ 0x34c <DIG_HW_SHUF_IMPCAL_CFG+0x34c>
+     1c4: 0609         	lsls	r1, r1, #0x18
+     1c6: 0412         	lsls	r2, r2, #0x10
+     1c8: f001 41fe    	and	r1, r1, #0x7f000000
+     1cc: f402 02fe    	and	r2, r2, #0x7f0000
+     1d0: 4311         	orrs	r1, r2
+     1d2: 7aa2         	ldrb	r2, [r4, #0xa]
+     1d4: 4311         	orrs	r1, r2
+     1d6: 7a62         	ldrb	r2, [r4, #0x9]
+     1d8: 0212         	lsls	r2, r2, #0x8
+     1da: f402 42fe    	and	r2, r2, #0x7f00
+     1de: 430a         	orrs	r2, r1
+     1e0: 495b         	ldr	r1, [pc, #0x16c]        @ 0x350 <DIG_HW_SHUF_IMPCAL_CFG+0x350>
+     1e2: f7ff fffe    	bl	0x1e2 <DIG_HW_SHUF_IMPCAL_CFG+0x1e2> @ imm = #-0x4
+			000001e2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     1e6: 7823         	ldrb	r3, [r4]
+     1e8: 2b00         	cmp	r3, #0x0
+     1ea: f040 808b    	bne.w	0x304 <DIG_HW_SHUF_IMPCAL_CFG+0x304> @ imm = #0x116
+     1ee: f04f 4080    	mov.w	r0, #0x40000000
+     1f2: f04f 5a00    	mov.w	r10, #0x20000000
+     1f6: f04f 5980    	mov.w	r9, #0x10000000
+     1fa: 78a1         	ldrb	r1, [r4, #0x2]
+     1fc: 028f         	lsls	r7, r1, #0xa
+     1fe: 024e         	lsls	r6, r1, #0x9
+     200: 0209         	lsls	r1, r1, #0x8
+     202: f407 6780    	and	r7, r7, #0x400
+     206: f406 7600    	and	r6, r6, #0x200
+     20a: f401 7180    	and	r1, r1, #0x100
+     20e: 2b00         	cmp	r3, #0x0
+     210: d17c         	bne	0x30c <DIG_HW_SHUF_IMPCAL_CFG+0x30c> @ imm = #0xf8
+     212: 2204         	movs	r2, #0x4
+     214: f04f 0c10    	mov.w	r12, #0x10
+     218: f04f 0e20    	mov.w	lr, #0x20
+     21c: f04f 0840    	mov.w	r8, #0x40
+     220: f04f 0b02    	mov.w	r11, #0x2
+     224: fab3 f383    	clz	r3, r3
+     228: 095b         	lsrs	r3, r3, #0x5
+     22a: ea43 030b    	orr.w	r3, r3, r11
+     22e: 431f         	orrs	r7, r3
+     230: 4b48         	ldr	r3, [pc, #0x120]        @ 0x354 <DIG_HW_SHUF_IMPCAL_CFG+0x354>
+     232: 433e         	orrs	r6, r7
+     234: 4331         	orrs	r1, r6
+     236: ea41 0a0a    	orr.w	r10, r1, r10
+     23a: 4947         	ldr	r1, [pc, #0x11c]        @ 0x358 <DIG_HW_SHUF_IMPCAL_CFG+0x358>
+     23c: ea4a 0000    	orr.w	r0, r10, r0
+     240: ea40 0909    	orr.w	r9, r0, r9
+     244: 4628         	mov	r0, r5
+     246: ea49 0808    	orr.w	r8, r9, r8
+     24a: ea48 0e0e    	orr.w	lr, r8, lr
+     24e: ea4e 0c0c    	orr.w	r12, lr, r12
+     252: ea4c 0202    	orr.w	r2, r12, r2
+     256: f442 02ee    	orr	r2, r2, #0x770000
+     25a: f442 42e0    	orr	r2, r2, #0x7000
+     25e: f7ff fffe    	bl	0x25e <DIG_HW_SHUF_IMPCAL_CFG+0x25e> @ imm = #-0x4
+			0000025e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     262: 7821         	ldrb	r1, [r4]
+     264: 2900         	cmp	r1, #0x0
+     266: d057         	beq	0x318 <DIG_HW_SHUF_IMPCAL_CFG+0x318> @ imm = #0xae
+     268: 2200         	movs	r2, #0x0
+     26a: 4613         	mov	r3, r2
+     26c: 2900         	cmp	r1, #0x0
+     26e: ea42 0203    	orr.w	r2, r2, r3
+     272: f04f 0304    	mov.w	r3, #0x4
+     276: 4628         	mov	r0, r5
+     278: bf18         	it	ne
+     27a: 2300         	movne	r3, #0x0
+     27c: ea42 0203    	orr.w	r2, r2, r3
+     280: f04f 0310    	mov.w	r3, #0x10
+     284: bf18         	it	ne
+     286: 2300         	movne	r3, #0x0
+     288: ea42 0203    	orr.w	r2, r2, r3
+     28c: f04f 0320    	mov.w	r3, #0x20
+     290: bf18         	it	ne
+     292: 2300         	movne	r3, #0x0
+     294: ea42 0203    	orr.w	r2, r2, r3
+     298: f04f 0340    	mov.w	r3, #0x40
+     29c: bf18         	it	ne
+     29e: 2300         	movne	r3, #0x0
+     2a0: ea42 0203    	orr.w	r2, r2, r3
+     2a4: f44f 7380    	mov.w	r3, #0x100
+     2a8: bf18         	it	ne
+     2aa: 2300         	movne	r3, #0x0
+     2ac: ea42 0203    	orr.w	r2, r2, r3
+     2b0: f44f 7300    	mov.w	r3, #0x200
+     2b4: bf18         	it	ne
+     2b6: 2300         	movne	r3, #0x0
+     2b8: ea42 0203    	orr.w	r2, r2, r3
+     2bc: f44f 6380    	mov.w	r3, #0x400
+     2c0: bf18         	it	ne
+     2c2: 2300         	movne	r3, #0x0
+     2c4: ea42 0203    	orr.w	r2, r2, r3
+     2c8: f44f 5380    	mov.w	r3, #0x1000
+     2cc: bf18         	it	ne
+     2ce: 2300         	movne	r3, #0x0
+     2d0: ea42 0203    	orr.w	r2, r2, r3
+     2d4: f44f 5300    	mov.w	r3, #0x2000
+     2d8: bf18         	it	ne
+     2da: 2300         	movne	r3, #0x0
+     2dc: ea42 0203    	orr.w	r2, r2, r3
+     2e0: f44f 4180    	mov.w	r1, #0x4000
+     2e4: f247 7377    	movw	r3, #0x7777
+     2e8: bf18         	it	ne
+     2ea: 2100         	movne	r1, #0x0
+     2ec: 430a         	orrs	r2, r1
+     2ee: 491b         	ldr	r1, [pc, #0x6c]         @ 0x35c <DIG_HW_SHUF_IMPCAL_CFG+0x35c>
+     2f0: f7ff fffe    	bl	0x2f0 <DIG_HW_SHUF_IMPCAL_CFG+0x2f0> @ imm = #-0x4
+			000002f0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     2f4: 4628         	mov	r0, r5
+     2f6: 2100         	movs	r1, #0x0
+     2f8: f8c5 1098    	str.w	r1, [r5, #0x98]
+     2fc: e8bd 4ff8    	pop.w	{r3, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+     300: f7ff bffe    	b.w	0x300 <DIG_HW_SHUF_IMPCAL_CFG+0x300> @ imm = #-0x4
+			00000300:  R_ARM_THM_JUMP24	vSetPHY2ChannelMapping
+     304: 2000         	movs	r0, #0x0
+     306: 4682         	mov	r10, r0
+     308: 4681         	mov	r9, r0
+     30a: e776         	b	0x1fa <DIG_HW_SHUF_IMPCAL_CFG+0x1fa> @ imm = #-0x114
+     30c: 2200         	movs	r2, #0x0
+     30e: 4694         	mov	r12, r2
+     310: 4696         	mov	lr, r2
+     312: 4690         	mov	r8, r2
+     314: 4693         	mov	r11, r2
+     316: e785         	b	0x224 <DIG_HW_SHUF_IMPCAL_CFG+0x224> @ imm = #-0xf6
+     318: 2201         	movs	r2, #0x1
+     31a: 2302         	movs	r3, #0x2
+     31c: e7a6         	b	0x26c <DIG_HW_SHUF_IMPCAL_CFG+0x26c> @ imm = #-0xb4
+     31e: bf00         	nop
+     320: 68 10 a0 03  	.word	0x03a01068
+     324: 00 00 00 00  	.word	0x00000000
+			00000324:  R_ARM_ABS32	.bss.HW_IMPCAL_CTRL
+     328: c8 10 20 01  	.word	0x012010c8
+     32c: cc 10 20 01  	.word	0x012010cc
+     330: d0 10 20 01  	.word	0x012010d0
+     334: d4 10 20 01  	.word	0x012010d4
+     338: dc 10 20 01  	.word	0x012010dc
+     33c: 60 10 20 01  	.word	0x01201060
+     340: 64 10 20 01  	.word	0x01201064
+     344: f7 f1 ff ff  	.word	0xfffff1f7
+     348: c4 10 a0 03  	.word	0x03a010c4
+     34c: ff 7f 7f 7f  	.word	0x7f7f7fff
+     350: 90 0e a0 0b  	.word	0x0ba00e90
+     354: 77 77 77 70  	.word	0x70777777
+     358: 8c 10 a0 03  	.word	0x03a0108c
+     35c: 90 10 a0 03  	.word	0x03a01090
+
+Disassembly of section .text.DIG_HW_NONSHUF_IMPCAL_SWITCH:
+
+00000000 <DIG_HW_NONSHUF_IMPCAL_SWITCH>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4615         	mov	r5, r2
+       4: 4604         	mov	r4, r0
+       6: f7ff fffe    	bl	0x6 <DIG_HW_NONSHUF_IMPCAL_SWITCH+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+       a: 4620         	mov	r0, r4
+       c: 4905         	ldr	r1, [pc, #0x14]         @ 0x24 <DIG_HW_NONSHUF_IMPCAL_SWITCH+0x24>
+       e: 07ea         	lsls	r2, r5, #0x1f
+      10: f04f 4300    	mov.w	r3, #0x80000000
+      14: f7ff fffe    	bl	0x14 <DIG_HW_NONSHUF_IMPCAL_SWITCH+0x14> @ imm = #-0x4
+			00000014:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      18: 4620         	mov	r0, r4
+      1a: 2100         	movs	r1, #0x0
+      1c: e8bd 4038    	pop.w	{r3, r4, r5, lr}
+      20: f7ff bffe    	b.w	0x20 <DIG_HW_NONSHUF_IMPCAL_SWITCH+0x20> @ imm = #-0x4
+			00000020:  R_ARM_THM_JUMP24	vSetPHY2ChannelMapping
+      24: c4 06 80 03  	.word	0x038006c4
+
+Disassembly of section .text.DIG_HW_SHUF_IMPCAL_SWITCH:
+
+00000000 <DIG_HW_SHUF_IMPCAL_SWITCH>:
+       0: 4770         	bx	lr
+
+Disassembly of section .text.DIG_HW_NONSHUF_DQSG_SWITCH:
+
+00000000 <DIG_HW_NONSHUF_DQSG_SWITCH>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4605         	mov	r5, r0
+       4: 4e10         	ldr	r6, [pc, #0x40]         @ 0x48 <DIG_HW_NONSHUF_DQSG_SWITCH+0x48>
+       6: 4614         	mov	r4, r2
+       8: f7ff fffe    	bl	0x8 <DIG_HW_NONSHUF_DQSG_SWITCH+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+       c: 4631         	mov	r1, r6
+       e: 4628         	mov	r0, r5
+      10: f04f 7300    	mov.w	r3, #0x2000000
+      14: 461a         	mov	r2, r3
+      16: f7ff fffe    	bl	0x16 <DIG_HW_NONSHUF_DQSG_SWITCH+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      1a: 05a2         	lsls	r2, r4, #0x16
+      1c: 0063         	lsls	r3, r4, #0x1
+      1e: f402 0280    	and	r2, r2, #0x400000
+      22: f003 0302    	and	r3, r3, #0x2
+      26: 06a4         	lsls	r4, r4, #0x1a
+      28: 431a         	orrs	r2, r3
+      2a: f004 6480    	and	r4, r4, #0x4000000
+      2e: 4631         	mov	r1, r6
+      30: 4628         	mov	r0, r5
+      32: 4322         	orrs	r2, r4
+      34: 4b05         	ldr	r3, [pc, #0x14]         @ 0x4c <DIG_HW_NONSHUF_DQSG_SWITCH+0x4c>
+      36: f7ff fffe    	bl	0x36 <DIG_HW_NONSHUF_DQSG_SWITCH+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      3a: 4628         	mov	r0, r5
+      3c: 2100         	movs	r1, #0x0
+      3e: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      42: f7ff bffe    	b.w	0x42 <DIG_HW_NONSHUF_DQSG_SWITCH+0x42> @ imm = #-0x4
+			00000042:  R_ARM_THM_JUMP24	vSetPHY2ChannelMapping
+      46: bf00         	nop
+      48: ac 06 80 03  	.word	0x038006ac
+      4c: 02 00 40 04  	.word	0x04400002
+
+Disassembly of section .text.DIG_HW_ATTRIBUTE_INIT:
+
+00000000 <DIG_HW_ATTRIBUTE_INIT>:
+       0: b508         	push	{r3, lr}
+       2: 2100         	movs	r1, #0x0
+       4: 4803         	ldr	r0, [pc, #0xc]          @ 0x14 <DIG_HW_ATTRIBUTE_INIT+0x14>
+       6: f7ff fffe    	bl	0x6 <DIG_HW_ATTRIBUTE_INIT+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	DRAMC_HW_FUNC_ZQCAL_config
+       a: 4803         	ldr	r0, [pc, #0xc]          @ 0x18 <DIG_HW_ATTRIBUTE_INIT+0x18>
+       c: e8bd 4008    	pop.w	{r3, lr}
+      10: f7ff bffe    	b.w	0x10 <DIG_HW_ATTRIBUTE_INIT+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_JUMP24	DRAMC_HW_FUNC_IMPCAL_config
+      14: 00 00 00 00  	.word	0x00000000
+			00000014:  R_ARM_ABS32	.bss.HW_ZQCAL_CTRL
+      18: 00 00 00 00  	.word	0x00000000
+			00000018:  R_ARM_ABS32	.bss.HW_IMPCAL_CTRL
+
+Disassembly of section .text.DIG_HW_NONSHU_MISC_FIX:
+
+00000000 <DIG_HW_NONSHU_MISC_FIX>:
+       0: b537         	push	{r0, r1, r2, r4, r5, lr}
+       2: f04f 5300    	mov.w	r3, #0x20000000
+       6: 4d20         	ldr	r5, [pc, #0x80]         @ 0x88 <DIG_HW_NONSHU_MISC_FIX+0x88>
+       8: 4604         	mov	r4, r0
+       a: 2200         	movs	r2, #0x0
+       c: 4629         	mov	r1, r5
+       e: f7ff fffe    	bl	0xe <DIG_HW_NONSHU_MISC_FIX+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      12: 4629         	mov	r1, r5
+      14: 4620         	mov	r0, r4
+      16: f04f 4380    	mov.w	r3, #0x40000000
+      1a: 2200         	movs	r2, #0x0
+      1c: 2501         	movs	r5, #0x1
+      1e: f7ff fffe    	bl	0x1e <DIG_HW_NONSHU_MISC_FIX+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      22: 4620         	mov	r0, r4
+      24: 2300         	movs	r3, #0x0
+      26: f44f 71be    	mov.w	r1, #0x17c
+      2a: 461a         	mov	r2, r3
+      2c: f7ff fffe    	bl	0x2c <DIG_HW_NONSHU_MISC_FIX+0x2c> @ imm = #-0x4
+			0000002c:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      30: 4620         	mov	r0, r4
+      32: 9500         	str	r5, [sp]
+      34: 2300         	movs	r3, #0x0
+      36: f04f 3233    	mov.w	r2, #0x33333333
+      3a: f44f 711e    	mov.w	r1, #0x278
+      3e: f7ff fffe    	bl	0x3e <DIG_HW_NONSHU_MISC_FIX+0x3e> @ imm = #-0x4
+			0000003e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      42: 4620         	mov	r0, r4
+      44: 9500         	str	r5, [sp]
+      46: 2300         	movs	r3, #0x0
+      48: f04f 3233    	mov.w	r2, #0x33333333
+      4c: f44f 711f    	mov.w	r1, #0x27c
+      50: f7ff fffe    	bl	0x50 <DIG_HW_NONSHU_MISC_FIX+0x50> @ imm = #-0x4
+			00000050:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      54: 4620         	mov	r0, r4
+      56: f240 73ff    	movw	r3, #0x7ff
+      5a: 2261         	movs	r2, #0x61
+      5c: f44f 713c    	mov.w	r1, #0x2f0
+      60: f7ff fffe    	bl	0x60 <DIG_HW_NONSHU_MISC_FIX+0x60> @ imm = #-0x4
+			00000060:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      64: 4620         	mov	r0, r4
+      66: 2302         	movs	r3, #0x2
+      68: 2200         	movs	r2, #0x0
+      6a: f44f 714c    	mov.w	r1, #0x330
+      6e: f7ff fffe    	bl	0x6e <DIG_HW_NONSHU_MISC_FIX+0x6e> @ imm = #-0x4
+			0000006e:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      72: 4620         	mov	r0, r4
+      74: 2304         	movs	r3, #0x4
+      76: 2200         	movs	r2, #0x0
+      78: f44f 71b8    	mov.w	r1, #0x170
+      7c: b003         	add	sp, #0xc
+      7e: e8bd 4030    	pop.w	{r4, r5, lr}
+      82: f7ff bffe    	b.w	0x82 <DIG_HW_NONSHU_MISC_FIX+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_JUMP24	vIO32WriteMsk_All
+      86: bf00         	nop
+      88: 10 01 80 03  	.word	0x03800110
+
+Disassembly of section .text.DIG_HW_NONSHUF_CFG:
+
+00000000 <DIG_HW_NONSHUF_CFG>:
+       0: b510         	push	{r4, lr}
+       2: 4604         	mov	r4, r0
+       4: 2000         	movs	r0, #0x0
+       6: f7ff fffe    	bl	0x6 <DIG_HW_NONSHUF_CFG+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	DramcBroadcastOnOff
+       a: 4620         	mov	r0, r4
+       c: 2100         	movs	r1, #0x0
+       e: f7ff fffe    	bl	0xe <DIG_HW_NONSHUF_CFG+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	DIG_HW_NONSHUF_ZQCAL_CFG
+      12: 4620         	mov	r0, r4
+      14: 2101         	movs	r1, #0x1
+      16: f7ff fffe    	bl	0x16 <DIG_HW_NONSHUF_CFG+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	DIG_HW_NONSHUF_ZQCAL_CFG
+      1a: 4620         	mov	r0, r4
+      1c: f7ff fffe    	bl	0x1c <DIG_HW_NONSHUF_CFG+0x1c> @ imm = #-0x4
+			0000001c:  R_ARM_THM_CALL	DIG_HW_NONSHU_MISC_FIX
+      20: 2001         	movs	r0, #0x1
+      22: e8bd 4010    	pop.w	{r4, lr}
+      26: f7ff bffe    	b.w	0x26 <DIG_HW_NONSHUF_CFG+0x26> @ imm = #-0x4
+			00000026:  R_ARM_THM_JUMP24	DramcBroadcastOnOff
+
+Disassembly of section .text.DIG_HW_SHUF_CFG:
+
+00000000 <DIG_HW_SHUF_CFG>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4614         	mov	r4, r2
+       4: 4605         	mov	r5, r0
+       6: 460e         	mov	r6, r1
+       8: f7ff fffe    	bl	0x8 <DIG_HW_SHUF_CFG+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_CALL	DIG_HW_SHUF_ZQCAL_CFG
+       c: 4621         	mov	r1, r4
+       e: 4805         	ldr	r0, [pc, #0x14]         @ 0x24 <DIG_HW_SHUF_CFG+0x24>
+      10: f7ff fffe    	bl	0x10 <DIG_HW_SHUF_CFG+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	DRAMC_HW_FUNC_IMPCAL_config
+      14: 4622         	mov	r2, r4
+      16: 4631         	mov	r1, r6
+      18: 4628         	mov	r0, r5
+      1a: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      1e: f7ff bffe    	b.w	0x1e <DIG_HW_SHUF_CFG+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_JUMP24	DIG_HW_SHUF_IMPCAL_CFG
+      22: bf00         	nop
+      24: 00 00 00 00  	.word	0x00000000
+			00000024:  R_ARM_ABS32	.bss.HW_IMPCAL_CTRL
+
+Disassembly of section .text.DIG_HW_NONSHUF_SWITCH:
+
+00000000 <DIG_HW_NONSHUF_SWITCH>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4604         	mov	r4, r0
+       4: 4e08         	ldr	r6, [pc, #0x20]         @ 0x28 <DIG_HW_NONSHUF_SWITCH+0x28>
+       6: 460d         	mov	r5, r1
+       8: 79b2         	ldrb	r2, [r6, #0x6]
+       a: f7ff fffe    	bl	0xa <DIG_HW_NONSHUF_SWITCH+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	DIG_HW_NONSHUF_ZQCAL_SWITCH
+       e: 7972         	ldrb	r2, [r6, #0x5]
+      10: 4629         	mov	r1, r5
+      12: 4620         	mov	r0, r4
+      14: f7ff fffe    	bl	0x14 <DIG_HW_NONSHUF_SWITCH+0x14> @ imm = #-0x4
+			00000014:  R_ARM_THM_CALL	DIG_HW_NONSHUF_IMPCAL_SWITCH
+      18: 7832         	ldrb	r2, [r6]
+      1a: 4629         	mov	r1, r5
+      1c: 4620         	mov	r0, r4
+      1e: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      22: f7ff bffe    	b.w	0x22 <DIG_HW_NONSHUF_SWITCH+0x22> @ imm = #-0x4
+			00000022:  R_ARM_THM_JUMP24	DIG_HW_NONSHUF_DQSG_SWITCH
+      26: bf00         	nop
+      28: 00 00 00 00  	.word	0x00000000
+			00000028:  R_ARM_ABS32	HWFUNCEnableGlobal
+
+Disassembly of section .text.DIG_HW_SHUF_SWITCH:
+
+00000000 <DIG_HW_SHUF_SWITCH>:
+       0: 4770         	bx	lr
