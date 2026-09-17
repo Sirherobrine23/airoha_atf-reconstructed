@@ -1,0 +1,112 @@
+
+Relocation section '.rel.text.__meta_set' at offset 0x10a4 contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000034  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+0000001a  0000581e R_ARM_THM_JUMP24       00000000   vSetPHY2ChannelMapping
+00000024  0000591e R_ARM_THM_JUMP24       00000000   vSetRank
+
+Relocation section '.rel.text.__meta_restore' at offset 0x10bc contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000012  0000570a R_ARM_THM_CALL         00000001   __meta_set
+00000034  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.__meta_backup' at offset 0x10cc contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000002a  00005c0a R_ARM_THM_CALL         00000000   vGetPHY2ChannelMapping
+00000058  00005d0a R_ARM_THM_CALL         00000000   u1GetRank
+00000078  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.__meta_backup_and_set' at offset 0x10e4 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  00005b0a R_ARM_THM_CALL         00000001   __meta_backup
+00000016  0000571e R_ARM_THM_JUMP24       00000001   __meta_set
+
+Relocation section '.rel.text.__meta_advance' at offset 0x10f4 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000020  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+0000001c  0000571e R_ARM_THM_JUMP24       00000001   __meta_set
+
+Relocation section '.rel.text.__meta_process_complete' at offset 0x1104 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000024  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.__meta_loop_complete_for_next' at offset 0x110c contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000600a R_ARM_THM_CALL         00000001   __meta_process_complete
+00000012  0000570a R_ARM_THM_CALL         00000001   __meta_set
+
+Relocation section '.rel.text.__meta_get' at offset 0x111c contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  00005c0a R_ARM_THM_CALL         00000000   vGetPHY2ChannelMapping
+0000002e  00005d0a R_ARM_THM_CALL         00000000   u1GetRank
+00000050  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.channel_msk_set' at offset 0x1134 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.channel_msk_backup' at offset 0x113c contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000014  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.channel_msk_restore' at offset 0x1144 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000014  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.channel_msk_backup_and_set' at offset 0x114c contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000002  0000640a R_ARM_THM_CALL         00000001   channel_msk_backup
+0000000c  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.channel_msk_op_enable' at offset 0x115c contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.channel_msk_op_disable' at offset 0x1164 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.u1PhyByteSwapOnOff' at offset 0x116c contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  00004d02 R_ARM_ABS32            00000000   .bss.dramc_io_manager
+
+Relocation section '.rel.text.u4RegBaseAddrTranslate' at offset 0x1174 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+000000bc  00005202 R_ARM_ABS32            00000000   .rodata.REG_BASE_ADDR_LIST
+
+Relocation section '.rel.text.DramcVirt2Phys' at offset 0x117c contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0000620a R_ARM_THM_CALL         00000001   __meta_get
+00000016  00006c1e R_ARM_THM_JUMP24       00000001   u4RegBaseAddrTranslate
+
+Relocation section '.rel.text.u4Dram_Register_Read' at offset 0x118c contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  00006c0a R_ARM_THM_CALL         00000001   u4RegBaseAddrTranslate
+
+Relocation section '.rel.text.vDram_Register_Write' at offset 0x1194 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  00006c0a R_ARM_THM_CALL         00000001   u4RegBaseAddrTranslate
+
+Relocation section '.rel.text.vIO32WriteMsk' at offset 0x119c contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000a  00006c0a R_ARM_THM_CALL         00000001   u4RegBaseAddrTranslate
+
+Relocation section '.rel.text.vIO32WriteMsk_All' at offset 0x11a4 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000032  00006c0a R_ARM_THM_CALL         00000001   u4RegBaseAddrTranslate
+
+Relocation section '.rel.text.vPhyByteIO32WriteMsk' at offset 0x11ac contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000a  00006c0a R_ARM_THM_CALL         00000001   u4RegBaseAddrTranslate
+
+Relocation section '.rel.text.vPhyByteIO32WriteMsk_All' at offset 0x11b4 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  0000711e R_ARM_THM_JUMP24       00000001   vIO32WriteMsk_All
+
+Relocation section '.rel.text.vPhyByteReadFldAlign' at offset 0x11bc contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  00006c0a R_ARM_THM_CALL         00000001   u4RegBaseAddrTranslate
+
+Relocation section '.rel.text.vPhyByteWriteFldAlign' at offset 0x11c4 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000068  00006c0a R_ARM_THM_CALL         00000001   u4RegBaseAddrTranslate

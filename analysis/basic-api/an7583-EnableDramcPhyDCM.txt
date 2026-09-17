@@ -1,0 +1,27 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.EnableDramcPhyDCM:
+
+00000000 <EnableDramcPhyDCM>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 460d         	mov	r5, r1
+       4: 4604         	mov	r4, r0
+       6: f7ff fffe    	bl	0x6 <EnableDramcPhyDCM+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	GetDramcBroadcast
+       a: 4606         	mov	r6, r0
+       c: 2000         	movs	r0, #0x0
+       e: f7ff fffe    	bl	0xe <EnableDramcPhyDCM+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      12: 4629         	mov	r1, r5
+      14: 4620         	mov	r0, r4
+      16: f7ff fffe    	bl	0x16 <EnableDramcPhyDCM+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	EnableDramcPhyDCMNonShuffle
+      1a: 4620         	mov	r0, r4
+      1c: 4629         	mov	r1, r5
+      1e: f7ff fffe    	bl	0x1e <EnableDramcPhyDCM+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	EnableDramcPhyDCMShuffle
+      22: 4630         	mov	r0, r6
+      24: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      28: f7ff bffe    	b.w	0x28 <EnableDramcPhyDCM+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_JUMP24	DramcBroadcastOnOff

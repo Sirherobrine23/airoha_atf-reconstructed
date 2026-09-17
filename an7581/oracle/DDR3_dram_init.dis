@@ -1,0 +1,210 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/DDR3_dram_init.o:	file format elf32-littlearm
+
+Disassembly of section .text.DDR3_MRS:
+
+00000000 <DDR3_MRS>:
+       0: b410         	push	{r4}
+       2: 460c         	mov	r4, r1
+       4: 4619         	mov	r1, r3
+       6: b293         	uxth	r3, r2
+       8: b2e2         	uxtb	r2, r4
+       a: bc10         	pop	{r4}
+       c: f7ff bffe    	b.w	0xc <DDR3_MRS+0xc>      @ imm = #-0x4
+			0000000c:  R_ARM_THM_JUMP24	DramcModeRegWriteByRank
+
+Disassembly of section .text.DDR3_SWZQ:
+
+00000000 <DDR3_SWZQ>:
+       0: f7ff bffe    	b.w	0x0 <DDR3_SWZQ>         @ imm = #-0x4
+			00000000:  R_ARM_THM_JUMP24	DramcZQCalibration
+
+Disassembly of section .text.PC3_dram_init_single_rank:
+
+00000000 <PC3_dram_init_single_rank>:
+       0: e92d 41f0    	push.w	{r4, r5, r6, r7, r8, lr}
+       4: 4617         	mov	r7, r2
+       6: 4606         	mov	r6, r0
+       8: 78cb         	ldrb	r3, [r1, #0x3]
+       a: 2001         	movs	r0, #0x1
+       c: 794a         	ldrb	r2, [r1, #0x5]
+       e: 790d         	ldrb	r5, [r1, #0x4]
+      10: 00dc         	lsls	r4, r3, #0x3
+      12: f002 0203    	and	r2, r2, #0x3
+      16: f004 0470    	and	r4, r4, #0x70
+      1a: 009b         	lsls	r3, r3, #0x2
+      1c: 4314         	orrs	r4, r2
+      1e: 79ca         	ldrb	r2, [r1, #0x7]
+      20: f003 0304    	and	r3, r3, #0x4
+      24: 00ed         	lsls	r5, r5, #0x3
+      26: f005 0518    	and	r5, r5, #0x18
+      2a: f891 8002    	ldrb.w	r8, [r1, #0x2]
+      2e: 0252         	lsls	r2, r2, #0x9
+      30: f402 6260    	and	r2, r2, #0xe00
+      34: 4314         	orrs	r4, r2
+      36: 798a         	ldrb	r2, [r1, #0x6]
+      38: ea4f 2848    	lsl.w	r8, r8, #0x9
+      3c: f408 68c0    	and	r8, r8, #0x600
+      40: 00d2         	lsls	r2, r2, #0x3
+      42: f002 0208    	and	r2, r2, #0x8
+      46: 4314         	orrs	r4, r2
+      48: 431c         	orrs	r4, r3
+      4a: 784b         	ldrb	r3, [r1, #0x1]
+      4c: f444 5488    	orr	r4, r4, #0x1100
+      50: 009a         	lsls	r2, r3, #0x2
+      52: b2a4         	uxth	r4, r4
+      54: f002 0204    	and	r2, r2, #0x4
+      58: 4315         	orrs	r5, r2
+      5a: 01da         	lsls	r2, r3, #0x7
+      5c: f402 7200    	and	r2, r2, #0x200
+      60: 015b         	lsls	r3, r3, #0x5
+      62: 4315         	orrs	r5, r2
+      64: f003 0340    	and	r3, r3, #0x40
+      68: 431d         	orrs	r5, r3
+      6a: 780b         	ldrb	r3, [r1]
+      6c: b2ad         	uxth	r5, r5
+      6e: 00db         	lsls	r3, r3, #0x3
+      70: f003 0338    	and	r3, r3, #0x38
+      74: ea48 0803    	orr.w	r8, r8, r3
+      78: f7ff fffe    	bl	0x78 <PC3_dram_init_single_rank+0x78> @ imm = #-0x4
+			00000078:  R_ARM_THM_CALL	udelay
+      7c: 4639         	mov	r1, r7
+      7e: 4630         	mov	r0, r6
+      80: fa1f f888    	uxth.w	r8, r8
+      84: 2202         	movs	r2, #0x2
+      86: 4643         	mov	r3, r8
+      88: f7ff fffe    	bl	0x88 <PC3_dram_init_single_rank+0x88> @ imm = #-0x4
+			00000088:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      8c: 4639         	mov	r1, r7
+      8e: 4630         	mov	r0, r6
+      90: 2300         	movs	r3, #0x0
+      92: 2203         	movs	r2, #0x3
+      94: f7ff fffe    	bl	0x94 <PC3_dram_init_single_rank+0x94> @ imm = #-0x4
+			00000094:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      98: 4639         	mov	r1, r7
+      9a: 4630         	mov	r0, r6
+      9c: 462b         	mov	r3, r5
+      9e: 2201         	movs	r2, #0x1
+      a0: f7ff fffe    	bl	0xa0 <PC3_dram_init_single_rank+0xa0> @ imm = #-0x4
+			000000a0:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      a4: 2200         	movs	r2, #0x0
+      a6: 4623         	mov	r3, r4
+      a8: 4639         	mov	r1, r7
+      aa: 4630         	mov	r0, r6
+      ac: f7ff fffe    	bl	0xac <PC3_dram_init_single_rank+0xac> @ imm = #-0x4
+			000000ac:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      b0: 4639         	mov	r1, r7
+      b2: 4630         	mov	r0, r6
+      b4: f7ff fffe    	bl	0xb4 <PC3_dram_init_single_rank+0xb4> @ imm = #-0x4
+			000000b4:  R_ARM_THM_CALL	DramcZQCalibration
+      b8: 2001         	movs	r0, #0x1
+      ba: f7ff fffe    	bl	0xba <PC3_dram_init_single_rank+0xba> @ imm = #-0x4
+			000000ba:  R_ARM_THM_CALL	udelay
+      be: 220e         	movs	r2, #0xe
+      c0: 6836         	ldr	r6, [r6]
+      c2: 2100         	movs	r1, #0x0
+      c4: 480a         	ldr	r0, [pc, #0x28]         @ 0xf0 <PC3_dram_init_single_rank+0xf0>
+      c6: 4357         	muls	r7, r2, r7
+      c8: 468e         	mov	lr, r1
+      ca: f04f 0c1c    	mov.w	r12, #0x1c
+      ce: 1c4a         	adds	r2, r1, #0x1
+      d0: b2c9         	uxtb	r1, r1
+      d2: 428e         	cmp	r6, r1
+      d4: d801         	bhi	0xda <PC3_dram_init_single_rank+0xda> @ imm = #0x2
+      d6: e8bd 81f0    	pop.w	{r4, r5, r6, r7, r8, pc}
+      da: fb0c 7101    	mla	r1, r12, r1, r7
+      de: 1843         	adds	r3, r0, r1
+      e0: 5244         	strh	r4, [r0, r1]
+      e2: 4611         	mov	r1, r2
+      e4: 805d         	strh	r5, [r3, #0x2]
+      e6: f8a3 8004    	strh.w	r8, [r3, #0x4]
+      ea: f8a3 e006    	strh.w	lr, [r3, #0x6]
+      ee: e7ee         	b	0xce <PC3_dram_init_single_rank+0xce> @ imm = #-0x24
+      f0: 00 00 00 00  	.word	0x00000000
+			000000f0:  R_ARM_ABS32	gMRVal
+
+Disassembly of section .text.PC3_DRAM_INIT:
+
+00000000 <PC3_DRAM_INIT>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: f44f 4380    	mov.w	r3, #0x4000
+       6: 6885         	ldr	r5, [r0, #0x8]
+       8: 4927         	ldr	r1, [pc, #0x9c]         @ 0xa8 <PC3_DRAM_INIT+0xa8>
+       a: 2200         	movs	r2, #0x0
+       c: 2d01         	cmp	r5, #0x1
+       e: 4604         	mov	r4, r0
+      10: f04f 0601    	mov.w	r6, #0x1
+      14: bf18         	it	ne
+      16: 2602         	movne	r6, #0x2
+      18: f7ff fffe    	bl	0x18 <PC3_DRAM_INIT+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      1c: 2001         	movs	r0, #0x1
+      1e: f7ff fffe    	bl	0x1e <PC3_DRAM_INIT+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	udelay
+      22: 4620         	mov	r0, r4
+      24: 2200         	movs	r2, #0x0
+      26: 2101         	movs	r1, #0x1
+      28: f7ff fffe    	bl	0x28 <PC3_DRAM_INIT+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_CALL	CKE_FIX_OFF
+      2c: 2d01         	cmp	r5, #0x1
+      2e: d004         	beq	0x3a <PC3_DRAM_INIT+0x3a> @ imm = #0x8
+      30: 2201         	movs	r2, #0x1
+      32: 4620         	mov	r0, r4
+      34: 4611         	mov	r1, r2
+      36: f7ff fffe    	bl	0x36 <PC3_DRAM_INIT+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	CKE_FIX_OFF
+      3a: 20c8         	movs	r0, #0xc8
+      3c: f7ff fffe    	bl	0x3c <PC3_DRAM_INIT+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	udelay
+      40: f44f 4380    	mov.w	r3, #0x4000
+      44: 4918         	ldr	r1, [pc, #0x60]         @ 0xa8 <PC3_DRAM_INIT+0xa8>
+      46: 461a         	mov	r2, r3
+      48: 4620         	mov	r0, r4
+      4a: f7ff fffe    	bl	0x4a <PC3_DRAM_INIT+0x4a> @ imm = #-0x4
+			0000004a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      4e: f44f 70fa    	mov.w	r0, #0x1f4
+      52: f7ff fffe    	bl	0x52 <PC3_DRAM_INIT+0x52> @ imm = #-0x4
+			00000052:  R_ARM_THM_CALL	udelay
+      56: 2200         	movs	r2, #0x0
+      58: 4620         	mov	r0, r4
+      5a: 4611         	mov	r1, r2
+      5c: f7ff fffe    	bl	0x5c <PC3_DRAM_INIT+0x5c> @ imm = #-0x4
+			0000005c:  R_ARM_THM_CALL	CKE_FIX_OFF
+      60: 2d01         	cmp	r5, #0x1
+      62: d004         	beq	0x6e <PC3_DRAM_INIT+0x6e> @ imm = #0x8
+      64: 4620         	mov	r0, r4
+      66: 2201         	movs	r2, #0x1
+      68: 2100         	movs	r1, #0x0
+      6a: f7ff fffe    	bl	0x6a <PC3_DRAM_INIT+0x6a> @ imm = #-0x4
+			0000006a:  R_ARM_THM_CALL	CKE_FIX_OFF
+      6e: 4620         	mov	r0, r4
+      70: 2200         	movs	r2, #0x0
+      72: 2101         	movs	r1, #0x1
+      74: f7ff fffe    	bl	0x74 <PC3_DRAM_INIT+0x74> @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	CKE_FIX_ON
+      78: 2d01         	cmp	r5, #0x1
+      7a: d004         	beq	0x86 <PC3_DRAM_INIT+0x86> @ imm = #0x8
+      7c: 2201         	movs	r2, #0x1
+      7e: 4620         	mov	r0, r4
+      80: 4611         	mov	r1, r2
+      82: f7ff fffe    	bl	0x82 <PC3_DRAM_INIT+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_CALL	CKE_FIX_ON
+      86: 4d09         	ldr	r5, [pc, #0x24]         @ 0xac <PC3_DRAM_INIT+0xac>
+      88: 4620         	mov	r0, r4
+      8a: 2200         	movs	r2, #0x0
+      8c: 68e9         	ldr	r1, [r5, #0xc]
+      8e: f7ff fffe    	bl	0x8e <PC3_DRAM_INIT+0x8e> @ imm = #-0x4
+			0000008e:  R_ARM_THM_CALL	PC3_dram_init_single_rank
+      92: 2e02         	cmp	r6, #0x2
+      94: d106         	bne	0xa4 <PC3_DRAM_INIT+0xa4> @ imm = #0xc
+      96: 68e9         	ldr	r1, [r5, #0xc]
+      98: 4620         	mov	r0, r4
+      9a: 2201         	movs	r2, #0x1
+      9c: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      a0: f7ff bffe    	b.w	0xa0 <PC3_DRAM_INIT+0xa0> @ imm = #-0x4
+			000000a0:  R_ARM_THM_JUMP24	PC3_dram_init_single_rank
+      a4: bd70         	pop	{r4, r5, r6, pc}
+      a6: bf00         	nop
+      a8: bc 07 00 01  	.word	0x010007bc
+      ac: 00 00 00 00  	.word	0x00000000
+			000000ac:  R_ARM_ABS32	DV_p

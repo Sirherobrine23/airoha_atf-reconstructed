@@ -1,0 +1,79 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.DFSInitForCalibration:
+
+00000000 <DFSInitForCalibration>:
+       0: b5f8         	push	{r3, r4, r5, r6, r7, lr}
+       2: 4604         	mov	r4, r0
+       4: f7ff fffe    	bl	0x4 <DFSInitForCalibration+0x4> @ imm = #-0x4
+			00000004:  R_ARM_THM_CALL	DV_InitialSettings
+       8: 4620         	mov	r0, r4
+       a: 4e21         	ldr	r6, [pc, #0x84]         @ 0x90 <DFSInitForCalibration+0x90>
+       c: f7ff fffe    	bl	0xc <DFSInitForCalibration+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	SA_InitialSettings1
+      10: 2001         	movs	r0, #0x1
+      12: f7ff fffe    	bl	0x12 <DFSInitForCalibration+0x12> @ imm = #-0x4
+			00000012:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      16: 4620         	mov	r0, r4
+      18: 2101         	movs	r1, #0x1
+      1a: f7ff fffe    	bl	0x1a <DFSInitForCalibration+0x1a> @ imm = #-0x4
+			0000001a:  R_ARM_THM_CALL	SetClkFreeRun
+      1e: 2000         	movs	r0, #0x0
+      20: f7ff fffe    	bl	0x20 <DFSInitForCalibration+0x20> @ imm = #-0x4
+			00000020:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      24: 4620         	mov	r0, r4
+      26: 2301         	movs	r3, #0x1
+      28: 7033         	strb	r3, [r6]
+      2a: f7ff fffe    	bl	0x2a <DFSInitForCalibration+0x2a> @ imm = #-0x4
+			0000002a:  R_ARM_THM_CALL	is_ddr4_family
+      2e: b1e8         	cbz	r0, 0x6c <DFSInitForCalibration+0x6c> @ imm = #0x3a
+      30: 4620         	mov	r0, r4
+      32: f7ff fffe    	bl	0x32 <DFSInitForCalibration+0x32> @ imm = #-0x4
+			00000032:  R_ARM_THM_CALL	PC4_DRAM_INIT
+      36: 2001         	movs	r0, #0x1
+      38: 2500         	movs	r5, #0x0
+      3a: 7035         	strb	r5, [r6]
+      3c: f7ff fffe    	bl	0x3c <DFSInitForCalibration+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      40: 4629         	mov	r1, r5
+      42: 4620         	mov	r0, r4
+      44: f7ff fffe    	bl	0x44 <DFSInitForCalibration+0x44> @ imm = #-0x4
+			00000044:  R_ARM_THM_CALL	SetClkFreeRun
+      48: 4628         	mov	r0, r5
+      4a: f7ff fffe    	bl	0x4a <DFSInitForCalibration+0x4a> @ imm = #-0x4
+			0000004a:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      4e: 7927         	ldrb	r7, [r4, #0x4]
+      50: 6823         	ldr	r3, [r4]
+      52: b2ee         	uxtb	r6, r5
+      54: 3501         	adds	r5, #0x1
+      56: 429e         	cmp	r6, r3
+      58: d311         	blo	0x7e <DFSInitForCalibration+0x7e> @ imm = #0x22
+      5a: 4620         	mov	r0, r4
+      5c: 4639         	mov	r1, r7
+      5e: f7ff fffe    	bl	0x5e <DFSInitForCalibration+0x5e> @ imm = #-0x4
+			0000005e:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      62: 4620         	mov	r0, r4
+      64: e8bd 40f8    	pop.w	{r3, r4, r5, r6, r7, lr}
+      68: f7ff bffe    	b.w	0x68 <DFSInitForCalibration+0x68> @ imm = #-0x4
+			00000068:  R_ARM_THM_JUMP24	SA_InitialSettings2
+      6c: 4620         	mov	r0, r4
+      6e: f7ff fffe    	bl	0x6e <DFSInitForCalibration+0x6e> @ imm = #-0x4
+			0000006e:  R_ARM_THM_CALL	is_ddr3_family
+      72: 2800         	cmp	r0, #0x0
+      74: d0df         	beq	0x36 <DFSInitForCalibration+0x36> @ imm = #-0x42
+      76: 4620         	mov	r0, r4
+      78: f7ff fffe    	bl	0x78 <DFSInitForCalibration+0x78> @ imm = #-0x4
+			00000078:  R_ARM_THM_CALL	PC3_DRAM_INIT
+      7c: e7db         	b	0x36 <DFSInitForCalibration+0x36> @ imm = #-0x4a
+      7e: 4631         	mov	r1, r6
+      80: 4620         	mov	r0, r4
+      82: f7ff fffe    	bl	0x82 <DFSInitForCalibration+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      86: 4631         	mov	r1, r6
+      88: 4620         	mov	r0, r4
+      8a: f7ff fffe    	bl	0x8a <DFSInitForCalibration+0x8a> @ imm = #-0x4
+			0000008a:  R_ARM_THM_CALL	DIG_HW_NONSHUF_SWITCH
+      8e: e7df         	b	0x50 <DFSInitForCalibration+0x50> @ imm = #-0x42
+      90: 00 00 00 00  	.word	0x00000000
+			00000090:  R_ARM_ABS32	.bss.u1PrintModeRegWrite

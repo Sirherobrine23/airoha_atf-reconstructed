@@ -1,0 +1,16 @@
+function,vendor_gcc_size,clang_proxy_size,delta,same_raw_call_sequence,vendor_calls,clang_calls
+dram_pat_set,288,296,8,yes,printf printf printf printf printf,printf printf printf printf printf
+dram_pat_cmp,568,552,-16,yes,memset printf printf printf printf printf printf printf printf printf printf printf printf printf,memset printf printf printf printf printf printf printf printf printf printf printf printf printf
+dram_incrPat_cmp,744,714,-30,yes,memset printf printf printf printf printf printf printf printf printf printf printf printf,memset printf printf printf printf printf printf printf printf printf printf printf printf
+dram_antiIncrPat_cmp,384,360,-24,yes,printf printf printf printf printf printf printf printf printf printf printf printf,printf printf printf printf printf printf printf printf printf printf printf printf
+set_gdma_config,52,46,-6,yes,,
+trigger_gdma,32,38,6,yes,set_gdma_config,set_gdma_config
+wait_gdma_done,28,24,-4,yes,,
+dramTest,268,316,48,no,printf printf printf dram_pat_set dram_antiIncrPat_cmp dram_pat_set dram_pat_cmp printf dram_pat_set dram_incrPat_cmp printf,printf printf dram_pat_set dram_incrPat_cmp printf dram_pat_set dram_antiIncrPat_cmp dram_pat_set dram_pat_cmp printf printf
+Check_DRAMC_BIST_Done,48,64,16,yes,udelay printf,udelay printf
+DRAMC_BIST,84,96,12,yes,printf Check_DRAMC_BIST_Done printf printf,printf Check_DRAMC_BIST_Done printf printf
+DDR_Scrambler_Region_Type,52,48,-4,yes,,
+DDR_Scrambler_Region_EN,52,50,-2,yes,,
+DDR_Scrmabler_test,496,540,44,yes,printf DDR_Scrambler_Key_Set printf DDR_Scrambler_Region_Set DDR_Scrambler_Region_Set DDR_Scrambler_Region_Set DDR_Scrambler_Region_Set printf printf DDR_Scrambler_Region_Type DDR_Scrambler_Region_EN printf dram_pat_set dram_incrPat_cmp DDR_Scrambler_Region_EN dram_incrPat_cmp printf printf printf printf printf DDR_Scrambler_Region_Type DDR_Scrambler_Region_EN dram_pat_set dram_incrPat_cmp DDR_Scrambler_Region_EN dram_incrPat_cmp printf printf printf printf dram_pat_set dram_incrPat_cmp DDR_Scrambler_Region_EN dram_incrPat_cmp printf printf,printf DDR_Scrambler_Key_Set printf DDR_Scrambler_Region_Set DDR_Scrambler_Region_Set DDR_Scrambler_Region_Set DDR_Scrambler_Region_Set printf printf DDR_Scrambler_Region_Type DDR_Scrambler_Region_EN printf dram_pat_set dram_incrPat_cmp DDR_Scrambler_Region_EN dram_incrPat_cmp printf printf printf printf printf DDR_Scrambler_Region_Type DDR_Scrambler_Region_EN dram_pat_set dram_incrPat_cmp DDR_Scrambler_Region_EN dram_incrPat_cmp printf printf printf printf dram_pat_set dram_incrPat_cmp DDR_Scrambler_Region_EN dram_incrPat_cmp printf printf
+DRAMC_BIST_set,180,188,8,no,printf printf Check_DRAMC_BIST_Done printf printf printf,printf printf Check_DRAMC_BIST_Done printf
+DRAMC_BIST_test,344,352,8,yes,printf READ_RG_FLD READ_RG_FLD printf DRAMC_BIST_set printf WRITE_RG_FLD WRITE_RG_FLD DRAMC_BIST_set WRITE_RG_FLD WRITE_RG_FLD printf printf DRAMC_BIST_set printf WRITE_RG_FLD WRITE_RG_FLD DRAMC_BIST_set WRITE_RG_FLD WRITE_RG_FLD printf printf,printf READ_RG_FLD READ_RG_FLD printf DRAMC_BIST_set printf WRITE_RG_FLD WRITE_RG_FLD DRAMC_BIST_set WRITE_RG_FLD WRITE_RG_FLD printf printf DRAMC_BIST_set printf WRITE_RG_FLD WRITE_RG_FLD DRAMC_BIST_set WRITE_RG_FLD WRITE_RG_FLD printf printf

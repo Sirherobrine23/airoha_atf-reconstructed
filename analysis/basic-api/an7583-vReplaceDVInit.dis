@@ -1,0 +1,387 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.vReplaceDVInit:
+
+00000000 <vReplaceDVInit>:
+       0: e92d 43f7    	push.w	{r0, r1, r2, r4, r5, r6, r7, r8, r9, lr}
+       4: f04f 4310    	mov.w	r3, #0x90000000
+       8: 4ee2         	ldr	r6, [pc, #0x388]        @ 0x394 <vReplaceDVInit+0x394>
+       a: f8df 838c    	ldr.w	r8, [pc, #0x38c]        @ 0x398 <vReplaceDVInit+0x398>
+       e: 4604         	mov	r4, r0
+      10: f8df 9388    	ldr.w	r9, [pc, #0x388]        @ 0x39c <vReplaceDVInit+0x39c>
+      14: 2200         	movs	r2, #0x0
+      16: 49e2         	ldr	r1, [pc, #0x388]        @ 0x3a0 <vReplaceDVInit+0x3a0>
+      18: 2500         	movs	r5, #0x0
+      1a: 7b07         	ldrb	r7, [r0, #0xc]
+      1c: f7ff fffe    	bl	0x1c <vReplaceDVInit+0x1c> @ imm = #-0x4
+			0000001c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      20: 49e0         	ldr	r1, [pc, #0x380]        @ 0x3a4 <vReplaceDVInit+0x3a4>
+      22: 4620         	mov	r0, r4
+      24: f04f 4310    	mov.w	r3, #0x90000000
+      28: 2200         	movs	r2, #0x0
+      2a: f7ff fffe    	bl	0x2a <vReplaceDVInit+0x2a> @ imm = #-0x4
+			0000002a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      2e: 68a3         	ldr	r3, [r4, #0x8]
+      30: b2e9         	uxtb	r1, r5
+      32: 3501         	adds	r5, #0x1
+      34: 428b         	cmp	r3, r1
+      36: f200 82eb    	bhi.w	0x610 <vReplaceDVInit+0x610> @ imm = #0x5d6
+      3a: 4639         	mov	r1, r7
+      3c: 4620         	mov	r0, r4
+      3e: f7ff fffe    	bl	0x3e <vReplaceDVInit+0x3e> @ imm = #-0x4
+			0000003e:  R_ARM_THM_CALL	vSetRank
+      42: 49d9         	ldr	r1, [pc, #0x364]        @ 0x3a8 <vReplaceDVInit+0x3a8>
+      44: 4620         	mov	r0, r4
+      46: f44f 43f0    	mov.w	r3, #0x7800
+      4a: 2200         	movs	r2, #0x0
+      4c: f7ff fffe    	bl	0x4c <vReplaceDVInit+0x4c> @ imm = #-0x4
+			0000004c:  R_ARM_THM_CALL	vIO32WriteMsk
+      50: f04f 4300    	mov.w	r3, #0x80000000
+      54: 2200         	movs	r2, #0x0
+      56: f44f 7196    	mov.w	r1, #0x12c
+      5a: 4620         	mov	r0, r4
+      5c: f7ff fffe    	bl	0x5c <vReplaceDVInit+0x5c> @ imm = #-0x4
+			0000005c:  R_ARM_THM_CALL	vIO32WriteMsk
+      60: f7ff fffe    	bl	0x60 <vReplaceDVInit+0x60> @ imm = #-0x4
+			00000060:  R_ARM_THM_CALL	GetDramcBroadcast
+      64: 4606         	mov	r6, r0
+      66: 2000         	movs	r0, #0x0
+      68: f7ff fffe    	bl	0x68 <vReplaceDVInit+0x68> @ imm = #-0x4
+			00000068:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      6c: 4620         	mov	r0, r4
+      6e: f7ff fffe    	bl	0x6e <vReplaceDVInit+0x6e> @ imm = #-0x4
+			0000006e:  R_ARM_THM_CALL	is_ddr3_family
+      72: 2800         	cmp	r0, #0x0
+      74: f000 82dc    	beq.w	0x630 <vReplaceDVInit+0x630> @ imm = #0x5b8
+      78: f8b4 2054    	ldrh.w	r2, [r4, #0x54]
+      7c: f240 4329    	movw	r3, #0x429
+      80: 429a         	cmp	r2, r3
+      82: f240 82dd    	bls.w	0x640 <vReplaceDVInit+0x640> @ imm = #0x5ba
+      86: 2500         	movs	r5, #0x0
+      88: 032d         	lsls	r5, r5, #0xc
+      8a: 4bc8         	ldr	r3, [pc, #0x320]        @ 0x3ac <vReplaceDVInit+0x3ac>
+      8c: f445 0580    	orr	r5, r5, #0x400000
+      90: 49c7         	ldr	r1, [pc, #0x31c]        @ 0x3b0 <vReplaceDVInit+0x3b0>
+      92: 462a         	mov	r2, r5
+      94: 4620         	mov	r0, r4
+      96: f7ff fffe    	bl	0x96 <vReplaceDVInit+0x96> @ imm = #-0x4
+			00000096:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      9a: 4bc4         	ldr	r3, [pc, #0x310]        @ 0x3ac <vReplaceDVInit+0x3ac>
+      9c: 49c5         	ldr	r1, [pc, #0x314]        @ 0x3b4 <vReplaceDVInit+0x3b4>
+      9e: 462a         	mov	r2, r5
+      a0: 4620         	mov	r0, r4
+      a2: f7ff fffe    	bl	0xa2 <vReplaceDVInit+0xa2> @ imm = #-0x4
+			000000a2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      a6: 4bc1         	ldr	r3, [pc, #0x304]        @ 0x3ac <vReplaceDVInit+0x3ac>
+      a8: 49c3         	ldr	r1, [pc, #0x30c]        @ 0x3b8 <vReplaceDVInit+0x3b8>
+      aa: 462a         	mov	r2, r5
+      ac: 4620         	mov	r0, r4
+      ae: f7ff fffe    	bl	0xae <vReplaceDVInit+0xae> @ imm = #-0x4
+			000000ae:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      b2: 4bbe         	ldr	r3, [pc, #0x2f8]        @ 0x3ac <vReplaceDVInit+0x3ac>
+      b4: 462a         	mov	r2, r5
+      b6: 49c1         	ldr	r1, [pc, #0x304]        @ 0x3bc <vReplaceDVInit+0x3bc>
+      b8: 4620         	mov	r0, r4
+      ba: f7ff fffe    	bl	0xba <vReplaceDVInit+0xba> @ imm = #-0x4
+			000000ba:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      be: f8b4 2054    	ldrh.w	r2, [r4, #0x54]
+      c2: f640 0354    	movw	r3, #0x854
+      c6: 429a         	cmp	r2, r3
+      c8: f240 82bc    	bls.w	0x644 <vReplaceDVInit+0x644> @ imm = #0x578
+      cc: f44f 6200    	mov.w	r2, #0x800
+      d0: f44f 6180    	mov.w	r1, #0x400
+      d4: 430a         	orrs	r2, r1
+      d6: f44f 6370    	mov.w	r3, #0xf00
+      da: 49b9         	ldr	r1, [pc, #0x2e4]        @ 0x3c0 <vReplaceDVInit+0x3c0>
+      dc: 4620         	mov	r0, r4
+      de: f7ff fffe    	bl	0xde <vReplaceDVInit+0xde> @ imm = #-0x4
+			000000de:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      e2: f8b4 2054    	ldrh.w	r2, [r4, #0x54]
+      e6: f640 0354    	movw	r3, #0x854
+      ea: 429a         	cmp	r2, r3
+      ec: f200 82ad    	bhi.w	0x64a <vReplaceDVInit+0x64a> @ imm = #0x55a
+      f0: 2200         	movs	r2, #0x0
+      f2: 4611         	mov	r1, r2
+      f4: 430a         	orrs	r2, r1
+      f6: f44f 6370    	mov.w	r3, #0xf00
+      fa: 49b2         	ldr	r1, [pc, #0x2c8]        @ 0x3c4 <vReplaceDVInit+0x3c4>
+      fc: 4620         	mov	r0, r4
+      fe: f7ff fffe    	bl	0xfe <vReplaceDVInit+0xfe> @ imm = #-0x4
+			000000fe:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     102: f8b4 1054    	ldrh.w	r1, [r4, #0x54]
+     106: f640 0354    	movw	r3, #0x854
+     10a: 4299         	cmp	r1, r3
+     10c: f200 82a2    	bhi.w	0x654 <vReplaceDVInit+0x654> @ imm = #0x544
+     110: 2300         	movs	r3, #0x0
+     112: 461a         	mov	r2, r3
+     114: f5b1 7f96    	cmp.w	r1, #0x12c
+     118: ea42 0203    	orr.w	r2, r2, r3
+     11c: f44f 7380    	mov.w	r3, #0x100
+     120: f44f 7100    	mov.w	r1, #0x200
+     124: bf88         	it	hi
+     126: 2300         	movhi	r3, #0x0
+     128: ea42 0203    	orr.w	r2, r2, r3
+     12c: bf88         	it	hi
+     12e: 2100         	movhi	r1, #0x0
+     130: 4620         	mov	r0, r4
+     132: 430a         	orrs	r2, r1
+     134: f44f 6370    	mov.w	r3, #0xf00
+     138: 49a3         	ldr	r1, [pc, #0x28c]        @ 0x3c8 <vReplaceDVInit+0x3c8>
+     13a: 2501         	movs	r5, #0x1
+     13c: f7ff fffe    	bl	0x13c <vReplaceDVInit+0x13c> @ imm = #-0x4
+			0000013c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     140: 2300         	movs	r3, #0x0
+     142: 49a2         	ldr	r1, [pc, #0x288]        @ 0x3cc <vReplaceDVInit+0x3cc>
+     144: 461a         	mov	r2, r3
+     146: 4620         	mov	r0, r4
+     148: 9500         	str	r5, [sp]
+     14a: f7ff fffe    	bl	0x14a <vReplaceDVInit+0x14a> @ imm = #-0x4
+			0000014a:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     14e: 4ba0         	ldr	r3, [pc, #0x280]        @ 0x3d0 <vReplaceDVInit+0x3d0>
+     150: 49a0         	ldr	r1, [pc, #0x280]        @ 0x3d4 <vReplaceDVInit+0x3d4>
+     152: 4620         	mov	r0, r4
+     154: f44f 3200    	mov.w	r2, #0x20000
+     158: f7ff fffe    	bl	0x158 <vReplaceDVInit+0x158> @ imm = #-0x4
+			00000158:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     15c: 4620         	mov	r0, r4
+     15e: 2340         	movs	r3, #0x40
+     160: 2200         	movs	r2, #0x0
+     162: f44f 7108    	mov.w	r1, #0x220
+     166: f7ff fffe    	bl	0x166 <vReplaceDVInit+0x166> @ imm = #-0x4
+			00000166:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     16a: 4620         	mov	r0, r4
+     16c: 2340         	movs	r3, #0x40
+     16e: 2200         	movs	r2, #0x0
+     170: f44f 711a    	mov.w	r1, #0x268
+     174: f7ff fffe    	bl	0x174 <vReplaceDVInit+0x174> @ imm = #-0x4
+			00000174:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     178: 4620         	mov	r0, r4
+     17a: f64f 73ff    	movw	r3, #0xffff
+     17e: 2200         	movs	r2, #0x0
+     180: f44f 7136    	mov.w	r1, #0x2d8
+     184: f7ff fffe    	bl	0x184 <vReplaceDVInit+0x184> @ imm = #-0x4
+			00000184:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     188: 4b93         	ldr	r3, [pc, #0x24c]        @ 0x3d8 <vReplaceDVInit+0x3d8>
+     18a: 4620         	mov	r0, r4
+     18c: 2200         	movs	r2, #0x0
+     18e: f44f 7138    	mov.w	r1, #0x2e0
+     192: f7ff fffe    	bl	0x192 <vReplaceDVInit+0x192> @ imm = #-0x4
+			00000192:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     196: 4991         	ldr	r1, [pc, #0x244]        @ 0x3dc <vReplaceDVInit+0x3dc>
+     198: 462b         	mov	r3, r5
+     19a: 4620         	mov	r0, r4
+     19c: 2200         	movs	r2, #0x0
+     19e: f7ff fffe    	bl	0x19e <vReplaceDVInit+0x19e> @ imm = #-0x4
+			0000019e:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1a2: f04f 4300    	mov.w	r3, #0x80000000
+     1a6: 498e         	ldr	r1, [pc, #0x238]        @ 0x3e0 <vReplaceDVInit+0x3e0>
+     1a8: 461a         	mov	r2, r3
+     1aa: 4620         	mov	r0, r4
+     1ac: f7ff fffe    	bl	0x1ac <vReplaceDVInit+0x1ac> @ imm = #-0x4
+			000001ac:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1b0: 498c         	ldr	r1, [pc, #0x230]        @ 0x3e4 <vReplaceDVInit+0x3e4>
+     1b2: 4620         	mov	r0, r4
+     1b4: 2302         	movs	r3, #0x2
+     1b6: 2212         	movs	r2, #0x12
+     1b8: f7ff fffe    	bl	0x1b8 <vReplaceDVInit+0x1b8> @ imm = #-0x4
+			000001b8:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     1bc: 498a         	ldr	r1, [pc, #0x228]        @ 0x3e8 <vReplaceDVInit+0x3e8>
+     1be: 4620         	mov	r0, r4
+     1c0: 2302         	movs	r3, #0x2
+     1c2: 2212         	movs	r2, #0x12
+     1c4: f7ff fffe    	bl	0x1c4 <vReplaceDVInit+0x1c4> @ imm = #-0x4
+			000001c4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     1c8: 4b88         	ldr	r3, [pc, #0x220]        @ 0x3ec <vReplaceDVInit+0x3ec>
+     1ca: 4989         	ldr	r1, [pc, #0x224]        @ 0x3f0 <vReplaceDVInit+0x3f0>
+     1cc: 4620         	mov	r0, r4
+     1ce: 461a         	mov	r2, r3
+     1d0: f7ff fffe    	bl	0x1d0 <vReplaceDVInit+0x1d0> @ imm = #-0x4
+			000001d0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     1d4: 4b85         	ldr	r3, [pc, #0x214]        @ 0x3ec <vReplaceDVInit+0x3ec>
+     1d6: 4987         	ldr	r1, [pc, #0x21c]        @ 0x3f4 <vReplaceDVInit+0x3f4>
+     1d8: 4620         	mov	r0, r4
+     1da: 461a         	mov	r2, r3
+     1dc: f7ff fffe    	bl	0x1dc <vReplaceDVInit+0x1dc> @ imm = #-0x4
+			000001dc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     1e0: 4985         	ldr	r1, [pc, #0x214]        @ 0x3f8 <vReplaceDVInit+0x3f8>
+     1e2: 4620         	mov	r0, r4
+     1e4: f44f 0380    	mov.w	r3, #0x400000
+     1e8: 2200         	movs	r2, #0x0
+     1ea: f7ff fffe    	bl	0x1ea <vReplaceDVInit+0x1ea> @ imm = #-0x4
+			000001ea:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1ee: 4620         	mov	r0, r4
+     1f0: f240 33ff    	movw	r3, #0x3ff
+     1f4: 2220         	movs	r2, #0x20
+     1f6: f44f 7198    	mov.w	r1, #0x130
+     1fa: f7ff fffe    	bl	0x1fa <vReplaceDVInit+0x1fa> @ imm = #-0x4
+			000001fa:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1fe: 4b7f         	ldr	r3, [pc, #0x1fc]        @ 0x3fc <vReplaceDVInit+0x3fc>
+     200: 4620         	mov	r0, r4
+     202: f44f 1280    	mov.w	r2, #0x100000
+     206: f44f 719e    	mov.w	r1, #0x13c
+     20a: f7ff fffe    	bl	0x20a <vReplaceDVInit+0x20a> @ imm = #-0x4
+			0000020a:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     20e: 4620         	mov	r0, r4
+     210: 2382         	movs	r3, #0x82
+     212: 2200         	movs	r2, #0x0
+     214: f44f 71b8    	mov.w	r1, #0x170
+     218: f7ff fffe    	bl	0x218 <vReplaceDVInit+0x218> @ imm = #-0x4
+			00000218:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     21c: 4620         	mov	r0, r4
+     21e: 23c0         	movs	r3, #0xc0
+     220: 2280         	movs	r2, #0x80
+     222: f44f 71ba    	mov.w	r1, #0x174
+     226: f7ff fffe    	bl	0x226 <vReplaceDVInit+0x226> @ imm = #-0x4
+			00000226:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     22a: 2341         	movs	r3, #0x41
+     22c: 4620         	mov	r0, r4
+     22e: 461a         	mov	r2, r3
+     230: f44f 71c8    	mov.w	r1, #0x190
+     234: f7ff fffe    	bl	0x234 <vReplaceDVInit+0x234> @ imm = #-0x4
+			00000234:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     238: f04f 6300    	mov.w	r3, #0x8000000
+     23c: 4620         	mov	r0, r4
+     23e: 461a         	mov	r2, r3
+     240: f44f 7101    	mov.w	r1, #0x204
+     244: f7ff fffe    	bl	0x244 <vReplaceDVInit+0x244> @ imm = #-0x4
+			00000244:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     248: f44f 6302    	mov.w	r3, #0x820
+     24c: 4620         	mov	r0, r4
+     24e: 461a         	mov	r2, r3
+     250: f44f 7102    	mov.w	r1, #0x208
+     254: f7ff fffe    	bl	0x254 <vReplaceDVInit+0x254> @ imm = #-0x4
+			00000254:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     258: 462a         	mov	r2, r5
+     25a: 4620         	mov	r0, r4
+     25c: 23ff         	movs	r3, #0xff
+     25e: f44f 7104    	mov.w	r1, #0x210
+     262: f7ff fffe    	bl	0x262 <vReplaceDVInit+0x262> @ imm = #-0x4
+			00000262:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     266: 4620         	mov	r0, r4
+     268: f240 2386    	movw	r3, #0x286
+     26c: 2280         	movs	r2, #0x80
+     26e: f44f 7108    	mov.w	r1, #0x220
+     272: f7ff fffe    	bl	0x272 <vReplaceDVInit+0x272> @ imm = #-0x4
+			00000272:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     276: 4620         	mov	r0, r4
+     278: 2340         	movs	r3, #0x40
+     27a: 2200         	movs	r2, #0x0
+     27c: f44f 7110    	mov.w	r1, #0x240
+     280: f7ff fffe    	bl	0x280 <vReplaceDVInit+0x280> @ imm = #-0x4
+			00000280:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     284: 4b5e         	ldr	r3, [pc, #0x178]        @ 0x400 <vReplaceDVInit+0x400>
+     286: 4620         	mov	r0, r4
+     288: f44f 7113    	mov.w	r1, #0x24c
+     28c: 461a         	mov	r2, r3
+     28e: f7ff fffe    	bl	0x28e <vReplaceDVInit+0x28e> @ imm = #-0x4
+			0000028e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     292: 495c         	ldr	r1, [pc, #0x170]        @ 0x404 <vReplaceDVInit+0x404>
+     294: 4620         	mov	r0, r4
+     296: 2337         	movs	r3, #0x37
+     298: 2214         	movs	r2, #0x14
+     29a: f7ff fffe    	bl	0x29a <vReplaceDVInit+0x29a> @ imm = #-0x4
+			0000029a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     29e: 462b         	mov	r3, r5
+     2a0: 4620         	mov	r0, r4
+     2a2: 2200         	movs	r2, #0x0
+     2a4: f44f 7115    	mov.w	r1, #0x254
+     2a8: f7ff fffe    	bl	0x2a8 <vReplaceDVInit+0x2a8> @ imm = #-0x4
+			000002a8:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     2ac: 4620         	mov	r0, r4
+     2ae: 230f         	movs	r3, #0xf
+     2b0: 220a         	movs	r2, #0xa
+     2b2: f44f 7119    	mov.w	r1, #0x264
+     2b6: f7ff fffe    	bl	0x2b6 <vReplaceDVInit+0x2b6> @ imm = #-0x4
+			000002b6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     2ba: 4b53         	ldr	r3, [pc, #0x14c]        @ 0x408 <vReplaceDVInit+0x408>
+     2bc: 4a53         	ldr	r2, [pc, #0x14c]        @ 0x40c <vReplaceDVInit+0x40c>
+     2be: 4620         	mov	r0, r4
+     2c0: f44f 711a    	mov.w	r1, #0x268
+     2c4: f7ff fffe    	bl	0x2c4 <vReplaceDVInit+0x2c4> @ imm = #-0x4
+			000002c4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     2c8: 4620         	mov	r0, r4
+     2ca: f44f 53f8    	mov.w	r3, #0x1f00
+     2ce: f44f 62a0    	mov.w	r2, #0x500
+     2d2: f44f 711b    	mov.w	r1, #0x26c
+     2d6: f7ff fffe    	bl	0x2d6 <vReplaceDVInit+0x2d6> @ imm = #-0x4
+			000002d6:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     2da: 2302         	movs	r3, #0x2
+     2dc: 4620         	mov	r0, r4
+     2de: 461a         	mov	r2, r3
+     2e0: f44f 7121    	mov.w	r1, #0x284
+     2e4: f7ff fffe    	bl	0x2e4 <vReplaceDVInit+0x2e4> @ imm = #-0x4
+			000002e4:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     2e8: 4620         	mov	r0, r4
+     2ea: f04f 33ff    	mov.w	r3, #0xffffffff
+     2ee: 2230         	movs	r2, #0x30
+     2f0: f44f 7135    	mov.w	r1, #0x2d4
+     2f4: f7ff fffe    	bl	0x2f4 <vReplaceDVInit+0x2f4> @ imm = #-0x4
+			000002f4:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     2f8: 4620         	mov	r0, r4
+     2fa: f04f 437f    	mov.w	r3, #0xff000000
+     2fe: 2200         	movs	r2, #0x0
+     300: f44f 7138    	mov.w	r1, #0x2e0
+     304: f7ff fffe    	bl	0x304 <vReplaceDVInit+0x304> @ imm = #-0x4
+			00000304:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     308: 2380         	movs	r3, #0x80
+     30a: 4941         	ldr	r1, [pc, #0x104]        @ 0x410 <vReplaceDVInit+0x410>
+     30c: 461a         	mov	r2, r3
+     30e: 4620         	mov	r0, r4
+     310: f7ff fffe    	bl	0x310 <vReplaceDVInit+0x310> @ imm = #-0x4
+			00000310:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     314: 4b3f         	ldr	r3, [pc, #0xfc]         @ 0x414 <vReplaceDVInit+0x414>
+     316: 4a40         	ldr	r2, [pc, #0x100]        @ 0x418 <vReplaceDVInit+0x418>
+     318: 4620         	mov	r0, r4
+     31a: 4940         	ldr	r1, [pc, #0x100]        @ 0x41c <vReplaceDVInit+0x41c>
+     31c: f7ff fffe    	bl	0x31c <vReplaceDVInit+0x31c> @ imm = #-0x4
+			0000031c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     320: 493f         	ldr	r1, [pc, #0xfc]         @ 0x420 <vReplaceDVInit+0x420>
+     322: 4620         	mov	r0, r4
+     324: f04f 437f    	mov.w	r3, #0xff000000
+     328: f04f 6230    	mov.w	r2, #0xb000000
+     32c: f7ff fffe    	bl	0x32c <vReplaceDVInit+0x32c> @ imm = #-0x4
+			0000032c:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     330: 493c         	ldr	r1, [pc, #0xf0]         @ 0x424 <vReplaceDVInit+0x424>
+     332: 4620         	mov	r0, r4
+     334: 230f         	movs	r3, #0xf
+     336: 2202         	movs	r2, #0x2
+     338: f7ff fffe    	bl	0x338 <vReplaceDVInit+0x338> @ imm = #-0x4
+			00000338:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     33c: 493a         	ldr	r1, [pc, #0xe8]         @ 0x428 <vReplaceDVInit+0x428>
+     33e: 4620         	mov	r0, r4
+     340: f44f 5300    	mov.w	r3, #0x2000
+     344: 2200         	movs	r2, #0x0
+     346: f7ff fffe    	bl	0x346 <vReplaceDVInit+0x346> @ imm = #-0x4
+			00000346:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     34a: 4938         	ldr	r1, [pc, #0xe0]         @ 0x42c <vReplaceDVInit+0x42c>
+     34c: 4620         	mov	r0, r4
+     34e: f44f 5300    	mov.w	r3, #0x2000
+     352: 2200         	movs	r2, #0x0
+     354: f7ff fffe    	bl	0x354 <vReplaceDVInit+0x354> @ imm = #-0x4
+			00000354:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     358: f44f 7340    	mov.w	r3, #0x300
+     35c: 4934         	ldr	r1, [pc, #0xd0]         @ 0x430 <vReplaceDVInit+0x430>
+     35e: 461a         	mov	r2, r3
+     360: 4620         	mov	r0, r4
+     362: f7ff fffe    	bl	0x362 <vReplaceDVInit+0x362> @ imm = #-0x4
+			00000362:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     366: f44f 7340    	mov.w	r3, #0x300
+     36a: 4932         	ldr	r1, [pc, #0xc8]         @ 0x434 <vReplaceDVInit+0x434>
+     36c: 461a         	mov	r2, r3
+     36e: 4620         	mov	r0, r4
+     370: f7ff fffe    	bl	0x370 <vReplaceDVInit+0x370> @ imm = #-0x4
+			00000370:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     374: f44f 7340    	mov.w	r3, #0x300
+     378: 492f         	ldr	r1, [pc, #0xbc]         @ 0x438 <vReplaceDVInit+0x438>
+     37a: 461a         	mov	r2, r3
+     37c: 4620         	mov	r0, r4
+     37e: f7ff fffe    	bl	0x37e <vReplaceDVInit+0x37e> @ imm = #-0x4
+			0000037e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     382: 492e         	ldr	r1, [pc, #0xb8]         @ 0x43c <vReplaceDVInit+0x43c>
+     384: 4620         	mov	r0, r4
+     386: f641 731f    	movw	r3, #0x1f1f
+     38a: f640 220a    	movw	r2, #0xa0a
+     38e: f7ff fffe    	bl	0x38e <vReplaceDVInit+0x38e> @ imm = #-0x4
+			0000038e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+     392: e055         	b	0x440 <vReplaceDVInit+0x440> @ imm = #0xaa

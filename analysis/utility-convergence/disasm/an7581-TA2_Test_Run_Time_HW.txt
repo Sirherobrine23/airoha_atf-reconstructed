@@ -1,0 +1,28 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_utility.o:	file format elf32-littlearm
+
+Disassembly of section .text.TA2_Test_Run_Time_HW:
+
+00000000 <TA2_Test_Run_Time_HW>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 2204         	movs	r2, #0x4
+       4: 4604         	mov	r4, r0
+       6: f44f 3180    	mov.w	r1, #0x10000
+       a: 6846         	ldr	r6, [r0, #0x4]
+       c: 68c5         	ldr	r5, [r0, #0xc]
+       e: f7ff fffe    	bl	0xe <TA2_Test_Run_Time_HW+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Presetting
+      12: 4620         	mov	r0, r4
+      14: 2100         	movs	r1, #0x0
+      16: f7ff fffe    	bl	0x16 <TA2_Test_Run_Time_HW+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	TA2_Test_Run_Time_Pat_Setting
+      1a: 4620         	mov	r0, r4
+      1c: 2101         	movs	r1, #0x1
+      1e: f7ff fffe    	bl	0x1e <TA2_Test_Run_Time_HW+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Write
+      22: 4620         	mov	r0, r4
+      24: f7ff fffe    	bl	0x24 <TA2_Test_Run_Time_HW+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Status
+      28: 6066         	str	r6, [r4, #0x4]
+      2a: 60e5         	str	r5, [r4, #0xc]
+      2c: bd70         	pop	{r4, r5, r6, pc}

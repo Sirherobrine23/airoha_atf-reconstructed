@@ -1,0 +1,14 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.SetMck8xLowPwrOption:
+
+00000000 <SetMck8xLowPwrOption>:
+       0: 4b02         	ldr	r3, [pc, #0x8]          @ 0xc <SetMck8xLowPwrOption+0xc>
+       2: 4903         	ldr	r1, [pc, #0xc]          @ 0x10 <SetMck8xLowPwrOption+0x10>
+       4: 461a         	mov	r2, r3
+       6: f7ff bffe    	b.w	0x6 <SetMck8xLowPwrOption+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+       a: bf00         	nop
+       c: 00 38 1e 00  	.word	0x001e3800
+      10: b4 06 00 01  	.word	0x010006b4

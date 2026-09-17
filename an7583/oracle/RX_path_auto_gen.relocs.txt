@@ -1,0 +1,59 @@
+
+Relocation section '.rel.text.get_RX_path_config' at offset 0x116c contains 10 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000004c  00001f0a R_ARM_THM_CALL         00000000   Get_RL_by_MR_PC3
+000000e4  0000200a R_ARM_THM_CALL         00000000   Get_RL_by_MR_PC4
+00000182  0000210a R_ARM_THM_CALL         00000000   get_dqsien_p2s_latency
+00000192  0000220a R_ARM_THM_CALL         00000000   get_oe_p2s_latency
+000001a6  0000230a R_ARM_THM_CALL         00000000   get_dq_ca_p2s_latency
+0000022a  0000240a R_ARM_THM_CALL         00000000   u1IsPhaseMode
+00000260  00002502 R_ARM_ABS32            00000000   DV_p
+00000264  00002602 R_ARM_ABS32            00000000   MEM_TYPE
+00000268  00002702 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000270  00002802 R_ARM_ABS32            00000000   DUTShufConfigGlobal
+
+Relocation section '.rel.text.calculate_RX_path_rg_val' at offset 0x11bc contains 12 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  00001a0a R_ARM_THM_CALL         00000001   get_max_val
+00000018  00001b0a R_ARM_THM_CALL         00000001   get_min_val
+00000026  00002a0a R_ARM_THM_CALL         00000000   A_div_B_RU
+0000005e  00001b0a R_ARM_THM_CALL         00000001   get_min_val
+0000008e  00001a0a R_ARM_THM_CALL         00000001   get_max_val
+000000cc  00002a0a R_ARM_THM_CALL         00000000   A_div_B_RU
+0000032e  00002a0a R_ARM_THM_CALL         00000000   A_div_B_RU
+000003a0  00002a0a R_ARM_THM_CALL         00000000   A_div_B_RU
+000003b8  00002a0a R_ARM_THM_CALL         00000000   A_div_B_RU
+000003c4  00002a0a R_ARM_THM_CALL         00000000   A_div_B_RU
+000003f8  00001a0a R_ARM_THM_CALL         00000001   get_max_val
+00000402  00001a0a R_ARM_THM_CALL         00000001   get_max_val
+
+Relocation section '.rel.text.RX_PATH_auto_gen_and_set' at offset 0x121c contains 28 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000001c  00001e0a R_ARM_THM_CALL         00000001   get_RX_path_config
+00000026  0000290a R_ARM_THM_CALL         00000001   calculate_RX_path_rg_val
+00000032  00002c0a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+000000a6  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000e8  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000140  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000014e  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000015c  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000017a  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000198  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001aa  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000001ce  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000200  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000023a  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000276  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000288  00002e0a R_ARM_THM_CALL         00000000   vSetRank
+00000296  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000002bc  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000002e2  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000002fa  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000312  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000033c  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000366  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000039a  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000003e8  00002702 R_ARM_ABS32            00000000   DUTTopSetGlobal
+0000044c  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000460  00002e0a R_ARM_THM_CALL         00000000   vSetRank
+00000494  00002d0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk

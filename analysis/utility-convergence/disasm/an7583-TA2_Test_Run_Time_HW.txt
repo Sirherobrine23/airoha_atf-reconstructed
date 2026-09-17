@@ -1,0 +1,134 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_utility.o:	file format elf32-littlearm
+
+Disassembly of section .text.TA2_Test_Run_Time_HW:
+
+00000000 <TA2_Test_Run_Time_HW>:
+       0: b5f7         	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+       2: 2304         	movs	r3, #0x4
+       4: 4604         	mov	r4, r0
+       6: f44f 6280    	mov.w	r2, #0x400
+       a: f44f 3180    	mov.w	r1, #0x10000
+       e: 6847         	ldr	r7, [r0, #0x4]
+      10: 68c6         	ldr	r6, [r0, #0xc]
+      12: f7ff fffe    	bl	0x12 <TA2_Test_Run_Time_HW+0x12> @ imm = #-0x4
+			00000012:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Presetting
+      16: 4620         	mov	r0, r4
+      18: 2100         	movs	r1, #0x0
+      1a: f7ff fffe    	bl	0x1a <TA2_Test_Run_Time_HW+0x1a> @ imm = #-0x4
+			0000001a:  R_ARM_THM_CALL	TA2_Test_Run_Time_Pat_Setting
+      1e: 2101         	movs	r1, #0x1
+      20: 4620         	mov	r0, r4
+      22: f7ff fffe    	bl	0x22 <TA2_Test_Run_Time_HW+0x22> @ imm = #-0x4
+			00000022:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Write
+      26: 4620         	mov	r0, r4
+      28: f7ff fffe    	bl	0x28 <TA2_Test_Run_Time_HW+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Status
+      2c: 2304         	movs	r3, #0x4
+      2e: f44f 6200    	mov.w	r2, #0x800
+      32: 4605         	mov	r5, r0
+      34: 2110         	movs	r1, #0x10
+      36: 4620         	mov	r0, r4
+      38: f7ff fffe    	bl	0x38 <TA2_Test_Run_Time_HW+0x38> @ imm = #-0x4
+			00000038:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Presetting
+      3c: 2101         	movs	r1, #0x1
+      3e: 4620         	mov	r0, r4
+      40: f7ff fffe    	bl	0x40 <TA2_Test_Run_Time_HW+0x40> @ imm = #-0x4
+			00000040:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Write
+      44: 4620         	mov	r0, r4
+      46: f7ff fffe    	bl	0x46 <TA2_Test_Run_Time_HW+0x46> @ imm = #-0x4
+			00000046:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Status
+      4a: 2304         	movs	r3, #0x4
+      4c: f44f 5280    	mov.w	r2, #0x1000
+      50: 4405         	add	r5, r0
+      52: 2110         	movs	r1, #0x10
+      54: 4620         	mov	r0, r4
+      56: f7ff fffe    	bl	0x56 <TA2_Test_Run_Time_HW+0x56> @ imm = #-0x4
+			00000056:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Presetting
+      5a: 2101         	movs	r1, #0x1
+      5c: 4620         	mov	r0, r4
+      5e: f7ff fffe    	bl	0x5e <TA2_Test_Run_Time_HW+0x5e> @ imm = #-0x4
+			0000005e:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Write
+      62: 4620         	mov	r0, r4
+      64: f7ff fffe    	bl	0x64 <TA2_Test_Run_Time_HW+0x64> @ imm = #-0x4
+			00000064:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Status
+      68: 2304         	movs	r3, #0x4
+      6a: f44f 5200    	mov.w	r2, #0x2000
+      6e: 4405         	add	r5, r0
+      70: 2110         	movs	r1, #0x10
+      72: 4620         	mov	r0, r4
+      74: f7ff fffe    	bl	0x74 <TA2_Test_Run_Time_HW+0x74> @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Presetting
+      78: 4620         	mov	r0, r4
+      7a: 2101         	movs	r1, #0x1
+      7c: f7ff fffe    	bl	0x7c <TA2_Test_Run_Time_HW+0x7c> @ imm = #-0x4
+			0000007c:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Write
+      80: 4620         	mov	r0, r4
+      82: f7ff fffe    	bl	0x82 <TA2_Test_Run_Time_HW+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Status
+      86: 182d         	adds	r5, r5, r0
+      88: d009         	beq	0x9e <TA2_Test_Run_Time_HW+0x9e> @ imm = #0x12
+      8a: 4820         	ldr	r0, [pc, #0x80] <TA2_Test_Run_Time_HW+0x10c>
+      8c: f7ff fffe    	bl	0x8c <TA2_Test_Run_Time_HW+0x8c> @ imm = #-0x4
+			0000008c:  R_ARM_THM_CALL	printf
+      90: 481e         	ldr	r0, [pc, #0x78] <TA2_Test_Run_Time_HW+0x10c>
+      92: f7ff fffe    	bl	0x92 <TA2_Test_Run_Time_HW+0x92> @ imm = #-0x4
+			00000092:  R_ARM_THM_CALL	printf
+      96: 481d         	ldr	r0, [pc, #0x74] <TA2_Test_Run_Time_HW+0x10c>
+      98: f7ff fffe    	bl	0x98 <TA2_Test_Run_Time_HW+0x98> @ imm = #-0x4
+			00000098:  R_ARM_THM_CALL	printf
+      9c: e7fe         	b	0x9c <TA2_Test_Run_Time_HW+0x9c> @ imm = #-0x4
+      9e: 4620         	mov	r0, r4
+      a0: 462a         	mov	r2, r5
+      a2: 2304         	movs	r3, #0x4
+      a4: 2110         	movs	r1, #0x10
+      a6: f7ff fffe    	bl	0xa6 <TA2_Test_Run_Time_HW+0xa6> @ imm = #-0x4
+			000000a6:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Presetting
+      aa: 4620         	mov	r0, r4
+      ac: f7ff fffe    	bl	0xac <TA2_Test_Run_Time_HW+0xac> @ imm = #-0x4
+			000000ac:  R_ARM_THM_CALL	TA2_Test_Run_Time_HW_Status
+      b0: b948         	cbnz	r0, 0xc6 <TA2_Test_Run_Time_HW+0xc6> @ imm = #0x12
+      b2: 4816         	ldr	r0, [pc, #0x58] <TA2_Test_Run_Time_HW+0x10c>
+      b4: f7ff fffe    	bl	0xb4 <TA2_Test_Run_Time_HW+0xb4> @ imm = #-0x4
+			000000b4:  R_ARM_THM_CALL	printf
+      b8: 4814         	ldr	r0, [pc, #0x50] <TA2_Test_Run_Time_HW+0x10c>
+      ba: f7ff fffe    	bl	0xba <TA2_Test_Run_Time_HW+0xba> @ imm = #-0x4
+			000000ba:  R_ARM_THM_CALL	printf
+      be: 4813         	ldr	r0, [pc, #0x4c] <TA2_Test_Run_Time_HW+0x10c>
+      c0: f7ff fffe    	bl	0xc0 <TA2_Test_Run_Time_HW+0xc0> @ imm = #-0x4
+			000000c0:  R_ARM_THM_CALL	printf
+      c4: e7fe         	b	0xc4 <TA2_Test_Run_Time_HW+0xc4> @ imm = #-0x4
+      c6: e9d4 1212    	ldrd	r1, r2, [r4, #72]
+      ca: 2301         	movs	r3, #0x1
+      cc: 4620         	mov	r0, r4
+      ce: 9301         	str	r3, [sp, #0x4]
+      d0: 9500         	str	r5, [sp]
+      d2: f894 3050    	ldrb.w	r3, [r4, #0x50]
+      d6: f7ff fffe    	bl	0xd6 <TA2_Test_Run_Time_HW+0xd6> @ imm = #-0x4
+			000000d6:  R_ARM_THM_CALL	DramcEngine2Init
+      da: f894 2050    	ldrb.w	r2, [r4, #0x50]
+      de: 4629         	mov	r1, r5
+      e0: 4620         	mov	r0, r4
+      e2: f7ff fffe    	bl	0xe2 <TA2_Test_Run_Time_HW+0xe2> @ imm = #-0x4
+			000000e2:  R_ARM_THM_CALL	DramcEngine2Run
+      e6: b148         	cbz	r0, 0xfc <TA2_Test_Run_Time_HW+0xfc> @ imm = #0x12
+      e8: 4808         	ldr	r0, [pc, #0x20] <TA2_Test_Run_Time_HW+0x10c>
+      ea: f7ff fffe    	bl	0xea <TA2_Test_Run_Time_HW+0xea> @ imm = #-0x4
+			000000ea:  R_ARM_THM_CALL	printf
+      ee: 4807         	ldr	r0, [pc, #0x1c] <TA2_Test_Run_Time_HW+0x10c>
+      f0: f7ff fffe    	bl	0xf0 <TA2_Test_Run_Time_HW+0xf0> @ imm = #-0x4
+			000000f0:  R_ARM_THM_CALL	printf
+      f4: 4805         	ldr	r0, [pc, #0x14] <TA2_Test_Run_Time_HW+0x10c>
+      f6: f7ff fffe    	bl	0xf6 <TA2_Test_Run_Time_HW+0xf6> @ imm = #-0x4
+			000000f6:  R_ARM_THM_CALL	printf
+      fa: e7fe         	b	0xfa <TA2_Test_Run_Time_HW+0xfa> @ imm = #-0x4
+      fc: 4620         	mov	r0, r4
+      fe: f7ff fffe    	bl	0xfe <TA2_Test_Run_Time_HW+0xfe> @ imm = #-0x4
+			000000fe:  R_ARM_THM_CALL	DramcEngine2End
+     102: 6067         	str	r7, [r4, #0x4]
+     104: 60e6         	str	r6, [r4, #0xc]
+     106: b003         	add	sp, #0xc
+     108: bdf0         	pop	{r4, r5, r6, r7, pc}
+     10a: bf00         	nop
+     10c: 00 00 00 00  	.word	0x00000000
+			0000010c:  R_ARM_ABS32	.rodata.TA2_Test_Run_Time_HW.str1.1

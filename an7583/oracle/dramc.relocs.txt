@@ -1,0 +1,127 @@
+
+Relocation section '.rel.text._Register_Read_DDR' at offset 0x121c contains 5 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000048  00000502 R_ARM_ABS32            00000000   .rodata._Register_Read_DDR.str1.1
+0000004c  00000502 R_ARM_ABS32            00000000   .rodata._Register_Read_DDR.str1.1
+00000050  00000502 R_ARM_ABS32            00000000   .rodata._Register_Read_DDR.str1.1
+0000002a  0000471e R_ARM_THM_JUMP24       00000000   printf
+00000032  0000471e R_ARM_THM_JUMP24       00000000   printf
+
+Relocation section '.rel.text._Register_Write_DDR' at offset 0x1244 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000044  00000502 R_ARM_ABS32            00000000   .rodata._Register_Read_DDR.str1.1
+00000048  00000502 R_ARM_ABS32            00000000   .rodata._Register_Read_DDR.str1.1
+0000002c  0000471e R_ARM_THM_JUMP24       00000000   printf
+00000034  0000471e R_ARM_THM_JUMP24       00000000   printf
+
+Relocation section '.rel.text.DRAMC_Param_Init' at offset 0x1264 contains 7 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000026  00004a0a R_ARM_THM_CALL         00000000   Dramc_efuse_read_parse
+00000038  00004b0a R_ARM_THM_CALL         00000000   Init_Dram_Ctx_By_Type
+00000042  00004c0a R_ARM_THM_CALL         00000000   vSetDFSFreqSelByTable
+00000050  00003f02 R_ARM_ABS32            00000000   .data.ddr_type
+00000054  00003902 R_ARM_ABS32            00000000   .bss.gpio_data_rate
+00000058  00003702 R_ARM_ABS32            00000000   .bss.efuse_data_width
+0000005c  00004d02 R_ARM_ABS32            00000000   gFreqTbl
+
+Relocation section '.rel.text.get_config' at offset 0x129c contains 17 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000a  0000490a R_ARM_THM_CALL         00000001   DRAMC_Param_Init
+00000018  0000470a R_ARM_THM_CALL         00000000   printf
+0000002a  0000470a R_ARM_THM_CALL         00000000   printf
+00000038  0000470a R_ARM_THM_CALL         00000000   printf
+0000003e  00004f0a R_ARM_THM_CALL         00000000   vGet_Div_Mode
+00000064  00005002 R_ARM_ABS32            00000000   DramContext
+00000068  00004102 R_ARM_ABS32            00000000   .data.soc_id_dramc_version
+0000006c  00000f02 R_ARM_ABS32            00000000   .rodata.get_config.str1.1
+00000070  00000f02 R_ARM_ABS32            00000000   .rodata.get_config.str1.1
+00000074  00003d02 R_ARM_ABS32            00000000   .bss.is_ddr_x8
+00000078  00000f02 R_ARM_ABS32            00000000   .rodata.get_config.str1.1
+0000007c  00000f02 R_ARM_ABS32            00000000   .rodata.get_config.str1.1
+00000080  00000f02 R_ARM_ABS32            00000000   .rodata.get_config.str1.1
+00000084  00000f02 R_ARM_ABS32            00000000   .rodata.get_config.str1.1
+00000088  00000f02 R_ARM_ABS32            00000000   .rodata.get_config.str1.1
+0000008c  00000f02 R_ARM_ABS32            00000000   .rodata.get_config.str1.1
+0000004a  0000471e R_ARM_THM_JUMP24       00000000   printf
+
+Relocation section '.rel.text.TRFC_SET' at offset 0x1324 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  00004f0a R_ARM_THM_CALL         00000000   vGet_Div_Mode
+0000004e  0000520a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000068  00005002 R_ARM_ABS32            00000000   DramContext
+0000005e  0000521e R_ARM_THM_JUMP24       00000000   vPhyByteIO32WriteMsk
+
+Relocation section '.rel.text.TRFC_CAL' at offset 0x1344 contains 2 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000050  00003d02 R_ARM_ABS32            00000000   .bss.is_ddr_x8
+00000036  0000511e R_ARM_THM_JUMP24       00000001   TRFC_SET
+
+Relocation section '.rel.text.calculate_dram_size' at offset 0x1354 contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000002e  0000560a R_ARM_THM_CALL         00000000   is_asic
+00000038  0000530a R_ARM_THM_CALL         00000001   TRFC_CAL
+00000040  0000540a R_ARM_THM_CALL         00000001   get_2s_power
+
+Relocation section '.rel.text.DDR_Scrambler_Region_Set' at offset 0x136c contains 7 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000030  0000470a R_ARM_THM_CALL         00000000   printf
+00000048  0000470a R_ARM_THM_CALL         00000000   printf
+000000dc  00005902 R_ARM_ABS32            00000000   uartDisable
+000000e0  00002102 R_ARM_ABS32            00000000   .rodata.DDR_Scrambler_Region_Set.str1.1
+000000e4  00002102 R_ARM_ABS32            00000000   .rodata.DDR_Scrambler_Region_Set.str1.1
+000000e8  00002102 R_ARM_ABS32            00000000   .rodata.DDR_Scrambler_Region_Set.str1.1
+000000ec  00002102 R_ARM_ABS32            00000000   .rodata.DDR_Scrambler_Region_Set.str1.1
+
+Relocation section '.rel.text.DDR4_BG_Num_Check' at offset 0x13a4 contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000018  00005c0a R_ARM_THM_CALL         00000000   udelay
+00000022  00005c0a R_ARM_THM_CALL         00000000   udelay
+00000030  00005c0a R_ARM_THM_CALL         00000000   udelay
+0000004a  00005c0a R_ARM_THM_CALL         00000000   udelay
+00000078  00005902 R_ARM_ABS32            00000000   uartDisable
+0000007c  00002802 R_ARM_ABS32            00000000   .rodata.DDR4_BG_Num_Check.str1.1
+00000080  00002802 R_ARM_ABS32            00000000   .rodata.DDR4_BG_Num_Check.str1.1
+00000058  0000471e R_ARM_THM_JUMP24       00000000   printf
+
+Relocation section '.rel.text.RBUS_Setting' at offset 0x13e4 contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000018  0000470a R_ARM_THM_CALL         00000000   printf
+00000036  0000470a R_ARM_THM_CALL         00000000   printf
+00000080  00003f02 R_ARM_ABS32            00000000   .data.ddr_type
+00000088  00005902 R_ARM_ABS32            00000000   uartDisable
+00000090  00002c02 R_ARM_ABS32            00000000   .rodata.RBUS_Setting.str1.1
+000000a0  00002c02 R_ARM_ABS32            00000000   .rodata.RBUS_Setting.str1.1
+00000072  0000471e R_ARM_THM_JUMP24       00000000   printf
+0000007a  00005b1e R_ARM_THM_JUMP24       00000001   DDR4_BG_Num_Check
+
+Relocation section '.rel.text.dramc_main' at offset 0x1424 contains 25 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  0000470a R_ARM_THM_CALL         00000000   printf
+00000046  00004a0a R_ARM_THM_CALL         00000000   Dramc_efuse_read_parse
+00000050  00005f0a R_ARM_THM_CALL         00000000   READ_RG_FLD
+00000066  0000470a R_ARM_THM_CALL         00000000   printf
+00000076  0000600a R_ARM_THM_CALL         00000000   WRITE_RG_FLD
+00000098  00005d0a R_ARM_THM_CALL         00000001   RBUS_Setting
+000000ba  0000610a R_ARM_THM_CALL         00000000   Init_DRAM
+000000be  00005d0a R_ARM_THM_CALL         00000001   RBUS_Setting
+000000d0  0000600a R_ARM_THM_CALL         00000000   WRITE_RG_FLD
+000000d4  0000550a R_ARM_THM_CALL         00000001   calculate_dram_size
+000000e4  0000470a R_ARM_THM_CALL         00000000   printf
+00000102  0000560a R_ARM_THM_CALL         00000000   is_asic
+00000110  00005c0a R_ARM_THM_CALL         00000000   udelay
+00000116  0000470a R_ARM_THM_CALL         00000000   printf
+0000011c  00005902 R_ARM_ABS32            00000000   uartDisable
+00000120  00004102 R_ARM_ABS32            00000000   .data.soc_id_dramc_version
+00000124  00003002 R_ARM_ABS32            00000000   .rodata.dramc_main.str1.1
+0000012c  00003b02 R_ARM_ABS32            00000000   .bss.hw_conf
+00000130  00003502 R_ARM_ABS32            00000000   .bss.dram_size
+00000134  00003f02 R_ARM_ABS32            00000000   .data.ddr_type
+00000138  00003902 R_ARM_ABS32            00000000   .bss.gpio_data_rate
+0000013c  00003702 R_ARM_ABS32            00000000   .bss.efuse_data_width
+00000144  00003002 R_ARM_ABS32            00000000   .rodata.dramc_main.str1.1
+00000150  00003002 R_ARM_ABS32            00000000   .rodata.dramc_main.str1.1
+00000158  00003002 R_ARM_ABS32            00000000   .rodata.dramc_main.str1.1
+
+Relocation section '.rel.data.soc_id_dramc_version' at offset 0x14ec contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  00003402 R_ARM_ABS32            00000000   .rodata.str1.1

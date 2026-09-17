@@ -1,0 +1,178 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.APHY_RG_Setting_Before_K:
+
+00000000 <APHY_RG_Setting_Before_K>:
+       0:      	ldr	r3, [pc, #0x170]        @ 0x174 <APHY_RG_Setting_Before_K+0x174>
+       2:      	push	{r0, r1, r4, r5, r6, lr}
+       4:      	mov	r4, r0
+       6:      	ldr	r3, [r3]
+       8:      	cbnz	r3, 0x10 <APHY_RG_Setting_Before_K+0x10> @ imm = #0x4
+       a:      	ldr	r0, [pc, #0x16c]        @ 0x178 <APHY_RG_Setting_Before_K+0x178>
+       c:      	bl	0xc <APHY_RG_Setting_Before_K+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	printf
+      10:      	mov	r0, r4
+      12:      	movs	r5, #0x0
+      14:      	bl	0x14 <APHY_RG_Setting_Before_K+0x14> @ imm = #-0x4
+			00000014:  R_ARM_THM_CALL	vGetPHY2ChannelMapping
+      18:      	movs	r1, #0x0
+      1a:      	mov	r6, r0
+      1c:      	mov	r0, r4
+      1e:      	bl	0x1e <APHY_RG_Setting_Before_K+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      22:      	ldr	r1, [pc, #0x158]        @ 0x17c <APHY_RG_Setting_Before_K+0x17c>
+      24:      	mov	r0, r4
+      26:      	mov.w	r3, #0xe000
+      2a:      	mov.w	r2, #0x8000
+      2e:      	bl	0x2e <APHY_RG_Setting_Before_K+0x2e> @ imm = #-0x4
+			0000002e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      32:      	mov	r3, r5
+      34:      	ldr	r1, [pc, #0x148]        @ 0x180 <APHY_RG_Setting_Before_K+0x180>
+      36:      	mov	r0, r4
+      38:      	str	r5, [sp]
+      3a:      	mov.w	r2, #0x180
+      3e:      	bl	0x3e <APHY_RG_Setting_Before_K+0x3e> @ imm = #-0x4
+			0000003e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      42:      	mov	r3, r5
+      44:      	ldr	r1, [pc, #0x13c]        @ 0x184 <APHY_RG_Setting_Before_K+0x184>
+      46:      	mov	r0, r4
+      48:      	str	r5, [sp]
+      4a:      	movs	r2, #0x48
+      4c:      	bl	0x4c <APHY_RG_Setting_Before_K+0x4c> @ imm = #-0x4
+			0000004c:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      50:      	mov	r3, r5
+      52:      	ldr	r1, [pc, #0x134]        @ 0x188 <APHY_RG_Setting_Before_K+0x188>
+      54:      	mov	r0, r4
+      56:      	str	r5, [sp]
+      58:      	movs	r2, #0x48
+      5a:      	bl	0x5a <APHY_RG_Setting_Before_K+0x5a> @ imm = #-0x4
+			0000005a:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      5e:      	mov	r3, r5
+      60:      	movs	r2, #0x48
+      62:      	ldr	r1, [pc, #0x128]        @ 0x18c <APHY_RG_Setting_Before_K+0x18c>
+      64:      	mov	r0, r4
+      66:      	str	r5, [sp]
+      68:      	bl	0x68 <APHY_RG_Setting_Before_K+0x68> @ imm = #-0x4
+			00000068:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      6c:      	mov	r0, r4
+      6e:      	movs	r1, #0x1
+      70:      	bl	0x70 <APHY_RG_Setting_Before_K+0x70> @ imm = #-0x4
+			00000070:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      74:      	mov	r3, r5
+      76:      	ldr	r1, [pc, #0x114]        @ 0x18c <APHY_RG_Setting_Before_K+0x18c>
+      78:      	mov	r0, r4
+      7a:      	str	r5, [sp]
+      7c:      	movs	r2, #0x48
+      7e:      	bl	0x7e <APHY_RG_Setting_Before_K+0x7e> @ imm = #-0x4
+			0000007e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      82:      	mov	r2, r5
+      84:      	ldr	r1, [pc, #0x108]        @ 0x190 <APHY_RG_Setting_Before_K+0x190>
+      86:      	mov	r0, r4
+      88:      	mov.w	r3, #0x20000
+      8c:      	bl	0x8c <APHY_RG_Setting_Before_K+0x8c> @ imm = #-0x4
+			0000008c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      90:      	mov	r2, r5
+      92:      	ldr	r1, [pc, #0x100]        @ 0x194 <APHY_RG_Setting_Before_K+0x194>
+      94:      	mov	r0, r4
+      96:      	mov.w	r3, #0x20000
+      9a:      	bl	0x9a <APHY_RG_Setting_Before_K+0x9a> @ imm = #-0x4
+			0000009a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      9e:      	movs	r3, #0x1
+      a0:      	ldr	r1, [pc, #0xf4]         @ 0x198 <APHY_RG_Setting_Before_K+0x198>
+      a2:      	mov	r2, r3
+      a4:      	mov	r0, r4
+      a6:      	bl	0xa6 <APHY_RG_Setting_Before_K+0xa6> @ imm = #-0x4
+			000000a6:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      aa:      	movs	r3, #0x1
+      ac:      	ldr	r1, [pc, #0xec]         @ 0x19c <APHY_RG_Setting_Before_K+0x19c>
+      ae:      	mov	r2, r3
+      b0:      	mov	r0, r4
+      b2:      	bl	0xb2 <APHY_RG_Setting_Before_K+0xb2> @ imm = #-0x4
+			000000b2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      b6:      	mov	r2, r5
+      b8:      	ldr	r1, [pc, #0xe4]         @ 0x1a0 <APHY_RG_Setting_Before_K+0x1a0>
+      ba:      	mov	r0, r4
+      bc:      	movs	r3, #0x8
+      be:      	bl	0xbe <APHY_RG_Setting_Before_K+0xbe> @ imm = #-0x4
+			000000be:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      c2:      	mov	r2, r5
+      c4:      	ldr	r1, [pc, #0xdc]         @ 0x1a4 <APHY_RG_Setting_Before_K+0x1a4>
+      c6:      	mov	r0, r4
+      c8:      	movs	r3, #0x8
+      ca:      	bl	0xca <APHY_RG_Setting_Before_K+0xca> @ imm = #-0x4
+			000000ca:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ce:      	mov	r3, r5
+      d0:      	mov	r2, r5
+      d2:      	ldr	r1, [pc, #0xd4]         @ 0x1a8 <APHY_RG_Setting_Before_K+0x1a8>
+      d4:      	mov	r0, r4
+      d6:      	str	r5, [sp]
+      d8:      	bl	0xd8 <APHY_RG_Setting_Before_K+0xd8> @ imm = #-0x4
+			000000d8:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      dc:      	mov	r3, r5
+      de:      	mov	r2, r5
+      e0:      	ldr	r1, [pc, #0xc8]         @ 0x1ac <APHY_RG_Setting_Before_K+0x1ac>
+      e2:      	mov	r0, r4
+      e4:      	str	r5, [sp]
+      e6:      	bl	0xe6 <APHY_RG_Setting_Before_K+0xe6> @ imm = #-0x4
+			000000e6:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      ea:      	mov	r2, r5
+      ec:      	movs	r3, #0x4
+      ee:      	ldr	r1, [pc, #0xbc]         @ 0x1ac <APHY_RG_Setting_Before_K+0x1ac>
+      f0:      	mov	r0, r4
+      f2:      	bl	0xf2 <APHY_RG_Setting_Before_K+0xf2> @ imm = #-0x4
+			000000f2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      f6:      	mov	r1, r5
+      f8:      	mov	r0, r4
+      fa:      	bl	0xfa <APHY_RG_Setting_Before_K+0xfa> @ imm = #-0x4
+			000000fa:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+      fe:      	ldr	r3, [pc, #0xb0]         @ 0x1b0 <APHY_RG_Setting_Before_K+0x1b0>
+     100:      	ldr	r5, [r3]
+     102:      	cbnz	r5, 0x14e <APHY_RG_Setting_Before_K+0x14e> @ imm = #0x48
+     104:      	ldr	r1, [pc, #0xac]         @ 0x1b4 <APHY_RG_Setting_Before_K+0x1b4>
+     106:      	mov	r0, r4
+     108:      	mov.w	r3, #0x3f00
+     10c:      	mov.w	r2, #0x300
+     110:      	bl	0x110 <APHY_RG_Setting_Before_K+0x110> @ imm = #-0x4
+			00000110:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     114:      	ldr	r1, [pc, #0xa0]         @ 0x1b8 <APHY_RG_Setting_Before_K+0x1b8>
+     116:      	mov	r0, r4
+     118:      	mov.w	r3, #0x3f00
+     11c:      	mov.w	r2, #0x300
+     120:      	bl	0x120 <APHY_RG_Setting_Before_K+0x120> @ imm = #-0x4
+			00000120:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     124:      	ldr	r2, [pc, #0x94]         @ 0x1bc <APHY_RG_Setting_Before_K+0x1bc>
+     126:      	ldr	r1, [pc, #0x98]         @ 0x1c0 <APHY_RG_Setting_Before_K+0x1c0>
+     128:      	mov	r3, r5
+     12a:      	mov	r0, r4
+     12c:      	str	r5, [sp]
+     12e:      	bl	0x12e <APHY_RG_Setting_Before_K+0x12e> @ imm = #-0x4
+			0000012e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     132:      	ldr	r2, [pc, #0x90]         @ 0x1c4 <APHY_RG_Setting_Before_K+0x1c4>
+     134:      	ldr	r1, [pc, #0x90]         @ 0x1c8 <APHY_RG_Setting_Before_K+0x1c8>
+     136:      	mov	r3, r5
+     138:      	mov	r0, r4
+     13a:      	str	r5, [sp]
+     13c:      	bl	0x13c <APHY_RG_Setting_Before_K+0x13c> @ imm = #-0x4
+			0000013c:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     140:      	mov	r1, r6
+     142:      	mov	r0, r4
+     144:      	add	sp, #0x8
+     146:      	pop.w	{r4, r5, r6, lr}
+     14a:      	b.w	0x14a <APHY_RG_Setting_Before_K+0x14a> @ imm = #-0x4
+			0000014a:  R_ARM_THM_JUMP24	vSetPHY2ChannelMapping
+     14e:      	cmp	r5, #0x1
+     150:      	bne	0x140 <APHY_RG_Setting_Before_K+0x140> @ imm = #-0x14
+     152:      	mov	r0, r4
+     154:      	ldr	r1, [pc, #0x5c]         @ 0x1b4 <APHY_RG_Setting_Before_K+0x1b4>
+     156:      	mov.w	r3, #0x3f00
+     15a:      	mov.w	r2, #0x100
+     15e:      	bl	0x15e <APHY_RG_Setting_Before_K+0x15e> @ imm = #-0x4
+			0000015e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     162:      	ldr	r1, [pc, #0x54]         @ 0x1b8 <APHY_RG_Setting_Before_K+0x1b8>
+     164:      	mov	r0, r4
+     166:      	mov.w	r3, #0x3f00
+     16a:      	mov.w	r2, #0x100
+     16e:      	bl	0x16e <APHY_RG_Setting_Before_K+0x16e> @ imm = #-0x4
+			0000016e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     172:      	b	0x140 <APHY_RG_Setting_Before_K+0x140> @ imm = #-0x36

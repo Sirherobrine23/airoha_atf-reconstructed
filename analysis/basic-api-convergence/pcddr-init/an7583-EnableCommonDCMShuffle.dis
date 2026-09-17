@@ -1,0 +1,49 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.EnableCommonDCMShuffle:
+
+00000000 <EnableCommonDCMShuffle>:
+       0: b513         	push	{r0, r1, r4, lr}
+       2: 2301         	movs	r3, #0x1
+       4: 4604         	mov	r4, r0
+       6: 9300         	str	r3, [sp]
+       8: 2200         	movs	r2, #0x0
+       a: 4b12         	ldr	r3, [pc, #0x48]         @ 0x54 <EnableCommonDCMShuffle+0x54>
+       c: 4912         	ldr	r1, [pc, #0x48]         @ 0x58 <EnableCommonDCMShuffle+0x58>
+       e: f7ff fffe    	bl	0xe <EnableCommonDCMShuffle+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      12: 4620         	mov	r0, r4
+      14: 4911         	ldr	r1, [pc, #0x44]         @ 0x5c <EnableCommonDCMShuffle+0x5c>
+      16: f44f 7380    	mov.w	r3, #0x100
+      1a: f44f 7240    	mov.w	r2, #0x300
+      1e: f7ff fffe    	bl	0x1e <EnableCommonDCMShuffle+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      22: 4620         	mov	r0, r4
+      24: f04f 7390    	mov.w	r3, #0x1200000
+      28: 490d         	ldr	r1, [pc, #0x34]         @ 0x60 <EnableCommonDCMShuffle+0x60>
+      2a: 461a         	mov	r2, r3
+      2c: f7ff fffe    	bl	0x2c <EnableCommonDCMShuffle+0x2c> @ imm = #-0x4
+			0000002c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      30: 4620         	mov	r0, r4
+      32: 4a0c         	ldr	r2, [pc, #0x30]         @ 0x64 <EnableCommonDCMShuffle+0x64>
+      34: f04f 33ff    	mov.w	r3, #0xffffffff
+      38: 490b         	ldr	r1, [pc, #0x2c]         @ 0x68 <EnableCommonDCMShuffle+0x68>
+      3a: f7ff fffe    	bl	0x3a <EnableCommonDCMShuffle+0x3a> @ imm = #-0x4
+			0000003a:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      3e: f04f 7390    	mov.w	r3, #0x1200000
+      42: 490a         	ldr	r1, [pc, #0x28]         @ 0x6c <EnableCommonDCMShuffle+0x6c>
+      44: 461a         	mov	r2, r3
+      46: 4620         	mov	r0, r4
+      48: b002         	add	sp, #0x8
+      4a: e8bd 4010    	pop.w	{r4, lr}
+      4e: f7ff bffe    	b.w	0x4e <EnableCommonDCMShuffle+0x4e> @ imm = #-0x4
+			0000004e:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk_All
+      52: bf00         	nop
+      54: 11 01 04 ff  	.word	0xff040111
+      58: b4 0e 20 89  	.word	0x89200eb4
+      5c: 20 11 20 01  	.word	0x01201120
+      60: 08 0f 20 11  	.word	0x11200f08
+      64: 00 30 40 33  	.word	0x33403000
+      68: 24 11 20 01  	.word	0x01201124
+      6c: 88 0f 20 19  	.word	0x19200f88

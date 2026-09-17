@@ -1,0 +1,16 @@
+function,vendor_gcc_10_3_bytes,clang_17_vendor_flags_bytes,delta,ratio
+dram_pat_set,288,284,-4,0.986
+dram_pat_cmp,568,432,-136,0.761
+dram_incrPat_cmp,744,562,-182,0.755
+dram_antiIncrPat_cmp,384,256,-128,0.667
+set_gdma_config,52,46,-6,0.885
+trigger_gdma,32,48,16,1.500
+wait_gdma_done,28,24,-4,0.857
+dramTest,268,316,48,1.179
+Check_DRAMC_BIST_Done,48,64,16,1.333
+DRAMC_BIST,84,96,12,1.143
+DDR_Scrambler_Region_Type,52,48,-4,0.923
+DDR_Scrambler_Region_EN,52,50,-2,0.962
+DDR_Scrmabler_test,496,630,134,1.270
+DRAMC_BIST_set,180,188,8,1.044
+DRAMC_BIST_test,344,352,8,1.023

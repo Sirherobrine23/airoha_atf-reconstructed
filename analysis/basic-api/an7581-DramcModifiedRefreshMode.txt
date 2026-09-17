@@ -1,0 +1,21 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcModifiedRefreshMode:
+
+00000000 <DramcModifiedRefreshMode>:
+       0: b510         	push	{r4, lr}
+       2: 23c0         	movs	r3, #0xc0
+       4: 4604         	mov	r4, r0
+       6: 2240         	movs	r2, #0x40
+       8: f44f 711a    	mov.w	r1, #0x268
+       c: f7ff fffe    	bl	0xc <DramcModifiedRefreshMode+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      10: 4620         	mov	r0, r4
+      12: 4903         	ldr	r1, [pc, #0xc]          @ 0x20 <DramcModifiedRefreshMode+0x20>
+      14: 2307         	movs	r3, #0x7
+      16: e8bd 4010    	pop.w	{r4, lr}
+      1a: 2204         	movs	r2, #0x4
+      1c: f7ff bffe    	b.w	0x1c <DramcModifiedRefreshMode+0x1c> @ imm = #-0x4
+			0000001c:  R_ARM_THM_JUMP24	vIO32WriteMsk_All
+      20: d4 16 20 00  	.word	0x002016d4

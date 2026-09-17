@@ -1,0 +1,13 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcRefreshRateDeBounceEnable:
+
+00000000 <DramcRefreshRateDeBounceEnable>:
+       0: 4a03         	ldr	r2, [pc, #0xc]          @ 0x10 <DramcRefreshRateDeBounceEnable+0x10>
+       2: f46f 4340    	mvn	r3, #0xc000
+       6: f44f 711b    	mov.w	r1, #0x26c
+       a: f7ff bffe    	b.w	0xa <DramcRefreshRateDeBounceEnable+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk_All
+       e: bf00         	nop
+      10: 04 05 ff ff  	.word	0xffff0504

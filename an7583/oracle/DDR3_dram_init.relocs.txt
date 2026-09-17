@@ -1,0 +1,37 @@
+
+Relocation section '.rel.text.DDR3_MRS' at offset 0x534 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000c  0000131e R_ARM_THM_JUMP24       00000000   DramcModeRegWriteByRank
+
+Relocation section '.rel.text.DDR3_SWZQ' at offset 0x53c contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  0000151e R_ARM_THM_JUMP24       00000000   DramcZQCalibration
+
+Relocation section '.rel.text.PC3_dram_init_single_rank' at offset 0x544 contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000004c  0000170a R_ARM_THM_CALL         00000000   udelay
+0000007e  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+0000008e  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+0000009a  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000c6  0000130a R_ARM_THM_CALL         00000000   DramcModeRegWriteByRank
+000000ce  0000150a R_ARM_THM_CALL         00000000   DramcZQCalibration
+000000d4  0000170a R_ARM_THM_CALL         00000000   udelay
+0000010c  00001802 R_ARM_ABS32            00000000   gMRVal
+
+Relocation section '.rel.text.PC3_DRAM_INIT' at offset 0x584 contains 15 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000018  00001a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000001e  0000170a R_ARM_THM_CALL         00000000   udelay
+00000028  00001b0a R_ARM_THM_CALL         00000000   CKE_FIX_OFF
+00000036  00001b0a R_ARM_THM_CALL         00000000   CKE_FIX_OFF
+00000044  0000170a R_ARM_THM_CALL         00000000   udelay
+00000052  00001a0a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000005e  0000170a R_ARM_THM_CALL         00000000   udelay
+00000068  00001b0a R_ARM_THM_CALL         00000000   CKE_FIX_OFF
+00000076  00001b0a R_ARM_THM_CALL         00000000   CKE_FIX_OFF
+00000080  00001c0a R_ARM_THM_CALL         00000000   CKE_FIX_ON
+0000008e  00001c0a R_ARM_THM_CALL         00000000   CKE_FIX_ON
+0000009a  0000160a R_ARM_THM_CALL         00000001   PC3_dram_init_single_rank
+000000c0  00001d02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+000000c4  00001e02 R_ARM_ABS32            00000000   DV_p
+000000ac  0000161e R_ARM_THM_JUMP24       00000001   PC3_dram_init_single_rank

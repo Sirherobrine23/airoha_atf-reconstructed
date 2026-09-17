@@ -1,0 +1,23 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.SA_InitialSettings2:
+
+00000000 <SA_InitialSettings2>:
+       0: b510         	push	{r4, lr}
+       2: 4604         	mov	r4, r0
+       4: 2000         	movs	r0, #0x0
+       6: f7ff fffe    	bl	0x6 <SA_InitialSettings2+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	DramcBroadcastOnOff
+       a: 4620         	mov	r0, r4
+       c: f7ff fffe    	bl	0xc <SA_InitialSettings2+0xc> @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	DdrUpdateACTiming
+      10: f104 008c    	add.w	r0, r4, #0x8c
+      14: 2201         	movs	r2, #0x1
+      16: 2100         	movs	r1, #0x0
+      18: f7ff fffe    	bl	0x18 <SA_InitialSettings2+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	memset
+      1c: 4620         	mov	r0, r4
+      1e: e8bd 4010    	pop.w	{r4, lr}
+      22: f7ff bffe    	b.w	0x22 <SA_InitialSettings2+0x22> @ imm = #-0x4
+			00000022:  R_ARM_THM_JUMP24	vBeforeCalibration

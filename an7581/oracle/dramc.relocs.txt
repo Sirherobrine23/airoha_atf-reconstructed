@@ -1,0 +1,67 @@
+
+Relocation section '.rel.text.DRAMC_Param_Init' at offset 0xabc contains 7 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000038  00002d0a R_ARM_THM_CALL         00000000   Init_Dram_Ctx_By_Type
+00000042  00002e0a R_ARM_THM_CALL         00000000   vSetDFSFreqSelByTable
+0000006c  00002502 R_ARM_ABS32            00000000   .bss.pkg_type
+00000074  00002102 R_ARM_ABS32            00000000   .bss.gpio_31
+00000078  00002302 R_ARM_ABS32            00000000   .bss.gpio_32
+0000007c  00002702 R_ARM_ABS32            00000000   .data.ddr_type
+00000080  00002f02 R_ARM_ABS32            00000000   gFreqTbl
+
+Relocation section '.rel.text.TRFC_SET' at offset 0xaf4 contains 4 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000320a R_ARM_THM_CALL         00000000   vGet_Div_Mode
+0000004e  0000330a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000068  00003402 R_ARM_ABS32            00000000   DramContext
+0000005e  0000331e R_ARM_THM_JUMP24       00000000   vPhyByteIO32WriteMsk
+
+Relocation section '.rel.text.TRFC_CAL' at offset 0xb14 contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000070  00002502 R_ARM_ABS32            00000000   .bss.pkg_type
+00000074  00002102 R_ARM_ABS32            00000000   .bss.gpio_31
+00000028  0000311e R_ARM_THM_JUMP24       00000001   TRFC_SET
+
+Relocation section '.rel.text.calculate_dram_size' at offset 0xb2c contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000030  0000350a R_ARM_THM_CALL         00000001   TRFC_CAL
+00000044  0000370a R_ARM_THM_CALL         00000000   printf
+00000054  00001002 R_ARM_ABS32            00000000   .rodata.calculate_dram_size.str1.1
+
+Relocation section '.rel.text.DDR4_BG_Num_Check' at offset 0xb44 contains 9 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000022  00003a0a R_ARM_THM_CALL         00000000   udelay
+00000028  0000380a R_ARM_THM_CALL         00000001   EMI_CLK_Switch
+00000032  00003a0a R_ARM_THM_CALL         00000000   udelay
+0000003e  00003a0a R_ARM_THM_CALL         00000000   udelay
+0000005e  00003a0a R_ARM_THM_CALL         00000000   udelay
+00000064  0000380a R_ARM_THM_CALL         00000001   EMI_CLK_Switch
+00000088  00001702 R_ARM_ABS32            00000000   .rodata.DDR4_BG_Num_Check.str1.1
+0000008c  00001702 R_ARM_ABS32            00000000   .rodata.DDR4_BG_Num_Check.str1.1
+0000006e  0000371e R_ARM_THM_JUMP24       00000000   printf
+
+Relocation section '.rel.text.dramc_main' at offset 0xb8c contains 23 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000008  0000370a R_ARM_THM_CALL         00000000   printf
+00000014  00003c0a R_ARM_THM_CALL         00000000   is_asic
+00000020  00003a0a R_ARM_THM_CALL         00000000   udelay
+00000064  0000370a R_ARM_THM_CALL         00000000   printf
+00000074  00003d0a R_ARM_THM_CALL         00000000   Init_DRAM
+000000bc  00003e0a R_ARM_THM_CALL         00000000   SET_R2C_MODE
+000000c2  00003a0a R_ARM_THM_CALL         00000000   udelay
+000000d8  0000370a R_ARM_THM_CALL         00000000   printf
+000000f8  00003d0a R_ARM_THM_CALL         00000000   Init_DRAM
+0000011e  00003e0a R_ARM_THM_CALL         00000000   SET_R2C_MODE
+00000124  00003a0a R_ARM_THM_CALL         00000000   udelay
+00000142  0000390a R_ARM_THM_CALL         00000001   DDR4_BG_Num_Check
+00000148  0000360a R_ARM_THM_CALL         00000001   calculate_dram_size
+00000154  0000370a R_ARM_THM_CALL         00000000   printf
+00000170  00001b02 R_ARM_ABS32            00000000   .rodata.dramc_main.str1.1
+00000178  00002502 R_ARM_ABS32            00000000   .bss.pkg_type
+00000180  00002102 R_ARM_ABS32            00000000   .bss.gpio_31
+00000184  00002302 R_ARM_ABS32            00000000   .bss.gpio_32
+00000188  00002702 R_ARM_ABS32            00000000   .data.ddr_type
+0000018c  00001b02 R_ARM_ABS32            00000000   .rodata.dramc_main.str1.1
+00000190  00001b02 R_ARM_ABS32            00000000   .rodata.dramc_main.str1.1
+00000194  00001f02 R_ARM_ABS32            00000000   .bss.dram_size
+00000198  00001b02 R_ARM_ABS32            00000000   .rodata.dramc_main.str1.1

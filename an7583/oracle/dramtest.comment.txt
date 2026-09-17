@@ -1,0 +1,4 @@
+
+String dump of section '.comment':
+  [     1]  GCC: (Buildroot -g413d1bb) 10.3.0
+

@@ -1,0 +1,8 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcInit:
+
+00000000 <DramcInit>:
+       0: 2000         	movs	r0, #0x0
+       2: 4770         	bx	lr

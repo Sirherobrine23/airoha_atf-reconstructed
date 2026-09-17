@@ -1,0 +1,14 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.Global_Option_Init:
+
+00000000 <Global_Option_Init>:
+       0: b510         	push	{r4, lr}
+       2: 4604         	mov	r4, r0
+       4: f7ff fffe    	bl	0x4 <Global_Option_Init+0x4> @ imm = #-0x4
+			00000004:  R_ARM_THM_CALL	vSetRankNumber
+       8: 4620         	mov	r0, r4
+       a: e8bd 4010    	pop.w	{r4, lr}
+       e: f7ff bffe    	b.w	0xe <Global_Option_Init+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_JUMP24	vInitGlobalVariablesByCondition

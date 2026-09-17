@@ -1,0 +1,14 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.S0_DCMOffWA:
+
+00000000 <S0_DCMOffWA>:
+       0: 4b02         	ldr	r3, [pc, #0x8]          @ 0xc <S0_DCMOffWA+0xc>
+       2: 2200         	movs	r2, #0x0
+       4: 4902         	ldr	r1, [pc, #0x8]          @ 0x10 <S0_DCMOffWA+0x10>
+       6: f7ff bffe    	b.w	0x6 <S0_DCMOffWA+0x6>   @ imm = #-0x4
+			00000006:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk_All
+       a: bf00         	nop
+       c: 00 fe 03 00  	.word	0x0003fe00
+      10: 6c 06 00 01  	.word	0x0100066c

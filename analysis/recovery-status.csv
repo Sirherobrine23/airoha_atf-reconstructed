@@ -1,0 +1,25 @@
+unit,an7581,an7583,notes
+IPM_actiming_setting_DDR3,EXACT_DATA,EXACT_DATA,2680-byte table payload reproduced byte-for-byte
+IPM_actiming_setting_DDR4,EXACT_DATA,EXACT_DATA,8280-byte table payload reproduced byte-for-byte
+TX_RX_auto_gen_library,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,10/10 function sections identical cross-SoC; full functional reconstruction
+Hal_io,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,full functional source; GCC 10.3 convergence pending
+DDR3_dram_init,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,PCDDR-specific recovery with oracle-derived flow
+DDR4_dram_init,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,PCDDR-specific recovery with oracle-derived flow
+HW_FUNC_MANAGE,FUNCTIONAL,FUNCTIONAL,all 18 exports represented; confirmed vendor no-op exports remain no-op
+MD32_initial,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,per-channel sequence and wrapper recovered
+RX_path_auto_gen,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,calculate_RX_path_rg_val and register-programming wrapper recovered; central arithmetic identical cross-SoC
+TX_path_auto_gen,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,calculate_TX_path_rg_val and TX_PATH_config recovered; central arithmetic identical cross-SoC
+dramc,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,complete functional source per SoC including AN7583 scrambler/RBUS behavior
+dramc_dv_dut,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,DramcDUTTopSet/DramcDUTShuSet/DramcHWFuncSet recovered
+dramc_selfrefresh_api,N/A,FUNCTIONAL_HIGH,AN7583-only; self-refresh/PLL/calibration backup+apply/migration/MR6-Vref reconstructed
+dramtest,N/A,FUNCTIONAL_HIGH,AN7583-only; all 15 global functions recovered; optimizer-neutral Clang proxy raw relocated call sequence matches 13/15; remaining 2 differ by compiler basic-block/printf-call merging; GCC 10.3 convergence pending
+ANA_init_config,PUBLIC_BASE,PUBLIC_BASE,MT8192/8195 lineage base; per-function oracle convergence pending
+DIG_NONSHUF_config,PUBLIC_BASE,PUBLIC_BASE,MT8192/8195 lineage base; per-function oracle convergence pending
+DIG_SHUF_config,PUBLIC_BASE,PUBLIC_BASE,MT8192/8195 lineage base; per-function oracle convergence pending
+DRAMC_SUBSYS_config,PUBLIC_BASE,PUBLIC_BASE,MT8192/8195 lineage base; per-function oracle convergence pending
+dramc_actiming,PUBLIC_BASE,PUBLIC_BASE,MT8192/8195 lineage base; per-function oracle convergence pending
+dramc_dvfs,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,fully object-derived; all 3 functions byte-identical AN7581<->AN7583; semantics recovered directly from vendor objects
+dramc_pi_basic_api,PUBLIC_BASE,PUBLIC_BASE,MediaTek lineage base; per-function convergence pending
+dramc_pi_calibration_api,PUBLIC_BASE,PUBLIC_BASE,MediaTek lineage base; per-function convergence pending
+dramc_pi_main,PUBLIC_BASE,PUBLIC_BASE,MediaTek lineage base; per-function convergence pending
+dramc_utility,PUBLIC_BASE,PUBLIC_BASE,large common MediaTek core; per-function convergence pending

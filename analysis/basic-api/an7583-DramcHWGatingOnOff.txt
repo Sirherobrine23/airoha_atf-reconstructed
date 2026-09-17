@@ -1,0 +1,30 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcHWGatingOnOff:
+
+00000000 <DramcHWGatingOnOff>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 460c         	mov	r4, r1
+       4: 4e0b         	ldr	r6, [pc, #0x2c]         @ 0x34 <DramcHWGatingOnOff+0x34>
+       6: 4605         	mov	r5, r0
+       8: 070a         	lsls	r2, r1, #0x1c
+       a: f04f 5380    	mov.w	r3, #0x10000000
+       e: 490a         	ldr	r1, [pc, #0x28]         @ 0x38 <DramcHWGatingOnOff+0x38>
+      10: f7ff fffe    	bl	0x10 <DramcHWGatingOnOff+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      14: 0422         	lsls	r2, r4, #0x10
+      16: 4631         	mov	r1, r6
+      18: 4628         	mov	r0, r5
+      1a: f44f 3380    	mov.w	r3, #0x10000
+      1e: f7ff fffe    	bl	0x1e <DramcHWGatingOnOff+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      22: 0462         	lsls	r2, r4, #0x11
+      24: 4631         	mov	r1, r6
+      26: 4628         	mov	r0, r5
+      28: f44f 3300    	mov.w	r3, #0x20000
+      2c: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      30: f7ff bffe    	b.w	0x30 <DramcHWGatingOnOff+0x30> @ imm = #-0x4
+			00000030:  R_ARM_THM_JUMP24	vIO32WriteMsk_All
+      34: 94 10 20 01  	.word	0x01201094
+      38: 68 06 00 01  	.word	0x01000668

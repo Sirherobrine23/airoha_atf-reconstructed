@@ -1,0 +1,11 @@
+soc,unit,function,oracle_gcc10_size,clang_Os_size,delta
+an7581,MD32_initial,MD32_initializaton,38,46,8
+an7581,MD32_initial,MD32_initializaton_ch,508,558,50
+an7581,dramc_dv_dut,DramcDUTShuSet,124,90,-34
+an7581,dramc_dv_dut,DramcDUTTopSet,632,374,-258
+an7581,dramc_dv_dut,DramcHWFuncSet,24,18,-6
+an7583,MD32_initial,MD32_initializaton,38,46,8
+an7583,MD32_initial,MD32_initializaton_ch,1180,1148,-32
+an7583,dramc_dv_dut,DramcDUTShuSet,124,90,-34
+an7583,dramc_dv_dut,DramcDUTTopSet,552,278,-274
+an7583,dramc_dv_dut,DramcHWFuncSet,24,18,-6

@@ -1,0 +1,38 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcCKEDebounce:
+
+00000000 <DramcCKEDebounce>:
+       0: f8b0 2054    	ldrh.w	r2, [r0, #0x54]
+       4: b5f8         	push	{r3, r4, r5, r6, r7, lr}
+       6: f240 7349    	movw	r3, #0x749
+       a: 4604         	mov	r4, r0
+       c: 429a         	cmp	r2, r3
+       e: d917         	bls	0x40 <DramcCKEDebounce+0x40> @ imm = #0x2e
+      10: 7b06         	ldrb	r6, [r0, #0xc]
+      12: 2500         	movs	r5, #0x0
+      14: 4f0b         	ldr	r7, [pc, #0x2c]         @ 0x44 <DramcCKEDebounce+0x44>
+      16: 68a3         	ldr	r3, [r4, #0x8]
+      18: b2e9         	uxtb	r1, r5
+      1a: 3501         	adds	r5, #0x1
+      1c: 428b         	cmp	r3, r1
+      1e: d805         	bhi	0x2c <DramcCKEDebounce+0x2c> @ imm = #0xa
+      20: 4631         	mov	r1, r6
+      22: 4620         	mov	r0, r4
+      24: e8bd 40f8    	pop.w	{r3, r4, r5, r6, r7, lr}
+      28: f7ff bffe    	b.w	0x28 <DramcCKEDebounce+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_JUMP24	vSetRank
+      2c: 4620         	mov	r0, r4
+      2e: f7ff fffe    	bl	0x2e <DramcCKEDebounce+0x2e> @ imm = #-0x4
+			0000002e:  R_ARM_THM_CALL	vSetRank
+      32: 4639         	mov	r1, r7
+      34: 4620         	mov	r0, r4
+      36: 23ff         	movs	r3, #0xff
+      38: 220f         	movs	r2, #0xf
+      3a: f7ff fffe    	bl	0x3a <DramcCKEDebounce+0x3a> @ imm = #-0x4
+			0000003a:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      3e: e7ea         	b	0x16 <DramcCKEDebounce+0x16> @ imm = #-0x2c
+      40: bdf8         	pop	{r3, r4, r5, r6, r7, pc}
+      42: bf00         	nop
+      44: 60 12 60 00  	.word	0x00601260

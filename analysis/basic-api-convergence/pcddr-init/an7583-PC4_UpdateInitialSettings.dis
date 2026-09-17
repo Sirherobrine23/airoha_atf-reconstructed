@@ -1,0 +1,128 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.PC4_UpdateInitialSettings:
+
+00000000 <PC4_UpdateInitialSettings>:
+       0: b537         	push	{r0, r1, r2, r4, r5, lr}
+       2: 4604         	mov	r4, r0
+       4: 2500         	movs	r5, #0x0
+       6: 4b3d         	ldr	r3, [pc, #0xf4]         @ 0xfc <PC4_UpdateInitialSettings+0xfc>
+       8: 462a         	mov	r2, r5
+       a: 493d         	ldr	r1, [pc, #0xf4]         @ 0x100 <PC4_UpdateInitialSettings+0x100>
+       c: 9500         	str	r5, [sp]
+       e: f7ff fffe    	bl	0xe <PC4_UpdateInitialSettings+0xe> @ imm = #-0x4
+			0000000e:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      12: 4620         	mov	r0, r4
+      14: f7ff fffe    	bl	0x14 <PC4_UpdateInitialSettings+0x14> @ imm = #-0x4
+			00000014:  R_ARM_THM_CALL	vReplaceDVInit
+      18: 462a         	mov	r2, r5
+      1a: 4620         	mov	r0, r4
+      1c: 4939         	ldr	r1, [pc, #0xe4]         @ 0x104 <PC4_UpdateInitialSettings+0x104>
+      1e: f44f 537c    	mov.w	r3, #0x3f00
+      22: f7ff fffe    	bl	0x22 <PC4_UpdateInitialSettings+0x22> @ imm = #-0x4
+			00000022:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      26: 462a         	mov	r2, r5
+      28: 4620         	mov	r0, r4
+      2a: 4937         	ldr	r1, [pc, #0xdc]         @ 0x108 <PC4_UpdateInitialSettings+0x108>
+      2c: f44f 537c    	mov.w	r3, #0x3f00
+      30: f7ff fffe    	bl	0x30 <PC4_UpdateInitialSettings+0x30> @ imm = #-0x4
+			00000030:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      34: 462a         	mov	r2, r5
+      36: 4935         	ldr	r1, [pc, #0xd4]         @ 0x10c <PC4_UpdateInitialSettings+0x10c>
+      38: f44f 537c    	mov.w	r3, #0x3f00
+      3c: 4620         	mov	r0, r4
+      3e: f7ff fffe    	bl	0x3e <PC4_UpdateInitialSettings+0x3e> @ imm = #-0x4
+			0000003e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      42: 4620         	mov	r0, r4
+      44: f7ff fffe    	bl	0x44 <PC4_UpdateInitialSettings+0x44> @ imm = #-0x4
+			00000044:  R_ARM_THM_CALL	DQSSTBSettings
+      48: 4620         	mov	r0, r4
+      4a: f7ff fffe    	bl	0x4a <PC4_UpdateInitialSettings+0x4a> @ imm = #-0x4
+			0000004a:  R_ARM_THM_CALL	RODTSettings
+      4e: 4620         	mov	r0, r4
+      50: f44f 5300    	mov.w	r3, #0x2000
+      54: f44f 711a    	mov.w	r1, #0x268
+      58: 461a         	mov	r2, r3
+      5a: f7ff fffe    	bl	0x5a <PC4_UpdateInitialSettings+0x5a> @ imm = #-0x4
+			0000005a:  R_ARM_THM_CALL	vIO32WriteMsk
+      5e: 4620         	mov	r0, r4
+      60: 2301         	movs	r3, #0x1
+      62: f44f 7114    	mov.w	r1, #0x250
+      66: 461a         	mov	r2, r3
+      68: f7ff fffe    	bl	0x68 <PC4_UpdateInitialSettings+0x68> @ imm = #-0x4
+			00000068:  R_ARM_THM_CALL	vIO32WriteMsk
+      6c: 462b         	mov	r3, r5
+      6e: 462a         	mov	r2, r5
+      70: 4620         	mov	r0, r4
+      72: f44f 71be    	mov.w	r1, #0x17c
+      76: f7ff fffe    	bl	0x76 <PC4_UpdateInitialSettings+0x76> @ imm = #-0x4
+			00000076:  R_ARM_THM_CALL	vIO32WriteMsk
+      7a: 462a         	mov	r2, r5
+      7c: 4d24         	ldr	r5, [pc, #0x90]         @ 0x110 <PC4_UpdateInitialSettings+0x110>
+      7e: 4620         	mov	r0, r4
+      80: 4924         	ldr	r1, [pc, #0x90]         @ 0x114 <PC4_UpdateInitialSettings+0x114>
+      82: 2301         	movs	r3, #0x1
+      84: f7ff fffe    	bl	0x84 <PC4_UpdateInitialSettings+0x84> @ imm = #-0x4
+			00000084:  R_ARM_THM_CALL	vIO32WriteMsk
+      88: 4629         	mov	r1, r5
+      8a: 4620         	mov	r0, r4
+      8c: f44f 6380    	mov.w	r3, #0x400
+      90: 461a         	mov	r2, r3
+      92: f7ff fffe    	bl	0x92 <PC4_UpdateInitialSettings+0x92> @ imm = #-0x4
+			00000092:  R_ARM_THM_CALL	vIO32WriteMsk
+      96: 4620         	mov	r0, r4
+      98: 491f         	ldr	r1, [pc, #0x7c]         @ 0x118 <PC4_UpdateInitialSettings+0x118>
+      9a: f04f 6302    	mov.w	r3, #0x8200000
+      9e: f04f 6200    	mov.w	r2, #0x8000000
+      a2: f7ff fffe    	bl	0xa2 <PC4_UpdateInitialSettings+0xa2> @ imm = #-0x4
+			000000a2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      a6: 4620         	mov	r0, r4
+      a8: f44f 7340    	mov.w	r3, #0x300
+      ac: f44f 7200    	mov.w	r2, #0x200
+      b0: f44f 7113    	mov.w	r1, #0x24c
+      b4: f7ff fffe    	bl	0xb4 <PC4_UpdateInitialSettings+0xb4> @ imm = #-0x4
+			000000b4:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      b8: 4629         	mov	r1, r5
+      ba: 4620         	mov	r0, r4
+      bc: f44f 6380    	mov.w	r3, #0x400
+      c0: 461a         	mov	r2, r3
+      c2: f7ff fffe    	bl	0xc2 <PC4_UpdateInitialSettings+0xc2> @ imm = #-0x4
+			000000c2:  R_ARM_THM_CALL	vIO32WriteMsk
+      c6: 4620         	mov	r0, r4
+      c8: 4914         	ldr	r1, [pc, #0x50]         @ 0x11c <PC4_UpdateInitialSettings+0x11c>
+      ca: f44f 3384    	mov.w	r3, #0x10800
+      ce: f44f 3280    	mov.w	r2, #0x10000
+      d2: f7ff fffe    	bl	0xd2 <PC4_UpdateInitialSettings+0xd2> @ imm = #-0x4
+			000000d2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      d6: 4620         	mov	r0, r4
+      d8: 4b11         	ldr	r3, [pc, #0x44]         @ 0x120 <PC4_UpdateInitialSettings+0x120>
+      da: 4a12         	ldr	r2, [pc, #0x48]         @ 0x124 <PC4_UpdateInitialSettings+0x124>
+      dc: 4912         	ldr	r1, [pc, #0x48]         @ 0x128 <PC4_UpdateInitialSettings+0x128>
+      de: f7ff fffe    	bl	0xde <PC4_UpdateInitialSettings+0xde> @ imm = #-0x4
+			000000de:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      e2: 4620         	mov	r0, r4
+      e4: 2301         	movs	r3, #0x1
+      e6: 4911         	ldr	r1, [pc, #0x44]         @ 0x12c <PC4_UpdateInitialSettings+0x12c>
+      e8: 461a         	mov	r2, r3
+      ea: f7ff fffe    	bl	0xea <PC4_UpdateInitialSettings+0xea> @ imm = #-0x4
+			000000ea:  R_ARM_THM_CALL	vIO32WriteMsk
+      ee: 4620         	mov	r0, r4
+      f0: b003         	add	sp, #0xc
+      f2: e8bd 4030    	pop.w	{r4, r5, lr}
+      f6: f7ff bffe    	b.w	0xf6 <PC4_UpdateInitialSettings+0xf6> @ imm = #-0x4
+			000000f6:  R_ARM_THM_JUMP24	SetMck8xLowPwrOption
+      fa: bf00         	nop
+      fc: 10 08 05 ff  	.word	0xff050810
+     100: b8 0e 20 49  	.word	0x49200eb8
+     104: 04 0f 20 91  	.word	0x91200f04
+     108: 84 0f 20 99  	.word	0x99200f84
+     10c: 04 10 a0 a3  	.word	0xa3a01004
+     110: 68 06 00 01  	.word	0x01000668
+     114: f8 10 20 01  	.word	0x012010f8
+     118: 10 01 80 03  	.word	0x03800110
+     11c: 84 06 00 01  	.word	0x01000684
+     120: 00 c0 77 07  	.word	0x0777c000
+     124: 00 80 11 02  	.word	0x02118000
+     128: a4 10 20 01  	.word	0x012010a4
+     12c: 28 11 20 01  	.word	0x01201128

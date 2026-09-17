@@ -1,0 +1,11 @@
+soc,function,vendor_size,candidate_size,delta
+an7581,PC3_UpdateInitialSettings,336,378,42
+an7581,PC4_UpdateInitialSettings,304,350,46
+an7581,RODTSettings,436,488,52
+an7581,EnableCommonDCMShuffle,148,170,22
+an7581,EnableDramcPhyDCMShuffle,248,290,42
+an7583,PC3_UpdateInitialSettings,336,380,44
+an7583,PC4_UpdateInitialSettings,304,352,48
+an7583,RODTSettings,412,428,16
+an7583,EnableCommonDCMShuffle,112,130,18
+an7583,EnableDramcPhyDCMShuffle,248,290,42

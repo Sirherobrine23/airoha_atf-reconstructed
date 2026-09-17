@@ -1,0 +1,248 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7583/bl22/dramc_dv_dut.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcDUTTopSet:
+
+00000000 <DramcDUTTopSet>:
+       0: 6983         	ldr	r3, [r0, #0x18]
+       2: b570         	push	{r4, r5, r6, lr}
+       4: 2601         	movs	r6, #0x1
+       6: 2b03         	cmp	r3, #0x3
+       8: 4c85         	ldr	r4, [pc, #0x214]        @ 0x220 <DramcDUTTopSet+0x220>
+       a: f04f 0310    	mov.w	r3, #0x10
+       e: bf08         	it	eq
+      10: 2200         	moveq	r2, #0x0
+      12: bf18         	it	ne
+      14: 2201         	movne	r2, #0x1
+      16: f8c0 20b0    	str.w	r2, [r0, #0xb0]
+      1a: 4605         	mov	r5, r0
+      1c: 4a81         	ldr	r2, [pc, #0x204]        @ 0x224 <DramcDUTTopSet+0x224>
+      1e: 6443         	str	r3, [r0, #0x44]
+      20: 2300         	movs	r3, #0x0
+      22: f884 30ae    	strb.w	r3, [r4, #0xae]
+      26: f884 30ad    	strb.w	r3, [r4, #0xad]
+      2a: 7811         	ldrb	r1, [r2]
+      2c: f884 10b3    	strb.w	r1, [r4, #0xb3]
+      30: 7851         	ldrb	r1, [r2, #0x1]
+      32: f884 10b4    	strb.w	r1, [r4, #0xb4]
+      36: 7891         	ldrb	r1, [r2, #0x2]
+      38: 78d2         	ldrb	r2, [r2, #0x3]
+      3a: f884 20b6    	strb.w	r2, [r4, #0xb6]
+      3e: 6882         	ldr	r2, [r0, #0x8]
+      40: f884 10b5    	strb.w	r1, [r4, #0xb5]
+      44: 1e51         	subs	r1, r2, #0x1
+      46: f884 30af    	strb.w	r3, [r4, #0xaf]
+      4a: 424a         	rsbs	r2, r1, #0
+      4c: f884 30b0    	strb.w	r3, [r4, #0xb0]
+      50: 414a         	adcs	r2, r1
+      52: f884 30b1    	strb.w	r3, [r4, #0xb1]
+      56: f884 30b2    	strb.w	r3, [r4, #0xb2]
+      5a: f884 20ac    	strb.w	r2, [r4, #0xac]
+      5e: 2202         	movs	r2, #0x2
+      60: f884 30ab    	strb.w	r3, [r4, #0xab]
+      64: 7123         	strb	r3, [r4, #0x4]
+      66: f884 30a9    	strb.w	r3, [r4, #0xa9]
+      6a: f884 30a8    	strb.w	r3, [r4, #0xa8]
+      6e: f884 30a7    	strb.w	r3, [r4, #0xa7]
+      72: f884 30a5    	strb.w	r3, [r4, #0xa5]
+      76: f884 30a4    	strb.w	r3, [r4, #0xa4]
+      7a: f884 30a1    	strb.w	r3, [r4, #0xa1]
+      7e: f884 60aa    	strb.w	r6, [r4, #0xaa]
+      82: f884 60a6    	strb.w	r6, [r4, #0xa6]
+      86: f884 60a3    	strb.w	r6, [r4, #0xa3]
+      8a: f884 60a2    	strb.w	r6, [r4, #0xa2]
+      8e: f884 30a0    	strb.w	r3, [r4, #0xa0]
+      92: f884 309f    	strb.w	r3, [r4, #0x9f]
+      96: f884 309e    	strb.w	r3, [r4, #0x9e]
+      9a: f884 309c    	strb.w	r3, [r4, #0x9c]
+      9e: f884 2098    	strb.w	r2, [r4, #0x98]
+      a2: 2204         	movs	r2, #0x4
+      a4: f884 3096    	strb.w	r3, [r4, #0x96]
+      a8: f884 2097    	strb.w	r2, [r4, #0x97]
+      ac: 2208         	movs	r2, #0x8
+      ae: f884 3094    	strb.w	r3, [r4, #0x94]
+      b2: f884 3093    	strb.w	r3, [r4, #0x93]
+      b6: f884 3092    	strb.w	r3, [r4, #0x92]
+      ba: f884 3091    	strb.w	r3, [r4, #0x91]
+      be: f884 3090    	strb.w	r3, [r4, #0x90]
+      c2: f884 308e    	strb.w	r3, [r4, #0x8e]
+      c6: f884 308d    	strb.w	r3, [r4, #0x8d]
+      ca: f884 308c    	strb.w	r3, [r4, #0x8c]
+      ce: f884 308b    	strb.w	r3, [r4, #0x8b]
+      d2: f884 3089    	strb.w	r3, [r4, #0x89]
+      d6: f884 3088    	strb.w	r3, [r4, #0x88]
+      da: f884 3086    	strb.w	r3, [r4, #0x86]
+      de: f884 3085    	strb.w	r3, [r4, #0x85]
+      e2: f884 3084    	strb.w	r3, [r4, #0x84]
+      e6: f884 3083    	strb.w	r3, [r4, #0x83]
+      ea: 2303         	movs	r3, #0x3
+      ec: f884 609d    	strb.w	r6, [r4, #0x9d]
+      f0: f884 609b    	strb.w	r6, [r4, #0x9b]
+      f4: f884 609a    	strb.w	r6, [r4, #0x9a]
+      f8: f884 6099    	strb.w	r6, [r4, #0x99]
+      fc: f884 2095    	strb.w	r2, [r4, #0x95]
+     100: f884 608f    	strb.w	r6, [r4, #0x8f]
+     104: f884 608a    	strb.w	r6, [r4, #0x8a]
+     108: f884 6087    	strb.w	r6, [r4, #0x87]
+     10c: f884 3082    	strb.w	r3, [r4, #0x82]
+     110: f7ff fffe    	bl	0x110 <DramcDUTTopSet+0x110> @ imm = #-0x4
+			00000110:  R_ARM_THM_CALL	is_ddr4_family
+     114: b118         	cbz	r0, 0x11e <DramcDUTTopSet+0x11e> @ imm = #0x6
+     116: f884 6081    	strb.w	r6, [r4, #0x81]
+     11a: f884 6080    	strb.w	r6, [r4, #0x80]
+     11e: 4628         	mov	r0, r5
+     120: f7ff fffe    	bl	0x120 <DramcDUTTopSet+0x120> @ imm = #-0x4
+			00000120:  R_ARM_THM_CALL	is_ddr3_family
+     124: b120         	cbz	r0, 0x130 <DramcDUTTopSet+0x130> @ imm = #0x8
+     126: 2300         	movs	r3, #0x0
+     128: f884 3081    	strb.w	r3, [r4, #0x81]
+     12c: f884 3080    	strb.w	r3, [r4, #0x80]
+     130: 2300         	movs	r3, #0x0
+     132: 2201         	movs	r2, #0x1
+     134: f884 307f    	strb.w	r3, [r4, #0x7f]
+     138: 2155         	movs	r1, #0x55
+     13a: f884 307e    	strb.w	r3, [r4, #0x7e]
+     13e: f884 307d    	strb.w	r3, [r4, #0x7d]
+     142: f884 307c    	strb.w	r3, [r4, #0x7c]
+     146: f884 307b    	strb.w	r3, [r4, #0x7b]
+     14a: f884 307a    	strb.w	r3, [r4, #0x7a]
+     14e: f884 3079    	strb.w	r3, [r4, #0x79]
+     152: f884 3078    	strb.w	r3, [r4, #0x78]
+     156: f884 3077    	strb.w	r3, [r4, #0x77]
+     15a: f884 3075    	strb.w	r3, [r4, #0x75]
+     15e: f884 3074    	strb.w	r3, [r4, #0x74]
+     162: f884 3073    	strb.w	r3, [r4, #0x73]
+     166: f884 305f    	strb.w	r3, [r4, #0x5f]
+     16a: f884 3060    	strb.w	r3, [r4, #0x60]
+     16e: f884 3061    	strb.w	r3, [r4, #0x61]
+     172: f884 3062    	strb.w	r3, [r4, #0x62]
+     176: f884 305b    	strb.w	r3, [r4, #0x5b]
+     17a: f884 305c    	strb.w	r3, [r4, #0x5c]
+     17e: f884 305d    	strb.w	r3, [r4, #0x5d]
+     182: f884 305e    	strb.w	r3, [r4, #0x5e]
+     186: f884 3057    	strb.w	r3, [r4, #0x57]
+     18a: f884 3058    	strb.w	r3, [r4, #0x58]
+     18e: f884 3059    	strb.w	r3, [r4, #0x59]
+     192: f884 305a    	strb.w	r3, [r4, #0x5a]
+     196: f884 3053    	strb.w	r3, [r4, #0x53]
+     19a: f884 3054    	strb.w	r3, [r4, #0x54]
+     19e: f884 3055    	strb.w	r3, [r4, #0x55]
+     1a2: f884 3056    	strb.w	r3, [r4, #0x56]
+     1a6: f884 306f    	strb.w	r3, [r4, #0x6f]
+     1aa: f884 3070    	strb.w	r3, [r4, #0x70]
+     1ae: f884 3071    	strb.w	r3, [r4, #0x71]
+     1b2: f884 2076    	strb.w	r2, [r4, #0x76]
+     1b6: f884 3072    	strb.w	r3, [r4, #0x72]
+     1ba: f8c5 30b8    	str.w	r3, [r5, #0xb8]
+     1be: f884 306b    	strb.w	r3, [r4, #0x6b]
+     1c2: f884 306c    	strb.w	r3, [r4, #0x6c]
+     1c6: f884 306d    	strb.w	r3, [r4, #0x6d]
+     1ca: f884 306e    	strb.w	r3, [r4, #0x6e]
+     1ce: f884 3067    	strb.w	r3, [r4, #0x67]
+     1d2: f884 3068    	strb.w	r3, [r4, #0x68]
+     1d6: f884 3069    	strb.w	r3, [r4, #0x69]
+     1da: f884 306a    	strb.w	r3, [r4, #0x6a]
+     1de: f884 3063    	strb.w	r3, [r4, #0x63]
+     1e2: f884 3064    	strb.w	r3, [r4, #0x64]
+     1e6: f884 3065    	strb.w	r3, [r4, #0x65]
+     1ea: f884 3066    	strb.w	r3, [r4, #0x66]
+     1ee: 74a3         	strb	r3, [r4, #0x12]
+     1f0: 7321         	strb	r1, [r4, #0xc]
+     1f2: 2108         	movs	r1, #0x8
+     1f4: 73a3         	strb	r3, [r4, #0xe]
+     1f6: 73e3         	strb	r3, [r4, #0xf]
+     1f8: 72e3         	strb	r3, [r4, #0xb]
+     1fa: 72a3         	strb	r3, [r4, #0xa]
+     1fc: 7263         	strb	r3, [r4, #0x9]
+     1fe: 7223         	strb	r3, [r4, #0x8]
+     200: 71e3         	strb	r3, [r4, #0x7]
+     202: 7163         	strb	r3, [r4, #0x5]
+     204: f3c5 2307    	ubfx	r3, r5, #0x8, #0x8
+     208: 7025         	strb	r5, [r4]
+     20a: 7063         	strb	r3, [r4, #0x1]
+     20c: f3c5 4307    	ubfx	r3, r5, #0x10, #0x8
+     210: 7462         	strb	r2, [r4, #0x11]
+     212: 0e2d         	lsrs	r5, r5, #0x18
+     214: 7422         	strb	r2, [r4, #0x10]
+     216: 7361         	strb	r1, [r4, #0xd]
+     218: 71a2         	strb	r2, [r4, #0x6]
+     21a: 70a3         	strb	r3, [r4, #0x2]
+     21c: 70e5         	strb	r5, [r4, #0x3]
+     21e: bd70         	pop	{r4, r5, r6, pc}
+     220: 00 00 00 00  	.word	0x00000000
+			00000220:  R_ARM_ABS32	DUTTopSetGlobal
+     224: 00 00 00 00  	.word	0x00000000
+			00000224:  R_ARM_ABS32	MEM_TYPE
+
+Disassembly of section .text.DramcDUTShuSet:
+
+00000000 <DramcDUTShuSet>:
+       0: b5f8         	push	{r3, r4, r5, r6, r7, lr}
+       2: 4607         	mov	r7, r0
+       4: 4c1c         	ldr	r4, [pc, #0x70]         @ 0x78 <DramcDUTShuSet+0x78>
+       6: f7ff fffe    	bl	0x6 <DramcDUTShuSet+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	GetDataRateByFreq
+       a: f3c0 2307    	ubfx	r3, r0, #0x8, #0x8
+       e: 2500         	movs	r5, #0x0
+      10: 2601         	movs	r6, #0x1
+      12: f884 0022    	strb.w	r0, [r4, #0x22]
+      16: f884 3023    	strb.w	r3, [r4, #0x23]
+      1a: f3c0 4307    	ubfx	r3, r0, #0x10, #0x8
+      1e: f884 3024    	strb.w	r3, [r4, #0x24]
+      22: 0e03         	lsrs	r3, r0, #0x18
+      24: 4638         	mov	r0, r7
+      26: f884 3025    	strb.w	r3, [r4, #0x25]
+      2a: 77a6         	strb	r6, [r4, #0x1e]
+      2c: 77e5         	strb	r5, [r4, #0x1f]
+      2e: 7766         	strb	r6, [r4, #0x1d]
+      30: f884 6020    	strb.w	r6, [r4, #0x20]
+      34: f7ff fffe    	bl	0x34 <DramcDUTShuSet+0x34> @ imm = #-0x4
+			00000034:  R_ARM_THM_CALL	vGet_Div_Mode
+      38: 42b0         	cmp	r0, r6
+      3a: f04f 0308    	mov.w	r3, #0x8
+      3e: 7665         	strb	r5, [r4, #0x19]
+      40: bf18         	it	ne
+      42: 2304         	movne	r3, #0x4
+      44: 7625         	strb	r5, [r4, #0x18]
+      46: f884 3021    	strb.w	r3, [r4, #0x21]
+      4a: 2304         	movs	r3, #0x4
+      4c: 75e5         	strb	r5, [r4, #0x17]
+      4e: 74a3         	strb	r3, [r4, #0x12]
+      50: 233f         	movs	r3, #0x3f
+      52: 75a5         	strb	r5, [r4, #0x16]
+      54: 73e3         	strb	r3, [r4, #0xf]
+      56: 230f         	movs	r3, #0xf
+      58: 74e6         	strb	r6, [r4, #0x13]
+      5a: 7425         	strb	r5, [r4, #0x10]
+      5c: 73a5         	strb	r5, [r4, #0xe]
+      5e: 7363         	strb	r3, [r4, #0xd]
+      60: 7325         	strb	r5, [r4, #0xc]
+      62: 72e5         	strb	r5, [r4, #0xb]
+      64: 7225         	strb	r5, [r4, #0x8]
+      66: 71e5         	strb	r5, [r4, #0x7]
+      68: 71a5         	strb	r5, [r4, #0x6]
+      6a: 7165         	strb	r5, [r4, #0x5]
+      6c: 7125         	strb	r5, [r4, #0x4]
+      6e: 7025         	strb	r5, [r4]
+      70: 7065         	strb	r5, [r4, #0x1]
+      72: 70a5         	strb	r5, [r4, #0x2]
+      74: 70e5         	strb	r5, [r4, #0x3]
+      76: bdf8         	pop	{r3, r4, r5, r6, r7, pc}
+      78: 00 00 00 00  	.word	0x00000000
+			00000078:  R_ARM_ABS32	DUTShufConfigGlobal
+
+Disassembly of section .text.DramcHWFuncSet:
+
+00000000 <DramcHWFuncSet>:
+       0: 4b04         	ldr	r3, [pc, #0x10]         @ 0x14 <DramcHWFuncSet+0x14>
+       2: 2200         	movs	r2, #0x0
+       4: 719a         	strb	r2, [r3, #0x6]
+       6: 715a         	strb	r2, [r3, #0x5]
+       8: 711a         	strb	r2, [r3, #0x4]
+       a: 70da         	strb	r2, [r3, #0x3]
+       c: 709a         	strb	r2, [r3, #0x2]
+       e: 705a         	strb	r2, [r3, #0x1]
+      10: 701a         	strb	r2, [r3]
+      12: 4770         	bx	lr
+      14: 00 00 00 00  	.word	0x00000000
+			00000014:  R_ARM_ABS32	HWFUNCEnableGlobal

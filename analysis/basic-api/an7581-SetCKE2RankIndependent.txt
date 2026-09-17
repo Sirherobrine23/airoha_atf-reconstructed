@@ -1,0 +1,9 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.SetCKE2RankIndependent:
+
+00000000 <SetCKE2RankIndependent>:
+       0: 2100         	movs	r1, #0x0
+       2: f7ff bffe    	b.w	0x2 <SetCKE2RankIndependent+0x2> @ imm = #-0x4
+			00000002:  R_ARM_THM_JUMP24	vCKERankCtrl

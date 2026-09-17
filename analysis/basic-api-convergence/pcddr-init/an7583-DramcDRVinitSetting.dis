@@ -1,0 +1,285 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcDRVinitSetting:
+
+00000000 <DramcDRVinitSetting>:
+       0: b510         	push	{r4, lr}
+       2: 4604         	mov	r4, r0
+       4: f7ff fffe    	bl	0x4 <DramcDRVinitSetting+0x4> @ imm = #-0x4
+			00000004:  R_ARM_THM_CALL	is_ddr3_family
+       8: 2800         	cmp	r0, #0x0
+       a: d046         	beq	0x9a <DramcDRVinitSetting+0x9a> @ imm = #0x8c
+       c: 4620         	mov	r0, r4
+       e: 4aa3         	ldr	r2, [pc, #0x28c]        @ 0x29c <DramcDRVinitSetting+0x29c>
+      10: 49a3         	ldr	r1, [pc, #0x28c]        @ 0x2a0 <DramcDRVinitSetting+0x2a0>
+      12: f04f 333f    	mov.w	r3, #0x3f3f3f3f
+      16: f7ff fffe    	bl	0x16 <DramcDRVinitSetting+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      1a: 4620         	mov	r0, r4
+      1c: 49a1         	ldr	r1, [pc, #0x284]        @ 0x2a4 <DramcDRVinitSetting+0x2a4>
+      1e: f04f 333f    	mov.w	r3, #0x3f3f3f3f
+      22: f04f 3216    	mov.w	r2, #0x16161616
+      26: f7ff fffe    	bl	0x26 <DramcDRVinitSetting+0x26> @ imm = #-0x4
+			00000026:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      2a: 4620         	mov	r0, r4
+      2c: 499e         	ldr	r1, [pc, #0x278]        @ 0x2a8 <DramcDRVinitSetting+0x2a8>
+      2e: f643 733f    	movw	r3, #0x3f3f
+      32: f641 621e    	movw	r2, #0x1e1e
+      36: f7ff fffe    	bl	0x36 <DramcDRVinitSetting+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      3a: 4620         	mov	r0, r4
+      3c: 499b         	ldr	r1, [pc, #0x26c]        @ 0x2ac <DramcDRVinitSetting+0x2ac>
+      3e: f04f 333f    	mov.w	r3, #0x3f3f3f3f
+      42: f04f 321e    	mov.w	r2, #0x1e1e1e1e
+      46: f7ff fffe    	bl	0x46 <DramcDRVinitSetting+0x46> @ imm = #-0x4
+			00000046:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      4a: 4620         	mov	r0, r4
+      4c: 4998         	ldr	r1, [pc, #0x260]        @ 0x2b0 <DramcDRVinitSetting+0x2b0>
+      4e: f643 733f    	movw	r3, #0x3f3f
+      52: f641 621e    	movw	r2, #0x1e1e
+      56: f7ff fffe    	bl	0x56 <DramcDRVinitSetting+0x56> @ imm = #-0x4
+			00000056:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      5a: 4620         	mov	r0, r4
+      5c: 4995         	ldr	r1, [pc, #0x254]        @ 0x2b4 <DramcDRVinitSetting+0x2b4>
+      5e: f04f 333f    	mov.w	r3, #0x3f3f3f3f
+      62: f04f 321e    	mov.w	r2, #0x1e1e1e1e
+      66: f7ff fffe    	bl	0x66 <DramcDRVinitSetting+0x66> @ imm = #-0x4
+			00000066:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      6a: 4620         	mov	r0, r4
+      6c: 4a92         	ldr	r2, [pc, #0x248]        @ 0x2b8 <DramcDRVinitSetting+0x2b8>
+      6e: f06f 4340    	mvn	r3, #0xc0000000
+      72: 4992         	ldr	r1, [pc, #0x248]        @ 0x2bc <DramcDRVinitSetting+0x2bc>
+      74: f7ff fffe    	bl	0x74 <DramcDRVinitSetting+0x74> @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      78: 4620         	mov	r0, r4
+      7a: 4a91         	ldr	r2, [pc, #0x244]        @ 0x2c0 <DramcDRVinitSetting+0x2c0>
+      7c: f06f 4340    	mvn	r3, #0xc0000000
+      80: 4990         	ldr	r1, [pc, #0x240]        @ 0x2c4 <DramcDRVinitSetting+0x2c4>
+      82: f7ff fffe    	bl	0x82 <DramcDRVinitSetting+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      86: 4620         	mov	r0, r4
+      88: 498f         	ldr	r1, [pc, #0x23c]        @ 0x2c8 <DramcDRVinitSetting+0x2c8>
+      8a: f643 733f    	movw	r3, #0x3f3f
+      8e: e8bd 4010    	pop.w	{r4, lr}
+      92: f641 621e    	movw	r2, #0x1e1e
+      96: f7ff bffe    	b.w	0x96 <DramcDRVinitSetting+0x96> @ imm = #-0x4
+			00000096:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+      9a: 4620         	mov	r0, r4
+      9c: 4980         	ldr	r1, [pc, #0x200]        @ 0x2a0 <DramcDRVinitSetting+0x2a0>
+      9e: f44f 537c    	mov.w	r3, #0x3f00
+      a2: f44f 52f0    	mov.w	r2, #0x1e00
+      a6: f7ff fffe    	bl	0xa6 <DramcDRVinitSetting+0xa6> @ imm = #-0x4
+			000000a6:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      aa: 4620         	mov	r0, r4
+      ac: 497c         	ldr	r1, [pc, #0x1f0]        @ 0x2a0 <DramcDRVinitSetting+0x2a0>
+      ae: 233f         	movs	r3, #0x3f
+      b0: 221e         	movs	r2, #0x1e
+      b2: f7ff fffe    	bl	0xb2 <DramcDRVinitSetting+0xb2> @ imm = #-0x4
+			000000b2:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      b6: 4620         	mov	r0, r4
+      b8: 4979         	ldr	r1, [pc, #0x1e4]        @ 0x2a0 <DramcDRVinitSetting+0x2a0>
+      ba: f04f 537c    	mov.w	r3, #0x3f000000
+      be: f04f 5218    	mov.w	r2, #0x26000000
+      c2: f7ff fffe    	bl	0xc2 <DramcDRVinitSetting+0xc2> @ imm = #-0x4
+			000000c2:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      c6: 4620         	mov	r0, r4
+      c8: 4975         	ldr	r1, [pc, #0x1d4]        @ 0x2a0 <DramcDRVinitSetting+0x2a0>
+      ca: f44f 137c    	mov.w	r3, #0x3f0000
+      ce: f44f 1218    	mov.w	r2, #0x260000
+      d2: f7ff fffe    	bl	0xd2 <DramcDRVinitSetting+0xd2> @ imm = #-0x4
+			000000d2:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      d6: 4620         	mov	r0, r4
+      d8: 4972         	ldr	r1, [pc, #0x1c8]        @ 0x2a4 <DramcDRVinitSetting+0x2a4>
+      da: f44f 537c    	mov.w	r3, #0x3f00
+      de: f44f 5218    	mov.w	r2, #0x2600
+      e2: f7ff fffe    	bl	0xe2 <DramcDRVinitSetting+0xe2> @ imm = #-0x4
+			000000e2:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      e6: 4620         	mov	r0, r4
+      e8: 496e         	ldr	r1, [pc, #0x1b8]        @ 0x2a4 <DramcDRVinitSetting+0x2a4>
+      ea: 233f         	movs	r3, #0x3f
+      ec: 2226         	movs	r2, #0x26
+      ee: f7ff fffe    	bl	0xee <DramcDRVinitSetting+0xee> @ imm = #-0x4
+			000000ee:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      f2: 4620         	mov	r0, r4
+      f4: 496b         	ldr	r1, [pc, #0x1ac]        @ 0x2a4 <DramcDRVinitSetting+0x2a4>
+      f6: f04f 537c    	mov.w	r3, #0x3f000000
+      fa: f04f 5218    	mov.w	r2, #0x26000000
+      fe: f7ff fffe    	bl	0xfe <DramcDRVinitSetting+0xfe> @ imm = #-0x4
+			000000fe:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     102: 4620         	mov	r0, r4
+     104: 4967         	ldr	r1, [pc, #0x19c]        @ 0x2a4 <DramcDRVinitSetting+0x2a4>
+     106: f44f 137c    	mov.w	r3, #0x3f0000
+     10a: f44f 1218    	mov.w	r2, #0x260000
+     10e: f7ff fffe    	bl	0x10e <DramcDRVinitSetting+0x10e> @ imm = #-0x4
+			0000010e:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     112: 4620         	mov	r0, r4
+     114: 4964         	ldr	r1, [pc, #0x190]        @ 0x2a8 <DramcDRVinitSetting+0x2a8>
+     116: f44f 537c    	mov.w	r3, #0x3f00
+     11a: f44f 5218    	mov.w	r2, #0x2600
+     11e: f7ff fffe    	bl	0x11e <DramcDRVinitSetting+0x11e> @ imm = #-0x4
+			0000011e:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     122: 4620         	mov	r0, r4
+     124: 4960         	ldr	r1, [pc, #0x180]        @ 0x2a8 <DramcDRVinitSetting+0x2a8>
+     126: 233f         	movs	r3, #0x3f
+     128: 2226         	movs	r2, #0x26
+     12a: f7ff fffe    	bl	0x12a <DramcDRVinitSetting+0x12a> @ imm = #-0x4
+			0000012a:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     12e: 4620         	mov	r0, r4
+     130: 495e         	ldr	r1, [pc, #0x178]        @ 0x2ac <DramcDRVinitSetting+0x2ac>
+     132: f44f 537c    	mov.w	r3, #0x3f00
+     136: f44f 52f0    	mov.w	r2, #0x1e00
+     13a: f7ff fffe    	bl	0x13a <DramcDRVinitSetting+0x13a> @ imm = #-0x4
+			0000013a:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     13e: 4620         	mov	r0, r4
+     140: 495a         	ldr	r1, [pc, #0x168]        @ 0x2ac <DramcDRVinitSetting+0x2ac>
+     142: 233f         	movs	r3, #0x3f
+     144: 2226         	movs	r2, #0x26
+     146: f7ff fffe    	bl	0x146 <DramcDRVinitSetting+0x146> @ imm = #-0x4
+			00000146:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     14a: 4620         	mov	r0, r4
+     14c: 4957         	ldr	r1, [pc, #0x15c]        @ 0x2ac <DramcDRVinitSetting+0x2ac>
+     14e: f04f 537c    	mov.w	r3, #0x3f000000
+     152: f04f 52f0    	mov.w	r2, #0x1e000000
+     156: f7ff fffe    	bl	0x156 <DramcDRVinitSetting+0x156> @ imm = #-0x4
+			00000156:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     15a: 4620         	mov	r0, r4
+     15c: 4953         	ldr	r1, [pc, #0x14c]        @ 0x2ac <DramcDRVinitSetting+0x2ac>
+     15e: f44f 137c    	mov.w	r3, #0x3f0000
+     162: f44f 1218    	mov.w	r2, #0x260000
+     166: f7ff fffe    	bl	0x166 <DramcDRVinitSetting+0x166> @ imm = #-0x4
+			00000166:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     16a: 4620         	mov	r0, r4
+     16c: 4950         	ldr	r1, [pc, #0x140]        @ 0x2b0 <DramcDRVinitSetting+0x2b0>
+     16e: f44f 537c    	mov.w	r3, #0x3f00
+     172: f44f 52f0    	mov.w	r2, #0x1e00
+     176: f7ff fffe    	bl	0x176 <DramcDRVinitSetting+0x176> @ imm = #-0x4
+			00000176:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     17a: 4620         	mov	r0, r4
+     17c: 494c         	ldr	r1, [pc, #0x130]        @ 0x2b0 <DramcDRVinitSetting+0x2b0>
+     17e: 233f         	movs	r3, #0x3f
+     180: 2226         	movs	r2, #0x26
+     182: f7ff fffe    	bl	0x182 <DramcDRVinitSetting+0x182> @ imm = #-0x4
+			00000182:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     186: 4620         	mov	r0, r4
+     188: 494a         	ldr	r1, [pc, #0x128]        @ 0x2b4 <DramcDRVinitSetting+0x2b4>
+     18a: f44f 537c    	mov.w	r3, #0x3f00
+     18e: f44f 52f0    	mov.w	r2, #0x1e00
+     192: f7ff fffe    	bl	0x192 <DramcDRVinitSetting+0x192> @ imm = #-0x4
+			00000192:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     196: 4620         	mov	r0, r4
+     198: 4946         	ldr	r1, [pc, #0x118]        @ 0x2b4 <DramcDRVinitSetting+0x2b4>
+     19a: 233f         	movs	r3, #0x3f
+     19c: 2226         	movs	r2, #0x26
+     19e: f7ff fffe    	bl	0x19e <DramcDRVinitSetting+0x19e> @ imm = #-0x4
+			0000019e:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1a2: 4620         	mov	r0, r4
+     1a4: 4943         	ldr	r1, [pc, #0x10c]        @ 0x2b4 <DramcDRVinitSetting+0x2b4>
+     1a6: f04f 537c    	mov.w	r3, #0x3f000000
+     1aa: f04f 52f0    	mov.w	r2, #0x1e000000
+     1ae: f7ff fffe    	bl	0x1ae <DramcDRVinitSetting+0x1ae> @ imm = #-0x4
+			000001ae:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1b2: 4620         	mov	r0, r4
+     1b4: 493f         	ldr	r1, [pc, #0xfc]         @ 0x2b4 <DramcDRVinitSetting+0x2b4>
+     1b6: f44f 137c    	mov.w	r3, #0x3f0000
+     1ba: f44f 1218    	mov.w	r2, #0x260000
+     1be: f7ff fffe    	bl	0x1be <DramcDRVinitSetting+0x1be> @ imm = #-0x4
+			000001be:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1c2: 4620         	mov	r0, r4
+     1c4: 4940         	ldr	r1, [pc, #0x100]        @ 0x2c8 <DramcDRVinitSetting+0x2c8>
+     1c6: f44f 537c    	mov.w	r3, #0x3f00
+     1ca: f44f 52f0    	mov.w	r2, #0x1e00
+     1ce: f7ff fffe    	bl	0x1ce <DramcDRVinitSetting+0x1ce> @ imm = #-0x4
+			000001ce:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1d2: 4620         	mov	r0, r4
+     1d4: 493c         	ldr	r1, [pc, #0xf0]         @ 0x2c8 <DramcDRVinitSetting+0x2c8>
+     1d6: 233f         	movs	r3, #0x3f
+     1d8: 2226         	movs	r2, #0x26
+     1da: f7ff fffe    	bl	0x1da <DramcDRVinitSetting+0x1da> @ imm = #-0x4
+			000001da:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1de: 4620         	mov	r0, r4
+     1e0: 4936         	ldr	r1, [pc, #0xd8]         @ 0x2bc <DramcDRVinitSetting+0x2bc>
+     1e2: 231f         	movs	r3, #0x1f
+     1e4: 220d         	movs	r2, #0xd
+     1e6: f7ff fffe    	bl	0x1e6 <DramcDRVinitSetting+0x1e6> @ imm = #-0x4
+			000001e6:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1ea: 4620         	mov	r0, r4
+     1ec: 4933         	ldr	r1, [pc, #0xcc]         @ 0x2bc <DramcDRVinitSetting+0x2bc>
+     1ee: f44f 7378    	mov.w	r3, #0x3e0
+     1f2: f44f 72d0    	mov.w	r2, #0x1a0
+     1f6: f7ff fffe    	bl	0x1f6 <DramcDRVinitSetting+0x1f6> @ imm = #-0x4
+			000001f6:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     1fa: 4620         	mov	r0, r4
+     1fc: 492f         	ldr	r1, [pc, #0xbc]         @ 0x2bc <DramcDRVinitSetting+0x2bc>
+     1fe: f44f 43f8    	mov.w	r3, #0x7c00
+     202: f44f 5250    	mov.w	r2, #0x3400
+     206: f7ff fffe    	bl	0x206 <DramcDRVinitSetting+0x206> @ imm = #-0x4
+			00000206:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     20a: 4620         	mov	r0, r4
+     20c: 492b         	ldr	r1, [pc, #0xac]         @ 0x2bc <DramcDRVinitSetting+0x2bc>
+     20e: f44f 2378    	mov.w	r3, #0xf8000
+     212: f44f 22d0    	mov.w	r2, #0x68000
+     216: f7ff fffe    	bl	0x216 <DramcDRVinitSetting+0x216> @ imm = #-0x4
+			00000216:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     21a: 4620         	mov	r0, r4
+     21c: 4927         	ldr	r1, [pc, #0x9c]         @ 0x2bc <DramcDRVinitSetting+0x2bc>
+     21e: f04f 73f8    	mov.w	r3, #0x1f00000
+     222: f44f 0250    	mov.w	r2, #0xd00000
+     226: f7ff fffe    	bl	0x226 <DramcDRVinitSetting+0x226> @ imm = #-0x4
+			00000226:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     22a: 4620         	mov	r0, r4
+     22c: 4923         	ldr	r1, [pc, #0x8c]         @ 0x2bc <DramcDRVinitSetting+0x2bc>
+     22e: f04f 5378    	mov.w	r3, #0x3e000000
+     232: f04f 52d0    	mov.w	r2, #0x1a000000
+     236: f7ff fffe    	bl	0x236 <DramcDRVinitSetting+0x236> @ imm = #-0x4
+			00000236:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     23a: 4620         	mov	r0, r4
+     23c: 4921         	ldr	r1, [pc, #0x84]         @ 0x2c4 <DramcDRVinitSetting+0x2c4>
+     23e: 231f         	movs	r3, #0x1f
+     240: 220d         	movs	r2, #0xd
+     242: f7ff fffe    	bl	0x242 <DramcDRVinitSetting+0x242> @ imm = #-0x4
+			00000242:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     246: 4620         	mov	r0, r4
+     248: 491e         	ldr	r1, [pc, #0x78]         @ 0x2c4 <DramcDRVinitSetting+0x2c4>
+     24a: f44f 7378    	mov.w	r3, #0x3e0
+     24e: f44f 72d0    	mov.w	r2, #0x1a0
+     252: f7ff fffe    	bl	0x252 <DramcDRVinitSetting+0x252> @ imm = #-0x4
+			00000252:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     256: 4620         	mov	r0, r4
+     258: 491a         	ldr	r1, [pc, #0x68]         @ 0x2c4 <DramcDRVinitSetting+0x2c4>
+     25a: f44f 43f8    	mov.w	r3, #0x7c00
+     25e: f44f 5250    	mov.w	r2, #0x3400
+     262: f7ff fffe    	bl	0x262 <DramcDRVinitSetting+0x262> @ imm = #-0x4
+			00000262:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     266: 4620         	mov	r0, r4
+     268: 4916         	ldr	r1, [pc, #0x58]         @ 0x2c4 <DramcDRVinitSetting+0x2c4>
+     26a: f44f 2378    	mov.w	r3, #0xf8000
+     26e: f44f 22d0    	mov.w	r2, #0x68000
+     272: f7ff fffe    	bl	0x272 <DramcDRVinitSetting+0x272> @ imm = #-0x4
+			00000272:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     276: 4620         	mov	r0, r4
+     278: 4912         	ldr	r1, [pc, #0x48]         @ 0x2c4 <DramcDRVinitSetting+0x2c4>
+     27a: f04f 73f8    	mov.w	r3, #0x1f00000
+     27e: f44f 0250    	mov.w	r2, #0xd00000
+     282: f7ff fffe    	bl	0x282 <DramcDRVinitSetting+0x282> @ imm = #-0x4
+			00000282:  R_ARM_THM_CALL	vIO32WriteMsk_All
+     286: 4620         	mov	r0, r4
+     288: 490e         	ldr	r1, [pc, #0x38]         @ 0x2c4 <DramcDRVinitSetting+0x2c4>
+     28a: f04f 5378    	mov.w	r3, #0x3e000000
+     28e: e8bd 4010    	pop.w	{r4, lr}
+     292: f04f 52d0    	mov.w	r2, #0x1a000000
+     296: f7ff bffe    	b.w	0x296 <DramcDRVinitSetting+0x296> @ imm = #-0x4
+			00000296:  R_ARM_THM_JUMP24	vIO32WriteMsk_All
+     29a: bf00         	nop
+     29c: 16 16 1e 1e  	.word	0x1e1e1616
+     2a0: bc 04 00 09  	.word	0x090004bc
+     2a4: c0 04 00 09  	.word	0x090004c0
+     2a8: c4 04 00 09  	.word	0x090004c4
+     2ac: 3c 05 00 11  	.word	0x1100053c
+     2b0: 44 05 00 11  	.word	0x11000544
+     2b4: bc 05 00 19  	.word	0x190005bc
+     2b8: 8c 31 c6 18  	.word	0x18c6318c
+     2bc: d0 10 20 01  	.word	0x012010d0
+     2c0: 08 21 c4 18  	.word	0x18c42108
+     2c4: d4 10 20 01  	.word	0x012010d4
+     2c8: c4 05 00 19  	.word	0x190005c4

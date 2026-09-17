@@ -1,0 +1,20 @@
+
+Relocation section '.rel.text.DramcDUTTopSet' at offset 0x648 contains 7 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000108  0000120a R_ARM_THM_CALL         00000000   is_ddr4_family
+00000122  0000130a R_ARM_THM_CALL         00000000   is_ddr3_family
+00000170  0000120a R_ARM_THM_CALL         00000000   is_ddr4_family
+00000268  00001402 R_ARM_ABS32            00000000   MEM_TYPE
+0000026c  00001502 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000270  00001602 R_ARM_ABS32            00000000   pkg_type
+00000274  00001702 R_ARM_ABS32            00000000   gpio_31
+
+Relocation section '.rel.text.DramcDUTShuSet' at offset 0x680 contains 3 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000006  0000190a R_ARM_THM_CALL         00000000   GetDataRateByFreq
+00000034  00001a0a R_ARM_THM_CALL         00000000   vGet_Div_Mode
+00000078  00001b02 R_ARM_ABS32            00000000   DUTShufConfigGlobal
+
+Relocation section '.rel.text.DramcHWFuncSet' at offset 0x698 contains 1 entry:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000014  00001d02 R_ARM_ABS32            00000000   HWFUNCEnableGlobal

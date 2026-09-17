@@ -1,0 +1,80 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_utility.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcEngine2Init:
+
+00000000 <DramcEngine2Init>:
+       0: e92d 41f3    	push.w	{r0, r1, r4, r5, r6, r7, r8, lr}
+       4: 460f         	mov	r7, r1
+       6: 4616         	mov	r6, r2
+       8: f89d 8020    	ldrb.w	r8, [sp, #0x20]
+       c: 461d         	mov	r5, r3
+       e: 4604         	mov	r4, r0
+      10: 2800         	cmp	r0, #0x0
+      12: d048         	beq	0xa6 <DramcEngine2Init+0xa6> @ imm = #0x90
+      14: f1b8 0f0f    	cmp.w	r8, #0xf
+      18: d845         	bhi	0xa6 <DramcEngine2Init+0xa6> @ imm = #0x8a
+      1a: 7b01         	ldrb	r1, [r0, #0xc]
+      1c: f7ff fffe    	bl	0x1c <DramcEngine2Init+0x1c> @ imm = #-0x4
+			0000001c:  R_ARM_THM_CALL	DramcSetRankEngine2
+      20: 2200         	movs	r2, #0x0
+      22: f44f 7188    	mov.w	r1, #0x110
+      26: 4620         	mov	r0, r4
+      28: f7ff fffe    	bl	0x28 <DramcEngine2Init+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_CALL	vPhyByteReadFldAlign
+      2c: 4b1f         	ldr	r3, [pc, #0x7c] <DramcEngine2Init+0xac>
+      2e: 2200         	movs	r2, #0x0
+      30: f44f 7188    	mov.w	r1, #0x110
+      34: 6018         	str	r0, [r3]
+      36: 4620         	mov	r0, r4
+      38: 4b1d         	ldr	r3, [pc, #0x74] <DramcEngine2Init+0xb0>
+      3a: f7ff fffe    	bl	0x3a <DramcEngine2Init+0x3a> @ imm = #-0x4
+			0000003a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      3e: 4620         	mov	r0, r4
+      40: f04f 4360    	mov.w	r3, #0xe0000000
+      44: 2200         	movs	r2, #0x0
+      46: f44f 7184    	mov.w	r1, #0x108
+      4a: f7ff fffe    	bl	0x4a <DramcEngine2Init+0x4a> @ imm = #-0x4
+			0000004a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      4e: 0e39         	lsrs	r1, r7, #0x18
+      50: 0e32         	lsrs	r2, r6, #0x18
+      52: 4620         	mov	r0, r4
+      54: ea42 2201    	orr.w	r2, r2, r1, lsl #8
+      58: f64f 73ff    	movw	r3, #0xffff
+      5c: f44f 7180    	mov.w	r1, #0x100
+      60: f7ff fffe    	bl	0x60 <DramcEngine2Init+0x60> @ imm = #-0x4
+			00000060:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      64: 4a13         	ldr	r2, [pc, #0x4c] <DramcEngine2Init+0xb4>
+      66: 4914         	ldr	r1, [pc, #0x50] <DramcEngine2Init+0xb8>
+      68: 4620         	mov	r0, r4
+      6a: f06f 0307    	mvn	r3, #0x7
+      6e: ea02 02c7    	and.w	r2, r2, r7, lsl #3
+      72: f7ff fffe    	bl	0x72 <DramcEngine2Init+0x72> @ imm = #-0x4
+			00000072:  R_ARM_THM_CALL	vIO32WriteMsk
+      76: 4a11         	ldr	r2, [pc, #0x44] <DramcEngine2Init+0xbc>
+      78: 4620         	mov	r0, r4
+      7a: f06f 030f    	mvn	r3, #0xf
+      7e: f44f 7182    	mov.w	r1, #0x104
+      82: ea02 1206    	and.w	r2, r2, r6, lsl #4
+      86: f7ff fffe    	bl	0x86 <DramcEngine2Init+0x86> @ imm = #-0x4
+			00000086:  R_ARM_THM_CALL	vIO32WriteMsk
+      8a: f89d 3024    	ldrb.w	r3, [sp, #0x24]
+      8e: 4620         	mov	r0, r4
+      90: 9300         	str	r3, [sp]
+      92: 4642         	mov	r2, r8
+      94: 09eb         	lsrs	r3, r5, #0x7
+      96: f005 017f    	and	r1, r5, #0x7f
+      9a: f7ff fffe    	bl	0x9a <DramcEngine2Init+0x9a> @ imm = #-0x4
+			0000009a:  R_ARM_THM_CALL	DramcEngine2SetPat
+      9e: 2000         	movs	r0, #0x0
+      a0: b002         	add	sp, #0x8
+      a2: e8bd 81f0    	pop.w	{r4, r5, r6, r7, r8, pc}
+      a6: 2001         	movs	r0, #0x1
+      a8: e7fa         	b	0xa0 <DramcEngine2Init+0xa0> @ imm = #-0xc
+      aa: bf00         	nop
+      ac: 00 00 00 00  	.word	0x00000000
+			000000ac:  R_ARM_ABS32	.bss.uiReg0D0h
+      b0: c0 00 f0 00  	.word	0x00f000c0
+      b4: f8 ff ff 07  	.word	0x07fffff8
+      b8: 00 05 40 00  	.word	0x00400500
+      bc: f0 ff ff 0f  	.word	0x0ffffff0

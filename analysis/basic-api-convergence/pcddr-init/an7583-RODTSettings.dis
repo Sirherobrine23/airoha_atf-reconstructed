@@ -1,0 +1,179 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.RODTSettings:
+
+00000000 <RODTSettings>:
+       0: e92d 43f7    	push.w	{r0, r1, r2, r4, r5, r6, r7, r8, r9, lr}
+       4: 4604         	mov	r4, r0
+       6: 6a02         	ldr	r2, [r0, #0x20]
+       8: 2500         	movs	r5, #0x0
+       a: 4b51         	ldr	r3, [pc, #0x144]        @ 0x150 <RODTSettings+0x150>
+       c: fab2 f282    	clz	r2, r2
+      10: 4950         	ldr	r1, [pc, #0x140]        @ 0x154 <RODTSettings+0x154>
+      12: 9500         	str	r5, [sp]
+      14: 0952         	lsrs	r2, r2, #0x5
+      16: f7ff fffe    	bl	0x16 <RODTSettings+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      1a: 6a22         	ldr	r2, [r4, #0x20]
+      1c: 4b4c         	ldr	r3, [pc, #0x130]        @ 0x150 <RODTSettings+0x150>
+      1e: 4620         	mov	r0, r4
+      20: fab2 f282    	clz	r2, r2
+      24: 494c         	ldr	r1, [pc, #0x130]        @ 0x158 <RODTSettings+0x158>
+      26: 9500         	str	r5, [sp]
+      28: 0952         	lsrs	r2, r2, #0x5
+      2a: f7ff fffe    	bl	0x2a <RODTSettings+0x2a> @ imm = #-0x4
+			0000002a:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      2e: 494b         	ldr	r1, [pc, #0x12c]        @ 0x15c <RODTSettings+0x15c>
+      30: 462b         	mov	r3, r5
+      32: 4620         	mov	r0, r4
+      34: f44f 3280    	mov.w	r2, #0x10000
+      38: f7ff fffe    	bl	0x38 <RODTSettings+0x38> @ imm = #-0x4
+			00000038:  R_ARM_THM_CALL	vIO32WriteMsk
+      3c: 4620         	mov	r0, r4
+      3e: f44f 3380    	mov.w	r3, #0x10000
+      42: 4947         	ldr	r1, [pc, #0x11c]        @ 0x160 <RODTSettings+0x160>
+      44: 461a         	mov	r2, r3
+      46: f7ff fffe    	bl	0x46 <RODTSettings+0x46> @ imm = #-0x4
+			00000046:  R_ARM_THM_CALL	vIO32WriteMsk
+      4a: 4620         	mov	r0, r4
+      4c: f7ff fffe    	bl	0x4c <RODTSettings+0x4c> @ imm = #-0x4
+			0000004c:  R_ARM_THM_CALL	is_ddr4_family
+      50: 2800         	cmp	r0, #0x0
+      52: d063         	beq	0x11c <RODTSettings+0x11c> @ imm = #0xc6
+      54: 6a23         	ldr	r3, [r4, #0x20]
+      56: 2b01         	cmp	r3, #0x1
+      58: d067         	beq	0x12a <RODTSettings+0x12a> @ imm = #0xce
+      5a: 250e         	movs	r5, #0xe
+      5c: 4620         	mov	r0, r4
+      5e: f8df 8104    	ldr.w	r8, [pc, #0x104]        @ 0x164 <RODTSettings+0x164>
+      62: f8df 9104    	ldr.w	r9, [pc, #0x104]        @ 0x168 <RODTSettings+0x168>
+      66: f7ff fffe    	bl	0x66 <RODTSettings+0x66> @ imm = #-0x4
+			00000066:  R_ARM_THM_CALL	u1GetRank
+      6a: 4606         	mov	r6, r0
+      6c: 2700         	movs	r7, #0x0
+      6e: 68a3         	ldr	r3, [r4, #0x8]
+      70: b2f9         	uxtb	r1, r7
+      72: 3701         	adds	r7, #0x1
+      74: 428b         	cmp	r3, r1
+      76: d85a         	bhi	0x12e <RODTSettings+0x12e> @ imm = #0xb4
+      78: 4631         	mov	r1, r6
+      7a: 4620         	mov	r0, r4
+      7c: f7ff fffe    	bl	0x7c <RODTSettings+0x7c> @ imm = #-0x4
+			0000007c:  R_ARM_THM_CALL	vSetRank
+      80: 6a22         	ldr	r2, [r4, #0x20]
+      82: 4620         	mov	r0, r4
+      84: 4939         	ldr	r1, [pc, #0xe4]         @ 0x16c <RODTSettings+0x16c>
+      86: 2301         	movs	r3, #0x1
+      88: 2500         	movs	r5, #0x0
+      8a: f7ff fffe    	bl	0x8a <RODTSettings+0x8a> @ imm = #-0x4
+			0000008a:  R_ARM_THM_CALL	vIO32WriteMsk
+      8e: 6a22         	ldr	r2, [r4, #0x20]
+      90: 4620         	mov	r0, r4
+      92: 4937         	ldr	r1, [pc, #0xdc]         @ 0x170 <RODTSettings+0x170>
+      94: f44f 4300    	mov.w	r3, #0x8000
+      98: 03d2         	lsls	r2, r2, #0xf
+      9a: f7ff fffe    	bl	0x9a <RODTSettings+0x9a> @ imm = #-0x4
+			0000009a:  R_ARM_THM_CALL	vIO32WriteMsk
+      9e: 6a22         	ldr	r2, [r4, #0x20]
+      a0: 4620         	mov	r0, r4
+      a2: 4934         	ldr	r1, [pc, #0xd0]         @ 0x174 <RODTSettings+0x174>
+      a4: f44f 4300    	mov.w	r3, #0x8000
+      a8: 03d2         	lsls	r2, r2, #0xf
+      aa: f7ff fffe    	bl	0xaa <RODTSettings+0xaa> @ imm = #-0x4
+			000000aa:  R_ARM_THM_CALL	vIO32WriteMsk
+      ae: 6a22         	ldr	r2, [r4, #0x20]
+      b0: 4620         	mov	r0, r4
+      b2: 4931         	ldr	r1, [pc, #0xc4]         @ 0x178 <RODTSettings+0x178>
+      b4: f44f 4300    	mov.w	r3, #0x8000
+      b8: 03d2         	lsls	r2, r2, #0xf
+      ba: f7ff fffe    	bl	0xba <RODTSettings+0xba> @ imm = #-0x4
+			000000ba:  R_ARM_THM_CALL	vIO32WriteMsk
+      be: 6a22         	ldr	r2, [r4, #0x20]
+      c0: 4620         	mov	r0, r4
+      c2: 4b2e         	ldr	r3, [pc, #0xb8]         @ 0x17c <RODTSettings+0x17c>
+      c4: fab2 f282    	clz	r2, r2
+      c8: 492d         	ldr	r1, [pc, #0xb4]         @ 0x180 <RODTSettings+0x180>
+      ca: 9500         	str	r5, [sp]
+      cc: 0952         	lsrs	r2, r2, #0x5
+      ce: f7ff fffe    	bl	0xce <RODTSettings+0xce> @ imm = #-0x4
+			000000ce:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      d2: 6a22         	ldr	r2, [r4, #0x20]
+      d4: 4620         	mov	r0, r4
+      d6: 4b29         	ldr	r3, [pc, #0xa4]         @ 0x17c <RODTSettings+0x17c>
+      d8: fab2 f282    	clz	r2, r2
+      dc: 4929         	ldr	r1, [pc, #0xa4]         @ 0x184 <RODTSettings+0x184>
+      de: 9500         	str	r5, [sp]
+      e0: 0952         	lsrs	r2, r2, #0x5
+      e2: f7ff fffe    	bl	0xe2 <RODTSettings+0xe2> @ imm = #-0x4
+			000000e2:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      e6: 6a22         	ldr	r2, [r4, #0x20]
+      e8: 4620         	mov	r0, r4
+      ea: 4b27         	ldr	r3, [pc, #0x9c]         @ 0x188 <RODTSettings+0x188>
+      ec: fab2 f282    	clz	r2, r2
+      f0: 4926         	ldr	r1, [pc, #0x98]         @ 0x18c <RODTSettings+0x18c>
+      f2: 9500         	str	r5, [sp]
+      f4: 0952         	lsrs	r2, r2, #0x5
+      f6: f7ff fffe    	bl	0xf6 <RODTSettings+0xf6> @ imm = #-0x4
+			000000f6:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      fa: 462a         	mov	r2, r5
+      fc: 4620         	mov	r0, r4
+      fe: 4b24         	ldr	r3, [pc, #0x90]         @ 0x190 <RODTSettings+0x190>
+     100: 4924         	ldr	r1, [pc, #0x90]         @ 0x194 <RODTSettings+0x194>
+     102: 9500         	str	r5, [sp]
+     104: f7ff fffe    	bl	0x104 <RODTSettings+0x104> @ imm = #-0x4
+			00000104:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     108: 4b21         	ldr	r3, [pc, #0x84]         @ 0x190 <RODTSettings+0x190>
+     10a: 4923         	ldr	r1, [pc, #0x8c]         @ 0x198 <RODTSettings+0x198>
+     10c: 462a         	mov	r2, r5
+     10e: 4620         	mov	r0, r4
+     110: 9500         	str	r5, [sp]
+     112: f7ff fffe    	bl	0x112 <RODTSettings+0x112> @ imm = #-0x4
+			00000112:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+     116: b003         	add	sp, #0xc
+     118: e8bd 83f0    	pop.w	{r4, r5, r6, r7, r8, r9, pc}
+     11c: 4620         	mov	r0, r4
+     11e: f7ff fffe    	bl	0x11e <RODTSettings+0x11e> @ imm = #-0x4
+			0000011e:  R_ARM_THM_CALL	is_ddr3_family
+     122: 4605         	mov	r5, r0
+     124: 2800         	cmp	r0, #0x0
+     126: d198         	bne	0x5a <RODTSettings+0x5a> @ imm = #-0xd0
+     128: e798         	b	0x5c <RODTSettings+0x5c> @ imm = #-0xd0
+     12a: 2516         	movs	r5, #0x16
+     12c: e796         	b	0x5c <RODTSettings+0x5c> @ imm = #-0xd4
+     12e: 4620         	mov	r0, r4
+     130: f7ff fffe    	bl	0x130 <RODTSettings+0x130> @ imm = #-0x4
+			00000130:  R_ARM_THM_CALL	vSetRank
+     134: 462a         	mov	r2, r5
+     136: 4641         	mov	r1, r8
+     138: 4620         	mov	r0, r4
+     13a: 233f         	movs	r3, #0x3f
+     13c: f7ff fffe    	bl	0x13c <RODTSettings+0x13c> @ imm = #-0x4
+			0000013c:  R_ARM_THM_CALL	vIO32WriteMsk
+     140: 462a         	mov	r2, r5
+     142: 4649         	mov	r1, r9
+     144: 4620         	mov	r0, r4
+     146: 233f         	movs	r3, #0x3f
+     148: f7ff fffe    	bl	0x148 <RODTSettings+0x148> @ imm = #-0x4
+			00000148:  R_ARM_THM_CALL	vIO32WriteMsk
+     14c: e78f         	b	0x6e <RODTSettings+0x6e> @ imm = #-0xe2
+     14e: bf00         	nop
+     150: 16 01 04 00  	.word	0x00040116
+     154: 30 0f a0 53  	.word	0x53a00f30
+     158: b0 0f a0 5b  	.word	0x5ba00fb0
+     15c: 08 05 00 11  	.word	0x11000508
+     160: 88 05 00 19  	.word	0x19000588
+     164: ec 0e 20 91  	.word	0x91200eec
+     168: 6c 0f 20 99  	.word	0x99200f6c
+     16c: a8 10 20 01  	.word	0x012010a8
+     170: 04 0f 20 91  	.word	0x91200f04
+     174: 84 0f 20 99  	.word	0x99200f84
+     178: 04 10 a0 a3  	.word	0xa3a01004
+     17c: 00 01 04 00  	.word	0x00040100
+     180: 34 0f 20 51  	.word	0x51200f34
+     184: b4 0f 20 99  	.word	0x99200fb4
+     188: 00 01 04 ff  	.word	0xff040100
+     18c: b4 0e 20 89  	.word	0x89200eb4
+     190: 0b 01 04 ff  	.word	0xff04010b
+     194: 38 0f 20 51  	.word	0x51200f38
+     198: b8 0f 20 99  	.word	0x99200fb8

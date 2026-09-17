@@ -1,0 +1,17 @@
+soc,function,vendor_size,candidate_size,delta
+an7581,DramcEngine2Init,192,204,12
+an7581,DramcEngine2SetPat,348,376,28
+an7581,TA2_Test_Run_Time_HW_Presetting,192,208,16
+an7581,TA2_Test_Run_Time_Pat_Setting,152,160,8
+an7581,TA2_Show_Cnt,80,64,-16
+an7581,TA2_Test_Run_Time_HW_Status,180,172,-8
+an7581,TA2_Test_Run_Time_HW,46,46,0
+an7581,TA2_Test_Run_Time_SW_Presetting,128,140,12
+an7583,DramcEngine2Init,192,200,8
+an7583,DramcEngine2SetPat,348,376,28
+an7583,TA2_Test_Run_Time_HW_Presetting,216,220,4
+an7583,TA2_Test_Run_Time_Pat_Setting,152,160,8
+an7583,TA2_Show_Cnt,80,64,-16
+an7583,TA2_Test_Run_Time_HW_Status,176,176,0
+an7583,TA2_Test_Run_Time_HW,272,324,52
+an7583,TA2_Test_Run_Time_SW_Presetting,132,144,12

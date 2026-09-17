@@ -1,0 +1,141 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.PC3_UpdateInitialSettings:
+
+00000000 <PC3_UpdateInitialSettings>:
+       0: b573         	push	{r0, r1, r4, r5, r6, lr}
+       2: 230c         	movs	r3, #0xc
+       4: 4604         	mov	r4, r0
+       6: 4944         	ldr	r1, [pc, #0x110]        @ 0x118 <PC3_UpdateInitialSettings+0x118>
+       8: 2200         	movs	r2, #0x0
+       a: f7ff fffe    	bl	0xa <PC3_UpdateInitialSettings+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	vIO32WriteMsk
+       e: 4943         	ldr	r1, [pc, #0x10c]        @ 0x11c <PC3_UpdateInitialSettings+0x11c>
+      10: 4620         	mov	r0, r4
+      12: 2380         	movs	r3, #0x80
+      14: 2200         	movs	r2, #0x0
+      16: 2500         	movs	r5, #0x0
+      18: f7ff fffe    	bl	0x18 <PC3_UpdateInitialSettings+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	vIO32WriteMsk
+      1c: 4620         	mov	r0, r4
+      1e: f7ff fffe    	bl	0x1e <PC3_UpdateInitialSettings+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	vReplaceDVInit
+      22: 4620         	mov	r0, r4
+      24: 4b3e         	ldr	r3, [pc, #0xf8]         @ 0x120 <PC3_UpdateInitialSettings+0x120>
+      26: 2250         	movs	r2, #0x50
+      28: 493e         	ldr	r1, [pc, #0xf8]         @ 0x124 <PC3_UpdateInitialSettings+0x124>
+      2a: 9500         	str	r5, [sp]
+      2c: f7ff fffe    	bl	0x2c <PC3_UpdateInitialSettings+0x2c> @ imm = #-0x4
+			0000002c:  R_ARM_THM_CALL	vPhyByteWriteFldAlign
+      30: 462a         	mov	r2, r5
+      32: 4620         	mov	r0, r4
+      34: 493c         	ldr	r1, [pc, #0xf0]         @ 0x128 <PC3_UpdateInitialSettings+0x128>
+      36: f44f 537c    	mov.w	r3, #0x3f00
+      3a: 4e3c         	ldr	r6, [pc, #0xf0]         @ 0x12c <PC3_UpdateInitialSettings+0x12c>
+      3c: f7ff fffe    	bl	0x3c <PC3_UpdateInitialSettings+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      40: 462a         	mov	r2, r5
+      42: 493b         	ldr	r1, [pc, #0xec]         @ 0x130 <PC3_UpdateInitialSettings+0x130>
+      44: f44f 537c    	mov.w	r3, #0x3f00
+      48: 4620         	mov	r0, r4
+      4a: f7ff fffe    	bl	0x4a <PC3_UpdateInitialSettings+0x4a> @ imm = #-0x4
+			0000004a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      4e: 4620         	mov	r0, r4
+      50: f7ff fffe    	bl	0x50 <PC3_UpdateInitialSettings+0x50> @ imm = #-0x4
+			00000050:  R_ARM_THM_CALL	DQSSTBSettings
+      54: 4620         	mov	r0, r4
+      56: f7ff fffe    	bl	0x56 <PC3_UpdateInitialSettings+0x56> @ imm = #-0x4
+			00000056:  R_ARM_THM_CALL	RODTSettings
+      5a: 462a         	mov	r2, r5
+      5c: 4631         	mov	r1, r6
+      5e: 4620         	mov	r0, r4
+      60: f44f 5380    	mov.w	r3, #0x1000
+      64: f7ff fffe    	bl	0x64 <PC3_UpdateInitialSettings+0x64> @ imm = #-0x4
+			00000064:  R_ARM_THM_CALL	vIO32WriteMsk
+      68: 4620         	mov	r0, r4
+      6a: f44f 5300    	mov.w	r3, #0x2000
+      6e: f44f 711a    	mov.w	r1, #0x268
+      72: 461a         	mov	r2, r3
+      74: f7ff fffe    	bl	0x74 <PC3_UpdateInitialSettings+0x74> @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	vIO32WriteMsk
+      78: 4620         	mov	r0, r4
+      7a: 2301         	movs	r3, #0x1
+      7c: f44f 7114    	mov.w	r1, #0x250
+      80: 461a         	mov	r2, r3
+      82: f7ff fffe    	bl	0x82 <PC3_UpdateInitialSettings+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_CALL	vIO32WriteMsk
+      86: 462a         	mov	r2, r5
+      88: 4620         	mov	r0, r4
+      8a: f44f 7300    	mov.w	r3, #0x200
+      8e: f44f 71be    	mov.w	r1, #0x17c
+      92: f7ff fffe    	bl	0x92 <PC3_UpdateInitialSettings+0x92> @ imm = #-0x4
+			00000092:  R_ARM_THM_CALL	vIO32WriteMsk
+      96: 69e2         	ldr	r2, [r4, #0x1c]
+      98: 4631         	mov	r1, r6
+      9a: 4620         	mov	r0, r4
+      9c: f44f 4300    	mov.w	r3, #0x8000
+      a0: 03d2         	lsls	r2, r2, #0xf
+      a2: f7ff fffe    	bl	0xa2 <PC3_UpdateInitialSettings+0xa2> @ imm = #-0x4
+			000000a2:  R_ARM_THM_CALL	vIO32WriteMsk
+      a6: 462a         	mov	r2, r5
+      a8: 4620         	mov	r0, r4
+      aa: 4922         	ldr	r1, [pc, #0x88]         @ 0x134 <PC3_UpdateInitialSettings+0x134>
+      ac: 2301         	movs	r3, #0x1
+      ae: f7ff fffe    	bl	0xae <PC3_UpdateInitialSettings+0xae> @ imm = #-0x4
+			000000ae:  R_ARM_THM_CALL	vIO32WriteMsk
+      b2: 4620         	mov	r0, r4
+      b4: f04f 6302    	mov.w	r3, #0x8200000
+      b8: f04f 6200    	mov.w	r2, #0x8000000
+      bc: f44f 7188    	mov.w	r1, #0x110
+      c0: f7ff fffe    	bl	0xc0 <PC3_UpdateInitialSettings+0xc0> @ imm = #-0x4
+			000000c0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      c4: 4620         	mov	r0, r4
+      c6: f44f 7340    	mov.w	r3, #0x300
+      ca: f44f 7200    	mov.w	r2, #0x200
+      ce: f44f 7113    	mov.w	r1, #0x24c
+      d2: f7ff fffe    	bl	0xd2 <PC3_UpdateInitialSettings+0xd2> @ imm = #-0x4
+			000000d2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      d6: 4620         	mov	r0, r4
+      d8: f44f 6380    	mov.w	r3, #0x400
+      dc: 4916         	ldr	r1, [pc, #0x58]         @ 0x138 <PC3_UpdateInitialSettings+0x138>
+      de: 461a         	mov	r2, r3
+      e0: f7ff fffe    	bl	0xe0 <PC3_UpdateInitialSettings+0xe0> @ imm = #-0x4
+			000000e0:  R_ARM_THM_CALL	vIO32WriteMsk
+      e4: 4620         	mov	r0, r4
+      e6: 4915         	ldr	r1, [pc, #0x54]         @ 0x13c <PC3_UpdateInitialSettings+0x13c>
+      e8: f44f 3384    	mov.w	r3, #0x10800
+      ec: f44f 3280    	mov.w	r2, #0x10000
+      f0: f7ff fffe    	bl	0xf0 <PC3_UpdateInitialSettings+0xf0> @ imm = #-0x4
+			000000f0:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      f4: 4620         	mov	r0, r4
+      f6: 4b12         	ldr	r3, [pc, #0x48]         @ 0x140 <PC3_UpdateInitialSettings+0x140>
+      f8: 4a12         	ldr	r2, [pc, #0x48]         @ 0x144 <PC3_UpdateInitialSettings+0x144>
+      fa: 4913         	ldr	r1, [pc, #0x4c]         @ 0x148 <PC3_UpdateInitialSettings+0x148>
+      fc: f7ff fffe    	bl	0xfc <PC3_UpdateInitialSettings+0xfc> @ imm = #-0x4
+			000000fc:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     100: 4620         	mov	r0, r4
+     102: 2301         	movs	r3, #0x1
+     104: 4911         	ldr	r1, [pc, #0x44]         @ 0x14c <PC3_UpdateInitialSettings+0x14c>
+     106: 461a         	mov	r2, r3
+     108: f7ff fffe    	bl	0x108 <PC3_UpdateInitialSettings+0x108> @ imm = #-0x4
+			00000108:  R_ARM_THM_CALL	vIO32WriteMsk
+     10c: 4620         	mov	r0, r4
+     10e: b002         	add	sp, #0x8
+     110: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+     114: f7ff bffe    	b.w	0x114 <PC3_UpdateInitialSettings+0x114> @ imm = #-0x4
+			00000114:  R_ARM_THM_JUMP24	SetMck8xLowPwrOption
+     118: c4 07 00 01  	.word	0x010007c4
+     11c: c8 07 00 01  	.word	0x010007c8
+     120: 10 08 05 00  	.word	0x00050810
+     124: b8 0e 20 49  	.word	0x49200eb8
+     128: 04 0f 20 91  	.word	0x91200f04
+     12c: 88 16 20 00  	.word	0x00201688
+     130: 84 0f 20 99  	.word	0x99200f84
+     134: f8 10 20 01  	.word	0x012010f8
+     138: 68 06 00 01  	.word	0x01000668
+     13c: 84 06 00 01  	.word	0x01000684
+     140: 00 c0 77 07  	.word	0x0777c000
+     144: 00 80 11 02  	.word	0x02118000
+     148: a4 10 20 01  	.word	0x012010a4
+     14c: 28 11 20 01  	.word	0x01201128

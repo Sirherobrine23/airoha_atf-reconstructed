@@ -1,0 +1,139 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_utility.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcEngine2SetPat:
+
+00000000 <DramcEngine2SetPat>:
+       0: e92d 41f0    	push.w	{r4, r5, r6, r7, r8, lr}
+       4: 4616         	mov	r6, r2
+       6: 4604         	mov	r4, r0
+       8: f89d 7018    	ldrb.w	r7, [sp, #0x18]
+       c: 460d         	mov	r5, r1
+       e: 461a         	mov	r2, r3
+      10: f006 060f    	and	r6, r6, #0xf
+      14: 2902         	cmp	r1, #0x2
+      16: d001         	beq	0x1c <DramcEngine2SetPat+0x1c> @ imm = #0x2
+      18: 2909         	cmp	r1, #0x9
+      1a: d147         	bne	0xac <DramcEngine2SetPat+0xac> @ imm = #0x8e
+      1c: f44f 3300    	mov.w	r3, #0x20000
+      20: b3c2         	cbz	r2, 0x94 <DramcEngine2SetPat+0x94> @ imm = #0x70
+      22: f44f 7186    	mov.w	r1, #0x10c
+      26: 461a         	mov	r2, r3
+      28: 4620         	mov	r0, r4
+      2a: f7ff fffe    	bl	0x2a <DramcEngine2SetPat+0x2a> @ imm = #-0x4
+			0000002a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      2e: 2100         	movs	r1, #0x0
+      30: 4620         	mov	r0, r4
+      32: f7ff fffe    	bl	0x32 <DramcEngine2SetPat+0x32> @ imm = #-0x4
+			00000032:  R_ARM_THM_CALL	DramcSetRWOFOEN
+      36: 4b46         	ldr	r3, [pc, #0x118] <DramcEngine2SetPat+0x150>
+      38: 4632         	mov	r2, r6
+      3a: 4620         	mov	r0, r4
+      3c: f44f 7184    	mov.w	r1, #0x108
+      40: f7ff fffe    	bl	0x40 <DramcEngine2SetPat+0x40> @ imm = #-0x4
+			00000040:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      44: 4620         	mov	r0, r4
+      46: 2d09         	cmp	r5, #0x9
+      48: f44f 33e0    	mov.w	r3, #0x1c000
+      4c: f44f 3280    	mov.w	r2, #0x10000
+      50: f44f 7186    	mov.w	r1, #0x10c
+      54: d125         	bne	0xa2 <DramcEngine2SetPat+0xa2> @ imm = #0x4a
+      56: f7ff fffe    	bl	0x56 <DramcEngine2SetPat+0x56> @ imm = #-0x4
+			00000056:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      5a: 23c0         	movs	r3, #0xc0
+      5c: 2240         	movs	r2, #0x40
+      5e: f44f 7186    	mov.w	r1, #0x10c
+      62: 4620         	mov	r0, r4
+      64: f7ff fffe    	bl	0x64 <DramcEngine2SetPat+0x64> @ imm = #-0x4
+			00000064:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      68: 2f01         	cmp	r7, #0x1
+      6a: f44f 0374    	mov.w	r3, #0xf40000
+      6e: d164         	bne	0x13a <DramcEngine2SetPat+0x13a> @ imm = #0xc8
+      70: f44f 1250    	mov.w	r2, #0x340000
+      74: 4620         	mov	r0, r4
+      76: f44f 7180    	mov.w	r1, #0x100
+      7a: f7ff fffe    	bl	0x7a <DramcEngine2SetPat+0x7a> @ imm = #-0x4
+			0000007a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      7e: f44f 4308    	mov.w	r3, #0x8800
+      82: f44f 4200    	mov.w	r2, #0x8000
+      86: 4620         	mov	r0, r4
+      88: f44f 7184    	mov.w	r1, #0x108
+      8c: e8bd 41f0    	pop.w	{r4, r5, r6, r7, r8, lr}
+      90: f7ff bffe    	b.w	0x90 <DramcEngine2SetPat+0x90> @ imm = #-0x4
+			00000090:  R_ARM_THM_JUMP24	vPhyByteIO32WriteMsk
+      94: f44f 7186    	mov.w	r1, #0x10c
+      98: 4620         	mov	r0, r4
+      9a: f7ff fffe    	bl	0x9a <DramcEngine2SetPat+0x9a> @ imm = #-0x4
+			0000009a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      9e: 2101         	movs	r1, #0x1
+      a0: e7c6         	b	0x30 <DramcEngine2SetPat+0x30> @ imm = #-0x74
+      a2: f7ff fffe    	bl	0xa2 <DramcEngine2SetPat+0xa2> @ imm = #-0x4
+			000000a2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      a6: 23c0         	movs	r3, #0xc0
+      a8: 2200         	movs	r2, #0x0
+      aa: e7d8         	b	0x5e <DramcEngine2SetPat+0x5e> @ imm = #-0x50
+      ac: 2901         	cmp	r1, #0x1
+      ae: d114         	bne	0xda <DramcEngine2SetPat+0xda> @ imm = #0x28
+      b0: f44f 3300    	mov.w	r3, #0x20000
+      b4: 2200         	movs	r2, #0x0
+      b6: f44f 7186    	mov.w	r1, #0x10c
+      ba: f7ff fffe    	bl	0xba <DramcEngine2SetPat+0xba> @ imm = #-0x4
+			000000ba:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      be: 4b25         	ldr	r3, [pc, #0x94] <DramcEngine2SetPat+0x154>
+      c0: f245 120d    	movw	r2, #0x510d
+      c4: f44f 7186    	mov.w	r1, #0x10c
+      c8: 4620         	mov	r0, r4
+      ca: f7ff fffe    	bl	0xca <DramcEngine2SetPat+0xca> @ imm = #-0x4
+			000000ca:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ce: 4b20         	ldr	r3, [pc, #0x80] <DramcEngine2SetPat+0x150>
+      d0: f046 0280    	orr	r2, r6, #0x80
+      d4: f44f 7184    	mov.w	r1, #0x108
+      d8: e7c3         	b	0x62 <DramcEngine2SetPat+0x62> @ imm = #-0x7a
+      da: 2903         	cmp	r1, #0x3
+      dc: d119         	bne	0x112 <DramcEngine2SetPat+0x112> @ imm = #0x32
+      de: 045a         	lsls	r2, r3, #0x11
+      e0: f44f 7186    	mov.w	r1, #0x10c
+      e4: 4b1c         	ldr	r3, [pc, #0x70] <DramcEngine2SetPat+0x158>
+      e6: f402 3200    	and	r2, r2, #0x20000
+      ea: f7ff fffe    	bl	0xea <DramcEngine2SetPat+0xea> @ imm = #-0x4
+			000000ea:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      ee: 4b18         	ldr	r3, [pc, #0x60] <DramcEngine2SetPat+0x150>
+      f0: f446 22e0    	orr	r2, r6, #0x70000
+      f4: f44f 7184    	mov.w	r1, #0x108
+      f8: 4620         	mov	r0, r4
+      fa: f7ff fffe    	bl	0xfa <DramcEngine2SetPat+0xfa> @ imm = #-0x4
+			000000fa:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      fe: f06f 030f    	mvn	r3, #0xf
+     102: f44f 62ac    	mov.w	r2, #0x560
+     106: f44f 7182    	mov.w	r1, #0x104
+     10a: 4620         	mov	r0, r4
+     10c: f7ff fffe    	bl	0x10c <DramcEngine2SetPat+0x10c> @ imm = #-0x4
+			0000010c:  R_ARM_THM_CALL	vIO32WriteMsk
+     110: e7aa         	b	0x68 <DramcEngine2SetPat+0x68> @ imm = #-0xac
+     112: f44f 3300    	mov.w	r3, #0x20000
+     116: 2200         	movs	r2, #0x0
+     118: f44f 7186    	mov.w	r1, #0x10c
+     11c: f7ff fffe    	bl	0x11c <DramcEngine2SetPat+0x11c> @ imm = #-0x4
+			0000011c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     120: 4b0b         	ldr	r3, [pc, #0x2c] <DramcEngine2SetPat+0x150>
+     122: 4632         	mov	r2, r6
+     124: f44f 7184    	mov.w	r1, #0x108
+     128: 4620         	mov	r0, r4
+     12a: f7ff fffe    	bl	0x12a <DramcEngine2SetPat+0x12a> @ imm = #-0x4
+			0000012a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     12e: f44f 3380    	mov.w	r3, #0x10000
+     132: 2200         	movs	r2, #0x0
+     134: f44f 7186    	mov.w	r1, #0x10c
+     138: e7e7         	b	0x10a <DramcEngine2SetPat+0x10a> @ imm = #-0x32
+     13a: 2200         	movs	r2, #0x0
+     13c: 4620         	mov	r0, r4
+     13e: f44f 7180    	mov.w	r1, #0x100
+     142: f7ff fffe    	bl	0x142 <DramcEngine2SetPat+0x142> @ imm = #-0x4
+			00000142:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     146: f44f 4300    	mov.w	r3, #0x8000
+     14a: 2200         	movs	r2, #0x0
+     14c: e79b         	b	0x86 <DramcEngine2SetPat+0x86> @ imm = #-0xca
+     14e: bf00         	nop
+     150: 8f 00 07 00  	.word	0x0007008f
+     154: 1f df 01 00  	.word	0x0001df1f
+     158: 5f 1f 03 00  	.word	0x00031f5f

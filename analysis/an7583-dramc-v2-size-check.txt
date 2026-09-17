@@ -1,0 +1,14 @@
+DDR4_BG_Num_Check            oracle= 132 clang= 152 
+DDR_Scrambler_Key_Set        oracle=  84 clang=  48 
+DDR_Scrambler_Region_Set     oracle= 240 clang= 196 
+DRAMC_Param_Init             oracle=  96 clang=  84 
+EMI_CLK_Switch               oracle=  40 clang=  28 
+RBUS_Setting                 oracle= 164 clang= 184 
+TRFC_CAL                     oracle=  84 clang=  96 
+TRFC_SET                     oracle= 120 clang= 144 
+_Register_Read_DDR           oracle=  84 clang=  56 
+_Register_Write_DDR          oracle=  76 clang=  52 
+calculate_dram_size          oracle= 112 clang= 160 
+dramc_main                   oracle= 348 clang= 376 
+get_2s_power                 oracle=  14 clang=  14 SAME
+get_config                   oracle= 144 clang= 116 

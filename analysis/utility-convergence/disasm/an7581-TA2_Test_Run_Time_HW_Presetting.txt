@@ -1,0 +1,83 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_utility.o:	file format elf32-littlearm
+
+Disassembly of section .text.TA2_Test_Run_Time_HW_Presetting:
+
+00000000 <TA2_Test_Run_Time_HW_Presetting>:
+       0: 2a03         	cmp	r2, #0x3
+       2: e92d 4ff7    	push.w	{r0, r1, r2, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       6: bf08         	it	eq
+       8: 090d         	lsreq	r5, r1, #0x4
+       a: bf18         	it	ne
+       c: 094d         	lsrne	r5, r1, #0x5
+       e: 68c3         	ldr	r3, [r0, #0xc]
+      10: 2d01         	cmp	r5, #0x1
+      12: f44f 7186    	mov.w	r1, #0x10c
+      16: 9301         	str	r3, [sp, #0x4]
+      18: 4604         	mov	r4, r0
+      1a: bf38         	it	lo
+      1c: 2501         	movlo	r5, #0x1
+      1e: f8d0 9004    	ldr.w	r9, [r0, #0x4]
+      22: 4616         	mov	r6, r2
+      24: f7ff fffe    	bl	0x24 <TA2_Test_Run_Time_HW_Presetting+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	u4Dram_Register_Read
+      28: 0383         	lsls	r3, r0, #0xe
+      2a: d500         	bpl	0x2e <TA2_Test_Run_Time_HW_Presetting+0x2e> @ imm = #0x0
+      2c: 3d02         	subs	r5, #0x2
+      2e: 1ef3         	subs	r3, r6, #0x3
+      30: f8df b088    	ldr.w	r11, [pc, #0x88] <TA2_Test_Run_Time_HW_Presetting+0xbc>
+      34: ea4f 7606    	lsl.w	r6, r6, #0x1c
+      38: f04f 0700    	mov.w	r7, #0x0
+      3c: bf18         	it	ne
+      3e: 2301         	movne	r3, #0x1
+      40: 469a         	mov	r10, r3
+      42: 6822         	ldr	r2, [r4]
+      44: b2fb         	uxtb	r3, r7
+      46: 429a         	cmp	r2, r3
+      48: d806         	bhi	0x58 <TA2_Test_Run_Time_HW_Presetting+0x58> @ imm = #0xc
+      4a: 9b01         	ldr	r3, [sp, #0x4]
+      4c: f8c4 9004    	str.w	r9, [r4, #0x4]
+      50: 60e3         	str	r3, [r4, #0xc]
+      52: b003         	add	sp, #0xc
+      54: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+      58: 6063         	str	r3, [r4, #0x4]
+      5a: f04f 0800    	mov.w	r8, #0x0
+      5e: 68a2         	ldr	r2, [r4, #0x8]
+      60: fa5f f388    	uxtb.w	r3, r8
+      64: f108 0801    	add.w	r8, r8, #0x1
+      68: 429a         	cmp	r2, r3
+      6a: d81d         	bhi	0xa8 <TA2_Test_Run_Time_HW_Presetting+0xa8> @ imm = #0x3a
+      6c: 69a3         	ldr	r3, [r4, #0x18]
+      6e: 2b04         	cmp	r3, #0x4
+      70: d104         	bne	0x7c <TA2_Test_Run_Time_HW_Presetting+0x7c> @ imm = #0x8
+      72: f44f 7300    	mov.w	r3, #0x200
+      76: 429d         	cmp	r5, r3
+      78: bf28         	it	hs
+      7a: 461d         	movhs	r5, r3
+      7c: 012a         	lsls	r2, r5, #0x4
+      7e: 4620         	mov	r0, r4
+      80: f06f 030f    	mvn	r3, #0xf
+      84: f44f 7182    	mov.w	r1, #0x104
+      88: f7ff fffe    	bl	0x88 <TA2_Test_Run_Time_HW_Presetting+0x88> @ imm = #-0x4
+			00000088:  R_ARM_THM_CALL	vIO32WriteMsk
+      8c: 4632         	mov	r2, r6
+      8e: 4620         	mov	r0, r4
+      90: f04f 43e0    	mov.w	r3, #0x70000000
+      94: f44f 7186    	mov.w	r1, #0x10c
+      98: 3701         	adds	r7, #0x1
+      9a: f7ff fffe    	bl	0x9a <TA2_Test_Run_Time_HW_Presetting+0x9a> @ imm = #-0x4
+			0000009a:  R_ARM_THM_CALL	vIO32WriteMsk
+      9e: 4651         	mov	r1, r10
+      a0: 4620         	mov	r0, r4
+      a2: f7ff fffe    	bl	0xa2 <TA2_Test_Run_Time_HW_Presetting+0xa2> @ imm = #-0x4
+			000000a2:  R_ARM_THM_CALL	DramcSetRWOFOEN
+      a6: e7cc         	b	0x42 <TA2_Test_Run_Time_HW_Presetting+0x42> @ imm = #-0x68
+      a8: 60e3         	str	r3, [r4, #0xc]
+      aa: 4659         	mov	r1, r11
+      ac: 4620         	mov	r0, r4
+      ae: f06f 0307    	mvn	r3, #0x7
+      b2: f44f 1280    	mov.w	r2, #0x100000
+      b6: f7ff fffe    	bl	0xb6 <TA2_Test_Run_Time_HW_Presetting+0xb6> @ imm = #-0x4
+			000000b6:  R_ARM_THM_CALL	vIO32WriteMsk
+      ba: e7d0         	b	0x5e <TA2_Test_Run_Time_HW_Presetting+0x5e> @ imm = #-0x60
+      bc: 00 05 40 00  	.word	0x00400500

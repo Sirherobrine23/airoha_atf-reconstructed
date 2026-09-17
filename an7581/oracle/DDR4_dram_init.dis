@@ -1,0 +1,282 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/DDR4_dram_init.o:	file format elf32-littlearm
+
+Disassembly of section .text.DDR4_MRS:
+
+00000000 <DDR4_MRS>:
+       0: b410         	push	{r4}
+       2: 460c         	mov	r4, r1
+       4: 4619         	mov	r1, r3
+       6: b293         	uxth	r3, r2
+       8: b2e2         	uxtb	r2, r4
+       a: bc10         	pop	{r4}
+       c: f7ff bffe    	b.w	0xc <DDR4_MRS+0xc>      @ imm = #-0x4
+			0000000c:  R_ARM_THM_JUMP24	DramcModeRegWriteByRank
+
+Disassembly of section .text.DDR4_SWZQ:
+
+00000000 <DDR4_SWZQ>:
+       0: f7ff bffe    	b.w	0x0 <DDR4_SWZQ>         @ imm = #-0x4
+			00000000:  R_ARM_THM_JUMP24	DramcZQCalibration
+
+Disassembly of section .text.PC4_dram_init_single_rank:
+
+00000000 <PC4_dram_init_single_rank>:
+       0: e92d 4ff7    	push.w	{r0, r1, r2, r4, r5, r6, r7, r8, r9, r10, r11, lr}
+       4: 4615         	mov	r5, r2
+       6: 6a03         	ldr	r3, [r0, #0x20]
+       8: 794a         	ldrb	r2, [r1, #0x5]
+       a: 4604         	mov	r4, r0
+       c: 9200         	str	r2, [sp]
+       e: 2b01         	cmp	r3, #0x1
+      10: 798a         	ldrb	r2, [r1, #0x6]
+      12: f04f 0320    	mov.w	r3, #0x20
+      16: 9201         	str	r2, [sp, #0x4]
+      18: bf18         	it	ne
+      1a: 2308         	movne	r3, #0x8
+      1c: 4a64         	ldr	r2, [pc, #0x190]        @ 0x1b0 <PC4_dram_init_single_rank+0x1b0>
+      1e: f891 8000    	ldrb.w	r8, [r1]
+      22: 7a0e         	ldrb	r6, [r1, #0x8]
+      24: 790f         	ldrb	r7, [r1, #0x4]
+      26: 6812         	ldr	r2, [r2]
+      28: ea4f 08c8    	lsl.w	r8, r8, #0x3
+      2c: f008 0838    	and	r8, r8, #0x38
+      30: 02b6         	lsls	r6, r6, #0xa
+      32: 2a01         	cmp	r2, #0x1
+      34: f04f 0200    	mov.w	r2, #0x0
+      38: f891 9003    	ldrb.w	r9, [r1, #0x3]
+      3c: f406 56e0    	and	r6, r6, #0x1c00
+      40: bf18         	it	ne
+      42: 2204         	movne	r2, #0x4
+      44: f891 a007    	ldrb.w	r10, [r1, #0x7]
+      48: ea48 2842    	orr.w	r8, r8, r2, lsl #9
+      4c: 2101         	movs	r1, #0x1
+      4e: 2200         	movs	r2, #0x0
+      50: 00ff         	lsls	r7, r7, #0x3
+      52: 431e         	orrs	r6, r3
+      54: fa1f f888    	uxth.w	r8, r8
+      58: f7ff fffe    	bl	0x58 <PC4_dram_init_single_rank+0x58> @ imm = #-0x4
+			00000058:  R_ARM_THM_CALL	CKE_FIX_ON
+      5c: f007 0718    	and	r7, r7, #0x18
+      60: 2001         	movs	r0, #0x1
+      62: f447 7780    	orr	r7, r7, #0x100
+      66: f7ff fffe    	bl	0x66 <PC4_dram_init_single_rank+0x66> @ imm = #-0x4
+			00000066:  R_ARM_THM_CALL	udelay
+      6a: 4629         	mov	r1, r5
+      6c: 4620         	mov	r0, r4
+      6e: 4643         	mov	r3, r8
+      70: 2202         	movs	r2, #0x2
+      72: f047 0701    	orr	r7, r7, #0x1
+      76: f7ff fffe    	bl	0x76 <PC4_dram_init_single_rank+0x76> @ imm = #-0x4
+			00000076:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      7a: 4629         	mov	r1, r5
+      7c: 4620         	mov	r0, r4
+      7e: f44f 7300    	mov.w	r3, #0x200
+      82: 2203         	movs	r2, #0x3
+      84: f046 0b40    	orr	r11, r6, #0x40
+      88: f7ff fffe    	bl	0x88 <PC4_dram_init_single_rank+0x88> @ imm = #-0x4
+			00000088:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      8c: 4629         	mov	r1, r5
+      8e: 4620         	mov	r0, r4
+      90: 463b         	mov	r3, r7
+      92: 2201         	movs	r2, #0x1
+      94: f046 06c0    	orr	r6, r6, #0xc0
+      98: f7ff fffe    	bl	0x98 <PC4_dram_init_single_rank+0x98> @ imm = #-0x4
+			00000098:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      9c: 4629         	mov	r1, r5
+      9e: 4620         	mov	r0, r4
+      a0: f44f 6300    	mov.w	r3, #0x800
+      a4: 2204         	movs	r2, #0x4
+      a6: fa1f fb8b    	uxth.w	r11, r11
+      aa: f7ff fffe    	bl	0xaa <PC4_dram_init_single_rank+0xaa> @ imm = #-0x4
+			000000aa:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      ae: 4629         	mov	r1, r5
+      b0: 4620         	mov	r0, r4
+      b2: f44f 6380    	mov.w	r3, #0x400
+      b6: 2205         	movs	r2, #0x5
+      b8: f7ff fffe    	bl	0xb8 <PC4_dram_init_single_rank+0xb8> @ imm = #-0x4
+			000000b8:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      bc: 4633         	mov	r3, r6
+      be: 4629         	mov	r1, r5
+      c0: 4620         	mov	r0, r4
+      c2: 2206         	movs	r2, #0x6
+      c4: f7ff fffe    	bl	0xc4 <PC4_dram_init_single_rank+0xc4> @ imm = #-0x4
+			000000c4:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      c8: 2001         	movs	r0, #0x1
+      ca: f7ff fffe    	bl	0xca <PC4_dram_init_single_rank+0xca> @ imm = #-0x4
+			000000ca:  R_ARM_THM_CALL	udelay
+      ce: 4633         	mov	r3, r6
+      d0: 4629         	mov	r1, r5
+      d2: 4620         	mov	r0, r4
+      d4: 2206         	movs	r2, #0x6
+      d6: f44f 7600    	mov.w	r6, #0x200
+      da: f7ff fffe    	bl	0xda <PC4_dram_init_single_rank+0xda> @ imm = #-0x4
+			000000da:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      de: 2001         	movs	r0, #0x1
+      e0: f7ff fffe    	bl	0xe0 <PC4_dram_init_single_rank+0xe0> @ imm = #-0x4
+			000000e0:  R_ARM_THM_CALL	udelay
+      e4: 4629         	mov	r1, r5
+      e6: 465b         	mov	r3, r11
+      e8: 4620         	mov	r0, r4
+      ea: 2206         	movs	r2, #0x6
+      ec: f7ff fffe    	bl	0xec <PC4_dram_init_single_rank+0xec> @ imm = #-0x4
+			000000ec:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+      f0: 2001         	movs	r0, #0x1
+      f2: f7ff fffe    	bl	0xf2 <PC4_dram_init_single_rank+0xf2> @ imm = #-0x4
+			000000f2:  R_ARM_THM_CALL	udelay
+      f6: 9a00         	ldr	r2, [sp]
+      f8: ea4f 03c9    	lsl.w	r3, r9, #0x3
+      fc: 4629         	mov	r1, r5
+      fe: f002 0203    	and	r2, r2, #0x3
+     102: f003 0370    	and	r3, r3, #0x70
+     106: 4313         	orrs	r3, r2
+     108: ea4f 224a    	lsl.w	r2, r10, #0x9
+     10c: f402 6260    	and	r2, r2, #0xe00
+     110: ea4f 2a8a    	lsl.w	r10, r10, #0xa
+     114: 4313         	orrs	r3, r2
+     116: 9a01         	ldr	r2, [sp, #0x4]
+     118: f40a 5a00    	and	r10, r10, #0x2000
+     11c: 4620         	mov	r0, r4
+     11e: 00d2         	lsls	r2, r2, #0x3
+     120: f002 0208    	and	r2, r2, #0x8
+     124: 4313         	orrs	r3, r2
+     126: ea4f 0289    	lsl.w	r2, r9, #0x2
+     12a: f002 0204    	and	r2, r2, #0x4
+     12e: ea4f 2909    	lsl.w	r9, r9, #0x8
+     132: 4313         	orrs	r3, r2
+     134: f409 5980    	and	r9, r9, #0x1000
+     138: ea43 030a    	orr.w	r3, r3, r10
+     13c: 2200         	movs	r2, #0x0
+     13e: ea43 0909    	orr.w	r9, r3, r9
+     142: f449 7980    	orr	r9, r9, #0x100
+     146: 464b         	mov	r3, r9
+     148: f7ff fffe    	bl	0x148 <PC4_dram_init_single_rank+0x148> @ imm = #-0x4
+			00000148:  R_ARM_THM_CALL	DramcModeRegWriteByRank
+     14c: 4629         	mov	r1, r5
+     14e: 4620         	mov	r0, r4
+     150: f7ff fffe    	bl	0x150 <PC4_dram_init_single_rank+0x150> @ imm = #-0x4
+			00000150:  R_ARM_THM_CALL	DramcZQCalibration
+     154: 2001         	movs	r0, #0x1
+     156: f7ff fffe    	bl	0x156 <PC4_dram_init_single_rank+0x156> @ imm = #-0x4
+			00000156:  R_ARM_THM_CALL	udelay
+     15a: 4620         	mov	r0, r4
+     15c: 2200         	movs	r2, #0x0
+     15e: 4611         	mov	r1, r2
+     160: f7ff fffe    	bl	0x160 <PC4_dram_init_single_rank+0x160> @ imm = #-0x4
+			00000160:  R_ARM_THM_CALL	CKE_FIX_ON
+     164: 220e         	movs	r2, #0xe
+     166: 4913         	ldr	r1, [pc, #0x4c]         @ 0x1b4 <PC4_dram_init_single_rank+0x1b4>
+     168: 2300         	movs	r3, #0x0
+     16a: 4355         	muls	r5, r2, r5
+     16c: 6820         	ldr	r0, [r4]
+     16e: f44f 6c00    	mov.w	r12, #0x800
+     172: 241c         	movs	r4, #0x1c
+     174: f44f 6e80    	mov.w	lr, #0x400
+     178: 1c5a         	adds	r2, r3, #0x1
+     17a: b2db         	uxtb	r3, r3
+     17c: 4298         	cmp	r0, r3
+     17e: d802         	bhi	0x186 <PC4_dram_init_single_rank+0x186> @ imm = #0x4
+     180: b003         	add	sp, #0xc
+     182: e8bd 8ff0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, r11, pc}
+     186: fb04 5303    	mla	r3, r4, r3, r5
+     18a: eb01 0a03    	add.w	r10, r1, r3
+     18e: f821 9003    	strh.w	r9, [r1, r3]
+     192: 4613         	mov	r3, r2
+     194: f8aa 7002    	strh.w	r7, [r10, #0x2]
+     198: f8aa 8004    	strh.w	r8, [r10, #0x4]
+     19c: f8aa 6006    	strh.w	r6, [r10, #0x6]
+     1a0: f8aa c008    	strh.w	r12, [r10, #0x8]
+     1a4: f8aa e00a    	strh.w	lr, [r10, #0xa]
+     1a8: f8aa b00c    	strh.w	r11, [r10, #0xc]
+     1ac: e7e4         	b	0x178 <PC4_dram_init_single_rank+0x178> @ imm = #-0x38
+     1ae: bf00         	nop
+     1b0: 00 00 00 00  	.word	0x00000000
+			000001b0:  R_ARM_ABS32	pkg_type
+     1b4: 00 00 00 00  	.word	0x00000000
+			000001b4:  R_ARM_ABS32	gMRVal
+
+Disassembly of section .text.PC4_DRAM_INIT:
+
+00000000 <PC4_DRAM_INIT>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: f44f 4380    	mov.w	r3, #0x4000
+       6: 6885         	ldr	r5, [r0, #0x8]
+       8: 4927         	ldr	r1, [pc, #0x9c]         @ 0xa8 <PC4_DRAM_INIT+0xa8>
+       a: 2200         	movs	r2, #0x0
+       c: 2d01         	cmp	r5, #0x1
+       e: 4604         	mov	r4, r0
+      10: f04f 0601    	mov.w	r6, #0x1
+      14: bf18         	it	ne
+      16: 2602         	movne	r6, #0x2
+      18: f7ff fffe    	bl	0x18 <PC4_DRAM_INIT+0x18> @ imm = #-0x4
+			00000018:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      1c: 2001         	movs	r0, #0x1
+      1e: f7ff fffe    	bl	0x1e <PC4_DRAM_INIT+0x1e> @ imm = #-0x4
+			0000001e:  R_ARM_THM_CALL	udelay
+      22: 4620         	mov	r0, r4
+      24: 2200         	movs	r2, #0x0
+      26: 2101         	movs	r1, #0x1
+      28: f7ff fffe    	bl	0x28 <PC4_DRAM_INIT+0x28> @ imm = #-0x4
+			00000028:  R_ARM_THM_CALL	CKE_FIX_OFF
+      2c: 2d01         	cmp	r5, #0x1
+      2e: d004         	beq	0x3a <PC4_DRAM_INIT+0x3a> @ imm = #0x8
+      30: 2201         	movs	r2, #0x1
+      32: 4620         	mov	r0, r4
+      34: 4611         	mov	r1, r2
+      36: f7ff fffe    	bl	0x36 <PC4_DRAM_INIT+0x36> @ imm = #-0x4
+			00000036:  R_ARM_THM_CALL	CKE_FIX_OFF
+      3a: 20c8         	movs	r0, #0xc8
+      3c: f7ff fffe    	bl	0x3c <PC4_DRAM_INIT+0x3c> @ imm = #-0x4
+			0000003c:  R_ARM_THM_CALL	udelay
+      40: f44f 4380    	mov.w	r3, #0x4000
+      44: 4918         	ldr	r1, [pc, #0x60]         @ 0xa8 <PC4_DRAM_INIT+0xa8>
+      46: 461a         	mov	r2, r3
+      48: 4620         	mov	r0, r4
+      4a: f7ff fffe    	bl	0x4a <PC4_DRAM_INIT+0x4a> @ imm = #-0x4
+			0000004a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+      4e: f44f 70fa    	mov.w	r0, #0x1f4
+      52: f7ff fffe    	bl	0x52 <PC4_DRAM_INIT+0x52> @ imm = #-0x4
+			00000052:  R_ARM_THM_CALL	udelay
+      56: 2200         	movs	r2, #0x0
+      58: 4620         	mov	r0, r4
+      5a: 4611         	mov	r1, r2
+      5c: f7ff fffe    	bl	0x5c <PC4_DRAM_INIT+0x5c> @ imm = #-0x4
+			0000005c:  R_ARM_THM_CALL	CKE_FIX_OFF
+      60: 2d01         	cmp	r5, #0x1
+      62: d004         	beq	0x6e <PC4_DRAM_INIT+0x6e> @ imm = #0x8
+      64: 4620         	mov	r0, r4
+      66: 2201         	movs	r2, #0x1
+      68: 2100         	movs	r1, #0x0
+      6a: f7ff fffe    	bl	0x6a <PC4_DRAM_INIT+0x6a> @ imm = #-0x4
+			0000006a:  R_ARM_THM_CALL	CKE_FIX_OFF
+      6e: 4620         	mov	r0, r4
+      70: 2200         	movs	r2, #0x0
+      72: 2101         	movs	r1, #0x1
+      74: f7ff fffe    	bl	0x74 <PC4_DRAM_INIT+0x74> @ imm = #-0x4
+			00000074:  R_ARM_THM_CALL	CKE_FIX_ON
+      78: 2d01         	cmp	r5, #0x1
+      7a: d004         	beq	0x86 <PC4_DRAM_INIT+0x86> @ imm = #0x8
+      7c: 2201         	movs	r2, #0x1
+      7e: 4620         	mov	r0, r4
+      80: 4611         	mov	r1, r2
+      82: f7ff fffe    	bl	0x82 <PC4_DRAM_INIT+0x82> @ imm = #-0x4
+			00000082:  R_ARM_THM_CALL	CKE_FIX_ON
+      86: 4d09         	ldr	r5, [pc, #0x24]         @ 0xac <PC4_DRAM_INIT+0xac>
+      88: 4620         	mov	r0, r4
+      8a: 2200         	movs	r2, #0x0
+      8c: 6929         	ldr	r1, [r5, #0x10]
+      8e: f7ff fffe    	bl	0x8e <PC4_DRAM_INIT+0x8e> @ imm = #-0x4
+			0000008e:  R_ARM_THM_CALL	PC4_dram_init_single_rank
+      92: 2e02         	cmp	r6, #0x2
+      94: d106         	bne	0xa4 <PC4_DRAM_INIT+0xa4> @ imm = #0xc
+      96: 6929         	ldr	r1, [r5, #0x10]
+      98: 4620         	mov	r0, r4
+      9a: 2201         	movs	r2, #0x1
+      9c: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      a0: f7ff bffe    	b.w	0xa0 <PC4_DRAM_INIT+0xa0> @ imm = #-0x4
+			000000a0:  R_ARM_THM_JUMP24	PC4_dram_init_single_rank
+      a4: bd70         	pop	{r4, r5, r6, pc}
+      a6: bf00         	nop
+      a8: bc 07 00 01  	.word	0x010007bc
+      ac: 00 00 00 00  	.word	0x00000000
+			000000ac:  R_ARM_ABS32	DV_p

@@ -1,0 +1,18 @@
+DIG_HW_ATTRIBUTE_INIT              oracle=  28 clang=  32 
+DIG_HW_NONSHUF_CFG                 oracle=  42 clang=  44 
+DIG_HW_NONSHUF_DQSG_SWITCH         oracle=  80 clang=  80 SAME
+DIG_HW_NONSHUF_IMPCAL_SWITCH       oracle=  40 clang=  44 
+DIG_HW_NONSHUF_SWITCH              oracle=  44 clang=  52 
+DIG_HW_NONSHUF_ZQCAL_CFG           oracle= 104 clang=  88 
+DIG_HW_NONSHUF_ZQCAL_SWITCH        oracle=  38 clang=  40 
+DIG_HW_NONSHU_MISC_FIX             oracle= 140 clang= 148 
+DIG_HW_SHUF_CFG                    oracle=  40 clang=  52 
+DIG_HW_SHUF_IMPCAL_CFG             oracle= 864 clang= 428 
+DIG_HW_SHUF_IMPCAL_SWITCH          oracle=   2 clang=   2 SAME
+DIG_HW_SHUF_SWITCH                 oracle=   2 clang=   2 SAME
+DIG_HW_SHUF_ZQCAL_CFG              oracle=  68 clang=  72 
+DIG_HW_SHUF_ZQCAL_SWITCH           oracle=   2 clang=   2 SAME
+DRAMC_HW_FUNC_IMPCAL_config        oracle= 124 clang= 108 
+DRAMC_HW_FUNC_ZQCAL_config         oracle=  52 clang=  52 SAME
+print_HW_IMPCAL_config             oracle=   2 clang=   2 SAME
+print_HW_ZQCAL_config              oracle=   2 clang=   2 SAME

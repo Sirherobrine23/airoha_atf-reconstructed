@@ -1,0 +1,598 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/Hal_io.o:	file format elf32-littlearm
+
+Disassembly of section .text.__meta_set:
+
+00000000 <__meta_set>:
+       0: 460b         	mov	r3, r1
+       2: 4611         	mov	r1, r2
+       4: 4a0b         	ldr	r2, [pc, #0x2c]         @ 0x34 <__meta_set+0x34>
+       6: b430         	push	{r4, r5}
+       8: 18d5         	adds	r5, r2, r3
+       a: f895 503c    	ldrb.w	r5, [r5, #0x3c]
+       e: eb02 0285    	add.w	r2, r2, r5, lsl #2
+      12: 441a         	add	r2, r3
+      14: 7511         	strb	r1, [r2, #0x14]
+      16: b913         	cbnz	r3, 0x1e <__meta_set+0x1e> @ imm = #0x4
+      18: bc30         	pop	{r4, r5}
+      1a: f7ff bffe    	b.w	0x1a <__meta_set+0x1a>  @ imm = #-0x4
+			0000001a:  R_ARM_THM_JUMP24	vSetPHY2ChannelMapping
+      1e: 2b01         	cmp	r3, #0x1
+      20: d102         	bne	0x28 <__meta_set+0x28>  @ imm = #0x4
+      22: bc30         	pop	{r4, r5}
+      24: f7ff bffe    	b.w	0x24 <__meta_set+0x24>  @ imm = #-0x4
+			00000024:  R_ARM_THM_JUMP24	vSetRank
+      28: 2b02         	cmp	r3, #0x2
+      2a: d101         	bne	0x30 <__meta_set+0x30>  @ imm = #0x2
+      2c: f8c0 1098    	str.w	r1, [r0, #0x98]
+      30: bc30         	pop	{r4, r5}
+      32: 4770         	bx	lr
+      34: 00 00 00 00  	.word	0x00000000
+			00000034:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.__meta_restore:
+
+00000000 <__meta_restore>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 460d         	mov	r5, r1
+       4: 4c0b         	ldr	r4, [pc, #0x2c]         @ 0x34 <__meta_restore+0x34>
+       6: 1866         	adds	r6, r4, r1
+       8: f896 303c    	ldrb.w	r3, [r6, #0x3c]
+       c: eb04 0383    	add.w	r3, r4, r3, lsl #2
+      10: 5c5a         	ldrb	r2, [r3, r1]
+      12: f7ff fffe    	bl	0x12 <__meta_restore+0x12> @ imm = #-0x4
+			00000012:  R_ARM_THM_CALL	__meta_set
+      16: f896 303c    	ldrb.w	r3, [r6, #0x3c]
+      1a: eb04 0483    	add.w	r4, r4, r3, lsl #2
+      1e: 442c         	add	r4, r5
+      20: f894 2028    	ldrb.w	r2, [r4, #0x28]
+      24: 3a01         	subs	r2, #0x1
+      26: f884 2028    	strb.w	r2, [r4, #0x28]
+      2a: b113         	cbz	r3, 0x32 <__meta_restore+0x32> @ imm = #0x4
+      2c: 3b01         	subs	r3, #0x1
+      2e: f886 303c    	strb.w	r3, [r6, #0x3c]
+      32: bd70         	pop	{r4, r5, r6, pc}
+      34: 00 00 00 00  	.word	0x00000000
+			00000034:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.__meta_backup:
+
+00000000 <__meta_backup>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 460d         	mov	r5, r1
+       4: 4c1c         	ldr	r4, [pc, #0x70]         @ 0x78 <__meta_backup+0x78>
+       6: 1861         	adds	r1, r4, r1
+       8: f891 303c    	ldrb.w	r3, [r1, #0x3c]
+       c: eb04 0283    	add.w	r2, r4, r3, lsl #2
+      10: 442a         	add	r2, r5
+      12: f892 2028    	ldrb.w	r2, [r2, #0x28]
+      16: 2a01         	cmp	r2, #0x1
+      18: d104         	bne	0x24 <__meta_backup+0x24> @ imm = #0x8
+      1a: 2b04         	cmp	r3, #0x4
+      1c: d802         	bhi	0x24 <__meta_backup+0x24> @ imm = #0x4
+      1e: 3301         	adds	r3, #0x1
+      20: f881 303c    	strb.w	r3, [r1, #0x3c]
+      24: b9a5         	cbnz	r5, 0x50 <__meta_backup+0x50> @ imm = #0x28
+      26: f894 603c    	ldrb.w	r6, [r4, #0x3c]
+      2a: f7ff fffe    	bl	0x2a <__meta_backup+0x2a> @ imm = #-0x4
+			0000002a:  R_ARM_THM_CALL	vGetPHY2ChannelMapping
+      2e: eb04 0686    	add.w	r6, r4, r6, lsl #2
+      32: 7530         	strb	r0, [r6, #0x14]
+      34: 1963         	adds	r3, r4, r5
+      36: f893 303c    	ldrb.w	r3, [r3, #0x3c]
+      3a: eb04 0483    	add.w	r4, r4, r3, lsl #2
+      3e: 1963         	adds	r3, r4, r5
+      40: 7d1a         	ldrb	r2, [r3, #0x14]
+      42: 5562         	strb	r2, [r4, r5]
+      44: f893 2028    	ldrb.w	r2, [r3, #0x28]
+      48: 3201         	adds	r2, #0x1
+      4a: f883 2028    	strb.w	r2, [r3, #0x28]
+      4e: bd70         	pop	{r4, r5, r6, pc}
+      50: 2d01         	cmp	r5, #0x1
+      52: d107         	bne	0x64 <__meta_backup+0x64> @ imm = #0xe
+      54: f894 603d    	ldrb.w	r6, [r4, #0x3d]
+      58: f7ff fffe    	bl	0x58 <__meta_backup+0x58> @ imm = #-0x4
+			00000058:  R_ARM_THM_CALL	u1GetRank
+      5c: eb04 0686    	add.w	r6, r4, r6, lsl #2
+      60: 7570         	strb	r0, [r6, #0x15]
+      62: e7e7         	b	0x34 <__meta_backup+0x34> @ imm = #-0x32
+      64: 2d02         	cmp	r5, #0x2
+      66: d1e5         	bne	0x34 <__meta_backup+0x34> @ imm = #-0x36
+      68: f894 303e    	ldrb.w	r3, [r4, #0x3e]
+      6c: f8d0 2098    	ldr.w	r2, [r0, #0x98]
+      70: eb04 0383    	add.w	r3, r4, r3, lsl #2
+      74: 759a         	strb	r2, [r3, #0x16]
+      76: e7dd         	b	0x34 <__meta_backup+0x34> @ imm = #-0x46
+      78: 00 00 00 00  	.word	0x00000000
+			00000078:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.__meta_backup_and_set:
+
+00000000 <__meta_backup_and_set>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4604         	mov	r4, r0
+       4: 460d         	mov	r5, r1
+       6: 4616         	mov	r6, r2
+       8: f7ff fffe    	bl	0x8 <__meta_backup_and_set+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_CALL	__meta_backup
+       c: 4632         	mov	r2, r6
+       e: 4629         	mov	r1, r5
+      10: 4620         	mov	r0, r4
+      12: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      16: f7ff bffe    	b.w	0x16 <__meta_backup_and_set+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_JUMP24	__meta_set
+
+Disassembly of section .text.__meta_advance:
+
+00000000 <__meta_advance>:
+       0: 4a07         	ldr	r2, [pc, #0x1c]         @ 0x20 <__meta_advance+0x20>
+       2: 460b         	mov	r3, r1
+       4: b410         	push	{r4}
+       6: 1854         	adds	r4, r2, r1
+       8: f894 403c    	ldrb.w	r4, [r4, #0x3c]
+       c: eb02 0284    	add.w	r2, r2, r4, lsl #2
+      10: 4413         	add	r3, r2
+      12: 7d1a         	ldrb	r2, [r3, #0x14]
+      14: 3201         	adds	r2, #0x1
+      16: b2d2         	uxtb	r2, r2
+      18: 751a         	strb	r2, [r3, #0x14]
+      1a: bc10         	pop	{r4}
+      1c: f7ff bffe    	b.w	0x1c <__meta_advance+0x1c> @ imm = #-0x4
+			0000001c:  R_ARM_THM_JUMP24	__meta_set
+      20: 00 00 00 00  	.word	0x00000000
+			00000020:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.__meta_process_complete:
+
+00000000 <__meta_process_complete>:
+       0: b971         	cbnz	r1, 0x20 <__meta_process_complete+0x20> @ imm = #0x1c
+       2: 7802         	ldrb	r2, [r0]
+       4: 4b07         	ldr	r3, [pc, #0x1c]         @ 0x24 <__meta_process_complete+0x24>
+       6: 1858         	adds	r0, r3, r1
+       8: f890 003c    	ldrb.w	r0, [r0, #0x3c]
+       c: eb03 0380    	add.w	r3, r3, r0, lsl #2
+      10: 440b         	add	r3, r1
+      12: 7d18         	ldrb	r0, [r3, #0x14]
+      14: 4290         	cmp	r0, r2
+      16: bf38         	it	lo
+      18: 2000         	movlo	r0, #0x0
+      1a: bf28         	it	hs
+      1c: 2001         	movhs	r0, #0x1
+      1e: 4770         	bx	lr
+      20: 7a02         	ldrb	r2, [r0, #0x8]
+      22: e7ef         	b	0x4 <__meta_process_complete+0x4> @ imm = #-0x22
+      24: 00 00 00 00  	.word	0x00000000
+			00000024:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.__meta_loop_complete_for_next:
+
+00000000 <__meta_loop_complete_for_next>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 4605         	mov	r5, r0
+       4: 4616         	mov	r6, r2
+       6: f7ff fffe    	bl	0x6 <__meta_loop_complete_for_next+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	__meta_process_complete
+       a: 4604         	mov	r4, r0
+       c: b118         	cbz	r0, 0x16 <__meta_loop_complete_for_next+0x16> @ imm = #0x6
+       e: 4632         	mov	r2, r6
+      10: 4628         	mov	r0, r5
+      12: f7ff fffe    	bl	0x12 <__meta_loop_complete_for_next+0x12> @ imm = #-0x4
+			00000012:  R_ARM_THM_CALL	__meta_set
+      16: 4620         	mov	r0, r4
+      18: bd70         	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.__meta_get:
+
+00000000 <__meta_get>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 460d         	mov	r5, r1
+       4: 4c12         	ldr	r4, [pc, #0x48]         @ 0x50 <__meta_get+0x50>
+       6: b971         	cbnz	r1, 0x26 <__meta_get+0x26> @ imm = #0x1c
+       8: f894 603c    	ldrb.w	r6, [r4, #0x3c]
+       c: f7ff fffe    	bl	0xc <__meta_get+0xc>    @ imm = #-0x4
+			0000000c:  R_ARM_THM_CALL	vGetPHY2ChannelMapping
+      10: eb04 0686    	add.w	r6, r4, r6, lsl #2
+      14: 7530         	strb	r0, [r6, #0x14]
+      16: 1963         	adds	r3, r4, r5
+      18: f893 103c    	ldrb.w	r1, [r3, #0x3c]
+      1c: eb04 0481    	add.w	r4, r4, r1, lsl #2
+      20: 442c         	add	r4, r5
+      22: 7d20         	ldrb	r0, [r4, #0x14]
+      24: bd70         	pop	{r4, r5, r6, pc}
+      26: 2901         	cmp	r1, #0x1
+      28: d107         	bne	0x3a <__meta_get+0x3a>  @ imm = #0xe
+      2a: f894 603d    	ldrb.w	r6, [r4, #0x3d]
+      2e: f7ff fffe    	bl	0x2e <__meta_get+0x2e>  @ imm = #-0x4
+			0000002e:  R_ARM_THM_CALL	u1GetRank
+      32: eb04 0686    	add.w	r6, r4, r6, lsl #2
+      36: 7570         	strb	r0, [r6, #0x15]
+      38: e7ed         	b	0x16 <__meta_get+0x16>  @ imm = #-0x26
+      3a: 2902         	cmp	r1, #0x2
+      3c: d1eb         	bne	0x16 <__meta_get+0x16>  @ imm = #-0x2a
+      3e: f894 303e    	ldrb.w	r3, [r4, #0x3e]
+      42: f8d0 2098    	ldr.w	r2, [r0, #0x98]
+      46: eb04 0383    	add.w	r3, r4, r3, lsl #2
+      4a: 759a         	strb	r2, [r3, #0x16]
+      4c: e7e3         	b	0x16 <__meta_get+0x16>  @ imm = #-0x3a
+      4e: bf00         	nop
+      50: 00 00 00 00  	.word	0x00000000
+			00000050:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.channel_msk_set:
+
+00000000 <channel_msk_set>:
+       0: 4b01         	ldr	r3, [pc, #0x4]          @ 0x8 <channel_msk_set+0x8>
+       2: 6419         	str	r1, [r3, #0x40]
+       4: 4770         	bx	lr
+       6: bf00         	nop
+       8: 00 00 00 00  	.word	0x00000000
+			00000008:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.channel_msk_backup:
+
+00000000 <channel_msk_backup>:
+       0: 4b04         	ldr	r3, [pc, #0x10]         @ 0x14 <channel_msk_backup+0x14>
+       2: 6c1a         	ldr	r2, [r3, #0x40]
+       4: f883 2044    	strb.w	r2, [r3, #0x44]
+       8: f893 2045    	ldrb.w	r2, [r3, #0x45]
+       c: 3201         	adds	r2, #0x1
+       e: f883 2045    	strb.w	r2, [r3, #0x45]
+      12: 4770         	bx	lr
+      14: 00 00 00 00  	.word	0x00000000
+			00000014:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.channel_msk_restore:
+
+00000000 <channel_msk_restore>:
+       0: 4b04         	ldr	r3, [pc, #0x10]         @ 0x14 <channel_msk_restore+0x14>
+       2: f893 2044    	ldrb.w	r2, [r3, #0x44]
+       6: 641a         	str	r2, [r3, #0x40]
+       8: f893 2045    	ldrb.w	r2, [r3, #0x45]
+       c: 3a01         	subs	r2, #0x1
+       e: f883 2045    	strb.w	r2, [r3, #0x45]
+      12: 4770         	bx	lr
+      14: 00 00 00 00  	.word	0x00000000
+			00000014:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.channel_msk_backup_and_set:
+
+00000000 <channel_msk_backup_and_set>:
+       0: b508         	push	{r3, lr}
+       2: f7ff fffe    	bl	0x2 <channel_msk_backup_and_set+0x2> @ imm = #-0x4
+			00000002:  R_ARM_THM_CALL	channel_msk_backup
+       6: 4b01         	ldr	r3, [pc, #0x4]          @ 0xc <channel_msk_backup_and_set+0xc>
+       8: 6419         	str	r1, [r3, #0x40]
+       a: bd08         	pop	{r3, pc}
+       c: 00 00 00 00  	.word	0x00000000
+			0000000c:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.channel_msk_op_enable:
+
+00000000 <channel_msk_op_enable>:
+       0: 4b02         	ldr	r3, [pc, #0x8]          @ 0xc <channel_msk_op_enable+0xc>
+       2: 2201         	movs	r2, #0x1
+       4: f883 2046    	strb.w	r2, [r3, #0x46]
+       8: 4770         	bx	lr
+       a: bf00         	nop
+       c: 00 00 00 00  	.word	0x00000000
+			0000000c:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.channel_msk_op_disable:
+
+00000000 <channel_msk_op_disable>:
+       0: 4b02         	ldr	r3, [pc, #0x8]          @ 0xc <channel_msk_op_disable+0xc>
+       2: 2200         	movs	r2, #0x0
+       4: f883 2046    	strb.w	r2, [r3, #0x46]
+       8: 4770         	bx	lr
+       a: bf00         	nop
+       c: 00 00 00 00  	.word	0x00000000
+			0000000c:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.NeedSwapARToBR:
+
+00000000 <NeedSwapARToBR>:
+       0: 2000         	movs	r0, #0x0
+       2: 4770         	bx	lr
+
+Disassembly of section .text.u1PhyByteSwapOnOff:
+
+00000000 <u1PhyByteSwapOnOff>:
+       0: 4b02         	ldr	r3, [pc, #0x8]          @ 0xc <u1PhyByteSwapOnOff+0xc>
+       2: f883 0047    	strb.w	r0, [r3, #0x47]
+       6: 2000         	movs	r0, #0x0
+       8: 4770         	bx	lr
+       a: bf00         	nop
+       c: 00 00 00 00  	.word	0x00000000
+			0000000c:  R_ARM_ABS32	.bss.dramc_io_manager
+
+Disassembly of section .text.u4PhyAoByteSwap:
+
+00000000 <u4PhyAoByteSwap>:
+       0: 2000         	movs	r0, #0x0
+       2: 4770         	bx	lr
+
+Disassembly of section .text.u4RegBaseAddrTranslate:
+
+00000000 <u4RegBaseAddrTranslate>:
+       0: b5f0         	push	{r4, r5, r6, r7, lr}
+       2: f3c2 54c3    	ubfx	r4, r2, #0x17, #0x4
+       6: f8d0 6098    	ldr.w	r6, [r0, #0x98]
+       a: 68c5         	ldr	r5, [r0, #0xc]
+       c: eb01 0184    	add.w	r1, r1, r4, lsl #2
+      10: 482a         	ldr	r0, [pc, #0xa8]         @ 0xbc <u4RegBaseAddrTranslate+0xbc>
+      12: f3c2 0313    	ubfx	r3, r2, #0x0, #0x14
+      16: f850 0021    	ldr.w	r0, [r0, r1, lsl #2]
+      1a: 2c05         	cmp	r4, #0x5
+      1c: d806         	bhi	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #0xc
+      1e: e8df f004    	tbb	[pc, r4]
+      22: 09 27 09 36  	.word	0x36092709
+      26: 05 03        	.short	0x0305
+      28: f44f 40c0    	mov.w	r0, #0x6000
+      2c: 4418         	add	r0, r3
+      2e: f100 5080    	add.w	r0, r0, #0x10000000
+      32: bdf0         	pop	{r4, r5, r6, r7, pc}
+      34: f3c2 5140    	ubfx	r1, r2, #0x15, #0x1
+      38: 0297         	lsls	r7, r2, #0xa
+      3a: d505         	bpl	0x48 <u4RegBaseAddrTranslate+0x48> @ imm = #0xa
+      3c: b126         	cbz	r6, 0x48 <u4RegBaseAddrTranslate+0x48> @ imm = #0x8
+      3e: b95c         	cbnz	r4, 0x58 <u4RegBaseAddrTranslate+0x58> @ imm = #0x16
+      40: f44f 67e0    	mov.w	r7, #0x700
+      44: fb07 0006    	mla	r0, r7, r6, r0
+      48: 0252         	lsls	r2, r2, #0x9
+      4a: d5ef         	bpl	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x22
+      4c: 2d01         	cmp	r5, #0x1
+      4e: d1ed         	bne	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x26
+      50: b93c         	cbnz	r4, 0x62 <u4RegBaseAddrTranslate+0x62> @ imm = #0xe
+      52: f503 7300    	add.w	r3, r3, #0x200
+      56: e7e9         	b	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x2e
+      58: 2c02         	cmp	r4, #0x2
+      5a: d1f5         	bne	0x48 <u4RegBaseAddrTranslate+0x48> @ imm = #-0x16
+      5c: f44f 6710    	mov.w	r7, #0x900
+      60: e7f0         	b	0x44 <u4RegBaseAddrTranslate+0x44> @ imm = #-0x20
+      62: 2c02         	cmp	r4, #0x2
+      64: d1e2         	bne	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x3c
+      66: 2900         	cmp	r1, #0x0
+      68: d0f3         	beq	0x52 <u4RegBaseAddrTranslate+0x52> @ imm = #-0x1a
+      6a: f503 7320    	add.w	r3, r3, #0x280
+      6e: e7dd         	b	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x46
+      70: 2d01         	cmp	r5, #0x1
+      72: d1db         	bne	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x4a
+      74: f5a3 62c0    	sub.w	r2, r3, #0x600
+      78: 2aff         	cmp	r2, #0xff
+      7a: d802         	bhi	0x82 <u4RegBaseAddrTranslate+0x82> @ imm = #0x4
+      7c: f503 7380    	add.w	r3, r3, #0x100
+      80: e7d4         	b	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x58
+      82: f5a3 6218    	sub.w	r2, r3, #0x980
+      86: f5b2 7f00    	cmp.w	r2, #0x200
+      8a: d8cf         	bhi	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x62
+      8c: e7e1         	b	0x52 <u4RegBaseAddrTranslate+0x52> @ imm = #-0x3e
+      8e: 2d01         	cmp	r5, #0x1
+      90: d1cc         	bne	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x68
+      92: f5a3 62c0    	sub.w	r2, r3, #0x600
+      96: 2a2f         	cmp	r2, #0x2f
+      98: d801         	bhi	0x9e <u4RegBaseAddrTranslate+0x9e> @ imm = #0x2
+      9a: 3330         	adds	r3, #0x30
+      9c: e7c6         	b	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x74
+      9e: f5a3 62cc    	sub.w	r2, r3, #0x660
+      a2: 2a2f         	cmp	r2, #0x2f
+      a4: d9f9         	bls	0x9a <u4RegBaseAddrTranslate+0x9a> @ imm = #-0xe
+      a6: f5a3 62d8    	sub.w	r2, r3, #0x6c0
+      aa: 2a2f         	cmp	r2, #0x2f
+      ac: d9f5         	bls	0x9a <u4RegBaseAddrTranslate+0x9a> @ imm = #-0x16
+      ae: f5a3 6284    	sub.w	r2, r3, #0x420
+      b2: 2a13         	cmp	r2, #0x13
+      b4: bf98         	it	ls
+      b6: 3314         	addls	r3, #0x14
+      b8: e7b8         	b	0x2c <u4RegBaseAddrTranslate+0x2c> @ imm = #-0x90
+      ba: bf00         	nop
+      bc: 00 00 00 00  	.word	0x00000000
+			000000bc:  R_ARM_ABS32	.rodata.REG_BASE_ADDR_LIST
+
+Disassembly of section .text.DramcVirt2Phys:
+
+00000000 <DramcVirt2Phys>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4604         	mov	r4, r0
+       4: 460d         	mov	r5, r1
+       6: 2100         	movs	r1, #0x0
+       8: f7ff fffe    	bl	0x8 <DramcVirt2Phys+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_CALL	__meta_get
+       c: 462a         	mov	r2, r5
+       e: 4601         	mov	r1, r0
+      10: 4620         	mov	r0, r4
+      12: e8bd 4038    	pop.w	{r3, r4, r5, lr}
+      16: f7ff bffe    	b.w	0x16 <DramcVirt2Phys+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_JUMP24	u4RegBaseAddrTranslate
+
+Disassembly of section .text.u4Dram_Register_Read:
+
+00000000 <u4Dram_Register_Read>:
+       0: 460a         	mov	r2, r1
+       2: b508         	push	{r3, lr}
+       4: 6841         	ldr	r1, [r0, #0x4]
+       6: f7ff fffe    	bl	0x6 <u4Dram_Register_Read+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	u4RegBaseAddrTranslate
+       a: f3bf 8f4f    	dsb	sy
+       e: 6800         	ldr	r0, [r0]
+      10: bd08         	pop	{r3, pc}
+
+Disassembly of section .text.vDram_Register_Write:
+
+00000000 <vDram_Register_Write>:
+       0: b510         	push	{r4, lr}
+       2: 4614         	mov	r4, r2
+       4: 460a         	mov	r2, r1
+       6: 6841         	ldr	r1, [r0, #0x4]
+       8: f7ff fffe    	bl	0x8 <vDram_Register_Write+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_CALL	u4RegBaseAddrTranslate
+       c: 6004         	str	r4, [r0]
+       e: f3bf 8f4f    	dsb	sy
+      12: bd10         	pop	{r4, pc}
+
+Disassembly of section .text.vIO32WriteMsk:
+
+00000000 <vIO32WriteMsk>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4614         	mov	r4, r2
+       4: 460a         	mov	r2, r1
+       6: 6841         	ldr	r1, [r0, #0x4]
+       8: 461d         	mov	r5, r3
+       a: f7ff fffe    	bl	0xa <vIO32WriteMsk+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	u4RegBaseAddrTranslate
+       e: f3bf 8f4f    	dsb	sy
+      12: 6803         	ldr	r3, [r0]
+      14: 405c         	eors	r4, r3
+      16: 402c         	ands	r4, r5
+      18: 405c         	eors	r4, r3
+      1a: 6004         	str	r4, [r0]
+      1c: f3bf 8f4f    	dsb	sy
+      20: bd38         	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.vIO32WriteMsk_All:
+
+00000000 <vIO32WriteMsk_All>:
+       0: e92d 47f0    	push.w	{r4, r5, r6, r7, r8, r9, r10, lr}
+       4: 469a         	mov	r10, r3
+       6: 6c43         	ldr	r3, [r0, #0x44]
+       8: 7804         	ldrb	r4, [r0]
+       a: 4605         	mov	r5, r0
+       c: 4688         	mov	r8, r1
+       e: 4691         	mov	r9, r2
+      10: 2b20         	cmp	r3, #0x20
+      12: d105         	bne	0x20 <vIO32WriteMsk_All+0x20> @ imm = #0xa
+      14: f3c1 53c3    	ubfx	r3, r1, #0x17, #0x4
+      18: 2b02         	cmp	r3, #0x2
+      1a: d101         	bne	0x20 <vIO32WriteMsk_All+0x20> @ imm = #0x2
+      1c: 3401         	adds	r4, #0x1
+      1e: b2e4         	uxtb	r4, r4
+      20: 2700         	movs	r7, #0x0
+      22: b2fb         	uxtb	r3, r7
+      24: 429c         	cmp	r4, r3
+      26: d801         	bhi	0x2c <vIO32WriteMsk_All+0x2c> @ imm = #0x2
+      28: e8bd 87f0    	pop.w	{r4, r5, r6, r7, r8, r9, r10, pc}
+      2c: 4642         	mov	r2, r8
+      2e: 4639         	mov	r1, r7
+      30: 4628         	mov	r0, r5
+      32: f7ff fffe    	bl	0x32 <vIO32WriteMsk_All+0x32> @ imm = #-0x4
+			00000032:  R_ARM_THM_CALL	u4RegBaseAddrTranslate
+      36: f3bf 8f4f    	dsb	sy
+      3a: 6803         	ldr	r3, [r0]
+      3c: ea89 0603    	eor.w	r6, r9, r3
+      40: ea06 060a    	and.w	r6, r6, r10
+      44: 405e         	eors	r6, r3
+      46: 6006         	str	r6, [r0]
+      48: f3bf 8f4f    	dsb	sy
+      4c: 3701         	adds	r7, #0x1
+      4e: e7e8         	b	0x22 <vIO32WriteMsk_All+0x22> @ imm = #-0x30
+
+Disassembly of section .text.vPhyByteIO32WriteMsk:
+
+00000000 <vPhyByteIO32WriteMsk>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: 4614         	mov	r4, r2
+       4: 460a         	mov	r2, r1
+       6: 6841         	ldr	r1, [r0, #0x4]
+       8: 461d         	mov	r5, r3
+       a: f7ff fffe    	bl	0xa <vPhyByteIO32WriteMsk+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	u4RegBaseAddrTranslate
+       e: f3bf 8f4f    	dsb	sy
+      12: 6803         	ldr	r3, [r0]
+      14: 405c         	eors	r4, r3
+      16: 402c         	ands	r4, r5
+      18: 405c         	eors	r4, r3
+      1a: 6004         	str	r4, [r0]
+      1c: f3bf 8f4f    	dsb	sy
+      20: bd38         	pop	{r3, r4, r5, pc}
+
+Disassembly of section .text.vPhyByteIO32WriteMsk_All:
+
+00000000 <vPhyByteIO32WriteMsk_All>:
+       0: f7ff bffe    	b.w	0x0 <vPhyByteIO32WriteMsk_All> @ imm = #-0x4
+			00000000:  R_ARM_THM_JUMP24	vIO32WriteMsk_All
+
+Disassembly of section .text.vPhyByteReadFldAlign:
+
+00000000 <vPhyByteReadFldAlign>:
+       0: b510         	push	{r4, lr}
+       2: 4614         	mov	r4, r2
+       4: 460a         	mov	r2, r1
+       6: 6841         	ldr	r1, [r0, #0x4]
+       8: f7ff fffe    	bl	0x8 <vPhyByteReadFldAlign+0x8> @ imm = #-0x4
+			00000008:  R_ARM_THM_CALL	u4RegBaseAddrTranslate
+       c: b91c         	cbnz	r4, 0x16 <vPhyByteReadFldAlign+0x16> @ imm = #0x6
+       e: f3bf 8f4f    	dsb	sy
+      12: 6800         	ldr	r0, [r0]
+      14: bd10         	pop	{r4, pc}
+      16: f3bf 8f4f    	dsb	sy
+      1a: b2e3         	uxtb	r3, r4
+      1c: f3c4 2407    	ubfx	r4, r4, #0x8, #0x8
+      20: f1c4 0420    	rsb.w	r4, r4, #0x20
+      24: 6802         	ldr	r2, [r0]
+      26: f04f 30ff    	mov.w	r0, #0xffffffff
+      2a: 40e0         	lsrs	r0, r4
+      2c: 4098         	lsls	r0, r3
+      2e: 4010         	ands	r0, r2
+      30: 40d8         	lsrs	r0, r3
+      32: e7ef         	b	0x14 <vPhyByteReadFldAlign+0x14> @ imm = #-0x22
+
+Disassembly of section .text.vPhyByteWriteFldAlign:
+
+00000000 <vPhyByteWriteFldAlign>:
+       0: e92d 43f8    	push.w	{r3, r4, r5, r6, r7, r8, r9, lr}
+       4: 4690         	mov	r8, r2
+       6: 9a08         	ldr	r2, [sp, #0x20]
+       8: 4605         	mov	r5, r0
+       a: 460e         	mov	r6, r1
+       c: 2a01         	cmp	r2, #0x1
+       e: d10b         	bne	0x28 <vPhyByteWriteFldAlign+0x28> @ imm = #0x16
+      10: 6c42         	ldr	r2, [r0, #0x44]
+      12: 7807         	ldrb	r7, [r0]
+      14: 2a20         	cmp	r2, #0x20
+      16: d105         	bne	0x24 <vPhyByteWriteFldAlign+0x24> @ imm = #0xa
+      18: f3c1 52c3    	ubfx	r2, r1, #0x17, #0x4
+      1c: 2a02         	cmp	r2, #0x2
+      1e: d101         	bne	0x24 <vPhyByteWriteFldAlign+0x24> @ imm = #0x2
+      20: 3701         	adds	r7, #0x1
+      22: b2ff         	uxtb	r7, r7
+      24: 2100         	movs	r1, #0x0
+      26: e002         	b	0x2e <vPhyByteWriteFldAlign+0x2e> @ imm = #0x4
+      28: 7901         	ldrb	r1, [r0, #0x4]
+      2a: 1c4f         	adds	r7, r1, #0x1
+      2c: b2ff         	uxtb	r7, r7
+      2e: b1ab         	cbz	r3, 0x5c <vPhyByteWriteFldAlign+0x5c> @ imm = #0x2a
+      30: b2d8         	uxtb	r0, r3
+      32: f3c3 2307    	ubfx	r3, r3, #0x8, #0x8
+      36: f1c3 0320    	rsb.w	r3, r3, #0x20
+      3a: f04f 32ff    	mov.w	r2, #0xffffffff
+      3e: fa08 f800    	lsl.w	r8, r8, r0
+      42: fa22 f303    	lsr.w	r3, r2, r3
+      46: 4083         	lsls	r3, r0
+      48: ea08 0803    	and.w	r8, r8, r3
+      4c: 4689         	mov	r9, r1
+      4e: 43dc         	mvns	r4, r3
+      50: fa5f f389    	uxtb.w	r3, r9
+      54: 429f         	cmp	r7, r3
+      56: d804         	bhi	0x62 <vPhyByteWriteFldAlign+0x62> @ imm = #0x8
+      58: e8bd 83f8    	pop.w	{r3, r4, r5, r6, r7, r8, r9, pc}
+      5c: f04f 33ff    	mov.w	r3, #0xffffffff
+      60: e7f4         	b	0x4c <vPhyByteWriteFldAlign+0x4c> @ imm = #-0x18
+      62: 4632         	mov	r2, r6
+      64: 4649         	mov	r1, r9
+      66: 4628         	mov	r0, r5
+      68: f7ff fffe    	bl	0x68 <vPhyByteWriteFldAlign+0x68> @ imm = #-0x4
+			00000068:  R_ARM_THM_CALL	u4RegBaseAddrTranslate
+      6c: f3bf 8f4f    	dsb	sy
+      70: 6803         	ldr	r3, [r0]
+      72: 4023         	ands	r3, r4
+      74: ea43 0308    	orr.w	r3, r3, r8
+      78: 6003         	str	r3, [r0]
+      7a: f3bf 8f4f    	dsb	sy
+      7e: f109 0901    	add.w	r9, r9, #0x1
+      82: e7e5         	b	0x50 <vPhyByteWriteFldAlign+0x50> @ imm = #-0x36
+
+Disassembly of section .text.vPhyByteWriteFldMulti2:
+
+00000000 <vPhyByteWriteFldMulti2>:
+       0: b408         	push	{r3}
+       2: b001         	add	sp, #0x4
+       4: 4770         	bx	lr

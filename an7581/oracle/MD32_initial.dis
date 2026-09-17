@@ -1,0 +1,226 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/MD32_initial.o:	file format elf32-littlearm
+
+Disassembly of section .text.MD32_initializaton_ch:
+
+00000000 <MD32_initializaton_ch>:
+       0: b538         	push	{r3, r4, r5, lr}
+       2: b2c9         	uxtb	r1, r1
+       4: 4604         	mov	r4, r0
+       6: f7ff fffe    	bl	0x6 <MD32_initializaton_ch+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	vSetPHY2ChannelMapping
+       a: 4b5f         	ldr	r3, [pc, #0x17c]        @ 0x188 <MD32_initializaton_ch+0x188>
+       c: 2203         	movs	r2, #0x3
+       e: 485f         	ldr	r0, [pc, #0x17c]        @ 0x18c <MD32_initializaton_ch+0x18c>
+      10: f04f 617c    	mov.w	r1, #0xfc00000
+      14: 4d5e         	ldr	r5, [pc, #0x178]        @ 0x190 <MD32_initializaton_ch+0x190>
+      16: 601a         	str	r2, [r3]
+      18: 4a5e         	ldr	r2, [pc, #0x178]        @ 0x194 <MD32_initializaton_ch+0x194>
+      1a: 4b5f         	ldr	r3, [pc, #0x17c]        @ 0x198 <MD32_initializaton_ch+0x198>
+      1c: 6053         	str	r3, [r2, #0x4]
+      1e: 3b20         	subs	r3, #0x20
+      20: 6053         	str	r3, [r2, #0x4]
+      22: 4b5e         	ldr	r3, [pc, #0x178]        @ 0x19c <MD32_initializaton_ch+0x19c>
+      24: 6019         	str	r1, [r3]
+      26: 3101         	adds	r1, #0x1
+      28: 6019         	str	r1, [r3]
+      2a: 495d         	ldr	r1, [pc, #0x174]        @ 0x1a0 <MD32_initializaton_ch+0x1a0>
+      2c: 6018         	str	r0, [r3]
+      2e: 6018         	str	r0, [r3]
+      30: 63d9         	str	r1, [r3, #0x3c]
+      32: 495c         	ldr	r1, [pc, #0x170]        @ 0x1a4 <MD32_initializaton_ch+0x1a4>
+      34: 6219         	str	r1, [r3, #0x20]
+      36: f44f 4170    	mov.w	r1, #0xf000
+      3a: 6059         	str	r1, [r3, #0x4]
+      3c: f44f 5140    	mov.w	r1, #0x3000
+      40: 6059         	str	r1, [r3, #0x4]
+      42: 2100         	movs	r1, #0x0
+      44: 6059         	str	r1, [r3, #0x4]
+      46: 6099         	str	r1, [r3, #0x8]
+      48: 60dd         	str	r5, [r3, #0xc]
+      4a: 4d57         	ldr	r5, [pc, #0x15c]        @ 0x1a8 <MD32_initializaton_ch+0x1a8>
+      4c: 63dd         	str	r5, [r3, #0x3c]
+      4e: f04f 4543    	mov.w	r5, #0xc3000000
+      52: 63dd         	str	r5, [r3, #0x3c]
+      54: 63dd         	str	r5, [r3, #0x3c]
+      56: f04f 4580    	mov.w	r5, #0x40000000
+      5a: 60dd         	str	r5, [r3, #0xc]
+      5c: 4d53         	ldr	r5, [pc, #0x14c]        @ 0x1ac <MD32_initializaton_ch+0x1ac>
+      5e: 6399         	str	r1, [r3, #0x38]
+      60: 621d         	str	r5, [r3, #0x20]
+      62: 60d9         	str	r1, [r3, #0xc]
+      64: 4952         	ldr	r1, [pc, #0x148]        @ 0x1b0 <MD32_initializaton_ch+0x1b0>
+      66: 6059         	str	r1, [r3, #0x4]
+      68: 213f         	movs	r1, #0x3f
+      6a: 6399         	str	r1, [r3, #0x38]
+      6c: 4951         	ldr	r1, [pc, #0x144]        @ 0x1b4 <MD32_initializaton_ch+0x1b4>
+      6e: 6019         	str	r1, [r3]
+      70: 4951         	ldr	r1, [pc, #0x144]        @ 0x1b8 <MD32_initializaton_ch+0x1b8>
+      72: 6018         	str	r0, [r3]
+      74: f44f 3040    	mov.w	r0, #0x30000
+      78: 6119         	str	r1, [r3, #0x10]
+      7a: 2170         	movs	r1, #0x70
+      7c: 6159         	str	r1, [r3, #0x14]
+      7e: f247 013c    	movw	r1, #0x703c
+      82: f8c3 12d8    	str.w	r1, [r3, #0x2d8]
+      86: f640 3149    	movw	r1, #0xb49
+      8a: 6659         	str	r1, [r3, #0x64]
+      8c: 494b         	ldr	r1, [pc, #0x12c]        @ 0x1bc <MD32_initializaton_ch+0x1bc>
+      8e: 6559         	str	r1, [r3, #0x54]
+      90: 494b         	ldr	r1, [pc, #0x12c]        @ 0x1c0 <MD32_initializaton_ch+0x1c0>
+      92: 6499         	str	r1, [r3, #0x48]
+      94: 494b         	ldr	r1, [pc, #0x12c]        @ 0x1c4 <MD32_initializaton_ch+0x1c4>
+      96: 64d9         	str	r1, [r3, #0x4c]
+      98: 494b         	ldr	r1, [pc, #0x12c]        @ 0x1c8 <MD32_initializaton_ch+0x1c8>
+      9a: 6519         	str	r1, [r3, #0x50]
+      9c: f101 6180    	add.w	r1, r1, #0x4000000
+      a0: 6519         	str	r1, [r3, #0x50]
+      a2: 494a         	ldr	r1, [pc, #0x128]        @ 0x1cc <MD32_initializaton_ch+0x1cc>
+      a4: 6599         	str	r1, [r3, #0x58]
+      a6: 494a         	ldr	r1, [pc, #0x128]        @ 0x1d0 <MD32_initializaton_ch+0x1d0>
+      a8: 65d9         	str	r1, [r3, #0x5c]
+      aa: 494a         	ldr	r1, [pc, #0x128]        @ 0x1d4 <MD32_initializaton_ch+0x1d4>
+      ac: 6019         	str	r1, [r3]
+      ae: f501 7100    	add.w	r1, r1, #0x200
+      b2: 6019         	str	r1, [r3]
+      b4: f501 7180    	add.w	r1, r1, #0x100
+      b8: 6019         	str	r1, [r3]
+      ba: 4947         	ldr	r1, [pc, #0x11c]        @ 0x1d8 <MD32_initializaton_ch+0x1d8>
+      bc: 4d47         	ldr	r5, [pc, #0x11c]        @ 0x1dc <MD32_initializaton_ch+0x1dc>
+      be: 6208         	str	r0, [r1, #0x20]
+      c0: 6308         	str	r0, [r1, #0x30]
+      c2: f44f 3080    	mov.w	r0, #0x10000
+      c6: 6608         	str	r0, [r1, #0x60]
+      c8: f44f 3000    	mov.w	r0, #0x20000
+      cc: 6708         	str	r0, [r1, #0x70]
+      ce: f895 10ad    	ldrb.w	r1, [r5, #0xad]
+      d2: 2901         	cmp	r1, #0x1
+      d4: d101         	bne	0xda <MD32_initializaton_ch+0xda> @ imm = #0x2
+      d6: 4942         	ldr	r1, [pc, #0x108]        @ 0x1e0 <MD32_initializaton_ch+0x1e0>
+      d8: 6019         	str	r1, [r3]
+      da: f648 73df    	movw	r3, #0x8fdf
+      de: 6013         	str	r3, [r2]
+      e0: 2310         	movs	r3, #0x10
+      e2: 6093         	str	r3, [r2, #0x8]
+      e4: f895 2076    	ldrb.w	r2, [r5, #0x76]
+      e8: f895 3075    	ldrb.w	r3, [r5, #0x75]
+      ec: 4313         	orrs	r3, r2
+      ee: d002         	beq	0xf6 <MD32_initializaton_ch+0xf6> @ imm = #0x4
+      f0: 4b2a         	ldr	r3, [pc, #0xa8]         @ 0x19c <MD32_initializaton_ch+0x19c>
+      f2: 4a3c         	ldr	r2, [pc, #0xf0]         @ 0x1e4 <MD32_initializaton_ch+0x1e4>
+      f4: 639a         	str	r2, [r3, #0x38]
+      f6: f895 308d    	ldrb.w	r3, [r5, #0x8d]
+      fa: 2b01         	cmp	r3, #0x1
+      fc: d102         	bne	0x104 <MD32_initializaton_ch+0x104> @ imm = #0x4
+      fe: 4b27         	ldr	r3, [pc, #0x9c]         @ 0x19c <MD32_initializaton_ch+0x19c>
+     100: 4a39         	ldr	r2, [pc, #0xe4]         @ 0x1e8 <MD32_initializaton_ch+0x1e8>
+     102: 601a         	str	r2, [r3]
+     104: 79eb         	ldrb	r3, [r5, #0x7]
+     106: 2b01         	cmp	r3, #0x1
+     108: d12a         	bne	0x160 <MD32_initializaton_ch+0x160> @ imm = #0x54
+     10a: 4b1f         	ldr	r3, [pc, #0x7c]         @ 0x188 <MD32_initializaton_ch+0x188>
+     10c: 4620         	mov	r0, r4
+     10e: 4937         	ldr	r1, [pc, #0xdc]         @ 0x1ec <MD32_initializaton_ch+0x1ec>
+     110: 2206         	movs	r2, #0x6
+     112: f8c3 21a8    	str.w	r2, [r3, #0x1a8]
+     116: f04f 62c0    	mov.w	r2, #0x6000000
+     11a: 4b35         	ldr	r3, [pc, #0xd4]         @ 0x1f0 <MD32_initializaton_ch+0x1f0>
+     11c: f7ff fffe    	bl	0x11c <MD32_initializaton_ch+0x11c> @ imm = #-0x4
+			0000011c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     120: f44f 0380    	mov.w	r3, #0x400000
+     124: 4620         	mov	r0, r4
+     126: 461a         	mov	r2, r3
+     128: f44f 71b4    	mov.w	r1, #0x168
+     12c: f7ff fffe    	bl	0x12c <MD32_initializaton_ch+0x12c> @ imm = #-0x4
+			0000012c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     130: 4b29         	ldr	r3, [pc, #0xa4]         @ 0x1d8 <MD32_initializaton_ch+0x1d8>
+     132: 2202         	movs	r2, #0x2
+     134: 625a         	str	r2, [r3, #0x24]
+     136: 635a         	str	r2, [r3, #0x34]
+     138: f8c3 20a4    	str.w	r2, [r3, #0xa4]
+     13c: f895 30ad    	ldrb.w	r3, [r5, #0xad]
+     140: 2b01         	cmp	r3, #0x1
+     142: d113         	bne	0x16c <MD32_initializaton_ch+0x16c> @ imm = #0x26
+     144: 492b         	ldr	r1, [pc, #0xac]         @ 0x1f4 <MD32_initializaton_ch+0x1f4>
+     146: 4620         	mov	r0, r4
+     148: f44f 337c    	mov.w	r3, #0x3f000
+     14c: 2200         	movs	r2, #0x0
+     14e: f7ff fffe    	bl	0x14e <MD32_initializaton_ch+0x14e> @ imm = #-0x4
+			0000014e:  R_ARM_THM_CALL	vIO32WriteMsk
+     152: 4928         	ldr	r1, [pc, #0xa0]         @ 0x1f4 <MD32_initializaton_ch+0x1f4>
+     154: 4620         	mov	r0, r4
+     156: f44f 037c    	mov.w	r3, #0xfc0000
+     15a: 2200         	movs	r2, #0x0
+     15c: f7ff fffe    	bl	0x15c <MD32_initializaton_ch+0x15c> @ imm = #-0x4
+			0000015c:  R_ARM_THM_CALL	vIO32WriteMsk
+     160: 4620         	mov	r0, r4
+     162: 2100         	movs	r1, #0x0
+     164: e8bd 4038    	pop.w	{r3, r4, r5, lr}
+     168: f7ff bffe    	b.w	0x168 <MD32_initializaton_ch+0x168> @ imm = #-0x4
+			00000168:  R_ARM_THM_JUMP24	vSetPHY2ChannelMapping
+     16c: 4620         	mov	r0, r4
+     16e: 2100         	movs	r1, #0x0
+     170: f7ff fffe    	bl	0x170 <MD32_initializaton_ch+0x170> @ imm = #-0x4
+			00000170:  R_ARM_THM_CALL	u4Dram_Register_Read
+     174: 01c3         	lsls	r3, r0, #0x7
+     176: d5f3         	bpl	0x160 <MD32_initializaton_ch+0x160> @ imm = #-0x1a
+     178: 491f         	ldr	r1, [pc, #0x7c]         @ 0x1f8 <MD32_initializaton_ch+0x1f8>
+     17a: 4620         	mov	r0, r4
+     17c: f64f 73ff    	movw	r3, #0xffff
+     180: 2204         	movs	r2, #0x4
+     182: f7ff fffe    	bl	0x182 <MD32_initializaton_ch+0x182> @ imm = #-0x4
+			00000182:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk
+     186: e7eb         	b	0x160 <MD32_initializaton_ch+0x160> @ imm = #-0x2a
+     188: 00 00 ca 1f  	.word	0x1fca0000
+     18c: 01 08 c0 0f  	.word	0x0fc00801
+     190: 40 00 00 40  	.word	0x40000040
+     194: 00 30 ca 1f  	.word	0x1fca3000
+     198: 20 01 41 00  	.word	0x00410120
+     19c: 00 70 ca 1f  	.word	0x1fca7000
+     1a0: 00 30 c0 c3  	.word	0xc3c03000
+     1a4: 00 0c 00 b0  	.word	0xb0000c00
+     1a8: 00 00 c0 c3  	.word	0xc3c00000
+     1ac: 00 0c 00 a0  	.word	0xa0000c00
+     1b0: fc 0f c0 00  	.word	0x00c00ffc
+     1b4: 09 08 c0 0f  	.word	0x0fc00809
+     1b8: 3e 08 10 00  	.word	0x0010083e
+     1bc: 1c 26 10 0c  	.word	0x0c10261c
+     1c0: 21 72 0a 34  	.word	0x340a7221
+     1c4: 0a 0c 05 02  	.word	0x02050c0a
+     1c8: 4a 5e 20 0b  	.word	0x0b205e4a
+     1cc: 0f 02 cb 66  	.word	0x66cb020f
+     1d0: 3c b1 06 00  	.word	0x0006b13c
+     1d4: 01 08 c0 44  	.word	0x44c00801
+     1d8: 00 20 ca 1f  	.word	0x1fca2000
+     1dc: 00 00 00 00  	.word	0x00000000
+			000001dc:  R_ARM_ABS32	DUTTopSetGlobal
+     1e0: 11 0b c0 44  	.word	0x44c00b11
+     1e4: 3f 00 00 0c  	.word	0x0c00003f
+     1e8: 05 0b c0 44  	.word	0x44c00b05
+     1ec: 4c 08 00 01  	.word	0x0100084c
+     1f0: 00 00 ff ff  	.word	0xffff0000
+     1f4: a4 08 00 01  	.word	0x010008a4
+     1f8: 50 08 00 01  	.word	0x01000850
+
+Disassembly of section .text.MD32_initializaton:
+
+00000000 <MD32_initializaton>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 2400         	movs	r4, #0x0
+       4: 7806         	ldrb	r6, [r0]
+       6: 4605         	mov	r5, r0
+       8: 2000         	movs	r0, #0x0
+       a: 2e01         	cmp	r6, #0x1
+       c: bf38         	it	lo
+       e: 2601         	movlo	r6, #0x1
+      10: f7ff fffe    	bl	0x10 <MD32_initializaton+0x10> @ imm = #-0x4
+			00000010:  R_ARM_THM_CALL	DramcBroadcastOnOff
+      14: 4621         	mov	r1, r4
+      16: 3401         	adds	r4, #0x1
+      18: 4628         	mov	r0, r5
+      1a: f7ff fffe    	bl	0x1a <MD32_initializaton+0x1a> @ imm = #-0x4
+			0000001a:  R_ARM_THM_CALL	MD32_initializaton_ch
+      1e: b2e3         	uxtb	r3, r4
+      20: 429e         	cmp	r6, r3
+      22: d8f7         	bhi	0x14 <MD32_initializaton+0x14> @ imm = #-0x12
+      24: bd70         	pop	{r4, r5, r6, pc}

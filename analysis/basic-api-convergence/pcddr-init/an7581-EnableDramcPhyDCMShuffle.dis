@@ -1,0 +1,111 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.EnableDramcPhyDCMShuffle:
+
+00000000 <EnableDramcPhyDCMShuffle>:
+       0: b570         	push	{r4, r5, r6, lr}
+       2: 460d         	mov	r5, r1
+       4: 4604         	mov	r4, r0
+       6: f7ff fffe    	bl	0x6 <EnableDramcPhyDCMShuffle+0x6> @ imm = #-0x4
+			00000006:  R_ARM_THM_CALL	EnableCommonDCMShuffle
+       a: 2d00         	cmp	r5, #0x0
+       c: d03a         	beq	0x84 <EnableDramcPhyDCMShuffle+0x84> @ imm = #0x74
+       e: 492c         	ldr	r1, [pc, #0xb0]         @ 0xc0 <EnableDramcPhyDCMShuffle+0xc0>
+      10: 4620         	mov	r0, r4
+      12: 230f         	movs	r3, #0xf
+      14: 2200         	movs	r2, #0x0
+      16: f7ff fffe    	bl	0x16 <EnableDramcPhyDCMShuffle+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      1a: f04f 4300    	mov.w	r3, #0x80000000
+      1e: 4929         	ldr	r1, [pc, #0xa4]         @ 0xc4 <EnableDramcPhyDCMShuffle+0xc4>
+      20: 461a         	mov	r2, r3
+      22: 4620         	mov	r0, r4
+      24: f7ff fffe    	bl	0x24 <EnableDramcPhyDCMShuffle+0x24> @ imm = #-0x4
+			00000024:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      28: 4927         	ldr	r1, [pc, #0x9c]         @ 0xc8 <EnableDramcPhyDCMShuffle+0xc8>
+      2a: 4620         	mov	r0, r4
+      2c: f04f 437c    	mov.w	r3, #0xfc000000
+      30: 2200         	movs	r2, #0x0
+      32: f7ff fffe    	bl	0x32 <EnableDramcPhyDCMShuffle+0x32> @ imm = #-0x4
+			00000032:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      36: 4b25         	ldr	r3, [pc, #0x94]         @ 0xcc <EnableDramcPhyDCMShuffle+0xcc>
+      38: 4925         	ldr	r1, [pc, #0x94]         @ 0xd0 <EnableDramcPhyDCMShuffle+0xd0>
+      3a: 4620         	mov	r0, r4
+      3c: 2200         	movs	r2, #0x0
+      3e: f7ff fffe    	bl	0x3e <EnableDramcPhyDCMShuffle+0x3e> @ imm = #-0x4
+			0000003e:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      42: 4b24         	ldr	r3, [pc, #0x90]         @ 0xd4 <EnableDramcPhyDCMShuffle+0xd4>
+      44: 4924         	ldr	r1, [pc, #0x90]         @ 0xd8 <EnableDramcPhyDCMShuffle+0xd8>
+      46: 4620         	mov	r0, r4
+      48: 2200         	movs	r2, #0x0
+      4a: f7ff fffe    	bl	0x4a <EnableDramcPhyDCMShuffle+0x4a> @ imm = #-0x4
+			0000004a:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      4e: 4b23         	ldr	r3, [pc, #0x8c]         @ 0xdc <EnableDramcPhyDCMShuffle+0xdc>
+      50: 4923         	ldr	r1, [pc, #0x8c]         @ 0xe0 <EnableDramcPhyDCMShuffle+0xe0>
+      52: 4620         	mov	r0, r4
+      54: 2200         	movs	r2, #0x0
+      56: f7ff fffe    	bl	0x56 <EnableDramcPhyDCMShuffle+0x56> @ imm = #-0x4
+			00000056:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      5a: 4922         	ldr	r1, [pc, #0x88]         @ 0xe4 <EnableDramcPhyDCMShuffle+0xe4>
+      5c: 4620         	mov	r0, r4
+      5e: 2302         	movs	r3, #0x2
+      60: 2200         	movs	r2, #0x0
+      62: f7ff fffe    	bl	0x62 <EnableDramcPhyDCMShuffle+0x62> @ imm = #-0x4
+			00000062:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      66: 2320         	movs	r3, #0x20
+      68: 491f         	ldr	r1, [pc, #0x7c]         @ 0xe8 <EnableDramcPhyDCMShuffle+0xe8>
+      6a: 461a         	mov	r2, r3
+      6c: 4620         	mov	r0, r4
+      6e: f7ff fffe    	bl	0x6e <EnableDramcPhyDCMShuffle+0x6e> @ imm = #-0x4
+			0000006e:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      72: 4a1e         	ldr	r2, [pc, #0x78]         @ 0xec <EnableDramcPhyDCMShuffle+0xec>
+      74: 491e         	ldr	r1, [pc, #0x78]         @ 0xf0 <EnableDramcPhyDCMShuffle+0xf0>
+      76: f04f 33ff    	mov.w	r3, #0xffffffff
+      7a: 4620         	mov	r0, r4
+      7c: e8bd 4070    	pop.w	{r4, r5, r6, lr}
+      80: f7ff bffe    	b.w	0x80 <EnableDramcPhyDCMShuffle+0x80> @ imm = #-0x4
+			00000080:  R_ARM_THM_JUMP24	vIO32WriteMsk_All
+      84: 4b15         	ldr	r3, [pc, #0x54]         @ 0xdc <EnableDramcPhyDCMShuffle+0xdc>
+      86: 4620         	mov	r0, r4
+      88: 4911         	ldr	r1, [pc, #0x44]         @ 0xd0 <EnableDramcPhyDCMShuffle+0xd0>
+      8a: 461a         	mov	r2, r3
+      8c: f7ff fffe    	bl	0x8c <EnableDramcPhyDCMShuffle+0x8c> @ imm = #-0x4
+			0000008c:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      90: 4b18         	ldr	r3, [pc, #0x60]         @ 0xf4 <EnableDramcPhyDCMShuffle+0xf4>
+      92: 490d         	ldr	r1, [pc, #0x34]         @ 0xc8 <EnableDramcPhyDCMShuffle+0xc8>
+      94: 4620         	mov	r0, r4
+      96: 461a         	mov	r2, r3
+      98: f7ff fffe    	bl	0x98 <EnableDramcPhyDCMShuffle+0x98> @ imm = #-0x4
+			00000098:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      9c: 4909         	ldr	r1, [pc, #0x24]         @ 0xc4 <EnableDramcPhyDCMShuffle+0xc4>
+      9e: 462a         	mov	r2, r5
+      a0: 4620         	mov	r0, r4
+      a2: f04f 4300    	mov.w	r3, #0x80000000
+      a6: f7ff fffe    	bl	0xa6 <EnableDramcPhyDCMShuffle+0xa6> @ imm = #-0x4
+			000000a6:  R_ARM_THM_CALL	vIO32WriteMsk_All
+      aa: 4b0c         	ldr	r3, [pc, #0x30]         @ 0xdc <EnableDramcPhyDCMShuffle+0xdc>
+      ac: 490a         	ldr	r1, [pc, #0x28]         @ 0xd8 <EnableDramcPhyDCMShuffle+0xd8>
+      ae: 4620         	mov	r0, r4
+      b0: 461a         	mov	r2, r3
+      b2: f7ff fffe    	bl	0xb2 <EnableDramcPhyDCMShuffle+0xb2> @ imm = #-0x4
+			000000b2:  R_ARM_THM_CALL	vPhyByteIO32WriteMsk_All
+      b6: 490b         	ldr	r1, [pc, #0x2c]         @ 0xe4 <EnableDramcPhyDCMShuffle+0xe4>
+      b8: 462a         	mov	r2, r5
+      ba: 2302         	movs	r3, #0x2
+      bc: e7dd         	b	0x7a <EnableDramcPhyDCMShuffle+0x7a> @ imm = #-0x46
+      be: bf00         	nop
+      c0: 8c 16 20 00  	.word	0x0020168c
+      c4: ac 16 20 00  	.word	0x002016ac
+      c8: 88 0e 20 09  	.word	0x09200e88
+      cc: 00 00 d8 fd  	.word	0xfdd80000
+      d0: 08 0f 20 11  	.word	0x11200f08
+      d4: 00 00 e8 fd  	.word	0xfde80000
+      d8: 88 0f 20 19  	.word	0x19200f88
+      dc: 00 00 d8 fc  	.word	0xfcd80000
+      e0: 08 10 20 21  	.word	0x21201008
+      e4: a8 10 20 01  	.word	0x012010a8
+      e8: 20 11 20 01  	.word	0x01201120
+      ec: 00 30 4f 33  	.word	0x334f3000
+      f0: 24 11 20 01  	.word	0x01201124
+      f4: 00 00 30 fc  	.word	0xfc300000

@@ -1,0 +1,85 @@
+
+Relocation section '.rel.text.get_TX_path_config' at offset 0x1724 contains 15 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000024  0000220a R_ARM_THM_CALL         00000000   PC3_DRAM_config
+0000003a  0000230a R_ARM_THM_CALL         00000000   PC4_DRAM_config
+00000076  0000240a R_ARM_THM_CALL         00000000   u1IsPhaseMode
+00000098  0000240a R_ARM_THM_CALL         00000000   u1IsPhaseMode
+000000be  0000250a R_ARM_THM_CALL         00000000   Get_WL_by_MR_PC3
+000000d0  0000250a R_ARM_THM_CALL         00000000   Get_WL_by_MR_PC3
+00000258  0000260a R_ARM_THM_CALL         00000000   get_dq_ca_p2s_latency
+0000026a  0000260a R_ARM_THM_CALL         00000000   get_dq_ca_p2s_latency
+0000027e  0000260a R_ARM_THM_CALL         00000000   get_dq_ca_p2s_latency
+000002c4  0000270a R_ARM_THM_CALL         00000000   Get_WL_by_MR_PC4
+000002d4  0000270a R_ARM_THM_CALL         00000000   Get_WL_by_MR_PC4
+00000324  00002802 R_ARM_ABS32            00000000   MEM_TYPE
+00000328  00002902 R_ARM_ABS32            00000000   DV_p
+0000032c  00002a02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000338  00002b02 R_ARM_ABS32            00000000   DUTShufConfigGlobal
+
+Relocation section '.rel.text.calculate_TX_path_rg_val' at offset 0x179c contains 13 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000022  00002d0a R_ARM_THM_CALL         00000000   A_div_B_RU
+000001a4  00002d0a R_ARM_THM_CALL         00000000   A_div_B_RU
+000002c2  00002d0a R_ARM_THM_CALL         00000000   A_div_B_RU
+0000034c  00002802 R_ARM_ABS32            00000000   MEM_TYPE
+00000350  00002a02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+00000630  00000c02 R_ARM_ABS32            00000000   .text.calculate_TX_path_rg_val
+00000634  00000c02 R_ARM_ABS32            00000000   .text.calculate_TX_path_rg_val
+00000638  00000c02 R_ARM_ABS32            00000000   .text.calculate_TX_path_rg_val
+0000063c  00000c02 R_ARM_ABS32            00000000   .text.calculate_TX_path_rg_val
+00000640  00002902 R_ARM_ABS32            00000000   DV_p
+00000644  00002802 R_ARM_ABS32            00000000   MEM_TYPE
+00000648  00002a02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+0000064c  00002b02 R_ARM_ABS32            00000000   DUTShufConfigGlobal
+
+Relocation section '.rel.text.TX_PATH_config' at offset 0x1804 contains 39 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+0000000e  00002f0a R_ARM_THM_CALL         00000000   vSetPHY2ChannelMapping
+000000a8  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000000e6  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000010e  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000136  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000154  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000168  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000170  0000310a R_ARM_THM_CALL         00000000   vSetRank
+000001c0  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000214  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000268  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000002bc  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000316  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000372  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000003cc  00002a02 R_ARM_ABS32            00000000   DUTTopSetGlobal
+000003f8  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000416  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000430  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000044a  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000464  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000480  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000004c4  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000004ee  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000514  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+00000522  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000548  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000056e  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+0000057c  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+000005a2  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000005c8  0000320a R_ARM_THM_CALL         00000000   vPhyByteWriteFldAlign
+000005f0  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000618  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000062c  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000652  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000684  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+0000071c  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000770  00003302 R_ARM_ABS32            00000000   pkg_type
+00000778  00002802 R_ARM_ABS32            00000000   MEM_TYPE
+000006aa  0000301e R_ARM_THM_JUMP24       00000000   vPhyByteIO32WriteMsk
+
+Relocation section '.rel.text.TX_PATH_auto_gen_and_set' at offset 0x193c contains 6 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000010  0000210a R_ARM_THM_CALL         00000001   get_TX_path_config
+0000001c  00002c0a R_ARM_THM_CALL         00000001   calculate_TX_path_rg_val
+00000028  00002e0a R_ARM_THM_CALL         00000001   TX_PATH_config
+00000046  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000058  0000300a R_ARM_THM_CALL         00000000   vPhyByteIO32WriteMsk
+00000068  00002b02 R_ARM_ABS32            00000000   DUTShufConfigGlobal

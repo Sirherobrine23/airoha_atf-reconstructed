@@ -1,0 +1,18 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcShuTrackingDcmEnBySRAM:
+
+00000000 <DramcShuTrackingDcmEnBySRAM>:
+       0: b510         	push	{r4, lr}
+       2: 4604         	mov	r4, r0
+       4: f7ff fffe    	bl	0x4 <DramcShuTrackingDcmEnBySRAM+0x4> @ imm = #-0x4
+			00000004:  R_ARM_THM_CALL	EnableRxDcmDPhy
+       8: 4620         	mov	r0, r4
+       a: f7ff fffe    	bl	0xa <DramcShuTrackingDcmEnBySRAM+0xa> @ imm = #-0x4
+			0000000a:  R_ARM_THM_CALL	Enable_ClkTxRxLatchEn
+       e: 4620         	mov	r0, r4
+      10: 2100         	movs	r1, #0x0
+      12: e8bd 4010    	pop.w	{r4, lr}
+      16: f7ff bffe    	b.w	0x16 <DramcShuTrackingDcmEnBySRAM+0x16> @ imm = #-0x4
+			00000016:  R_ARM_THM_JUMP24	EnableDramcPhyDCMShuffle

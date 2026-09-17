@@ -1,0 +1,238 @@
+
+/mnt/data/atf_extract/plat/ecnt/blobs/an7581/bl22/TX_RX_auto_gen_library.o:	file format elf32-littlearm
+
+Disassembly of section .text.get_max_val_form_2dim:
+
+00000000 <get_max_val_form_2dim>:
+       0: 4603         	mov	r3, r0
+       2: e9d0 0200    	ldrd	r0, r2, [r0]
+       6: 4290         	cmp	r0, r2
+       8: bf38         	it	lo
+       a: 4610         	movlo	r0, r2
+       c: 689a         	ldr	r2, [r3, #0x8]
+       e: 68db         	ldr	r3, [r3, #0xc]
+      10: 4290         	cmp	r0, r2
+      12: bf38         	it	lo
+      14: 4610         	movlo	r0, r2
+      16: 4298         	cmp	r0, r3
+      18: bf38         	it	lo
+      1a: 4618         	movlo	r0, r3
+      1c: 4770         	bx	lr
+
+Disassembly of section .text.get_min_val_form_2dim:
+
+00000000 <get_min_val_form_2dim>:
+       0: 4603         	mov	r3, r0
+       2: e9d0 0200    	ldrd	r0, r2, [r0]
+       6: 4290         	cmp	r0, r2
+       8: bf28         	it	hs
+       a: 4610         	movhs	r0, r2
+       c: 689a         	ldr	r2, [r3, #0x8]
+       e: 68db         	ldr	r3, [r3, #0xc]
+      10: 4290         	cmp	r0, r2
+      12: bf28         	it	hs
+      14: 4610         	movhs	r0, r2
+      16: 4298         	cmp	r0, r3
+      18: bf28         	it	hs
+      1a: 4618         	movhs	r0, r3
+      1c: 4770         	bx	lr
+
+Disassembly of section .text.get_dq_ca_p2s_latency:
+
+00000000 <get_dq_ca_p2s_latency>:
+       0: fb01 0000    	mla	r0, r1, r0, r0
+       4: fb00 0002    	mla	r0, r0, r2, r0
+       8: f000 02ff    	and	r2, r0, #0xff
+       c: 2a08         	cmp	r2, #0x8
+       e: d01d         	beq	0x4c <get_dq_ca_p2s_latency+0x4c> @ imm = #0x3a
+      10: d812         	bhi	0x38 <get_dq_ca_p2s_latency+0x38> @ imm = #0x24
+      12: 2a02         	cmp	r2, #0x2
+      14: d022         	beq	0x5c <get_dq_ca_p2s_latency+0x5c> @ imm = #0x44
+      16: 2a04         	cmp	r2, #0x4
+      18: f04f 0003    	mov.w	r0, #0x3
+      1c: bf18         	it	ne
+      1e: 2000         	movne	r0, #0x0
+      20: 4b11         	ldr	r3, [pc, #0x44]         @ 0x68 <get_dq_ca_p2s_latency+0x68>
+      22: 681b         	ldr	r3, [r3]
+      24: f023 0304    	bic	r3, r3, #0x4
+      28: 2b02         	cmp	r3, #0x2
+      2a: d11c         	bne	0x66 <get_dq_ca_p2s_latency+0x66> @ imm = #0x38
+      2c: 2a04         	cmp	r2, #0x4
+      2e: d019         	beq	0x64 <get_dq_ca_p2s_latency+0x64> @ imm = #0x32
+      30: 2a08         	cmp	r2, #0x8
+      32: bf08         	it	eq
+      34: 2007         	moveq	r0, #0x7
+      36: 4770         	bx	lr
+      38: 2a10         	cmp	r2, #0x10
+      3a: d111         	bne	0x60 <get_dq_ca_p2s_latency+0x60> @ imm = #0x22
+      3c: 4b0b         	ldr	r3, [pc, #0x2c]         @ 0x6c <get_dq_ca_p2s_latency+0x6c>
+      3e: 200b         	movs	r0, #0xb
+      40: f893 3079    	ldrb.w	r3, [r3, #0x79]
+      44: 2b01         	cmp	r3, #0x1
+      46: bf18         	it	ne
+      48: 2009         	movne	r0, #0x9
+      4a: e7e9         	b	0x20 <get_dq_ca_p2s_latency+0x20> @ imm = #-0x2e
+      4c: 4b07         	ldr	r3, [pc, #0x1c]         @ 0x6c <get_dq_ca_p2s_latency+0x6c>
+      4e: 2006         	movs	r0, #0x6
+      50: f893 3079    	ldrb.w	r3, [r3, #0x79]
+      54: 2b01         	cmp	r3, #0x1
+      56: bf18         	it	ne
+      58: 2005         	movne	r0, #0x5
+      5a: e7e1         	b	0x20 <get_dq_ca_p2s_latency+0x20> @ imm = #-0x3e
+      5c: 2001         	movs	r0, #0x1
+      5e: e7df         	b	0x20 <get_dq_ca_p2s_latency+0x20> @ imm = #-0x42
+      60: 2000         	movs	r0, #0x0
+      62: e7dd         	b	0x20 <get_dq_ca_p2s_latency+0x20> @ imm = #-0x46
+      64: 2005         	movs	r0, #0x5
+      66: 4770         	bx	lr
+      68: 00 00 00 00  	.word	0x00000000
+			00000068:  R_ARM_ABS32	MEM_TYPE
+      6c: 00 00 00 00  	.word	0x00000000
+			0000006c:  R_ARM_ABS32	DUTTopSetGlobal
+
+Disassembly of section .text.get_dqsien_p2s_latency:
+
+00000000 <get_dqsien_p2s_latency>:
+       0: 4603         	mov	r3, r0
+       2: 2808         	cmp	r0, #0x8
+       4: d00c         	beq	0x20 <get_dqsien_p2s_latency+0x20> @ imm = #0x18
+       6: d805         	bhi	0x14 <get_dqsien_p2s_latency+0x14> @ imm = #0xa
+       8: 2802         	cmp	r0, #0x2
+       a: d022         	beq	0x52 <get_dqsien_p2s_latency+0x52> @ imm = #0x44
+       c: 2804         	cmp	r0, #0x4
+       e: d01d         	beq	0x4c <get_dqsien_p2s_latency+0x4c> @ imm = #0x3a
+      10: 2000         	movs	r0, #0x0
+      12: e00f         	b	0x34 <get_dqsien_p2s_latency+0x34> @ imm = #0x1e
+      14: 2810         	cmp	r0, #0x10
+      16: d1fb         	bne	0x10 <get_dqsien_p2s_latency+0x10> @ imm = #-0xa
+      18: 00c9         	lsls	r1, r1, #0x3
+      1a: 3112         	adds	r1, #0x12
+      1c: b2c8         	uxtb	r0, r1
+      1e: e009         	b	0x34 <get_dqsien_p2s_latency+0x34> @ imm = #0x12
+      20: 4a0e         	ldr	r2, [pc, #0x38]         @ 0x5c <get_dqsien_p2s_latency+0x5c>
+      22: 2007         	movs	r0, #0x7
+      24: f892 2079    	ldrb.w	r2, [r2, #0x79]
+      28: 2a01         	cmp	r2, #0x1
+      2a: bf18         	it	ne
+      2c: 2008         	movne	r0, #0x8
+      2e: eb00 0081    	add.w	r0, r0, r1, lsl #2
+      32: b2c0         	uxtb	r0, r0
+      34: 4a0a         	ldr	r2, [pc, #0x28]         @ 0x60 <get_dqsien_p2s_latency+0x60>
+      36: 6812         	ldr	r2, [r2]
+      38: f022 0204    	bic	r2, r2, #0x4
+      3c: 2a02         	cmp	r2, #0x2
+      3e: d10b         	bne	0x58 <get_dqsien_p2s_latency+0x58> @ imm = #0x16
+      40: 2b04         	cmp	r3, #0x4
+      42: d008         	beq	0x56 <get_dqsien_p2s_latency+0x56> @ imm = #0x10
+      44: 2b08         	cmp	r3, #0x8
+      46: bf08         	it	eq
+      48: 2007         	moveq	r0, #0x7
+      4a: 4770         	bx	lr
+      4c: 0049         	lsls	r1, r1, #0x1
+      4e: 3104         	adds	r1, #0x4
+      50: e7e4         	b	0x1c <get_dqsien_p2s_latency+0x1c> @ imm = #-0x38
+      52: 3102         	adds	r1, #0x2
+      54: e7e2         	b	0x1c <get_dqsien_p2s_latency+0x1c> @ imm = #-0x3c
+      56: 2005         	movs	r0, #0x5
+      58: 4770         	bx	lr
+      5a: bf00         	nop
+      5c: 00 00 00 00  	.word	0x00000000
+			0000005c:  R_ARM_ABS32	DUTTopSetGlobal
+      60: 00 00 00 00  	.word	0x00000000
+			00000060:  R_ARM_ABS32	MEM_TYPE
+
+Disassembly of section .text.get_oe_p2s_latency:
+
+00000000 <get_oe_p2s_latency>:
+       0: 2808         	cmp	r0, #0x8
+       2: d00c         	beq	0x1e <get_oe_p2s_latency+0x1e> @ imm = #0x18
+       4: d805         	bhi	0x12 <get_oe_p2s_latency+0x12> @ imm = #0xa
+       6: 2802         	cmp	r0, #0x2
+       8: d00f         	beq	0x2a <get_oe_p2s_latency+0x2a> @ imm = #0x1e
+       a: 2804         	cmp	r0, #0x4
+       c: d00a         	beq	0x24 <get_oe_p2s_latency+0x24> @ imm = #0x14
+       e: 2000         	movs	r0, #0x0
+      10: 4770         	bx	lr
+      12: 2810         	cmp	r0, #0x10
+      14: d1fb         	bne	0xe <get_oe_p2s_latency+0xe> @ imm = #-0xa
+      16: 1c48         	adds	r0, r1, #0x1
+      18: 00c0         	lsls	r0, r0, #0x3
+      1a: b2c0         	uxtb	r0, r0
+      1c: 4770         	bx	lr
+      1e: 1c48         	adds	r0, r1, #0x1
+      20: 0080         	lsls	r0, r0, #0x2
+      22: e7fa         	b	0x1a <get_oe_p2s_latency+0x1a> @ imm = #-0xc
+      24: 1c48         	adds	r0, r1, #0x1
+      26: 0040         	lsls	r0, r0, #0x1
+      28: e7f7         	b	0x1a <get_oe_p2s_latency+0x1a> @ imm = #-0x12
+      2a: 1c48         	adds	r0, r1, #0x1
+      2c: e7f5         	b	0x1a <get_oe_p2s_latency+0x1a> @ imm = #-0x16
+
+Disassembly of section .text.A_div_B_RU:
+
+00000000 <A_div_B_RU>:
+       0: 4603         	mov	r3, r0
+       2: fbb0 f0f1    	udiv	r0, r0, r1
+       6: 4341         	muls	r1, r0, r1
+       8: 4299         	cmp	r1, r3
+       a: d002         	beq	0x12 <A_div_B_RU+0x12>  @ imm = #0x4
+       c: 428b         	cmp	r3, r1
+       e: bf18         	it	ne
+      10: 3001         	addne	r0, #0x1
+      12: 4770         	bx	lr
+
+Disassembly of section .text.Get_RL_by_MR_PC4:
+
+00000000 <Get_RL_by_MR_PC4>:
+       0: 2917         	cmp	r1, #0x17
+       2: d803         	bhi	0xc <Get_RL_by_MR_PC4+0xc> @ imm = #0x6
+       4: 4b02         	ldr	r3, [pc, #0x8]          @ 0x10 <Get_RL_by_MR_PC4+0x10>
+       6: 5c58         	ldrb	r0, [r3, r1]
+       8: 4410         	add	r0, r2
+       a: 4770         	bx	lr
+       c: 2000         	movs	r0, #0x0
+       e: e7fb         	b	0x8 <Get_RL_by_MR_PC4+0x8> @ imm = #-0xa
+      10: 00 00 00 00  	.word	0x00000000
+			00000010:  R_ARM_ABS32	.rodata.CSWTCH.17
+
+Disassembly of section .text.Get_WL_by_MR_PC4:
+
+00000000 <Get_WL_by_MR_PC4>:
+       0: 2907         	cmp	r1, #0x7
+       2: d803         	bhi	0xc <Get_WL_by_MR_PC4+0xc> @ imm = #0x6
+       4: 4b02         	ldr	r3, [pc, #0x8]          @ 0x10 <Get_WL_by_MR_PC4+0x10>
+       6: 5c58         	ldrb	r0, [r3, r1]
+       8: 4410         	add	r0, r2
+       a: 4770         	bx	lr
+       c: 2000         	movs	r0, #0x0
+       e: e7fb         	b	0x8 <Get_WL_by_MR_PC4+0x8> @ imm = #-0xa
+      10: 00 00 00 00  	.word	0x00000000
+			00000010:  R_ARM_ABS32	.rodata.CSWTCH.19
+
+Disassembly of section .text.Get_RL_by_MR_PC3:
+
+00000000 <Get_RL_by_MR_PC3>:
+       0: 3901         	subs	r1, #0x1
+       2: b2c9         	uxtb	r1, r1
+       4: 290d         	cmp	r1, #0xd
+       6: d803         	bhi	0x10 <Get_RL_by_MR_PC3+0x10> @ imm = #0x6
+       8: 4b02         	ldr	r3, [pc, #0x8]          @ 0x14 <Get_RL_by_MR_PC3+0x14>
+       a: 5c58         	ldrb	r0, [r3, r1]
+       c: 4410         	add	r0, r2
+       e: 4770         	bx	lr
+      10: 2000         	movs	r0, #0x0
+      12: e7fb         	b	0xc <Get_RL_by_MR_PC3+0xc> @ imm = #-0xa
+      14: 00 00 00 00  	.word	0x00000000
+			00000014:  R_ARM_ABS32	.rodata.CSWTCH.21
+
+Disassembly of section .text.Get_WL_by_MR_PC3:
+
+00000000 <Get_WL_by_MR_PC3>:
+       0: 2a07         	cmp	r2, #0x7
+       2: d803         	bhi	0xc <Get_WL_by_MR_PC3+0xc> @ imm = #0x6
+       4: 3205         	adds	r2, #0x5
+       6: b2d2         	uxtb	r2, r2
+       8: 1898         	adds	r0, r3, r2
+       a: 4770         	bx	lr
+       c: 2200         	movs	r2, #0x0
+       e: e7fb         	b	0x8 <Get_WL_by_MR_PC3+0x8> @ imm = #-0xa

@@ -1,0 +1,7 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7581/bl22/dramc_pi_basic_api.o:	file format elf32-littlearm
+
+Disassembly of section .text.DramcEnablePerBankRefresh:
+
+00000000 <DramcEnablePerBankRefresh>:
+       0: 4770         	bx	lr

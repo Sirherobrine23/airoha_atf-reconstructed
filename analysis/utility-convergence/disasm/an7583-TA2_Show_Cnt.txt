@@ -1,0 +1,39 @@
+
+/mnt/data/work_atf/plat/ecnt/blobs/an7583/bl22/dramc_utility.o:	file format elf32-littlearm
+
+Disassembly of section .text.TA2_Show_Cnt:
+
+00000000 <TA2_Show_Cnt>:
+       0: e92d 41f0    	push.w	{r4, r5, r6, r7, r8, lr}
+       4: 2300         	movs	r3, #0x0
+       6: 4d10         	ldr	r5, [pc, #0x40] <TA2_Show_Cnt+0x48>
+       8: 4f10         	ldr	r7, [pc, #0x40] <TA2_Show_Cnt+0x4c>
+       a: 461e         	mov	r6, r3
+       c: f8d0 e008    	ldr.w	lr, [r0, #0x8]
+      10: 469c         	mov	r12, r3
+      12: f04f 0801    	mov.w	r8, #0x1
+      16: 6828         	ldr	r0, [r5]
+      18: 683c         	ldr	r4, [r7]
+      1a: b2da         	uxtb	r2, r3
+      1c: 4596         	cmp	lr, r2
+      1e: d807         	bhi	0x30 <TA2_Show_Cnt+0x30> @ imm = #0xe
+      20: f1bc 0f00    	cmp.w	r12, #0x0
+      24: d000         	beq	0x28 <TA2_Show_Cnt+0x28> @ imm = #0x0
+      26: 603c         	str	r4, [r7]
+      28: b106         	cbz	r6, 0x2c <TA2_Show_Cnt+0x2c> @ imm = #0x0
+      2a: 6028         	str	r0, [r5]
+      2c: e8bd 81f0    	pop.w	{r4, r5, r6, r7, r8, pc}
+      30: fa08 f202    	lsl.w	r2, r8, r2
+      34: 420a         	tst	r2, r1
+      36: d004         	beq	0x42 <TA2_Show_Cnt+0x42> @ imm = #0x8
+      38: 3401         	adds	r4, #0x1
+      3a: f04f 0c01    	mov.w	r12, #0x1
+      3e: 3301         	adds	r3, #0x1
+      40: e7eb         	b	0x1a <TA2_Show_Cnt+0x1a> @ imm = #-0x2a
+      42: 3001         	adds	r0, #0x1
+      44: 2601         	movs	r6, #0x1
+      46: e7fa         	b	0x3e <TA2_Show_Cnt+0x3e> @ imm = #-0xc
+      48: 00 00 00 00  	.word	0x00000000
+			00000048:  R_ARM_ABS32	.bss.pass_count.0
+      4c: 00 00 00 00  	.word	0x00000000
+			0000004c:  R_ARM_ABS32	.bss.err_count.1
