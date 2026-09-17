@@ -1,6 +1,5 @@
 # GitHub cross-reference findings
 
-'
 
 ## Strongest external reference
 
