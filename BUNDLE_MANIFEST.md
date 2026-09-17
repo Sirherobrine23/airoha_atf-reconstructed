@@ -1,4 +1,4 @@
-# AN7581 / AN7583 DRAMC recovery bundle v5
+# AN7581 / AN7583 DRAMC recovery bundle v7
 
 ## Purpose
 
@@ -6,7 +6,7 @@ Research + integration bundle for replacing the proprietary AN7581/AN7583 BL22
 DRAMC objects with reconstructed source. The original objects are treated as the
 binary oracle.
 
-## v5 changes
+## Earlier v5 additions
 
 - Promoted AN7583 `dramtest.c` to canonical functional source.
 - Recovered all 15 exported functions from `dramtest.o`.
