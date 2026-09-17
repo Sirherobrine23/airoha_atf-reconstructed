@@ -115,7 +115,7 @@ the shared 12) to confirm no calls were dropped, then separately at `-Os`
 (34 call sites, matching the vendor's per-branch runtime count) to
 confirm the optimizer's merge doesn't change behavior.
 
-## Phase C: 5/7 done for AN7581 (4/7 for AN7583; plus the dle_factor_handler dependency)
+## Phase C: DramcWriteLeveling done for both SoCs (plus the dle_factor_handler dependency)
 
 `DramcZQCalibration` is done (48 bytes, byte-identical AN7581/AN7583).
 Despite its name, it does **not** run an actual ZQ calibration loop: it
@@ -169,9 +169,9 @@ branches, Clang recomputes it per branch).
 
 Remaining Phase C, per the handoff, roughly in size order:
 
-- `DramcWriteLeveling` -- done for AN7581 (1612 B); AN7583's own
-  version (1208 B, confirmed structurally different) is still open,
-  see below.
+- `DramcWriteLeveling` -- done for both SoCs (AN7581 1612 B, AN7583
+  1208 B; confirmed structurally different, each traced and
+  reconstructed independently). See below.
 - `dramc_rx_dqs_gating_cal` (1948 B)
 - `DramcTxWindowPerbitCal` (2504 B)
 - `DramcRxWindowPerbitCal` (2540 B)
@@ -293,30 +293,79 @@ loads where the source reads it once per lane (compiler
 rematerializes the global read instead of caching it in a register
 across the whole loop body).
 
-**AN7583's `DramcWriteLeveling` is a different function, not yet
-reconstructed.** Its object size is 1208 bytes vs AN7581's 1612 --
-too large a gap to be codegen noise. Relocation diffing
-(`reference/an7583/disasm/bl22/dramc_pi_calibration_api.relocs.txt`,
-function starts around line 1220) confirms real structural
-differences, not just constant changes:
+**Correction applied after the initial pass:** the vendor's final
+`pop.w {..., pc}` is preceded by `mov r0, r5` where `r5` is the same
+pass/fail flag just passed to `vSetCalibrationResult(ctx, 5, r5)` --
+i.e. the function returns that flag (0 on success, 1 on failure), not
+a hardcoded 0. The first reconstruction pass had `return 0;`
+unconditionally at the end; fixed to `return fail;` after re-reading
+`reference/an7581/disasm/bl22/dramc_pi_calibration_api.dis` lines
+1833-1839 directly. Same fix applies to AN7583's version below (its
+own `mov r0, r5` before its single `pop.w` at offset 0x328).
 
-- No `pkg_type`, `printf`, or `__meta_backup_and_set`/`__meta_restore`
-  relocations at all -- AN7583 is missing the entire `pkg_type != 0`
-  6-state edge-detector FSM (and its `"byte_%d is broken"` diagnostic)
-  and the dual meta-context final-write section for lanes 2/3. It only
-  has the `pkg_type == 0` settle-then-count FSM path.
-- Only 3 `vPhyByteIO32WriteMsk` relocations, not 5 -- consistent with
-  the missing meta-context lane-2/3 writes.
-- The settle-then-count FSM itself is **not** a byte-identical subset
-  of AN7581's: direct instruction reading shows AN7583 multiplies the
-  settle counter by `step_mult` (an `smulbb`) *before* comparing it to
-  the threshold of 16, where AN7581 compares the raw unscaled counter
-  directly. This changes the number of samples required to arm the
-  FSM depending on `vGet_DDR_Loop_Mode()`, so it is a genuine formula
-  difference, not a copy-paste target.
+**AN7583's `DramcWriteLeveling` is now also reconstructed and
+validated**, from its own independent instruction-by-instruction trace
+(NOT derived by stripping the `pkg_type` branch out of AN7581's C
+source, per the caution originally logged here). Vendor 1208 bytes,
+Clang -Os candidate 1260 bytes, 73 relocations. It is structurally
+simpler than AN7581 (no `pkg_type`, `printf`, or
+`__meta_backup_and_set`/`__meta_restore` relocations at all -- it has
+only the `pkg_type == 0`-style settle-then-count FSM, no 6-state
+edge-detector, and no dual meta-context final write for lanes 2/3),
+but the independent trace turned up real, confirmed differences beyond
+that missing branch, all preserved in
+`an7583/dramc_pi_calibration_api.recovered-core.c`:
 
-Whoever continues this must trace AN7583's version independently,
-instruction-by-instruction, the same way AN7581's was done -- do not
-mechanically strip the `pkg_type` branch out of the AN7581 C source
-above and call it done; at minimum the settle-threshold formula must
-be re-derived from AN7583's own disassembly.
+- `wrlevel_dqs_final_delay` is indexed `[lane + rank*2]`, not AN7581's
+  `[lane + rank*4]` -- confirmed from the vendor's own
+  `add.w r3, r3, r5, lsl #1` (multiply by 2) at every zero-init/
+  fold-back/FSM-finalize site that touches this array, versus AN7581's
+  `lsl #2` (multiply by 4) at the equivalent sites.
+- The MR-timing-window field select compares `data_width` against
+  `0x10` (giving field `3` vs `1`), not AN7581's compare against
+  `0x20` (giving field `0xf` vs `3`) -- confirmed via
+  `cmp r3, #0x10` immediately preceding the `it ne` at the
+  corresponding offset, versus AN7581's `cmp r3, #0x20` at its own
+  equivalent site.
+- The settle FSM multiplies the settle counter by `step_mult` (an
+  `smulbb`) *before* comparing it to the arm threshold of 16; AN7581
+  compares the raw unscaled counter directly (`cmp r2, #0x10` with no
+  preceding multiply). Changes how many samples are needed to arm
+  depending on `vGet_DDR_Loop_Mode()`.
+- Every round after the first writes the live round position
+  (`round << 24`, mask `0x3f000000`) into both `0x11600a20` and
+  `0x19600aa0`; AN7581 does not touch those two registers again until
+  after the sweep loop exits (it only reads/refreshes `0x096009a0` on
+  rounds after the first). AN7583 also swaps which round (0 vs. later)
+  does the `0x096009a0` refresh versus the `0x11600a20`/`0x19600aa0`
+  writes, relative to how AN7581 arranges the analogous round==0 vs.
+  round!=0 branch.
+- The final packing section only ever writes lanes 0/1 into
+  `0x11600a20`/`0x19600aa0` -- there is no `data_width == 0x20` branch
+  and no second (lanes 2/3) write pass at all, consistent with the
+  missing meta-context relocations above. A 4-lane configuration's
+  lanes 2/3 results are still computed by the FSM and folded/
+  recentered on the stack, but are never committed to hardware.
+- Confirmed only 3 `vPhyByteIO32WriteMsk` relocations (not 5, matching
+  the missing lane-2/3 write pass) and 13 `vIO32WriteMsk` + 4
+  `vIO32WriteMsk_All` relocations, both reproduced exactly at the
+  *source* level (verified by compiling at `-O0`, which shows the
+  same 13/5 call sites the C source literally contains); the `-Os`
+  candidate shows 12/4 because Clang merges one call from each into a
+  shared tail with an identical call already on the other branch --
+  the same shared-tail trick documented elsewhere in this file, not a
+  dropped call.
+
+Also carries the same return-value fix as AN7581 above: the vendor's
+`mov r0, r5` before its single `pop.w {..., pc}` returns the pass/fail
+flag, not a hardcoded value; the candidate's final `return fail;`
+matches this directly (there was no separate wrong-return-value bug
+to fix here since this function was traced fresh, but the fix is
+called out to make clear both SoCs' functions now agree on this
+point).
+
+`DramcWriteLeveling` is now closed for both SoCs (AN7581 at 27/55
+overall, AN7583 at 26/57 overall). Of the four functions this section
+originally listed as the largest/highest-risk remainder,
+`dramc_rx_dqs_gating_cal`, `DramcTxWindowPerbitCal`, and
+`DramcRxWindowPerbitCal` are what's left.

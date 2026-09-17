@@ -1003,6 +1003,7 @@ U32 DramcWriteLeveling(void *ctx)
     U32 group = 0;
     U32 done_mask;
     U32 lane;
+    U8 fail;
     U8 state[4] = {0};
     U8 settle[4] = {0};
     U8 confirm_c[4] = {0};
@@ -1186,7 +1187,8 @@ U32 DramcWriteLeveling(void *ctx)
         ShiftDQSWCK_UI(ctx, (S8)shift, 4);
     }
 
-    vSetCalibrationResult(ctx, 5, (U8)((done_mask == 0xffU) ? 0U : 1U));
+    fail = (U8)((done_mask == 0xffU) ? 0U : 1U);
+    vSetCalibrationResult(ctx, 5, fail);
     vSetDramMRWriteLevelingOnOff(ctx, 0);
     vIO32WriteMsk(ctx, 0x14cU, 0, 8U);
     O1PathOnOff(ctx, 0);
@@ -1250,5 +1252,5 @@ U32 DramcWriteLeveling(void *ctx)
         __meta_restore(ctx, 0);
     }
 
-    return 0;
+    return fail;
 }
