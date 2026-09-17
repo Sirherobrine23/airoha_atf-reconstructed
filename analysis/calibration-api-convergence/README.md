@@ -115,7 +115,7 @@ the shared 12) to confirm no calls were dropped, then separately at `-Os`
 (34 call sites, matching the vendor's per-branch runtime count) to
 confirm the optimizer's merge doesn't change behavior.
 
-## Phase C: 2/7 done
+## Phase C: 4/7 done (plus the dle_factor_handler dependency)
 
 `DramcZQCalibration` is done (48 bytes, byte-identical AN7581/AN7583).
 Despite its name, it does **not** run an actual ZQ calibration loop: it
@@ -136,14 +136,44 @@ latch) for the current channel/rank, and updates the low byte of the
 cached MR6 shadow (`gMRVal[]`, same indexing already used by
 `DDR3_dram_init.c`/`DDR4_dram_init.c`).
 
+`DramcRxdatlatCal` is also done (236/292 bytes AN7581/AN7583 -- **not**
+byte-identical, see below), together with its dependency
+`dle_factor_handler` (144 bytes, byte-identical). It scans the 32 UI
+positions of the DATLAT delay line for the first contiguous run of
+passing `DramcEngine2Run()` comparisons (capped at run length 5; once a
+run ends, later successes are not counted as a new run), centers
+`dle_factor_handler()` on that run, or restores the pre-scan baseline
+and reports failure if nothing ever passed.
+
+AN7583 differs from AN7581 in two real ways here, not just codegen:
+
+- the `DramcEngine2Run()` result is truncated to 8 bits before the
+  pass/fail check when `ctx+0x44 == 8` (a data-width mode where only
+  the low byte of the per-lane mismatch mask matters);
+- after reporting the result, `ctx+0xbd` selects a "rank 1" path: if
+  clear, the just-applied `0x012010b8`/`0x0020168c` field values are
+  cached into the named global `Rx_datlat_K_result_rg_rk1[2]`; if set,
+  that cached pair is copied verbatim into fixed hardware registers at
+  `0x1fc8a510`/`0x1fc8a490` instead of re-measuring -- i.e. rank 1
+  mirrors rank 0's result on AN7583. AN7581 has no such path at all
+  (matches the earlier utility.c finding that AN7581 hard-codes
+  single-rank support).
+
+Both `DramcRxdatlatCal` candidates show one extra `DramcEngine2End()`
+call versus the vendor (a harmless Clang tail-duplication of a call
+immediately preceding a branch -- see `call-count-check.csv`), and the
+AN7583 candidate shows the `Rx_datlat_K_result_rg_rk1` global address
+materialized twice instead of the vendor's once (same class of
+difference: the vendor caches the address in one register across both
+branches, Clang recomputes it per branch).
+
 Remaining Phase C, per the handoff, roughly in size order:
 
-- `DramcRxdatlatCal` (236 B)
 - `DramcWriteLeveling` (1612 B)
 - `dramc_rx_dqs_gating_cal` (1948 B)
 - `DramcTxWindowPerbitCal` (2504 B)
 - `DramcRxWindowPerbitCal` (2540 B)
 
-The last three are the largest and highest-risk functions in the whole
+These four are the largest and highest-risk functions in the whole
 object; expect them to take substantially longer per function than
 anything done so far.

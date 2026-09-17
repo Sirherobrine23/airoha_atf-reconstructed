@@ -16,6 +16,8 @@ an7581,DramcImpedanceByEfuse,208,200,-8
 an7581,DramcDRVinitSetting,1076,820,-256
 an7581,DramcZQCalibration,48,58,10
 an7581,DramcTXSetVref,128,132,4
+an7581,dle_factor_handler,144,134,-10
+an7581,DramcRxdatlatCal,236,248,12
 an7583,CmdOEOnOff,42,34,-8
 an7583,DramcImpedanceEfuseValue,72,90,18
 an7583,Dramc_efuse_read_parse,78,94,16
@@ -32,3 +34,5 @@ an7583,DramcImpedanceSetValue,684,794,110
 an7583,DramcImpedanceByEfuse,224,216,-8
 an7583,DramcZQCalibration,48,58,10
 an7583,DramcTXSetVref,128,132,4
+an7583,dle_factor_handler,144,134,-10
+an7583,DramcRxdatlatCal,292,332,40

@@ -33,6 +33,15 @@ extern void DramcTriggerRTSWCMD(void *ctx, void *opaque);
 extern void vSetCalibrationResult(void *ctx, U8 cal_type, U8 result);
 extern void DramcModeRegWriteByRank(void *ctx, U8 rank, U8 mr, U16 value);
 extern U16 gMRVal[];
+extern void vPrintCalibrationBasicInfo(void *ctx);
+extern void vAutoRefreshSwitch(void *ctx, U32 enable);
+extern U32 DramcEngine2Init(void *ctx, U32 test2_1, U32 test2_2, U8 pattern,
+                             U8 loop_count, U8 enable_ui_shift);
+extern U32 DramcEngine2Run(void *ctx, U32 wr, U8 pattern);
+extern void DramcEngine2End(void *ctx);
+extern void DramPhyReset(void *ctx);
+extern U32 Rx_datlat_K_result_rg_rk1[2];
+void dle_factor_handler(void *ctx, U8 value);
 static void _LoopAryToDelay(void *ctx, REG_TRANSFER_T *ui_reg,
                              REG_TRANSFER_T *mck_reg, U8 count,
                              S8 shift_ui, U8 byte_idx);
@@ -531,4 +540,124 @@ void DramcTXSetVref(void *ctx, U32 range, U32 vref_code)
     DramcModeRegWriteByRank(ctx, (U8)rank, 6, value);
 
     *shadow = value;
+}
+
+/*
+ * Programs a DATLAT delay code into three packed 5-bit lanes of
+ * 0x012010b8 (adjusted by -1 unless status register 0x012010ec bit 0 is
+ * set or value == 0, in which case the raw value is used unmodified),
+ * then programs a 3-level threshold-crossing range select (value > 7,
+ * > 13, > 18) into 0x0020168c, and finally tail-calls DramPhyReset().
+ * Byte-identical AN7581/AN7583.
+ */
+void dle_factor_handler(void *ctx, U8 value)
+{
+    U32 status = u4Dram_Register_Read(ctx, 0x012010ecU);
+    U32 v = ((status & 1U) != 0U || value == 0U) ? value : (U32)(value - 1U);
+    U32 packed = ((v & 0x1fU) << 16) | ((v & 0x1fU) << 8) | (value & 0x1fU);
+    U32 gt7 = (value > 7U) ? 1U : 0U;
+    U32 gt13 = (value > 13U) ? 1U : 0U;
+    U32 gt18 = (value > 18U) ? 1U : 0U;
+    U32 range = gt18 | (gt13 << 3) | (gt13 << 2) | (gt7 << 1) | (gt7 << 4);
+
+    vPhyByteIO32WriteMsk_All(ctx, 0x012010b8U, packed, 0x1f1f1fU);
+    vPhyByteIO32WriteMsk_All(ctx, 0x0020168cU, range, 0x3fU);
+    DramPhyReset(ctx);
+}
+
+/*
+ * Scans the 32 UI positions of the DATLAT delay line for the first
+ * contiguous run of passing DramcEngine2Run() comparisons (capped at a
+ * run length of 5; once a run ends, later successes are NOT counted as
+ * a new run), then centers dle_factor_handler() on that run, or
+ * restores the pre-scan baseline and reports failure if nothing ever
+ * passed. Same core algorithm as AN7581 (see that recovered-core for
+ * the full derivation), with two AN7583-only additions:
+ *
+ *  - the DramcEngine2Run() comparison result is truncated to 8 bits
+ *    before the pass/fail check when ctx+0x44 == 8 (a data-width mode
+ *    where only the low byte of the per-lane mismatch mask is
+ *    meaningful);
+ *  - after reporting the result, ctx+0xbd selects a "rank 1" path: if
+ *    clear, this rank's just-applied 0x012010b8/0x0020168c field values
+ *    are cached into Rx_datlat_K_result_rg_rk1[]; if set, that cached
+ *    pair is instead copied verbatim into fixed hardware registers at
+ *    0x1fc8a510/0x1fc8a490 (rank 1 mirrors rank 0's result rather than
+ *    re-measuring).
+ *
+ * Returns 1 only for a NULL ctx; every other path returns 0.
+ */
+U32 DramcRxdatlatCal(void *ctx)
+{
+    U32 phase = 0;
+    U32 run_len = 0;
+    U32 state = 0;
+    U32 best_phase = 0xffU;
+    U32 baseline;
+
+    if (ctx == 0)
+        return 1;
+
+    vPrintCalibrationBasicInfo(ctx);
+    vAutoRefreshSwitch(ctx, 1);
+    baseline = vPhyByteReadFldAlign(ctx, 0x012010b8U, 0);
+    vSetCalibrationResult(ctx, 0xc, 1);
+    (void)u4Dram_Register_Read(ctx, 0x012010b8U);
+
+    (void)DramcEngine2Init(ctx, raw_u32(ctx, 72), raw_u32(ctx, 76),
+                            raw_u8(ctx, 0x50), 0, 1);
+
+    for (;;) {
+        U32 result;
+
+        dle_factor_handler(ctx, (U8)phase);
+
+        result = DramcEngine2Run(ctx, 0, raw_u8(ctx, 0x50));
+        if (raw_u32(ctx, 0x44) == 8U)
+            result = (U8)result;
+
+        if (result != 0U) {
+            if (state == 1U)
+                state = 0xffU;
+        } else if (state != 0xffU) {
+            if (state == 0U)
+                best_phase = phase;
+            run_len = (U8)(run_len + 1U);
+            if (run_len > 4U)
+                break;
+            state = 1U;
+        }
+
+        if (phase == 0x1fU)
+            break;
+        phase++;
+    }
+
+    DramcEngine2End(ctx);
+
+    if (run_len == 0U) {
+        vPhyByteWriteFldAlign(ctx, 0x012010b8U, baseline, 0, 1U);
+        vSetCalibrationResult(ctx, 0xc, 1);
+    } else {
+        U32 center = best_phase;
+
+        if (run_len <= 3U)
+            center += run_len >> 1;
+        else
+            center += 1U;
+        dle_factor_handler(ctx, (U8)center);
+        vSetCalibrationResult(ctx, 0xc, 0);
+    }
+
+    vAutoRefreshSwitch(ctx, 0);
+
+    if (raw_u8(ctx, 0xbd) == 0U) {
+        Rx_datlat_K_result_rg_rk1[0] = vPhyByteReadFldAlign(ctx, 0x012010b8U, 0);
+        Rx_datlat_K_result_rg_rk1[1] = vPhyByteReadFldAlign(ctx, 0x0020168cU, 0);
+    } else {
+        raw_set_u32((void *)0x1fc8a000U, 0x510U, Rx_datlat_K_result_rg_rk1[0]);
+        raw_set_u32((void *)0x1fc8a000U, 0x490U, Rx_datlat_K_result_rg_rk1[1]);
+    }
+
+    return 0;
 }
