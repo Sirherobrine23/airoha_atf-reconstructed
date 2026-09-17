@@ -20,6 +20,10 @@ extern void __meta_advance(void *ctx, U8 type);
 extern U32 __meta_process_complete(void *ctx, U8 type);
 extern void __meta_restore(void *ctx, U8 type);
 extern void DramcImpedanceSetValue(void *ctx, U32 code, U32 bit5, U32 type);
+extern void vPhyByteIO32WriteMsk(void *ctx, U32 reg, U32 value, U32 mask);
+extern void vPhyByteIO32WriteMsk_All(void *ctx, U32 reg, U32 value, U32 mask);
+extern void vPhyByteWriteFldAlign(void *ctx, U32 reg, U32 value,
+                                  U32 field, U32 channel_mask);
 
 void PCDDR_ShiftDQSUI(void *ctx, S8 shift_ui, U8 byte_idx)
 {
@@ -112,4 +116,38 @@ S8 DutyScan_Offset_Convert(U32 index)
     if (v > 8)
         v = (U8)(-(S8)(v & 7U));
     return (S8)v;
+}
+
+/*
+ * on_off != 1 asserts PHY register 0x21c bits [21:20]; on_off == 1 clears
+ * them. rank == 1 selects the *_All (broadcast) write, any other value the
+ * single-target write. Byte-identical AN7581/AN7583.
+ */
+void CmdOEOnOff(void *ctx, U32 on_off, U32 rank)
+{
+    U32 value = (on_off != 1U) ? 0x300000U : 0U;
+    U32 mask = 0x300000U;
+    U32 reg = 0x21cU;
+
+    if (rank == 1U)
+        vPhyByteIO32WriteMsk_All(ctx, reg, value, mask);
+    else
+        vPhyByteIO32WriteMsk(ctx, reg, value, mask);
+}
+
+/* Broadcasts delay into all four byte lanes and programs both RX DQ delay
+ * cell registers for the given byte lane. Byte-identical AN7581/AN7583. */
+void SetRxDqDelay(void *ctx, U32 byte_idx, U8 delay)
+{
+    U32 val = (U32)delay | ((U32)delay << 8) | ((U32)delay << 16) |
+              ((U32)delay << 24);
+
+    vPhyByteWriteFldAlign(ctx, 0x116009f8U + 4U * byte_idx, val, 0U, 1U);
+    vPhyByteWriteFldAlign(ctx, 0x19600a78U + 4U * byte_idx, val, 0U, 1U);
+}
+
+/* Vendor object reduces this export to a bare `bx lr` (no relocations, no
+ * observable effect). Confirmed no-op on both SoCs. */
+void Get_RX_DelayCell(void)
+{
 }
