@@ -115,7 +115,7 @@ the shared 12) to confirm no calls were dropped, then separately at `-Os`
 (34 call sites, matching the vendor's per-branch runtime count) to
 confirm the optimizer's merge doesn't change behavior.
 
-## Phase C: started (1/7)
+## Phase C: 2/7 done
 
 `DramcZQCalibration` is done (48 bytes, byte-identical AN7581/AN7583).
 Despite its name, it does **not** run an actual ZQ calibration loop: it
@@ -129,10 +129,16 @@ not a pass/fail loop. (The EN7523 GPL lineage header would name `2`/`0`
 confirmed for this SoC, so the raw values are kept rather than guessing
 a name.)
 
+`DramcTXSetVref` is also done (128 bytes, byte-identical AN7581/AN7583).
+DDR3 is a no-op; DDR4 sequences a JEDEC-style MR6 VrefDQ training write
+(enable bit set -> value added while held -> enable bit cleared to
+latch) for the current channel/rank, and updates the low byte of the
+cached MR6 shadow (`gMRVal[]`, same indexing already used by
+`DDR3_dram_init.c`/`DDR4_dram_init.c`).
+
 Remaining Phase C, per the handoff, roughly in size order:
 
 - `DramcRxdatlatCal` (236 B)
-- `DramcTXSetVref` (128 B)
 - `DramcWriteLeveling` (1612 B)
 - `dramc_rx_dqs_gating_cal` (1948 B)
 - `DramcTxWindowPerbitCal` (2504 B)

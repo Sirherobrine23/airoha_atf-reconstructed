@@ -20,6 +20,6 @@ DRAMC_SUBSYS_config,PUBLIC_BASE,PUBLIC_BASE,MT8192/8195 lineage base; per-functi
 dramc_actiming,PUBLIC_BASE,PUBLIC_BASE,MT8192/8195 lineage base; per-function oracle convergence pending
 dramc_dvfs,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,fully object-derived; all 3 functions byte-identical AN7581<->AN7583; semantics recovered directly from vendor objects
 dramc_pi_basic_api,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,object-derived core is canonical; AN7581 32/32 and AN7583 35/35 ELF functions represented; vendor-call multiplicities checked for vReplaceDVInit
-dramc_pi_calibration_api,PUBLIC_BASE,PUBLIC_BASE,MediaTek lineage base; Phase A+B done, Phase C started (DramcZQCalibration) at 16/55 (an7581) and 15/57 (an7583, DramcDRVinitSetting lives in an7583 dramc_pi_basic_api.o instead); remaining per-function convergence pending
+dramc_pi_calibration_api,PUBLIC_BASE,PUBLIC_BASE,MediaTek lineage base; Phase A+B done, Phase C 2/7 (DramcZQCalibration, DramcTXSetVref) at 17/55 (an7581) and 16/57 (an7583, DramcDRVinitSetting lives in an7583 dramc_pi_basic_api.o instead); remaining per-function convergence pending
 dramc_pi_main,PUBLIC_BASE,PUBLIC_BASE,MediaTek lineage base; per-function convergence pending
 dramc_utility,FUNCTIONAL_HIGH,FUNCTIONAL_HIGH,object-derived core is canonical; 62/62 ELF functions represented for both SoCs

@@ -31,6 +31,8 @@ extern U32 uartDisable;
 extern int printf(const char *fmt, ...);
 extern void DramcTriggerRTSWCMD(void *ctx, void *opaque);
 extern void vSetCalibrationResult(void *ctx, U8 cal_type, U8 result);
+extern void DramcModeRegWriteByRank(void *ctx, U8 rank, U8 mr, U16 value);
+extern U16 gMRVal[];
 static void _LoopAryToDelay(void *ctx, REG_TRANSFER_T *ui_reg,
                              REG_TRANSFER_T *mck_reg, U8 count,
                              S8 shift_ui, U8 byte_idx);
@@ -493,4 +495,40 @@ void DramcZQCalibration(void *ctx, U32 rank)
     DramcTriggerRTSWCMD(ctx, &cmd);
 
     vSetCalibrationResult(ctx, 2, 0);
+}
+
+/*
+ * DDR4-only (a no-op on DDR3): sequences a JEDEC-style MR6 VrefDQ
+ * training write for the DRAM at ctx's current channel (offset 0x4) and
+ * rank (offset 0xc): "range" (bit 6) and "vref_code" (bits 5:0) are
+ * written with the training-enable bit (0x80) set, then again with it
+ * held while vref_code is added, then a final write with the enable bit
+ * cleared to latch the value. The low byte of the cached MR6 shadow
+ * (gMRVal[], indexed the same way as DDR3/DDR4_dram_init.c) is replaced
+ * with the final value; the upper byte is preserved. Note the shadow is
+ * read unconditionally before the is_ddr4_family() check but only
+ * written back (and only the MRWs issued) on DDR4. Byte-identical
+ * AN7581/AN7583.
+ */
+void DramcTXSetVref(void *ctx, U32 range, U32 vref_code)
+{
+    U32 channel = raw_u32(ctx, 0x4);
+    U32 rank = raw_u32(ctx, 0xc);
+    U16 *shadow = &gMRVal[channel * 14U + rank * 7U + 6U];
+    U16 base = (U16)(*shadow & 0xff00U);
+    U16 value;
+
+    if (!is_ddr4_family(ctx))
+        return;
+
+    value = (U16)(base | (range << 6) | 0x80U);
+    DramcModeRegWriteByRank(ctx, (U8)rank, 6, value);
+
+    value = (U16)(value | vref_code);
+    DramcModeRegWriteByRank(ctx, (U8)rank, 6, value);
+
+    value = (U16)(value & ~0x80U);
+    DramcModeRegWriteByRank(ctx, (U8)rank, 6, value);
+
+    *shadow = value;
 }
