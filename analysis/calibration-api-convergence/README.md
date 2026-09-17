@@ -177,3 +177,31 @@ Remaining Phase C, per the handoff, roughly in size order:
 These four are the largest and highest-risk functions in the whole
 object; expect them to take substantially longer per function than
 anything done so far.
+
+## Dependencies recovered for DramcWriteLeveling
+
+Before tackling `DramcWriteLeveling` itself, its five not-yet-recovered
+callees were done first (all byte-identical AN7581/AN7583, table
+content cross-checked against the raw `.rodata` bytes via
+`llvm-objcopy --dump-section`):
+
+- `ShiftDQUI` / `ShiftDQUI_AllRK` -- same `_LoopAryToDelay` wrapper
+  pattern as `PCDDR_ShiftDQSUI`, but over all 8 DQ byte lanes (count 8)
+  across two registers (0x60120c/0x601208 UI, 0x601204/0x601200 MCK).
+  `_AllRK` is a 4-byte tail-jump alias to the non-`_AllRK` name in the
+  vendor object.
+- `ShiftDQ_OENUI` / `ShiftDQ_OENUI_AllRK` -- same, for the OE_N fields.
+- `ShiftDQSWCK_UI` -- applies the same shift to both
+  `PCDDR_ShiftDQSUI` and `PCDDR_ShiftDQS_OENUI`.
+- `O1PathOnOff` -- turns the O1 (1x-frequency) datapath on/off; ends
+  with a fixed 1us delay.
+- `vSetDramMRWriteLevelingOnOff` -- sets/clears the MR1 write-leveling
+  bit plus a family-specific MR2 tweak on rank 1, restoring MR2's cache
+  on disable.
+
+All were validated against the oracle's relocation/call-target sets;
+`vSetDramMRWriteLevelingOnOff` shows the vendor's 5 logical
+`DramcModeRegWriteByRank` calls compiled down to 3 call sites under
+Clang -Os (it merges the two branches' identical trailing calls) --
+confirmed as a harmless codegen difference, not a dropped call, by
+reading the generated assembly directly.

@@ -41,6 +41,7 @@ extern U32 DramcEngine2Run(void *ctx, U32 wr, U8 pattern);
 extern void DramcEngine2End(void *ctx);
 extern void DramPhyReset(void *ctx);
 void dle_factor_handler(void *ctx, U8 value);
+extern void udelay(U32 usec);
 static void _LoopAryToDelay(void *ctx, REG_TRANSFER_T *ui_reg,
                              REG_TRANSFER_T *mck_reg, U8 count,
                              S8 shift_ui, U8 byte_idx);
@@ -735,4 +736,166 @@ U32 DramcRxdatlatCal(void *ctx)
 
     vAutoRefreshSwitch(ctx, 0);
     return 0;
+}
+
+/*
+ * Same _LoopAryToDelay wrapper pattern as PCDDR_ShiftDQSUI/OENUI, but
+ * over all 8 DQ byte lanes (count 8) across two registers instead of
+ * one (0x60120c/0x601208 for the UI table, 0x601204/0x601200 for MCK,
+ * 4 lanes at field positions 0/4/8/12 each). Table content confirmed
+ * against .rodata; byte-identical AN7581/AN7583.
+ */
+void ShiftDQUI(void *ctx, S8 shift_ui, U8 byte_idx)
+{
+    REG_TRANSFER_T ui[] = {
+        {0x0060120cU, 0x00000400U},
+        {0x0060120cU, 0x00000404U},
+        {0x0060120cU, 0x00000408U},
+        {0x0060120cU, 0x0000040cU},
+        {0x00601208U, 0x00000400U},
+        {0x00601208U, 0x00000404U},
+        {0x00601208U, 0x00000408U},
+        {0x00601208U, 0x0000040cU},
+    };
+    REG_TRANSFER_T mck[] = {
+        {0x00601204U, 0x00000400U},
+        {0x00601204U, 0x00000404U},
+        {0x00601204U, 0x00000408U},
+        {0x00601204U, 0x0000040cU},
+        {0x00601200U, 0x00000400U},
+        {0x00601200U, 0x00000404U},
+        {0x00601200U, 0x00000408U},
+        {0x00601200U, 0x0000040cU},
+    };
+
+    _LoopAryToDelay(ctx, ui, mck, 8, shift_ui, byte_idx);
+}
+
+/* Tail-jumps straight to ShiftDQUI in the vendor object (4-byte alias). */
+void ShiftDQUI_AllRK(void *ctx, S8 shift_ui, U8 byte_idx)
+{
+    ShiftDQUI(ctx, shift_ui, byte_idx);
+}
+
+/* Same as ShiftDQUI but for the OE_N tables (field positions 0x10/0x14/
+ * 0x18/0x1c on the same four registers). Byte-identical AN7581/AN7583. */
+void ShiftDQ_OENUI(void *ctx, S8 shift_ui, U8 byte_idx)
+{
+    REG_TRANSFER_T ui[] = {
+        {0x0060120cU, 0x00000410U},
+        {0x0060120cU, 0x00000414U},
+        {0x0060120cU, 0x00000418U},
+        {0x0060120cU, 0x0000041cU},
+        {0x00601208U, 0x00000410U},
+        {0x00601208U, 0x00000414U},
+        {0x00601208U, 0x00000418U},
+        {0x00601208U, 0x0000041cU},
+    };
+    REG_TRANSFER_T mck[] = {
+        {0x00601204U, 0x00000410U},
+        {0x00601204U, 0x00000414U},
+        {0x00601204U, 0x00000418U},
+        {0x00601204U, 0x0000041cU},
+        {0x00601200U, 0x00000410U},
+        {0x00601200U, 0x00000414U},
+        {0x00601200U, 0x00000418U},
+        {0x00601200U, 0x0000041cU},
+    };
+
+    _LoopAryToDelay(ctx, ui, mck, 8, shift_ui, byte_idx);
+}
+
+/* Tail-jumps straight to ShiftDQ_OENUI in the vendor object (4-byte alias). */
+void ShiftDQ_OENUI_AllRK(void *ctx, S8 shift_ui, U8 byte_idx)
+{
+    ShiftDQ_OENUI(ctx, shift_ui, byte_idx);
+}
+
+/* Applies the same UI shift to both the DQS and DQS_OEN delay chains. */
+void ShiftDQSWCK_UI(void *ctx, S8 shift_ui, U8 byte_idx)
+{
+    PCDDR_ShiftDQSUI(ctx, shift_ui, byte_idx);
+    PCDDR_ShiftDQS_OENUI(ctx, shift_ui, byte_idx);
+}
+
+/*
+ * Turns the O1 (1x-frequency) datapath on/off: when enable == 1, first
+ * asserts a block of registers that are otherwise left alone (their
+ * mask equals "enable" itself, so writing 0 through this same path
+ * later is a harmless no-op for those specific fields); the remaining
+ * writes apply unconditionally with enable used directly as the field
+ * value. Ends with a fixed 1us delay. Byte-identical AN7581/AN7583.
+ */
+void O1PathOnOff(void *ctx, U32 enable)
+{
+    U32 bit1 = (enable << 1) & 2U;
+    U32 combo;
+
+    if (enable == 1U) {
+        vPhyByteWriteFldAlign(ctx, 0x51200f30U, enable, 0x00040116U, enable);
+        vPhyByteWriteFldAlign(ctx, 0x59200fb0U, enable, 0x00040116U, enable);
+        vIO32WriteMsk_All(ctx, 0x010007b0U, enable, enable);
+        vIO32WriteMsk_All(ctx, 0x010007b4U, enable, enable);
+        vIO32WriteMsk_All(ctx, 0x91200eecU, 0xeU, 0x3fU);
+        vIO32WriteMsk_All(ctx, 0x99200f6cU, 0xeU, 0x3fU);
+    }
+
+    vPhyByteWriteFldAlign(ctx, 0x9100050cU, enable, 0x00040109U, 1U);
+    vIO32WriteMsk_All(ctx, 0x91000500U, enable, 3U);
+    vPhyByteWriteFldAlign(ctx, 0x9900058cU, enable, 0x00040109U, 1U);
+    vIO32WriteMsk_All(ctx, 0x99000580U, enable, 3U);
+
+    combo = bit1 | (U32)(U8)(enable << 7) | ((enable << 5) & 0x20U);
+    vPhyByteIO32WriteMsk_All(ctx, 0x9100050cU, combo, 0xa2U);
+    vPhyByteIO32WriteMsk_All(ctx, 0x9900058cU, combo, 0xa2U);
+
+    vPhyByteWriteFldAlign(ctx, 0x91000528U, enable, 0x0004011dU, 1U);
+    vPhyByteWriteFldAlign(ctx, 0x990005a8U, enable, 0x0004011dU, 1U);
+
+    vIO32WriteMsk_All(ctx, 0x010007b0U, ((enable << 1) | enable) << 8, 0xf00U);
+
+    udelay(1);
+}
+
+/*
+ * Sets or clears the MR1 write-leveling-enable bit (0x80) in the cached
+ * shadow and writes it out, plus a family-specific MR2 tweak on rank 1
+ * (clears bits [10:9] on DDR3, bits [11:9] on DDR4) when enabling; on
+ * disable, restores MR2's cached shadow value unconditionally after the
+ * MR1 write. LPDDR/other families (neither DDR3 nor DDR4) are a no-op.
+ * Byte-identical AN7581/AN7583.
+ */
+void vSetDramMRWriteLevelingOnOff(void *ctx, U32 enable)
+{
+    U32 channel = raw_u32(ctx, 0x4);
+    U32 rank = raw_u32(ctx, 0xc);
+    U16 *mr1_shadow = &gMRVal[channel * 14U + rank * 7U + 1U];
+    U16 *mr2_shadow = &gMRVal[channel * 14U + rank * 7U + 2U];
+    U16 value = *mr1_shadow;
+
+    if (enable != 0U)
+        value |= 0x80U;
+    else
+        value &= (U16)~0x80U;
+    *mr1_shadow = value;
+
+    if (is_ddr3_family(ctx)) {
+        if (rank == 1U)
+            DramcModeRegWriteByRank(ctx, (U8)rank, 2,
+                                     (U16)(*mr2_shadow & ~0x600U));
+        DramcModeRegWriteByRank(ctx, (U8)rank, 1, value);
+        if (enable != 0U)
+            return;
+    } else {
+        if (!is_ddr4_family(ctx))
+            return;
+        if (rank == 1U)
+            DramcModeRegWriteByRank(ctx, (U8)rank, 2,
+                                     (U16)(*mr2_shadow & ~0xe00U));
+        DramcModeRegWriteByRank(ctx, (U8)rank, 1, value);
+        if (enable != 0U)
+            return;
+    }
+
+    DramcModeRegWriteByRank(ctx, (U8)rank, 2, *mr2_shadow);
 }
