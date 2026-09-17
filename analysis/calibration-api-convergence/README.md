@@ -44,16 +44,66 @@ lookup table via a `memcpy` from `.rodata` and Clang -Os instead inlines the
 table with `movw`/`movt` immediates — a known codegen-strategy difference
 (see main `README.md`), not a logic error.
 
-## Next phase (Phase B — impedance)
+## Phase B status: 4/4 impedance functions done, plus a real dependency
 
-Per the handoff, the next block is:
+Also recovered this pass, both required by the Phase A/B functions above but
+previously only `extern` forward declarations:
 
-- `DramcImpedanceByEfuse`
-- `DramcDRVinitSetting`
-- `DramcImpedanceDrvSetRG`
-- `DramcImpedanceSetValue`
+- `_LoopAryToDelay` (**not** byte-identical cross-SoC: AN7581 has no "field
+  absent" gate; AN7583 additionally treats a packed field's bits[31:24] ==
+  `0xff` as "skip the read (value 0) and neutralize the write (mask 0)".
+  Dead code for every current caller, but a real, faithful SoC difference.)
+- `u1MCK2UI_DivShift` (byte-identical cross-SoC; thin wrapper around
+  `vGet_Div_Mode`)
 
-(`DramcImpedanceEfuseValue` above is Phase B's entry point but was already
-recovered in an earlier pass; `DramcImpedanceSetValue` is currently only an
-`extern` forward declaration used by it and still needs its own body pulled
-from the oracle.)
+Phase B proper:
+
+- `DramcImpedanceByEfuse` -- reads two efuse bytes (DDR4 vs DDR3 bit
+  offsets differ, see below), gates each on its own bit 6, and drives the
+  DRVP/ODTP (fuse6) and DRVN/ODTN (fuse7) trims. AN7583 additionally gates
+  the debug `printf`s on the global `uartDisable`, and both the efuse bit
+  offsets and the `%x`/`0x%x` format strings differ cross-SoC.
+- `DramcImpedanceDrvSetRG` -- converts a field's current raw value to a
+  resistance-like magnitude via a weighted-bit sum (base 10000, doubling
+  2500/5000/10000/20000/40000 per set bit, plus 80000 for bit 5 on
+  6-bit-wide fields), multiplies by the input `code` and divides by 1175,
+  maps the result through an 8-step threshold table (breakpoints at 49,
+  149, 249, 350, 450, 549, 649, 749) to a 0-8 grade, then adds or
+  subtracts that grade from the original raw value depending on `bit5`
+  and writes the clamped byte back. AN7583 adds the same bits[31:24] ==
+  `0xff` "field absent" gate as `_LoopAryToDelay`.
+- `DramcImpedanceSetValue` -- pure dispatch on `type` (0/1/2/3) to up to
+  11 `DramcImpedanceDrvSetRG` calls against a fixed set of MMIO
+  registers/field descriptors; identical register/field constants on both
+  SoCs. `type == 3` calls `DramcImpedanceDrvSetRG(0x012010d4, pos=20)`
+  **twice** -- confirmed against the vendor relocations (31 calls, not
+  33), so this is preserved as-is rather than de-duplicated. An
+  unrecognized `type` prints `"Drv type error \n"`.
+
+See `function-size-check.csv` and `call-count-check.csv` for the full
+per-function vendor/candidate comparison. The only mismatches are
+`DutyScan_Offset_Convert` (already noted above) and
+`DramcImpedanceByEfuse`'s `Dramc_efuse_read_parse` call count: the vendor
+GCC tail-merges the DDR3/DDR4 branches' second call into one shared call
+site (3 sites for 4 logical calls on AN7581, i.e. the same effect the
+`_LoopAryToDelay`/`DramcImpedanceSetValue` shared-tail tricks show
+elsewhere), while Clang keeps them separate; the runtime call count matches
+either way.
+
+## Next phase (Phase C)
+
+The one Phase B function not yet done is `DramcDRVinitSetting` (1076 bytes,
+AN7581-only in this object -- AN7583 does not export it from
+`dramc_pi_calibration_api.o`). After that, Phase C per the handoff:
+
+- `DramcZQCalibration`
+- `DramcWriteLeveling`
+- `dramc_rx_dqs_gating_cal`
+- `DramcRxWindowPerbitCal`
+- `DramcRxdatlatCal`
+- `DramcTXSetVref`
+- `DramcTxWindowPerbitCal`
+
+These are the largest and highest-risk functions in the object (up to
+~2.5 KB each); expect them to take substantially longer per function than
+Phase A/B.

@@ -8,6 +8,11 @@ an7581,PCDDR_ShiftDQSUI,68,92,24
 an7581,PCDDR_ShiftDQS_OENUI,72,92,20
 an7581,SetRxDqDelay,84,86,2
 an7581,get_gating_start_pos,48,54,6
+an7581,_LoopAryToDelay,388,410,22
+an7581,u1MCK2UI_DivShift,18,16,-2
+an7581,DramcImpedanceDrvSetRG,348,362,14
+an7581,DramcImpedanceSetValue,672,794,122
+an7581,DramcImpedanceByEfuse,208,200,-8
 an7583,CmdOEOnOff,42,34,-8
 an7583,DramcImpedanceEfuseValue,72,90,18
 an7583,Dramc_efuse_read_parse,78,94,16
@@ -17,3 +22,8 @@ an7583,PCDDR_ShiftDQSUI,68,92,24
 an7583,PCDDR_ShiftDQS_OENUI,72,92,20
 an7583,SetRxDqDelay,84,86,2
 an7583,get_gating_start_pos,48,54,6
+an7583,_LoopAryToDelay,436,448,12
+an7583,u1MCK2UI_DivShift,18,16,-2
+an7583,DramcImpedanceDrvSetRG,368,442,74
+an7583,DramcImpedanceSetValue,684,794,110
+an7583,DramcImpedanceByEfuse,224,216,-8
