@@ -205,3 +205,40 @@ All were validated against the oracle's relocation/call-target sets;
 Clang -Os (it merges the two branches' identical trailing calls) --
 confirmed as a harmless codegen difference, not a dropped call, by
 reading the generated assembly directly.
+
+## DramcWriteLeveling itself: structure mapped, body not yet written
+
+**Important finding first:** AN7581's `DramcWriteLeveling` is 1612
+bytes; AN7583's is only 1208 bytes (`reference/an7583/disasm/bl22/
+dramc_pi_calibration_api.dis` line 1220). That is too large a gap to be
+codegen noise -- the two SoCs' write-leveling sequences genuinely
+differ in structure, not just constants. Whoever continues this must
+disassemble and decode AN7583's copy independently rather than
+assuming it is a byte-identical (or even structurally identical)
+sibling; don't reuse the AN7581 analysis below for it.
+
+AN7581's `DramcWriteLeveling` (`reference/an7581/disasm/bl22/
+dramc_pi_calibration_api.dis` line 1426, 61 relocations) has been read
+and phase-mapped in full but **not yet transcribed to C** -- the tail
+half is a genuine 6-state per-byte-lane edge-detection FSM (dispatched
+through a `tbb` jump table at offset 0x4cc) with counters packed into a
+stack-allocated array, and committing an unverified guess at that would
+be worse than leaving it documented. What follows is everything needed
+to pick this up without redoing the analysis:
+
+Phases confirmed by full disassembly read:
+
+1. `if (ctx == 0) return 1;`
+2. `vPrintCalibrationBasicInfo(ctx)`, then `vIO32WriteMsk(ctx, 0x238, rank, 3)` and `vIO32WriteMsk(ctx, 0x238, 4, 4)`.
+3. Two fixed tables are copied from the object's shared `.rodata` (confirmed via `llvm-objcopy --dump-section`, offsets are into the AN7581 blob's `.rodata`, not necessarily the same in AN7583's):
+   - `regs[9]` at `.rodata+0x180`: `{0x14c, 0x150, 0x158, 0x320, 0x51200f30, 0x59200fb0, 0x11000508, 0x19000588, 0x1fc}`, passed to `DramcBackupRegisters(ctx, regs, 9, 1)`.
+   - `mixed_rg[3]` (2 words each) at `.rodata+0x1a4`: `{{0x10007b0,0x100},{0x10007b0,0x408},{0x10007b4,0x100}}`, passed to `DramcBackupMixedRG(ctx, mixed_rg, 3, 1)`.
+   - Restored at the end via `DramcRestoreRegisters`/`DramcRestoreMixedRG` with the same tables/counts.
+4. `vSetCalibrationResult(ctx, 5, 1)` (provisional fail).
+5. Per-channel one-time init gated on a byte flag at `*(ctx + *(ctx+4) + 0x8c)`: if unset, set it, then `ShiftDQUI(ctx, -1, 4)`, `ShiftDQ_OENUI(ctx, -1, 4)`, `ShiftDQSWCK_UI(ctx, -1, 4)` (byte_idx 4 hits `_LoopAryToDelay`'s default case, i.e. sweeps all 8 lanes with stride 1 -- confirmed against the already-recovered `_LoopAryToDelay`), then two `vIO32WriteMsk_All` calls zeroing byte lanes of `0x11600a20`/`0x19600aa0`.
+6. `vGet_DDR_Loop_Mode(ctx)`: branches into either a `phase` sweep of 32 (mode==1) or a nested rank×32 sweep (other modes, with a mode==2-specific set of constants) -- this branch (`beq 0x3d6`) has NOT been fully traced yet for the mode==1 path.
+7. `CKEFixOnOff`, `O1PathOnOff(ctx,1)`, more `vIO32WriteMsk` setup, `vSetDramMRWriteLevelingOnOff(ctx,1)`, `udelay(1)`.
+8. The FSM: for each rank/lane index, reads a per-lane byte-array record (base `sp+0x80`, each record ~32 bytes: state at -108, three counters at -104/-100/-96, an edge counter at -92, and a saved delay word at -76), drives `dle`-style register reads and `ShiftDQSWCK_UI`/`ShiftDQUI`/`ShiftDQ_OENUI` shifts, and on state 5 (failure) calls `printf("byte_%d is broken", ...)` (string confirmed via `.rodata.DramcWriteLeveling.str1.1`). States 0-5 dispatch via a `tbb [pc, lr]` byte jump table at 0x4d0.
+9. Final results are written into `wrlevel_dqs_final_delay`, a `static S32 [RANK_MAX][DQS_BYTE_NUMBER]` array (declared at `dramc_pi_calibration_api.c:156` in the still-PUBLIC_BASE MediaTek lineage source -- not yet in any recovered/validated file, so it needs a fresh `extern S32 wrlevel_dqs_final_delay[][8];`-style declaration here, matching the object's actual flattened word-array indexing rather than assuming the public-base shape is exactly right), then the backup registers/mixed-RG are restored and the function returns.
+
+Recommended approach for finishing this: trace phase 6-8 instruction-by-instruction the same way the rest of this file's functions were done (one register at a time, cross-checking every constant against `.rodata`/relocations), rather than trying to shortcut the FSM from the phase summary above -- the summary is a map, not a substitute for the full trace.
