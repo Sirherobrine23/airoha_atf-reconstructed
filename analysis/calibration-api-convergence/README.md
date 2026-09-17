@@ -115,18 +115,29 @@ the shared 12) to confirm no calls were dropped, then separately at `-Os`
 (34 call sites, matching the vendor's per-branch runtime count) to
 confirm the optimizer's merge doesn't change behavior.
 
-## Next phase (Phase C)
+## Phase C: started (1/7)
 
-Phase C per the handoff:
+`DramcZQCalibration` is done (48 bytes, byte-identical AN7581/AN7583).
+Despite its name, it does **not** run an actual ZQ calibration loop: it
+zero-fills a 20-byte `airoha_rtswcmd` (same struct as
+`DramcTriggerRTSWCMD` in `dramc_utility.c`), sets `command = 12` and
+`rank`, fires it through `DramcTriggerRTSWCMD`, and then
+unconditionally calls `vSetCalibrationResult(ctx, 2, 0)` with no check
+of the RTSWCMD response at all -- a fire-and-forget hardware trigger,
+not a pass/fail loop. (The EN7523 GPL lineage header would name `2`/`0`
+`DRAM_CALIBRATION_CA_TRAIN`/`DRAM_OK`, but that enum ordering isn't
+confirmed for this SoC, so the raw values are kept rather than guessing
+a name.)
 
-- `DramcZQCalibration`
-- `DramcWriteLeveling`
-- `dramc_rx_dqs_gating_cal`
-- `DramcRxWindowPerbitCal`
-- `DramcRxdatlatCal`
-- `DramcTXSetVref`
-- `DramcTxWindowPerbitCal`
+Remaining Phase C, per the handoff, roughly in size order:
 
-These are the largest and highest-risk functions in the object (up to
-~2.5 KB each); expect them to take substantially longer per function than
-Phase A/B.
+- `DramcRxdatlatCal` (236 B)
+- `DramcTXSetVref` (128 B)
+- `DramcWriteLeveling` (1612 B)
+- `dramc_rx_dqs_gating_cal` (1948 B)
+- `DramcTxWindowPerbitCal` (2504 B)
+- `DramcRxWindowPerbitCal` (2540 B)
+
+The last three are the largest and highest-risk functions in the whole
+object; expect them to take substantially longer per function than
+anything done so far.

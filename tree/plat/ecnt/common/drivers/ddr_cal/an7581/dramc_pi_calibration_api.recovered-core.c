@@ -29,6 +29,8 @@ extern U32 is_ddr4_family(void *ctx);
 extern U32 is_ddr3_family(void *ctx);
 extern U32 pkg_type;
 extern int printf(const char *fmt, ...);
+extern void DramcTriggerRTSWCMD(void *ctx, void *opaque);
+extern void vSetCalibrationResult(void *ctx, U8 cal_type, U8 result);
 static void _LoopAryToDelay(void *ctx, REG_TRANSFER_T *ui_reg,
                              REG_TRANSFER_T *mck_reg, U8 count,
                              S8 shift_ui, U8 byte_idx);
@@ -547,4 +549,41 @@ void DramcDRVinitSetting(void *ctx)
     W(0x012010d4U, 0x00d00000U, 0x01f00000U);
     W(0x012010d4U, 0x1a000000U, 0x3e000000U);
 #undef W
+}
+
+struct airoha_rtswcmd {
+    U32 command;
+    U32 rank;
+    U8 arg8;
+    U8 _pad9;
+    U16 arg_a;
+    U16 result_c;
+    U8 result_ext;
+    U8 _pad_f;
+    U32 result_10;
+};
+
+/*
+ * Issues RTSWCMD opcode 12 for the given rank (see DramcTriggerRTSWCMD in
+ * dramc_utility.c for the command dispatch; opcode 12 is not one of the
+ * commands that function special-cases, so it just triggers the generic
+ * wait-for-response path) and unconditionally reports calibration type 2
+ * / result 0, with no check of the RTSWCMD response at all -- this is a
+ * fire-and-forget trigger, not an actual pass/fail calibration loop.
+ * The EN7523 GPL lineage header (reference/en7523/gpl-ddr-cal/
+ * dramc_pi_api.h) would name these DRAM_CALIBRATION_CA_TRAIN / DRAM_OK,
+ * but that enum ordering is not confirmed for this SoC's actual
+ * dramc_common.h, so the raw values are kept instead of asserting a
+ * possibly-wrong symbolic name. Byte-identical AN7581/AN7583.
+ */
+void DramcZQCalibration(void *ctx, U32 rank)
+{
+    struct airoha_rtswcmd cmd;
+
+    memset(&cmd, 0, sizeof(cmd));
+    cmd.command = 12;
+    cmd.rank = rank;
+    DramcTriggerRTSWCMD(ctx, &cmd);
+
+    vSetCalibrationResult(ctx, 2, 0);
 }

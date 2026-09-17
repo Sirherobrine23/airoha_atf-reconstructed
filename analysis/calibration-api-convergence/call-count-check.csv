@@ -33,6 +33,12 @@ an7581,DramcDRVinitSetting,is_ddr3_family,1,1,yes
 an7581,DramcDRVinitSetting,vPhyByteIO32WriteMsk,9,9,yes
 an7581,DramcDRVinitSetting,pkg_type,1,1,yes
 an7581,DramcDRVinitSetting,vIO32WriteMsk_All,34,34,yes-per-branch-runtime-count
+an7581,DramcZQCalibration,memset,1,1,yes
+an7581,DramcZQCalibration,DramcTriggerRTSWCMD,1,1,yes
+an7581,DramcZQCalibration,vSetCalibrationResult,1,1,yes
+an7583,DramcZQCalibration,memset,1,1,yes
+an7583,DramcZQCalibration,DramcTriggerRTSWCMD,1,1,yes
+an7583,DramcZQCalibration,vSetCalibrationResult,1,1,yes
 an7583,PCDDR_ShiftDQSUI,_LoopAryToDelay,1,1,yes
 an7583,PCDDR_ShiftDQS_OENUI,_LoopAryToDelay,1,1,yes
 an7583,get_gating_start_pos,u4Dram_Register_Read,2,2,yes
