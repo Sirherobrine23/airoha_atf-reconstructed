@@ -25,6 +25,7 @@ an7581,ShiftDQ_OENUI_AllRK,4,34,30
 an7581,ShiftDQSWCK_UI,26,78,52
 an7581,O1PathOnOff,304,368,64
 an7581,vSetDramMRWriteLevelingOnOff,264,168,-96
+an7581,DramcWriteLeveling,1612,1738,126
 an7583,CmdOEOnOff,42,34,-8
 an7583,DramcImpedanceEfuseValue,72,90,18
 an7583,Dramc_efuse_read_parse,78,94,16

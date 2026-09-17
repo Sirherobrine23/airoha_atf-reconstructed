@@ -115,7 +115,7 @@ the shared 12) to confirm no calls were dropped, then separately at `-Os`
 (34 call sites, matching the vendor's per-branch runtime count) to
 confirm the optimizer's merge doesn't change behavior.
 
-## Phase C: 4/7 done (plus the dle_factor_handler dependency)
+## Phase C: 5/7 done for AN7581 (4/7 for AN7583; plus the dle_factor_handler dependency)
 
 `DramcZQCalibration` is done (48 bytes, byte-identical AN7581/AN7583).
 Despite its name, it does **not** run an actual ZQ calibration loop: it
@@ -169,14 +169,16 @@ branches, Clang recomputes it per branch).
 
 Remaining Phase C, per the handoff, roughly in size order:
 
-- `DramcWriteLeveling` (1612 B)
+- `DramcWriteLeveling` -- done for AN7581 (1612 B); AN7583's own
+  version (1208 B, confirmed structurally different) is still open,
+  see below.
 - `dramc_rx_dqs_gating_cal` (1948 B)
 - `DramcTxWindowPerbitCal` (2504 B)
 - `DramcRxWindowPerbitCal` (2540 B)
 
-These four are the largest and highest-risk functions in the whole
-object; expect them to take substantially longer per function than
-anything done so far.
+These are the largest and highest-risk functions in the whole object;
+expect them to take substantially longer per function than anything
+done so far.
 
 ## Dependencies recovered for DramcWriteLeveling
 
@@ -206,39 +208,115 @@ Clang -Os (it merges the two branches' identical trailing calls) --
 confirmed as a harmless codegen difference, not a dropped call, by
 reading the generated assembly directly.
 
-## DramcWriteLeveling itself: structure mapped, body not yet written
+## DramcWriteLeveling: AN7581 done (27/55); AN7583 confirmed different, not yet done
 
-**Important finding first:** AN7581's `DramcWriteLeveling` is 1612
-bytes; AN7583's is only 1208 bytes (`reference/an7583/disasm/bl22/
-dramc_pi_calibration_api.dis` line 1220). That is too large a gap to be
-codegen noise -- the two SoCs' write-leveling sequences genuinely
-differ in structure, not just constants. Whoever continues this must
-disassemble and decode AN7583's copy independently rather than
-assuming it is a byte-identical (or even structurally identical)
-sibling; don't reuse the AN7581 analysis below for it.
+**AN7581's `DramcWriteLeveling` is fully reconstructed and validated**
+(`reference/an7581/disasm/bl22/dramc_pi_calibration_api.dis` line 1426,
+61 relocations; vendor 1612 bytes, Clang -Os candidate 1738 bytes).
+Structure, in order:
 
-AN7581's `DramcWriteLeveling` (`reference/an7581/disasm/bl22/
-dramc_pi_calibration_api.dis` line 1426, 61 relocations) has been read
-and phase-mapped in full but **not yet transcribed to C** -- the tail
-half is a genuine 6-state per-byte-lane edge-detection FSM (dispatched
-through a `tbb` jump table at offset 0x4cc) with counters packed into a
-stack-allocated array, and committing an unverified guess at that would
-be worse than leaving it documented. What follows is everything needed
-to pick this up without redoing the analysis:
+1. `if (ctx == 0) return 1;` then `vPrintCalibrationBasicInfo(ctx)`,
+   `vIO32WriteMsk(ctx, 0x238, rank, 3)`, `vIO32WriteMsk(ctx, 0x238, 4, 4)`.
+2. Backup via two fixed `.rodata` tables (confirmed via
+   `llvm-objcopy --dump-section`): `regs[9] = {0x14c, 0x150, 0x158, 0x320,
+   0x51200f30, 0x59200fb0, 0x11000508, 0x19000588, 0x1fc}` through
+   `DramcBackupRegisters(ctx, regs, 9, 1)`, and `mixed_rg[3]` (2 words
+   each) `= {{0x10007b0,0x100},{0x10007b0,0x408},{0x10007b4,0x100}}`
+   through `DramcBackupMixedRG(ctx, mixed_rg, 3, 1)`. Both restored at
+   the end via the matching `DramcRestoreRegisters`/`DramcRestoreMixedRG`.
+3. `vSetCalibrationResult(ctx, 5, 1)` (provisional fail), then a
+   per-channel one-time init gated on a byte flag at
+   `*(ctx + *(ctx+4) + 0x8c)`: if unset, set it, sweep
+   `ShiftDQUI(ctx,-1,4)` / `ShiftDQ_OENUI(ctx,-1,4)` /
+   `ShiftDQSWCK_UI(ctx,-1,4)` (byte_idx 4 hits `_LoopAryToDelay`'s
+   default/all-8-lanes case), then zero byte lanes of
+   `0x11600a20`/`0x19600aa0` via `vIO32WriteMsk_All`.
+4. `vGet_DDR_Loop_Mode(ctx)` selects `{sweep_range, step_mult}`:
+   mode 1 -> `{0x20, 0x10}`, mode 2 -> `{0x20, 8}`, else -> `{0x40, 1}`.
+5. `vPhyByteIO32WriteMsk(ctx, 0x1fc, 0x3040, 0xc0003042)`,
+   `CKEFixOnOff(ctx, rank, 1, 0)`, `O1PathOnOff(ctx, 1)`, MR
+   write-leveling enable (`vIO32WriteMsk(0x14c, 8, 8)` +
+   `vSetDramMRWriteLevelingOnOff(ctx, 1)` + `udelay(1)`), a
+   `0x158`/`0x14c` timing-window setup gated on `data_width == 0x20`,
+   then `udelay(1)` again. `lane_count = data_width >> 3`, and
+   `wrlevel_dqs_final_delay[lane + rank*4]` is zeroed for each active
+   lane.
+6. The sweep loop: increments `round` by `step_mult` each iteration
+   (0 to 0xc0 max), shifts `ShiftDQSWCK_UI` by one coarse step every
+   time `round` crosses a `sweep_range` boundary, toggles the sample
+   strobe (`0x14c` bit 7), then reads live DQS bits from
+   `0x01800180` (round 0) or `0x096009a0` (later rounds) and updates a
+   **per-lane FSM that is gated on the global `pkg_type`**:
+   - `pkg_type != 0`: a 6-state edge-detector (dispatched conceptually
+     like a `tbb` jump table in the vendor) that tracks a candidate
+     edge position (`saved_pos`), requires two confirmations
+     (`confirm_c`/`confirm_d` counters scaled by `step_mult`, threshold
+     7, with a `round == 0xbf` early-accept case) before locking in
+     `wrlevel_dqs_final_delay`, and prints
+     `"byte_%d is broken"` (string confirmed via
+     `.rodata.DramcWriteLeveling.str1.1`) on the unreachable/default
+     state.
+   - `pkg_type == 0`: a simpler settle-then-count FSM (`settle[lane]`
+     must exceed 16 samples of a low strobe before arming, then counts
+     highs until `state*step_mult > 7` or the `round == 0xbf` early-out,
+     recording `round - step_mult*(state-2)` as the final delay).
+   Loop exits once `done_mask == 0xff` (all active lanes done) or
+   `round > 0xc0`.
+7. Undo any leftover coarse-step group shift, report pass/fail via
+   `vSetCalibrationResult(ctx, 5, ...)`, disable MR write-leveling and
+   O1 path, restore the backed-up registers/mixed-RG.
+8. Fold any `wrlevel_dqs_final_delay` value `>= sweep_range` back into
+   an additional `ShiftDQSWCK_UI` coarse shift plus a `%= sweep_range`,
+   then re-center each lane's final value by `+0x10`: values `<= 0x3f`
+   are written as-is; values that overflow get `-0x30` plus a
+   compensating `ShiftDQUI(ctx,2,lane)` / `ShiftDQ_OENUI(ctx,2,lane)`
+   fine shift.
+9. Final packed writes: lanes 0/1 always go into
+   `vPhyByteIO32WriteMsk(0x11600a20/0x19600aa0, ...)` (bits [13:8] and
+   [21:16] both set to the same re-centered byte-position value), and
+   when `data_width == 0x20` (4 active lanes), lanes 2/3 get the same
+   treatment additionally wrapped in
+   `__meta_backup_and_set(ctx,1,0)`/`__meta_restore(ctx,0)` to target
+   the second meta-context. A second, separate pair of
+   `vIO32WriteMsk` calls (mask `0x3f000000`, byte position [31:24])
+   writes the un-recentered `saved_pos` for lanes 0/1 unconditionally
+   and lanes 2/3 again under the same `__meta_backup_and_set`/
+   `__meta_restore` bracket when `data_width == 0x20`.
 
-Phases confirmed by full disassembly read:
+Validated by compiling the candidate with
+`-Wall -Wextra` (clean, rc=0) and diffing per-callee relocation counts
+against the vendor oracle (`call-count-check.csv`): every callee count
+matches exactly except two well-understood Clang -Os artifacts also
+seen elsewhere in this file -- `vIO32WriteMsk` shows 2 extra call sites
+(codegen duplication, not extra logical calls) and `pkg_type` shows 4
+loads where the source reads it once per lane (compiler
+rematerializes the global read instead of caching it in a register
+across the whole loop body).
 
-1. `if (ctx == 0) return 1;`
-2. `vPrintCalibrationBasicInfo(ctx)`, then `vIO32WriteMsk(ctx, 0x238, rank, 3)` and `vIO32WriteMsk(ctx, 0x238, 4, 4)`.
-3. Two fixed tables are copied from the object's shared `.rodata` (confirmed via `llvm-objcopy --dump-section`, offsets are into the AN7581 blob's `.rodata`, not necessarily the same in AN7583's):
-   - `regs[9]` at `.rodata+0x180`: `{0x14c, 0x150, 0x158, 0x320, 0x51200f30, 0x59200fb0, 0x11000508, 0x19000588, 0x1fc}`, passed to `DramcBackupRegisters(ctx, regs, 9, 1)`.
-   - `mixed_rg[3]` (2 words each) at `.rodata+0x1a4`: `{{0x10007b0,0x100},{0x10007b0,0x408},{0x10007b4,0x100}}`, passed to `DramcBackupMixedRG(ctx, mixed_rg, 3, 1)`.
-   - Restored at the end via `DramcRestoreRegisters`/`DramcRestoreMixedRG` with the same tables/counts.
-4. `vSetCalibrationResult(ctx, 5, 1)` (provisional fail).
-5. Per-channel one-time init gated on a byte flag at `*(ctx + *(ctx+4) + 0x8c)`: if unset, set it, then `ShiftDQUI(ctx, -1, 4)`, `ShiftDQ_OENUI(ctx, -1, 4)`, `ShiftDQSWCK_UI(ctx, -1, 4)` (byte_idx 4 hits `_LoopAryToDelay`'s default case, i.e. sweeps all 8 lanes with stride 1 -- confirmed against the already-recovered `_LoopAryToDelay`), then two `vIO32WriteMsk_All` calls zeroing byte lanes of `0x11600a20`/`0x19600aa0`.
-6. `vGet_DDR_Loop_Mode(ctx)`: branches into either a `phase` sweep of 32 (mode==1) or a nested rank×32 sweep (other modes, with a mode==2-specific set of constants) -- this branch (`beq 0x3d6`) has NOT been fully traced yet for the mode==1 path.
-7. `CKEFixOnOff`, `O1PathOnOff(ctx,1)`, more `vIO32WriteMsk` setup, `vSetDramMRWriteLevelingOnOff(ctx,1)`, `udelay(1)`.
-8. The FSM: for each rank/lane index, reads a per-lane byte-array record (base `sp+0x80`, each record ~32 bytes: state at -108, three counters at -104/-100/-96, an edge counter at -92, and a saved delay word at -76), drives `dle`-style register reads and `ShiftDQSWCK_UI`/`ShiftDQUI`/`ShiftDQ_OENUI` shifts, and on state 5 (failure) calls `printf("byte_%d is broken", ...)` (string confirmed via `.rodata.DramcWriteLeveling.str1.1`). States 0-5 dispatch via a `tbb [pc, lr]` byte jump table at 0x4d0.
-9. Final results are written into `wrlevel_dqs_final_delay`, a `static S32 [RANK_MAX][DQS_BYTE_NUMBER]` array (declared at `dramc_pi_calibration_api.c:156` in the still-PUBLIC_BASE MediaTek lineage source -- not yet in any recovered/validated file, so it needs a fresh `extern S32 wrlevel_dqs_final_delay[][8];`-style declaration here, matching the object's actual flattened word-array indexing rather than assuming the public-base shape is exactly right), then the backup registers/mixed-RG are restored and the function returns.
+**AN7583's `DramcWriteLeveling` is a different function, not yet
+reconstructed.** Its object size is 1208 bytes vs AN7581's 1612 --
+too large a gap to be codegen noise. Relocation diffing
+(`reference/an7583/disasm/bl22/dramc_pi_calibration_api.relocs.txt`,
+function starts around line 1220) confirms real structural
+differences, not just constant changes:
 
-Recommended approach for finishing this: trace phase 6-8 instruction-by-instruction the same way the rest of this file's functions were done (one register at a time, cross-checking every constant against `.rodata`/relocations), rather than trying to shortcut the FSM from the phase summary above -- the summary is a map, not a substitute for the full trace.
+- No `pkg_type`, `printf`, or `__meta_backup_and_set`/`__meta_restore`
+  relocations at all -- AN7583 is missing the entire `pkg_type != 0`
+  6-state edge-detector FSM (and its `"byte_%d is broken"` diagnostic)
+  and the dual meta-context final-write section for lanes 2/3. It only
+  has the `pkg_type == 0` settle-then-count FSM path.
+- Only 3 `vPhyByteIO32WriteMsk` relocations, not 5 -- consistent with
+  the missing meta-context lane-2/3 writes.
+- The settle-then-count FSM itself is **not** a byte-identical subset
+  of AN7581's: direct instruction reading shows AN7583 multiplies the
+  settle counter by `step_mult` (an `smulbb`) *before* comparing it to
+  the threshold of 16, where AN7581 compares the raw unscaled counter
+  directly. This changes the number of samples required to arm the
+  FSM depending on `vGet_DDR_Loop_Mode()`, so it is a genuine formula
+  difference, not a copy-paste target.
+
+Whoever continues this must trace AN7583's version independently,
+instruction-by-instruction, the same way AN7581's was done -- do not
+mechanically strip the `pkg_type` branch out of the AN7581 C source
+above and call it done; at minimum the settle-threshold formula must
+be re-derived from AN7583's own disassembly.

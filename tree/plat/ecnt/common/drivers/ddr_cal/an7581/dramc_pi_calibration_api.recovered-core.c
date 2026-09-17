@@ -46,6 +46,24 @@ static void _LoopAryToDelay(void *ctx, REG_TRANSFER_T *ui_reg,
                              REG_TRANSFER_T *mck_reg, U8 count,
                              S8 shift_ui, U8 byte_idx);
 void DramcImpedanceSetValue(void *ctx, U32 code, U32 bit5, U32 type);
+extern U32 vGet_DDR_Loop_Mode(void *ctx);
+extern void CKEFixOnOff(void *ctx, U8 rank, U8 option, U8 all_channels);
+extern void DramcBackupRegisters(void *ctx, const U32 *regs, U32 count,
+                                  U8 all_channels);
+extern void DramcRestoreRegisters(void *ctx, const U32 *regs, U32 count,
+                                   U8 all_channels);
+extern void DramcBackupMixedRG(void *ctx, const U32 *desc, U32 count,
+                                U8 all_channels);
+extern void DramcRestoreMixedRG(void *ctx, const U32 *desc, U32 count,
+                                 U8 all_channels);
+/*
+ * The vendor object indexes this as wrlevel_dqs_final_delay[lane + rank*4]
+ * (a flat word array), which does not obviously match the "static S32
+ * wrlevel_dqs_final_delay[RANK_MAX][DQS_BYTE_NUMBER]" shape declared in
+ * the still-PUBLIC_BASE dramc_pi_calibration_api.c -- kept flat here to
+ * match the object rather than assume that public-lineage shape is right.
+ */
+extern S32 wrlevel_dqs_final_delay[];
 
 void PCDDR_ShiftDQSUI(void *ctx, S8 shift_ui, U8 byte_idx)
 {
@@ -898,4 +916,339 @@ void vSetDramMRWriteLevelingOnOff(void *ctx, U32 enable)
     }
 
     DramcModeRegWriteByRank(ctx, (U8)rank, 2, *mr2_shadow);
+}
+
+/*
+ * Write-leveling scan. Returns 1 only for a NULL ctx; every other path
+ * returns 0 (pass/fail is only reported through vSetCalibrationResult).
+ *
+ * Structure (fully traced from the oracle disassembly):
+ *  1. Print, select rank in reg 0x238, back up 9 registers + 3 mixed-RG
+ *     descriptors (tables below, values read straight from .rodata).
+ *  2. One-time per-channel init (gated on ctx-byte flag at channel+0x8c):
+ *     shift every lane by -1 UI and zero two gating registers.
+ *  3. vGet_DDR_Loop_Mode(ctx) selects (sweep_range, step_mult): mode 1
+ *     -> (32,16), mode 2 -> (32,8), otherwise -> (64,1).
+ *  4. PHY/CKE/O1-path setup, enable write-leveling mode.
+ *  5. Zero the per-lane scan state and wrlevel_dqs_final_delay[] for
+ *     lane 0..lane_count-1 (lane_count = data_width/8, at most 4 -- the
+ *     four parallel per-lane byte arrays below only have room for 4).
+ *  6. Outer sweep loop, round = 0..192 step step_mult: periodically nudge
+ *     all lanes' coarse UI position, pulse reg 0x14c bit 7, sample a
+ *     per-lane "high/low" bit from reg 0x01800180, and run one of two
+ *     independent per-lane edge-detection state machines depending on
+ *     pkg_type (see below), until every lane's bit is set in the
+ *     completion bitmap or round exceeds 192.
+ *  7. Unwind the cumulative coarse nudge from step 6.
+ *  8. Report the result, disable write-leveling mode/O1-path, clear the
+ *     reg 0x238 rank selection, restore the backed-up registers.
+ *  9. For each lane: if the recorded raw position is >= sweep_range,
+ *     apply the excess (scaled by sweep_range/32) as a further coarse
+ *     shift to ALL lanes and wrap the recorded position into
+ *     [0, sweep_range); then center it (+16, or -48 with a +2 UI
+ *     correction on overflow) into a final 0-63 delay code.
+ * 10. Write the four lanes' final delay codes packed into two companion
+ *     PHY registers (0x11600a20/0x19600aa0), plus the raw wrapped
+ *     positions into a third field of the same two registers; when
+ *     data_width == 0x20 (4 active lanes), lanes 2-3 reuse the same two
+ *     registers under a second __meta_backup_and_set(ctx,1,0) group.
+ *
+ * Two independent per-lane state machines (selected by pkg_type, not a
+ * per-SoC difference -- both paths exist in every build):
+ *
+ *  pkg_type == 0: simple settle-then-count. State 0 waits for the
+ *    sample to go low for >16 rounds (then advances to state 1); state
+ *    N>=1 advances one step every round the sample reads high. As soon
+ *    as state*step_mult > 7 (or round==191 with state>1), the lane is
+ *    marked done and wrlevel_dqs_final_delay[] is set from the CURRENT
+ *    round position.
+ *
+ *  pkg_type != 0: multi-pass edge confirmation (state 0-5, vendor
+ *    dispatches via a jump table):
+ *    0: on first sample, go to state 1 (sample low) or 2 (sample high).
+ *    1: wait for a rising edge; on sample==1, record the current round
+ *       as a candidate position and advance to state 3.
+ *    2: wait for a falling edge; on sample==0, advance to state 4.
+ *    3: confirm the state-1 candidate is a real edge, not a glitch: if
+ *       the sample drops back to 0 immediately, reset to state 1; else
+ *       count confirmations (metric = count*step_mult) until >7 (or
+ *       round==191 with count>1), then require the *third* time this
+ *       confirmation threshold is reached before finalizing (using the
+ *       position recorded in state 1) and moving to state 5 -- the
+ *       first two times, revert to state 2 to re-verify via another
+ *       falling edge.
+ *    4: confirm a stable low the same way (metric = count*step_mult);
+ *       once confirmed, return to state 1 to watch for the real rising
+ *       edge; if the sample goes high again first, revert to state 2.
+ *    5: terminal (done); keeps re-marking the completion bit.
+ *    >5: unreachable; prints "byte_%d is broken" and continues.
+ */
+U32 DramcWriteLeveling(void *ctx)
+{
+    static const U32 regs[9] = {
+        0x14cU, 0x150U, 0x158U, 0x320U, 0x51200f30U,
+        0x59200fb0U, 0x11000508U, 0x19000588U, 0x1fcU,
+    };
+    static const U32 mixed_rg[6] = {
+        0x10007b0U, 0x100U, 0x10007b0U, 0x408U, 0x10007b4U, 0x100U,
+    };
+    U32 channel;
+    U32 rank;
+    U32 data_width;
+    U32 lane_count;
+    U32 sweep_range;
+    U32 step_mult;
+    U32 coarse_step;
+    U32 round;
+    U32 group = 0;
+    U32 done_mask;
+    U32 lane;
+    U8 state[4] = {0};
+    U8 settle[4] = {0};
+    U8 confirm_c[4] = {0};
+    U8 confirm_d[4] = {0};
+    U8 pass_or_result[4] = {0};
+    S32 saved_pos[4] = {0};
+
+    if (ctx == 0)
+        return 1;
+
+    vPrintCalibrationBasicInfo(ctx);
+    rank = raw_u32(ctx, 0xc);
+    vIO32WriteMsk(ctx, 0x238U, rank, 3U);
+    vIO32WriteMsk(ctx, 0x238U, 4U, 4U);
+
+    DramcBackupRegisters(ctx, regs, 9, 1);
+    DramcBackupMixedRG(ctx, mixed_rg, 3, 1);
+    vSetCalibrationResult(ctx, 5, 1);
+
+    channel = raw_u32(ctx, 0x4);
+    if (raw_u8(ctx, channel + 0x8cU) == 0) {
+        raw_set_u8(ctx, channel + 0x8cU, 1);
+        ShiftDQUI(ctx, -1, 4);
+        ShiftDQ_OENUI(ctx, -1, 4);
+        ShiftDQSWCK_UI(ctx, -1, 4);
+        vIO32WriteMsk_All(ctx, 0x11600a20U, 0, 0x3f000000U);
+        vIO32WriteMsk_All(ctx, 0x19600aa0U, 0, 0x3f000000U);
+    }
+
+    if (vGet_DDR_Loop_Mode(ctx) == 1U) {
+        sweep_range = 0x20U;
+        step_mult = 0x10U;
+    } else if (vGet_DDR_Loop_Mode(ctx) == 2U) {
+        sweep_range = 0x20U;
+        step_mult = 8U;
+    } else {
+        sweep_range = 0x40U;
+        step_mult = 1U;
+    }
+
+    vPhyByteIO32WriteMsk(ctx, 0x1fcU, 0x3040U, 0xc0003042U);
+    CKEFixOnOff(ctx, (U8)rank, 1, 0);
+    O1PathOnOff(ctx, 1);
+    vIO32WriteMsk(ctx, 0x14cU, 8U, 8U);
+    vSetDramMRWriteLevelingOnOff(ctx, 1);
+    udelay(1);
+    vIO32WriteMsk(ctx, 0x158U, 0x28000U, 0x3c000U);
+    vIO32WriteMsk(ctx, 0x14cU, 0x20U, 0x20U);
+    data_width = raw_u32(ctx, 0x44);
+    vIO32WriteMsk(ctx, 0x14cU, ((data_width == 0x20U) ? 0xfU : 3U) << 8, 0xf00U);
+    udelay(1);
+
+    data_width = raw_u32(ctx, 0x44);
+    lane_count = data_width >> 3;
+    for (lane = 0; lane < lane_count; lane++)
+        wrlevel_dqs_final_delay[lane + rank * 4U] = 0;
+
+    done_mask = (data_width == 0x10U) ? 0xfcU : 0xf0U;
+    coarse_step = sweep_range >> 5;
+
+    for (round = 0;;) {
+        U32 live_bits;
+
+        if (round / sweep_range == group + 1U) {
+            group = round / sweep_range;
+            ShiftDQSWCK_UI(ctx, (S8)coarse_step, 4);
+        }
+
+        if (round == 0) {
+            vIO32WriteMsk_All(ctx, 0x11600a20U, 0, 0x3f000000U);
+            vIO32WriteMsk_All(ctx, 0x19600aa0U, 0, 0x3f000000U);
+        } else {
+            U32 v = u4Dram_Register_Read(ctx, 0x096009a0U) & 0x3f000000U;
+
+            vIO32WriteMsk_All(ctx, 0x096009a0U, v, 0x3f000000U);
+        }
+
+        vIO32WriteMsk(ctx, 0x14cU, 0x80U, 0x80U);
+        vIO32WriteMsk(ctx, 0x14cU, 0, 0x80U);
+        udelay(1);
+
+        live_bits = u4Dram_Register_Read(ctx, 0x01800180U) &
+                    ((1U << lane_count) - 1U);
+
+        for (lane = 0; lane < lane_count; lane++) {
+            U32 sample = (live_bits >> lane) & 1U;
+            U32 lane_bit = 1U << lane;
+
+            if (pkg_type != 0U) {
+                switch (state[lane]) {
+                case 0:
+                    state[lane] = sample ? 2U : 1U;
+                    break;
+                case 1:
+                    if (sample) {
+                        saved_pos[lane] = (S32)round;
+                        state[lane] = 3;
+                    }
+                    break;
+                case 2:
+                    if (!sample)
+                        state[lane] = 4;
+                    break;
+                case 3:
+                    if (!sample) {
+                        confirm_c[lane] = 0;
+                        state[lane] = 1;
+                    } else {
+                        U32 metric = (U32)confirm_c[lane] * step_mult;
+
+                        if (metric > 7U ||
+                            (round == 0xbfU && confirm_c[lane] > 1U)) {
+                            pass_or_result[lane]++;
+                            if (pass_or_result[lane] > 1U) {
+                                wrlevel_dqs_final_delay[lane + rank * 4U] =
+                                    saved_pos[lane];
+                                state[lane] = 5;
+                            } else {
+                                state[lane] = 2;
+                                confirm_c[lane] = 0;
+                            }
+                        } else {
+                            confirm_c[lane]++;
+                        }
+                    }
+                    break;
+                case 4:
+                    if (sample) {
+                        confirm_d[lane] = 0;
+                        state[lane] = 2;
+                    } else {
+                        U32 metric = (U32)confirm_d[lane] * step_mult;
+
+                        if (metric > 7U)
+                            state[lane] = 1;
+                        else
+                            confirm_d[lane]++;
+                    }
+                    break;
+                case 5:
+                    done_mask |= lane_bit;
+                    break;
+                default:
+                    printf("byte_%d is broken", lane);
+                    break;
+                }
+            } else {
+                if (state[lane] == 0U) {
+                    if (!sample) {
+                        settle[lane]++;
+                        if (settle[lane] > 16U)
+                            state[lane] = 1U;
+                    }
+                } else if (sample) {
+                    state[lane]++;
+                }
+
+                if (!(done_mask & lane_bit)) {
+                    U32 metric = (U32)state[lane] * step_mult;
+
+                    if (metric > 7U ||
+                        (round == 0xbfU && state[lane] > 1U)) {
+                        done_mask |= lane_bit;
+                        wrlevel_dqs_final_delay[lane + rank * 4U] =
+                            (S32)round - (S32)(step_mult * (state[lane] - 2U));
+                    }
+                }
+            }
+        }
+
+        if (done_mask == 0xffU)
+            break;
+        round += step_mult;
+        if (round > 0xc0U)
+            break;
+    }
+
+    if (group != 0U) {
+        S32 shift = -(S32)group * (S32)coarse_step;
+
+        ShiftDQSWCK_UI(ctx, (S8)shift, 4);
+    }
+
+    vSetCalibrationResult(ctx, 5, (U8)((done_mask == 0xffU) ? 0U : 1U));
+    vSetDramMRWriteLevelingOnOff(ctx, 0);
+    vIO32WriteMsk(ctx, 0x14cU, 0, 8U);
+    O1PathOnOff(ctx, 0);
+    vIO32WriteMsk(ctx, 0x238U, 0, 3U);
+    vIO32WriteMsk(ctx, 0x238U, 0, 4U);
+    DramcRestoreRegisters(ctx, regs, 9, 1);
+    DramcRestoreMixedRG(ctx, mixed_rg, 3, 1);
+
+    for (lane = 0; lane < lane_count; lane++) {
+        S32 *slot = &wrlevel_dqs_final_delay[lane + rank * 4U];
+
+        if (*slot >= (S32)sweep_range) {
+            S32 shift = (*slot / (S32)sweep_range) * (S32)coarse_step;
+
+            ShiftDQSWCK_UI(ctx, (S8)shift, 4);
+            *slot %= (S32)sweep_range;
+        }
+        saved_pos[lane] = *slot;
+    }
+
+    for (lane = 0; lane < lane_count; lane++) {
+        S32 centered = saved_pos[lane] + 0x10;
+
+        if (centered <= 0x3f) {
+            pass_or_result[lane] = (U8)centered;
+        } else {
+            pass_or_result[lane] = (U8)(centered - 0x30);
+            ShiftDQUI(ctx, 2, (U8)lane);
+            ShiftDQ_OENUI(ctx, 2, (U8)lane);
+        }
+    }
+
+    {
+        U32 v0 = (((U32)pass_or_result[0] << 8) & 0x3f00U) |
+                 (((U32)pass_or_result[0] << 16) & 0x3f0000U);
+        U32 v1 = (((U32)pass_or_result[1] << 8) & 0x3f00U) |
+                 (((U32)pass_or_result[1] << 16) & 0x3f0000U);
+
+        vPhyByteIO32WriteMsk(ctx, 0x11600a20U, v0, 0x003f3f00U);
+        vPhyByteIO32WriteMsk(ctx, 0x19600aa0U, v1, 0x003f3f00U);
+
+        if (data_width == 0x20U) {
+            U32 v2 = (((U32)pass_or_result[2] << 8) & 0x3f00U) |
+                     (((U32)pass_or_result[2] << 16) & 0x3f0000U);
+            U32 v3 = (((U32)pass_or_result[3] << 8) & 0x3f00U) |
+                     (((U32)pass_or_result[3] << 16) & 0x3f0000U);
+
+            __meta_backup_and_set(ctx, 1, 0);
+            vPhyByteIO32WriteMsk(ctx, 0x11600a20U, v2, 0x003f3f00U);
+            vPhyByteIO32WriteMsk(ctx, 0x19600aa0U, v3, 0x003f3f00U);
+            __meta_restore(ctx, 0);
+        }
+    }
+
+    vIO32WriteMsk(ctx, 0x11600a20U, (U32)saved_pos[0] << 24, 0x3f000000U);
+    vIO32WriteMsk(ctx, 0x19600aa0U, (U32)saved_pos[1] << 24, 0x3f000000U);
+    if (data_width == 0x20U) {
+        __meta_backup_and_set(ctx, 1, 0);
+        vIO32WriteMsk(ctx, 0x11600a20U, (U32)saved_pos[2] << 24, 0x3f000000U);
+        vIO32WriteMsk(ctx, 0x19600aa0U, (U32)saved_pos[3] << 24, 0x3f000000U);
+        __meta_restore(ctx, 0);
+    }
+
+    return 0;
 }
