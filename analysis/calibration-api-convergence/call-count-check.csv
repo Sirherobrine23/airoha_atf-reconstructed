@@ -29,6 +29,10 @@ an7581,DramcImpedanceByEfuse,is_ddr3_family,1,1,yes
 an7581,DramcImpedanceByEfuse,Dramc_efuse_read_parse,4,2,no-codegen-only
 an7581,DramcImpedanceByEfuse,printf,4,4,yes
 an7581,DramcImpedanceByEfuse,DramcImpedanceEfuseValue,4,4,yes
+an7581,DramcDRVinitSetting,is_ddr3_family,1,1,yes
+an7581,DramcDRVinitSetting,vPhyByteIO32WriteMsk,9,9,yes
+an7581,DramcDRVinitSetting,pkg_type,1,1,yes
+an7581,DramcDRVinitSetting,vIO32WriteMsk_All,34,34,yes-per-branch-runtime-count
 an7583,PCDDR_ShiftDQSUI,_LoopAryToDelay,1,1,yes
 an7583,PCDDR_ShiftDQS_OENUI,_LoopAryToDelay,1,1,yes
 an7583,get_gating_start_pos,u4Dram_Register_Read,2,2,yes

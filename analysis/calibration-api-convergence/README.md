@@ -90,11 +90,34 @@ site (3 sites for 4 logical calls on AN7581, i.e. the same effect the
 elsewhere), while Clang keeps them separate; the runtime call count matches
 either way.
 
+## Phase B is now fully closed for AN7581 (15/55); AN7583 stays at 14/57
+
+`DramcDRVinitSetting` is AN7581-only in `dramc_pi_calibration_api.o` --
+AN7583's equivalent function lives in `dramc_pi_basic_api.o` instead (see
+`an7583/dramc_pi_basic_api.c`), was already recovered in an earlier pass,
+and has **no** `pkg_type` branch. Its `is_ddr3_family()` and
+`pkg_type == 0` constants match this AN7581 recovery byte-for-byte
+(0x1e/0x26 per lane, default ODT code 13 on all twelve 5-bit lanes of
+0x012010d0/0x012010d4), which cross-validates both recoveries
+independently. AN7581 additionally branches on the global `pkg_type` for
+the non-DDR3 case: package-0 and package-!=0 use different 0x1e/0x26
+splits across the six DRVN/DRVP/ODTN/ODTP byte-lane registers, but always
+converge on the same ODT-code defaults for 0x012010d0/0x012010d4.
+
+Runtime call count to `vIO32WriteMsk_All` is 34 per invocation on both
+vendor and candidate (either `pkg_type` branch); the vendor binary shares
+13 of those 34 call instructions as a common tail between the two
+branches (the same shared-tail trick used elsewhere in this object), so a
+raw relocation count comparison isn't apples-to-apples here -- verified
+instead by compiling the candidate at `-O0` (56 call sites, matching the
+56 `W()` invocations actually written in the two if/else branches plus
+the shared 12) to confirm no calls were dropped, then separately at `-Os`
+(34 call sites, matching the vendor's per-branch runtime count) to
+confirm the optimizer's merge doesn't change behavior.
+
 ## Next phase (Phase C)
 
-The one Phase B function not yet done is `DramcDRVinitSetting` (1076 bytes,
-AN7581-only in this object -- AN7583 does not export it from
-`dramc_pi_calibration_api.o`). After that, Phase C per the handoff:
+Phase C per the handoff:
 
 - `DramcZQCalibration`
 - `DramcWriteLeveling`

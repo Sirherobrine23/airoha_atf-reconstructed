@@ -25,8 +25,9 @@ extern void vPhyByteIO32WriteMsk_All(void *ctx, U32 reg, U32 value, U32 mask);
 extern void vPhyByteWriteFldAlign(void *ctx, U32 reg, U32 value,
                                   U32 field, U32 channel_mask);
 extern void vIO32WriteMsk_All(void *ctx, U32 reg, U32 value, U32 mask);
-extern S32 is_ddr4_family(void *ctx);
-extern S32 is_ddr3_family(void *ctx);
+extern U32 is_ddr4_family(void *ctx);
+extern U32 is_ddr3_family(void *ctx);
+extern U32 pkg_type;
 extern int printf(const char *fmt, ...);
 static void _LoopAryToDelay(void *ctx, REG_TRANSFER_T *ui_reg,
                              REG_TRANSFER_T *mck_reg, U8 count,
@@ -441,4 +442,109 @@ void DramcImpedanceByEfuse(void *ctx)
         DramcImpedanceEfuseValue(ctx, fuse7, 1);
         DramcImpedanceEfuseValue(ctx, fuse7, 3);
     }
+}
+
+/*
+ * AN7581-only in this object (AN7583's DramcDRVinitSetting instead lives
+ * in dramc_pi_basic_api.o and has no pkg_type branch -- see that file's
+ * simpler variant, which independently matches this function's DDR4/
+ * pkg_type==0 constants exactly, cross-validating both recoveries).
+ *
+ * DDR3: 9 one-shot vPhyByteIO32WriteMsk writes, no pkg_type dependency.
+ * DDR4 (or anything else is_ddr3_family() rejects): the 6 DRVN/DRVP/
+ * ODTN/ODTP byte-lane registers get pkg_type-dependent default values
+ * (0x1e vs 0x26 per lane), then both package types converge on the same
+ * default ODT code (13) written to all twelve 5-bit lanes of
+ * 0x012010d0/0x012010d4.
+ */
+void DramcDRVinitSetting(void *ctx)
+{
+    if (is_ddr3_family(ctx)) {
+        vPhyByteIO32WriteMsk(ctx, 0x090004bcU, 0x1e1e1616U, 0x3f3f3f3fU);
+        vPhyByteIO32WriteMsk(ctx, 0x090004c0U, 0x16161616U, 0x3f3f3f3fU);
+        vPhyByteIO32WriteMsk(ctx, 0x090004c4U, 0x00001e1eU, 0x00003f3fU);
+        vPhyByteIO32WriteMsk(ctx, 0x1100053cU, 0x24242626U, 0x3f3f3f3fU);
+        vPhyByteIO32WriteMsk(ctx, 0x11000544U, 0x00002424U, 0x00003f3fU);
+        vPhyByteIO32WriteMsk(ctx, 0x190005bcU, 0x24242626U, 0x3f3f3f3fU);
+        vPhyByteIO32WriteMsk(ctx, 0x012010d0U, 0x318c6318U, 0x3fffffffU);
+        vPhyByteIO32WriteMsk(ctx, 0x012010d4U, 0x31842108U, 0x3fffffffU);
+        vPhyByteIO32WriteMsk(ctx, 0x190005c4U, 0x00002424U, 0x00003f3fU);
+        return;
+    }
+
+#define W(_reg, _val, _mask) vIO32WriteMsk_All(ctx, (_reg), (_val), (_mask))
+    if (pkg_type == 0U) {
+        W(0x090004bcU, 0x00001e00U, 0x00003f00U);
+        W(0x090004bcU, 0x0000001eU, 0x0000003fU);
+        W(0x090004bcU, 0x26000000U, 0x3f000000U);
+        W(0x090004bcU, 0x00260000U, 0x003f0000U);
+
+        W(0x090004c0U, 0x00002600U, 0x00003f00U);
+        W(0x090004c0U, 0x00000026U, 0x0000003fU);
+        W(0x090004c0U, 0x26000000U, 0x3f000000U);
+        W(0x090004c0U, 0x00260000U, 0x003f0000U);
+
+        W(0x090004c4U, 0x00002600U, 0x00003f00U);
+        W(0x090004c4U, 0x00000026U, 0x0000003fU);
+
+        W(0x1100053cU, 0x00001e00U, 0x00003f00U);
+        W(0x1100053cU, 0x00000026U, 0x0000003fU);
+        W(0x1100053cU, 0x1e000000U, 0x3f000000U);
+        W(0x1100053cU, 0x00260000U, 0x003f0000U);
+
+        W(0x11000544U, 0x00001e00U, 0x00003f00U);
+        W(0x11000544U, 0x00000026U, 0x0000003fU);
+
+        W(0x190005bcU, 0x00001e00U, 0x00003f00U);
+        W(0x190005bcU, 0x00000026U, 0x0000003fU);
+        W(0x190005bcU, 0x1e000000U, 0x3f000000U);
+        W(0x190005bcU, 0x00260000U, 0x003f0000U);
+
+        W(0x190005c4U, 0x00001e00U, 0x00003f00U);
+        W(0x190005c4U, 0x00000026U, 0x0000003fU);
+    } else {
+        W(0x090004bcU, 0x00001e00U, 0x00003f00U);
+        W(0x090004bcU, 0x0000001eU, 0x0000003fU);
+        W(0x090004bcU, 0x26000000U, 0x3f000000U);
+        W(0x090004bcU, 0x00260000U, 0x003f0000U);
+
+        W(0x090004c0U, 0x00002600U, 0x00003f00U);
+        W(0x090004c0U, 0x00000026U, 0x0000003fU);
+        W(0x090004c0U, 0x1e000000U, 0x3f000000U);
+        W(0x090004c0U, 0x001e0000U, 0x003f0000U);
+
+        W(0x090004c4U, 0x00002600U, 0x00003f00U);
+        W(0x090004c4U, 0x00000026U, 0x0000003fU);
+
+        W(0x1100053cU, 0x00001e00U, 0x00003f00U);
+        W(0x1100053cU, 0x0000001eU, 0x0000003fU);
+        W(0x1100053cU, 0x1e000000U, 0x3f000000U);
+        W(0x1100053cU, 0x001e0000U, 0x003f0000U);
+
+        W(0x11000544U, 0x00001e00U, 0x00003f00U);
+        W(0x11000544U, 0x0000001eU, 0x0000003fU);
+
+        W(0x190005bcU, 0x00001e00U, 0x00003f00U);
+        W(0x190005bcU, 0x0000001eU, 0x0000003fU);
+        W(0x190005bcU, 0x1e000000U, 0x3f000000U);
+        W(0x190005bcU, 0x001e0000U, 0x003f0000U);
+
+        W(0x190005c4U, 0x00001e00U, 0x00003f00U);
+        W(0x190005c4U, 0x0000001eU, 0x0000003fU);
+    }
+
+    W(0x012010d0U, 0x0000000dU, 0x0000001fU);
+    W(0x012010d0U, 0x000001a0U, 0x000003e0U);
+    W(0x012010d0U, 0x00003400U, 0x00007c00U);
+    W(0x012010d0U, 0x00068000U, 0x000f8000U);
+    W(0x012010d0U, 0x00d00000U, 0x01f00000U);
+    W(0x012010d0U, 0x1a000000U, 0x3e000000U);
+
+    W(0x012010d4U, 0x0000000dU, 0x0000001fU);
+    W(0x012010d4U, 0x000001a0U, 0x000003e0U);
+    W(0x012010d4U, 0x00003400U, 0x00007c00U);
+    W(0x012010d4U, 0x00068000U, 0x000f8000U);
+    W(0x012010d4U, 0x00d00000U, 0x01f00000U);
+    W(0x012010d4U, 0x1a000000U, 0x3e000000U);
+#undef W
 }
