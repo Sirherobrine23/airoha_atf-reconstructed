@@ -3,6 +3,7 @@
 #include "recovery_abi.h"
 
 typedef int8_t S8;
+typedef int16_t S16;
 typedef int32_t S32;
 typedef struct {
     U32 reg;
@@ -1371,4 +1372,185 @@ teardown:
     DramPhyReset(ctx);
     (void)state_latched;
     return 0;
+}
+
+/* Same source-level logic as the AN7581 object (independently traced and
+ * confirmed instruction-for-instruction identical in the two vGet_DDR_Loop_Mode
+ * calls and the return-value semantics; AN7581's build merely picks a
+ * different codegen sequence for the branch, not a different algorithm). */
+U32 u1IsPhaseMode(void *ctx)
+{
+    if (vGet_DDR_Loop_Mode(ctx) == 1U)
+        return 1U;
+    return (vGet_DDR_Loop_Mode(ctx) == 2U) ? 1U : 0U;
+}
+
+/* Identical source-level algorithm to AN7581's TxWinTransferDelayToUIPI
+ * (same call sequence/counts: vGet_DDR_Loop_Mode x1, u1IsPhaseMode x2,
+ * u1MCK2UI_DivShift x1) -- AN7581's build happens to expand the
+ * "(u1IsPhaseMode(ctx)==0)?1:0" term as an explicit branch while AN7583's
+ * expands it via a clz-based bit trick; both compute the same value. */
+void TxWinTransferDelayToUIPI(void *ctx, U16 delay, U8 center_adjust, U8 *out)
+{
+    U32 loop_mode = vGet_DDR_Loop_Mode(ctx);
+    U32 period = (u1IsPhaseMode(ctx) == 1U) ? 0x20U : 0x40U;
+    U32 mck2ui_shift = u1MCK2UI_DivShift(ctx);
+    U32 pi = delay & (period - 1U);
+    U32 count, large;
+
+    out[2] = (U8)pi;
+    count = (U16)((delay / period) << ((u1IsPhaseMode(ctx) == 0U) ? 1U : 0U));
+    if (center_adjust != 0U && loop_mode == 4U) {
+        U32 p = out[2];
+
+        if (p <= 9U) {
+            count--;
+            out[2] = (U8)(p + (period >> 1));
+        } else if ((period - 9U) <= p) {
+            out[2] = (U8)(p - (period >> 1));
+            count++;
+        }
+    }
+    large = count >> mck2ui_shift;
+    out[0] = (U8)large;
+    out[1] = (U8)(count - (large << mck2ui_shift));
+    count = (U16)(count - 6U);
+    large = count >> mck2ui_shift;
+    out[3] = (U8)large;
+    out[4] = (U8)(count - (large << mck2ui_shift));
+}
+
+/*
+ * TxWinTransferDelayToUIPIByHighSpeed: a second, register-readback-relative
+ * variant used only by AN7583's DramcTxWindowPerbitCal (AN7581 has no
+ * equivalent object at all). Rather than taking an absolute delay and an
+ * output record pointer, it reads the CURRENT hardware nibble for one lane
+ * (selected by `high_nibble`: 0 = low nibble of the packed register = lane0,
+ * nonzero = high nibble = lane1) from all four DQ/DQM UI-large registers,
+ * and stores back into ctx-resident scratch fields (ctx+0xc2..0xcd) the
+ * delta needed to reach the requested {ui_large, ui_small}, expressed as a
+ * new nibble pair relative to that lane's current register content. The
+ * companion TXUpdateDelayReg_DQ_DQM(ctx) commits those scratch fields.
+ */
+void TxWinTransferDelayToUIPIByHighSpeed(void *ctx, U16 ui_large, U16 ui_small,
+                                          U8 high_nibble)
+{
+    U32 shift = u1MCK2UI_DivShift(ctx);
+    U32 period = (U8)(0x20U << shift);
+    U32 dq_hi, dq_lo, dqm_hi, dqm_lo;
+
+    if (high_nibble == 0U) {
+        dq_lo = u4Dram_Register_Read(ctx, 0x00601200U) & 0xfU;
+        raw_set_u8(ctx, 0xc8, (U8)dq_lo);
+        dq_hi = u4Dram_Register_Read(ctx, 0x00601208U) & 0xfU;
+        raw_set_u8(ctx, 0xca, (U8)dq_hi);
+        raw_set_u8(ctx, 0xcc, (U8)(ui_large - dq_lo * period - dq_hi * 32U));
+
+        dqm_lo = u4Dram_Register_Read(ctx, 0x00601204U) & 0xfU;
+        raw_set_u8(ctx, 0xc2, (U8)dqm_lo);
+        dqm_hi = u4Dram_Register_Read(ctx, 0x0060120cU) & 0xfU;
+        raw_set_u8(ctx, 0xc4, (U8)dqm_hi);
+        raw_set_u8(ctx, 0xc6, (U8)(ui_small - dqm_lo * period - dqm_hi * 32U));
+    } else {
+        dq_lo = (u4Dram_Register_Read(ctx, 0x00601200U) >> 4) & 0xfU;
+        raw_set_u8(ctx, 0xc9, (U8)dq_lo);
+        dq_hi = (u4Dram_Register_Read(ctx, 0x00601208U) >> 4) & 0xfU;
+        raw_set_u8(ctx, 0xcb, (U8)dq_hi);
+        raw_set_u8(ctx, 0xcd, (U8)(ui_large - dq_lo * period - dq_hi * 32U));
+
+        dqm_lo = (u4Dram_Register_Read(ctx, 0x00601204U) >> 4) & 0xfU;
+        raw_set_u8(ctx, 0xc3, (U8)dqm_lo);
+        dqm_hi = (u4Dram_Register_Read(ctx, 0x0060120cU) >> 4) & 0xfU;
+        raw_set_u8(ctx, 0xc5, (U8)dqm_hi);
+        raw_set_u8(ctx, 0xc7, (U8)(ui_small - dqm_lo * period - dqm_hi * 32U));
+    }
+}
+
+/* Commits the ctx-resident scratch fields TxWinTransferDelayToUIPIByHighSpeed
+ * fills in (called once, after both lanes have been computed via that
+ * helper) to the same DQ/DQM UI-large/UI-small registers it just read back
+ * from. AN7581 has no equivalent object. */
+void TXUpdateDelayReg_DQ_DQM(void *ctx)
+{
+    U32 v;
+
+    v = ((U32)raw_u8(ctx, 0xc9) << 4) & 0xf0U;
+    v |= (U32)raw_u8(ctx, 0xc8) & 0xfU;
+    vPhyByteIO32WriteMsk(ctx, 0x00601200U, v, 0xffU);
+
+    v = ((U32)raw_u8(ctx, 0xcb) << 4) & 0xf0U;
+    v |= (U32)raw_u8(ctx, 0xca) & 0xfU;
+    vPhyByteIO32WriteMsk(ctx, 0x00601208U, v, 0xffU);
+
+    vIO32WriteMsk(ctx, 0x11600a20U, (U32)raw_u8(ctx, 0xcc) << 8, 0x3f00U);
+    vIO32WriteMsk(ctx, 0x19600aa0U, (U32)raw_u8(ctx, 0xcd) << 8, 0x3f00U);
+
+    v = ((U32)raw_u8(ctx, 0xc3) << 4) & 0xf0U;
+    v |= (U32)raw_u8(ctx, 0xc2) & 0xfU;
+    vPhyByteIO32WriteMsk(ctx, 0x00601204U, v, 0xffU);
+
+    v = ((U32)raw_u8(ctx, 0xc5) << 4) & 0xf0U;
+    v |= (U32)raw_u8(ctx, 0xc4) & 0xfU;
+    vPhyByteIO32WriteMsk(ctx, 0x0060120cU, v, 0xffU);
+
+    vIO32WriteMsk(ctx, 0x11600a20U, (U32)raw_u8(ctx, 0xc6) << 16, 0x3f0000U);
+    vIO32WriteMsk(ctx, 0x19600aa0U, (U32)raw_u8(ctx, 0xc7) << 16, 0x3f0000U);
+}
+
+/*
+ * TXSetDelayReg_DQ (AN7583): a genuinely different, smaller record layout
+ * than AN7581's -- packs only 2 DQ byte lanes (this SoC never has a
+ * data_width==0x20 config, confirmed by dramc_rx_dqs_gating_cal's own
+ * independent trace above), so there is no __meta_backup_and_set-wrapped
+ * second half at all. Record layout (0x14 bytes, confirmed by tracing
+ * DramcTxWindowPerbitCal's own record-build loop, not assumed from
+ * AN7581's larger record): arr[0..1]=UI_large, arr[2..3]=UI_small,
+ * arr[4..5]=PI, arr[0xc..0xd]=UI_large_OE, arr[0xe..0xf]=UI_small_OE
+ * (all per DQ lane 0/1); the DQM record starts 6 bytes later, see
+ * TXSetDelayReg_DQM.
+ */
+void TXSetDelayReg_DQ(void *ctx, U8 update_ui, const U8 *arr)
+{
+    if (update_ui != 0U) {
+        U32 v1 = ((U32)arr[0] & 0xfU) | (U32)(U8)(arr[1] << 4);
+
+        v1 |= ((U32)arr[0xc] << 16) & 0xf0000U;
+        v1 |= ((U32)arr[0xd] << 20) & 0xf00000U;
+        vPhyByteIO32WriteMsk(ctx, 0x00601200U, v1, 0xff00ffU);
+
+        {
+            U32 v2 = ((U32)arr[2] & 0xfU) | (U32)(U8)(arr[3] << 4);
+
+            v2 |= ((U32)arr[0xe] << 16) & 0xf0000U;
+            v2 |= ((U32)arr[0xf] << 20) & 0xf00000U;
+            vPhyByteIO32WriteMsk(ctx, 0x00601208U, v2, 0xff00ffU);
+        }
+    }
+
+    vIO32WriteMsk(ctx, 0x11600a20U, (U32)arr[4] << 8, 0x3f00U);
+    vIO32WriteMsk(ctx, 0x19600aa0U, (U32)arr[5] << 8, 0x3f00U);
+}
+
+/* Same layout/pattern as TXSetDelayReg_DQ, offset 6 bytes into the same
+ * record and targeting the DQM delay-chain registers instead. */
+void TXSetDelayReg_DQM(void *ctx, U8 update_ui, const U8 *arr)
+{
+    if (update_ui != 0U) {
+        U32 v1 = ((U32)arr[6] & 0xfU) | (U32)(U8)(arr[7] << 4);
+
+        v1 |= ((U32)arr[0x10] << 16) & 0xf0000U;
+        v1 |= ((U32)arr[0x11] << 20) & 0xf00000U;
+        vPhyByteIO32WriteMsk(ctx, 0x00601204U, v1, 0xff00ffU);
+
+        {
+            U32 v2 = ((U32)arr[8] & 0xfU) | (U32)(U8)(arr[9] << 4);
+
+            v2 |= ((U32)arr[0x12] << 16) & 0xf0000U;
+            v2 |= ((U32)arr[0x13] << 20) & 0xf00000U;
+            vPhyByteIO32WriteMsk(ctx, 0x0060120cU, v2, 0xff00ffU);
+        }
+    }
+
+    vIO32WriteMsk(ctx, 0x11600a20U, (U32)arr[0xa] << 16, 0x3f0000U);
+    vIO32WriteMsk(ctx, 0x19600aa0U, (U32)arr[0xb] << 16, 0x3f0000U);
 }
