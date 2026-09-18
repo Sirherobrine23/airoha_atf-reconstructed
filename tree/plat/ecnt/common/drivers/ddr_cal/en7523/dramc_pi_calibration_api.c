@@ -5398,6 +5398,16 @@ DRAM_STATUS_T DramcRxWindowPerbitCal(DRAMC_CTX_T *p, U8 u1UseTestEngine)
         {
 
         	Set_RX_DQM_DelayLine_Phy_Byte(p, u1ByteIdx,(U32)iDQMDlyPerbyte[u1ByteIdx]);
+	/* TEST-ONLY: settling-time experiment. Our reconstructed source
+	 * matches real vendor calibration algorithm/logic exactly
+	 * everywhere checked (config bits, WriteLeveling, this RX
+	 * averaging formula, TX per-bit path) -- the remaining
+	 * hypothesis is that our toolchain's different code timing
+	 * during calibration measurement produces a marginally
+	 * different (untimed) delay-line value than real firmware
+	 * gets, and the PHY needs settling time after each delay-line
+	 * change before it's electrically stable. */
+	mcDELAY_US(2);
         }
 
         //B0 DQS
@@ -6719,6 +6729,9 @@ for (u2VrefValue = 63; u2VrefValue < 64; u2VrefValue -= 1)
             vIO32WriteFldMulti(DDRPHY_SHU1_R0_B1_DQ7, P_Fld(ucdq_final_dqm_pi[1], SHU1_R0_B1_DQ7_RK0_ARPI_DQM_B1));
             //cc mark vIO32WriteFldMulti(DDRPHY_SHU1_R0_B0_DQ7+(1<<POS_BANK_NUM), P_Fld(ucdq_final_pi[2], SHU1_R0_B0_DQ7_RK0_ARPI_DQM_B0));
             //cc mark vIO32WriteFldMulti(DDRPHY_SHU1_R0_B1_DQ7+(1<<POS_BANK_NUM), P_Fld(ucdq_final_pi[3], SHU1_R0_B1_DQ7_RK0_ARPI_DQM_B1));
+            /* TEST-ONLY: settling-time experiment, see matching comment in
+             * DramcRxWindowPerbitCal. */
+            mcDELAY_US(2);
         }
     }
 
