@@ -525,13 +525,13 @@ cleaner result than AN7581's one unresolved `__meta_restore` count.
 `memset`'s 3 vendor calls have no candidate equivalent for the same
 reason as AN7581 (C initializers instead of one `memset` per buffer).
 
-## DramcTxWindowPerbitCal: dependencies done, main function structurally mapped but not yet written
+## DramcTxWindowPerbitCal (AN7581): done, zero call-count discrepancies
 
-Before touching the main function, it depends on three helpers that
-were only present in the still-PUBLIC_BASE MediaTek lineage source
+Before the main function, it depends on three helpers that were only
+present in the still-PUBLIC_BASE MediaTek lineage source
 (`TxWinTransferDelayToUIPI`, `TXSetDelayReg_DQ`, `TXSetDelayReg_DQM`,
 plus `u1IsPhaseMode` as `TxWinTransferDelayToUIPI`'s own dependency) --
-all four now recovered from their own oracle objects and validated
+all four recovered from their own oracle objects and validated
 (3 of 4 relocation counts match the vendor exactly; the fourth,
 `TxWinTransferDelayToUIPI`, shows `vGet_Div_Mode` instead of
 `u1MCK2UI_DivShift` because Clang -Os inlines that one-line same-TU
@@ -543,51 +543,87 @@ shared byte record via a single pointer rather than several separate
 pointers/arrays -- confirmed by tracing the actual byte offsets, not
 assumed from the public source.
 
-**The main function itself (2504 bytes AN7581, 2732 bytes AN7583 --
-note AN7583 is *larger* here, breaking the "AN7583 is simpler" pattern
-every other function in this file has shown so far, so no assumption
-about which SoC is more complex should be carried into this one) has
-been read in full once (fully instruction-level for the first ~40%,
-at call-graph/branch-shape resolution for the rest) but not written
-to C.** This is a step up in density from anything else in this file,
-including `dramc_rx_dqs_gating_cal`:
+The main function itself (oracle 2504 bytes, candidate 2604 -- a +100
+byte/+4% delta, consistent with the range seen across every other
+function in this file) was fully instruction-level traced (925
+disassembled instructions, 141 branch instructions) using a
+mechanical CFG-parsing script rather than by-eye reading, the same
+technique `dramc_rx_dqs_gating_cal` required. This is the densest
+function reconstructed in this file so far:
 
-- Three 0x140-byte (320-byte) stack buffers at entry (`sp+0x1f0`,
-  `sp+0x330`, `sp+0x470`), each shaped like 32 records of 10 bytes --
-  consistent with per-bit (not just per-lane) tracking across (at
-  least) a 32-position delay sweep.
-- Dynamically-indexed access into those buffers via runtime
-  `mul`/`mla` (record_ptr = base + 10*index), not fixed offsets --
-  the address-arithmetic-first method that resolved
-  `dramc_rx_dqs_gating_cal`'s aliasing puzzle applies here too, but
-  against a much larger, runtime-indexed address space rather than a
-  handful of fixed small offsets.
-- Signed 16-bit (`ldrsh`/`strh`) window min/max tracking with explicit
-  16-bit wraparound-sensitive subtraction, across an inner 8-iteration
-  sub-sample loop per bit position, mirrored against a second parallel
-  buffer -- this is a genuine window-search algorithm (find the widest
-  passing delay range per bit), not a small state machine like the
-  gating/write-leveling functions.
-- Confirmed register/call structure for orientation: `DramcEngine2Init`
-  / `DramcTXSetVref` / `vAutoRefreshSwitch` setup mirroring the other
-  Phase C functions; a per-bit sweep calling `DramcEngine2Run` and
-  updating the three buffers; a commit phase calling the newly-
-  recovered `TXSetDelayReg_DQ`/`TXSetDelayReg_DQM` plus several
-  `vPhyByteWriteFldAlign`/`vPhyByteIO32WriteMsk` writes to
-  `0x116009e0`/`0x116009e4`/`0x19600a60`/`0x19600a64` (DQ-related) and
-  `0x116009ec`/`0x19600a6c` (DQM-related), the second half of each
-  pair wrapped in `__meta_backup_and_set(ctx,1,...)`/`__meta_restore`
-  for `data_width==0x20`; and a final section calling
-  `TxWinTransferDelayToUIPI` twice more and `DramcTXSetVref` again to
-  finish centering the result.
+- Three 0x140-byte (320-byte) per-bit stack buffers (`bufA`/`bufB`/
+  `bufC`, 32 records of 10 bytes each: `S16 start, end, mid; U16
+  width, _pad;`), dynamically indexed via runtime `mul`/`mla`
+  (`record_ptr = base + 10*bit_index`), not fixed offsets.
+- Oracle signature is only 3 parameters (`ctx, cal_type,
+  vref_scan_enable`) versus the public lineage's 4 (`calType,
+  u1VrefScanEnable, isAutoK`) -- `isAutoK` does not appear in the
+  object at all for this SoC/build and was dropped rather than
+  guessed at.
+- A single stack slot for `vref_scan_enable` is genuinely reused by
+  the vendor for two different meanings across the function: on entry
+  it means "scan multiple Vref codes instead of committing delays";
+  later, only on the non-scanning path, it is overwritten from
+  `raw_u16(ctx,0x72)` and means "apply a per-bit Vref delay
+  compensation during the final commit". Modeled as one C variable
+  with a mid-function reassignment to match the object exactly.
+- **Two structurally distinct exit modes**, confirmed by tracing where
+  each branch actually terminates (not assumed): when
+  `vref_scan_enable != 0` on entry, the function sweeps every Vref
+  code in `{0,2,4,...,48}`, running a full per-bit window search at
+  each one and recording `{vref_code, sum_width, min_width,
+  worst_bit}` into a 6-byte-record scratch array; it then picks the
+  Vref code that maximizes the worst-bit window width (with a
+  sum-width tie-break and a backward-search refinement step), calls
+  `DramcTXSetVref` once more if DDR4, and **returns immediately --
+  it never reaches the TX delay commit code in this mode.** The
+  vref-analysis block contains one confirmed vendor quirk preserved
+  exactly rather than fixed: it reads `vref_scan[scan_count]`, one
+  past the last entry actually written this call (an
+  out-of-bounds/uninitialized-stack read in the disassembly, not a
+  transcription artifact).
+- When `vref_scan_enable == 0` on entry: per-bit sweep of `uiDelay`
+  from a write-leveling-derived baseline up to a computed
+  `search_limit`, calling `DramcEngine2Run` each step and updating
+  `bufA`/`bufB` with signed 16-bit (`ldrsh`/`strh`)
+  wraparound-sensitive window-open/close/best-so-far logic per bit
+  (find the widest passing delay run per bit) -- a genuine
+  window-search algorithm, not a small state machine like the
+  gating/write-leveling functions. Then a per-lane min/max-of-midpoint
+  pass (with a redundant `memcpy(bufC, bufB, ...)` executed on every
+  one of the 8 sub-iterations per lane -- kept exactly as observed,
+  not hoisted, since the vendor's own compiled code has it inside the
+  loop), a commit phase calling `TXSetDelayReg_DQ`/`TXSetDelayReg_DQM`,
+  and (only when `raw_u16(ctx,0x72) != 0`) an extra per-bit Vref
+  compensation pass writing packed nibble values to
+  `0x116009e0`/`0x116009e4`/`0x19600a60`/`0x19600a64` plus OE writes to
+  `0x116009ec`/`0x19600a6c`, the upper half of a 32-bit-wide config
+  wrapped in `__meta_backup_and_set(ctx,0,1)`/`__meta_restore(ctx,0)`
+  (note: `type=0` here, not the `type=1` seen in every prior use of
+  this helper pair in this file -- confirmed by re-reading the
+  registers at the call site, not assumed to match precedent).
+- Confirmed vendor quirk in the Vref-compensation branch: when
+  `raw_u16(ctx,0x72) == 0`, the per-lane "final DQ delay" is left at
+  `min_mid[lane]` rather than the `(min_mid+max_mid)/2` average used
+  everywhere else in the function -- an asymmetry between the DQ and
+  DQM final values that is only reachable when `cal_type != 0` (since
+  `cal_type == 0` always forces this flag from the same
+  `raw_u16(ctx,0x72)` check just before the loop). Preserved exactly.
 
-Given the size of this function and the amount of dynamically-indexed,
-signed-arithmetic array manipulation involved, transcribing it now
-without the same address-by-address verification rigor that the
-smaller functions in this file received would risk a genuine,
-hard-to-catch logic bug rather than a caught compile error. Left
-documented rather than guessed, per this project's standing rule.
-AN7583's copy has not been examined at all beyond the size/call-count
-signal above and needs its own full trace once AN7581's is done --
-per the note above, do **not** assume it is simpler just because that
-pattern has held for every other function so far.
+Validation (an7581, `-O0`): **zero discrepancies** -- every one of the
+24 distinct callees matches the vendor's static call-site count
+exactly (`vPhyByteWriteFldAlign` 12, `vGet_DDR_Loop_Mode` 3 -- called
+three separate times by the vendor rather than cached in a local,
+`vIO32WriteMsk` 4, `vPhyByteIO32WriteMsk` 4, `memset` 4,
+`TxWinTransferDelayToUIPI`/`TXSetDelayReg_DQ`/`TXSetDelayReg_DQM`/
+`DramcTXSetVref`/`vAutoRefreshSwitch`/`vSetCalibrationResult`/`vSetRank`
+2 each, `vPhyByteReadFldAlign` 2, `vIO32WriteMsk_All` 2, and all the
+singles including `memcpy` 1, `__meta_backup_and_set` 1,
+`__meta_restore` 1) -- matching AN7583's `dramc_rx_dqs_gating_cal`
+result as the cleanest validation achieved in this file so far.
+
+AN7583's copy (2732 bytes -- notably *larger* than AN7581's 2504,
+breaking the "AN7583 is simpler" pattern every other function in this
+file has shown) has not been examined at all beyond that size/call-
+count signal and needs its own full independent trace; do **not**
+assume it shares AN7581's structure.

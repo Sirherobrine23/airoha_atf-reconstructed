@@ -3,6 +3,7 @@
 #include "recovery_abi.h"
 
 typedef int8_t S8;
+typedef int16_t S16;
 typedef int32_t S32;
 typedef struct {
     U32 reg;
@@ -59,6 +60,7 @@ extern void DramcRestoreMixedRG(void *ctx, const U32 *desc, U32 count,
 extern U32 GetDramcBroadcast(void);
 extern void DramcBroadcastOnOff(U32 on);
 extern U8 u1GetRank(void *ctx);
+extern void vSetRank(void *ctx, U8 rank);
 extern U8 r_filter_count[];
 /*
  * The vendor object indexes this as wrlevel_dqs_final_delay[lane + rank*4]
@@ -1747,4 +1749,472 @@ void TXSetDelayReg_DQM(void *ctx, U8 update_ui, const U8 *arr)
         vIO32WriteMsk(ctx, 0x19600aa0U, (U32)arr[0x17] << 16, 0x3f0000U);
         __meta_restore(ctx, 0);
     }
+}
+
+/* Per-bit TX delay window: {start,end} of the currently-open passing run
+ * (bufA) and {start,end,mid,width} of the widest run found so far (bufB),
+ * 10 bytes/record to match the oracle's stride exactly (2 bytes of the
+ * record, offset 8, are never read back -- a harmless dead field, kept for
+ * layout fidelity). start/end use 0x7fffU as the vendor's "unset" sentinel. */
+typedef struct {
+    S16 start;
+    S16 end;
+    S16 mid;
+    U16 width;
+    U16 _pad;
+} TX_PERBIT_REC_T;
+
+/* One entry per Vref code tried during a vref-scan pass (calType==0,
+ * u1VrefScanEnable!=0): the code itself, the sum of all per-bit window
+ * widths, the minimum per-bit width, and which bit achieved that minimum. */
+typedef struct {
+    U16 vref_code;
+    U16 sum_width;
+    U8 min_width;
+    U8 worst_bit;
+} TX_VREF_SCAN_REC_T;
+
+/*
+ * DramcTxWindowPerbitCal -- the oracle takes only 3 arguments (ctx, calType,
+ * a single vref-scan flag); the public MediaTek lineage's separate isAutoK
+ * parameter does not appear anywhere in the object at all for this SoC and
+ * has been dropped rather than guessed at.
+ *
+ * The single vref-scan flag is genuinely reused for two different purposes
+ * across the vendor's own control flow (it lives in one stack slot in the
+ * object): on entry it means "scan multiple Vref codes and report the best
+ * one, then return early without touching the TX delay registers"; later,
+ * only on the calType==0/non-scanning path, the SAME local is overwritten
+ * from raw_u16(ctx,0x72) and means "apply a per-bit Vref delay compensation
+ * during the final commit". Both uses are kept on one C variable to match.
+ */
+U32 DramcTxWindowPerbitCal(void *ctx, U8 cal_type, U8 vref_scan_enable)
+{
+    TX_PERBIT_REC_T bufA[32];
+    TX_PERBIT_REC_T bufB[32];
+    TX_PERBIT_REC_T bufC[32];
+    TX_VREF_SCAN_REC_T vref_scan[32];
+    U16 vref_comp[32];
+    U16 min_mid[4];
+    U16 max_mid[4];
+    U8 tmp[5];
+    U8 arr[0x28];
+    U32 saved_rank;
+    U32 rank;
+    U32 mck2ui_shift;
+    U32 phase_shift;
+    U32 data_width;
+    U32 lane_count;
+    U32 hw0, hw1;
+    U32 min_delay;
+    U32 search_limit;
+    U32 vref_limit;
+    U32 step;
+    U32 enable_ui_shift;
+    U32 vref_code;
+    U32 scan_count;
+    U32 lane, bit;
+
+    memset(bufA, 0, sizeof(bufA));
+    memset(bufB, 0, sizeof(bufB));
+    memset(bufC, 0, sizeof(bufC));
+    memset(vref_comp, 0, sizeof(vref_comp));
+
+    if (ctx == 0)
+        return 1;
+
+    vPrintCalibrationBasicInfo(ctx);
+    saved_rank = u1GetRank(ctx);
+    vAutoRefreshSwitch(ctx, 1);
+    if (is_ddr3_family(ctx))
+        vref_scan_enable = 0;
+
+    if (cal_type == 1) {
+        vIO32WriteMsk(ctx, 0x00000100U, 0x02000000U, 0x02000000U);
+        vIO32WriteMsk(ctx, 0x0000010cU, 0x00200000U, 0x00200000U);
+    } else {
+        vPhyByteWriteFldAlign(ctx, 0x116009e0U, 0, 0, 1);
+        vPhyByteWriteFldAlign(ctx, 0x116009e4U, 0, 0, 1);
+        vPhyByteWriteFldAlign(ctx, 0x19600a60U, 0, 0, 1);
+        vPhyByteWriteFldAlign(ctx, 0x19600a64U, 0, 0, 1);
+        vIO32WriteMsk_All(ctx, 0x116009ecU, 0, 0xffU);
+        vIO32WriteMsk_All(ctx, 0x19600a6cU, 0, 0xffU);
+    }
+
+    hw0 = vPhyByteReadFldAlign(ctx, 0x00601280U, 0);
+    hw1 = vPhyByteReadFldAlign(ctx, 0x00601284U, 0);
+    mck2ui_shift = u1MCK2UI_DivShift(ctx);
+    phase_shift = (vGet_DDR_Loop_Mode(ctx) != 0U) ? 5U : 6U;
+    data_width = raw_u32(ctx, 0x44);
+    lane_count = data_width >> 3;
+    rank = raw_u32(ctx, 0xc);
+
+    min_delay = 0xffffU;
+    for (lane = 0; lane < lane_count; lane++) {
+        U32 v = (((hw0 >> (lane * 4U)) & 7U) << mck2ui_shift)
+                + ((hw1 >> (lane * 4U)) & 7U);
+
+        v = v << phase_shift;
+        v = (U16)(v + (U32)wrlevel_dqs_final_delay[lane + rank * 4U]);
+        if (min_delay >= v)
+            min_delay = v;
+    }
+
+    search_limit = (U16)(min_delay + ((1U << mck2ui_shift) << phase_shift));
+    vref_limit = vref_scan_enable ? 0x32U : 0U;
+    vSetCalibrationResult(ctx, 0xb, 1);
+
+    if (vGet_DDR_Loop_Mode(ctx) == 2U)
+        step = 8U;
+    else if (vGet_DDR_Loop_Mode(ctx) == 1U)
+        step = 16U;
+    else if (cal_type == 2U)
+        step = cal_type;
+    else
+        step = 1U;
+    enable_ui_shift = (cal_type == 1U) ? 0U : 1U;
+
+    DramcEngine2Init(ctx, raw_u32(ctx, 0x48), raw_u32(ctx, 0x4c),
+                      raw_u8(ctx, 0x50), 0, (U8)enable_ui_shift);
+
+    vref_code = 0;
+    scan_count = 0;
+    do {
+        S32 uiDelay;
+        U32 done_mask = 0;
+        U32 prev_ui_small = 0xffU;
+        U32 worst_width = 0xffU;
+        U32 worst_bit = 0;
+        U32 sum_width = 0;
+
+        if (vref_scan_enable)
+            DramcTXSetVref(ctx, 1, (U8)vref_code);
+
+        for (bit = 0; bit < data_width; bit++) {
+            bufA[bit].start = 0x7fff;
+            bufA[bit].end = 0x7fff;
+            bufB[bit].start = 0x7fff;
+            bufB[bit].end = 0x7fff;
+        }
+
+        uiDelay = (S32)min_delay;
+        while ((U32)uiDelay < search_limit) {
+            U32 update_ui;
+            U32 fail_bitmap;
+
+            TxWinTransferDelayToUIPI(ctx, (U16)uiDelay, 0, tmp);
+            update_ui = (tmp[1] != prev_ui_small) ? 1U : 0U;
+
+            for (lane = 0; lane < lane_count; lane++) {
+                if (update_ui) {
+                    arr[lane] = tmp[0];
+                    arr[lane + 4] = tmp[1];
+                    arr[lane + 0x18] = tmp[3];
+                    arr[lane + 0x1c] = tmp[4];
+                    arr[lane + 0xc] = tmp[0];
+                    arr[lane + 0x10] = tmp[1];
+                    arr[lane + 0x20] = tmp[3];
+                    arr[lane + 0x24] = tmp[4];
+                }
+                arr[lane + 8] = tmp[2];
+                arr[lane + 0x14] = tmp[2];
+            }
+
+            if (cal_type == 0U || cal_type == 2U)
+                TXSetDelayReg_DQ(ctx, (U8)update_ui, arr);
+            if (cal_type == 1U || cal_type == 2U)
+                TXSetDelayReg_DQM(ctx, (U8)update_ui, arr);
+
+            fail_bitmap = DramcEngine2Run(ctx, 0, raw_u8(ctx, 0x50));
+
+            for (bit = 0; bit < data_width; bit++) {
+                U32 fail = (fail_bitmap & (1U << bit)) != 0U;
+
+                if (bufA[bit].start == 0x7fff) {
+                    if (!fail)
+                        bufA[bit].start = (S16)uiDelay;
+                } else if (bufA[bit].end == 0x7fff) {
+                    if (fail)
+                        bufA[bit].end = (S16)(uiDelay - (S32)step);
+                    else if ((U32)uiDelay > search_limit - step)
+                        bufA[bit].end = (S16)uiDelay;
+
+                    if (bufA[bit].end != 0x7fff) {
+                        S32 width_new = bufA[bit].end - bufA[bit].start;
+                        S32 width_best = bufB[bit].end - bufB[bit].start;
+
+                        if (width_new >= width_best) {
+                            if (width_new > 7)
+                                done_mask |= 1U << bit;
+                            bufB[bit].start = bufA[bit].start;
+                            bufB[bit].end = bufA[bit].end;
+                        }
+                        bufA[bit].start = 0x7fff;
+                        bufA[bit].end = 0x7fff;
+                    }
+                }
+            }
+
+            if ((data_width == 0x20U && (done_mask + 1U) == 0U) ||
+                (data_width == 0x10U && done_mask == 0xffffU)) {
+                vSetCalibrationResult(ctx, 0xb, 0);
+                break;
+            }
+            prev_ui_small = tmp[1];
+            uiDelay += (S32)step;
+        }
+
+        for (bit = 0; bit < data_width; bit++) {
+            U32 width_plus_step;
+
+            if (bufB[bit].start == 0x7fff)
+                width_plus_step = 0;
+            else
+                width_plus_step = (U16)(bufB[bit].end + (S32)step - bufB[bit].start);
+
+            bufB[bit].width = (U16)width_plus_step;
+            if (worst_width > width_plus_step) {
+                worst_width = (U8)width_plus_step;
+                worst_bit = bit;
+            }
+            sum_width = (U16)(sum_width + width_plus_step);
+            bufB[bit].mid = (S16)(((S32)bufB[bit].start + (S32)bufB[bit].end) >> 1);
+        }
+
+        if (vref_scan_enable == 1U) {
+            vref_scan[scan_count].vref_code = (U16)vref_code;
+            vref_scan[scan_count].min_width = (U8)worst_width;
+            vref_scan[scan_count].worst_bit = (U8)worst_bit;
+            vref_scan[scan_count].sum_width = (U16)sum_width;
+            scan_count = (U8)(scan_count + 1U);
+        }
+
+        vref_code = (U16)(vref_code + 2U);
+    } while (vref_limit >= vref_code);
+
+    DramcEngine2End(ctx);
+
+    if (vref_scan_enable != 0U) {
+        /*
+         * Vref-scan mode: pick the best code from vref_scan[0..scan_count)
+         * and return early. No TX delay register is committed here -- that
+         * only happens on a follow-up call with vref_scan_enable == 0.
+         */
+        U32 i;
+        U32 best_min = 0, best_sum_at_min = 0, best_vref = 0;
+        U32 max_sum = 0, max_sum_idx = 0;
+
+        for (i = 0; i < scan_count; i++) {
+            if (vref_scan[i].sum_width > max_sum) {
+                max_sum = vref_scan[i].sum_width;
+                max_sum_idx = i;
+            }
+            if (vref_scan[i].min_width > best_min ||
+                (vref_scan[i].min_width == best_min &&
+                 vref_scan[i].sum_width > best_sum_at_min)) {
+                best_min = vref_scan[i].min_width;
+                best_sum_at_min = vref_scan[i].sum_width;
+                best_vref = vref_scan[i].vref_code;
+            }
+        }
+
+        /*
+         * scan_count is always > max_sum_idx here (max_sum_idx is always a
+         * valid 0-based index into a non-empty scan), so this reads
+         * vref_scan[scan_count] -- one past the last entry this call
+         * actually wrote. That mirrors the vendor's own out-of-bounds /
+         * uninitialized-stack read at this exact point in the disassembly
+         * (an7581 dramc_pi_calibration_api.o); preserved exactly rather
+         * than "fixed", per this project's convention of not silently
+         * correcting observed vendor behavior.
+         */
+        if (scan_count > max_sum_idx) {
+            U32 sum_threshold = (95U * max_sum) / 100U;
+            S32 min_threshold = (S32)best_min - 2;
+            U32 oob_min = vref_scan[scan_count].min_width;
+            U32 oob_sum = vref_scan[scan_count].sum_width;
+            U32 code_lo = (U8)vref_scan[scan_count].vref_code;
+
+            if ((S32)oob_min >= min_threshold && oob_sum > sum_threshold) {
+                U32 pct = (10000U * oob_sum) / max_sum;
+                U32 scaled_thresh;
+                U32 code_hi = 0xffU;
+                U32 idx = max_sum_idx;
+
+                pct = (pct + 5U) / 10U;
+                scaled_thresh = (pct * max_sum) / 1000U;
+
+                while (idx != 0U) {
+                    if ((S32)vref_scan[idx].min_width < min_threshold)
+                        break;
+                    if (vref_scan[idx].sum_width <= scaled_thresh)
+                        break;
+                    idx--;
+                    code_hi = (U8)vref_scan[idx + 1U].vref_code;
+                }
+
+                if (code_hi != 0xffU && code_lo != 0xffU)
+                    best_vref = (code_hi + code_lo) >> 1;
+            }
+        }
+
+        if (is_ddr4_family(ctx))
+            DramcTXSetVref(ctx, 1, (U8)best_vref);
+        return 0;
+    }
+
+    /* Normal (non-scanning) commit path. */
+    for (lane = 0; lane < lane_count; lane++) {
+        U32 base_bit = lane * 8U;
+        U32 sub;
+
+        min_mid[lane] = 0xffffU;
+        max_mid[lane] = 0;
+        for (sub = 0; sub < 8U; sub++) {
+            U32 b = (U8)(base_bit + sub);
+            S32 mid;
+
+            memcpy(bufC, bufB, sizeof(bufB));
+            mid = bufC[b].mid;
+            if (mid < (S32)min_mid[lane])
+                min_mid[lane] = (U16)mid;
+            if (mid > (S32)max_mid[lane])
+                max_mid[lane] = (U16)mid;
+        }
+    }
+
+    if (cal_type == 0U)
+        vref_scan_enable = (raw_u16(ctx, 0x72) != 0U) ? 1U : 0U;
+
+    for (lane = 0; lane < lane_count; lane++) {
+        U32 final_dq, final_dqm;
+        U32 lane_avg = (U32)(U16)(min_mid[lane] + max_mid[lane]) >> 1;
+
+        if (vref_scan_enable == 0U) {
+            final_dq = lane_avg;
+            final_dqm = lane_avg;
+        } else {
+            U32 base_bit = lane * 8U;
+            U32 raw72 = raw_u16(ctx, 0x72);
+
+            /* Per the vendor object: when raw72==0 this leaves final_dq at
+             * min_mid[lane] rather than the average used everywhere else --
+             * a genuine quirk of this branch, kept as observed. */
+            final_dq = min_mid[lane];
+            final_dqm = lane_avg;
+
+            if (raw72 != 0U) {
+                U32 sub;
+
+                for (sub = 0; sub < 8U; sub++) {
+                    U32 b = (U8)(base_bit + sub);
+                    U32 delta = (U8)((S32)bufC[b].mid - (S32)min_mid[lane]);
+                    U32 freq_shifted = (U32)raw_u16(ctx, 0x54) << 6;
+                    U32 parity = ((delta * 0x0bebc200U) / freq_shifted) / raw72;
+                    U32 v;
+
+                    parity &= 1U;
+                    v = ((delta * 0x05f5e100U) / freq_shifted) / raw72;
+                    v = (U16)(v + parity);
+                    if (v > 15U)
+                        v = 15U;
+                    vref_comp[b] = (U16)v;
+                }
+            }
+        }
+
+        TxWinTransferDelayToUIPI(ctx, (U16)final_dq, 1, tmp);
+        arr[lane] = tmp[0];
+        arr[lane + 4] = tmp[1];
+        arr[lane + 8] = tmp[2];
+        arr[lane + 0x18] = tmp[3];
+        arr[lane + 0x1c] = tmp[4];
+
+        TxWinTransferDelayToUIPI(ctx, (U16)final_dqm, 1, tmp);
+        arr[lane + 0xc] = tmp[0];
+        arr[lane + 0x10] = tmp[1];
+        arr[lane + 0x14] = tmp[2];
+        arr[lane + 0x20] = tmp[3];
+        arr[lane + 0x24] = tmp[4];
+    }
+
+    vSetRank(ctx, raw_u8(ctx, 0xc));
+
+    if (cal_type == 0U || cal_type == 2U)
+        TXSetDelayReg_DQ(ctx, 1, arr);
+    TXSetDelayReg_DQM(ctx, 1, arr);
+
+    if (vref_scan_enable != 0U) {
+        U32 v0, v1, v2, v3;
+        U32 sum_lo = 0, sum_hi = 0, oe_dq, oe_dq2;
+        U32 i;
+
+        v0 = ((U32)(U8)vref_comp[3] << 24) | (((U32)(U8)vref_comp[2] << 16) & 0xff0000U) |
+             (U32)(U16)((U32)(U8)vref_comp[1] << 8) | (U32)(U8)vref_comp[0];
+        vPhyByteWriteFldAlign(ctx, 0x116009e0U, v0, 0, 0);
+
+        v1 = ((U32)(U8)vref_comp[7] << 24) | (((U32)(U8)vref_comp[6] << 16) & 0xff0000U) |
+             (U32)(U16)((U32)(U8)vref_comp[5] << 8) | (U32)(U8)vref_comp[4];
+        vPhyByteWriteFldAlign(ctx, 0x116009e4U, v1, 0, 0);
+
+        v2 = ((U32)(U8)vref_comp[11] << 24) | (((U32)(U8)vref_comp[10] << 16) & 0xff0000U) |
+             (U32)(U16)((U32)(U8)vref_comp[9] << 8) | (U32)(U8)vref_comp[8];
+        vPhyByteWriteFldAlign(ctx, 0x19600a60U, v2, 0, 0);
+
+        v3 = ((U32)(U8)vref_comp[15] << 24) | (((U32)(U8)vref_comp[14] << 16) & 0xff0000U) |
+             (U32)(U16)((U32)(U8)vref_comp[13] << 8) | (U32)(U8)vref_comp[12];
+        vPhyByteWriteFldAlign(ctx, 0x19600a64U, v3, 0, 0);
+
+        for (i = 0; i < 8U; i++) {
+            sum_lo = (U16)(sum_lo + vref_comp[i]);
+            sum_hi = (U16)(sum_hi + vref_comp[i + 8U]);
+        }
+        oe_dq = ((sum_lo >> 1) & 1U) + (sum_lo >> 3);
+        oe_dq2 = ((sum_hi >> 1) & 1U) + (sum_hi >> 3);
+        vPhyByteIO32WriteMsk(ctx, 0x116009ecU, (U8)oe_dq, 0xffU);
+        vPhyByteIO32WriteMsk(ctx, 0x19600a6cU, (U8)oe_dq2, 0xffU);
+
+        if (data_width == 0x20U) {
+            U32 sum_lo2 = 0, sum_hi2 = 0, oe_dq3, oe_dq4;
+
+            __meta_backup_and_set(ctx, 0, 1);
+
+            v0 = ((U32)(U8)vref_comp[19] << 24) | (((U32)(U8)vref_comp[18] << 16) & 0xff0000U) |
+                 (U32)(U16)((U32)(U8)vref_comp[17] << 8) | (U32)(U8)vref_comp[16];
+            vPhyByteWriteFldAlign(ctx, 0x116009e0U, v0, 0, 0);
+
+            v1 = ((U32)(U8)vref_comp[23] << 24) | (((U32)(U8)vref_comp[22] << 16) & 0xff0000U) |
+                 (U32)(U16)((U32)(U8)vref_comp[21] << 8) | (U32)(U8)vref_comp[20];
+            vPhyByteWriteFldAlign(ctx, 0x116009e4U, v1, 0, 0);
+
+            v2 = ((U32)(U8)vref_comp[27] << 24) | (((U32)(U8)vref_comp[26] << 16) & 0xff0000U) |
+                 (U32)(U16)((U32)(U8)vref_comp[25] << 8) | (U32)(U8)vref_comp[24];
+            vPhyByteWriteFldAlign(ctx, 0x19600a60U, v2, 0, 0);
+
+            v3 = ((U32)(U8)vref_comp[31] << 24) | (((U32)(U8)vref_comp[30] << 16) & 0xff0000U) |
+                 (U32)(U16)((U32)(U8)vref_comp[29] << 8) | (U32)(U8)vref_comp[28];
+            vPhyByteWriteFldAlign(ctx, 0x19600a64U, v3, 0, 0);
+
+            for (i = 0; i < 8U; i++) {
+                sum_lo2 = (U16)(sum_lo2 + vref_comp[i + 16U]);
+                sum_hi2 = (U16)(sum_hi2 + vref_comp[i + 24U]);
+            }
+            oe_dq3 = ((sum_lo2 >> 1) & 1U) + (sum_lo2 >> 3);
+            oe_dq4 = ((sum_hi2 >> 1) & 1U) + (sum_hi2 >> 3);
+            vPhyByteIO32WriteMsk(ctx, 0x116009ecU, (U8)oe_dq3, 0xffU);
+            vPhyByteIO32WriteMsk(ctx, 0x19600a6cU, (U8)oe_dq4, 0xffU);
+
+            __meta_restore(ctx, 0);
+        }
+    }
+
+    vSetRank(ctx, (U8)saved_rank);
+    vAutoRefreshSwitch(ctx, 0);
+
+    if (cal_type == 1U) {
+        vIO32WriteMsk(ctx, 0x00000100U, 0, 0x02000000U);
+        vIO32WriteMsk(ctx, 0x0000010cU, 0, 0x00200000U);
+    }
+
+    return 0;
 }
