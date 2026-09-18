@@ -705,3 +705,90 @@ two new-to-AN7583 helpers (`TXUpdateDelayReg_DQ_DQM` 1,
 `TxWinTransferDelayToUIPIByHighSpeed` 2), `vPhyByteReadFldAlign` 14,
 `vPhyByteWriteFldAlign` 20, and `vSetRank` 6 -- matching AN7581's clean
 result for this same function.
+
+## DramcRxWindowPerbitCal: dependencies done, main function structurally mapped but not yet written
+
+Its three previously-unaddressed dependencies (`DramcRxWinRDDQCInit`,
+`DramcRxWinRDDQCRun`, `DramcRxWinRDDQCEnd`) are now recovered and
+validated for both SoCs -- see the git history for that commit. (Its
+other dependencies -- `GetEyeScanEnable`, `SetRxDqDelay`,
+`DramcEngine2Init/Run/End`, `DramPhyReset`, `u4Dram_Register_Read`,
+`__meta_backup_and_set`/`__meta_restore` -- were already recovered
+elsewhere in this file or in `dramc_utility.c`.)
+
+**The main function itself (an7581: 2540 bytes/1024 disassembled
+instructions, an7583: 2472 bytes/1008 instructions) has been read in
+full once but not written to C.** Like the two `DramcTxWindowPerbitCal`
+reconstructions above, it is a genuinely dense per-bit window-search
+function, and pushing through a full instruction-level transcription in
+the same pass that already produced two validated ~1000-instruction
+functions this session risks exactly the kind of rushed, hard-to-catch
+error this project's methodology exists to avoid. What is confirmed so
+far from the full read:
+
+- Oracle signature is 3 arguments: `(ctx, mode_sel, custom_delay_ptr)`.
+  `mode_sel` (kept in a callee-saved register, not a stack slot)
+  selects between an RDDQC-hardware-assisted path (calls
+  `DramcRxWinRDDQCInit`/`Run`/`End`, `mode_sel != 1`) and an
+  Engine2-test-pattern path (`mode_sel == 1`, calls `DramcEngine2Init`/
+  `Run`/`End` directly instead). `custom_delay_ptr`, when non-NULL, is a
+  pointer to a caller-supplied 4-byte array of per-lane initial RX
+  delay values (with `0xff` in a lane meaning "no override, use the
+  hardware-broadcast/outer-loop-counter value instead"); when NULL, a
+  built-in default of 14 per lane is used.
+- A 32-record, 10-byte-stride per-bit tracking buffer at one stack
+  offset (the same shape as `DramcTxWindowPerbitCal`'s `bufA`/`bufB`/
+  `bufC`, but only one such buffer here so far identified, and
+  initialized with a `0`-based sentinel at record offset+4 rather than
+  TX's `0x7fff` -- confirmed genuinely different from TX's scheme, not
+  assumed to match it).
+- An outer sweep loop (register `r11` in the disassembly) whose step
+  size is 2 or 4 depending on `mode_sel`, with a starting threshold
+  computed either from the current DRAM frequency (clamped to -63 or
+  -127) or, when `mode_sel == 0`, from a cached global `S16
+  s2RxDelayPreCal` value minus 10 (clamped to -126) -- a persisted
+  "start near where we left off last time" optimization not present at
+  all in `DramcTxWindowPerbitCal`.
+- Confirmed dependencies on two new BSS globals not yet used elsewhere
+  in this file: `gFinalRXVrefDQ` and `gFinalRXVrefDQForSpeedUp`,
+  referenced only near the function's final commit section (not yet
+  traced in detail).
+- A final commit section (roughly the last 350 bytes) that writes to
+  RX-side UI/PI registers (`0x11600a08`/`0x19600a88`, mirroring
+  `DramcTxWindowPerbitCal`'s `0x1160xa20`/`0x19600aa0` UI/PI registers
+  but on the RX/read-delay side) plus a `0x116009f8`-based OE register
+  block indexed by a per-group loop, with the usual
+  `__meta_backup_and_set(ctx,1,...)`/`__meta_restore` doubling for
+  `data_width==0x20`.
+
+AN7583's copy has not been examined at all yet beyond the dependency
+recovery and the size/call-count signal in the table below (call counts
+differ substantially from AN7581's -- notably `vPhyByteReadFldAlign` 10
+vs AN7581's 0, and `vPhyByteWriteFldAlign` 10 vs AN7581's 4 -- so, as
+with `DramcTxWindowPerbitCal`, it should **not** be assumed to share
+AN7581's structure and needs its own independent trace):
+
+| callee | an7581 | an7583 |
+|---|---|---|
+| `DramPhyReset` | 3 | 3 |
+| `DramcEngine2End/Init/Run` | 1/1/1 | 1/1/1 |
+| `DramcRxWinRDDQCEnd/Init/Run` | 1/1/1 | 1/1/1 |
+| `GetEyeScanEnable` | 1 | 1 |
+| `SetRxDqDelay` | 2 | 2 |
+| `__meta_backup_and_set`/`__meta_restore` | 5/5 | 0/0 |
+| `is_ddr3_family` | 1 | 1 |
+| `memcpy` | 1 | 1 |
+| `u1GetRank` | 1 | 1 |
+| `u4Dram_Register_Read` | 4 | 2 |
+| `vAutoRefreshSwitch` | 2 | 2 |
+| `vIO32WriteMsk`/`vIO32WriteMsk_All` | 8/4 | 4/4 |
+| `vPhyByteIO32WriteMsk`/`_All` | 8/8 | 4/8 |
+| `vPhyByteReadFldAlign`/`WriteFldAlign` | 0/4 | 10/10 |
+| `vPrintCalibrationBasicInfo` | 2 | 2 |
+| `vSetCalibrationResult` | 3 | 3 |
+| `vSetRank` | 1 | 3 |
+
+Left documented rather than guessed at, per this project's standing
+rule, until there is time to give both SoCs' copies the same
+address-by-address verification rigor the two `DramcTxWindowPerbitCal`
+reconstructions received.
