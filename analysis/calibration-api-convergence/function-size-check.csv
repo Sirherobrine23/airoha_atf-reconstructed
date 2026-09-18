@@ -54,3 +54,7 @@ an7583,vSetDramMRWriteLevelingOnOff,264,168,-96
 an7583,DramcWriteLeveling,1208,1260,52
 an7581,dramc_rx_dqs_gating_cal,1948,1588,-360
 an7583,dramc_rx_dqs_gating_cal,1568,1270,-298
+an7581,u1IsPhaseMode,26,34,8
+an7581,TxWinTransferDelayToUIPI,148,192,44
+an7581,TXSetDelayReg_DQ,284,330,46
+an7581,TXSetDelayReg_DQM,300,334,34

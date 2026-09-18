@@ -207,3 +207,13 @@ an7583,dramc_rx_dqs_gating_cal,DramcEngine2Run,1,1,yes
 an7583,dramc_rx_dqs_gating_cal,DramcEngine2Init,1,1,yes
 an7583,dramc_rx_dqs_gating_cal,DramcEngine2End,1,1,yes
 an7583,dramc_rx_dqs_gating_cal,DramcBackupRegisters,1,1,yes
+an7581,u1IsPhaseMode,vGet_DDR_Loop_Mode,2,2,yes
+an7581,TxWinTransferDelayToUIPI,u1IsPhaseMode,2,2,yes
+an7581,TxWinTransferDelayToUIPI,vGet_DDR_Loop_Mode,1,1,yes
+an7581,TxWinTransferDelayToUIPI,u1MCK2UI_DivShift,1,0,yes-clang-inlines-it-exposing-its-own-vGet_Div_Mode-call
+an7581,TXSetDelayReg_DQ,vIO32WriteMsk,4,4,yes
+an7581,TXSetDelayReg_DQ,vPhyByteWriteFldAlign,2,2,yes
+an7581,TXSetDelayReg_DQ,__meta_backup_and_set,1,1,yes
+an7581,TXSetDelayReg_DQM,vIO32WriteMsk,4,4,yes
+an7581,TXSetDelayReg_DQM,vPhyByteWriteFldAlign,2,2,yes
+an7581,TXSetDelayReg_DQM,__meta_backup_and_set,1,1,yes

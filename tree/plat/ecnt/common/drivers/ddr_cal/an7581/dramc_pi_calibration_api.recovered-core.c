@@ -1606,3 +1606,145 @@ commit:
     (void)state_latched;
     return 0;
 }
+
+/* True in "phase" loop mode (1) or mode 2; byte-identical dependency
+ * of TxWinTransferDelayToUIPI. */
+U32 u1IsPhaseMode(void *ctx)
+{
+    if (vGet_DDR_Loop_Mode(ctx) == 1U)
+        return 1U;
+    return (vGet_DDR_Loop_Mode(ctx) == 2U) ? 1U : 0U;
+}
+
+/*
+ * Splits a UI delay value into a packed 5-byte {UI_large, UI_small, PI,
+ * UI_large_OE, UI_small_OE} record (the object writes all five through
+ * one output pointer, not the five separate pointers the still-
+ * PUBLIC_BASE MediaTek lineage source's signature suggests). `period`
+ * is 0x20 UI-steps-per-MCK in phase mode, 0x40 otherwise; `pi` is the
+ * remainder within that period. When `center_adjust` is set and the
+ * DDR loop mode is 4, a near-boundary `pi` value (<=9, or within 9 of
+ * the top of the period) gets nudged by half a period and the whole
+ * count compensated by one, before being converted to the OE_N pair
+ * via a `-6` UI offset -- preserved exactly, including the 16-bit
+ * wraparound on that subtraction when the count is < 6.
+ */
+void TxWinTransferDelayToUIPI(void *ctx, U16 delay, U8 center_adjust, U8 *out)
+{
+    U32 loop_mode = vGet_DDR_Loop_Mode(ctx);
+    U32 period = (u1IsPhaseMode(ctx) == 1U) ? 0x20U : 0x40U;
+    U32 mck2ui_shift = u1MCK2UI_DivShift(ctx);
+    U32 pi = delay & (period - 1U);
+    U32 count;
+    U32 large;
+
+    out[2] = (U8)pi;
+
+    count = (U16)((delay / period) << ((u1IsPhaseMode(ctx) == 0U) ? 1U : 0U));
+
+    if (center_adjust != 0U && loop_mode == 4U) {
+        U32 p = out[2];
+
+        if (p <= 9U) {
+            count--;
+            out[2] = (U8)(p + (period >> 1));
+        } else if ((period - 9U) <= p) {
+            out[2] = (U8)(p - (period >> 1));
+            count++;
+        }
+    }
+
+    large = count >> mck2ui_shift;
+    out[0] = (U8)large;
+    out[1] = (U8)(count - (large << mck2ui_shift));
+
+    count = (U16)(count - 6U);
+    large = count >> mck2ui_shift;
+    out[3] = (U8)large;
+    out[4] = (U8)(count - (large << mck2ui_shift));
+}
+
+/*
+ * Programs the DQ TX delay-chain registers from a packed byte record
+ * (the same nibble-packing scheme TXSetDelayReg_DQM uses 0xc bytes
+ * further into what's evidently one combined record type -- offsets
+ * kept exactly as found rather than split into named sub-structs).
+ * `update_ui` gates the two vPhyByteWriteFldAlign UI/MCK writes;
+ * the two vIO32WriteMsk PI writes always run, with the second byte
+ * lane's pair wrapped in a meta-context switch for data_width==0x20.
+ */
+void TXSetDelayReg_DQ(void *ctx, U8 update_ui, const U8 *arr)
+{
+    if (update_ui != 0U) {
+        U32 v1 = ((U32)arr[0] & 0xfU) | ((U32)arr[0x1b] << 28);
+
+        v1 |= (U32)(U8)(arr[1] << 4);
+        v1 |= ((U32)arr[2] << 8) & 0xf00U;
+        v1 |= ((U32)arr[3] << 12) & 0xf000U;
+        v1 |= ((U32)arr[0x18] << 16) & 0xf0000U;
+        v1 |= ((U32)arr[0x19] << 20) & 0xf00000U;
+        v1 |= ((U32)arr[0x1a] << 24) & 0xf000000U;
+        vPhyByteWriteFldAlign(ctx, 0x00601200U, v1, 0, 0);
+
+        {
+            U32 v2 = ((U32)arr[4] & 0xfU) | ((U32)arr[0x1f] << 28);
+
+            v2 |= (U32)(U8)(arr[5] << 4);
+            v2 |= ((U32)arr[6] << 8) & 0xf00U;
+            v2 |= ((U32)arr[7] << 12) & 0xf000U;
+            v2 |= ((U32)arr[0x1c] << 16) & 0xf0000U;
+            v2 |= ((U32)arr[0x1d] << 20) & 0xf00000U;
+            v2 |= ((U32)arr[0x1e] << 24) & 0xf000000U;
+            vPhyByteWriteFldAlign(ctx, 0x00601208U, v2, 0, 0);
+        }
+    }
+
+    vIO32WriteMsk(ctx, 0x11600a20U, (U32)arr[8] << 8, 0x3f00U);
+    vIO32WriteMsk(ctx, 0x19600aa0U, (U32)arr[9] << 8, 0x3f00U);
+
+    if (raw_u32(ctx, 0x44) == 0x20U) {
+        __meta_backup_and_set(ctx, 0, 1);
+        vIO32WriteMsk(ctx, 0x11600a20U, (U32)arr[0xa] << 8, 0x3f00U);
+        vIO32WriteMsk(ctx, 0x19600aa0U, (U32)arr[0xb] << 8, 0x3f00U);
+        __meta_restore(ctx, 0);
+    }
+}
+
+/* Same layout/pattern as TXSetDelayReg_DQ, offset 0xc bytes into the
+ * same record and targeting the DQM delay-chain registers instead. */
+void TXSetDelayReg_DQM(void *ctx, U8 update_ui, const U8 *arr)
+{
+    if (update_ui != 0U) {
+        U32 v1 = ((U32)arr[0xc] & 0xfU) | ((U32)arr[0x23] << 28);
+
+        v1 |= (U32)(U8)(arr[0xd] << 4);
+        v1 |= ((U32)arr[0xe] << 8) & 0xf00U;
+        v1 |= ((U32)arr[0xf] << 12) & 0xf000U;
+        v1 |= ((U32)arr[0x20] << 16) & 0xf0000U;
+        v1 |= ((U32)arr[0x21] << 20) & 0xf00000U;
+        v1 |= ((U32)arr[0x22] << 24) & 0xf000000U;
+        vPhyByteWriteFldAlign(ctx, 0x00601204U, v1, 0, 0);
+
+        {
+            U32 v2 = ((U32)arr[0x10] & 0xfU) | ((U32)arr[0x27] << 28);
+
+            v2 |= (U32)(U8)(arr[0x11] << 4);
+            v2 |= ((U32)arr[0x12] << 8) & 0xf00U;
+            v2 |= ((U32)arr[0x13] << 12) & 0xf000U;
+            v2 |= ((U32)arr[0x24] << 16) & 0xf0000U;
+            v2 |= ((U32)arr[0x25] << 20) & 0xf00000U;
+            v2 |= ((U32)arr[0x26] << 24) & 0xf000000U;
+            vPhyByteWriteFldAlign(ctx, 0x0060120cU, v2, 0, 0);
+        }
+    }
+
+    vIO32WriteMsk(ctx, 0x11600a20U, (U32)arr[0x14] << 16, 0x3f0000U);
+    vIO32WriteMsk(ctx, 0x19600aa0U, (U32)arr[0x15] << 16, 0x3f0000U);
+
+    if (raw_u32(ctx, 0x44) == 0x20U) {
+        __meta_backup_and_set(ctx, 0, 1);
+        vIO32WriteMsk(ctx, 0x11600a20U, (U32)arr[0x16] << 16, 0x3f0000U);
+        vIO32WriteMsk(ctx, 0x19600aa0U, (U32)arr[0x17] << 16, 0x3f0000U);
+        __meta_restore(ctx, 0);
+    }
+}
