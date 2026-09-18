@@ -132,13 +132,44 @@ trampolines) pulled in from `save-restore.S`/`unaligned-load-store.S`
 reconstructing as "recovered" source; if needed for a from-scratch
 relink they can be pulled from upstream LLVM compiler-rt directly.
 
+## Blocker: undocumented custom MD32RV instruction encodings
+
+Disassembling `iNIC_client_api.o`/`iNIC_client.o` with mainline
+`llvm-objdump --triple=riscv32 --mattr=+m,+a,+c` leaves a large
+fraction of instructions as `<unknown>` (11/~140 in
+`iNIC_client_api.o`, 207/~2000+ in `iNIC_client.o`). Decoding the raw
+words by hand (see git history of this file for the worked example)
+shows these are not a disassembly desync: they reuse the standard
+`OP` (`0x33`) and `JALR` (`0x67`) major opcodes with `funct3`/`funct7`
+combinations the base RV32IMAC spec doesn't define (e.g.
+`opcode=0x67, funct3=2/3/5/6, rd=x0` -- shaped like conditional
+branches, not real `JALR`s; `opcode=0x33, funct7=4/7` -- not a
+defined R-type or M-extension op). Relocations (`R_RISCV_BRANCH`,
+`R_RISCV_CALL`) still resolve correctly against these locations, so
+the *targets* (and therefore control flow) are recoverable even
+though the exact opcode semantics (branch condition polarity, what
+the R-type ops actually compute) are not, without an MD32RV/MRV33E25
+ISA reference.
+
+Per the user (relaying a vendor engineer's email): this divergence
+from the standard ISA is real and known, not a toolchain artifact --
+"ele fez algumas coisas para manter esses valores como estão" (he did
+things to keep these values as they are). Confirmed, not guessed.
+**Per the user's instruction, this is being set aside for now** rather
+than reconstructed via best-effort inference. Resume once an
+MD32RV/MRV33E25 ISA reference (or the actual `.c` sources) is
+available, so branch conditions and the custom R-type ops don't have
+to be guessed from context.
+
 ## Status
 
 Reference material added, build-reproduction confirmed byte-exact.
-No `.c` source written yet. Next: reconstruct `iNIC_client_api.c`
-(smallest file, 8 functions, all thin wrappers) first, then work
-through `iNIC_client.c` roughly in size order, each function validated
-against its own DWARF signature/locals and disassembly, landing in
+No `.c` source written yet; **paused** at the user's request pending
+MD32RV ISA documentation for the custom opcodes above. When resumed:
+reconstruct `iNIC_client_api.c` (smallest file, 8 functions, all thin
+wrappers) first, then work through `iNIC_client.c` roughly in size
+order, each function validated against its own DWARF signature/locals
+and disassembly, landing in
 `tree/plat/ecnt/common/drivers/NPU/md32rv-sdk/software/main/` (no
 per-SoC subdirectory -- this driver is confirmed SoC-common, same
 convention as `tree/plat/ecnt/common/drivers/efuse/`).
