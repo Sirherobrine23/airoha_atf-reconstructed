@@ -706,60 +706,97 @@ two new-to-AN7583 helpers (`TXUpdateDelayReg_DQ_DQM` 1,
 `vPhyByteWriteFldAlign` 20, and `vSetRank` 6 -- matching AN7581's clean
 result for this same function.
 
-## DramcRxWindowPerbitCal: dependencies done, main function structurally mapped but not yet written
+## DramcRxWindowPerbitCal (AN7581): done, zero call-count discrepancies
 
 Its three previously-unaddressed dependencies (`DramcRxWinRDDQCInit`,
-`DramcRxWinRDDQCRun`, `DramcRxWinRDDQCEnd`) are now recovered and
-validated for both SoCs -- see the git history for that commit. (Its
-other dependencies -- `GetEyeScanEnable`, `SetRxDqDelay`,
+`DramcRxWinRDDQCRun`, `DramcRxWinRDDQCEnd`) were recovered and validated
+for both SoCs first -- see the git history for that commit. (Its other
+dependencies -- `GetEyeScanEnable`, `SetRxDqDelay`,
 `DramcEngine2Init/Run/End`, `DramPhyReset`, `u4Dram_Register_Read`,
 `__meta_backup_and_set`/`__meta_restore` -- were already recovered
 elsewhere in this file or in `dramc_utility.c`.)
 
-**The main function itself (an7581: 2540 bytes/1024 disassembled
-instructions, an7583: 2472 bytes/1008 instructions) has been read in
-full once but not written to C.** Like the two `DramcTxWindowPerbitCal`
-reconstructions above, it is a genuinely dense per-bit window-search
-function, and pushing through a full instruction-level transcription in
-the same pass that already produced two validated ~1000-instruction
-functions this session risks exactly the kind of rushed, hard-to-catch
-error this project's methodology exists to avoid. What is confirmed so
-far from the full read:
+The main function itself (2540 bytes oracle, 2564 candidate -- a +24
+byte/+1% delta, the tightest match of any function in this file) was
+fully instruction-level traced (1024 instructions), including one pass
+where by-eye reading of the final commit section produced a wrong
+conclusion (assuming the four early `u4Dram_Register_Read` results fed
+the final UI/PI writes) that a second, more careful re-read caught: the
+stack slots those four reads land in are silently reused later by an
+unrelated per-lane sum computation before anything reads them back, so
+the four reads are dead other than their call sites/side effects. Key
+findings:
 
-- Oracle signature is 3 arguments: `(ctx, mode_sel, custom_delay_ptr)`.
-  `mode_sel` (kept in a callee-saved register, not a stack slot)
-  selects between an RDDQC-hardware-assisted path (calls
+- Oracle signature is 3 arguments: `(ctx, mode_sel, custom_delay)`.
+  `mode_sel` selects between an RDDQC-hardware-assisted path (calls
   `DramcRxWinRDDQCInit`/`Run`/`End`, `mode_sel != 1`) and an
   Engine2-test-pattern path (`mode_sel == 1`, calls `DramcEngine2Init`/
-  `Run`/`End` directly instead). `custom_delay_ptr`, when non-NULL, is a
-  pointer to a caller-supplied 4-byte array of per-lane initial RX
-  delay values (with `0xff` in a lane meaning "no override, use the
-  hardware-broadcast/outer-loop-counter value instead"); when NULL, a
-  built-in default of 14 per lane is used.
-- A 32-record, 10-byte-stride per-bit tracking buffer at one stack
-  offset (the same shape as `DramcTxWindowPerbitCal`'s `bufA`/`bufB`/
-  `bufC`, but only one such buffer here so far identified, and
-  initialized with a `0`-based sentinel at record offset+4 rather than
-  TX's `0x7fff` -- confirmed genuinely different from TX's scheme, not
-  assumed to match it).
-- An outer sweep loop (register `r11` in the disassembly) whose step
-  size is 2 or 4 depending on `mode_sel`, with a starting threshold
-  computed either from the current DRAM frequency (clamped to -63 or
-  -127) or, when `mode_sel == 0`, from a cached global `S16
-  s2RxDelayPreCal` value minus 10 (clamped to -126) -- a persisted
-  "start near where we left off last time" optimization not present at
-  all in `DramcTxWindowPerbitCal`.
-- Confirmed dependencies on two new BSS globals not yet used elsewhere
-  in this file: `gFinalRXVrefDQ` and `gFinalRXVrefDQForSpeedUp`,
-  referenced only near the function's final commit section (not yet
-  traced in detail).
-- A final commit section (roughly the last 350 bytes) that writes to
-  RX-side UI/PI registers (`0x11600a08`/`0x19600a88`, mirroring
-  `DramcTxWindowPerbitCal`'s `0x1160xa20`/`0x19600aa0` UI/PI registers
-  but on the RX/read-delay side) plus a `0x116009f8`-based OE register
-  block indexed by a per-group loop, with the usual
-  `__meta_backup_and_set(ctx,1,...)`/`__meta_restore` doubling for
-  `data_width==0x20`.
+  `Run`/`End` directly instead). `custom_delay`, when non-NULL, points
+  at a caller-supplied 4-byte array of per-lane initial RX delay bytes
+  (`0xff` in a lane means "search a coarse candidate for this lane
+  instead of using a fixed one"); NULL means "default of 14 for every
+  lane, no search".
+- **Two nested searches**, confirmed by tracing the exact loop-exit
+  conditions rather than assumed from `DramcTxWindowPerbitCal`'s
+  single-level Vref scan: an inner sweep (RX's equivalent of TX's delay
+  sweep) finds the widest passing `uiDelay` run per bit for the
+  *current* coarse candidate, using a different, RX-specific delay
+  encoding than TX -- `uiDelay<=0` is a negated broadcast into the OE
+  registers (`0x11600a0c`/`0x19600a8c`), `uiDelay>0` a direct broadcast
+  into the UI/PI registers (`0x11600a08`/`0x19600a88`) *plus* an
+  explicit `SetRxDqDelay()` per lane, an asymmetry confirmed by
+  re-reading both branches rather than assumed symmetric; an outer loop
+  (0 to 31 candidates, but only run multiple times when at least one
+  lane is in "auto" mode) tries successive coarse candidates and
+  remembers, independently per lane, which candidate gave that lane the
+  widest minimum per-bit window (sum-width tie-break), with an
+  early-stop heuristic that -- confirmed by tracing the exact
+  instructions, not an omission -- only ever examines lanes 0 and 1
+  even on a 4-lane config.
+- The per-bit window-close reference point (`sweep_start_minus1`, used
+  only for the edge case where a bit fails on the very first sweep
+  step) is fixed for the whole inner sweep at "starting threshold - 1",
+  *not* recomputed per step the way `DramcTxWindowPerbitCal` recomputes
+  "current uiDelay - step" -- confirmed by checking every write to that
+  stack slot, not assumed to mirror TX.
+- A persisted-across-calls `S16 s2RxDelayPreCal` global caches the
+  `uiDelay` at which the very first bit opened its window, to seed the
+  starting threshold on a *later* call (`mode_sel == 0`: threshold =
+  cached value - 10, clamped to -126) rather than always starting from
+  a frequency-derived threshold -- a "resume near where we left off"
+  optimization with no equivalent in `DramcTxWindowPerbitCal`.
+- A DDR3-only quirk (confirmed via the object's single `memcpy` call
+  site, invoked 8 times per lane at runtime): after the search, every
+  lane's 8 per-bit results are overwritten with bit 0's result,
+  flattening the per-bit window to one value per lane.
+- The final commit computes, per lane, a magnitude (from the per-bit
+  `delta` field, itself only ever initialized to 0 and otherwise
+  unused elsewhere in the function) and a group-sum, writes the
+  magnitude to the OE registers and the group-sum to the UI/PI
+  registers, then does a **second**, differently-shaped commit: 4
+  register-groups (`0x116009f8..0x11600a04`, mirrored to a "channel B"
+  block at `+0x8000080`) each packing two records' `raw8` field. Only
+  `best[lane*8].raw8` (bit 0 of each lane) is ever written anywhere in
+  the object; the other 28 of 32 records' `raw8` is a confirmed
+  preserved-as-observed uninitialized-stack read, the same class of
+  quirk as `DramcTxWindowPerbitCal`'s `vref_scan[scan_count]` OOB read.
+- Also writes two new BSS globals not used elsewhere in this file --
+  `gFinalRXVrefDQ` (4 bytes) and `gFinalRXVrefDQForSpeedUp` (16 bytes)
+  -- with a flat, computed index (channel\*4/16 + rank-selector +
+  odt + lane) rather than the public lineage's declared
+  `[CHANNEL_NUM][RANK_MAX][2]`/`[...][2][2]` shapes, which don't
+  actually fit the object's measured sizes.
+- The oracle's own tail is a side-effect-free empty busy-loop (`for (r
+  = 0; data_width > r; r += 4) {}`) followed by an unconditional
+  `return 0`; simplified to the equivalent direct `return 0` since the
+  loop is provably inert for any `data_width`.
+
+Validation (an7581, `-O0`, call + tail-call-jump sites combined):
+**zero discrepancies** across all 24 distinct callees, including
+`__meta_backup_and_set`/`__meta_restore` 5 each, `vIO32WriteMsk` 8,
+`vPhyByteIO32WriteMsk`/`_All` 8/8, `u4Dram_Register_Read` 4, and
+`DramPhyReset` 3 -- matching the cleanest results already achieved for
+`DramcTxWindowPerbitCal` on both SoCs.
 
 AN7583's copy has not been examined at all yet beyond the dependency
 recovery and the size/call-count signal in the table below (call counts
