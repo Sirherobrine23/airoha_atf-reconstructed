@@ -8067,6 +8067,17 @@ void DramcSelftestRun(DRAMC_CTX_T *p)
 	prom_print_hex(u4result,8);
 	prom_puts("\n");
 	#endif
+
+	/*
+	 * This function disabled DDRCONF0_DM64BITEN above so the internal BIST
+	 * pattern engine could scramble/compare freely. With RUN_TIME_CONFIG_ENABLE
+	 * forced off for FIRST_BRING_UP builds, DramcRunTimeConfig() -- which would
+	 * otherwise reprogram DDRCONF0 -- never runs, so nothing else in the boot
+	 * path restores this bit. Left at 0, every subsequent sub-word (byte/half-word)
+	 * CPU store into DRAM loses its Data Mask and corrupts neighboring bytes.
+	 * Restore it here so normal single-byte writes work after calibration.
+	 */
+	vIO32WriteFldAlign(DRAMC_REG_DDRCONF0, 0x1, DDRCONF0_DM64BITEN);
 }
 
 #endif
