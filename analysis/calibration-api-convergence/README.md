@@ -369,3 +369,143 @@ overall, AN7583 at 26/57 overall). Of the four functions this section
 originally listed as the largest/highest-risk remainder,
 `dramc_rx_dqs_gating_cal`, `DramcTxWindowPerbitCal`, and
 `DramcRxWindowPerbitCal` are what's left.
+
+## dramc_rx_dqs_gating_cal: structure mapped, body not yet written
+
+Read in full from `reference/an7581/disasm/bl22/dramc_pi_calibration_api.dis`
+(offset 0x0-0x798, 1948 bytes, function starts at file line 2277) and
+cross-checked against AN7583's copy (`dis` line 1911, 1568 bytes) just
+enough to confirm it is a **separate, independently-sized function**,
+not a candidate for mechanical reuse -- same caution this section
+already proved out for `DramcWriteLeveling`. Concrete evidence:
+
+- Combined `tbb` + `R_ARM_THM_CALL` site count: AN7581 73, AN7583 52.
+- The shared per-lane counter global differs in width: AN7581's
+  `r_filter_count.4` (`.bss`) is a 4-byte object, AN7583's is 2 bytes
+  -- the same "AN7583 supports fewer lanes here" signal already
+  confirmed for `DramcWriteLeveling`'s final write section.
+
+This is "committing an unverified guess would be worse than leaving
+it documented" territory again: the function is at least as intricate
+as `DramcWriteLeveling` and has **two chained `tbb` byte-jump-table
+dispatches** plus a per-lane record array that gets addressed through
+at least three different index/stride combinations in the same
+region of the stack frame (an aliasing pattern harder than the one
+that took real care to resolve correctly in `DramcWriteLeveling`'s
+per-lane FSM state). Nothing below has been transcribed to C yet.
+What's confirmed by the full disassembly read, for AN7581:
+
+**Overall shape** (all offsets are AN7581 file-relative, `.text.dramc_rx_dqs_gating_cal+`):
+
+1. `0x0-0x2`: `vPrintCalibrationBasicInfo(ctx)`, then
+   `vSetCalibrationResult(ctx, 8, 1)` (provisional fail, cal_type 8).
+2. `if (ctx == 0)` a bit further down branches to the shared epilogue
+   at `0x1ca` early (returning whatever's in r2 at that point).
+3. Backs up a 4-word register table (`.rodata+0x1bc`, resolved via the
+   `0x1d0` literal, `R_ARM_ABS32 .rodata`) through
+   `DramcBackupRegisters(ctx, table, 4, 1)`; restored at the very end
+   via `DramcRestoreRegisters` with the same table/count, followed by
+   `DramPhyReset(ctx)`.
+4. Three `memset` calls zero stack scratch regions: 4 bytes at
+   `sp+0x20`, 0x60 bytes at `sp+0x50`, 8 bytes at `sp+0x28`.
+5. `GetDramcBroadcast()` saved to r6, `DramcBroadcastOnOff(ctx, 1)`
+   (force broadcast on), a sequence on register `0x01000668`
+   (`vIO32WriteMsk` set bit 2 / set bit 0x200000 / `udelay(4)` / set
+   bit 0x400000 / `udelay(1)` / clear bit 0x400000 -- a gating-enable
+   pulse sequence), `rank = u1GetRank(ctx)` written into bit 25 of
+   `0x010007bc`, `DramcEngine2Init(ctx, 0x55000000, 0xaa000023, 1, 0, 0)`,
+   then `DramcBroadcastOnOff(ctx, r6)` restores the saved broadcast
+   state.
+6. `sp+0x22 = 4`, `sp+0x23 = 0x20` (two byte constants, likely
+   coarse/fine step bounds), then
+   `start_pos = get_gating_start_pos(ctx, 0)` (already-recovered
+   helper), stored to `sp+0x20`.
+7. `end_limit = (U8)(start_pos + 0x10)`. If `start_pos < end_limit`
+   (unsigned, i.e. the `+0x10` did **not** wrap past 255) branch to
+   the main sweep entry at `0x1ec`. The wrap-around case (start_pos
+   close to 255) falls through into a distinct ~130-byte block
+   (`0xfa-0x1e8`) that partially duplicates the main loop's per-lane
+   finalize logic (see point 9) -- this looks like a legitimate
+   degenerate-window fallback rather than dead code, since it shares
+   real tail code with the main loop (see next point), but its exact
+   intent isn't nailed down yet.
+8. Main sweep (from `0x1ec`): for each scan position (`sp+0x21`,
+   incremented each outer iteration, wrapping mod 0x20 per the
+   `cmp r2, #0x1f` guard), two `vPhyByteIO32WriteMsk` calls program
+   registers `0x11600a2c` / `0x19600aac` (mask `0x007f00ff`) with the
+   position value in two different byte lanes; when
+   `data_width == 0x20` a third/fourth pair of the same calls run
+   under `__meta_backup_and_set(ctx, 1, 0)` / `__meta_restore(ctx, 0)`
+   for the second 2-lane group (identical bracket pattern to
+   `DramcWriteLeveling`'s 4-lane final write). Then `DramPhyReset`,
+   two `vIO32WriteMsk_All` pulses on `0x01000668` (bit 0x400000),
+   `DramcEngine2Run(ctx, 1)`, and a block of `u4Dram_Register_Read`
+   calls extracting single bits (`ubfx ..., #1, #1` and
+   `#2, #1`) from `0x01001b00`, each duplicated under
+   `__meta_backup_and_set(ctx, 1, rank)` for the `data_width == 0x20`
+   case -- these look like per-rank/per-lane DQS-valid and
+   DQS-error-ish flags, stored into `sp+0x24..0x27`.
+9. Inner per-lane loop (`lane` from 0 to `lane_count-1`, `lane_count =
+   data_width >> 3`): reads two more bit-fields per lane (via
+   `__meta_backup_and_set(ctx, 2, lane)` this time, a different meta
+   "type" than the outer loop's type-1) from `0x01800500` /
+   `0x01800504` (`vPhyByteReadFldAlign`), combines two of the earlier
+   per-lane flags into a 2-bit "combo" value, and dispatches through
+   **`tbb` #1** at offset `0x46c` (table at `0x470`, bytes
+   `48 5e 74 77`, base = `0x470`): combo 0/1/2/3 map to targets
+   `0x500/0x52c/0x558/0x55e`, which turn out to just set
+   `r12 = 4 - combo` (`combo>3` -- unreachable given the 2-bit
+   construction, but guarded anyway -- falls back to `r12 = 0` via
+   `0x564`) before falling into a shared block at `0x504` that writes
+   `r12` into a per-lane record slot at `record[lane]` (offset -64,
+   word stride 4 from a base at `sp+0xb0`) and reads back
+   `record[lane+8]` (same -64 offset, stride 4, i.e. a second logical
+   array 8 slots further out in the *same* backing array) to feed
+   **`tbb` #2** at `0x524` (table at `0x528`, bytes `21 34 6a 96`,
+   base `0x528`): that second value (0-3, guarded the same way, >3
+   falls to `0x5d2`) maps to targets `0x56a/0x590/0x5fc/0x654`, each
+   of which updates further per-lane record fields (confirmed
+   offsets touched, all relative to the same `sp+0xb0`-based pointer
+   arithmetic: `-96`, `-92`, `-88`, `-84`, `-80`, `-76`, `-72`, `-68`,
+   `-64`, `-60`, `-56`, `-52`, `-48`, `-16`, plus a **global** byte
+   array indexed by `lane` at the address resolved from the
+   `.bss.r_filter_count.4` relocation at `0x798`) before all four
+   paths converge back at `0x5d2`, which propagates `record[lane]`
+   (offset -64) into `record[lane+8]` (same offset) -- an explicit
+   "this round becomes last round" edge-detection shift -- and also
+   copies it into a *third* slot at offset -48, before advancing to
+   the next lane.
+10. After all lanes are processed for this position, position and
+    outer counters advance and the sweep loops back to step 8 via
+    `0x38c`/`0x36a`, bounded by comparisons against `sp+0x10`
+    (`lane_count`) and the `0xbf`96-style windows already familiar
+    from `DramcWriteLeveling`.
+11. Two more shared-tail subroutines close out each position:
+    `0x74c` (reached when a per-lane record's "already-done" byte at
+    offset -140 is set, or its cached comparison value at offset -112
+    doesn't match the current lane count) just re-stamps `record[pos]`
+    /`record[pos+0x14]` (offset -96, word) with `r9`; and `0x766-0x792`
+    (the same block the wrap-around fallback in point 7 jumps into)
+    does a final `asr`/`tst` bit check against the accumulator `r5`
+    and increments a position counter, feeding back into the loop or,
+    from the wrap-around entry, straight through to the shared
+    epilogue.
+12. Epilogue (`0x1ca`): `add sp, #0xb4`, `pop.w {..., pc}` -- return
+    value is whatever was moved into r0 on the path taken (0 on the
+    normal/ctx-valid completion; 1 or the accumulated flag on the two
+    early-exit paths).
+
+None of the above is transcribed to C. Before that can happen safely,
+the per-lane record layout (point 9's offset list) needs the same
+kind of careful, byte-by-byte re-derivation that resolved the
+analogous ambiguity in `DramcWriteLeveling` -- in particular working
+out which of `-96`/`-92`/`-88`/`-84`/`-80`/`-76`/`-72`/`-68`/`-64`/
+`-60`/`-56`/`-52`/`-48`/`-16` are logically-named fields of one
+struct-per-lane record versus stride-4-vs-stride-1 aliases of
+*different* arrays sharing the same base pointer (the same kind of
+false alarm that briefly looked like a bug in `DramcWriteLeveling`'s
+`saved_pos`/`pass_or_result` arrays before a careful re-read showed
+they were consistent). AN7583's copy must then be traced completely
+independently afterward, per the size/relocation-count/global-size
+evidence above -- do not assume it is `DramcWriteLeveling`-style
+"AN7581 minus the extra branch."
