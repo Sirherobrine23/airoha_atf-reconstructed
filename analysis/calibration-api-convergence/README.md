@@ -622,8 +622,86 @@ singles including `memcpy` 1, `__meta_backup_and_set` 1,
 `__meta_restore` 1) -- matching AN7583's `dramc_rx_dqs_gating_cal`
 result as the cleanest validation achieved in this file so far.
 
-AN7583's copy (2732 bytes -- notably *larger* than AN7581's 2504,
-breaking the "AN7583 is simpler" pattern every other function in this
-file has shown) has not been examined at all beyond that size/call-
-count signal and needs its own full independent trace; do **not**
-assume it shares AN7581's structure.
+## DramcTxWindowPerbitCal (AN7583): done, zero call-count discrepancies -- a genuinely different, larger function
+
+AN7583's copy (2732 bytes oracle, 2902 candidate) is *larger* than
+AN7581's (2504 bytes), breaking the "AN7583 is simpler" pattern every
+other function in this file has shown -- and an independent
+1174-instruction trace confirms it is not just a smaller-scale replay
+of AN7581's algorithm but has substantial additional logic AN7581 has
+no equivalent of at all. Before the main function, six dependencies
+needed their own independent traces from AN7583's own objects (none
+were assumed from AN7581's):
+
+- `u1IsPhaseMode` and `TxWinTransferDelayToUIPI` are confirmed
+  instruction-for-instruction semantically identical to AN7581's (same
+  call counts/order); AN7581's build merely expands one conditional as
+  an explicit branch where AN7583's expands it as a `clz`-based bit
+  trick -- a Clang codegen difference, not an algorithmic one.
+- `TXSetDelayReg_DQ`/`_DQM` use a genuinely smaller, 2-lane-only 0x14-byte
+  record layout (vs AN7581's 0x28-byte, 4-lane layout) with no
+  `data_width==0x20` case at all, consistent with this SoC never
+  exceeding 2 DQ byte lanes (confirmed independently by
+  `dramc_rx_dqs_gating_cal`'s own trace above).
+- Two helpers AN7581 has **no equivalent of at all**:
+  `TxWinTransferDelayToUIPIByHighSpeed(ctx, ui_large, ui_small,
+  high_nibble)` recomputes one lane's UI-large/UI-small nibble pair
+  *relative to the current hardware register readback* (via
+  `u4Dram_Register_Read`) rather than from an absolute delay, storing
+  the result into ctx-resident scratch fields (`ctx+0xc2..0xcd`); and
+  `TXUpdateDelayReg_DQ_DQM(ctx)` commits those scratch fields to the
+  same registers.
+
+Confirmed genuine differences in the main function itself (each
+verified by re-reading the exact instructions at that point, not
+inferred from AN7581):
+
+- `wrlevel_dqs_final_delay` is indexed `[lane + rank*2]`, not AN7581's
+  `*4` (matching the same *2 stride already established for this SoC
+  in `dramc_rx_dqs_gating_cal`/`DramcWriteLeveling`).
+- The per-bit delay sweep starts at `min_delay - 0x10`, not plain
+  `min_delay` -- a wider search margin than AN7581 uses.
+- The "all bits done" fast-exit compares `data_width` against 8 (1
+  lane) instead of AN7581's 32; this SoC's `data_width` is only ever 8
+  or 16, never 32.
+- The vref-scan analysis applies its result via
+  `DramcTXSetVref(ctx, 0, best_vref)` (range argument 0), not AN7581's
+  range 1.
+- A **table-driven** Vref-compensation OE commit: a 16-byte row from
+  `DLY_RG_Mapping[raw_u32(ctx,0xb0)]` remaps which of the 16
+  `vref_comp[]` entries lands in which packed nibble position before
+  writing to the same four `0x116009e?`/`0x19600a6?` registers AN7581
+  writes directly. In the observed object all 3 rows happen to be the
+  identity permutation, but the code performs a genuine table lookup
+  and is modeled as one rather than assumed to always be the identity.
+- A **12-register rank-1 mirror/cache pair**, the same "rank 1 mirrors
+  rank 0" pattern used by `dramc_rx_dqs_gating_cal` (keyed off the same
+  `raw_u8(ctx,0xbd)` flag): when 0, cache 12 just-committed TX
+  delay-chain registers into `Tx_win_K_result_rg_rk1[12]`; when nonzero,
+  write those cached values to rank 1 instead of recalibrating it, then
+  run the "high speed" combined DQ/DQM commit using whichever of
+  `ctx+0xbe`/`ctx+0xc0` a *prior call with the other `cal_type`* left
+  cached (a genuinely cross-call stateful mechanism -- DQ tuning with
+  `cal_type==0` populates one field, DQM tuning with `cal_type==1`
+  populates the other, and a later rank-1 pass combines both).
+- A **direct MMIO register write** at the literal address `0x1fc8000c`
+  (no named symbol, no `vIO32WriteMsk`/`vPhyByteWriteFldAlign` helper --
+  a raw read-modify-write) combining a cached rank-0 Vref code
+  (`Tx_vref_K_result_rg_rk0[0]`) and a cached rank-1 Vref code
+  (`Tx_vref_K_result_rg_rk1[0]`) into one register's two nibble fields,
+  gated by the same `raw_u8(ctx,0xbd)` flag.
+
+One implementation pitfall caught during validation: the 12-register
+cache-read/mirror-write pairs must be written as 12 separate unrolled
+calls, not a loop over an array -- the oracle has 12 distinct call
+sites for each of `vPhyByteReadFldAlign`/`vPhyByteWriteFldAlign` here;
+an initial loop-based draft collapsed them to 1 call site each and
+undercounted `vPhyByteReadFldAlign` (3 vs oracle 14) and
+`vPhyByteWriteFldAlign` (9 vs oracle 20).
+
+Validation (an7583, `-O0`, call + tail-call-jump sites combined):
+**zero discrepancies** across all 24 distinct callees, including the
+two new-to-AN7583 helpers (`TXUpdateDelayReg_DQ_DQM` 1,
+`TxWinTransferDelayToUIPIByHighSpeed` 2), `vPhyByteReadFldAlign` 14,
+`vPhyByteWriteFldAlign` 20, and `vSetRank` 6 -- matching AN7581's clean
+result for this same function.

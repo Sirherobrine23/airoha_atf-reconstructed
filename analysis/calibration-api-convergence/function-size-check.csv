@@ -59,3 +59,4 @@ an7581,TxWinTransferDelayToUIPI,148,192,44
 an7581,TXSetDelayReg_DQ,284,330,46
 an7581,TXSetDelayReg_DQM,300,334,34
 an7581,DramcTxWindowPerbitCal,2504,2604,100
+an7583,DramcTxWindowPerbitCal,2732,2902,170
