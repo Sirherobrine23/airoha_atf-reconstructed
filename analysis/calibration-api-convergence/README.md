@@ -524,3 +524,70 @@ including `DramcEngine2End` 1) -- no open discrepancies at all, a
 cleaner result than AN7581's one unresolved `__meta_restore` count.
 `memset`'s 3 vendor calls have no candidate equivalent for the same
 reason as AN7581 (C initializers instead of one `memset` per buffer).
+
+## DramcTxWindowPerbitCal: dependencies done, main function structurally mapped but not yet written
+
+Before touching the main function, it depends on three helpers that
+were only present in the still-PUBLIC_BASE MediaTek lineage source
+(`TxWinTransferDelayToUIPI`, `TXSetDelayReg_DQ`, `TXSetDelayReg_DQM`,
+plus `u1IsPhaseMode` as `TxWinTransferDelayToUIPI`'s own dependency) --
+all four now recovered from their own oracle objects and validated
+(3 of 4 relocation counts match the vendor exactly; the fourth,
+`TxWinTransferDelayToUIPI`, shows `vGet_Div_Mode` instead of
+`u1MCK2UI_DivShift` because Clang -Os inlines that one-line same-TU
+helper, exposing its internal call -- the established codegen pattern
+already seen throughout this file). Notably, both `TxWinTransferDelayToUIPI`'s
+and `TXSetDelayReg_DQ`/`_DQM`'s oracle signatures differ from what the
+public lineage suggests: they pack their outputs/inputs into one
+shared byte record via a single pointer rather than several separate
+pointers/arrays -- confirmed by tracing the actual byte offsets, not
+assumed from the public source.
+
+**The main function itself (2504 bytes AN7581, 2732 bytes AN7583 --
+note AN7583 is *larger* here, breaking the "AN7583 is simpler" pattern
+every other function in this file has shown so far, so no assumption
+about which SoC is more complex should be carried into this one) has
+been read in full once (fully instruction-level for the first ~40%,
+at call-graph/branch-shape resolution for the rest) but not written
+to C.** This is a step up in density from anything else in this file,
+including `dramc_rx_dqs_gating_cal`:
+
+- Three 0x140-byte (320-byte) stack buffers at entry (`sp+0x1f0`,
+  `sp+0x330`, `sp+0x470`), each shaped like 32 records of 10 bytes --
+  consistent with per-bit (not just per-lane) tracking across (at
+  least) a 32-position delay sweep.
+- Dynamically-indexed access into those buffers via runtime
+  `mul`/`mla` (record_ptr = base + 10*index), not fixed offsets --
+  the address-arithmetic-first method that resolved
+  `dramc_rx_dqs_gating_cal`'s aliasing puzzle applies here too, but
+  against a much larger, runtime-indexed address space rather than a
+  handful of fixed small offsets.
+- Signed 16-bit (`ldrsh`/`strh`) window min/max tracking with explicit
+  16-bit wraparound-sensitive subtraction, across an inner 8-iteration
+  sub-sample loop per bit position, mirrored against a second parallel
+  buffer -- this is a genuine window-search algorithm (find the widest
+  passing delay range per bit), not a small state machine like the
+  gating/write-leveling functions.
+- Confirmed register/call structure for orientation: `DramcEngine2Init`
+  / `DramcTXSetVref` / `vAutoRefreshSwitch` setup mirroring the other
+  Phase C functions; a per-bit sweep calling `DramcEngine2Run` and
+  updating the three buffers; a commit phase calling the newly-
+  recovered `TXSetDelayReg_DQ`/`TXSetDelayReg_DQM` plus several
+  `vPhyByteWriteFldAlign`/`vPhyByteIO32WriteMsk` writes to
+  `0x116009e0`/`0x116009e4`/`0x19600a60`/`0x19600a64` (DQ-related) and
+  `0x116009ec`/`0x19600a6c` (DQM-related), the second half of each
+  pair wrapped in `__meta_backup_and_set(ctx,1,...)`/`__meta_restore`
+  for `data_width==0x20`; and a final section calling
+  `TxWinTransferDelayToUIPI` twice more and `DramcTXSetVref` again to
+  finish centering the result.
+
+Given the size of this function and the amount of dynamically-indexed,
+signed-arithmetic array manipulation involved, transcribing it now
+without the same address-by-address verification rigor that the
+smaller functions in this file received would risk a genuine,
+hard-to-catch logic bug rather than a caught compile error. Left
+documented rather than guessed, per this project's standing rule.
+AN7583's copy has not been examined at all beyond the size/call-count
+signal above and needs its own full trace once AN7581's is done --
+per the note above, do **not** assume it is simpler just because that
+pattern has held for every other function so far.
