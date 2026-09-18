@@ -2090,3 +2090,68 @@ U32 DramcTxWindowPerbitCal(void *ctx, U8 cal_type, U8 vref_scan_enable)
 
     return 0;
 }
+
+/* Dependencies of DramcRxWindowPerbitCal below (not otherwise used).
+ * DramcRxWinRDDQCRun/End are byte-identical to AN7581's; only Init
+ * differs (confirmed by diffing both objects' disassembly, not
+ * assumed): the first 3 vIO32WriteMsk_All calls use mask=0 here (a
+ * genuine no-op, matching the "mask=0" quirk pattern already seen
+ * elsewhere in this SoC's objects) instead of AN7581's mask=0x80; the
+ * third register/vPhyByteIO32WriteMsk_All register differ
+ * (0xa3a01004/0x23a01008 vs AN7581's 0xa1201004/0x21201008); and there
+ * is no data_width==0x20 case at all, since this SoC never exceeds 2
+ * DQ byte lanes. */
+U32 DramcRxWinRDDQCInit(void *ctx)
+{
+    struct airoha_rtswcmd cmd;
+    U32 rank = raw_u32(ctx, 0xc);
+    U32 chan = raw_u32(ctx, 0x4);
+    U16 mr3;
+
+    vIO32WriteMsk_All(ctx, 0x91200f04U, 0, 0);
+    vIO32WriteMsk_All(ctx, 0x99200f84U, 0, 0);
+    vIO32WriteMsk_All(ctx, 0xa3a01004U, 0, 0);
+    vIO32WriteMsk(ctx, 0x24cU, 0x4000U, 0x4000U);
+
+    memset(&cmd, 0, sizeof(cmd));
+    cmd.command = 0xd;
+    cmd.rank = rank;
+    DramcTriggerRTSWCMD(ctx, &cmd);
+
+    mr3 = gMRVal[chan * 14U + rank * 7U + 3U] | 4U;
+    if (is_ddr3_family(ctx))
+        mr3 &= ~3U;
+    DramcModeRegWriteByRank(ctx, (U8)rank, 3, mr3);
+
+    vIO32WriteMsk(ctx, 0x120U, 0, 3U);
+    vPhyByteWriteFldAlign(ctx, 0x11cU, 0x000f3355U, 0, 0);
+
+    vPhyByteIO32WriteMsk_All(ctx, 0x11200f08U, 0x1000000U, 0x1000000U);
+    vPhyByteIO32WriteMsk_All(ctx, 0x19200f88U, 0x1000000U, 0x1000000U);
+    vPhyByteIO32WriteMsk_All(ctx, 0x23a01008U, 0x1000000U, 0x1000000U);
+    return 0;
+}
+
+U32 DramcRxWinRDDQCRun(void *ctx)
+{
+    struct airoha_rtswcmd cmd;
+
+    memset(&cmd, 0, sizeof(cmd));
+    cmd.command = 0xe;
+    cmd.rank = raw_u32(ctx, 0xc);
+    cmd.result_ext = 0;
+    DramcTriggerRTSWCMD(ctx, &cmd);
+    return cmd.result_10;
+}
+
+void DramcRxWinRDDQCEnd(void *ctx)
+{
+    U32 rank = raw_u32(ctx, 0xc);
+    U32 chan = raw_u32(ctx, 0x4);
+    U16 mr3;
+
+    vIO32WriteMsk(ctx, 0x130U, 0, 0xc00U);
+    vIO32WriteMsk(ctx, 0x24cU, 0, 0x4000U);
+    mr3 = gMRVal[chan * 14U + rank * 7U + 3U];
+    DramcModeRegWriteByRank(ctx, (U8)rank, 3, mr3);
+}
