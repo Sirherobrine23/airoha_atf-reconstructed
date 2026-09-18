@@ -798,12 +798,56 @@ Validation (an7581, `-O0`, call + tail-call-jump sites combined):
 `DramPhyReset` 3 -- matching the cleanest results already achieved for
 `DramcTxWindowPerbitCal` on both SoCs.
 
-AN7583's copy has not been examined at all yet beyond the dependency
-recovery and the size/call-count signal in the table below (call counts
-differ substantially from AN7581's -- notably `vPhyByteReadFldAlign` 10
-vs AN7581's 0, and `vPhyByteWriteFldAlign` 10 vs AN7581's 4 -- so, as
-with `DramcTxWindowPerbitCal`, it should **not** be assumed to share
-AN7581's structure and needs its own independent trace):
+## DramcRxWindowPerbitCal (AN7583): done, zero call-count discrepancies
+
+Independently traced from AN7583's own object (1008 instructions), not
+derived from AN7581's reconstruction. Call counts differ substantially
+from AN7581's (`vPhyByteReadFldAlign`/`WriteFldAlign` 10/10 vs AN7581's
+0/4, `__meta_backup_and_set`/`__meta_restore` 0/0 vs AN7581's 5/5), and
+the object confirms why: this SoC has **two additional rank-1-mirror
+blocks and a table-driven commit that AN7581's copy has no equivalent
+of at all**, on top of never needing `__meta_backup_and_set` (max 2 DQ
+byte lanes, so no data_width==0x20 case anywhere in this function).
+
+Confirmed genuine differences from AN7581, beyond the halved buffer
+sizes (16 records, 2 lanes) already expected from this SoC's lane-count
+ceiling:
+
+- An extra `raw_u8(ctx,0xce) == 0` condition gates the DDR3
+  per-lane-flatten quirk (alongside `mode_sel==0` and
+  `is_ddr3_family()`).
+- The "all bits done" fast-exit always compares `done_mask` against
+  `0xffff` with no `data_width==0x20`-style branch at all -- confirmed
+  by the disassembly showing one unconditional comparison, meaning a
+  1-lane (`data_width==8`) config can never trigger it and always runs
+  the sweep to natural exhaustion.
+- **Two separate "rank 1 mirrors rank 0" pairs**, the same pattern this
+  SoC's `dramc_rx_dqs_gating_cal`/`DramcTxWindowPerbitCal` already use,
+  both keyed off `raw_u8(ctx,0xbd)`: one over the 2 coarse per-lane RX
+  delay registers (`Rx_win_K_result_rg_rk1[8..9]`), paired with a
+  direct MMIO read-modify-write of the *same* `0x1fc8000c` combined
+  register `DramcTxWindowPerbitCal` touches; and a **second, separate**
+  one over 8 delay-chain registers
+  (`Rx_win_K_result_rg_rk1[0..7]`) -- missed on a first pass through
+  this trace and caught only by cross-checking `vSetRank`'s oracle
+  count (3, not the 1 an initial draft produced) and
+  `vPhyByteReadFldAlign`/`WriteFldAlign`'s (10 each, not 4).
+- A **table-driven** (`DLY_RG_Mapping`) groups-of-8 OE commit, the same
+  indirection this SoC's `DramcTxWindowPerbitCal` uses, in place of
+  AN7581's fixed-index groups-of-4 -- with the two per-group registers
+  being **literal constants** (`0x19600a78` etc.), not a computed
+  `+0x8000080` offset the way AN7581 derives its pairing.
+- One more implementation pitfall caught during validation, the same
+  class as `DramcTxWindowPerbitCal`'s: the two 8-register rank-mirror
+  loops (read side and write side) must be unrolled to 8 separate calls
+  each to match the oracle's unrolled code, not written as a 4-iteration
+  loop over an array (which had undercounted
+  `vPhyByteReadFldAlign`/`WriteFldAlign` to 4 each and left the final
+  `lane_best_choice` commit's 2 `vIO32WriteMsk` calls out entirely,
+  undercounting that callee to 2 instead of 4).
+
+Validation (an7583, `-O0`, call + tail-call-jump sites combined):
+**zero discrepancies** across all 22 distinct callees.
 
 | callee | an7581 | an7583 |
 |---|---|---|
@@ -824,8 +868,3 @@ AN7581's structure and needs its own independent trace):
 | `vPrintCalibrationBasicInfo` | 2 | 2 |
 | `vSetCalibrationResult` | 3 | 3 |
 | `vSetRank` | 1 | 3 |
-
-Left documented rather than guessed at, per this project's standing
-rule, until there is time to give both SoCs' copies the same
-address-by-address verification rigor the two `DramcTxWindowPerbitCal`
-reconstructions received.

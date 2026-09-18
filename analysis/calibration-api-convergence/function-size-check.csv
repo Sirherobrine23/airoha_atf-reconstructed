@@ -61,3 +61,4 @@ an7581,TXSetDelayReg_DQM,300,334,34
 an7581,DramcTxWindowPerbitCal,2504,2604,100
 an7583,DramcTxWindowPerbitCal,2732,2902,170
 an7581,DramcRxWindowPerbitCal,2540,2564,24
+an7583,DramcRxWindowPerbitCal,2472,2526,54

@@ -74,6 +74,23 @@ extern U8 Tx_vref_K_result_rg_rk0[1];
  * permutation {0,1,...,15}, but the code performs a genuine table lookup,
  * so it is modeled as one rather than assumed to always be the identity. */
 extern const U8 DLY_RG_Mapping[][16];
+extern U8 GetEyeScanEnable(void *ctx, U8 get_type);
+extern void SetRxDqDelay(void *ctx, U32 byte_idx, U8 delay);
+extern U32 DramcRxWinRDDQCInit(void *ctx);
+extern U32 DramcRxWinRDDQCRun(void *ctx);
+extern void DramcRxWinRDDQCEnd(void *ctx);
+extern S16 s2RxDelayPreCal;
+/* 8 TX-style delay-chain register readbacks (offsets 0-0x1c) plus 2
+ * coarse per-lane RX delay register readbacks (offsets 0x20/0x24) used
+ * by the same "rank 1 mirrors rank 0" pattern as Tx_win_K_result_rg_rk1
+ * above, applied to DramcRxWindowPerbitCal's own register set. */
+extern U32 Rx_win_K_result_rg_rk1[10];
+/* Sized exactly as the object gives them (4 and 8 bytes) -- half of
+ * AN7581's equivalents, consistent with this SoC never exceeding 2 DQ
+ * byte lanes; indexed with the object's own flat arithmetic rather than
+ * the public lineage's declared multi-dimensional shape. */
+extern U8 gFinalRXVrefDQ[4];
+extern U8 gFinalRXVrefDQForSpeedUp[8];
 void TxWinTransferDelayToUIPIByHighSpeed(void *ctx, U16 ui_large, U16 ui_small,
                                           U8 high_nibble);
 void TXUpdateDelayReg_DQ_DQM(void *ctx);
@@ -2154,4 +2171,501 @@ void DramcRxWinRDDQCEnd(void *ctx)
     vIO32WriteMsk(ctx, 0x24cU, 0, 0x4000U);
     mr3 = gMRVal[chan * 14U + rank * 7U + 3U];
     DramcModeRegWriteByRank(ctx, (U8)rank, 3, mr3);
+}
+
+/* Same shape as AN7581's RX_CUR_REC_T/RX_BEST_REC_T (see that file for
+ * the rationale); AN7583 only ever needs 16 of them (max data_width 16
+ * -- confirmed independently by this SoC's own dramc_rx_dqs_gating_cal
+ * and DramcTxWindowPerbitCal traces, both capped at 2 DQ byte lanes). */
+typedef struct {
+    S16 start;
+    S16 end;
+    U8 _pad[6];
+} RX_CUR_REC_T;
+
+typedef struct {
+    S16 start;
+    S16 end;
+    S16 delta;
+    U16 width;
+    U16 raw8;
+} RX_BEST_REC_T;
+
+/*
+ * DramcRxWindowPerbitCal (AN7583) -- independently traced from this SoC's
+ * own object (1008 disassembled instructions). Shares the exact same
+ * two-level search algorithm and 3-argument oracle signature as
+ * AN7581's, and no __meta_backup_and_set/__meta_restore calls exist
+ * anywhere in the object (this SoC never has a data_width==0x20 case),
+ * but has several confirmed genuine differences from AN7581 beyond just
+ * halved buffer sizes:
+ *
+ * - An extra `raw_u8(ctx,0xce) == 0` condition (alongside mode_sel==0
+ *   and is_ddr3_family()) gates the DDR3 per-lane-flatten quirk.
+ * - The "all bits done" fast-exit always compares done_mask against
+ *   0xffff, with no data_width==0x20-style branch -- meaning for a
+ *   1-lane (data_width==8) config the fast exit can never trigger
+ *   (bits 8-15 of done_mask are never set), so that config always runs
+ *   the sweep to natural exhaustion. Confirmed by the disassembly
+ *   showing one unconditional comparison, not assumed.
+ * - The same "rank 1 mirrors rank 0" pattern as this SoC's
+ *   DramcTxWindowPerbitCal/dramc_rx_dqs_gating_cal, applied to a
+ *   10-entry Rx_win_K_result_rg_rk1[] (8 delay-chain register readbacks
+ *   plus the 2 coarse per-lane RX delay registers), paired with a
+ *   direct MMIO read-modify-write of the same combined Vref-ish
+ *   register at 0x1fc8000c that DramcTxWindowPerbitCal touches.
+ * - A DLY_RG_Mapping table-driven groups-of-8 OE commit (4 register
+ *   pairs, each pair fed by 4 DLY_RG_Mapping-selected record indices)
+ *   in place of AN7581's fixed-index groups-of-4 -- the same
+ *   table-indirection pattern as this SoC's DramcTxWindowPerbitCal.
+ */
+U32 DramcRxWindowPerbitCal(void *ctx, U8 mode_sel, const U8 *custom_delay)
+{
+    RX_CUR_REC_T cur[16];
+    RX_BEST_REC_T best[16];
+    U8 per_lane_cfg[2];
+    U16 lane_min_width[2];
+    U16 lane_sum[2];
+    U16 lane_best_min[2] = {0, 0};
+    U16 lane_best_sum[2] = {0, 0};
+    U16 lane_best_choice[2];
+    U32 saved_rank;
+    U32 lane_count, data_width;
+    U32 eyescan_flag = 0;
+    U32 apply_reg_writes;
+    U32 scan_rounds_limit;
+    S32 threshold;
+    U32 step;
+    U32 outer, lane, bit;
+
+    per_lane_cfg[0] = 0xe;
+    per_lane_cfg[1] = 0xe;
+    for (bit = 0; bit < 16U; bit++)
+        best[bit].delta = 0;
+
+    if (ctx == 0)
+        return 1;
+
+    if (mode_sel == 1U)
+        eyescan_flag = GetEyeScanEnable(ctx, mode_sel);
+
+    /* Dead other than call sites/side effects -- see AN7581's version
+     * of this function for why. */
+    (void)u4Dram_Register_Read(ctx, 0x11600a08U);
+    (void)u4Dram_Register_Read(ctx, 0x19600a88U);
+
+    if (mode_sel == 1U)
+        vAutoRefreshSwitch(ctx, mode_sel);
+    saved_rank = u1GetRank(ctx);
+
+    if (mode_sel == 1U) {
+        vSetCalibrationResult(ctx, 0xd, mode_sel);
+        DramcEngine2Init(ctx, raw_u32(ctx, 0x48), raw_u32(ctx, 0x4c),
+                          raw_u8(ctx, 0x50), 0, mode_sel);
+        if (raw_u32(ctx, 0xc) == 0U || raw_u16(ctx, 0x54) > 0x749U)
+            apply_reg_writes = mode_sel;
+        else
+            apply_reg_writes = (eyescan_flag == 1U) ? 1U : 0U;
+    } else {
+        apply_reg_writes = 0;
+        vSetCalibrationResult(ctx, 9, 1);
+        DramcRxWinRDDQCInit(ctx);
+    }
+
+    vPrintCalibrationBasicInfo(ctx);
+
+    if (apply_reg_writes != 0U) {
+        if (custom_delay == 0) {
+            scan_rounds_limit = 0x1fU;
+        } else {
+            lane_count = raw_u32(ctx, 0x44) >> 3;
+            for (lane = 0; lane < lane_count; lane++)
+                per_lane_cfg[lane] = custom_delay[lane];
+            scan_rounds_limit = 0;
+        }
+        vIO32WriteMsk_All(ctx, 0x11000508U, 0, 0x10000U);
+        vIO32WriteMsk_All(ctx, 0x19000588U, 0, 0x10000U);
+    } else {
+        scan_rounds_limit = 0;
+    }
+
+    data_width = raw_u32(ctx, 0x44);
+
+    {
+        U16 freq = raw_u16(ctx, 0x54);
+
+        if (freq > 0x534U)
+            threshold = 0;
+        else
+            threshold = (freq < 0x320U) ? -127 : -63;
+    }
+
+    if (mode_sel == 0U) {
+        S32 v = (S32)s2RxDelayPreCal - 10;
+
+        if (v < -126)
+            v = -126;
+        threshold = v;
+        step = 2;
+    } else {
+        s2RxDelayPreCal = 0x7fff;
+        step = 4;
+    }
+
+    for (outer = 0; ; outer++) {
+        U32 first_open_cached = 0;
+        S32 s2_local = s2RxDelayPreCal;
+        U32 any_ff;
+        U32 done_mask = 0;
+        S32 uiDelay;
+        S32 sweep_start_minus1;
+        S32 sweep_end_minus_step;
+
+        any_ff = 0;
+        for (lane = 0; lane < (data_width >> 3); lane++) {
+            if (per_lane_cfg[lane] == 0xffU)
+                any_ff = 1;
+        }
+        if (any_ff) {
+            vIO32WriteMsk_All(ctx, 0x91200eecU, outer, 0x3fU);
+            vIO32WriteMsk_All(ctx, 0x99200f6cU, outer, 0x3fU);
+        } else {
+            vIO32WriteMsk(ctx, 0x91200eecU, per_lane_cfg[0], 0x3fU);
+            vIO32WriteMsk(ctx, 0x99200f6cU, per_lane_cfg[1], 0x3fU);
+        }
+
+        vPhyByteIO32WriteMsk_All(ctx, 0x11600a08U, 0, 0xffffU);
+        vPhyByteIO32WriteMsk_All(ctx, 0x19600a88U, 0, 0xffffU);
+        vPhyByteIO32WriteMsk_All(ctx, 0x11600a0cU, 0, 0x01ff01ffU);
+        vPhyByteIO32WriteMsk_All(ctx, 0x19600a8cU, 0, 0x01ff01ffU);
+        for (lane = 0; lane < 4U; lane++)
+            SetRxDqDelay(ctx, lane, 0);
+
+        for (bit = 0; bit < (lane_count = data_width >> 3); bit++) {
+            lane_sum[bit] = 0;
+            lane_min_width[bit] = 0xffffU;
+        }
+        for (bit = 0; bit < data_width; bit++) {
+            cur[bit].start = 0x7fff;
+            cur[bit].end = 0x7fff;
+            best[bit].start = 0x7fff;
+            best[bit].end = 0x7fff;
+        }
+
+        uiDelay = threshold;
+        sweep_start_minus1 = threshold - 1;
+        sweep_end_minus_step = 0x3f - (S32)step;
+
+        while (uiDelay <= 0x3f) {
+            U32 fail_bitmap;
+
+            if (uiDelay <= 0) {
+                U32 v = (U32)(U8)(-uiDelay);
+
+                v |= v << 16;
+                vPhyByteIO32WriteMsk_All(ctx, 0x11600a0cU, v, 0x01ff01ffU);
+                vPhyByteIO32WriteMsk_All(ctx, 0x19600a8cU, v, 0x01ff01ffU);
+                DramPhyReset(ctx);
+            } else {
+                U32 v = ((U32)(U8)uiDelay) | ((U32)(U8)uiDelay << 8);
+
+                vPhyByteIO32WriteMsk_All(ctx, 0x11600a08U, v, 0xffffU);
+                vPhyByteIO32WriteMsk_All(ctx, 0x19600a88U, v, 0xffffU);
+                DramPhyReset(ctx);
+                for (lane = 0; lane < 4U; lane++)
+                    SetRxDqDelay(ctx, lane, (U8)uiDelay);
+            }
+
+            if (mode_sel == 1U)
+                fail_bitmap = DramcEngine2Run(ctx, 0, raw_u8(ctx, 0x50));
+            else
+                fail_bitmap = DramcRxWinRDDQCRun(ctx);
+
+            for (bit = 0; bit < data_width; bit++) {
+                U32 fail = (fail_bitmap & (1U << bit)) != 0U;
+
+                if (cur[bit].start == 0x7fff) {
+                    if (!fail) {
+                        cur[bit].start = (S16)uiDelay;
+                        if (mode_sel == 0U && s2_local == 0x7fff) {
+                            s2_local = uiDelay;
+                            first_open_cached = 1;
+                        }
+                    }
+                    continue;
+                }
+                if (cur[bit].end != 0x7fff)
+                    continue;
+
+                if (fail) {
+                    cur[bit].end = (S16)sweep_start_minus1;
+                } else if (sweep_end_minus_step >= uiDelay) {
+                    continue;
+                } else {
+                    cur[bit].end = (S16)uiDelay;
+                }
+
+                {
+                    S32 width_new = cur[bit].end - cur[bit].start;
+                    S32 width_best = best[bit].end - best[bit].start;
+
+                    if (width_new >= width_best) {
+                        if (width_new > 20)
+                            done_mask |= 1U << bit;
+                        best[bit].start = cur[bit].start;
+                        best[bit].end = cur[bit].end;
+                    }
+                    cur[bit].start = 0x7fff;
+                    cur[bit].end = 0x7fff;
+                }
+            }
+
+            /* Always compares against 0xffff -- unlike AN7581, there is
+             * no data_width==0x20-vs-else branch here (confirmed: one
+             * unconditional comparison in the object), so a 1-lane
+             * (data_width==8) config can never satisfy it and always
+             * runs the sweep to natural exhaustion. */
+            if (done_mask == 0xffffU) {
+                if (mode_sel == 0U)
+                    vSetCalibrationResult(ctx, 0xd, 0);
+                goto rx_all_done;
+            }
+            uiDelay += (S32)step;
+        }
+        goto rx_sweep_exhausted;
+
+    rx_all_done:
+        if (first_open_cached)
+            s2RxDelayPreCal = (S16)s2_local;
+        break;
+
+    rx_sweep_exhausted:
+        if (first_open_cached)
+            s2RxDelayPreCal = (S16)s2_local;
+
+        for (bit = 0; bit < data_width; bit++) {
+            U32 w;
+
+            if (best[bit].start == 0x7fff) {
+                w = 0;
+            } else {
+                w = (U32)(best[bit].end - best[bit].start);
+                w = (w != 0U) ? (w + 1U) : 0U;
+            }
+            best[bit].width = (U16)w;
+            lane = bit >> 3;
+            if (lane_min_width[lane] > (U16)w)
+                lane_min_width[lane] = (U16)w;
+            lane_sum[lane] = (U16)(lane_sum[lane] + w);
+        }
+
+        for (lane = 0; lane < lane_count; lane++) {
+            U32 better;
+
+            if (lane_min_width[lane] > lane_best_min[lane])
+                better = 1;
+            else if (lane_min_width[lane] == lane_best_min[lane] &&
+                     lane_sum[lane] > lane_best_sum[lane])
+                better = 1;
+            else
+                better = 0;
+
+            if (better) {
+                lane_best_min[lane] = lane_min_width[lane];
+                lane_best_sum[lane] = lane_sum[lane];
+                lane_best_choice[lane] = (per_lane_cfg[lane] == 0xffU)
+                                             ? (U16)outer
+                                             : (U16)per_lane_cfg[lane];
+            }
+        }
+
+        if (lane_best_min[0] > 20U && lane_best_min[1] > 20U) {
+            U32 pct0 = (95U * lane_best_sum[0]) / 100U;
+            U32 pct1 = (95U * lane_best_sum[1]) / 100U;
+
+            if (lane_sum[0] < pct0 && lane_sum[1] < pct1 && eyescan_flag != 0U)
+                break;
+        }
+        if (outer >= scan_rounds_limit)
+            break;
+    }
+
+    if (mode_sel == 1U) {
+        DramcEngine2End(ctx);
+        vAutoRefreshSwitch(ctx, 0);
+    } else {
+        DramcRxWinRDDQCEnd(ctx);
+        if (mode_sel == 0U && is_ddr3_family(ctx) && raw_u8(ctx, 0xce) == 0U) {
+            /* DDR3 quirk: flatten every lane's per-bit result to bit 0's
+             * result (same as AN7581, plus this SoC's extra
+             * raw_u8(ctx,0xce)==0 gate). */
+            for (lane = 0; lane < (data_width >> 3); lane++) {
+                RX_BEST_REC_T tmp = best[lane * 8U];
+
+                for (bit = 0; bit < 8U; bit++)
+                    memcpy(&best[lane * 8U + bit], &tmp, sizeof(tmp));
+            }
+        }
+    }
+
+    {
+        U32 magnitude[2];
+        U32 group_sum[2];
+
+        for (lane = 0; lane < (data_width >> 3); lane++) {
+            S32 min_delta = 0x1fc;
+            U32 base_bit = lane * 8U;
+            U16 sum = 0;
+
+            for (bit = base_bit; bit <= base_bit + 7U; bit++) {
+                if (best[bit].delta < min_delta)
+                    min_delta = best[bit].delta;
+            }
+            magnitude[lane] = (min_delta <= 0) ? (U32)(-min_delta) : 0U;
+
+            for (bit = 0; bit < 8U; bit++) {
+                U16 v = (U16)(best[base_bit].delta + (S32)magnitude[lane]);
+
+                best[base_bit].raw8 = v;
+                sum = (U16)(sum + v);
+            }
+            group_sum[lane] = (U32)sum >> 3;
+        }
+
+        if (apply_reg_writes != 0U) {
+            U32 chan = raw_u32(ctx, 0x4);
+            U32 odt = raw_u32(ctx, 0x20);
+            U32 rank = raw_u32(ctx, 0xc);
+
+            for (lane = 0; lane < lane_count; lane++) {
+                U32 v = lane_best_choice[lane];
+
+                if (rank == 0U) {
+                    gFinalRXVrefDQ[chan * 4U + lane] = (U8)v;
+                    gFinalRXVrefDQForSpeedUp[(odt + chan * 4U) * 2U + lane] = (U8)v;
+                } else {
+                    gFinalRXVrefDQ[chan * 4U + lane + 2U] = (U8)v;
+                    gFinalRXVrefDQForSpeedUp[chan * 8U + odt * 2U + lane + 4U] = (U8)v;
+                }
+            }
+
+            /* Missed on a first pass -- caught by cross-checking
+             * vIO32WriteMsk's oracle count (4, not the 2 an initial
+             * draft produced). Commits the winning coarse candidate per
+             * lane, same as the per-candidate write inside the search
+             * loop above but using the final chosen value. */
+            vIO32WriteMsk(ctx, 0x91200eecU, lane_best_choice[0], 0x3fU);
+            vIO32WriteMsk(ctx, 0x99200f6cU, lane_best_choice[1], 0x3fU);
+        }
+
+        /*
+         * AN7583 only: "rank 1 mirrors rank 0" for the 2 coarse RX
+         * delay registers, combined with the same Vref-ish register at
+         * 0x1fc8000c that DramcTxWindowPerbitCal writes.
+         */
+        if (raw_u8(ctx, 0xbd) == 0U) {
+            Rx_win_K_result_rg_rk1[8] = vPhyByteReadFldAlign(ctx, 0x91200eecU, 0);
+            Rx_win_K_result_rg_rk1[9] = vPhyByteReadFldAlign(ctx, 0x99200f6cU, 0);
+        } else {
+            U32 reg = raw_u32((void *)0x1fc80000U, 0xc);
+            U32 combined = Rx_win_K_result_rg_rk1[8] | (Rx_win_K_result_rg_rk1[9] << 5);
+
+            reg &= ~0xff00U;
+            reg &= ~0xc0U;
+            reg |= combined << 6;
+            raw_set_u32((void *)0x1fc80000U, 0xc, reg);
+        }
+
+        /* Final commit: OE (magnitude) and UI/PI (group_sum) broadcast
+         * per lane -- same formulas as AN7581. */
+        {
+            U32 v;
+
+            v = ((magnitude[0] << 16) & 0x1ff0000U) | (magnitude[0] & 0x1ffU);
+            vPhyByteIO32WriteMsk(ctx, 0x11600a0cU, v, 0x01ff01ffU);
+            v = (group_sum[0] & 0xffU) | ((group_sum[0] & 0xffU) << 8);
+            vPhyByteIO32WriteMsk(ctx, 0x11600a08U, v, 0xffffU);
+
+            v = ((magnitude[1] << 16) & 0x1ff0000U) | (magnitude[1] & 0x1ffU);
+            vPhyByteIO32WriteMsk(ctx, 0x19600a8cU, v, 0x01ff01ffU);
+            v = (group_sum[1] & 0xffU) | ((group_sum[1] & 0xffU) << 8);
+            vPhyByteIO32WriteMsk(ctx, 0x19600a88U, v, 0xffffU);
+        }
+    }
+
+    /*
+     * Groups-of-8 OE-value commit, table-driven like this SoC's
+     * DramcTxWindowPerbitCal: 4 register pairs (0x116009f8/0x116009fc/
+     * 0x11600a00/0x11600a04, each paired with a literal "second lane"
+     * register 0x19600a78/0x19600a7c/0x19600a80/0x19600a84 -- not a
+     * computed +0x8000080 offset the way AN7581 computes its pairing),
+     * each fed by DLY_RG_Mapping[row][g*2]/[g*2+1] (first register) and
+     * [g*2+8]/[g*2+9] (second register). Only best[lane*8].raw8 (bit 0
+     * of each lane, written just above) is ever a real value; every
+     * other record's raw8 is a preserved-as-observed uninitialized
+     * stack read, same as AN7581.
+     */
+    {
+        static const U32 reg_a_list[4] = {
+            0x116009f8U, 0x116009fcU, 0x11600a00U, 0x11600a04U,
+        };
+        static const U32 reg_b_list[4] = {
+            0x19600a78U, 0x19600a7cU, 0x19600a80U, 0x19600a84U,
+        };
+        const U8 *row = DLY_RG_Mapping[raw_u32(ctx, 0xb0)];
+        U32 g;
+
+        for (g = 0; g < 4U; g++) {
+            U32 v;
+
+            v = (U32)(U8)best[row[2U * g]].raw8 | ((U32)(U8)best[row[2U * g]].raw8 << 8) |
+                ((U32)(U8)best[row[2U * g + 1U]].raw8 << 16) |
+                ((U32)(U8)best[row[2U * g + 1U]].raw8 << 24);
+            vPhyByteWriteFldAlign(ctx, reg_a_list[g], v, 0, 0);
+
+            v = (U32)(U8)best[row[2U * g + 8U]].raw8 | ((U32)(U8)best[row[2U * g + 8U]].raw8 << 8) |
+                ((U32)(U8)best[row[2U * g + 9U]].raw8 << 16) |
+                ((U32)(U8)best[row[2U * g + 9U]].raw8 << 24);
+            vPhyByteWriteFldAlign(ctx, reg_b_list[g], v, 0, 0);
+        }
+
+        /*
+         * A SECOND, separate "rank 1 mirrors rank 0" pair, this time
+         * over the 8 registers the groups-of-8 commit just wrote
+         * (Rx_win_K_result_rg_rk1[0..7], distinct from the [8]/[9]
+         * coarse-delay pair mirrored earlier). Missed on a first pass
+         * over this trace -- caught by cross-checking vSetRank's oracle
+         * count (3, not the 1 an initial draft produced). Unrolled (not
+         * a loop) to match the oracle's 8 distinct call sites each way,
+         * the same lesson as DramcTxWindowPerbitCal's 12-register pair.
+         */
+        if (raw_u8(ctx, 0xbd) == 0U) {
+            Rx_win_K_result_rg_rk1[0] = vPhyByteReadFldAlign(ctx, reg_a_list[0], 0);
+            Rx_win_K_result_rg_rk1[1] = vPhyByteReadFldAlign(ctx, reg_a_list[1], 0);
+            Rx_win_K_result_rg_rk1[2] = vPhyByteReadFldAlign(ctx, reg_a_list[2], 0);
+            Rx_win_K_result_rg_rk1[3] = vPhyByteReadFldAlign(ctx, reg_a_list[3], 0);
+            Rx_win_K_result_rg_rk1[4] = vPhyByteReadFldAlign(ctx, reg_b_list[0], 0);
+            Rx_win_K_result_rg_rk1[5] = vPhyByteReadFldAlign(ctx, reg_b_list[1], 0);
+            Rx_win_K_result_rg_rk1[6] = vPhyByteReadFldAlign(ctx, reg_b_list[2], 0);
+            Rx_win_K_result_rg_rk1[7] = vPhyByteReadFldAlign(ctx, reg_b_list[3], 0);
+        } else {
+            vSetRank(ctx, 1);
+            vPhyByteWriteFldAlign(ctx, reg_a_list[0], Rx_win_K_result_rg_rk1[0], 0, 0);
+            vPhyByteWriteFldAlign(ctx, reg_a_list[1], Rx_win_K_result_rg_rk1[1], 0, 0);
+            vPhyByteWriteFldAlign(ctx, reg_a_list[2], Rx_win_K_result_rg_rk1[2], 0, 0);
+            vPhyByteWriteFldAlign(ctx, reg_a_list[3], Rx_win_K_result_rg_rk1[3], 0, 0);
+            vPhyByteWriteFldAlign(ctx, reg_b_list[0], Rx_win_K_result_rg_rk1[4], 0, 0);
+            vPhyByteWriteFldAlign(ctx, reg_b_list[1], Rx_win_K_result_rg_rk1[5], 0, 0);
+            vPhyByteWriteFldAlign(ctx, reg_b_list[2], Rx_win_K_result_rg_rk1[6], 0, 0);
+            vPhyByteWriteFldAlign(ctx, reg_b_list[3], Rx_win_K_result_rg_rk1[7], 0, 0);
+            vSetRank(ctx, 0);
+        }
+    }
+
+    DramPhyReset(ctx);
+    vSetRank(ctx, (U8)saved_rank);
+    vPrintCalibrationBasicInfo(ctx);
+
+    /* Same inert busy-loop tail as AN7581 -- see that file's comment. */
+    return 0;
 }
