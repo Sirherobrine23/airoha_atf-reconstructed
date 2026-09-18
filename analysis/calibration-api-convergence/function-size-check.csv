@@ -52,3 +52,4 @@ an7583,ShiftDQSWCK_UI,26,78,52
 an7583,O1PathOnOff,304,368,64
 an7583,vSetDramMRWriteLevelingOnOff,264,168,-96
 an7583,DramcWriteLeveling,1208,1260,52
+an7581,dramc_rx_dqs_gating_cal,1948,1588,-360
