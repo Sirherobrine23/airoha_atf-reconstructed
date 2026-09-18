@@ -478,10 +478,49 @@ since the C source zero-initializes the arrays it split that 0x60-byte
 region into instead of calling `memset` on one buffer -- functionally
 identical, not a logic gap.
 
-AN7583's `dramc_rx_dqs_gating_cal` is confirmed a separate function,
-not yet traced: 1568 bytes vs AN7581's 1948, 52 combined `tbb`+call
-relocation sites vs 73, and its own `r_filter_count` global is 2 bytes
-wide vs AN7581's 4 -- the same "AN7583 supports fewer lanes" signal
-already seen in `DramcWriteLeveling`. Needs its own independent trace
-using the same address-arithmetic-first method above, not a mechanical
-subset of AN7581's C source.
+## dramc_rx_dqs_gating_cal for AN7583: done, independently traced
+
+Confirmed a separate function from AN7581's (1568 bytes vs 1948, 52
+combined `tbb`+call relocation sites vs 73, its own `r_filter_count`
+global 2 bytes wide vs AN7581's 4) and traced independently rather
+than adapted from AN7581's source. Same overall algorithm (outer/inner
+position sweep, per-lane Mealy FSM via two chained `tbb` tables
+reducing to the identical `state = combo>3 ? 0 : 4-combo` plus
+transition table), with these confirmed, preserved differences:
+
+- Only 2 lanes ever (`data_width` 0x8 or 0x10, never AN7581's 0x20) --
+  no `__meta_backup_and_set`/`__meta_restore` anywhere in the function.
+- The rank-select `vIO32WriteMsk(ctx, 0x010007bc, rank<<25, ...)` right
+  after `u1GetRank()` uses a literal mask of **0** in the vendor
+  object, making that specific write an observable no-op -- kept
+  exactly as found rather than "corrected" to AN7581's `0x2000000`.
+- The wrap-around/degenerate branch and the main sweep's success exit
+  are **the same code**, reached via the vendor's own jump back to the
+  function's top-of-loop recheck once `outer_pos` is forced to
+  `end_limit` (confirmed by tracing the actual branch target, not
+  assumed by analogy to AN7581, where the same sharing pattern was
+  verified independently). Modeled here as a single `for (;;)` whose
+  top checks `outer_pos >= end_limit` and does the shared commit/
+  teardown, so both entry paths run through identical code.
+- A genuine AN7581-absent feature: if `*(ctx+0xbd)` is set (rank 1),
+  that shared exit skips computing/committing `result_lo[]`/
+  `result_hi[]` entirely and instead mirrors whatever rank 0's own
+  earlier run of this function cached into `dqs_gating_K_result_rg_rk1[]`
+  (an already-declared AN7583-only global, `tree/.../an7583/
+  dramc_selfrefresh_api.c`) via `vSetRank(ctx,1)` +
+  `vPhyByteWriteFldAlign()` + `vSetRank(ctx,0)` -- the same "rank 1
+  mirrors rank 0" pattern already confirmed for AN7583's
+  `DramcRxdatlatCal`, now confirmed here too.
+
+Validated the same way as AN7581: compiling with `-Wall -Wextra`
+(clean) and diffing per-callee relocation counts against the vendor
+oracle at both `-Os` and `-O0`. At `-O0`, **every single callee's call
+count matches the vendor exactly** (`u4Dram_Register_Read` 8,
+`vIO32WriteMsk` 5, `vPhyByteReadFldAlign` 4, `vPhyByteIO32WriteMsk` 4,
+`udelay` 3, `vSetRank` 2, `vSetCalibrationResult` 2,
+`vPhyByteWriteFldAlign` 2, `vIO32WriteMsk_All` 2, `is_ddr4_family` 2,
+`DramcBroadcastOnOff` 2, `DramPhyReset` 2, and all the singles
+including `DramcEngine2End` 1) -- no open discrepancies at all, a
+cleaner result than AN7581's one unresolved `__meta_restore` count.
+`memset`'s 3 vendor calls have no candidate equivalent for the same
+reason as AN7581 (C initializers instead of one `memset` per buffer).

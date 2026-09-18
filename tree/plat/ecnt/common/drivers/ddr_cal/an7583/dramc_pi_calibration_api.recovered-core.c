@@ -57,6 +57,12 @@ extern void DramcBackupMixedRG(void *ctx, const U32 *desc, U32 count,
                                 U8 all_channels);
 extern void DramcRestoreMixedRG(void *ctx, const U32 *desc, U32 count,
                                  U8 all_channels);
+extern U32 GetDramcBroadcast(void);
+extern void DramcBroadcastOnOff(U32 on);
+extern U8 u1GetRank(void *ctx);
+extern void vSetRank(void *ctx, U8 rank);
+extern U8 r_filter_count[];
+extern U32 dqs_gating_K_result_rg_rk1[2];
 /*
  * The vendor object indexes this as wrlevel_dqs_final_delay[lane + rank*2]
  * on AN7583 -- note the *2, not AN7581's *4 (see DramcWriteLeveling below);
@@ -1067,4 +1073,302 @@ U32 DramcWriteLeveling(void *ctx)
     vIO32WriteMsk(ctx, 0x19600aa0U, (U32)saved_pos[1] << 24, 0x3f000000U);
 
     return fail;
+}
+
+/*
+ * RX DQS gating window calibration. Structurally the same algorithm as
+ * AN7581's version (see calibration-api-convergence/README.md for the
+ * full write-up: outer/inner position sweep, two hardware bits per
+ * lane feeding a Mealy FSM via two chained tbb byte-jump tables that
+ * reduce to `state = combo>3 ? 0 : 4-combo` then a transition table
+ * keyed on (state, prev_state)), traced independently rather than
+ * copied, and confirmed structurally simpler / genuinely different in
+ * several ways preserved here:
+ *
+ *  - Only 2 lanes ever (data_width 0x8 or 0x10, not AN7581's 0x10/
+ *    0x20) -- there is no __meta_backup_and_set/__meta_restore
+ *    anywhere in this function at all, matching the confirmed 2-byte
+ *    (not 4-byte) r_filter_count global.
+ *  - The rank-select write right after u1GetRank() uses a literal
+ *    mask of 0, making it an observable no-op in the vendor object
+ *    (kept exactly as found rather than "corrected" to AN7581's
+ *    0x2000000 mask).
+ *  - A rank-1 shortcut not present in AN7581 at all: if
+ *    `*(ctx+0xbd)` is set, the entire sweep is skipped and the two
+ *    calibrated positions are instead copied from
+ *    `dqs_gating_K_result_rg_rk1[]` (populated on this same function's
+ *    earlier rank-0 run) via `vSetRank(ctx,1)` +
+ *    `vPhyByteWriteFldAlign()` + `vSetRank(ctx,0)` -- the same
+ *    "rank 1 mirrors rank 0" pattern already confirmed for AN7583's
+ *    `DramcRxdatlatCal`.
+ */
+U32 dramc_rx_dqs_gating_cal(void *ctx)
+{
+    static const U32 regs[4] = {
+        0x9100050cU, 0x9900058cU, 0x01000664U, 0x01000668U,
+    };
+    U32 broadcast_save;
+    U32 rank;
+    U8 start_pos;
+    U8 end_limit;
+    U8 outer_pos;
+    U8 inner_pos;
+    U32 data_width;
+    U32 lane_count;
+    U32 lane;
+    U32 done_mask = 0;
+    U8 flags[2] = {0};
+    S32 vphy_read[2] = {0};
+    U8 hw0[2] = {0};
+    U8 hw1[2] = {0};
+    U8 armed[2] = {0};
+    U8 confirm_c[2] = {0};
+    U8 confirm_d[2] = {0};
+    U8 saved_outer[2] = {0};
+    U8 saved_inner[2] = {0};
+    S32 state[2] = {0};
+    S32 state_latched[2] = {0};
+    S32 prev_state[2] = {0};
+    S32 status[2] = {0};
+    U8 result_lo[2] = {0};
+    U8 result_hi[2] = {0};
+
+    vPrintCalibrationBasicInfo(ctx);
+    vSetCalibrationResult(ctx, 8, 1);
+    if (ctx == 0)
+        return 1;
+
+    DramcBackupRegisters(ctx, regs, 4, 1);
+
+    broadcast_save = GetDramcBroadcast();
+    DramcBroadcastOnOff(1);
+    vIO32WriteMsk(ctx, 0x01000668U, 4U, 4U);
+    vIO32WriteMsk(ctx, 0x01000668U, 0x200000U, 0x200000U);
+    udelay(4);
+    vIO32WriteMsk(ctx, 0x01000668U, 0x400000U, 0x400000U);
+    udelay(1);
+    vIO32WriteMsk(ctx, 0x01000668U, 0, 0x400000U);
+
+    rank = u1GetRank(ctx);
+    vIO32WriteMsk(ctx, 0x010007bcU, rank << 25, 0);
+    DramcEngine2Init(ctx, 0x55000000U, 0xaa000023U, 1, 0, 0);
+    DramcBroadcastOnOff(broadcast_save);
+
+    start_pos = get_gating_start_pos(ctx);
+    end_limit = (U8)(start_pos + 0x10U);
+    outer_pos = start_pos;
+
+    for (;;) {
+        U32 lane_loop_done = 0;
+
+        if (outer_pos >= end_limit) {
+            /*
+             * Shared exit tail: reached either for a genuine
+             * wrap-around (start_pos + 0x10 wrapped past 255, on the
+             * very first pass) or, after a successful sweep, via the
+             * vendor's own jump back to this exact top-of-function
+             * recheck once `outer_pos` was forced to `end_limit` --
+             * confirmed by tracing the actual branch target rather
+             * than assuming the two cases had separate commit code.
+             * Either way the "accumulator is provably 0" reasoning
+             * from AN7581's equivalent branch only applies to the
+             * fail-report call on the wrap-around entry; after a real
+             * success, result_lo[]/result_hi[] already hold the
+             * computed positions instead of the all-zero default.
+             *
+             * AN7583-only addition in this shared tail: if
+             * `*(ctx+0xbd)` is set (rank 1), skip committing
+             * result_lo[]/result_hi[] entirely and instead mirror
+             * whatever rank 0's own run of this function last cached
+             * into `dqs_gating_K_result_rg_rk1[]`; otherwise (rank 0)
+             * commit normally and refresh that cache for a later
+             * rank-1 call to use.
+             */
+            data_width = raw_u32(ctx, 0x44);
+            lane_count = data_width >> 3;
+            if (lane_count == 0U)
+                vSetCalibrationResult(ctx, 8, 1);
+
+            DramcEngine2End(ctx);
+            vPhyByteIO32WriteMsk(ctx, 0x11600a2cU,
+                                 (((U32)result_hi[0] << 16) & 0x7f0000U) | result_lo[0],
+                                 0x007f00ffU);
+            vPhyByteIO32WriteMsk(ctx, 0x19600aacU,
+                                 (((U32)result_hi[1] << 16) & 0x7f0000U) | result_lo[1],
+                                 0x007f00ffU);
+
+            if (raw_u8(ctx, 0xbdU) != 0U) {
+                vSetRank(ctx, 1);
+                vPhyByteWriteFldAlign(ctx, 0x11600a2cU, dqs_gating_K_result_rg_rk1[0], 0, 0);
+                vPhyByteWriteFldAlign(ctx, 0x19600aacU, dqs_gating_K_result_rg_rk1[1], 0, 0);
+                vSetRank(ctx, 0);
+            } else {
+                dqs_gating_K_result_rg_rk1[0] = vPhyByteReadFldAlign(ctx, 0x11600a2cU, 0);
+                dqs_gating_K_result_rg_rk1[1] = vPhyByteReadFldAlign(ctx, 0x19600aacU, 0);
+            }
+            goto teardown;
+        }
+
+        data_width = raw_u32(ctx, 0x44);
+        lane_count = data_width >> 3;
+
+        for (inner_pos = 0; inner_pos <= 0x1fU; inner_pos++) {
+            U32 v;
+
+            v = ((U32)outer_pos) | (((U32)inner_pos) << 16);
+            vPhyByteIO32WriteMsk(ctx, 0x11600a2cU, v, 0x007f00ffU);
+            vPhyByteIO32WriteMsk(ctx, 0x19600aacU, v, 0x007f00ffU);
+
+            DramPhyReset(ctx);
+            vIO32WriteMsk_All(ctx, 0x01000668U, 0x400000U, 0x400000U);
+            udelay(1);
+            vIO32WriteMsk_All(ctx, 0x01000668U, 0, 0x400000U);
+            DramcEngine2Run(ctx, 1, 0);
+
+            rank = raw_u32(ctx, 0xc);
+            if (rank == 0U) {
+                flags[0] = (U8)((u4Dram_Register_Read(ctx, 0x01001b00U) >> 1) & 1U);
+                flags[1] = (U8)((u4Dram_Register_Read(ctx, 0x01001b00U) >> 2) & 1U);
+            } else {
+                flags[0] = (U8)((u4Dram_Register_Read(ctx, 0x01001b00U) >> 5) & 1U);
+                flags[1] = (U8)((u4Dram_Register_Read(ctx, 0x01001b00U) >> 6) & 1U);
+            }
+
+            vphy_read[0] = (S32)vPhyByteReadFldAlign(ctx, 0x01800500U, 0);
+            vphy_read[1] = (S32)vPhyByteReadFldAlign(ctx, 0x01800504U, 0);
+
+            /* Loop A: per-lane hardware read + Mealy FSM step. */
+            for (lane = 0; lane < lane_count; lane++) {
+                U32 combo;
+                U32 thresh1c;
+                U32 thresh18;
+                S32 prev;
+
+                if (lane == 0U) {
+                    hw0[0] = (U8)((u4Dram_Register_Read(ctx, 0x0180019cU) >> 0x10) & 1U);
+                    hw1[0] = (U8)((u4Dram_Register_Read(ctx, 0x0180019cU) >> 0x11) & 1U);
+                } else {
+                    hw0[1] = (U8)((u4Dram_Register_Read(ctx, 0x01800198U) >> 0x10) & 1U);
+                    hw1[1] = (U8)((u4Dram_Register_Read(ctx, 0x01800198U) >> 0x11) & 1U);
+                }
+
+                thresh1c = is_ddr4_family(ctx) ? 0x20U : 0x10U;
+                thresh18 = is_ddr4_family(ctx) ? 0x10U : 0x2cU;
+
+                combo = (U32)(S8)(hw1[lane] | (U32)(hw0[lane] << 1));
+                state[lane] = (combo > 3U) ? 0 : (S32)(4U - combo);
+
+                prev = prev_state[lane];
+                if (prev <= 3) {
+                    switch (prev) {
+                    case 0:
+                        if (state[lane] == 1) {
+                            armed[lane] = 1;
+                            confirm_c[lane] = 0;
+                            confirm_d[lane] = 1;
+                        }
+                        break;
+                    case 1:
+                        if (state[lane] == 1) {
+                            armed[lane]++;
+                            saved_outer[lane] = outer_pos;
+                            saved_inner[lane] = inner_pos;
+                            if ((U32)armed[lane] * 4U > 7U ||
+                                (U32)armed[lane] * 4U >= thresh18)
+                                status[lane] = 2;
+                        } else {
+                            state[lane] = 0;
+                        }
+                        break;
+                    case 2:
+                        if (state[lane] == 1) {
+                            saved_outer[lane] = outer_pos;
+                            saved_inner[lane] = inner_pos;
+                            confirm_d[lane] = 1;
+                        } else if (state[lane] == 2) {
+                            confirm_d[lane]++;
+                        } else if (state[lane] == 4) {
+                            state[lane] = 3;
+                            confirm_c[lane] = 1;
+                            r_filter_count[lane] = 0;
+                        } else {
+                            state[lane] = 0;
+                        }
+                        break;
+                    case 3:
+                        r_filter_count[lane]++;
+                        if (state[lane] == 4) {
+                            confirm_c[lane]++;
+                            if ((U32)confirm_c[lane] * 4U >= thresh1c)
+                                status[lane] = 4;
+                        } else if (state[lane] == 3) {
+                            state[lane] = 0;
+                        } else if ((U32)r_filter_count[lane] * 4U > 15U) {
+                            state[lane] = 0;
+                        }
+                        break;
+                    default:
+                        break;
+                    }
+                }
+
+                prev_state[lane] = state[lane];
+                state_latched[lane] = state[lane];
+            }
+
+            /* Loop B: per-lane finalize check (see AN7581's comment
+             * for the `lane < outer_pos` caveat, which applies here
+             * identically). */
+            for (lane = 0; lane < lane_count; lane++) {
+                if (lane < outer_pos) {
+                    if (((done_mask >> lane) & 1U) != 0U)
+                        continue;
+                    if (flags[lane] != 0U || vphy_read[lane] != (S32)lane) {
+                        prev_state[lane] = 0;
+                        status[lane] = 0;
+                        continue;
+                    }
+                    if (prev_state[lane] == 4) {
+                        U32 combined = (U32)saved_inner[lane] +
+                                       (((U32)confirm_d[lane] * 4U) >> 1);
+                        U32 q, r;
+
+                        combined &= 0xffU;
+                        q = combined / 0x20U;
+                        r = combined - q * 0x20U;
+                        result_hi[lane] = (U8)r;
+                        saved_outer[lane] = (U8)(q + saved_outer[lane]);
+                        result_lo[lane] = saved_outer[lane];
+                        done_mask |= 1U << lane;
+
+                        if ((data_width == 0x8U && done_mask == 0x1U) ||
+                            (data_width == 0x10U && done_mask == 0x3U)) {
+                            lane_loop_done = 1;
+                            break;
+                        }
+                    }
+                } else {
+                    if (data_width == 0x10U || data_width == 0x8U) {
+                        if (done_mask == (data_width == 0x8U ? 0x1U : 0x3U))
+                            lane_loop_done = 1;
+                        break;
+                    }
+                }
+            }
+
+            if (lane_loop_done) {
+                outer_pos = end_limit;
+                break;
+            }
+        }
+
+        if (!lane_loop_done)
+            outer_pos++;
+    }
+
+teardown:
+    DramcRestoreRegisters(ctx, regs, 4, 1);
+    DramPhyReset(ctx);
+    (void)state_latched;
+    return 0;
 }
