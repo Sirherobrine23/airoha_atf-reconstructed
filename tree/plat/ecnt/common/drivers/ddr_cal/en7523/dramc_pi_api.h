@@ -44,10 +44,14 @@ typedef signed char s8;
 typedef signed short s16;
 typedef signed int s32;
 typedef signed long long s64;
+#ifndef bool
 typedef unsigned char bool;
+#endif
 typedef unsigned int      *UINT32P;
 
+#ifndef NULL
 #define NULL	(void *)0
+#endif
 #define FALSE   0
 #define TRUE    1
 #endif
