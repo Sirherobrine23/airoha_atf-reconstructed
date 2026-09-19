@@ -851,11 +851,25 @@ void DPI_SW_main_PCDDR3(void)
 	}
 #endif
 #endif
-#if COMPILE_THIS_PART	//YMC mark for 4bitMux is not used on EN7523
-	if (DramConfig->pinmux == PIN_MUX_TYPE_DDR3KGD)		
+	/* Was gated behind #if COMPILE_THIS_PART (0, "4bitMux is not used on
+	 * EN7523"). Struct-offset analysis of the exact hash-matched real
+	 * dramc_pi_main.o (SHA256 f14bde6b..., see dramc.o's matching
+	 * header comment) shows en_4bitMux is unconditionally 0 there for
+	 * PIN_MUX_TYPE_DDR3KGD -- so that reconstructed branch is faithful
+	 * to a real firmware revision where this hardware never takes it.
+	 * Confirmed on real hardware (TP-Link XX230v v1): pkg_type==BGA(3),
+	 * so DPI_SW_main_PCDDR3 actually takes the PIN_MUX_TYPE_DDR2DDR3X16
+	 * branch. A live, working U-Boot's register dump on that exact
+	 * board shows DDRCONF0_DQ4BMUX=1, which this reconstructed source
+	 * never set for that pinmux -- causing a nibble-level DRAM
+	 * write-corruption bug on any single-byte store. Enabling
+	 * en_4bitMux for PIN_MUX_TYPE_DDR2DDR3X16 too (in addition to
+	 * DDR3KGD) fixes it; verified end-to-end on hardware (BL2 -> BL31
+	 * -> U-Boot -> Linux boot to userspace). */
+	if (DramConfig->pinmux == PIN_MUX_TYPE_DDR3KGD ||
+	    DramConfig->pinmux == PIN_MUX_TYPE_DDR2DDR3X16)
 		DramConfig->en_4bitMux = ENABLE;
 	else
-#endif
 		DramConfig->en_4bitMux = DISABLE;
 	DramConfig->enable_rx_scan_vref = DISABLE;	//ENABLE;	//YMC change for bring up
 	DramConfig->enable_tx_scan_vref = DISABLE;	//ENABLE;	//YMC change for bring up

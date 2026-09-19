@@ -2283,7 +2283,13 @@ static DRAM_STATUS_T DDRPHYSetting_EN7523(DRAMC_CTX_T *p)
 #if 1 //cc notes -- from 8167. need confirm if en_4bitMux, how to set??
 	if (p->en_4bitMux == ENABLE)
 	{
-	#if COMPILE_THIS_PART
+		/* Was gated behind #if COMPILE_THIS_PART (0), silently skipping
+		 * DQ4BMUX + DQ 4x-clock-select setup even when en_4bitMux ==
+		 * ENABLE. Confirmed via real hardware register dump (U-Boot
+		 * md.l on a working TP-Link XX230v v1) that DDRCONF0_DQ4BMUX
+		 * is set in production for this board. With en_4bitMux now
+		 * correctly enabled for this hardware's pinmux (see
+		 * dramc_pi_main.c), this block must actually run. */
 		vIO32WriteFldAlign(DRAMC_REG_DDRCONF0, 0x1, DDRCONF0_DQ4BMUX);
 		vIO32WriteFldAlign(DDRPHY_B0_DQ3, 0xf0, B0_DQ3_RG_RX_ARDQ_DQSI_SEL_B0);
 		vIO32WriteFldAlign(DDRPHY_B1_DQ3, 0xf0, B1_DQ3_RG_RX_ARDQ_DQSI_SEL_B1);
@@ -2291,7 +2297,6 @@ static DRAM_STATUS_T DDRPHYSetting_EN7523(DRAMC_CTX_T *p)
 					| P_Fld(0xf0, B0_DQ2_RG_TX_ARDQ_MCK4X_SEL_B0));
 		vIO32WriteFldMulti(DDRPHY_B1_DQ2, P_Fld(1, B1_DQ2_RG_TX_ARDQM0_MCK4X_SEL_B1)
 					| P_Fld(0xf0, B1_DQ2_RG_TX_ARDQ_MCK4X_SEL_B1));
-	#endif
 	}
 	else
 	{
@@ -4894,13 +4899,13 @@ U32 DramcEngine2(DRAMC_CTX_T *p, DRAM_TE_OP_T wr, U32 test2_1, U32 test2_2, U8 t
 
             // select XTALK pattern
             // set addr 0x044 [7] to 0
-            vIO32WriteFldMulti(DRAMC_REG_TEST2_3, P_Fld(0, TEST2_3_TESTAUDPAT)|P_Fld(u4log2loopcount,TEST2_3_TESTCNT)); //don¡¦t use audio pattern
+            vIO32WriteFldMulti(DRAMC_REG_TEST2_3, P_Fld(0, TEST2_3_TESTAUDPAT)|P_Fld(u4log2loopcount,TEST2_3_TESTCNT)); //donï¿½ï¿½t use audio pattern
 
             // set addr 0x48[16] to 1, TESTXTALKPAT = 1
-            vIO32WriteFldMulti(DRAMC_REG_TEST2_4, P_Fld(1, TEST2_4_TESTXTALKPAT)|P_Fld(0,TEST2_4_TESTAUDMODE)|P_Fld(0,TEST2_4_TESTAUDBITINV));  //use XTALK pattern, don¡¦t use audio pattern
+            vIO32WriteFldMulti(DRAMC_REG_TEST2_4, P_Fld(1, TEST2_4_TESTXTALKPAT)|P_Fld(0,TEST2_4_TESTAUDMODE)|P_Fld(0,TEST2_4_TESTAUDBITINV));  //use XTALK pattern, donï¿½ï¿½t use audio pattern
 
             // R_DMTESTSSOPAT=0, R_DMTESTSSOXTALKPAT=0
-            vIO32WriteFldMulti(DRAMC_REG_TEST2_4, P_Fld(0, TEST2_4_TESTSSOPAT)|P_Fld(0,TEST2_4_TESTSSOXTALKPAT));   //don¡¦t use sso, sso+xtalk pattern
+            vIO32WriteFldMulti(DRAMC_REG_TEST2_4, P_Fld(0, TEST2_4_TESTSSOPAT)|P_Fld(0,TEST2_4_TESTSSOXTALKPAT));   //donï¿½ï¿½t use sso, sso+xtalk pattern
         }
         else if (testaudpat == 1)   // audio
         {

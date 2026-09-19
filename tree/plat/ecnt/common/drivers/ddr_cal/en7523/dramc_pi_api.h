@@ -188,7 +188,13 @@ typedef unsigned int      *UINT32P;
 #if FOR_DV_SIMULATION
 #define DRAMC_SELFTEST_AFTER_CAL	0 //dingyang notes: IC bring up need set 1
 #else
-#define DRAMC_SELFTEST_AFTER_CAL	1
+/* Real vendor dramc_pi_calibration_api.o (two independent EN7523 SDK
+ * dumps, both hash-matched where relevant) has no DramcSelftestRun
+ * symbol at all -- this FIRST_BRING_UP=1 override doesn't reflect
+ * production firmware for this board. Verified end-to-end on hardware
+ * with this set to 0 (paired with the en_4bitMux fix in
+ * dramc_pi_main.c/dramc_pi_basic_api.c). */
+#define DRAMC_SELFTEST_AFTER_CAL	0
 #endif
 
 #ifdef FIRST_BRING_UP
